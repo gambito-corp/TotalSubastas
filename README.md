@@ -2,7 +2,19 @@
 
 <p>Primero debemos clonar el archivo a nuestro escritorio</p>
 
-<p> Antes de empezar ejecutar en la consola de MySQL el siguiente comando </p>
+<p>Una vez copiado ejecutemos `composer update` dentro de nuestro direcctorio</p>
+
+<p>Ahora creamos la BD a traves de nuestro gestor faborito __en mi caso la consola de MySQL__</p>
+
+<p>`mysql -u root`</p>
+
+<p>dentro de la consola de MySQL tipeamos la BD</p>
+
+<p>`create database totalSubastas`</p>
+
+<p> Y ahora ***Ejecutamos las migraciones dentro de nuestra carpeta de proyecto***</p>
+
+<p>`php artisan migrate`</p>
 
 
 
