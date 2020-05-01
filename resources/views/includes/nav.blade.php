@@ -9,10 +9,13 @@
             <li class="nav-item {{ setActive('home') }}">
                 <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+            {{-- <li class="nav-item {{ setActive('clientes.index') }}">
+                <a class="nav-link" href="{{ route('clientes.index') }}">Ver Clientes</a>
             </li>
-            <li class="nav-item dropdown {{ setActive('test.index') }} {{ setActive('test.create') }}">
+            <li class="nav-item {{ setActive('clientes.create') }}">
+                <a class="nav-link" href="{{ route('clientes.create') }}">Crear Clientes</a>
+            </li>
+            <li class="nav-item dropdown {{ setActive('test.*') }}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Controlador Test
                 </a>
@@ -21,7 +24,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item {{ setActive('test.create') }}" href="{{ route('test.create') }}">Crear Test</a>
                 </div>
-            </li>
+            </li> --}}
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

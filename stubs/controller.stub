@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace {{ namespace }};
 
-use App\Mail\MessageRecibe;
+use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
-class testController extends Controller
+class {{ class }} extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class testController extends Controller
      */
     public function index()
     {
-
-        return view('test.index');
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class testController extends Controller
      */
     public function create()
     {
-        return view('test.crear');
+        //
     }
 
     /**
@@ -37,16 +35,7 @@ class testController extends Controller
      */
     public function store(Request $request)
     {
-        $usuario = $request->validate([
-            'user' => 'required',
-            'password' => 'required'
-        ]);
-
-        Mail::to('asesor.pedro@gmail.com')->queue(new MessageRecibe($usuario));
-
-        return new MessageRecibe($usuario);
-
-
+        //
     }
 
     /**
@@ -79,17 +68,6 @@ class testController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Delete the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function delete($id)
     {
         //
     }

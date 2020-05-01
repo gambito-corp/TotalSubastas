@@ -1,0 +1,21 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class {{ class }} extends Model
+{
+    use SoftDeletes;
+
+    protected $guarded = [];
+
+    protected $hidden = [];
+
+    protected $casts = [
+        'created_at'        => 'datetime',
+        'updated_at'        => 'datetime',
+        'deleted_at'        => 'datetime',
+    ];
+}
