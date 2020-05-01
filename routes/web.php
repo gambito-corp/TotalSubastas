@@ -13,10 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Ruta de inicio
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
+// Rutas de Usuario
+Route::resource('admin/user', 'UserController');
 
+//rutas de Autenticacion
+Route::get('registrar', 'UserController@registro')->name('user.register');
+Route::get('Logueate', 'UserController@login')->name('user.login');
+Route::post('Logueate', 'UserController@logueo')->name('user.logueo');
+// Route::post('Logueate', 'ForgotPasswordController')->name('user.logueo');
+// Route::post('Logueate', 'LoginController')->name('user.logueo');
+// Route::post('Logueate', 'RegisterController')->name('user.logueo');
+// Route::post('Logueate', 'ResetPasswordController')->name('user.logueo');
+// Route::post('Logueate', 'VerificationController')->name('user.logueo');
+
+
+/*
+* MACRO RUTAS DEL ADMINISTRADOR
+*/
+Route::get('administracion', 'AdminController@index')->name('admin.index');
 
 

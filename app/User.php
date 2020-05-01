@@ -13,6 +13,13 @@ class User extends Authenticatable
     use SoftDeletes;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'user';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -36,8 +43,19 @@ class User extends Authenticatable
     protected $casts = [
 
         'email_verified_at' => 'datetime',
+        'telefono_verified_at' => 'datetime',
         'created_at'        => 'datetime',
         'updated_at'        => 'datetime',
         'deleted_at'        => 'datetime',
     ];
+
+    /**
+     * Iniciamos con las relaciones
+     *
+     * @funcion de relacion
+     */
+    public function rol()
+    {
+        return $this->belongsTo(roles::class, 'roles_id');
+    }
 }

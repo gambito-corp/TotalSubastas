@@ -9,9 +9,13 @@
             <li class="nav-item {{ setActive('home') }}">
                 <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
             </li>
-            {{-- <li class="nav-item {{ setActive('clientes.index') }}">
-                <a class="nav-link" href="{{ route('clientes.index') }}">Ver Clientes</a>
+            <li class="nav-item {{ setActive('user.register') }}">
+                <a class="nav-link" href="{{ route('user.register') }}">Registrarse</a>
             </li>
+            <li class="nav-item {{ setActive('user.login') }}">
+                <a class="nav-link" href="{{ route('user.login') }}">Logueate</a>
+            </li>
+            {{--
             <li class="nav-item {{ setActive('clientes.create') }}">
                 <a class="nav-link" href="{{ route('clientes.create') }}">Crear Clientes</a>
             </li>

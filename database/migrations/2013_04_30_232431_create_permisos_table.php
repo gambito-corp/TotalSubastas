@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRolesTable extends Migration
+class CreatePermisosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,29 +13,29 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('roles')) {
-            Schema::table('roles', function (Blueprint $table) {
-                if (!Schema::hasColumn('roles', 'id')) {
+        if (Schema::hasTable('permisos')) {
+            Schema::table('permisos', function (Blueprint $table) {
+                if (!Schema::hasColumn('permisos', 'id')) {
                     $table->id();
                 }
-                if (!Schema::hasColumn('roles', 'nombre')) {
+                if (!Schema::hasColumn('permisos', 'nombre')) {
                     $table->string('nombre')->unique();
                 }
-                if (!Schema::hasColumn('roles', 'descripcion')) {
+                if (!Schema::hasColumn('permisos', 'descripcion')) {
                     $table->text('descripcion')->nullable();
                 }
-                if (!Schema::hasColumn('roles', 'slug')) {
+                if (!Schema::hasColumn('permisos', 'slug')) {
                     $table->string('slug')->unique();
                 }
-                if (!Schema::hasColumn('roles', 'creted_at')) {
+                if (!Schema::hasColumn('permisos', 'creted_at')) {
                     $table->timestamps();
                 }
-                if (!Schema::hasColumn('roles', 'deleted_at')) {
+                if (!Schema::hasColumn('permisos', 'deleted_at')) {
                     $table->softDeletes();
                 }
             });
         }else{
-            Schema::create('roles', function (Blueprint $table) {
+            Schema::create('permisos', function (Blueprint $table) {
                 $table->id();
                 $table->string('nombre')->unique();
                 $table->text('descripcion')->nullable();
@@ -53,6 +53,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('permisos');
     }
 }

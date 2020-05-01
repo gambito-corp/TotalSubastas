@@ -4,7 +4,7 @@
 
 <p>Una vez copiado ejecutemos `composer update` dentro de nuestro direcctorio</p>
 
-<p>Ahora creamos la BD a traves de nuestro gestor faborito __en mi caso la consola de MySQL__</p>
+<p>Ahora creamos la BD a traves de nuestro gestor favorito __en mi caso la consola de MySQL__</p>
 
 <p>`mysql -u root`</p>
 

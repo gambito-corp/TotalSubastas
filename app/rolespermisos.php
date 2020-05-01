@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class roles extends Model
+class rolespermisos extends Model
 {
     use SoftDeletes;
 
@@ -20,17 +20,17 @@ class roles extends Model
     ];
 
     /**
-    * Iniciamos con las relaciones
-    *
-    * @funcion de relacion
-    */
-    public function rolespermiso()
+     * Iniciamos con las relaciones
+     *
+     * @funcion de relacion
+     */
+    public function rol()
     {
-        return $this->hasMany(rolespermisos::class);
-    }
-    public function users()
-    {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(roles::class, 'roles_id');
     }
 
+    public function permiso()
+    {
+        return $this->belongsTo(permisos::class, 'permisos_id');
+    }
 }
