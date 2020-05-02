@@ -3,6 +3,7 @@
 namespace {{ namespace }};
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class {{ class }} extends FormRequest
 {

@@ -13,8 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('user')) {
-            Schema::table('user', function (Blueprint $table) {
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
                 if (!Schema::hasColumn('user', 'id')) {
                     $table->id();
                 }
@@ -60,7 +60,7 @@ class CreateUsersTable extends Migration
                 }
             });
         }else{
-            Schema::create('user', function (Blueprint $table) {
+            Schema::create('users', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('roles_id')
                     ->nullable()

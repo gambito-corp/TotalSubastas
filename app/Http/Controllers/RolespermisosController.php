@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\rolespermisos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class RolespermisosController extends Controller
 {
@@ -14,7 +16,8 @@ class RolespermisosController extends Controller
      */
     public function index()
     {
-        //
+        $data = rolespermisos::all();
+        return view('generic.index', compact('data'));
     }
 
     /**

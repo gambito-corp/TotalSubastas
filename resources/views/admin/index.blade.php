@@ -15,7 +15,10 @@
                 <h2>Bienvenido {{ auth()->user()->username }} <br> eres un {{auth()->user()->rol->nombre }}</h2>
             </div>
             <div class="card-footer text-muted">
-                <h2 class="text-muted">{{ env('APP_NAME') }}</h2>
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="btn btn-outline-danger btn-block btn-xs">Cerrar Sesion</button>
+                </form>
             </div>
         </div>
     </div>

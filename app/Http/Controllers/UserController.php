@@ -6,6 +6,7 @@ use App\Http\Requests\CreateUserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -17,64 +18,6 @@ class UserController extends Controller
     public function index()
     {
         return User::all();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function registro()
-    {
-        return view('log.registro');
-    }
-
-    public function login()
-    {
-        return view('log.login');
-    }
-
-    public function logueo(Request $request)
-    {
-        $credenciales = $this->validate(request(), [
-            'user'      => 'string|required',
-            'password'  => 'string|required'
-        ]);
-        if(filter_var($credenciales['user'], FILTER_VALIDATE_EMAIL)){
-            $credenciales = [
-                'email'     => $credenciales['user'],
-                'password'  => $credenciales['password']
-            ];
-        }elseif(is_numeric($credenciales['user'])){
-            $credenciales = [
-                'telefono'     => $credenciales['user'],
-                'password'  => $credenciales['password']
-            ];
-        }else {
-            $credenciales = [
-                'username'     => $credenciales['user'],
-                'password'  => $credenciales['password']
-            ];
-        }
-
-
-        if(Auth::attempt($credenciales)){
-            $return = [
-                'ruta'=>'admin.index',
-                'session'=>'',
-                'clase'=>'',
-                'mensaje'=>''
-            ];
-        }else{
-            $return = [
-                'ruta'=>'user.login',
-                'session'=>'message',
-                'clase'=>'error',
-                'mensaje'=>'No existe Ningun usuario en la BD con estas Credenciales, porfavor Revisa tu User o tu Contraseña, si el Problema Persiste Comunicate a soporte@totalsubastas.com, Gracias'
-            ];
-        }
-        return redirect()->route($return['ruta'])
-            ->with($return['session'], $return['mensaje']);
     }
 
     /**

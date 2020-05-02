@@ -19,37 +19,23 @@ class CreateClientesTable extends Migration
                     $table->id();
                 }
                 if (!Schema::hasColumn('clientes', 'user_id')) {
-                    $table->unsignedBigInteger('user_id');
+                    $table->foreignId('user_id')
+                        ->unsigned ()
+                        ->constrained()
+                        ->cascadeOnDelete();
                 }
-                if (!Schema::hasColumn('clientes', 'direccion_id')) {
-                    $table->unsignedBigInteger('direccion_id');
+                if (!Schema::hasColumn('clientes', 'avatar_id')) {
+                    $table->foreignId('avatar_id')
+                        ->unsigned ()
+                        ->constrained()
+                        ->cascadeOnDelete();
                 }
-                if (!Schema::hasColumn('clientes', 'primer_nombre')) {
-                    $table->string('primer_nombre');
-                }
-                if (!Schema::hasColumn('clientes', 'segundo_nombre')) {
-                    $table->string('segundo_nombre')->nullable();
-                }
-                if (!Schema::hasColumn('clientes', 'primer_apellido')) {
-                    $table->string('primer_apellido');
-                }
-                if (!Schema::hasColumn('clientes', 'segundo_apellido')) {
-                    $table->string('segundo_apellido')->nullable();
-                }
-                if (!Schema::hasColumn('clientes', 'telefono')) {
-                    $table->string('telefono')->unique();
-                }
-                if (!Schema::hasColumn('clientes', 'dni')) {
-                    $table->integer('dni')->unique();
-                }
-                if (!Schema::hasColumn('clientes', 'digito')) {
-                    $table->integer('digito');
-                }
-                if (!Schema::hasColumn('clientes', 'dni_frontal')) {
-                    $table->string('dni_frontal')->nullable();
-                }
-                if (!Schema::hasColumn('clientes', 'dni_atras')) {
-                    $table->string('dni_atras')->nullable();
+                if (!Schema::hasColumn('clientes', 'direcciones_id')) {
+                    $table->foreignId('direcciones_id')
+                        ->nullable()
+                        ->unsigned ()
+                        ->constrained()
+                        ->onDelete('SET NULL');
                 }
                 if (!Schema::hasColumn('clientes', 'created_at')) {
                     $table->timestamps();
@@ -61,17 +47,19 @@ class CreateClientesTable extends Migration
         }else{
             Schema::create('clientes', function (Blueprint $table) {
                 $table->id();
-                $table->unsignedBigInteger('user_id');
-                $table->integer('direccion_id');
-                $table->string('primer_nombre');
-                $table->string('segundo_nombre')->nullable();
-                $table->string('primer_apellido');
-                $table->string('segundo_apellido')->nullable();
-                $table->string('telefono')->unique();
-                $table->integer('dni')->unique();
-                $table->integer('digito');
-                $table->string('dni_frontal')->nullable();
-                $table->string('dni_atras')->nullable();
+                $table->foreignId('user_id')
+                        ->unsigned ()
+                        ->constrained()
+                        ->cascadeOnDelete();
+                $table->foreignId('avatar_id')
+                        ->unsigned ()
+                        ->constrained()
+                        ->cascadeOnDelete();
+                $table->foreignId('direcciones_id')
+                    ->nullable()
+                        ->unsigned ()
+                        ->constrained()
+                        ->onDelete('SET NULL');
                 $table->timestamps();
                 $table->softDeletes();
             });
@@ -83,14 +71,14 @@ class CreateClientesTable extends Migration
 */
 
 
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
+/**
+ * Reverse the migrations.
+ *
+ * @return void
      */
     public function down()
     {
         Schema::dropIfExists('clientes');
     }
 }
+

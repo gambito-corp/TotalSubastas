@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(permisos::class, function (Faker $faker) {
     return [
-        //
+        'descripcion' => $faker->sentence
     ];
 });

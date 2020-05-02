@@ -3,8 +3,10 @@
 namespace {{ namespace }};
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class {{ class }} extends Pivot
 {
+    use SoftDeletes;
     //
 }

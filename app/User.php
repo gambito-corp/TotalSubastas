@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -17,7 +18,7 @@ class User extends Authenticatable
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -57,5 +58,26 @@ class User extends Authenticatable
     public function rol()
     {
         return $this->belongsTo(roles::class, 'roles_id');
+    }
+
+    //relaciones hasmany
+    public function avatars()
+    {
+        return $this->hasMany(avatar::class);
+    }
+
+    public function direcciones()
+    {
+        return $this->hasMany(direccion::class);
+    }
+
+    public function clientes()
+    {
+        return $this->hasMany(cliente::class);
+    }
+
+    public function cliente_naturales()
+    {
+        return $this->hasMany(cliente_natural::class);
     }
 }

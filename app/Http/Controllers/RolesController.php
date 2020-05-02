@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class RolesController extends Controller
 {
@@ -14,7 +16,8 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $data = roles::all();
+        return view('generic.index', compact('data'));
     }
 
     /**
