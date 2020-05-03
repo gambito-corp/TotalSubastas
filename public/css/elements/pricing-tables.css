@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*------------------
+	Style1		
+--------------------*/
+.tc-pricing-style1 .pricing-plan {position: relative;text-align: center;padding: 25px;margin-bottom: 35px;background-color: #f5f5f5;border-radius: 4px;}
+.sec-color .tc-pricing-style1 .pricing-plan {background-color: #fff;}
+.tc-pricing-style1 .pricing-plan .badge {position: absolute;top: 15px;transform: rotate(90deg);right: 0px;padding: 5px;background: #fff;color: #34495e;border-radius: 0;font-size: 11px;}
+.tc-pricing-style1 .pricing-head .name {padding-bottom: 25px;font-size: 15px;color: #444;letter-spacing: 1px;}
+.tc-pricing-style1 .pricing-plan.featured .pricing-head .name {color: #fff;}
+.tc-pricing-style1 .pricing-plan.featured {background-color: #34495e;}
+.tc-pricing-style1 .pricing-head .price {display: inline-block;background-color: #34495e;color: #fff;padding: 28px 30px;border-radius: 50%;}
+.tc-pricing-style1 .pricing-plan.featured .pricing-head .price {background-color: #fff;color: #34495e;}
+.tc-pricing-style1 .pricing-head .price sup {font-size: 16px;line-height: normal;top: 2px;margin-right: 1px;vertical-align: top;font-weight: lighter;}
+.tc-pricing-style1 .pricing-head span.value {display: block;font-size: 26px;line-height: normal;font-weight: 600;}
+.tc-pricing-style1 .pricing-head span.duration {display: block;font-size: 11px;margin-top: -6px;}
+.tc-pricing-style1 .pricing-body {padding-top: 40px;}
+.tc-pricing-style1 .pricing-body ul {padding-left: 0;list-style: none;font-size: 12px;color: #666;}
+.tc-pricing-style1 .pricing-plan.featured .pricing-body ul {color: #fff;}
+.tc-pricing-style1 .pricing-body ul li:nth-child(n+2) {padding-top: 12px;}
+.tc-pricing-style1 .pricing-footer {padding-top: 30px;}
+.tc-pricing-style1 .pricing-footer .p-button {display: inline-block;padding: 11px 20px 8px 20px;font-size: 13px;min-width: 130px;text-transform: uppercase;background-color: #34495e;border-radius: 20px;color: #fff;text-decoration: none;-webkit-transition: .3s all ease;transition: .3s all ease;line-height: normal;}
+.tc-pricing-style1 .pricing-footer .p-button:hover {background-color: #2c3e50;color: rgba(255, 255, 255, 0.8);}
+.tc-pricing-style1 .pricing-plan.featured .pricing-footer .p-button {background: #fff;color: #34495e;-webkit-transition: .3s all ease;transition: .3s all ease;}
+.tc-pricing-style1 .pricing-plan.featured .pricing-footer .p-button:hover {background: rgba(255, 255, 255, 0.8);}
+
+/*------------------
+    Style2     
+--------------------*/
+.tc-pricing-style2 .pricing-plan {position: relative;text-align: center;padding: 25px;margin-bottom: 35px;background-color: #ffffff;border-radius: 4px;-webkit-box-shadow:  0 5px 20px 0px rgba(0, 0, 0, 0.1);box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);}
+.sec-color .tc-pricing-style2 .pricing-plan {background-color: #fff;}
+.tc-pricing-style2 .pricing-plan .badge {position: absolute;top: 15px;right: 0px;padding: 5px;background: #fff;color: #34495e;border-radius: 0;font-size: 11px;}
+.tc-pricing-style2 .pricing-head .name {font-size: 15px;letter-spacing: 1px;margin-top: 26px;margin-right: -25px;margin-bottom: 30px;padding: 7px;color: #444;-webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.1);box-shadow: 0 3px 10px rgba(0,0,0,0.1);}
+.tc-pricing-style2 .pricing-plan.featured .pricing-head .name {background: rgba(255, 255, 255, 0.2);}
+.tc-pricing-style2 .pricing-plan.featured .pricing-head .name {color: #fff;}
+.tc-pricing-style2 .pricing-plan.featured {background-color: #34495e;}
+.tc-pricing-style2 .pricing-head .price {display: inline-block;-webkit-box-shadow: 0 5px 20px rgba(0,0,0,0.1);box-shadow: 0 5px 20px rgba(0,0,0,0.1);color: #222;padding: 28px 30px;border-radius: 50%;}
+.tc-pricing-style2 .pricing-plan.featured .pricing-head .price {background-color: #fff;color: #34495e;-webkit-box-shadow: 0 20px 30px 0px rgba(0, 0, 0, 0.1);box-shadow: 0 -4px 10px 0px rgba(0, 0, 0, 0.05);}
+.tc-pricing-style2 .pricing-head .price sup {font-size: 16px;line-height: normal;top: 2px;margin-right: 1px;vertical-align: top;font-weight: lighter;}
+.tc-pricing-style2 .pricing-head span.value {display: block;font-size: 26px;line-height: normal;font-weight: 600;}
+.tc-pricing-style2 .pricing-head span.duration {display: block;font-size: 11px;margin-top: -6px;}
+.tc-pricing-style2 .pricing-body {padding-top: 30px;}
+.tc-pricing-style2 .pricing-body ul {padding-left: 0;list-style: none;font-size: 12px;color: #666;}
+.tc-pricing-style2 .pricing-plan.featured .pricing-body ul {color: #fff;}
+.tc-pricing-style2 .pricing-body ul li:nth-child(n+2) {padding-top: 12px;}
+.tc-pricing-style2 .pricing-footer {padding-top: 30px;}
+.tc-pricing-style2 .pricing-footer .p-button {display: inline-block;padding: 11px 20px 8px 20px;line-height: normal;font-size: 13px;width: 100%;text-transform: uppercase;border-radius: 4px;background-color:#34495e;color: #fff;text-decoration: none;-webkit-transition: .3s all ease;transition: .3s all ease;}
+.tc-pricing-style2 .pricing-footer .p-button:hover {background-color: #2c3e50;color: rgba(255, 255, 255, 0.8);}
+.tc-pricing-style2 .pricing-plan.featured .pricing-footer .p-button {background: #fff;color: #34495e;}
+.tc-pricing-style2 .pricing-plan.featured .pricing-footer .p-button:hover {background: rgba(255, 255, 255, 0.8);}
+
+/*------------------
+    Style3 
+--------------------*/
+.tc-pricing-style3 .pricing-plan {position: relative;text-align: center;padding: 25px;margin-bottom: 35px;background-color: #ffffff;border-radius: 4px;-webkit-box-shadow:  0 5px 20px 0px rgba(0, 0, 0, 0.1);box-shadow: 0 5px 20px 0px rgba(0, 0, 0, 0.1);}
+.sec-color .tc-pricing-style3 .pricing-plan {background-color: #fff;}
+.tc-pricing-style3 .pricing-head {padding: 15px;box-shadow: 0 5px 18px rgba(0, 0, 0, 0.11);}
+.tc-pricing-style3 .pricing-plan .badge {position: absolute;top: 0;left: 50%;padding: 4px 8px;background: #fff;color: #34495e;border-radius: 0 0 5px 5px;font-size: 11px;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-pricing-style3 .pricing-head .name {font-size: 15px;letter-spacing: 1px;}
+.tc-pricing-style3 .pricing-plan.featured .pricing-head .name {color: #fff;}
+.tc-pricing-style3 .pricing-plan.featured {background-color: #34495e;}
+.tc-pricing-style3 .pricing-head .price {color: #222;}
+.tc-pricing-style3 .featured .pricing-head .price {color: #fff;}
+.tc-pricing-style3 .pricing-head .price sup {font-size: 16px;line-height: normal;top: 2px;margin-right: 1px;vertical-align: top;font-weight: lighter;}
+.tc-pricing-style3 .pricing-head span.value {display: block;font-size: 26px;line-height: normal;font-weight: 600;}
+.tc-pricing-style3 .pricing-head span.duration {display: block;font-size: 11px;margin-top: -6px;}
+.tc-pricing-style3 .pricing-body {padding-top: 30px;text-align: left;}
+.tc-pricing-style3 .pricing-body ul {padding-left: 0;list-style: none;font-size: 12px;color: #666;}
+.tc-pricing-style3 .pricing-plan.featured .pricing-body ul {color: #fff;}
+.tc-pricing-style3 .pricing-body ul li:nth-child(n+2) {padding-top: 12px;}
+.tc-pricing-style3 .pricing-body i {float: right;text-align: left;}
+.tc-pricing-style3 .pricing-footer {padding-top: 30px;}
+.tc-pricing-style3 .pricing-footer .p-button {display: inline-block;padding: 11px 20px 8px 20px;line-height: normal;font-size: 13px;width: 100%;text-transform: uppercase;border-radius: 4px;background-color:#34495e;color: #fff;text-decoration: none;-webkit-transition: .3s all ease;transition: .3s all ease;}
+.tc-pricing-style3 .pricing-footer .p-button:hover {background-color: #2c3e50;color: rgba(255, 255, 255, 0.8);}
+.tc-pricing-style3 .pricing-plan.featured .pricing-footer .p-button {background: #fff;color: #34495e;}
+.tc-pricing-style3 .pricing-plan.featured .pricing-footer .p-button:hover {background: rgba(255, 255, 255, 0.8);}
+
+/*------------------
+	Style4
+--------------------*/
+.tc-pricing-style4 .pricing-plan {position: relative;border-radius: 4px;text-align: center;margin-bottom: 35px;background-color: #ffffff;-webkit-box-shadow: 0 2px 7px 0px rgba(0, 0, 0, 0.1);box-shadow: 0 2px 7px 0px rgba(0, 0, 0, 0.1);}
+.sec-color .tc-pricing-style4 .pricing-plan {background-color: #fff;}
+.tc-pricing-style4 .pricing-head {padding: 30px;-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);}
+.tc-pricing-style4 .pricing-plan .badge {position: absolute;top: 0;left: 50%;padding: 4px 8px;background: #fff;color: #34495e;border-radius: 0 0 5px 5px;font-size: 11px;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-pricing-style4 .pricing-head .name {font-size: 24px;letter-spacing: 1px;}
+.tc-pricing-style4 .pricing-plan.featured .pricing-head .name {color: #fff;}
+.tc-pricing-style4 .pricing-plan.featured {background-color: #34495e;}
+.tc-pricing-style4 .pricing-head .price {color: #222;margin-top: 10px;}
+.tc-pricing-style4 .featured .pricing-head .price {color: #fff;}
+.tc-pricing-style4 .pricing-head .price sup {font-size: 16px;line-height: normal;top: 2px;margin-right: 1px;vertical-align: top;font-weight: lighter;}
+.tc-pricing-style4 .pricing-head span.value {display: block;font-size: 22px;line-height: normal;font-weight: 600;}
+.tc-pricing-style4 .pricing-head span.duration {display: block;font-size: 11px;margin-top: -6px;}
+.tc-pricing-style4 .pricing-body {padding: 30px 30px 0 30px;text-align: left;}
+.tc-pricing-style4 .pricing-body ul {padding-left: 0;list-style: none;font-size: 12px;color: #666;margin-bottom: 0;}
+.tc-pricing-style4 .pricing-plan.featured .pricing-body ul {color: #fff;}
+.tc-pricing-style4 .pricing-body ul li:nth-child(n+2) {padding-top: 12px;}
+.tc-pricing-style4 .pricing-body i {float: right;text-align: left;border-left: 1px solid rgba(0, 0, 0, 0.1);padding-left: 9px;}
+.tc-pricing-style4 .pricing-footer {padding: 30px;}
+.tc-pricing-style4 .pricing-footer .p-button {display: inline-block;line-height: normal;font-size: 13px;min-width: 130px;text-transform: uppercase;border: 1px solid #34495e;border-radius: 3px;color: #34495e;text-decoration: none;-webkit-transition: .3s all ease;transition: .3s all ease;padding: 10px 20px 7px 20px;}
+.tc-pricing-style4 .pricing-footer .p-button:hover {background: #34495e;color: rgba(255, 255, 255, 0.8);}
+.tc-pricing-style4 .pricing-plan.featured .pricing-footer .p-button {background: #fff;color: #34495e;border-color: #fff;}
+.tc-pricing-style4 .pricing-plan.featured .pricing-footer .p-button:hover {background: rgba(255, 255, 255, 0.8);}
+
+/*--------------------
+    Style 5
+---------------------*/
+.tc-pricing-style5 .pricing-plan {padding: 30px;text-align: center;color: #fff;background-color: #232323;margin-bottom: 45px;box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);}
+.tc-pricing-style5 .pricing-head {position: relative;}
+.tc-pricing-style5 .pricing-head .price-badge {position: absolute;top: -40px;z-index: 10;left: 50%;background-color: rgba(224, 96, 96, 0.81);color: #fff;font-size: 13px;padding: 2px 12px;font-weight: bold;transform: translateX(-50%);}
+.tc-pricing-style5 .pricing-head .name {font-size: 20px;margin-bottom: 90px;z-index: 11;position: relative;background-color: #232323;padding: 15px;color: #fff;}
+.tc-pricing-style5 .price-img {position: relative;bottom: 0;text-align: center;margin-top: 10px;}
+.tc-pricing-style5 .price-img img {width: 200px;height: 200px;border-radius: 50%;margin-bottom: -100px;z-index: -1;}
+.tc-pricing-style5 .pricing-head .price {font-size: 30px;font-weight: bold;margin-bottom: 30px;}
+.tc-pricing-style5 .pricing-head .price sup {top: -8px;}
+.tc-pricing-style5 .pricing-head .duration {font-weight: bold;color: #9CA0A9;}
+.tc-pricing-style5 .pricing-body {font-size: 13px;text-align: center;margin: 30px 0;color: #999;}
+.tc-pricing-style5 .pricing-footer {text-align: center;}
+.tc-pricing-style5 .pricing-footer .button {font-size: 16px;color: #fff;font-weight: bold;border-radius: 40px;background-color: rgba(255, 255, 255, 0.1);-webkit-transition: background .3s ease;transition: background .3s ease;display: inline-block;padding: 10px 30px;min-width: 200px;text-align: center;}
+.tc-pricing-style5 .pricing-footer .button:hover {background-color: #E06060;color: #fff;}
+

@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+
+/**
+*
+* -----------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -----------------------------------------------------------
+*
+**/
+
+/*----------------------------------
+	Social Share
+-----------------------------------*/
+.tc-social-share a {display: inline-block;margin: 0.5em;}
+.tc-social-share .social-icon {display: inline-block;font-size: 0px;cursor: pointer;width: 80px;height: 80px;border-radius: 50%;text-align: center;position: relative;z-index: 1;color: #444;-webkit-box-shadow: 0 0 0 4px #444;box-shadow: 0 0 0 4px #444;overflow: hidden;-webkit-transition: background 0.3s, color 0.3s, box-shadow 0.3s;transition: background 0.3s, color 0.3s, box-shadow 0.3s;}
+.tc-social-share .social-icon:after {display: none;pointer-events: none;position: absolute;width: 100%;height: 100%;border-radius: 50%;content: '';-webkit-box-sizing: content-box; box-sizing: content-box;}
+.tc-social-share .social-icon:before  {speak: none;font-size: 42px;line-height: 80px;display: block;-webkit-font-smoothing: antialiased;}
+.tc-social-share .social-icon:hover {background: #444;color: #fff;-webkit-box-shadow: 0 0 0 8px rgba(0,0,0,0.05);box-shadow: 0 0 0 8px rgba(0,0,0,0.05);}
+.tc-social-share .social-icon:hover:before {-webkit-animation: animationLeft 0.3s forwards; animation: animationLeft 0.3s forwards; }
+
+/*----------------------------------
+	Social Share Colors
+-----------------------------------*/
+.tc-social-share i[class*="-facebook"] {color: #4766A9;-webkit-box-shadow: 0 0 0 4px #4766A9;box-shadow: 0 0 0 4px #4766A9;}
+.tc-social-share i[class*="-facebook"]:hover {background: #4766A9;	}
+.tc-social-share i[class*="-twitter"] {color: #00ACED;-webkit-box-shadow: 0 0 0 4px #00ACED;box-shadow: 0 0 0 4px #00ACED;}
+.tc-social-share i[class*="-twitter"]:hover {background: #00ACED;	}
+.tc-social-share i[class*="-google-plus"] {color: #DB4437;-webkit-box-shadow: 0 0 0 4px #DB4437;box-shadow: 0 0 0 4px #DB4437;}
+.tc-social-share i[class*="-google-plus"]:hover {background: #DB4437;}
+.tc-social-share i[class*="-dribbble"] {color: #CB5D9C;-webkit-box-shadow: 0 0 0 4px #CB5D9C;box-shadow: 0 0 0 4px #CB5D9C;}
+.tc-social-share i[class*="-dribbble"]:hover {background: #CB5D9C;}
+.tc-social-share i[class*="-linkedin"] {color: #0177B5;-webkit-box-shadow: 0 0 0 4px #0177B5;box-shadow: 0 0 0 4px #0177B5;}
+.tc-social-share i[class*="-linkedin"]:hover {background: #0177B5;}
+.tc-social-share i[class*="-instagram"] {color: #97369D;-webkit-box-shadow: 0 0 0 4px #97369D;box-shadow: 0 0 0 4px #97369D;}
+.tc-social-share i[class*="-instagram"]:hover {background: #97369D;}
+.tc-social-share i[class*="-pinterest"] {color: #BB0B1F;-webkit-box-shadow: 0 0 0 4px #BB0B1F;box-shadow: 0 0 0 4px #BB0B1F;}
+.tc-social-share i[class*="-pinterest"]:hover {background: #BB0B1F;}
+.tc-social-share i[class*="-github"] {color: #323131;-webkit-box-shadow: 0 0 0 4px #323131;box-shadow: 0 0 0 4px #323131;}
+.tc-social-share i[class*="-github"]:hover {background: #323131;}
+.tc-social-share i[class*="-flickr"] {color: #FF1981;-webkit-box-shadow: 0 0 0 4px #FF1981;box-shadow: 0 0 0 4px #FF1981;}
+.tc-social-share i[class*="-flickr"]:hover {background: #FF1981;}
+.tc-social-share i[class*="-vk"] {color: #4C75A3;-webkit-box-shadow: 0 0 0 4px #4C75A3;box-shadow: 0 0 0 4px #4C75A3;}
+.tc-social-share i[class*="-vk"]:hover {background: #4C75A3;}
+
+/*----------------------------------
+	Social Corners
+-----------------------------------*/
+.tc-social-square .social-icon {border-radius: 0;}
+.tc-social-round .social-icon {border-radius: 4px;}
+
+/*----------------------------------
+	Social Sizes
+-----------------------------------*/
+.tc-social-small .social-icon {width: 50px;height: 50px;}
+.tc-social-small .social-icon:before {font-size: 24px;line-height: 50px;}
+.tc-social-medium .social-icon {width: 64px;height: 64px;}
+.tc-social-medium .social-icon:before {font-size: 32px;line-height: 64px;}
+
+/*----------------------------------
+	Animation Effect
+-----------------------------------*/
+.tc-social-share.social-animation-right .social-icon:hover:before {-webkit-animation: animationRight 0.3s forwards; animation: animationRight 0.3s forwards; }
+.tc-social-share.social-animation-top .social-icon:hover:before {-webkit-animation: animationTop 0.3s forwards; animation: animationTop 0.3s forwards; }
+.tc-social-share.social-animation-bottom .social-icon:hover:before {-webkit-animation: animationBottom 0.3s forwards; animation: animationBottom 0.3s forwards; }
+
+/*----------------------------------
+	Animation Left
+-----------------------------------*/
+@-webkit-keyframes animationLeft {
+	49% {-webkit-transform: translateX(100%);}
+	50% {opacity: 0;-webkit-transform: translateX(-100%);}
+	51% {opacity: 1;}
+}
+@keyframes animationLeft {
+	49% {transform: translateX(100%);}
+	50% {opacity: 0;transform: translateX(-100%);}
+	51% {opacity: 1;}
+}
+
+/*----------------------------------
+	Animation Right
+-----------------------------------*/
+@-webkit-keyframes animationRight {
+	49% {-webkit-transform: translateX(-100%);}
+	50% {opacity: 0;-webkit-transform: translateX(100%);}
+	51% {opacity: 1;}
+}
+@keyframes animationRight {
+	49% {transform: translateX(-100%);}
+	50% {opacity: 0;transform: translateX(100%);}
+	51% {opacity: 1;}
+}
+
+/*----------------------------------
+	Animation Top
+-----------------------------------*/
+@-webkit-keyframes animationTop {
+	49% {-webkit-transform: translateY(100%);}
+	50% {opacity: 0;-webkit-transform: translateY(-100%);}
+	51% {opacity: 1;}
+}
+@keyframes animationTop {
+	49% {transform: translateY(100%);}
+	50% {opacity: 0;transform: translateY(-100%);}
+	51% {opacity: 1;}
+}
+
+/*----------------------------------
+	Animation Bottom
+-----------------------------------*/
+@-webkit-keyframes animationBottom {
+	49% {-webkit-transform: translateY(-100%);}
+	50% {opacity: 0;-webkit-transform: translateY(100%);}
+	51% {opacity: 1;}
+}
+@keyframes animationBottom {
+	49% {transform: translateY(-100%);}
+	50% {opacity: 0;transform: translateY(100%);}
+	51% {opacity: 1;}
+}

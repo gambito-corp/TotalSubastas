@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('contenido')
 <div class="container">
     <div class="col-md-6 offset-3">

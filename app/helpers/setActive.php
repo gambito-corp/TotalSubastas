@@ -1,6 +1,6 @@
 <?php
 
-    function setActive($routeName)
+    function setActive($ruta)
     {
-        return request()->routeis($routeName) ? 'active' : '';
+        return request()->routeis($ruta) ? 'active' : '';
     }

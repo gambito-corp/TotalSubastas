@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*--------------------------------
+    Common Styles
+----------------------------------*/
+.heading-inner {position: relative;display: inline-block;margin-bottom: 20px;margin-top: 0;font-size: 24px;text-rendering: optimizeLegibility;}
+
+/*--------------------------------
+    Heading Style1
+----------------------------------*/
+.tc-heading-style1 .heading-inner {padding-bottom: 10px;border-bottom: 1px solid rgba(0, 0, 0, 0.1);}
+.tc-heading-style1 .heading-inner:after {content: '';position: absolute;height: 1px;width: 25%;bottom: -1px;left: 0;background-color: #232323;}
+.tc-heading-style1.tc-heading-center {text-align: center;}
+.tc-heading-style1.tc-heading-center .heading-inner:after {left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-heading-style1.tc-heading-right {text-align: right;}
+.tc-heading-style1.tc-heading-right .heading-inner:after {left: auto;right: 0;}
+
+/*--------------------------------
+    Heading Style2
+----------------------------------*/
+.tc-heading-style2 .heading-inner {padding-top: 10px;border-top: 1px solid rgba(0, 0, 0, 0.1);padding-bottom: 10px;border-bottom: 1px solid rgba(0, 0, 0, 0.1);}
+.tc-heading-style2 .heading-inner:before, 
+.tc-heading-style2 .heading-inner:after {content: '';position: absolute;height: 1px;width: 25%;bottom: -1px;left: 0;background-color: #232323;}
+.tc-heading-style2 .heading-inner:before {bottom: auto;top: -1px;}
+.tc-heading-style2.tc-heading-center {text-align: center;}
+.tc-heading-style2.tc-heading-center .heading-inner:before, 
+.tc-heading-style2.tc-heading-center .heading-inner:after {left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-heading-style2.tc-heading-right {text-align: right;}
+.tc-heading-style2.tc-heading-right .heading-inner:before, 
+.tc-heading-style2.tc-heading-right .heading-inner:after {left: auto;right: 0;}
+
+/*--------------------------------
+    Heading Style3
+----------------------------------*/
+.tc-heading-style3 .heading-inner {padding-bottom: 10px;border-bottom: 1px solid rgba(0, 0, 0, 0.1);}
+.tc-heading-style3 .heading-inner:after {content: '';position: absolute;height: 6px;width: 6px;bottom: -3px;left: 0;background-color: #232323;border-radius: 50%;}
+.tc-heading-style3.tc-heading-center {text-align: center;}
+.tc-heading-style3.tc-heading-center .heading-inner:after {left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-heading-style3.tc-heading-right {text-align: right;}
+.tc-heading-style3.tc-heading-right .heading-inner:after {left: auto;right: 0;}
+
+/*--------------------------------
+    Heading Style4
+----------------------------------*/
+.tc-heading-style4 .heading-inner {padding: 10px;}
+.tc-heading-style4 .heading-inner:before {content: '';position: absolute;height: 10px;width: 10px;left: 0;top: 0;border-left: 1px solid #000;border-top: 1px solid #000;}
+.tc-heading-style4 .heading-inner:after {content: '';position: absolute;height: 10px;width: 10px;right: 0;bottom: 0;border-right: 1px solid #000;border-bottom: 1px solid #000;}
+.tc-heading-style4.tc-heading-center {text-align: center;}
+.tc-heading-style4.tc-heading-right {text-align: right;}
+
+/*--------------------------------
+    Heading Style5
+----------------------------------*/
+.tc-heading-style5 .heading-inner {padding-bottom: 15px;}
+.tc-heading-style5 .heading-inner:before {content: '';position: absolute;bottom: 0;height: 1px;width: 50px;background: #000;left: 0;}
+.tc-heading-style5 .heading-inner:after {content: '';position: absolute;bottom: 3px;height: 1px;width: 80px;background: #000;left: 0;}
+.tc-heading-style5.tc-heading-center {text-align: center;}
+.tc-heading-style5.tc-heading-center .heading-inner:after,
+.tc-heading-style5.tc-heading-center .heading-inner:before {left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-heading-style5.tc-heading-right {text-align: right;}
+.tc-heading-style5.tc-heading-right .heading-inner:after,
+.tc-heading-style5.tc-heading-right .heading-inner:before {left: auto;right: 0;}
+
+/*--------------------------------
+    Heading Style6
+----------------------------------*/
+.tc-heading-style6 .heading-inner {padding-bottom: 15px;}
+.tc-heading-style6 .heading-inner:before {content: '';position: absolute;bottom: 0px;height: 3px;width: 80px;background: #444;left: 0;border-radius: 7px;}
+.tc-heading-style6 .heading-inner:after {content: '';position: absolute;bottom: 1px;height: 1px;width: 100%;background: #444;left: 0;}
+.tc-heading-style6.tc-heading-center {text-align: center;}
+.tc-heading-style6.tc-heading-center .heading-inner:after,
+.tc-heading-style6.tc-heading-center .heading-inner:before {left: 50%;-webkit-transform: translateX(-50%);transform: translateX(-50%);}
+.tc-heading-style6.tc-heading-right {text-align: right;}
+.tc-heading-style6.tc-heading-right .heading-inner:after,
+.tc-heading-style6.tc-heading-right .heading-inner:before {left: auto;right: 0;}
+
+/*--------------------------------
+    Heading Sizes
+----------------------------------*/
+.tc-heading-xlarge .heading-inner {font-size: 42px;}
+.tc-heading-large .heading-inner {font-size: 36px;}
+.tc-heading-small .heading-inner {font-size: 17px;}

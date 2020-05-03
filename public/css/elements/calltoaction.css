@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+
+/**
+*
+* -----------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -----------------------------------------------------------
+*
+**/
+
+/*----------------------------
+    Calltoaction Styles
+------------------------------*/
+.tc-calltoaction {padding: 25px 30px;background: #fff;min-height: 63px;border: 1px solid rgba(0,0,0,0.04);-webkit-box-shadow: -3px 0 0 rgba(0, 0, 0, 0.8);box-shadow: -3px 0 0 rgba(0, 0, 0, 0.8);}
+.tc-calltoaction .cta-button {display: inline-block;padding: 20px 30px;font-size: 16px;text-decoration: none;background-color: #444;color: #e5e5e5;}
+.tc-calltoaction .cta-button:hover {background-color: #000;color: #fff;}
+.tc-calltoaction h3 {font-size: 22px;line-height: 32px;margin: 0;color: #333;}
+.tc-calltoaction p {margin: 5px 0 0;}
+.tc-calltoaction:not(.cta-align-center) {display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-wrap: wrap;-webkit-flex-wrap: wrap;flex-wrap: wrap;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.tc-calltoaction.cta-align-left {text-align: left;}
+.tc-calltoaction.cta-align-left .cta-button {margin-left: auto;}
+.tc-calltoaction.cta-align-right {text-align: right;-webkit-box-shadow: 3px 0 0 rgba(0, 0, 0, 0.8);box-shadow: 3px 0 0 rgba(0, 0, 0, 0.8);}
+.tc-calltoaction.cta-align-center {text-align: center;padding: 45px;-webkit-box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.8);box-shadow: 0 -3px 0 rgba(0, 0, 0, 0.8);}
+.tc-calltoaction.cta-align-center h3 {font-size: 26px;}
+.tc-calltoaction.cta-align-center .cta-button {margin-top: 25px;}
+.tc-calltoaction.cta-align-center .cta-content > div {margin-top: 10px;}
+.tc-calltoaction.cta-radius {padding: 25px 40px;border-radius: 60px;-webkit-box-shadow: none;box-shadow: none;}
+.tc-calltoaction.cta-radius .cta-button {border-radius: 60px;}
+
+/*----------------------------
+    Responsive Medium
+------------------------------*/
+@media (min-width: 767px) {
+    .tc-calltoaction:not(.cta-align-center) .cta-content {max-width: 75%;}
+    .tc-calltoaction.cta-align-right a.cta-button {-ms-flex-order: -1;-webkit-order: -1;order: -1;}
+    .tc-calltoaction.cta-align-right .cta-content {margin-left: auto;}
+}
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+    .tc-calltoaction:not(.cta-align-center) .cta-content {max-width: 70%;}
+}
+
+@media (max-width: 767px) {
+    .tc-calltoaction .cta-button {margin: 18px 0 10px;text-align: center;}
+    .tc-calltoaction .cta-content {text-align: center;margin-left: auto;margin-right: auto;}
+    .tc-calltoaction.cta-align-left .cta-button {margin-right: auto;}
+    .tc-calltoaction.cta-align-right .cta-button {margin-right: auto;margin-left: auto;}
+}
+
+@media only screen and (max-width: 480px) {
+    .tc-calltoaction .cta-button {padding: 10px;margin: 18px 0 10px;font-size: 14px;text-align: center;}
+    .tc-calltoaction .cta-content {text-align: center;}
+}

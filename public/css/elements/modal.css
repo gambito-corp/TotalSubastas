@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*-----------------------
+    Modal
+-------------------------*/
+button[class*="tcb-"] {outline: none;border: 0;}
+.modal-padding {padding: 25px 30px;}
+.modal-backdrop.in {opacity: 0.75;}
+.tc-modal {text-align: center;padding: 0!important;}
+.tc-modal:before {content: '';display: inline-block;height: 100%;vertical-align: middle;margin-right: -4px;}
+.tc-modal .modal-dialog {display: inline-block;text-align: left;vertical-align: middle;}
+.tc-modal .modal-title {font-size: 22px;}
+.tc-modal .modal-content {box-shadow: none;border: 0;}
+.tc-modal .modal-header, 
+.tc-modal .modal-body, 
+.tc-modal .modal-footer {border: 0;padding: 0;}
+.tc-modal .modal-header {margin-bottom: 20px;}
+.tc-modal .modal-footer {margin-top: 30px;}
+.tc-modal .modal-body p + p {margin-top: 15px;}
+.tc-modal .close {margin-top: 0;position: absolute;right: -15px;top: -15px;font-weight: 300;background: #333;color: #fff;width: 30px;height: 30px;text-align: center;line-height: 30px;opacity: 1;font-size: 13px;transition: .3s ease all;}
+.tc-modal .close:hover {background: #222;}

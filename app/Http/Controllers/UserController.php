@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUserRequest;
 use App\User;
+use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -17,7 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        $data = User::all();
+        $clase = RendUsers('user.index');
+        $user = Auth::user();
+
+        return view('BackOffice.central', compact('data', 'clase', 'user'));
     }
 
     /**

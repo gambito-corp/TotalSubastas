@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*-----------------------
+    Carousel
+-------------------------*/
+.carousel-caption {
+	text-shadow: none;
+}
+.carousel-caption .cs-title {
+	margin-top: 0;
+	font-size: 20px;
+	line-height: normal;
+}
+.car-nav:before {
+    position: absolute;
+    font-family: FontAwesome;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 32px;
+    color: #444;
+    opacity: 0;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+}
+.car-prev:before {
+    content: "\f104";
+	left: 35px;
+}
+.car-next:before {
+    content: "\f105";
+	right: 35px;
+	padding-left: 5px;
+}
+.carousel:hover .car-nav:before {
+	opacity: 1;
+}
+
+/*-----------------------
+    Carousel Style1
+-------------------------*/
+.tc-carousel-style1 .carousel-caption {
+    background-color: rgba(26, 26, 26, 0.84);
+    color: #fff;
+    top: 35px;
+    right: 35px;
+    left: auto;
+    width: 60%;
+    bottom: auto;
+    text-align: left;
+    padding: 35px;
+}
+.tc-carousel-style1 .cs-title a {
+	color: #fff;
+	text-decoration: none;
+}
+.tc-carousel-style1 .cs-desc {
+	color: #fff;
+	margin: 0;
+}
+.tc-carousel-style1 .carousel-indicators li {
+	height: 6px;
+	width: 30px;
+	border-color: #444;
+	margin: 0;
+}
+.tc-carousel-style1 .carousel-indicators li.active {
+	background-color: #444;
+}
+.tc-carousel-style1 .car-nav:before {
+    border: 2px solid #444;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+}
+.tc-carousel-style1 .car-prev:before {
+	left: 65px;
+}
+.tc-carousel-style1 .car-next:before {
+	right: 65px;
+	padding-left: 5px;
+}
+.tc-carousel-style1 .car-nav:hover:before {
+	background: #444;
+	color: #fff;
+}
+.tc-carousel-style1.carousel:hover .car-prev:before {
+	left: 35px;
+}
+.tc-carousel-style1.carousel:hover .car-next:before {
+	right: 35px;
+}
+.tc-carousel-style1.tc-light .car-nav:before {
+    border-color: #fff;
+    color: #fff;
+}
+.tc-carousel-style1.tc-light .car-nav:hover:before {
+	background: #fff;
+	color: #444;
+}
+.tc-carousel-style1.tc-light .carousel-indicators li {
+    border-color: #fff;
+}
+.tc-carousel-style1.tc-light .carousel-indicators li.active {
+    background-color: #fff;
+}	
+
+@media screen and (min-width: 767px) {
+	.tc-carousel-style1.tc-light .carousel-caption {
+	    background-color: rgba(255, 255, 255, 0.1);
+	}
+	.tc-carousel-style1.tc-light .cs-title a, 
+	.tc-carousel-style1.tc-light .cs-desc {
+		color: rgba(255, 255, 255, 0.9);
+	}
+}
+@media screen and (max-width: 767px) {
+	.tc-carousel-style1 .carousel-caption {
+	    position: initial;
+	    width: 100%;
+	}
+	.tc-carousel-style1 .carousel-indicators li {
+	    border-color: #fff;
+	}
+	.tc-carousel-style1 .carousel-indicators li.active {
+	    background-color: #fff;
+	}
+}

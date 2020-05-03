@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*-----------------------
+    Common Styles
+-------------------------*/
+[class*="tc-link"],
+[class*="tc-link"] ul {padding: 0;margin: 0;}
+[class*="tc-link"] li {display: inline-block;list-style-type: none;}
+[class*="tc-link"] li + li {margin-left: 15px;}
+[class*="tc-link"] li a {display: block;position: relative;color: #777;-webkit-transition: all .25s ease;transition: all .25s ease;}
+[class*="tc-link"] li a:hover,
+[class*="tc-link"] li.active a {color: #444;}
+
+/*-----------------------
+    Link Effect1
+-------------------------*/
+
+.tc-link-effect1 li a {position: relative;padding-bottom: 8px;}
+.tc-link-effect1 li a::after {position: absolute;top: 100%;left: 0;width: 100%;height: 3px;background: rgba(0, 0, 0, 0.1);content: '';opacity: 0;-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;transition: opacity 0.3s, transform 0.3s;-webkit-transform: translateY(10px);transform: translateY(10px);}
+.tc-link-effect1 li a:hover::after,
+.tc-link-effect1 li.active a:after {opacity: 1;-webkit-transform: translateY(0px);transform: translateY(0px);}
+
+/*-----------------------
+    Link Effect2
+-------------------------*/
+.tc-link-effect2 li a {position: relative;padding-bottom: 8px;}
+.tc-link-effect2 li a::after {position: absolute;top: 100%;left: 0;width: 0;height: 1px;background: #444;content: '';opacity: 0;-webkit-transition: opacity 0.3s, width 0.4s;transition: opacity 0.3s, width 0.4s;}
+.tc-link-effect2 li a:hover::after,
+.tc-link-effect2 li.active a:after {opacity: 1;width: 30px;}
+
+/*-----------------------
+    Link Effect3
+-------------------------*/
+.tc-link-effect3 li a {padding-bottom: 10px;}
+.tc-link-effect3 li a::after {position: absolute;top: 100%;left: 0;width: 100%;height: 1px;background: #777;content: '';opacity: 0;-webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;transition: height 0.3s, opacity 0.3s, transform 0.3s;-webkit-transform: translateY(-10px);transform: translateY(-10px);}
+.tc-link-effect3 li a:hover::after,
+.tc-link-effect3 li.active a::after {height: 5px;opacity: 1;-webkit-transform: translateY(0px);transform: translateY(0px);}
+
+/*-----------------------
+    Link Effect4
+-------------------------*/
+.tc-link-effect4 li + li {margin-left: 15px;}
+.tc-link-effect4 li a::before,
+.tc-link-effect4 li a::after {position: absolute;top: 50%;left: 50%;width: 80px;height: 80px;border: 2px solid rgba(0, 0, 0, 0.05);border-radius: 50%;content: '';opacity: 0;-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;transition: transform 0.3s, opacity 0.3s;-webkit-transform: translateX(-50%) translateY(-50%) scale(0.2);transform: translateX(-50%) translateY(-50%) scale(0.2);}
+.tc-link-effect4 li a::after {width: 70px;height: 70px;border-width: 6px;-webkit-transform: translateX(-50%) translateY(-50%) scale(0.8);transform: translateX(-50%) translateY(-50%) scale(0.8);}
+.tc-link-effect4 li a:hover::before,
+.tc-link-effect4 li a:hover::after,
+.tc-link-effect4 li.active a:before,
+.tc-link-effect4 li.active a:after {opacity: 1;-webkit-transform: translateX(-50%) translateY(-50%) scale(1);transform: translateX(-50%) translateY(-50%) scale(1);}
+
+/*-----------------------
+    Link Effect5
+-------------------------*/
+.tc-link-effect5 li a {padding: 10px 0;}
+.tc-link-effect5 li a::before,
+.tc-link-effect5 li a::after {position: absolute;left: 0;width: 100%;height: 2px;background: rgba(0, 0, 0, 0.4);content: '';opacity: 0;-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;transition: opacity 0.3s, transform 0.3s;-webkit-transform: translateY(-10px);transform: translateY(-10px);}
+.tc-link-effect5 li a::before {top: 0;-webkit-transform: translateY(-10px);transform: translateY(-10px);}
+.tc-link-effect5 li a::after {bottom: 0;-webkit-transform: translateY(10px);transform: translateY(10px);}
+.tc-link-effect5 li a:hover::before,
+.tc-link-effect5 li.active a:before,
+.tc-link-effect5 li a:hover::after,
+.tc-link-effect5 li.active a:after {opacity: 1;-webkit-transform: translateY(0px);transform: translateY(0px);}

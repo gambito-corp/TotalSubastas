@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*-----------------------
+    Accordion
+-------------------------*/
+.tc-accordion .panel {margin-bottom: 5px;background-color: rgba(0, 0, 0, 0.03);border: 0;border-radius: 0;box-shadow: none;}
+.acdn-title {margin: 0;}
+.acdn-title a {display: block;position: relative;padding: 15px;font-size: 18px;color: #666;}
+.acdn-body {padding: 15px;border-top: 1px solid rgba(0, 0, 0, 0.04);font-size: 13px;}
+.tc-accordion .acdn-title a:after {position: absolute;font-family: FontAwesome;content: "\f068";color: inherit;font-size: 12px;right: 15px;top: 50%;-webkit-transform: translateY(-50%);transform: translateY(-50%);}
+.tc-accordion .acdn-title a.collapsed:after {content: "\f067";}
+
+/*-----------------------
+    Accordion Style1
+-------------------------*/
+.tc-accordion-style1 .panel {background-color: #fff;-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);}
+.tc-accordion-style1 .acdn-body {border-top: 1px solid rgba(0, 0, 0, 0.04);}
+
+/*-----------------------
+    Accordion Style2
+-------------------------*/
+.tc-accordion-style2 .panel {background: transparent;}
+.tc-accordion-style2 .acdn-title a {background-color: #444;color: #bbb;}
+.tc-accordion-style2 .acdn-body {background-color: #555;color: #bbb;}
+
+/*-----------------------
+    Accordion Style3
+-------------------------*/
+.tc-accordion-style3 .panel {background: transparent;}
+.tc-accordion-style3 .acdn-title a {border-left: 2px solid #444;background-color: #fff;}
+.tc-accordion-style3 .acdn-body {background-color: #fff;color: #bbb;}
+
+/*-----------------------
+    Accordion Style4
+-------------------------*/
+.tc-accordion-style4 .panel {background: transparent;}
+.tc-accordion-style4 .acdn-body {border: 0;}
+.tc-accordion-style4 .acdn-title a {border: 1px solid #f5f5f5;}
+
+/*-----------------------
+    Accordion Style5
+-------------------------*/
+.tc-accordion-style5 .panel {background: transparent;}
+.tc-accordion-style5 .acdn-body {border: 0;}
+.tc-accordion-style5 .acdn-title a {position: relative;overflow: hidden;z-index: 10;}
+.tc-accordion-style5 .acdn-title a:before {position: absolute;content: '';height: 100%;width: 100%;left: -10px;top: 0;background: rgba(0, 0, 0, 0.03);-webkit-transform: skew(-15deg);transform: skew(-15deg);z-index: -1;}
+.tc-accordion-style5 .acdn-title a:after {right: 25px;}
+
+/*-----------------------
+    Accordion Style6
+-------------------------*/
+.tc-accordion-style6 .panel {background: transparent;margin-bottom: 0;}
+.tc-accordion-style6 .acdn-body {border: 0;}
+.tc-accordion-style6 .acdn-title a {position: relative;overflow: hidden;z-index: 10;}
+.tc-accordion-style6 .panel + .panel .acdn-title a {border-top: 1px solid rgba(0, 0, 0, 0.05);}
+.tc-accordion-style6 .acdn-title a:after {padding: 5px 6px;background: #444;color: #fff;}

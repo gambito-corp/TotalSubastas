@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/**
+*
+* -------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -------------------------------------------------------
+*
+*/
+
+/*-----------------------
+    List Style1
+-------------------------*/
+.tc-list {padding: 0;list-style: none;}
+.tc-list li + li {margin-top: 15px;}
+.tc-list li a {color: #444;}
+.tc-list li i {font-size: 16px;margin-right: 5px;}
+.tc-list-border li + li {padding-top: 15px;border-top: 1px solid rgba(0, 0, 0, 0.1);}
+.tc-list-striped li {padding: 15px 20px;}
+.tc-list-striped li + li {margin-top: 0;}
+.tc-list-striped li:nth-of-type(odd) {background-color: rgba(0, 0, 0, 0.05);}
+.tc-list-background li {padding: 10px 15px;}
+.tc-list-background li {background-color: rgba(0, 0, 0, 0.05);}

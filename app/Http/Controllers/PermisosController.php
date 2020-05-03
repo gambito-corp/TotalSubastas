@@ -17,7 +17,10 @@ class PermisosController extends Controller
     public function index()
     {
         $data = permisos::all();
-        return view('generic.index', compact('data'));
+        $clase = RendPerm('permisos.index');
+        $user = Auth::user();
+
+        return view('BackOffice.central', compact('data', 'clase', 'user'));
     }
 
     /**

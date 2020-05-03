@@ -45,8 +45,9 @@ class RegisterController extends Controller
         $user = ["roles_id" => 4];
         $request = array_merge($user, $request);
         User::create($request);
-        $user = User::get()->last();
-        auth()->loginUsingId($user->id);
-        return redirect()->route('admin.index')->with('message', 'exito');
+
+        return auth()->loginUsingId(User::get()->last()->id)
+            ? redirect()->route('admin.index')->with('message', 'exito')
+            : 'fallo';
     }
 }

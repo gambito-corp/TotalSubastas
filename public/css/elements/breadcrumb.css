@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+/**
+*
+* -----------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -----------------------------------------------------------
+*
+**/
+
+/*------------------------
+	Breadcrumb
+--------------------------*/
+.tc-breadcrumb {display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+.tc-breadcrumb ul {margin-bottom: 0;background: transparent;padding: 0;border-radius: 0;}
+.tc-breadcrumb ul li a {color: #999;}
+.tc-breadcrumb ul li:before {font-size: 10px;}
+.tc-breadcrumb .breadcrumb-title {margin: 0;font-size: 22px;font-weight: bold;color: #444;}
+.tc-breadcrumb.tc-breadcrumb-center {display: block;text-align: center;}
+.tc-breadcrumb.tc-breadcrumb-center .breadcrumb-title {margin-bottom: 12px;font-size: 26px;}
+.tc-breadcrumb.tc-contrast * {color: rgba(255, 255, 255, 0.8);}
+.tc-breadcrumb.tc-contrast li.active {color: rgba(255, 255, 255, 0.6)}
+@media (max-width: 767px) {
+    .tc-breadcrumb {display: block;text-align: center;}
+    .tc-breadcrumb .breadcrumb-title {margin-bottom: 12px;}
+}

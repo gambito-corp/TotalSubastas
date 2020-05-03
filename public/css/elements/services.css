@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+
+/**
+*
+* -----------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -----------------------------------------------------------
+*
+**/
+
+/*-----------------------------
+    Services Style1
+-------------------------------*/
+.tc-services-style1 .services-item {padding: 30px 25px 25px;position: relative;text-align: center;background: #fff;border: 1px solid rgba(0, 0, 0, 0.05);margin-bottom: 25px;}
+.tc-services-style1 .services-icon {font-size: 32px;display: inline-block;background-color: #444;color: #bbb;height: 82px;width: 82px;text-align: center;line-height: 82px;border-radius: 50%;margin-bottom: 10px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style1 .services-item:hover .services-icon {background-color: #222;color: #fff;}
+.tc-services-style1 .services-title {display: inline-block;font-size: 18px;margin-bottom: 20px;color: #222;}
+.tc-services-style1 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style1 .services-desc a {color: #777;font-size: 13px;position: relative;display: inline-block;text-decoration: none !important;margin-top: 8px;}
+.tc-services-style1 .services-desc a:hover {color: #222;}
+
+/*-----------------------------
+    Services Style2
+-------------------------------*/
+.tc-services-style2 .services-item {position: relative;text-align: center;background: #fff;border: 1px solid rgba(0, 0, 0, 0.05);margin-bottom: 25px;}
+.tc-services-style2 .services-icon {font-size: 26px;padding: 30px;background-color: #f5f5f5;color: #bbb;text-align: center;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;margin-left: -1px;margin-right: -1px;margin-top: -1px;}
+.tc-services-style2 .services-item:hover .services-icon {background-color: #222;color: #fff;}
+.tc-services-style2 .services-desc {padding: 30px 25px;}
+.tc-services-style2 .services-title {display: inline-block;font-size: 18px;color: #222;margin-top: 0;margin-bottom: 20px;}
+.tc-services-style2 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style2 .services-desc a {color: #777;font-size: 13px;position: relative;display: inline-block;text-decoration: none !important;margin-top: 10px;}
+.tc-services-style2 .services-desc a:hover {color: #222;}
+
+/*-----------------------------
+    Services Style3
+-------------------------------*/
+.tc-services-style3 .services-item {padding: 30px 25px 25px;position: relative;text-align: center;background-color: #fff;border: 1px solid rgba(0, 0, 0, 0.05);margin-bottom: 25px;}
+.tc-services-style3 .services-icon {font-size: 42px;display: inline-block;color: #999;text-align: center;margin-bottom: 15px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style3 .services-title {background-color: #444;color: #fff;padding: 15px;font-size: 17px;margin-bottom: 30px;margin-left: -25px;margin-right: -25px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style3 .services-item:hover .services-title {background-color: #222;}
+.tc-services-style3 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style3 .services-desc a {position: relative;display: inline-block;color: #888;font-size: 11px;line-height: normal;border: 1px solid #e5e5e5;text-decoration: none !important;padding: 3px 10px;margin-top: 20px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style3 .services-desc a:hover {color: #222;border-color: #222;}
+
+/*-----------------------------
+    Services Style4
+-------------------------------*/
+.tc-services-style4 .services-item {padding: 30px 25px 25px;position: relative;text-align: center;background-color: #fff;border: 1px solid rgba(0, 0, 0, 0.05);margin-bottom: 25px;margin-top: 50px;}
+.tc-services-style4 .services-icon {position: absolute;top: -35px;background-color: #fff;border: 1px solid #eee;height: 70px;width: 70px;font-size: 26px;color: #bbb;text-align: center;z-index: 11;margin-bottom: 15px;line-height: 70px;-webkit-transform: rotate(45deg);transform: rotate(45deg);left: 50%;margin-left: -35px;}
+.tc-services-style4 .services-icon i {-webkit-transform: rotate(-45deg);transform: rotate(-45deg);}
+.tc-services-style4 .services-title {font-size: 18px;padding-top: 30px;padding-bottom: 15px;}
+.tc-services-style4 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style4 .services-desc a {position: relative;display: inline-block;color: #777;font-size: 13px;line-height: normal;border: 1px solid #e5e5e5;border-radius: 10px;text-decoration: none !important;padding: 2px 12px;margin-top: 20px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style4 .services-desc a:hover {color: #222;border-color: #222;}
+@media (max-width: 767px) {.tc-services-style4 .services-item {margin-top: 70px;}}
+
+/*-----------------------------
+    Services Style5
+-------------------------------*/
+.tc-services-style5 .services-item {position: relative;text-align: center;margin-bottom: 30px;}
+.tc-services-style5 .services-icon {display: inline-block;background-color: #fff;border: 1px solid #eee;height: 90px;width: 90px;line-height: 90px;font-size: 34px;color: #bbb;text-align: center;margin-bottom: 15px;border-radius: 50%;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style5 .services-item:hover .services-icon {background-color: #232323;border-color: #232323;color: #fff;}
+.tc-services-style5 .services-title {font-size: 19px;margin-top: 20px;margin-bottom: 20px;}
+.tc-services-style5 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style5 .services-desc a {position: relative;display: inline-block;color: #777;font-size: 12px;line-height: normal;border: 1px solid #e5e5e5;border-radius: 10px;text-decoration: none !important;padding: 2px 12px;margin-top: 15px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style5 .services-desc a:hover {color: #222;border-color: #222;}
+
+/*-----------------------------
+    Services Style6
+-------------------------------*/
+.tc-services-style6 .services-item {position: relative;margin-bottom: 30px;}
+.tc-services-style6 .services-icon {position: relative;display: inline-block;background-color: #444;height: 70px;width: 76px;line-height: 70px;font-size: 26px;color: #fff;text-align: center;margin-bottom: 15px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style6 .services-icon:before {content: '';position: absolute;border: 10px solid transparent;border-top-color: #444;bottom: -9px;left: 0;transform: rotate(-90deg);}
+.tc-services-style6 .services-title {font-size: 20px;margin-top: 20px;margin-bottom: 20px;}
+.tc-services-style6 .services-desc p {font-size: 14px;line-height: 1.8;color: #777;}
+.tc-services-style6 .services-desc a {position: relative;display: inline-block;color: #777;font-size: 13px;line-height: normal;text-decoration: none !important;margin-top: 15px;-webkit-transition: all .3s ease-out;transition: all .3s ease-out;}
+.tc-services-style6 .services-desc a:hover {color: #222;border-color: #222;}

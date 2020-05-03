@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+
+/**
+*
+* -----------------------------------------------------------
+*
+* Template : ePack - Modern Element Packages
+* Author : thecodrops
+* Author URI : http://thecodrops.com
+*
+* -----------------------------------------------------------
+*
+**/
+
+/*--------------------------------------
+    Flipbox Common Styles
+----------------------------------------*/
+.tc-flipbox-wrap img {width: 100%;}
+.tc-flipbox-wrap {display: block;text-align: center;position: relative;margin-bottom: 30px;-webkit-perspective: 1000px;perspective: 1000px;}
+.tc-flipbox-wrap .front-part, .tc-flipbox-wrap .back-part {height: 100%;margin-bottom: 0;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-backface-visibility: hidden;backface-visibility: hidden;-webkit-transition: 400ms;transition: 400ms;}
+.tc-flipbox-wrap .front-part {/*z-index: 9;*/-webkit-backface-visibility: hidden;backface-visibility: hidden;}
+.tc-flipbox-wrap .back-part {position: absolute;top: 0;width: 100%;/*z-index: -1;*/}
+
+
+/*--------------------------------------
+    Horizontal Flip Left
+----------------------------------------*/
+.tc-flipbox-wrap .horizontal-flip-left .front-part {-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+.tc-flipbox-wrap .horizontal-flip-left:hover .front-part {-webkit-transform: rotateY(180deg);transform: rotateY(180deg);}
+.tc-flipbox-wrap .horizontal-flip-left .back-part {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg);}
+.tc-flipbox-wrap .horizontal-flip-left:hover .back-part {-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+
+/*--------------------------------------
+    Horizontal Flip Right
+----------------------------------------*/
+.tc-flipbox-wrap .horizontal-flip-right .front-part {-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+.tc-flipbox-wrap .horizontal-flip-right:hover .front-part {-webkit-transform: rotateY(-180deg);transform: rotateY(-180deg);}
+.tc-flipbox-wrap .horizontal-flip-right .back-part {-webkit-transform: rotateY(180deg);transform: rotateY(180deg);}
+.tc-flipbox-wrap .horizontal-flip-right:hover .back-part {-webkit-transform: rotateY(0deg);transform: rotateY(0deg);}
+
+/*--------------------------------------
+    Vertical Flip Bottom
+----------------------------------------*/
+.tc-flipbox-wrap .vertical-flip-bottom .front-part {-webkit-transform: rotateX(0deg);transform: rotateX(0deg);}
+.tc-flipbox-wrap .vertical-flip-bottom:hover .front-part {-webkit-transform: rotateX(180deg);transform: rotateX(180deg);}
+.tc-flipbox-wrap .vertical-flip-bottom .back-part {-webkit-transform: rotateX(-180deg);transform: rotateX(-180deg);}
+.tc-flipbox-wrap .vertical-flip-bottom:hover .back-part {-webkit-transform: rotateX(0deg);transform: rotateX(0deg);}
+
+/*--------------------------------------
+    Vertical Flip Top
+----------------------------------------*/
+.tc-flipbox-wrap .vertical-flip-top .front-part {-webkit-transform: rotateX(0deg);transform: rotateX(0deg);}
+.tc-flipbox-wrap .vertical-flip-top:hover .front-part {-webkit-transform: rotateX(-180deg);transform: rotateX(-180deg);}
+.tc-flipbox-wrap .vertical-flip-top .back-part {-webkit-transform: rotateX(180deg);transform: rotateX(180deg);}
+.tc-flipbox-wrap .vertical-flip-top:hover .back-part {-webkit-transform: rotateX(0deg);transform: rotateX(0deg);}

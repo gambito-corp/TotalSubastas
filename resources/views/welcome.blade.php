@@ -1,5 +1,5 @@
-@extends('layout.app')
-@section('contenido')
-    <h2>Hola Mundo</h2>
+@extends('layouts.app')
+@section('content')
+@include('includes.sesion')
 
 @endsection
