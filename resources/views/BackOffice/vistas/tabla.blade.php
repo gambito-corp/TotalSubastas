@@ -1,3 +1,4 @@
+
 @isset($clase)
     <table id="tabla" class="table tablebordered table-hover container-fluid">
         <thead>
@@ -20,17 +21,7 @@
                                 @if ($clase['bd'][$i] == 'contenido' || $clase['bd'][$i] == 'descripcion')
                                     @if (!empty($dat[$clase['bd'][$i]]))
                                         @if (strlen($dat[$clase['bd'][$i]]) >= 40)
-
-
-
-
-
-
-
-
-
-
-                                            {!! substr($dat[$clase['bd'][$i]], 0, 40).'...<br> <a href="#" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#modal-success_'.$dat['id'].'">Leer Mas...</a>' !!}
+                                            {!! substr($dat[$clase['bd'][$i]], 0, 40).'...<br> <a href="#" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#modal-success_'.'1'.'">Leer Mas...</a>' !!}
                                         @else
                                             {!! $dat[$clase['bd'][$i]] !!}
                                         @endif
@@ -62,6 +53,7 @@
                                                 @endif
                                             @endisset
                                         @else
+
                                             @if ($user->id = $dat[$clase['bd'][0]])
                                                 <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal-info_{{$dat[$clase['bd'][0]]}}">
                                                     Restaurar {{ $clase['singular'] }}
@@ -72,12 +64,16 @@
                                             @endif
                                         @endif
                                         @if($clase['controlador'] == 'Roles')
-                                                {{-- funcion de personificar --}}
+                                                {{-- Ver Perfil de objeto y personificacion --}}
+                                        <a href="{{ route($clase['ver'],[$clase['modelo']=>$dat[$clase['bd'][0]]]) }}" class="btn btn-outline-primary">
+                                            Ver {{ $clase['singular'] }}
+                                        </a>
                                         @endif
                                     @else
                                         <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#modal-permiso{{$dat[$clase['bd'][0]]}}">
                                             Actualizar {{ $clase['singular'] }}
                                         </button>
+
                                         <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#modal-permiso{{$dat[$clase['bd'][0]]}}">
                                             Dar de Baja {{ $clase['singular'] }}
                                         </button>
@@ -91,37 +87,10 @@
                 </tr>
                 {{-- Espacio de modales --}}
                 {{-- modal leer mas --}}
-                {{-- {{ dd($dat['id']) }} --}}
 
 
 
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="modal fade" id="modal-success_{{ $dat['id'] }}">
+                <div class="modal fade" id="modal-success_{{ 1 }}">
                     <div class="modal-dialog">
                         <div class="modal-content bg-success">
                             <div class="modal-header">
@@ -200,7 +169,14 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-                                    <a href="{{ route($clase['borrar'],[$clase['modelo'] =>$dat[$clase['bd'][0]]]) }}" class="btn btn-outline-light">Dar de Baja</a>
+
+                                    <form action="{{ route($clase['borrar'],[$clase['modelo'] => $dat[$clase['bd'][0]]]) }}" method="post">
+                                        @csrf
+                                        <input
+                                        type='submit'
+                                        class="btn btn-outline-light">
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -221,7 +197,14 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-                                    <a href="{{ route($clase['restaurar'],[$clase['modelo'] =>$dat[$clase['bd'][0]]]) }}" class="btn btn-outline-light">Restaurar {{ $clase['singular'] }}</a>
+                                    {{-- <a href="{{ route('rol.restore', ['rol' => 11]) }}" class="btn btn-outline-light">Restaurar</a> --}}
+                                    <form action="{{ route($clase['restaurar'],[$clase['modelo'] => $dat[$clase['bd'][0]]]) }}" method="post">
+                                        @csrf @method('PUT')
+                                        <input
+                                        type='submit'
+                                        class="btn btn-outline-light">
+                                    </form>
+
                                 </div>
                             </div>
                         </div>
@@ -241,7 +224,7 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-                                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modal-danger-confirmacion_{{$data[$clase['bd'][0]]}}">
+                                    <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#modal-danger-confirmacion_{{$dat[$clase['bd'][0]]}}">
                                         Eliminar {{ $clase['singular'] }}
                                     </button>
                                 </div>
@@ -263,7 +246,13 @@
                                 </div>
                                 <div class="modal-footer justify-content-between">
                                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Cerrar</button>
-                                    <a href="{{ route($clase['eliminar'],[$clase['modelo']=>$dat[$clase['bd'][0]]]) }}" class="btn btn-outline-light">Eliminar</a>
+                                    {{-- <a href="{{ route($clase['eliminar'],[$clase['modelo']=>$dat[$clase['bd'][0]]]) }}" class="btn btn-outline-light">Eliminar</a> --}}
+                                    <form action="{{ route($clase['eliminar'],[$clase['modelo'] => $dat[$clase['bd'][0]]]) }}" method="post">
+                                        @csrf @method('DELETE')
+                                        <input
+                                        type='submit'
+                                        class="btn btn-outline-light">
+                                    </form>
                                 </div>
                             </div>
                         </div>

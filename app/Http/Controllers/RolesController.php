@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\roles;
 use App\helpers;
-use App\Http\Requests\CreateRoleRequest;
+use App\Http\Requests\SaveRoleRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+
 
 class RolesController extends Controller
 {
@@ -21,11 +22,9 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //Modelo y Metodo de el controlador
         $data = roles::all();
         $clase = RendRol('rol.index');
         $user = Auth::user();
-
         return view('BackOffice.central', compact('data', 'clase', 'user'));
     }
 
@@ -36,11 +35,12 @@ class RolesController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', new roles);
         $clase = RendRol('rol.create');
         $user = Auth::user();
         $data = new roles();
-
-        return view('BackOffice.central', compact('data', 'clase', 'user'));
+        $data2 = (array) json_decode(roles::findOrFail(1));
+        return view('BackOffice.central', compact('data', 'data2', 'clase', 'user'));
     }
 
     /**
@@ -49,9 +49,14 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateRoleRequest $request)
+    public function store(SaveRoleRequest $request)
     {
-        dd('La cagaste se fue para aqui');
+        roles::create($request->validated());
+        return redirect()->route('rol.index')
+        ->with([
+            'msg' => 'Exito',
+            'class' => 'success'
+        ]);
     }
 
     /**
@@ -60,13 +65,12 @@ class RolesController extends Controller
      * @param  \App\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function show(roles $rol)
+    public function show($rol)
     {
-        $clase = RendRol('rol.create');
-        dd($clase);
+        $data = roles::withTrashed()->findOrFail($rol);
+        $clase = RendRol('rol.show');
         $user = Auth::user();
-
-        return view('BackOffice.central', compact('clase', 'user'));
+        return view('BackOffice.central', compact('clase', 'data', 'user'));
     }
 
     /**
@@ -78,11 +82,8 @@ class RolesController extends Controller
     public function edit(roles $rol)
     {
         $data = $rol;
-
         $clase = RendRol('rol.edit');
-
         $user = Auth::user();
-
         return view('BackOffice.central', compact('data', 'clase', 'user'));
     }
 
@@ -93,9 +94,28 @@ class RolesController extends Controller
      * @param  \App\roles  $roles
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, roles $rol)
+    public function update(SaveRoleRequest $request, roles $rol)
     {
-        dd('es aqui');
+        roles::updated($request->validated());
+        return redirect()->route('rol.index')
+        ->with([
+            'msg' => 'Exito',
+            'class' => 'success'
+        ]);
+    }
+
+    /**
+     * Muestra la lista de recursos borrados.
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function Trash()
+    {
+        $data = roles::onlyTrashed()->get();
+        $clase = RendRol('rol.trash');
+        $user = Auth::user();
+        return view('BackOffice.central', compact('data', 'clase', 'user'));
     }
 
     /**
@@ -107,7 +127,7 @@ class RolesController extends Controller
     public function delete(roles $rol)
     {
         $data = $rol;
-        $delete = $data->id->delete();
+        $delete = $data->delete();
         if($delete){
             $ruta='rol.index';
             $msg ='Usuario Fue Dado de Baja';
@@ -121,52 +141,14 @@ class RolesController extends Controller
     }
 
     /**
-     * Muestra la lista de recursos borrados.
-     *
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function Trash()
-    {
-
-        $data = roles::onlyTrashed()->get();
-        $clase = RendRol('rol.trash');
-        $user = Auth::user();
-
-        return view('BackOffice.central', compact('data', 'clase', 'user'));
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\roles  $roles
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(roles $roles)
-    {
-        $data = $rol;
-        $data = roles::onlyTrashed()->find($data->id);
-        $destroy = $data->forceDelete();
-        if($destroy){
-            $ruta='rol.trash';
-            $msg ='Usuario Fue Eliminado';
-            $class = 'success';
-        }else{
-            $ruta='rol.trash';
-            $msg ='Usuario No Fue Eliminado Porfavor Verifique sus errores';
-            $class = 'danger';
-        }
-        return redirect()->route($ruta)->with(['msg'=> $msg, 'class' => $class]);
-    }
-
-    /**
      * Restaura al recurso especifico en la Base de Datos y/o el Storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function restore(roles $roles)
+    public function restore($rol)
     {
+        $rol = roles::withTrashed()->findOrFail($rol);
         $data = $rol;
         $data = roles::onlyTrashed()->find($data->id);
         $restore = $data->restore();
@@ -183,6 +165,31 @@ class RolesController extends Controller
     }
 
     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\roles  $roles
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($rol)
+    {
+        $rol = roles::withTrashed()->findOrFail($rol);
+        $data = $rol;
+        $data = roles::onlyTrashed()->findOrFail($data->id);
+        $destroy = $data->forceDelete();
+        if($destroy){
+            $ruta='rol.trash';
+            $msg ='Usuario Fue Eliminado';
+            $class = 'success';
+        }else{
+            $ruta='rol.trash';
+            $msg ='Usuario No Fue Eliminado Porfavor Verifique sus errores';
+            $class = 'danger';
+        }
+        return redirect()->route($ruta)->with(['msg'=> $msg, 'class' => $class]);
+    }
+
+
+    /**
      * Ruta para la visualizacion de imagen desde el Storage.
      *
      * @param  $filename
@@ -190,6 +197,7 @@ class RolesController extends Controller
      */
     public function getImagen($filename)
     {
+        dd('llegue aqui metodo getimagen', $filename);
         $file = Storage::disk('users')->get($filename);
         return new Response($file, 200);
     }

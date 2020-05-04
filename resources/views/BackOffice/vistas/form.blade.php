@@ -1,10 +1,26 @@
-{{ var_dump($clase) }}
 <form method="{{$clase['verbo']}}" action="{{route( $clase['ruta'], $clase['modelo'] = $data->id )}}">
     @csrf
     @if ($clase['method'] == 'edit')
         @method('PATCH')
     @else
 
+    @endif
+    @if(isset($clase['campos_form']['hidden']['existe']) && $clase['campos_form']['hidden']['existe'] == "si")
+        @for ($i = 0; $i < $clase['campos_form']['hidden']['cantidad']; $i++)
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <input
+                    id="{{$clase['campos_form']['hidden'][$i]['name']}}"
+                    type="hidden"
+                    class="form-control"
+                    name="{{$clase['campos_form']['hidden'][$i]['name']}}"
+                    value="{{ empty(!$data) ? $data : $clase['campos_form']['hidden'][$i]['name'] }}"
+                    required
+                    autocomplete="{{$clase['campos_form']['hidden'][$i]['name']}}"
+                    autofocus>
+                </div>
+            </div>
+        @endfor
     @endif
     @if(isset($clase['campos_form']['select']['existe']) && $clase['campos_form']['select']['existe'] == "si")
         @for ($i = 0; $i < $clase['campos_form']['select']['cantidad']; $i++)
@@ -96,9 +112,21 @@
         @if(isset($clase['campos_form']['text']['existe']) && $clase['campos_form']['text']['existe'] == "si")
             @for ($i = 0; $i < $clase['campos_form']['text']['cantidad']; $i++)
                 <div class="form-group row">
-                    <label for="{{$clase['campos_form']['text'][$i]['name']}}" class="col-md-4 col-form-label text-md-right text-capitalize">{{ $clase['campos_form']['text'][$i]['tag'] }}</label>
+                    <label
+                    for="{{$clase['campos_form']['text'][$i]['name']}}"
+                    class="col-md-4 col-form-label text-md-right text-capitalize">
+                    {{ $clase['campos_form']['text'][$i]['tag'] }}</label>
                     <div class="col-md-6">
-                        <input id="{{$clase['campos_form']['text'][$i]['name']}}" type="text" class="form-control @error($clase['campos_form']['text'][$i]['name']) is-invalid @enderror" name="{{$clase['campos_form']['text'][$i]['name']}}" value="{{ old($clase['campos_form']['text'][$i]['name']) }}" required autocomplete="{{$clase['campos_form']['text'][$i]['name']}}" autofocus>
+                        <input
+                        id="{{$clase['campos_form']['text'][$i]['name']}}"
+                        type="text"
+                        class="form-control
+                        @error($clase['campos_form']['text'][$i]['name']) is-invalid @enderror"
+                        name="{{$clase['campos_form']['text'][$i]['name']}}"
+                        value="{{ old($clase['campos_form']['text'][$i]['name']) }}"
+                        required
+                        autocomplete="{{$clase['campos_form']['text'][$i]['name']}}"
+                        autofocus>
                         @error($clase['campos_form']['text'][$i]['name'])
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

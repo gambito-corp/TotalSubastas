@@ -9,8 +9,8 @@
     @include('includes.tags.fuentes')
     @include('includes.tags.link')
 
-    
-    
+
+
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -71,12 +71,14 @@
                                         <p>Listar Roles</p>
                                     </a>
                                 </li>
+                                @can('create', new App\roles)
                                 <li class="nav-item {{ setActive('rol.create') }}">
                                     <a href="{{ route('rol.create') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Crear Rol</p>
                                     </a>
                                 </li>
+                                @endcan
                                 <li class="nav-item {{ setActive('rol.trash') }}">
                                     <a href="{{ route('rol.trash') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -85,7 +87,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item has-treeview {{ setActive('permisos.*') }}">
+                        {{-- <li class="nav-item has-treeview {{ setActive('permisos.*') }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -142,7 +144,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         @if (Auth::user()->rol == 'admin' || Auth::user()->rol == 'dueño')
 

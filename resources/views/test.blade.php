@@ -1,7 +1,6 @@
 @extends('layouts.BackOffice')
-
 @section('contenido')
-<!-- Content Wrapper. Contains page content -->
+   <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -9,7 +8,7 @@
             <div class="row mb-2">
                 @include('includes.sesion')
                 <div class="col-sm-6">
-                    <h1>{{ $clase['titulo'] }}</h1>
+                    <h1>Hola Muindo</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -27,17 +26,24 @@
                 @include('includes.sesion')
                 <div class="card">
                     <div class="card-header">
-                        @if(isset($clase['method' == 'show']))
-                            <h3 class="card-title">{{ $clase['subtitulo'].' '.$data[$clase['bd'][1]] }} </h3>
-                        @elseif(isset($clase['method' == 'show']))
-                        <h3 class="card-title">{{ $clase['subtitulo']}} </h3>
+                        @if($clase['method'] != 'show')
+                            <h3 class="card-title">{{ $clase['subtitulo'] }}</h3>
                         @elseif($clase['controlador'] == 'usuarios')
                             <h3 class="card-title">{{ $clase['subtitulo'].' '.Auth::user()->titulo.' '.Auth::user()->subtitulo }}</h3>
                         @endif
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body container-fluid">
-                        @include($clase['vista'])
+                        <ul>
+                        @foreach ($data as $dat)
+                            <li>
+                                <a href="{{ route('rol.show', ['rol' => $dat->id]) }}">
+                                    {{ $dat->nombre }}
+                                </a>
+                            </li>
+
+                        @endforeach
+                    </ul>
                     </div>
                 </div>
             </div>

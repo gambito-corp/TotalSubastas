@@ -21,6 +21,7 @@
             "restaurar"         => null, //Links a los distintos metodos del controlador
             "borrar"            => null, //Links a los distintos metodos del controlador
             "eliminar"          => null, //Links a los distintos metodos del controlador
+            "ver"               => null, //Links a los distintos metodos del controlador
             'papelera'          => null, //definiocion si es un metodo de reciclaje o un metodo puro
             //Indices de formulario de Formulario
             "verbo"             => null, //Vervo del Formulario
@@ -74,8 +75,9 @@
             $clase['metodo'] = 'Tabla de Roles';
             $clase['subtitulo'] = 'Roles de la BD';
             $clase['editar'] = 'rol.edit';
+            $clase['ver'] = 'rol.show';
             $clase['restaurar'] = 'rol.restore';
-            $clase['borrar'] = 'rol.destroy';
+            $clase['borrar'] = 'rol.delete';
             $clase['eliminar'] = 'rol.destroy';
             if($ruta == 'rol.trash'){
                 $clase['method'] = 'papelera';
@@ -85,7 +87,98 @@
                 $clase['papelera'] = 'no';
             }
         }elseif($ruta == 'rol.create' || $ruta == 'rol.edit'){
-            $clase['vista'] = 'BackOffice.vistas.form';
+            $clase['vista'] = 'BackOffice.vistas.form2';
+            $clase['campos_form'] = [
+                'input' =>[
+                    'existe' => true,
+                    'cantidad' => 4,
+                    0 =>[
+                        'nombre'  => 'slug',
+                        'columnas' => 'col-md-12',
+                        'tag' => 'input',
+                        'attr' => [
+                            'tipe' => 'hidden',
+                            'value' => true,
+                            'name' => 'slug',
+                            'required' => true,
+                            'checked' => false,
+                            'disabled' =>false,
+                            'max' => false,
+                            'min' => false,
+                            'maxlength' => '5',
+                            'pattern' => false,
+                            'readonly' => false,
+                            'size' => false,
+                            'steps' => false,
+                            'onclick' => false
+                        ]
+                    ],
+                    1 =>[
+                        'nombre'  => 'Nombre del Rol',
+                        'columnas' => 'col-md-12',
+                        'tag' => 'input',
+                        'attr' => [
+                            'tipe' => 'text',
+                            'value' => true,
+                            'name' => 'nombre',
+                            'required' => true,
+                            'checked' => false,
+                            'disabled' =>false,
+                            'max' => false,
+                            'min' => false,
+                            'maxlength' => '5',
+                            'pattern' => false,
+                            'readonly' => false,
+                            'size' => false,
+                            'steps' => false,
+                            'onclick' => false
+                        ]
+                    ],
+                    2 =>[
+                        'nombre'  => 'Descripcion del Rol',
+                        'columnas' => 'col-md-12',
+                        'tag' => 'textarea',
+                        'attr' => [
+                            'tipe' => 'textarea',
+                            'value' => true,
+                            'name' => 'descripcion',
+                            'required' => true,
+                            'col'   => 30,
+                            'rows' => 10,
+                            'max' => false,
+                            'min' => false,
+                            'maxlength' => '5',
+                            'pattern' => false,
+                            'readonly' => false,
+                            'size' => false,
+                            'steps' => false,
+                            'onclick' => false
+                        ]
+                    ],
+                    3 =>[
+                        'nombre'  => 'submit',
+                        'columnas' => 'col-md-12',
+                        'tag' => 'input',
+                        'attr' => [
+                            'tipe' => 'submit',
+                            'value' => true,
+                            'name' => 'enviar',
+                            'required' => true,
+                            'checked' => false,
+                            'disabled' =>false,
+                            'max' => false,
+                            'min' => false,
+                            'maxlength' => false,
+                            'pattern' => false,
+                            'readonly' => false,
+                            'size' => false,
+                            'steps' => false,
+                            'onclick' => false
+                        ]
+                    ]
+                ]
+
+            ];
             if($ruta == 'rol.create'){
                 $clase['metodo'] = 'Creacion de Roles';
                 $clase['method'] = 'create';
@@ -100,31 +193,27 @@
                 $clase['verbo'] = 'post';
                 $clase['ruta'] = 'rol.update';
                 $clase['boton'] = 'Edita el rol';
+                $clase['campos_form']['input'][0]['attr']['tipe'] = 'text';
+                $clase['campos_form']['input'][0]['columnas'] = 'col-md-6';
+                $clase['campos_form']['input'][1]['columnas'] = 'col-md-6';
             }
-            $clase['campos_form'] = [
-                'text' => [
-                'existe' => 'si',
-                'cantidad' => 1,
-                0 => [
-                    'name' => 'nombre',
-                    'tag' => 'Nombre'
-                    ],
-                ],
-                'textarea' => [
-                    'existe' => 'si',
-                    'cantidad' => 1,
-                    0 => [
-                        'name' => 'descripcion',
-                        'tag' => 'Descripcion'
-                        ],
-                ]
 
-            ];
         }else{
             $clase['vista'] = 'BackOffice.vistas.single';
-            $clase['metodo'] = 'Creacion de Roles';
-            $clase['method'] = 'create';
-            $clase['subtitulo'] = 'Creemos un Rol';
+            $clase['metodo'] = 'Perfil de Roles';
+            $clase['method'] = 'show';
+            $clase['subtitulo'] = 'Perfil del Rol';
+            $clase['bd'][0] =  'id';
+            $clase['bd'][1] =  'nombre';
+            $clase['bd'][2] =  'descripcion';
+            $clase['bd'][3] =  'slug';
+            $clase['bd'][4] =  'created_at';
+            $clase['bd'][5] =  'updated_at';
+            $clase['bd'][6] =  'deleted_at';
+            $clase['tabla'][0] = 'Id';
+            $clase['tabla'][1] = 'Nombre';
+            $clase['tabla'][2] = 'Descripcion';
+            $clase['tabla'][3] = 'Slug';
         }
 
         return $clase;
