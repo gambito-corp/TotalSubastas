@@ -3,51 +3,35 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateUserRequest;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\CreateUserRequest;
 
 class RegisterController extends Controller
 {
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    public function redirectTo()
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    public function __construct(){$this->middleware('guest');}
+
+    public function ShowRegistrationForm(){return view('auth.register');}
+
+    public function register(CreateUserRequest $request)
     {
-        return redirect(RouteServiceProvider::HOME);
+        $request->validated();
+        $user = User::create($request->validated());
+        $this->guard()->login($user);
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+        return $request->wantsJson()
+                    ? new Response('', 201)
+                    : redirect($this->redirectTo);
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    protected function guard(){return Auth::guard();}
 
-    public function showRegistrationForm()
-    {
-        return view('auth.registro');
-    }
-
-    public function Register(CreateUserRequest $request)
-    {
-        $request = $request->validated();
-        $request['password'] =  bcrypt($request['password']);
-        $user = ["roles_id" => 4];
-        $request = array_merge($user, $request);
-        User::create($request);
-
-        return auth()->loginUsingId(User::get()->last()->id)
-            ? redirect()->route('admin.index')->with('message', 'exito')
-            : 'fallo';
-    }
+    protected function Registered(Request $request, $user){}
 }

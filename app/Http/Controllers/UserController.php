@@ -2,103 +2,125 @@
 
 namespace App\Http\Controllers;
 
+
 use App\User;
+use App\Rol;
+use App\helpers;
 use App\Http\Requests\CreateUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $data = User::all();
-        $clase = RendUsers('user.index');
-        $user = Auth::user();
-
-        return view('BackOffice.central', compact('data', 'clase', 'user'));
+        $datos = User::get()->load('rol');
+        return view('BackOffice.User.tabla', compact('datos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function trash()
+    {
+        $datos = User::onlyTrashed()->get();
+        return view('BackOffice.User.tabla', compact('datos'));
+    }
+
+    public function Personificacion()
+    {
+        if(auth()->user()->canImpersonate()){
+            session([
+                'personificacion' => auth()->id()
+            ]);
+            auth()->loginUsingId(request('user_id'));
+            return back()->with([
+                'flash' => "Estas Personificando al usuario con el ID ".request('user_id'),
+                'class' => 'success'
+            ]);
+        }
+        return back()->with([
+            'flash' => "No Puedes Personificar ".request('user_id'),
+            'class' => 'danger'
+        ]);
+    }
+
+    public function Inpersonificacion()
+    {
+        auth()->loginUsingId(session('personificacion'));
+        session()->forget('personificacion');
+        return back()->with([
+            'flash' => "Dejaste de personificar al usuario ".request('user_id'),
+            'class' => 'success'
+        ]);
+    }
+
     public function create()
     {
-        //
+        $data = new User();
+        $roles = Rol::pluck('nombre', 'id');
+        return view('BackOffice.User.formulario', compact('data', 'roles'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CreateUserRequest $request)
     {
 
-        if(isset(auth()->user()->rol) && auth()->user()->rol->nombre == 'Administrador'){
-            $request = $request->validated();
-            $request['password'] =  bcrypt($request['password']);
-            $administrador = ["roles_id" => 1];
-            $request = array_merge($administrador, $request);
-            User::create($request);
-            return redirect()->route('user.register')->with('message', 'exito');
-        }
-        return 'fallo';
-
-
-
+        User::create($request->validated());
+        return redirect()->route('User.index')->with([
+            'flash' => 'User Creado, Si necesitas puedes Modificarlo',
+            'class' => 'success'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show($user)
     {
-        //
+        $data = User::get()->where('username', $user)->first();
+
+        return view('backOffice.User.simple', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit($user)
     {
-        //
+        $data = User::get()->where('username', $user)->first();
+        $roles = Rol::pluck('nombre', 'id');
+        return view('BackOffice.User.formulario', compact('data', 'roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->update($request->validated());
+        return redirect()->route('User.index')->with([
+            'flash' => 'User Modificado con exito',
+            'class' => 'info'
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('User.index')->with([
+            'flash' => 'User Dado de baja Este User Ya no se Podra Usar mas',
+            'class' => 'info'
+        ]);
     }
+
+    public function restore($id)
+    {
+        User::onlyTrashed($id)->restore();
+        return redirect()->route('User.index')->with([
+            'flash' => 'User Dado de Alta, Si necesitas puedes Modificarlo',
+            'class' => 'info'
+        ]);
+    }
+
+    public function destroy($user)
+    {
+        User::onlyTrashed($user)->first()->forceDelete();
+        return redirect()->route('User.trash')->with([
+            'flash' => 'User Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
+            'class' => 'danger'
+        ]);
+    }
+
 }

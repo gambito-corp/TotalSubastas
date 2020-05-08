@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'editor' => env('IGNITION_EDITOR', 'phpstorm'),
+    'editor' => env('IGNITION_EDITOR', 'vscode'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ return [
     |
     */
 
-    'theme' => env('IGNITION_THEME', 'light'),
+    'theme' => env('IGNITION_THEME', 'dark'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     | You can enable the command registration below.
     |
     */
-    'register_commands' => env('REGISTER_IGNITION_COMMANDS', false),
+    'register_commands' => env('REGISTER_IGNITION_COMMANDS', true),
 
     /*
     |--------------------------------------------------------------------------

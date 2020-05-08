@@ -1,44 +1,21 @@
-@extends('layouts.BackOfice')
+@extends('adminlte::page')
+
+@section('title', 'Panel de Control')
+
+@section('content_header')
+    <h1>Panel de Control</h1>
+@stop
 
 @section('content')
-{{-- declaro if para ver la ruta a enviar en cualquier caso --}}
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+    <p>Bienvenido al panel de control de la Pagina Web, esta desarrollado con Admin LTE 3</p>
 
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1> Home</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            @include('includes.sesion')
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@stop
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+@section('css')
+    <link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
+@stop
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+
+
+

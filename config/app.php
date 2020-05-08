@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => env('LOCALE', 'en'),
+    'locale' => env('LOCALE', 'es'),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => env('FB_LOCALE', 'en'),
+    'fallback_locale' => env('FB_LOCALE', 'es'),
 
     /*
     |--------------------------------------------------------------------------
@@ -106,7 +106,7 @@ return [
     |
     */
 
-    'faker_locale' => env('FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('FAKER_LOCALE', 'es_ES'),
 
     /*
     |--------------------------------------------------------------------------

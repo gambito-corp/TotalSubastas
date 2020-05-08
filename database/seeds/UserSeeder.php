@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         $user = new User();
         $user->roles_id = 1;
+        $user->name = "gambitocorp";
         $user->username = "gambitocorp";
         $user->email = "asesor.pedro@gmail.com";
         $user->telefono = 960717583;
@@ -34,8 +35,5 @@ class UserSeeder extends Seeder
         $user->save();
 
         factory(User::class)->times(48)->create();
-
-
-
     }
 }

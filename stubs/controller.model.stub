@@ -2,98 +2,92 @@
 
 namespace {{ namespace }};
 
-use {{ namespacedModel }};
 use {{ rootNamespace }}Http\Controllers\Controller;
+
+use App\helpers;
+use {{ namespacedModel }};
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 class {{ class }} extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $datos = {{ model }}::all();
+        return view('BackOffice.{{ model }}.tabla', compact('datos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function trash()
+    {
+        $datos = {{ model }}::onlyTrashed()->get();
+        return view('BackOffice.{{ model }}.tabla', compact('datos'));
+    }
+
     public function create()
     {
-        //
+        $data = new {{ model }}();
+        return view('BackOffice.{{ model }}.formulario', compact('data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        {{ model }}::create($request->validated());
+        return redirect()->route('{{ model }}.index')->with([
+            'flash' => '{{ model }} Creado, Si necesitas puedes Modificarlo',
+            'class' => 'clase'
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function show({{ model }} ${{ modelVariable }})
+    public function show(${{ modelVariable }})
     {
-        //
+        $data = {{ model }}::get()->where('slug', ${{ modelVariable }})->first();
+        return view('backOffice.{{ model }}.simple', compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function edit({{ model }} ${{ modelVariable }})
+    public function edit(${{ modelVariable }})
     {
-        //
+        $data = {{ model }}::get()->where('slug', ${{ modelVariable }})->first();
+        return view('BackOffice.{{ modelo }}.formulario', compact('data'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, {{ model }} ${{ modelVariable }})
     {
-        //
+        ${{ modelVariable }}->update($request->validated());
+        return redirect()->route('{{ model }}.index')->with([
+            'flash' => '{{ model }} Modificado con exito',
+            'class' => 'info'
+        ]);
     }
 
-    /**
-     * flag from delete the specified resource from storage.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
     public function delete({{ model }} ${{ modelVariable }})
     {
-        //
+        ${{ modelVariable }}->delete();
+        return redirect()->route('{{ model }}.index')->with([
+            'flash' => '{{ model }} Dado de baja Este {{ model }} Ya no se Podra Usar mas',
+            'class' => 'info'
+        ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy({{ model }} ${{ modelVariable }})
+    public function restore($id)
     {
-        //
+        {{ model }}::onlyTrashed($id)->restore();
+        return redirect()->route('{{ model }}.index')->with([
+            'flash' => '{{ model }} Dado de Alta, Si necesitas puedes Modificarlo',
+            'class' => 'info'
+        ]);
     }
+
+    public function destroy(${{ modelVariable }})
+    {
+        {{ model }}::onlyTrashed(${{ modelVariable }})->first()->forceDelete();
+        return redirect()->route('{{ model }}.trash')->with([
+            'flash' => '{{ model }} Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
+            'class' => 'danger'
+        ]);
+    }
+
 }

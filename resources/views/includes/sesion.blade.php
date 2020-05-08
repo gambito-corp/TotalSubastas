@@ -1,5 +1,5 @@
-@if (session('msg'))
+@if (session()->has('flash'))
     <div class="alert alert-{{ session('class') }}">
-        {{ session('msg') }}
+        {{ session('flash') }}
     </div>
 @endif

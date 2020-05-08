@@ -3,22 +3,14 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
 
 class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -42,42 +34,25 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-
         'email_verified_at' => 'datetime',
-        'telefono_verified_at' => 'datetime',
-        'created_at'        => 'datetime',
-        'updated_at'        => 'datetime',
-        'deleted_at'        => 'datetime',
     ];
 
-    /**
-     * Iniciamos con las relaciones
-     *
-     * @funcion de relacion
-     */
-    public function rol()
+    public function adminlte_image()
     {
-        return $this->belongsTo(roles::class, 'roles_id');
+        return 'https://picsum.photos/300/300';
     }
 
-    //relaciones hasmany
-    public function avatars()
+    public function adminlte_desc()
     {
-        return $this->hasMany(avatar::class);
+        return 'That\'s a nice guy';
     }
-
-    public function direcciones()
+    public function canImpersonate($userId = null)
     {
-        return $this->hasMany(direccion::class);
+        return $this->id === 1 && $this->id !== $userId;
     }
-
-    public function clientes()
+    //Relaciones
+    public function Rol()
     {
-        return $this->hasMany(cliente::class);
-    }
-
-    public function cliente_naturales()
-    {
-        return $this->hasMany(cliente_natural::class);
+        return $this->belongsTo(Rol::class, 'roles_id');
     }
 }

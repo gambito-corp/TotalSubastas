@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CreateUserRequest extends FormRequest
 {
@@ -17,6 +18,11 @@ class CreateUserRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation():void
+    {
+        //
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,11 +30,64 @@ class CreateUserRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            "username" => "required|unique:users",
-            "email" => "required|email|unique:users",
-            "telefono" => "required|unique:users",
-            "password" => "required|confirmed",
+            'name' => [
+                'required',
+                'string',
+                'max:100'
+            ],
+            "username" => [
+                'required',
+                'alpha_dash',
+                'unique:users',
+                'max:100'
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:users'
+            ],
+            "telefono" => [
+                'required',
+                'unique:users'
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed'
+            ],
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'El campo de Nombre Debe de tener tu nombre completo',
+            'name.string' => 'El campo de nombre solo acepta texto',
+            'name.max' => 'Tu nombre es demasiado largo, usa uno mas corto',
+
+            'username.required' => 'El nombre de usuario es obligatorio',
+            'username.string' => 'El nombre de usuario no puede contener espacios',
+            'username.max' => 'El nombre de usuario es demasiado largo',
+            'username.unique' => 'El nombre de usuario ya esta tomado, Porfavor Logueate',
+
+            'email.required' => 'El Email es obligatorio',
+            'email.string' => 'El Email solo acepta texto',
+            'email.email' => 'El Email debe de llevar @ porfavor introduce tu Email',
+            'email.max' => 'Este Email es demasiado largo',
+            'email.unique' => 'Este Email ya esta Tomado, Porfavor Logueate',
+
+            'telefono.required' => 'El Telefono es Obligatorio',
+            'telefono.unique' => 'Este Telefono ya esta Tomado, Porfavor Logueate',
+
+            'password.required' => 'La Contraseña es Obligatoria',
+            'password.string' => 'No Aceptada Intenta Otra',
+            'password.min' => 'La Contraseña es demasiado cora',
+            'password.confirmed' => 'No Coinciden las Contraseñas',
+
         ];
     }
 }

@@ -41,7 +41,7 @@ class RolesPolicy
      */
     public function create(User $user)
     {
-        return $user->rol->nombre === 'Superadministrador';
+        return $user->rol->nombre === 'Superadmnistrador';
     }
 
     /**

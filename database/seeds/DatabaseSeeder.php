@@ -15,23 +15,24 @@ class DatabaseSeeder extends Seeder
 
         $this->truncarTablas([
             'roles',
-            'permisos',
-            'roles_permisos',
             'users',
-            'avatars',
-            'clientes',
-            'cliente_naturales'
+            'permisos',
+            'autorizaciones',
+            'accesos',
         ]);
 
         $info = [
             'rol' => '
             Los Roles Fueron Creados Exitosamente
             ',
-            'permiso' => '
-            Los Permisos Fueron Creados Exitosamente
+            'autorizacion' => '
+            Los metodos Fueron creados
             ',
-            'rolpermiso' => '
-            Los Roles y Los Permisos Fueron Enlazados Exitosamente
+            'permiso' => '
+            Los permisos fueron Creados Exitosamente
+            ',
+            'acceso' => '
+            Los accesos fueron Creados Exitosamente
             ',
             'user' => '
             Los Usuarios se Crearon en la plataforma
@@ -40,33 +41,19 @@ class DatabaseSeeder extends Seeder
             - Un Administrador
             - 48 Usuarios aleatorios entre Editores y Users
 
-            Ya Estan Todos Con su Rol Asignado',
-            'avatar' => '
-            Todas las imagenes de prueba fueron cargadas en la BD,
-            Ahora todos los Usuarios Tiene La imagen Por Default
-            ',
-            'clientes' => '
-            se crearon los clientes Exitosamente
-            ',
-            'cliente_naturales' => '
-            Estos Clientes fueron agregados como clientes Naturales
-            '
+            Ya Estan Todos Con su Rol Asignado'
         ];
 
         $this->call(RolesSeeder::class);
         $this->command->info($info['rol']);
-        $this->call(PermisosSeeder::class);
+        $this->call(AutorizacionSeeder::class);
+        $this->command->info($info['autorizacion']);
+        $this->call(PermisoSeeder::class);
         $this->command->info($info['permiso']);
-        $this->call(RolespermisosSeeder::class);
-        $this->command->info($info['rolpermiso']);
+        $this->call(AccesoSeeder::class);
+        $this->command->info($info['acceso']);
         $this->call(UserSeeder::class);
         $this->command->info($info['user']);
-        $this->call(AvatarSeeder::class);
-        $this->command->info($info['avatar']);
-        $this->call(ClienteSeeder::class);
-        $this->command->info($info['clientes']);
-        $this->call(ClienteNaturalSeeder::class);
-        $this->command->info($info['cliente_naturales']);
     }
 
     protected function truncarTablas(array $tablas)
