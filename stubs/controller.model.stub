@@ -68,7 +68,7 @@ class {{ class }} extends Controller
         ${{ modelVariable }}->delete();
         return redirect()->route('{{ model }}.index')->with([
             'flash' => '{{ model }} Dado de baja Este {{ model }} Ya no se Podra Usar mas',
-            'class' => 'info'
+            'class' => 'warning'
         ]);
     }
 
@@ -86,7 +86,7 @@ class {{ class }} extends Controller
         {{ model }}::onlyTrashed(${{ modelVariable }})->first()->forceDelete();
         return redirect()->route('{{ model }}.trash')->with([
             'flash' => '{{ model }} Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
-            'class' => 'danger'
+            'class' => 'error'
         ]);
     }
 
