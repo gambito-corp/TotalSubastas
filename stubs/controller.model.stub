@@ -51,7 +51,7 @@ class {{ class }} extends Controller
     public function edit(${{ modelVariable }})
     {
         $data = {{ model }}::get()->where('slug', ${{ modelVariable }})->first();
-        return view('BackOffice.{{ modelo }}.formulario', compact('data'));
+        return view('BackOffice.{{ model }}.formulario', compact('data'));
     }
 
     public function update(Request $request, {{ model }} ${{ modelVariable }})
