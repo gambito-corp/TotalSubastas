@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class CreateUserRequest extends FormRequest
 {
@@ -40,7 +41,7 @@ class CreateUserRequest extends FormRequest
             "username" => [
                 'required',
                 'alpha_dash',
-                'unique:users',
+                Rule::unique('users')->ignore($this->route('User')),
                 'max:100'
             ],
             'email' => [
@@ -48,11 +49,11 @@ class CreateUserRequest extends FormRequest
                 'string',
                 'email',
                 'max:255',
-                'unique:users'
+                Rule::unique('users')->ignore($this->route('User')),
             ],
             "telefono" => [
                 'required',
-                'unique:users'
+                Rule::unique('users')->ignore($this->route('User')),
             ],
             'password' => [
                 'required',

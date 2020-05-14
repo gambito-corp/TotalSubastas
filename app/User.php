@@ -48,11 +48,15 @@ class User extends Authenticatable
     }
     public function canImpersonate($userId = null)
     {
-        return $this->id === 1 && $this->id !== $userId;
+        return $this->id === 1 && $this->id !== $userId; 
     }
     //Relaciones
     public function Rol()
     {
         return $this->belongsTo(Rol::class, 'roles_id');
+    }
+    public function imagenes()
+    {
+        return $this->HasMany(Avatar::class);
     }
 }

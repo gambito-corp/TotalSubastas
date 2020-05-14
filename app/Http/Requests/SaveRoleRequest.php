@@ -25,7 +25,7 @@ class SaveRoleRequest extends FormRequest
 
     protected function prepareForValidation():void
     {
-        if($this->input('crear') == 'Crear Rol' || $this->input('crear') == 'Crear Permiso'){
+        if($this->input('crear') == 'Crear Rol'){
             $this->merge([
                 'slug' =>Str::slug(strtolower($this->input('nombre')))
             ]);

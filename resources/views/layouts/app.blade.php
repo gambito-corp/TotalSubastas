@@ -71,7 +71,7 @@
                 </div>
             </div>
         </nav>
-        @include('includes.session')
+        @include('includes.sesion')
 
         <main class="py-4">
             @yield('content')

@@ -1,125 +1,149 @@
-@extends('adminlte::page')
+@extends('BackOffice.page')
+@section('title-pre', 'TotalSubastas')
 
-@section('title', 'Creacion de Accesos')
-
-@section('content_header')
-    @if (request()->routeis('Acceso.edit'))
-        <h1>Formulario de Edicion del Acceso</h1>
-    @else
-        <h1>Formulario de Creacion de Acceso</h1>
-    @endif
-@stop
-
-@section('content')
-    <p>Bienvenido al panel de control de la Pagina Web, esta desarrollado con Admin LTE 3</p>
-
-
-    <div class="container bg-light py-3">
-
-
-        <form action="{{ request()->routeis('Acceso.edit') ? route('Acceso.update', ['acceso' => $data]) : route('Acceso.store') }}" method="post" >
-            @if (request()->routeis('Acceso.edit'))
-                @method('PATCH')
-            @endif
-            @csrf
-            @include('includes.sesion')
-                {{-- {{ dd($data->rol_id) }} --}}
-
-                <div class="form-group">
-                    <select name="rol_id" class="custom-select {{ $errors->has('rol_id') ? 'is-invalid' : '' }}" size="1">
-                        @forelse ($roles as $id => $rol)
-                            <option value="{{ $id }}" {{ $data->rol_id==$id ? 'selected' : '' }}>{{ $rol }}</option>
-                        @empty
-                            <option value="0" disabled>No Existen Roles</option>
-                        @endforelse
-                    </select>
-                    <div class="help-block with-errors">
-                        @if ($errors->has('rol_id'))
-                        <div class="invalid-feedback">
-                            {{ $errors->first('rol_id') }}
-                        </div>
-                        @endif
-                    </div>
-                    {{-- {{ dd($data->autorizacion_id) }} --}}
-                    <select name="autorizacion_id" class="custom-select {{ $errors->has('autorizacion_id') ? 'is-invalid' : '' }}">
-                        @forelse ($roles as $id => $rol)
-                            <option value="{{ $id }}" {{ $data->autorizacion_id==$id ? 'selected' : '' }}>{{ $rol }}</option>
-                        @empty
-                            <option value="0" disabled>No Existen Autorizacion</option>
-                        @endforelse
-                    </select>
-                    <div class="help-block with-errors">
-                        @if ($errors->has('autorizacion_id'))
-                        <div class="invalid-feedback">
-                            {{ $errors->first('autorizacion_id') }}
-                        </div>
-                        @endif
-                    </div>
-                </div>
-
-                @forelse ($permisos as $id => $auto)
-                    <div class="form-check form-check-inline">
-                        <div class="invalid-feedback">Example invalid feedback text</div>
-                    {{-- {{ dd($todo) }} --}}
-
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ $id }}" {{ ($todo[$id-1]==$id) ? 'checked ' : '' }} >
-                        <label class="form-check-label" for="inlineCheckbox1">{{ $auto }}</label>
-
-                    </div>
-                @empty
-                    <div class="form-check form-check-inline">
-                        <div class="invalid-feedback">Example invalid feedback text</div>
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="{{ null }}">
-                        <label class="form-check-label" for="inlineCheckbox1">null</label>
-                    </div>
-                @endforelse
-                <pre>
-
-                </pre>
-
-
-
-
-            <div class="col-md-6">
-
-
-            </div>
-
-
-            </form>
-            <div class="controls">
-                {{-- {{ dd($roles) }} --}}
-                <div class="row">
-
-{{--
-
-
-                </div>
-                <div class="row">
-                    <div class="col-md-2 offset-5">
-                        @if (request()->routeis('Acceso.edit'))
-                            <input type="submit" name="Actualizar" class="btn btn-success btn-send" value="Actualizar Acceso">
-                        @else
-                            <input type="submit" name="crear" class="btn btn-success btn-send" value="Crear acceso">
-                        @endif
-                    </div>
-                </div>
-                </div>
-
-
-
-            <div class="row">
-            </div> --}}
-        </form>
-    </div>
-@stop
-
+@if (request()->routeis('Acceso.create'))
+    @section('title', '- Crear Acceso')
+@else  
+    @section('title', '- Actualiza el Acceso '.$data->id)
+@endif
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
-@stop
+@section('fuentes')
+
+@if (request()->routeis('Acceso.create'))
+    @section('content_header', 'Creemos un Acceso')
+@else  
+    @section('content_header', 'Actualiza el Acceso '.$data->id)
+@endif
+
+@if (request()->routeis('Acceso.create'))
+    @section('BreadCrumbs', 'Acceso / Crear')
+@else  
+    @section('BreadCrumbs', 'Acceso / Editar / '.$data->id)
+@endif
+@section('contenido')
+    <h2>
+        rellena los campos del formulario
+    </h2>
+    <!-- general form elements disabled -->
+    <div class="card card-info col-md-8 mx-auto">
+        <div class="card-header">
+            <h3 class="card-title">{{ request()->routeis('Acceso.create') ? 'Crea Tu Propio Acceso' : 'Actualiza el Acceso '.$data->id }}</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <form 
+            role="form" 
+            method="POST" 
+            action="{{ request()->routeis('Acceso.create') ? route('Acceso.store') : route('Acceso.update', ['acceso' => $data->id]) }}">
+                @if (request()->routeis('Acceso.edit')) @method('PATCH') @endif
+                @csrf
+                <div class="row">
+                    
+                    <div class="col-md-4 mx-auto">
+                        <div class="form-group">                                  
+                            <label class="col-form-label" for="rol_id">
+                               @error('rol_id')<i class="far fa-times-circle"></i>@enderror                              
+                                Rol
+                            </label>
+
+                            <select name="rol_id" id="rol_id" class="form-control @error('rol_id') is-invalid @enderror select2" data-placeholder="Selecciona un Rol">                                                                                                        
+                                @forelse ($roles as $rol)
+                                    <option 
+                                    value="{{ $rol->id }}"
+                                    {{ old('rol_id') == $rol->id ? 'selected': '' }}>{{ $rol->nombre }}</option>
+                                @empty
+                                    
+                                @endforelse
+                            </select>                                                                            
+                            @error('rol_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-md-4 mx-auto">
+                        <div class="form-group">                            
+                                                        
+                            <label class="col-form-label" for="autorizacion_id">
+                               @error('autorizacion_id')<i class="far fa-times-circle"></i>@enderror
+
+                                Controlador
+                            </label>
+                            <select name="autorizacion_id" id="autorizacion_id" class="form-control @error('slug') is-invalid @enderror select2" data-placeholder="Selecciona un Controlador">                                                                                                        
+                                @forelse ($autorizacion as $auto)
+                                    <option 
+                                    value="{{ $auto->id }}
+                                    {{ old('autorizacion_id') == $auto->id ? 'selected': '' }}">
+                                    {{ $auto->nombre }}
+                                </option>
+                                @empty
+                                    
+                                @endforelse
+                            </select>
+                            
+                            @error('autorizacion_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mx-auto">
+                        <div class="form-group">                                                        
+                            <label class="col-form-label" for="permiso_id">
+                               @error('permiso_id')<i class="far fa-times-circle"></i>@enderror
+
+                                Permisos
+                            </label>
+                            <select name="permiso_id[]" id="permiso_id" class="form-control @error('permiso_id') is-invalid @enderror select2"  multiple="multiple" data-placeholder="Selecciona Los Permisos">                                                                                                        
+                                @forelse ($permisos as $permiso)
+                                    <option 
+                                    value="{{ $permiso->id }}
+                                    {{ collect(old('permiso_id'))->contains($permiso->id) ? 'selected': '' }}">{{ $permiso->nombre }}</option>
+                                @empty
+                                    
+                                @endforelse
+                            </select>
+                            
+                            @error('permiso_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mx-auto">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block" name="crear" value="{{ request()->routeis('Acceso.create') ? 'Crear Acceso' : 'Actualiza El Acceso' }}">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    <!-- general form elements disabled -->
+@endsection
 
 
 
 
-
+@section('plugins')
+@section('js')
+<script>
+    $(document).ready(function() {
+            $('.select2').select2({
+        })
+    });
+</script>
+@endsection

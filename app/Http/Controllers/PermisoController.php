@@ -69,13 +69,13 @@ class PermisoController extends Controller
         $permiso->delete();
         return redirect()->route('Permiso.index')->with([
             'flash' => 'Permiso Dado de baja Este Permiso Ya no se Podra Usar mas',
-            'class' => 'info'
+            'class' => 'warning'
         ]);
     }
 
     public function restore($id)
     {
-        Permiso::onlyTrashed($id)->restore();
+        Permiso::onlyTrashed($id)->where('slug', $id)->first()->restore();
         return redirect()->route('Permiso.index')->with([
             'flash' => 'Permiso Dado de Alta, Si necesitas puedes Modificarlo',
             'class' => 'info'
@@ -87,7 +87,7 @@ class PermisoController extends Controller
         Permiso::onlyTrashed($permiso)->first()->forceDelete();
         return redirect()->route('Permiso.trash')->with([
             'flash' => 'Permiso Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
-            'class' => 'danger'
+            'class' => 'error'
         ]);
     }
 

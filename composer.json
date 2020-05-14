@@ -38,6 +38,10 @@
         "psr-4": {
             "App\\": "app/"
         },
+        "files" : [
+            "app/helpers/setActive.php",
+            "app/helpers/setOpen.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

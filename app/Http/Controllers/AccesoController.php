@@ -35,22 +35,31 @@ class AccesoController extends Controller
     public function create()
     {
         $data = new Acceso();
-        $roles = Rol::pluck('nombre', 'id');
-        $autorizacion =Autorizacion::pluck('nombre', 'id');
-        $permisos =Permiso::pluck('nombre', 'id');
+        $roles = Rol::all();
+        $autorizacion =Autorizacion::all();
+        $permisos =Permiso::all();
 
         return view('BackOffice.Acceso.formulario', compact('data', 'roles', 'permisos', 'permisos', 'autorizacion'));
     }
 
     public function store(SaveAccesosRequest $request)
     {
+        // dd($request->input(), 'store');
 
         foreach($request->input()['permiso_id'] as $permiso){
            $acceso = new Acceso();
            $acceso->rol_id = $request->input('rol_id');
            $acceso->autorizacion_id = $request->input('autorizacion_id');
            $acceso->permiso_id = $permiso;
-           $acceso->save();
+
+           $consulta = Acceso::where('rol_id', $acceso->rol_id)
+           ->where('autorizacion_id', $acceso->autorizacion_id)
+           ->where('permiso_id', $acceso->permiso_id)
+           ->first();
+        //    dd(isset($consulta));
+           if(!isset($consulta)){
+               $acceso->save();
+           }
         }
 
         return redirect()->route('Acceso.index')->with([
@@ -69,17 +78,13 @@ class AccesoController extends Controller
     {
         $data = Acceso::get()->where('id', $acceso)->load('rol', 'permiso', 'autorizacion')->first();
 
-        $roles = Rol::pluck('nombre', 'id');
-        $autorizacion =Autorizacion::pluck('nombre', 'id');
-        $permisos = Permiso::pluck('nombre', 'id');
+        $roles = Rol::all();
+        $autorizacion =Autorizacion::all();
+        $permisos = Permiso::all();
         $todo = Acceso::all()->where('rol_id', $data->rol->id);
         foreach ($todo as $id => $tod) {
             $todo[$id] = $tod->permiso_id;
-            dd($todo, $tod);
         }
-
-
-
         return view('BackOffice.Acceso.formulario', compact('data', 'roles', 'permisos', 'autorizacion', 'todo'));
     }
 

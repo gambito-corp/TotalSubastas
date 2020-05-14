@@ -1,20 +1,18 @@
-@extends('adminlte::page')
-
-@section('title', 'Panel de Control')
-
-@section('content_header')
-    <h1>Panel de Control</h1>
-@stop
-
-@section('content')
-    <p>Bienvenido al panel de control de la Pagina Web, esta desarrollado con Admin LTE 3</p>
-    <h2>
-        {{ $data->nombre }}
-    </h2>
-
-@stop
-
-
+@extends('BackOffice.layouts.layout')
+@section('title-pre', 'TotalSubastas')
+@section('title', ' -  '.$data->nombre)
 @section('css')
-    <link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
-@stop
+@section('fuentes')
+@section('content_header', 'Panel De Control')
+@section('BreadCrumbs')
+
+@section('contenido')
+<h2>Perfil del Rol {{ $data->nombre }}</h2>
+
+@endsection
+
+@section('frase_footer', 'Diseñado Para Ti')
+@section('plugins')
+@section('js')
+
+

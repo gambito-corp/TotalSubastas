@@ -1,20 +1,39 @@
-@extends('adminlte::page')
+@extends('BackOffice.page')
 
-@section('title', 'Panel de Control')
+@section('title-pre', 'hola - ')
+@section('title', 'ahora')
+@section('title-pos', ' - adios')
 
-@section('content_header')
-    <h1>Panel de Control</h1>
+@section('css')
+@section('fuentes')
+
+
+
+@section('BreadCrumbs', 'adios')
+
+
+
+@section('content_header', 'Panel de Control')
+
+
+@section('RSB-Title', 'Hola')
+@section('RSB-SubTitle', 'adios')
+@section('RSB-Menu')
+{{-- Estructuta de menu??? --}}
 @stop
 
-@section('content')
+
+@section('contenido')
     <p>Bienvenido al panel de control de la Pagina Web, esta desarrollado con Admin LTE 3</p>
 
 @stop
 
 
-@section('css')
-    <link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
-@stop
+@section('frase_footer', 'Adios Mundo')
+@section('js')
+
+
+
 
 
 

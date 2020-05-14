@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Autorizacion;
 use App\helpers;
-use App\Http\Requests\SaveAutorizacionRequest;
+// use App\Http\Requests\SaveAutorizacionRequest;
+use App\Http\Requests\SaveControllerRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,7 @@ class AutorizacionController extends Controller
     public function index()
     {
         $datos = Autorizacion::all();
+        // dd($datos);
         return view('BackOffice.Autorizacion.tabla', compact('datos'));
     }
 
@@ -28,16 +30,16 @@ class AutorizacionController extends Controller
     }
 
     public function create()
-    {
+    {        
         $data = new Autorizacion();
         return view('BackOffice.Autorizacion.formulario', compact('data'));
     }
 
-    public function store(SaveAutorizacionRequest $request)
+    public function store(SaveControllerRequest $request)
     {
         Autorizacion::create($request->validated());
         return redirect()->route('Autorizacion.index')->with([
-            'flash' => 'Autorizacion Creado, Si necesitas puedes Modificarlo',
+            'flash' => 'Contolador Creado, Si necesitas puedes Modificarlo',
             'class' => 'success'
         ]);
     }
@@ -54,11 +56,11 @@ class AutorizacionController extends Controller
         return view('BackOffice.Autorizacion.formulario', compact('data'));
     }
 
-    public function update(SaveAutorizacionRequest $request, Autorizacion $autorizacion)
+    public function update(SaveControllerRequest $request, Autorizacion $autorizacion)
     {
         $autorizacion->update($request->validated());
         return redirect()->route('Autorizacion.index')->with([
-            'flash' => 'Autorizacion Modificado con exito',
+            'flash' => 'Controlador Modificado con exito',
             'class' => 'info'
         ]);
     }
@@ -67,26 +69,27 @@ class AutorizacionController extends Controller
     {
         $autorizacion->delete();
         return redirect()->route('Autorizacion.index')->with([
-            'flash' => 'Autorizacion Dado de baja Este Autorizacion Ya no se Podra Usar mas',
-            'class' => 'info'
+            'flash' => 'Conttrolador Dado de baja Este Controlador Ya no se Podra Usar mas',
+            'class' => 'warning'
         ]);
     }
 
     public function restore($id)
     {
-        Autorizacion::onlyTrashed($id)->restore();
+        Autorizacion::onlyTrashed($id)->where('slug', $id)->first()->restore();
         return redirect()->route('Autorizacion.index')->with([
-            'flash' => 'Autorizacion Dado de Alta, Si necesitas puedes Modificarlo',
+            'flash' => 'Controlador Dado de Alta, Si necesitas puedes Modificarlo',
             'class' => 'info'
         ]);
     }
 
     public function destroy($autorizacion)
     {
+
         Autorizacion::onlyTrashed($autorizacion)->first()->forceDelete();
         return redirect()->route('Autorizacion.trash')->with([
-            'flash' => 'Autorizacion Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
-            'class' => 'danger'
+            'flash' => 'Controlador Eliminado definitivamente, ya no existe mas y sus dependencias fueron eliminadas',
+            'class' => 'error'
         ]);
     }
 

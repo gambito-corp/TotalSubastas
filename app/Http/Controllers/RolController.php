@@ -35,6 +35,7 @@ class RolController extends Controller
 
     public function store(SaveRoleRequest $request)
     {
+        
         Rol::create($request->validated());
         return redirect()->route('rol.index')->with([
             'flash' => 'Rol Creado, Si necesitas puedes Modificarlo',
@@ -45,6 +46,7 @@ class RolController extends Controller
     public function show($rol)
     {
         $data = rol::get()->where('slug', $rol)->first();
+        // dd($data);
         return view('BackOffice.Rol.simple', compact('data'));
     }
 
@@ -75,7 +77,7 @@ class RolController extends Controller
 
     public function restore($id)
     {
-        Rol::onlyTrashed($id)->restore();
+        Rol::onlyTrashed($id)->where('slug', $id)->first()->restore();
         return redirect()->route('rol.index')->with([
             'flash' => 'Rol Dado de Alta, Si necesitas puedes Modificarlo',
             'class' => 'info'

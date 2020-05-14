@@ -23,7 +23,7 @@ class SavePemisoRequest extends FormRequest
     
     protected function prepareForValidation():void
     {
-        if($this->input('crear') == 'Crear Rol' || $this->input('crear') == 'Crear Permiso'){
+        if($this->input('crear') == 'Crear Permiso'){
             $this->merge([
                 'slug' =>Str::slug(strtolower($this->input('nombre')))
             ]);
@@ -32,15 +32,16 @@ class SavePemisoRequest extends FormRequest
 
     public function rules()
     {
+        
         return [
             'nombre' => [
                 'required',
-                Rule::unique('permisos')->ignore($this->route('permiso')->id),
+                Rule::unique('permisos')->ignore($this->route('permiso')),
             ],
             'slug' => [
                 'required',
                 'alpha_dash',
-                Rule::unique('permisos')->ignore($this->route('permiso')->id)
+                Rule::unique('permisos')->ignore($this->route('permiso'))
             ],
             'descripcion' => ['string'],
         ];

@@ -7,6 +7,7 @@ use App\User;
 use App\Rol;
 use App\helpers;
 use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\SaveUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -59,7 +60,7 @@ class UserController extends Controller
     public function create()
     {
         $data = new User();
-        $roles = Rol::pluck('nombre', 'id');
+        $roles = Rol::all();
         return view('BackOffice.User.formulario', compact('data', 'roles'));
     }
 
@@ -83,11 +84,11 @@ class UserController extends Controller
     public function edit($user)
     {
         $data = User::get()->where('username', $user)->first();
-        $roles = Rol::pluck('nombre', 'id');
+        $roles = Rol::all();
         return view('BackOffice.User.formulario', compact('data', 'roles'));
     }
 
-    public function update(Request $request, User $user)
+    public function update(SaveUserRequest $request, User $user)
     {
         $user->update($request->validated());
         return redirect()->route('User.index')->with([
@@ -107,7 +108,7 @@ class UserController extends Controller
 
     public function restore($id)
     {
-        User::onlyTrashed($id)->restore();
+        User::onlyTrashed($id)->first()->restore();
         return redirect()->route('User.index')->with([
             'flash' => 'User Dado de Alta, Si necesitas puedes Modificarlo',
             'class' => 'info'

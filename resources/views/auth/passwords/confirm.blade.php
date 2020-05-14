@@ -1,66 +1,136 @@
-@extends('adminlte::master')
+@extends('BackOffice.layouts.layout')
+@section('title-pre', 'TotalSubastas')
+@section('title')
+@section('css')
+@section('fuentes')
+@section('content_header', 'Confirma tu Contraseña')
+{{-- @section('BreadCrumbs') --}}
 
-@section('adminlte_css')
-    @yield('css')
-@stop
+@section('contenido')
 
-@section('classes_body', 'lockscreen')
-
-@php( $password_reset_url = View::getSection('password_reset_url') ?? config('adminlte.password_reset_url', 'password/reset') )
-@php( $dashboard_url = View::getSection('dashboard_url') ?? config('adminlte.dashboard_url', 'home') )
-
-@if (config('adminlte.use_route_url', false))
-    @php( $password_reset_url = $password_reset_url ? route($password_reset_url) : '' )
-    @php( $dashboard_url = $dashboard_url ? route($dashboard_url) : '' )
-@else
-    @php( $password_reset_url = $register_url ? url($password_reset_url) : '' )
-    @php( $dashboard_url = $register_url ? url($dashboard_url) : '' )
-@endif
-
-@section('body')
-    <div class="lockscreen-wrapper">
-        <div class="lockscreen-logo">
-            <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+<!-- Automatic element centering -->
+<div class="lockscreen-wrapper">
+    <div class="lockscreen-logo">
+        <a href="../../index2.html"><b>Subasta</b> Total</a>
+    </div>
+    <!-- User name -->
+    <div class="lockscreen-name">{{ auth()->user()->name }}</div>
+    <br> <br>
+  
+    <!-- START LOCK SCREEN ITEM -->
+    <div class="lockscreen-item">
+        <!-- lockscreen image -->
+        <div class="lockscreen-image">
+            <img src="../../dist/img/user1-128x128.jpg" alt="User Image">
         </div>
-
-        <div class="lockscreen-name">{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</div>
-
-        <div class="lockscreen-item">
-            @if(config('adminlte.usermenu_image'))
-            <div class="lockscreen-image">
-                <img src="{{ Auth::user()->adminlte_image() }}" alt="{{ Auth::user()->name }}">
-            </div>
-            @endif
-
-            <form method="POST" action="{{ route('password.confirm') }}" class="lockscreen-credentials @if(!config('adminlte.usermenu_image'))ml-0 @endif">
-                @csrf
-                <div class="input-group">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('adminlte::adminlte.password') }}" autofocus>
-
-                    <div class="input-group-append">
-                        <button type="submit" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
-                    </div>
+        <!-- /.lockscreen-image -->
+  
+        <!-- lockscreen credentials (contains the form) -->
+        <form class="lockscreen-credentials" method="POST" action="{{ route('password.confirm') }}">
+            @csrf
+            <div class="input-group">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Introduce tu contraseña" name="password" required autocomplete="current-password">
+                @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+                <div class="input-group-append">
+                    <button type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
                 </div>
-            </form>
-        </div>
-        @error('password')
-            <div class="lockscreen-subitem text-center" role="alert">
-                <b class="text-danger">{{ $message }}</b>
             </div>
-        @enderror
-        <div class="help-block text-center">
-            {{ __('adminlte::adminlte.confirm_password_message') }}
-        </div>
-        <div class="text-center">
-            <a href="{{ $password_reset_url }}">
-                {{ __('adminlte::adminlte.i_forgot_my_password') }}
-            </a>
+        </form>
+        <!-- /.lockscreen credentials -->
+    </div>
+    <!-- /.lockscreen-item -->
+    <div class="help-block text-center">
+        Introduce tu password para confirmar la accion
+    </div>
+</div>
+<!-- /.center -->
+
+@endsection
+@section('frase_footer', 'Diseñado Para Ti')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Confirm Password') }}</div>
+
+                <div class="card-body">
+                    {{ __('Please confirm your password before continuing.') }}
+
+                    <form method="POST" action="{{ route('password.confirm') }}">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Confirm Password') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-@stop
+</div> --}}
 
-@section('adminlte_js')
-    <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
-    @stack('js')
-    @yield('js')
-@stop

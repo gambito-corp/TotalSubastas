@@ -38,7 +38,7 @@ class {{ class }} extends Controller
         {{ model }}::create($request->validated());
         return redirect()->route('{{ model }}.index')->with([
             'flash' => '{{ model }} Creado, Si necesitas puedes Modificarlo',
-            'class' => 'clase'
+            'class' => 'success'
         ]);
     }
 
@@ -74,7 +74,7 @@ class {{ class }} extends Controller
 
     public function restore($id)
     {
-        {{ model }}::onlyTrashed($id)->restore();
+        {{ model }}::onlyTrashed($id)->where('slug', $id)->first()->restore();
         return redirect()->route('{{ model }}.index')->with([
             'flash' => '{{ model }} Dado de Alta, Si necesitas puedes Modificarlo',
             'class' => 'info'
