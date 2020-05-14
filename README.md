@@ -10,7 +10,7 @@
 
 <p>dentro de la consola de MySQL tipeamos la BD</p>
 
-<p>`create database totalSubastas`</p>
+<p>`CREATE DATABASE totalSubastas;`</p>
 
 <p> Y ahora ***Ejecutamos las migraciones dentro de nuestra carpeta de proyecto***</p>
 
