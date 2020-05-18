@@ -29,7 +29,7 @@ Route::get('/', function () {
 //RUTAS DE AUTH
 //rutas de Login
 Route::get('login', 'Auth\LoginController@ShowLoginForm')->name('login')->middleware('guest');
-Route::post('login', 'Auth\LoginController@Login');
+Route::post('login', 'Auth\LoginController@Login')->name('login');
 Route::post('logout', 'Auth\LoginController@Logout')->name('logout');
 //rutas de Registro
 Route::get('register', 'Auth\RegisterController@ShowRegistrationForm')->name('register');
@@ -148,3 +148,8 @@ route::get('panel/testTelefono', 'TelefonoNikController@index')->name('TelefonoN
 
 
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

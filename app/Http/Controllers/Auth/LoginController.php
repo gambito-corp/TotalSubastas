@@ -6,14 +6,26 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Providers\RouteServiceProvider;
+use App\UsoPortal;
 
 class LoginController extends Controller
 {
 
 
     use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+
     public function ShowLoginForm()
     {
+
         return view('auth.login');
     }
 
@@ -21,7 +33,17 @@ class LoginController extends Controller
     {
 
         if(Auth::attempt($credenciales->validated())){
-            return redirect()->route('home');
+            $navegador = request()->server('HTTP_USER_AGENT');
+            $ip = request()->server('REMOTE_ADDR');
+            $user_id =auth()->user()->id;
+            $appuso = new UsoPortal();
+            $appuso->user_id = $user_id;
+            $appuso->navegador = $navegador;
+            $appuso->ip = $ip;
+            $appuso->save();
+
+
+            return redirect()->route('voyager.dashboard');
         }
 
         return back()->withErrors([
