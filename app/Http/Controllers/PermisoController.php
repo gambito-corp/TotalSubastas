@@ -90,5 +90,4 @@ class PermisoController extends Controller
             'class' => 'error'
         ]);
     }
-
 }
