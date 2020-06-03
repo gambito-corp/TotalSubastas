@@ -34,6 +34,7 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $casts = [
+        'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
     public function canImpersonate($userId = null)

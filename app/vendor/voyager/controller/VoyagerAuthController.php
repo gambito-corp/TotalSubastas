@@ -16,7 +16,6 @@ class VoyagerAuthController extends Controller
         if ($this->guard()->user()) {
             return redirect()->route('voyager.dashboard');
         }
-        dd('hola mundo');
 
         return Voyager::view('voyager::login');
     }
