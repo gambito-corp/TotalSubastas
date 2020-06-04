@@ -14,26 +14,10 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->truncarTablas([
-            'roles',
-            'users',
-            'permisos',
-            'autorizaciones',
-            'accesos',
+            'users'
         ]);
 
         $info = [
-            'rol' => '
-            Los Roles Fueron Creados Exitosamente
-            ',
-            'autorizacion' => '
-            Los metodos Fueron creados
-            ',
-            'permiso' => '
-            Los permisos fueron Creados Exitosamente
-            ',
-            'acceso' => '
-            Los accesos fueron Creados Exitosamente
-            ',
             'user' => '
             Los Usuarios se Crearon en la plataforma
             Dispones de:
@@ -44,14 +28,6 @@ class DatabaseSeeder extends Seeder
             Ya Estan Todos Con su Rol Asignado'
         ];
 
-        $this->call(RolesSeeder::class);
-        $this->command->info($info['rol']);
-        $this->call(AutorizacionSeeder::class);
-        $this->command->info($info['autorizacion']);
-        $this->call(PermisoSeeder::class);
-        $this->command->info($info['permiso']);
-        $this->call(AccesoSeeder::class);
-        $this->command->info($info['acceso']);
         $this->call(UserSeeder::class);
         $this->command->info($info['user']);
     }
