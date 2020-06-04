@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->roles_id = 1;
+        $user->role_id = 1;
         $user->name = "gambitocorp";
         $user->username = "gambitocorp";
         $user->email = "asesor.pedro@gmail.com";
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         $user->save();
 
         $user = new User();
-        $user->roles_id = 2;
+        $user->role_id = 2;
         $user->username = "admin";
         $user->email = "admin@admin.com";
         $user->telefono = 999999999;
