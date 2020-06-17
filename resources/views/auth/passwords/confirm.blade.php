@@ -1,93 +1,6 @@
-@extends('BackOffice.layouts.layout')
-@section('title-pre', 'TotalSubastas')
-@section('title')
-@section('css')
-@section('fuentes')
-@section('content_header', 'Confirma tu Contraseña')
-{{-- @section('BreadCrumbs') --}}
+@extends('layouts.app')
 
-@section('contenido')
-
-<!-- Automatic element centering -->
-<div class="lockscreen-wrapper">
-    <div class="lockscreen-logo">
-        <a href="../../index2.html"><b>Subasta</b> Total</a>
-    </div>
-    <!-- User name -->
-    <div class="lockscreen-name">{{ auth()->user()->name }}</div>
-    <br> <br>
-  
-    <!-- START LOCK SCREEN ITEM -->
-    <div class="lockscreen-item">
-        <!-- lockscreen image -->
-        <div class="lockscreen-image">
-            <img src="../../dist/img/user1-128x128.jpg" alt="User Image">
-        </div>
-        <!-- /.lockscreen-image -->
-  
-        <!-- lockscreen credentials (contains the form) -->
-        <form class="lockscreen-credentials" method="POST" action="{{ route('password.confirm') }}">
-            @csrf
-            <div class="input-group">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Introduce tu contraseña" name="password" required autocomplete="current-password">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-                <div class="input-group-append">
-                    <button type="button" class="btn"><i class="fas fa-arrow-right text-muted"></i></button>
-                </div>
-            </div>
-        </form>
-        <!-- /.lockscreen credentials -->
-    </div>
-    <!-- /.lockscreen-item -->
-    <div class="help-block text-center">
-        Introduce tu password para confirmar la accion
-    </div>
-</div>
-<!-- /.center -->
-
-@endsection
-@section('frase_footer', 'Diseñado Para Ti')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- 
+@section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -132,5 +45,5 @@
             </div>
         </div>
     </div>
-</div> --}}
-
+</div>
+@endsection

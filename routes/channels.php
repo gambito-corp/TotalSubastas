@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
+
+Broadcast::channel('notificacion', function ($user) {
+    return $user != null;
+});
+
+Broadcast::channel('chat', function ($user) {
+    if ($user != null){
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
+});

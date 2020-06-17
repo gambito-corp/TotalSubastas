@@ -13,9 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        \Blade::if('puedePersonificar', function ($userId) {
-            return auth()->user()->canImpersonate($userId);
-        });
+        //
     }
 
     /**
@@ -25,10 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        if(config('app.env') === 'production') {
-            \URL::forceScheme('https');
-        }
-
+        //
     }
 }

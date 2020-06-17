@@ -2,22 +2,25 @@
 
 namespace App;
 
+use App\Events\User\UserCreated;
+use App\Events\User\UserUpdated;
+use App\Events\User\UserDeleted;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends \TCG\Voyager\Models\User
+class User extends Authenticatable
 {
     use Notifiable;
-    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -34,20 +37,19 @@ class User extends \TCG\Voyager\Models\User
      * @var array
      */
     protected $casts = [
-        'id' => 'string',
         'email_verified_at' => 'datetime',
     ];
-    public function canImpersonate($userId = null)
-    {
-        return $this->id === 1 && $this->id !== $userId;
-    }
-    //Relaciones
-    public function Rol()
-    {
-        return $this->belongsTo(Rol::class, 'roles_id');
-    }
-    public function imagenes()
-    {
-        return $this->HasMany(Avatar::class);
-    }
+
+    /**
+     * The event map for the model.
+     *
+     * Allows for object-based events for native Eloquent events.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => UserCreated::class,
+        'updated' => UserUpdated::class,
+        'deleted' => UserDeleted::class,
+    ];
 }
