@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\MessageSent;
+use App\Helpers\Gambito;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -26,13 +27,11 @@ class ChatController extends Controller
     {
 
         $id = \Auth::user()->id;
-        if($id >= 3){
-            Return View('chat.show')->with([
-                'puja' => $this->puja
-            ]);
-        }
-        dump(\Auth::user());
-        die();
+        Return View('chat.show')->with([
+            'puja' => $this->puja
+        ]);
+
+
     }
 
     public function MessageReceived(Request $request)

@@ -4,94 +4,16 @@
     <div class="container mb-4">
         <div class="row">
             <div class="col-md-6">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2" ></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                    </ol>
-                    <div class="carousel-inner redondo-5">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('img/carros.png')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="rounded-circle">
-                                    <img src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" class="circulo" width="100">
-                                </div>
-                                <p>Saga Falabella</p>
-                                <p>26.05.20</p>
-                                <h2>GRAN SUBASTA 10 ACTIVOS PODRÁN SER TUYOS</h2>
-                                <a href="#" class="btn btn-primary redondo">
-                                    <i class="fa fa-image"></i>
-                                    ver lote <span class="numero">10</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('img/carros.png')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="circulo">
-                                    <img src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" class="circulo" width="100">
-                                </div>
-                                <p>Saga Falabella</p>
-                                <p>26.05.20</p>
-                                <h2>GRAN SUBASTA 10 ACTIVOS PODRÁN SER TUYOS</h2>
-                                <a href="#" class="btn btn-primary redondo">
-                                    <i class="fa fa-image"></i>
-                                    ver lote <span class="numero">10</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('img/carros.png')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="circulo">
-                                    <img src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" class="circulo" width="100">
-                                </div>
-                                <p>Saga Falabella</p>
-                                <p>26.05.20</p>
-                                <h2>GRAN SUBASTA 10 ACTIVOS PODRÁN SER TUYOS</h2>
-                                <a href="#" class="btn btn-primary redondo">
-                                    <i class="fa fa-image"></i>
-                                    ver lote <span class="numero">10</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('img/carros.png')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="circulo">
-                                    <img src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" class="circulo" width="100">
-                                </div>
-                                <p>Saga Falabella</p>
-                                <p>26.05.20</p>
-                                <h2>GRAN SUBASTA 10 ACTIVOS PODRÁN SER TUYOS</h2>
-                                <a href="#" class="btn btn-primary redondo">
-                                    <i class="fa fa-image"></i>
-                                    ver lote <span class="numero">10</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('img/carros.png')}}" alt="First slide">
-                            <div class="carousel-caption d-none d-md-block">
-                                <div class="circulo">
-                                    <img src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" class="circulo" width="100">
-                                </div>
-                                <p>Saga Falabella</p>
-                                <p>26.05.20</p>
-                                <h2>GRAN SUBASTA 10 ACTIVOS PODRÁN SER TUYOS</h2>
-                                <a href="#" class="btn btn-primary redondo">
-                                    <i class="fa fa-image"></i>
-                                    ver lote <span class="numero">10</span>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
+                @php
+                    $data = [
+                        '0' => 0,
+                        '1' => 1,
+                        '2' => 2,
+                        '3' => 3,
+                        '4' => 4
+                    ];
+                @endphp
+                @include('home.assets.slide', ['data' => $data])
             </div>
             <div class="col-md-6">
                 <div class="container">
@@ -156,44 +78,20 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 bg-light redondo-px-20 mr-4">a</div>
-{{--            <div class="col-md-1"></div>--}}
-            <div class="col-md-8 bg-light redondo-px-20">
+            <div class="col-md-3 bg-light redondo-px-20 mr-4">
+                @include('home.assets.filtro')
+            </div>
+
+            <div class="col-md-8">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row bg-light redondo-px-20">
                         <div class="col pt-2">
-                            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                                <div class="collapse navbar-collapse" id="navbarNav">
-                                    <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item active">
-                                            <p><b class="mr-3">Autos</b> <span class="navbar-text">hay 52 Resultados </span></p>
-                                        </li>
-                                    </ul>
-                                    <ul class="navbar-nav">
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <b>Filtros</b> <span class="bg-info redondo-px-40 text-light">4 </span>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                            </div>
-                                        </li>
-                                        <li class="nav-item dropdown">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <b>Ordenar Por</b>
-                                            </a>
-                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                                <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Mejor Filtro</a>
-                                                <a class="dropdown-item" href="#">Precio Bajo</a>
-                                                <a class="dropdown-item" href="#">Precio Alto</a>
-                                                <a class="dropdown-item" href="#">Fecha</a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
+                            @include('home.assets.filtroBarra')
+                        </div>
+                    </div>
+                    <div class="row bg-light redondo-px-20 mt-2">
+                        <div class="col pt-2">
+                            @include('home.assets.resultados')
                         </div>
                     </div>
                 </div>

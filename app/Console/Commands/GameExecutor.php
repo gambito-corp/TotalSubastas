@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Events\Game\RemainingTimeChanged;
 use App\Events\Game\WinnerNumberGenerated;
+use App\Helpers\Gambito;
 use Illuminate\Console\Command;
 
 class GameExecutor extends Command
