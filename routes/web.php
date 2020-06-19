@@ -21,5 +21,8 @@ Route::get('/game', 'HomeController@game')->name('game.show');
 Route::get('/chat', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 
+//testeo
+Route::view('/test', 'chat.opcional');
+
 Auth::routes();
 

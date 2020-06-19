@@ -39,7 +39,7 @@
                                         </div>
                                         <div class="row my-5">
                                             <div class="col-md-12">
-                                                <a href="#" class="btn btn-success redondo">Conoce + <i class="fa fa-long-arrow-right"></i></a>
+                                                <a href="#" class="btn btn-success rounded-pill">Conoce + <i class="fa fa-long-arrow-right"></i></a>
                                             </div>
                                         </div></div>
                                     <div class="col-md-6">

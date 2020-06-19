@@ -42,7 +42,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 <!--/.First slide-->
             </div>
         @endforeach
