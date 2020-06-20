@@ -26,11 +26,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('chat.show') }}">Chat</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('test') }}">Chat</a>
+                </li>
             </ul>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-               
+
             </ul>
         </div>
     </div>

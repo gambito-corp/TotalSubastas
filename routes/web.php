@@ -22,7 +22,12 @@ Route::get('/chat', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 
 //testeo
-Route::view('/test', 'chat.opcional');
+Route::get('/test', 'ChatController@Test')->name('test');
 
 Auth::routes();
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
