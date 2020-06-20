@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+
+class Lot extends Model
 {
     use SoftDeletes;
 
@@ -33,14 +34,10 @@ class Message extends Model
      * @var array
      */
     protected $casts = [
+        'subasta_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
     
-
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

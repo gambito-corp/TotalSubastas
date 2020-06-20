@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+
+class Address extends Model
 {
     use SoftDeletes;
-
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -37,10 +38,4 @@ class Message extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
-
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

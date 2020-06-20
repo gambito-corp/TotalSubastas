@@ -1,3 +1,41 @@
+Inicializacion del Proyecto
+
+clonar repositorio en tu entorno de desarrollo en introducir los siguientes comandos
+
+`composerupdate`
+
+`npm install`
+
+`cp .env.example .env`
+
+`php artisan key:generate`
+
+`php artisan migrate`
+
+una vez ejecutados esos 5 comandos entrar a la carpeta raiz del proyecto y modificar el archivo `webpack.mix.js` modificar en la linea 17 `.browserSync('http://tu-url-o-IP+:puerto-en-caso-de-usarse/'); `
+
+despues modificar el archivo `.env` a las variables acordes al proyecto en tu entorno de desarrollo algunas de esas vasiables son
+
+`APP_URL=http://tu-url-o-IP+:puerto-en-caso-de-usarse/`
+
+`DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=nombre-de-tu-BD
+DB_USERNAME=Tu-Usuario
+DB_PASSWORD=`
+
+
+
+una vez realizados esos pasos tienes que usar tu SGBD o tu consola de Mysql y bolcar los catos que se encuentran en `{ROOT}/Database/esquema/BackUp Inserts/insertGeneral.sql`
+
+
+
+
+
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

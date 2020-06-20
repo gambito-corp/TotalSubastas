@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+
+class Province extends Model
 {
     use SoftDeletes;
 
@@ -37,10 +38,5 @@ class Message extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
 
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

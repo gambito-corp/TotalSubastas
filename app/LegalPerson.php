@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+
+class LegalPerson extends Model
 {
     use SoftDeletes;
 
@@ -38,9 +39,4 @@ class Message extends Model
         'deleted_at' => 'datetime',
     ];
     
-
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }

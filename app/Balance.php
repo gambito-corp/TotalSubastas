@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Message extends Model
+class Balance extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes;   
 
     /**
      * The attributes that are mass assignable.
@@ -33,14 +33,10 @@ class Message extends Model
      * @var array
      */
     protected $casts = [
+        'abono_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
     
-
-    public function users()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 }
