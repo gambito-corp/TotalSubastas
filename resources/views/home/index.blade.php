@@ -1,102 +1,61 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container mb-4">
-        <div class="row">
-            <div class="col-md-6">
-                @php
-                    $data = [
-                        '0' => 0,
-                        '1' => 1,
-                        '2' => 2,
-                        '3' => 3,
-                        '4' => 4
-                    ];
-                @endphp
-                @include('home.assets.slide', ['data' => $data])
-            </div>
-            <div class="col-md-6">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 bg-Amarillo redondo-px-20">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row mt-4">
-                                            <div class="col-md-12">
-                                                ¿como subastar?
-                                            </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <div class="col-md-12">
-                                                <h2> Te enseñamos a Subastar</h2>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-4">
-                                            <div class="col-md-12">
-                                                Encuentra oportunidades de ingreso, o a lo mejor tu gran auto para ti y tu familia
-                                            </div>
-                                        </div>
-                                        <div class="row my-5">
-                                            <div class="col-md-12">
-                                                <a href="#" class="btn btn-success rounded-pill">Conoce + <i class="fa fa-long-arrow-right"></i></a>
-                                            </div>
-                                        </div></div>
-                                    <div class="col-md-6">
-                                        <img src="{{asset('img/mujer.png')}}" alt="" class="alto-100">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="container">
+	<div class="row">
+		<!-- slider -->
+		@php
+		$data = [
+		'0' => 0,
+		'1' => 1,
+		'2' => 2,
+		'3' => 3,
+		'4' => 4
+		];
+		@endphp
+		@include('home.assets.slide', ['data' => $data])
+		<div class="col-12 col-md-12 mt-4">
+			<nav aria-label="breadcrumb">
+				<ul class="nav justify-content-start">
+					<li class="breadcrumb-item mr-2" aria-current="page">
+						<strong> @include('assets.breadcrumb-index') </strong>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<!--<div class="col col-md-12 mb-4 "> -->
+		<!-- Navbar -->
+		<!--	@include('home.assets.nav-resultados') -->
+		<!-- </div>-->
 
-                    <div class="row mt-5">
-                            <div class="col bg-success redondo-px-20 mr-3">
-                                <h6>Documentación a la mano de cada subasta</h6>
-                                <p>pdf, 125Mb, Sept 9 at 2:03 pm </p>
-                                <hr>
-                                <div class="text-center">
-                                    <p>
-                                        <i class="fa fa-download"></i>
-                                        Descargalo
-                                    </p>
-                                </div>
-                            </div>
+		<div class="col col-md-3 order-md-1 mb-4">
+			@include('home.assets.filtro')
+		</div>
+		<div class="col-md-9 order-md-2 mt-3">
+			<div class="row main-container">
+				@include('home.assets.resultados')
+			</div>
+			<!-- Loader botton -->
+			<div class="col-12 mt-5">
+				<nav aria-label="breadcrumb">
+					<a id="loadMore" class="btn rounded-pill expanded btn-block pt-3 pb-3 border font-weight-bold text-light_dark">
+						<span class="spinner-border spinner-border-sm mr-4" aria-hidden="true"></span>Load more
+					</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+	<div class=" mb-4">
+		@include('assets.widgets')
+	</div>
+</div>
 
-                            <div class="col bg-primary redondo-px-20 ml-3">
-                                a
-                            </div>
+<div class="container-fluid">
 
+	@include('assets.footer')
+</div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        @include('assets.breadcrumb-index')
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 bg-light redondo-px-20 mr-4">
-                @include('home.assets.filtro')
-            </div>
-
-            <div class="col-md-8">
-                <div class="container-fluid">
-                    <div class="row bg-light redondo-px-20">
-                        <div class="col pt-2">
-                            @include('home.assets.filtroBarra')
-                        </div>
-                    </div>
-                    <div class="row bg-light redondo-px-20 mt-2">
-                        <div class="col pt-2">
-                            @include('home.assets.resultados')
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
-

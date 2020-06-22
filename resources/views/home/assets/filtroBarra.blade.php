@@ -1,32 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <p><b class="mr-3">Autos</b> <span class="navbar-text">hay 52 Resultados </span></p>
-            </li>
-        </ul>
-        <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>Filtros</b> <span class="badge badge-primary">4 </span>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+     <!-- nav -->
+            <div class="col-md col-md-12 mb-3 pl-0 pr-0">
+              <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
+                <a class="navbar-brand text-darken" href="#">Banco fallabella S.A.C</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                  aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+                  <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
+                    <i class="fas fa-clock nav-content_text"></i>
+                    <span class="ml-3"> Mayo 29,7:12 pm</span>
+                  </h2>
+                  <article class="ml-3">
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                      <label class="btn btn-light active">
+                        <i class="fas fa-caret-left"></i>
+                      </label>
+                      <label class="btn btn-light">
+                        <i class="fas fa-caret-right"></i>
+                      </label>
+                    </div>
+                  </article>
                 </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>Ordenar Por</b>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#"><i class="fa fa-check"></i> Mejor Filtro</a>
-                    <a class="dropdown-item" href="#">Precio Bajo</a>
-                    <a class="dropdown-item" href="#">Precio Alto</a>
-                    <a class="dropdown-item" href="#">Fecha</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+              </nav>
+            </div>

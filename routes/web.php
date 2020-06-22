@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/faqs', 'HomeController@faqs')->name('faqs');
+Route::get('/auction', 'HomeController@auction')->name('auction');
+Route::get('/auction/{id}', 'HomeController@auctionDetail')->name('auctionDetail');
+Route::get('/auction/live/{id}', 'HomeController@auctionLiveDetail')->name('auctionLiveDetail');
 Route::get('/users', 'HomeController@users')->name('users.all');
+Route::get('/account', 'HomeController@accout')->name('users.all');
 Route::get('/game', 'HomeController@game')->name('game.show');
-
 Route::get('/chat', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
-
 //testeo
 Route::get('/test', 'ChatController@Test')->name('test');
 
