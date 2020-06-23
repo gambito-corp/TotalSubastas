@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row ">
         <!-- main content -->
-        <div class="col-md col-md-12 mt-5 offset-md-3 text-center">
+        <div class="col-md col-md-12 mt-5 mb-5 offset-md-3 text-center">
             <div class="col-sm col-sm-12 col-lg-6 p-5 main-container  mt-5">
                 <h1 class="font-weight-bold">
                     Hola nuevamente
