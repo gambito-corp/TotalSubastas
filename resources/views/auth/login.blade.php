@@ -36,7 +36,7 @@
                                     <!-- -->
                                 </div>
 
-                                <input type="password" placeholder="contrase&ntilde;a" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input type="password" placeholder="contrase&ntilde;a" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-light  text-light_darken "> <i class="fas fa-eye" id="showpassword"></i></span>
                                 </div>

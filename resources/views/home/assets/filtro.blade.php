@@ -1,1 +1,2 @@
 @livewire('filtro')
+filtro
