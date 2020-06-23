@@ -46,9 +46,9 @@ class HomeController extends Controller
     {
         return view('auction.detail.live.index');
     }
-    public function myaccout()
+    public function myaccount()
     {
-        return view('');
+        return view('auth.myaccount.show');
     }
     public function myaccountEdit(){
         return view('');

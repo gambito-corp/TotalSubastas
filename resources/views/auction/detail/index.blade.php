@@ -417,8 +417,8 @@
                     </div>
 
                 </div><!-- row main container -->
-                <div class="row justify-content-center">
-                    <div class="col col-md-4 col-sm-12 col-xs-12 mt-4 ">
+                <div class="row ">
+                    <div class="col col-md-4 pl-0 col-sm-12 col-xs-12 mt-4 ">
                         <div class="card data_sheet-bottom_files">
                             <div class="card-body d_sheet-card  text-center">
                                 <h5 class="card-title pl-4 text-light  text-uppercase text-left title_data-sheet_bottom">Card title
@@ -429,16 +429,17 @@
                                     pdf, 125 MB, SEP 8 at 2:03 PM</p>
                                 <a href="#" class="card-link  text-light text-center mt-4">
                                     <svg class="bi bi-download fa-download fa-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z" />
-                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z" />
-                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z" />
+                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"></path>
                                     </svg>
-                               
-                              <span class="ml-1"> Another link</span> </a>
+                                    Another link</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-4 col-sm-12 col-xs-12 mt-4 ">
+                    <div class="col col-md-4 col-sm-12 col-xs-12 mt-4 pl-0 pr-0 ">
                         <div class="card data_sheet-bottom_files">
                             <div class="card-body d_sheet-card  text-center">
                                 <h5 class="card-title pl-4 text-light  text-uppercase text-left title_data-sheet_bottom">Card title
@@ -448,16 +449,17 @@
                                     pdf, 125 MB, SEP 8 at 2:03 PM</p>
                                 <a href="#" class="card-link  text-light text-center mt-4">
                                     <svg class="bi bi-download fa-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z" />
-                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z" />
-                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z" />
+                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"></path>
                                     </svg>
-                              
-                                   <span class="ml-1"> Another link</span></a>
+                                    Another link</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-md-4 col-sm-12 col-xs-12 mt-4 ">
+                    <div class="col col-md-4 col-sm-12 col-xs-12 mt-4 pr-0">
                         <div class="card data_sheet-bottom_files">
                             <div class="card-body d_sheet-card  text-center">
                                 <h5 class="card-title pl-4 text-light  text-uppercase text-left title_data-sheet_bottom">Card title
@@ -467,12 +469,14 @@
                                     pdf, 125 MB, SEP 8 at 2:03 PM</p>
                                 <a href="#" class="card-link  text-light text-right mt-4">
                                     <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z" />
-                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z" />
-                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z" />
+                                        <path fill-rule="evenodd" d="M.5 8a.5.5 0 0 1 .5.5V12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5a.5.5 0 0 1 1 0V12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V8.5A.5.5 0 0 1 .5 8z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M5 7.5a.5.5 0 0 1 .707 0L8 9.793 10.293 7.5a.5.5 0 1 1 .707.707l-2.646 2.647a.5.5 0 0 1-.708 0L5 8.207A.5.5 0 0 1 5 7.5z">
+                                        </path>
+                                        <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8A.5.5 0 0 1 8 1z"></path>
                                     </svg>
-                              
-                                    <span class="ml-1"> Another link</span></a>
+
+                                    Another link</a>
                             </div>
                         </div>
                     </div>
