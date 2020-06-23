@@ -49,10 +49,6 @@
                 <img src="..." height="499px" class="d-block w-100" alt="..." />
               </div>
             </div>
-
-
-
-
           </div>
         </div>
         <div class="b ml-3 pl-5 pt-5 d-none d-sm-none d-md-block col-md-12">

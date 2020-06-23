@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-	<div class="row">
+	<div class="row ">
 		<!-- slider -->
 		@php
 		$data = [
@@ -13,7 +13,7 @@
 		];
 		@endphp
 		@include('home.assets.slide', ['data' => $data])
-		<div class="col-12 col-md-12 mt-4">
+		<div class="col-12 col-md-12 mt-2 pl-0">
 			<nav aria-label="breadcrumb">
 				<ul class="nav justify-content-start">
 					<li class="breadcrumb-item mr-2" aria-current="page">
@@ -25,16 +25,16 @@
 	</div>
 </div>
 <div class="container">
-	<div class="row">
+	<div class="row ">
 		<!--<div class="col col-md-12 mb-4 "> -->
 		<!-- Navbar -->
 		<!--	@include('home.assets.nav-resultados') -->
 		<!-- </div>-->
 
-		<div class="col col-md-3 order-md-1 mb-4">
+		<div class="col col-md-3 pl-0 order-md-1 mb-4">
 			@include('home.assets.filtro')
 		</div>
-		<div class="col-md-9 order-md-2 mt-3">
+		<div class="col-md-9 order-md-2 mt-3 pr-0">
 		<div class="row">
             <nav class="navbar navbar-expand-lg nav-top-content mb-4">
               <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
