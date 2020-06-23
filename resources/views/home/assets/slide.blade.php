@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="b ml-3 pl-5 pt-5 d-none d-sm-none d-md-block col-md-12">
+        <div class="b pl-5 pt-5 d-none d-sm-none d-md-block col-md-12">
           <div class="row">
             <div class="col-md-5">
               <article>

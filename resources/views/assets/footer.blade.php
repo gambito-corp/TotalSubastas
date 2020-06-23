@@ -1,5 +1,6 @@
    <!--Footer-->
       <footer>
+        <div class="container">
         <div class="row">
           <div class="col-sm col-8 pt-5 col-md-8 align-self-center col-sm-12 col-xs-12 mb-2 mt-5 ml-sm-auto">
             <article>
@@ -54,6 +55,7 @@
             </a>
           </div>
         </div>
+        </div>
         <!--Footer navbar-->
 		<div class="container">
         <nav class="navbar navbar-expand-lg d-flex justify-content-around pt-5 pb-5">
@@ -78,5 +80,6 @@
            <a href="{{  url('/') }}"> <img src="./assets/img/Logo_front.png"></a>
           </form>
         </nav>
-		 </div>
+     </div>
+     
       </footer>

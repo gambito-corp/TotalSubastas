@@ -4,7 +4,7 @@
 
 <!-- subastas container d. -->
 <div class="container">
-    <div class="row main-container mb-5 mt-5">
+    <div class="row main-container mr-1 mb-5 mt-5">
         <div class="col-sm-12 mt-5 mb-5">
             <div class="row">
                 <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-12">
@@ -260,7 +260,7 @@
     <div class="container">
         <div class="row">
             <!-- main content -->
-            <div class="col-md-3 order-md-2 mb-4 ">
+            <div class="col-md-3 pr-0 order-md-2 mb-4 ">
 
                 <!--Accordion wrapper-->
                 <div class="accordion md-accordion" id="ofertas" role="tablist" aria-multiselectable="true">
@@ -351,7 +351,7 @@
                 </div>
                 <!-- Accordion wrapper -->
             </div>
-            <div class="col-md-9 order-md-1 ">
+            <div class="col-md-9 order-md-1 pl-0  ">
                 <div class="row main-container ">
                     <div class="col-md col-md-12 col-lg-12   mt-0 pt-2 data_sheet-d">
                         <div class="row">
