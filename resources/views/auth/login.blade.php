@@ -74,7 +74,7 @@
                             <p>Aun no tienes cuenta?</p>
                         </div>
                         <div class="col-sm-6 mt-4">
-                            <a href="{{  url('register') }}"  class="nav-item">Registrar</a>
+                            <a href="{{  url('register') }}" class="nav-item">Registrar</a>
                         </div>
                     </div>
                 </form>
@@ -90,6 +90,6 @@
 
 <div class="container-fluid">
 
-@include('assets.footer')
+    @include('assets.footer')
 </div>
 @endsection
