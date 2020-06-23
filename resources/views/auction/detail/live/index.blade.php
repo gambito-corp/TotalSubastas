@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Grid columns slider custom-->
+<!--columns / container-->
 <div class="container">
     <div class="row">
         <!-- main content -->
@@ -111,149 +111,166 @@
             <div class="col-sm-3">
                 <img src="" alt="" />
             </div>
-        </div>
+      
 
-        <div class="col-12 col-md-12">
-            <div class="row">
-                <div class="col-12 pl-0 pr-0 col-md-3 col-sm-12 col-xs-12 live-push_action-ranking">
-                    <article class="border-bottom">
-                        <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
-                    </article>
-                    <div class="row p-4">
-                        <div class="col-12 pt-5 pb-5">
-                            <p>
 
-                            </p>
-                        </div>
+        <div class="row mt-5 mb-5">
+            <div class=" col col-md-3 order-md-1 live-push_action-ranking">
+                <article class="border-bottom">
+                    <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
+                </article>
+                <div class="row p-4">
+                    <div class="col-12 pt-5 pb-5">
+                        <p>
 
-                        <div class="col live-push_auction-timer_bottom">
-                            <div class="text-center">
-                                <span class=""> <i class="fas fa-heart"> </i></span>
-                                <span class="d-block text-center">
-                                    <p class="text-dark text text-_to-auction_bottom">123</p>
-                                    Me gustan
-                                </span>
-                            </div>
+                        </p>
+                    </div>
+
+                    <div class="col live-push_auction-timer_bottom">
+                        <div class="text-center">
+                            <span class=""> <i class="fas fa-heart"> </i></span>
+                            <span class="d-block text-center">
+                                <p class="text-dark text text-_to-auction_bottom">123</p>
+                                Me gustan
+                            </span>
                         </div>
-                        <div class="col live-push_auction-timer_bottom">
-                            <div class="text-center">
-                                <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
-                                <span class="d-block text-center">
-                                    <p class="text-dark text text-_to-auction_bottom">24</p>
-                                    Ofertas
-                                </span>
-                            </div>
+                    </div>
+                    <div class="col live-push_auction-timer_bottom">
+                        <div class="text-center">
+                            <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
+                            <span class="d-block text-center">
+                                <p class="text-dark text text-_to-auction_bottom">24</p>
+                                Ofertas
+                            </span>
                         </div>
-                        <div class="col live-push_auction-timer_bottom">
-                            <div class="text-center">
-                                <i class="fas fa-user"> </i>
-                                <span class="d-block">
-                                    <p class="text-dark text text-_to-auction_bottom">30</p>
-                                    Participa<br>ntes
-                                </span>
-                            </div>
+                    </div>
+                    <div class="col live-push_auction-timer_bottom">
+                        <div class="text-center">
+                            <i class="fas fa-user"> </i>
+                            <span class="d-block">
+                                <p class="text-dark text text-_to-auction_bottom">30</p>
+                                Participa<br>ntes
+                            </span>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 bg-dark live-push_auction ml-2 mr-2"></div>
-                <div class="col-12 pl-0 pr-0 col-md-3 col-sm-12 col-xs-12 live-push_action-ranking">
-                    <article class="border-bottom">
-                        <h5 class="text-uppercase ranking_live">ranking</h5>
-                    </article>
-                    <div class="row p-4">
-                        <div class="col-12 pt-2 d-flex pb-2  border-bottom">
-                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                                Puesto
+            </div>
+
+
+            <div class="col-md-6 order-md-1 bg-dark">
+
+            </div>
+
+            <div class="col-md-3 order-md-3 live-push_action-ranking">
+                <article class="border-bottom">
+                    <h5 class="text-uppercase ranking_live">ranking</h5>
+                </article>
+                <div class="row p-4">
+                    <div class="col-12 pt-2 d-flex pb-2  border-bottom">
+                        <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                            Puesto
+                        </div>
+                        <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                            Usuario
+                        </div>
+                        <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                            Oferta
+                        </div>
+                    </div>
+                    <div class="row" style="height:200px; overflow: auto;">
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
                             </div>
-                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                            <div class="col-md-4 text-darken font-weight-normal">
                                 Usuario
                             </div>
-                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                                Oferta
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                $ 12800
                             </div>
                         </div>
-                        <div class="row" style="height:200px; overflow: auto;">
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                $ 12800
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                        </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                $ 12800
                             </div>
-                            <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    1
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal">
-                                    Usuario
-                                </div>
-                                <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                    $ 12800
-                                </div>
+                        </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
+                                $ 12800
+                            </div>
+                        </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
+                                $ 12800
+                            </div>
+                        </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal  ranking_to-auction_text">
+                                $ 12800
+                            </div>
+                        </div>
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                1
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Usuario
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                $ 12800
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        
+        <!--end row-->
         <!--  -->
+        </div>
+            <div class="container-fluid">
+            @include('assets.footer')
+            </div>
+            </div>
         @endsection
+        
+        
+</div>
+</div>
