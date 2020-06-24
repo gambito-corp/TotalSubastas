@@ -53,6 +53,15 @@ class HomeController extends Controller
     public function myaccountEdit(){
         return view('auth.myaccount.edit');
     }
+    public function myaccountFilestore(Request $request)
+ {
+            $path = public_path().'/uploads/';
+            $files = $request->file('file');
+            foreach($files as $file){
+                $fileName = $file->getClientOriginalName();
+                $file->move($path, $fileName);
+            }
+ }
     public function users()
     {
         return view('users.index');
