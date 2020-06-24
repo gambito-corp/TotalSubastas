@@ -17,7 +17,7 @@ class Province extends Model
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -26,7 +26,7 @@ class Province extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -37,7 +37,9 @@ class Province extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'deleted_at' => 'datetime'
     ];
+
+
 
 }
