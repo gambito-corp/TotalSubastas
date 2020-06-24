@@ -51,7 +51,7 @@ class HomeController extends Controller
         return view('auth.myaccount.show');
     }
     public function myaccountEdit(){
-        return view('');
+        return view('auth.myaccount.edit');
     }
     public function users()
     {
