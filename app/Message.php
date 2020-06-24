@@ -14,8 +14,8 @@ class Message extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+
     ];
 
     /**
@@ -24,7 +24,7 @@ class Message extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -37,7 +37,7 @@ class Message extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
 
     public function users()
     {

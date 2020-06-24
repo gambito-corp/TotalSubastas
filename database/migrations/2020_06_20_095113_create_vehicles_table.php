@@ -21,10 +21,6 @@ class CreateVehiclesTable extends Migration {
 			$table->integer('modelo_id')->unsigned();
 			$table->year('year')->nullable();
 			$table->string('nombre')->nullable();
-			$table->string('precio_base')->nullable();
-			$table->string('precio_reserva')->nullable();
-			$table->string('garantia')->nullable();
-			$table->string('comision')->nullable();
 			$table->string('placa')->nullable();
 			$table->string('color')->nullable();
 			$table->string('version')->nullable();
@@ -43,8 +39,6 @@ class CreateVehiclesTable extends Migration {
 			$table->string('soat')->nullable();
 			$table->string('rtv')->nullable();
 			$table->string('terminos')->nullable();
-			$table->dateTime('started_at')->nullable();
-			$table->dateTime('finalized_at')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

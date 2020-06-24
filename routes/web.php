@@ -23,7 +23,7 @@ Route::get('/my-account', 'HomeController@myaccount')->name('myaccount');
 Route::get('/users', 'HomeController@users')->name('users.all');
 Route::get('/account', 'HomeController@accout')->name('users.all');
 Route::get('/game', 'HomeController@game')->name('game.show');
-Route::get('/chat', 'ChatController@ShowChat')->name('chat.show');
+Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 //testeo
 Route::get('/test', 'ChatController@Test')->name('test');

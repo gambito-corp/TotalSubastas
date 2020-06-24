@@ -32,19 +32,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- Left Side Of Navbar 
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('users.all') }}">Lista de Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('game.show') }}">Juego</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('chat.show') }}">Chat</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('test') }}">Chat</a>
-                </li>
-            </ul>-->

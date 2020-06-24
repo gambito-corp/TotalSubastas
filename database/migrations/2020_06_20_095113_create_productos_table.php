@@ -19,6 +19,12 @@ class CreateProductosTable extends Migration {
 			$table->Integer('lote_id')->unsigned()->nullable();
 			$table->string('producto');
 			$table->string('precio');
+			$table->string('precio_reserva');
+			$table->string('garantia');
+			$table->string('puja');
+			$table->string('comision');
+            $table->dateTime('started_at')->nullable();
+            $table->dateTime('finalized_at')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

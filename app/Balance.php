@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Balance extends Model
 {
-    use SoftDeletes;   
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+
     ];
 
     /**
@@ -24,7 +24,7 @@ class Balance extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -38,5 +38,5 @@ class Balance extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
 }

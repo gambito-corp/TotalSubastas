@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('content')
+    @php
+
+        $data2 = ['hola'=> 1, 'adios' => 2,];
+    @endphp
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -17,7 +21,6 @@
                                             <div class="col-12">
                                                 <p class="h5">Usuarios Conectados</p>
                                                 <ul id="users" class="list-unstyled overflow-auto" style="height: 22vh">
-
                                                 </ul>
                                             </div>
                                         </div>
@@ -28,7 +31,13 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <ul id="messages" class="list-unstyled overflow-auto" style="height: 45vh">
-
+                                                    @forelse($data as $dat)
+                                                        <li>
+                                                            {{$dat->users->name}}: {{$dat->message}} <br>
+                                                        </li>
+                                                    @empty
+                                                        toadvia nadie pujo
+                                                    @endforelse
                                                 </ul>
                                             </div>
                                         </div>

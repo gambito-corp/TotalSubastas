@@ -23,6 +23,11 @@
     @include('assets.header')
 
     @include('assets.menuPrincipal')
+    @if (session('flash'))
+        <div class="alert alert-success">
+            {{ session('flash'). ' '. now()}}
+        </div>
+    @endif
 
     @yield('content')
 
