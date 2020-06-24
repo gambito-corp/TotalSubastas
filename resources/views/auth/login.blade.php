@@ -8,7 +8,7 @@
             <div class="col-sm col-sm-12 col-lg-6 p-5 main-container  mt-5">
                 <h1 class="font-weight-bold">
                     Hola nuevamente
-                </h1><a href="./My-account.html">Mi cuenta</a>
+                </h1><a href="{{ url('my-account') }}">Mi cuenta</a>
                 <p>ingresa tus datos</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf

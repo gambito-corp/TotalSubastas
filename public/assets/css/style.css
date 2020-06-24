@@ -836,7 +836,7 @@ article.p-side_nav h2 {
   display: flex;
 }
 .m-acc_text h2 {
-  font-size: 14px;
+  font-size: 20px;
   color: var(--var-dark);
   font-weight: 700;
 }

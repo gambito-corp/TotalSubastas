@@ -1,4 +1,6 @@
-$(document).ready(function() {
+
+jQuery(document).ready(function($) {
+   
     $(".moreBox")
         .slice(0, 3)
         .show();
@@ -102,7 +104,7 @@ $(document).ready(function() {
 
       
        
-});
+})(jQuery);
 
 (function() {
     

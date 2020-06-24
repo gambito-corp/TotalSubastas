@@ -7,11 +7,8 @@ Vue.use(Vuetify);
 
 export default new Vuetify(opts);
 
-Vue.component('faqs-component', require('./components/FaqsComponent.vue'));
-Vue.component(
-    'example-component',
-    require('./components/ExampleComponent.vue').default
-);
+Vue.component('maincomponent', require('./components/maincomponent.vue').default);
+
 const app = new Vue({
     el: '#app'
 })

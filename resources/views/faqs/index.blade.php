@@ -18,6 +18,7 @@
 <div class="container">
     <div class="row">
         <!-- main content -->
+      
         <div class="col-md-3 order-md-1 mb-4  ">
             <div class="text-center ">
                 <div class="bg-light-card topics shadow-sm ">
@@ -66,7 +67,7 @@
                 <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
                 <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
                     sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione amet.
-                   <example-component></example-component>
+                
                 </p>
                 <article class="col-md col-md-9">
                     <figure>
