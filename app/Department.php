@@ -38,5 +38,11 @@ class Department extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    public function scopePaisId($query)
+    {
+        // dd($query);
+        return $query->where('pais_id', 1);
+    }
     
 }

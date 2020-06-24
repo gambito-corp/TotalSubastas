@@ -26,7 +26,7 @@ class AddForeignKeysTotalsubastas extends Migration
         
         Schema::table('audits', function (Blueprint $table) {
             $table->foreign('user_id')
-            ->references('id')->on('users');            
+            ->references('id')->on('users');           
         });
         
         Schema::table('balances', function (Blueprint $table) {
@@ -98,6 +98,13 @@ class AddForeignKeysTotalsubastas extends Migration
             ->references('id')->on('banks'); 
             $table->foreign('direccion_id')
             ->references('id')->on('addresses');
+        });
+
+        Schema::table('productos', function (Blueprint $table) {
+            $table->foreign('user_id')
+            ->references('id')->on('users');             
+            $table->foreign('lote_id')
+            ->references('id')->on('lots');                        
         });
 
         Schema::table('provinces', function (Blueprint $table) {

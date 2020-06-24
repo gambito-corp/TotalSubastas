@@ -19,7 +19,7 @@ class CreateVehiclesTable extends Migration {
 			$table->integer('lote_id')->unsigned();
 			$table->integer('marca_id')->unsigned();
 			$table->integer('modelo_id')->unsigned();
-			$table->date('year')->nullable();
+			$table->year('year')->nullable();
 			$table->string('nombre')->nullable();
 			$table->string('precio_base')->nullable();
 			$table->string('precio_reserva')->nullable();

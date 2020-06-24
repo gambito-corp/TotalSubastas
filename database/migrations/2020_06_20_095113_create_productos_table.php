@@ -14,8 +14,9 @@ class CreateProductosTable extends Migration {
 	{
 		Schema::create('productos', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true)->unsigned();
-			$table->bigInteger('user_id')->unsigned()->nullable();
+			$table->increments('id');
+			$table->Integer('user_id')->unsigned()->nullable();
+			$table->Integer('lote_id')->unsigned()->nullable();
 			$table->string('producto');
 			$table->string('precio');
 			$table->timestamps();

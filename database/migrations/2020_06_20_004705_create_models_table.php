@@ -16,8 +16,8 @@ class CreateModelsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('marca_id')->unsigned();
-			$table->integer('nombre')->nullable();
-			$table->integer('slug')->nullable();
+			$table->string('nombre')->nullable();
+			$table->string('slug')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

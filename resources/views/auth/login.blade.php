@@ -18,7 +18,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-light text-light_darken" id="email" type="email"><i class="fas fa-user"></i></i></span>
                                 </div>
-                                <input type="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Username" value="{{ old('email') }}" equired autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }}>
+                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Username" value="{{ old('email') }}" equired autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }}>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

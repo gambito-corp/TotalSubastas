@@ -15,8 +15,8 @@ class Person extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class Person extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -38,5 +38,5 @@ class Person extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
 }

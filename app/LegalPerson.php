@@ -10,6 +10,8 @@ class LegalPerson extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'legal_persons';
+
     /**
      * The attributes that are mass assignable.
      *

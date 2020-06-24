@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Address;
 use App\Http\Controllers\Controller;
+use App\Person;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -49,10 +54,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
+
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            "nombre" => ['required', 'string', 'max:255'],
+            "apellido" => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            "tel" => ['required', 'string', 'max:255'],
+            "dni" => ['required', 'string', 'max:255'],
+            "Check" => ['required'],
         ]);
     }
 
@@ -64,10 +74,47 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $user_name = substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3);
+
         return User::create([
-            'name' => $data['name'],
+            'name' => $user_name,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
         ]);
     }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $user1 = User::all()->last();
+        $persona = Person::create([
+            'user_id' => $user1->id,
+            'nombres' => $request->input('nombre'),
+            'apellidos' => $request->input('apellido'),
+            'numero_documento' => $request->input('dni'),
+            'telefono'=> $request->input('tel'),
+            'email' => $request->input('email'),
+        ]);
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 201)
+            : redirect($this->redirectPath());
+    }
+
 }

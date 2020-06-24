@@ -16,9 +16,9 @@ class CreatePeopleTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->integer('documento_id')->unsigned();
-			$table->integer('direccion_id')->unsigned();
-			$table->integer('banco_id')->unsigned();
+			$table->integer('documento_id')->unsigned()->nullable();
+			$table->integer('direccion_id')->unsigned()->nullable();
+			$table->integer('banco_id')->unsigned()->nullable();
 			$table->string('nombres')->nullable();
 			$table->string('apellidos')->nullable();
 			$table->string('numero_documento')->nullable();

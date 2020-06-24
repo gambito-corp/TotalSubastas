@@ -63,7 +63,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">
                 <span class="copyright">&copy;</span>
-                <span class="ml-2 copyright">2020 Totalsubastas </span>
+                <span class="ml-2 copyright">{{date('Y')}} Totalsubastas </span>
                 <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item ml-5">
@@ -81,5 +81,5 @@
           </form>
         </nav>
      </div>
-     
+
       </footer>

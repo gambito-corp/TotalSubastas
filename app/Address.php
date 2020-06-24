@@ -38,4 +38,10 @@ class Address extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    //Scope
+    public function scopePais($query)
+    {
+        return $query->where('pais_id', 1);
+    }
 }
