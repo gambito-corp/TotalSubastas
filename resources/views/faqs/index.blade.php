@@ -96,8 +96,17 @@
             </div>
         </div>
         <!-- end footer -->
+        
     </div>
+    <div class=" mb-4">
+		@include('assets.widgets')
+	</div>
     <!-- end row -->
 </div>
 <!-- end container -->
+<div class="container-fluid">
+
+@include('assets.footer')
+</div>
+
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Grid columns slider custom-->
+<!--columns / container-->
 <div class="container">
     <div class="row">
         <!-- main content -->
@@ -108,14 +108,8 @@
                 </div>
             </div>
 
-            <div class="col-sm-3">
-                <img src="" alt="" />
-            </div>
-        </div>
-
-        <div class="col-12 col-md-12">
-            <div class="row">
-                <div class="col-12 pl-0 pr-0 col-md-3 col-sm-12 col-xs-12 live-push_action-ranking">
+            <div class="row mt-4 justify-content-between">
+                <div class=" col col-md-3 order-md-1 live-push_action-ranking">
                     <article class="border-bottom">
                         <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
                     </article>
@@ -155,8 +149,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 bg-dark live-push_auction ml-2 mr-2"></div>
-                <div class="col-12 pl-0 pr-0 col-md-3 col-sm-12 col-xs-12 live-push_action-ranking">
+
+
+                <div class="col-md-5 order-md-2  rounded bg-dark">
+
+                </div>
+
+                <div class="col-md-3 order-md-3 live-push_action-ranking">
                     <article class="border-bottom">
                         <h5 class="text-uppercase ranking_live">ranking</h5>
                     </article>
@@ -254,6 +253,21 @@
                     </div>
                 </div>
             </div>
+            <!--end row-->
+
+
+
+
+
+
+
+            <!--end row-->
+            <!--  -->
+
+
+            <div class="container-fluid">
+                @include('assets.footer')
+            </div>
+            @endsection
         </div>
-        <!--  -->
-        @endsection
+    </div>

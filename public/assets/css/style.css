@@ -327,7 +327,7 @@ article.p-side_nav h2 {
   background-color: var(--var-nav-top);
 }
 .top-slide {
-  height: 555px;
+   /* height: 555px; */
   margin: 0;
 }
 .carousel-indicators {
@@ -766,8 +766,7 @@ article.p-side_nav h2 {
   font-size: 14px;
 }
 .live-push_action-ranking {
-  width: 263px;
-  margin-right: 37.999px;
+  /*width: 263px; */
   background-color: #fff;
   border-radius: 10px;
 }

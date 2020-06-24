@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-</div>
 <!-- Container -->
 <div class="container">
     <div class="row">
@@ -85,5 +83,12 @@
                 <img src="" alt="">
             </div>
         </div>
-        <!-- Btn -- load more items -->
-        @endsection
+    </div>
+</div>
+<!-- Btn -- load more items -->
+
+<div class="container-fluid">
+
+    @include('assets.footer')
+</div>
+@endsection

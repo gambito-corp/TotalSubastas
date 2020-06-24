@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row ">
         <!-- main content -->
-        <div class="col-md col-md-12 mt-5 offset-md-3 text-center">
+        <div class="col-md col-md-12 mt-5 mb-5 offset-md-3 text-center">
             <div class="col-sm col-sm-12 col-lg-6 p-5 main-container  mt-5">
                 <h1 class="font-weight-bold">
                     Hola nuevamente
@@ -36,7 +36,7 @@
                                     <!-- -->
                                 </div>
 
-                                <input type="password" placeholder="contrase&ntilde;a" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input type="password" placeholder="contrase&ntilde;a" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                 <div class="input-group-append">
                                     <span class="input-group-text bg-light  text-light_darken "> <i class="fas fa-eye" id="showpassword"></i></span>
                                 </div>
@@ -74,7 +74,7 @@
                             <p>Aun no tienes cuenta?</p>
                         </div>
                         <div class="col-sm-6 mt-4">
-                            <a href="{{  url('register') }}"  class="nav-item">Registrar</a>
+                            <a href="{{  url('register') }}" class="nav-item">Registrar</a>
                         </div>
                     </div>
                 </form>
@@ -83,6 +83,13 @@
     </div>
 </div>
 </div>
+
 </div>
+
+</div>
+
+<div class="container-fluid">
+
+    @include('assets.footer')
 </div>
 @endsection
