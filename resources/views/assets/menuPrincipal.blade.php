@@ -12,14 +12,15 @@
 			<a href="{{  url('faqs') }}" class="navbar-brand d-flex align-items-center">
 				Preguntas
 			</a>
-			<a href="#" class="navbar-brand d-flex align-items-center">
+			<a href="{{ url('terms') }}" class="navbar-brand d-flex align-items-center">
 				Condiciones
 			</a>
-			<a href="#" class="navbar-brand d-flex align-items-center">
+			<a href="{{ url('about') }}" class="navbar-brand d-flex align-items-center">
 				Quienes somos
 			</a>
 			<!-- Link nav - Link nr° 5- top -->
-			<a href="#" class="navbar-brand d-flex align-items-center">
+			
+			<a href="{{ url('sell') }}" class="navbar-brand d-flex align-items-center">
 				Vender
 			</a>
 			<a href="#" class="navbar-brand d-flex align-items-center">
@@ -32,7 +33,6 @@
 		</div>
 	</div>
 </div>
-
 <!-- Left Side Of Navbar 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

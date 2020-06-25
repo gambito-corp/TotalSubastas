@@ -1,6 +1,4 @@
-
-jQuery(document).ready(function($) {
-   
+$(document).ready(function() {
     $(".moreBox")
         .slice(0, 3)
         .show();
@@ -101,12 +99,6 @@ jQuery(document).ready(function($) {
                           "'></li>"
                   );
         });
-
-      
-       
-})(jQuery);
-
-(function() {
-    
-            
 })();
+
+(function() {})();

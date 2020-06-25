@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Grid columns slider custom-->
+<!-- Grid columns -->
 <div class="container-fluid">
     <div class="row">
         <div class="jumbotron jumbotron-top_container">
@@ -9,7 +9,6 @@
                 <h1 class="font-weight-bold text-light text-uppercase">
                     Preguntas <br> frecuentes
                 </h1>
-               
                 <p class="text-light text-capitalize">conoce las bases para realizar una subasta correcta!</p>
             </div>
         </div>
@@ -18,7 +17,6 @@
 <div class="container">
     <div class="row">
         <!-- main content -->
-      
         <div class="col-md-3 order-md-1 mb-4  ">
             <div class="text-center ">
                 <div class="bg-light-card topics shadow-sm ">
@@ -40,7 +38,6 @@
                             <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> tex paragraph
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -67,7 +64,6 @@
                 <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
                 <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
                     sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione amet.
-                
                 </p>
                 <article class="col-md col-md-9">
                     <figure>
@@ -99,17 +95,16 @@
             </div>
         </div>
         <!-- end footer -->
-        </div>
-   
+    </div>
     <div class=" mb-4">
-		@include('assets.widgets')
-	</div>
+        @include('assets.widgets')
+    </div>
     <!-- end row -->
 </div>
 <!-- end container -->
 <div class="container-fluid">
 
-@include('assets.footer')
+    @include('assets.footer')
 </div>
 
 @endsection
