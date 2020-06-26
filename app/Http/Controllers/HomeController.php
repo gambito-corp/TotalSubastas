@@ -41,9 +41,14 @@ class HomeController extends Controller
     {
         return view('faqs.index');
     }
-    public function auction()
+    public function auction(Request $request)
     {
-        return view('auction.index');
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
+            return view('auction.index');
+        }
     }
     public function auctionDetail(Request $request,$id)
     {
@@ -70,7 +75,6 @@ class HomeController extends Controller
         }
              
     }
-   
     public function myaccountFilestore(Request $request)
     {
         $path = public_path() . '/uploads/';
