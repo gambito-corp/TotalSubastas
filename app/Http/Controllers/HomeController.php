@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Gambito;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
+use Hashids\Hashids;
 class HomeController extends Controller
 {
     /**
@@ -30,28 +31,69 @@ class HomeController extends Controller
     {
         return view('home.home');
     }
+    public function aboutus()
+    {
+        return view('about.aboutus');
+    }
+    public function terms(){
+        return view('terms.conditions');
+    }
     public function faqs()
     {
         return view('faqs.index');
     }
-    public function auction()
+    public function auction(Request $request)
     {
-        return view('auction.index');
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
+            return view('auction.index');
+        }
     }
-    public function auctionDetail($id)
+    public function auctionDetail(Request $request,$id)
     {
         return view('auction.detail.index');
     }
-    public function auctionLiveDetail($id)
+    public function auctionLiveDetail(Request $request,$id)
     {
         return view('auction.detail.live.index');
     }
     public function myaccount()
     {
-        return view('auth.myaccount.show');
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
+            return view('auth.myaccount.show');
+        }
     }
-    public function myaccountEdit(){
-        return view('');
+    public function myaccountEdit()
+    {
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
+        return view('auth.myaccount.edit');
+        }
+    }
+
+    public function sell(Request $request){
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else{
+            return view('sell.index');
+        }
+    }
+    public function myaccountFilestore(Request $request)
+    {
+        $path = public_path() . '/uploads/';
+        $files = $request->file('file');
+        foreach ($files as $file) {
+            $fileName = $file->getClientOriginalName();
+            $file->move($path, $fileName);
+        }
     }
     public function users()
     {

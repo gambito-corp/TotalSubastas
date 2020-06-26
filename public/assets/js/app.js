@@ -99,12 +99,6 @@ $(document).ready(function() {
                           "'></li>"
                   );
         });
-
-      
-       
-});
-
-(function() {
-    
-            
 })();
+
+(function() {})();
