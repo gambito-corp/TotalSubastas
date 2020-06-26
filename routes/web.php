@@ -22,7 +22,7 @@ Route::get('/terms', 'HomeController@terms')->name('terms');
 Route::get('/auction/{id}', 'HomeController@auctionDetail')->name('auctionDetail');
 Route::get('/auction/live/{id}', 'HomeController@auctionLiveDetail')->name('auctionLiveDetail');
 Route::get('/my-account', 'HomeController@myaccount')->name('myaccount');
-Route::get('/my-account/edit', 'HomeController@myaccountEdit')->name('editmyaccount');
+Route::get('/my-account/edit/{id}', 'HomeController@myaccountEdit')->name('editmyaccount');
 Route::get('/users', 'HomeController@users')->name('users.all');
 Route::get('/account', 'HomeController@accout')->name('users.all');
 Route::get('/game', 'HomeController@game')->name('game.show');

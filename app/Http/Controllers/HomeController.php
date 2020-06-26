@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Gambito;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Hashids\Hashids;
 class HomeController extends Controller
 {
     /**
@@ -60,11 +61,21 @@ class HomeController extends Controller
     }
     public function myaccount()
     {
-        return view('auth.myaccount.show');
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
+            return view('auth.myaccount.show');
+        }
     }
     public function myaccountEdit()
     {
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else {
         return view('auth.myaccount.edit');
+        }
     }
    public function sell(Request $request){
         if (!$request->session()->has('users')) {

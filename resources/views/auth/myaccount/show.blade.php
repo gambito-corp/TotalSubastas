@@ -103,7 +103,6 @@
 </div>
 <!-- end container -->
 <div class="container-fluid">
-
     @include('assets.footer')
 </div>
 
