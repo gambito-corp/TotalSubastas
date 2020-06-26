@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/faqs', 'HomeController@faqs')->name('faqs');

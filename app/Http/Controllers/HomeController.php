@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Gambito;
 use Illuminate\Http\Request;
-
+use RealRashid\SweetAlert\Facades\Alert;
 class HomeController extends Controller
 {
     /**
@@ -61,9 +61,16 @@ class HomeController extends Controller
     {
         return view('auth.myaccount.edit');
     }
-    public function sell(){
-        return view('sell.index');
+   public function sell(Request $request){
+        if (!$request->session()->has('users')) {
+            Alert::warning('Warning title', 'Warning Message');
+            return redirect()->back();
+        }else{
+            return view('sell.index');
+        }
+             
     }
+   
     public function myaccountFilestore(Request $request)
     {
         $path = public_path() . '/uploads/';

@@ -19,6 +19,7 @@
         "laravelcollective/html": "^6.1",
         "livewire/livewire": "^1.2",
         "pusher/pusher-php-server": "^4.1",
+        "realrashid/sweet-alert": "^3.1",
         "tcg/voyager": "^1.4"
     },
     "require-dev": {

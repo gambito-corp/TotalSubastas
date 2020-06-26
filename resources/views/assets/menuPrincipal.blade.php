@@ -1,4 +1,5 @@
 <!-- Navbar header bottom -->
+
 <div class="navbar navbar-dark navbar-top navbar-expand-lg bg-nav">
 	<div class="container">
 		<a class="navbar-brand  d-flex align-items-center pl-5 mr-5" href="#"><img src="./assets/img/peru.png" alt="" /></a>
@@ -21,7 +22,7 @@
 			<!-- Link nav - Link nr° 5- top -->
 			
 			<a href="{{ url('sell') }}" class="navbar-brand d-flex align-items-center">
-				Vender
+				Vender 
 			</a>
 			<a href="#" class="navbar-brand d-flex align-items-center">
 				<svg class="bd-placeholder-img rounded-circle" width="25" height="25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Completely round image: 75x75">
@@ -31,6 +32,7 @@
 				</svg>
 			</a>
 		</div>
+		@include('sweetalert::alert')
 	</div>
 </div>
 <!-- Left Side Of Navbar 
