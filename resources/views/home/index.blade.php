@@ -27,7 +27,7 @@
 		</div>
 		<div class="col-md-9 order-md-2 mt-3">
 			<div class="row">
-				@include('home.assets.nav-resultados')
+			@include('home.assets.nav-resultados')
 				<div class="container">
 					<div class="row main-container">
 						@include('home.assets.resultados')

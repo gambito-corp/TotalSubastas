@@ -1,31 +1,11 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-@import "~font-awesome/scss/font-awesome";
+
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-/*
-    iMPORTACIONES SEPARADAS DE MI CLASE
-*/
-
-//Elementos generales Body ect
-@import "general";
-//asignacion de tamaño
-@import "size";
-
-//Atribuir Colores de Fondo
-@import "bg-colors";
-
-//Redondear algo
-@import 'redondo';
-
-//Elementos de Formulario
-@import "formularios";
-
-
-//Arreglos y sobreescrituras de codigo
-@import "arreglos";
-
+// custom styles
+@import 'styles';

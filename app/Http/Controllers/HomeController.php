@@ -77,14 +77,14 @@ class HomeController extends Controller
         return view('auth.myaccount.edit');
         }
     }
-
-    public function sell(Request $request){
+   public function sell(Request $request){
         if (!$request->session()->has('users')) {
             Alert::warning('Warning title', 'Warning Message');
             return redirect()->back();
         }else{
             return view('sell.index');
         }
+             
     }
     public function myaccountFilestore(Request $request)
     {

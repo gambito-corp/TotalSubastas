@@ -1,4 +1,5 @@
 <!-- Navbar header bottom -->
+
 <div class="navbar navbar-dark navbar-top navbar-expand-lg bg-nav">
 	<div class="container">
 		<a class="navbar-brand  d-flex align-items-center pl-5 mr-5" href="#"><img src="./assets/img/peru.png" alt="" /></a>
@@ -12,15 +13,16 @@
 			<a href="{{  url('faqs') }}" class="navbar-brand d-flex align-items-center">
 				Preguntas
 			</a>
-			<a href="#" class="navbar-brand d-flex align-items-center">
+			<a href="{{ url('terms') }}" class="navbar-brand d-flex align-items-center">
 				Condiciones
 			</a>
-			<a href="#" class="navbar-brand d-flex align-items-center">
+			<a href="{{ url('about') }}" class="navbar-brand d-flex align-items-center">
 				Quienes somos
 			</a>
 			<!-- Link nav - Link nr° 5- top -->
-			<a href="#" class="navbar-brand d-flex align-items-center">
-				Vender
+			
+			<a href="{{ url('sell') }}" class="navbar-brand d-flex align-items-center">
+				Vender 
 			</a>
 			<a href="#" class="navbar-brand d-flex align-items-center">
 				<svg class="bd-placeholder-img rounded-circle" width="25" height="25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Completely round image: 75x75">
@@ -30,5 +32,21 @@
 				</svg>
 			</a>
 		</div>
+		@include('sweetalert::alert')
 	</div>
 </div>
+<!-- Left Side Of Navbar 
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('users.all') }}">Lista de Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('game.show') }}">Juego</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('chat.show') }}">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('test') }}">Chat</a>
+                </li>
+            </ul>-->

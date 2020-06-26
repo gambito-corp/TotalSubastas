@@ -35,8 +35,7 @@
 					</p>
 					<div class="align-items-center">
 						<div class="btn-group d-flex justify-content-center">
-					
-						<a href=" auction/{{ $hashids->encode($product->id) }}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+						<a href=" auction/{{ $hashids->encode($product->id, 0,1,2,3,4,5,6) }}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
 							<strong><span class="mr-2">$</span>{{ $product->precio }}</strong>
 						</a>
 						</div>
