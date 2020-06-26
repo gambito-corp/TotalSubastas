@@ -103,7 +103,7 @@
                                         </button>
                                     </div>
                                     <div class="col">
-                                        <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="./live.html"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Participar </a>
+                                        <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ url('/auction/live/id/{id}') }}"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Participar </a>
                                     </div>
                                 </div>
                                 <div class="form-check pt-4">
@@ -209,7 +209,6 @@
                                 </div>
                             </figure>
                         </article>
-
                     </div>
                 </div>
             </div>

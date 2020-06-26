@@ -22,9 +22,9 @@
     @stack('styles')
 </head>
 
-    @if (Request::is('auction/*'))
+    @if (Request::is('auction/id/*'))
         <body class="bg-dark">
-        @else 
+    @else 
         <body class="bg-darken-light">
     @endif
 
