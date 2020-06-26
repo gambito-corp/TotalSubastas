@@ -22,7 +22,12 @@
     @stack('styles')
 </head>
 
-<body class="bg-darken-light">
+    @if (Request::is('auction/*'))
+        <body class="bg-dark">
+        @else 
+        <body class="bg-darken-light">
+    @endif
+
     @include('assets.header')
 
     @include('assets.menuPrincipal')

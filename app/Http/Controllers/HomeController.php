@@ -44,12 +44,9 @@ class HomeController extends Controller
     }
     public function auction(Request $request)
     {
-        if (!$request->session()->has('users')) {
-            Alert::warning('Warning title', 'Warning Message');
-            return redirect()->back();
-        }else {
+      
             return view('auction.index');
-        }
+      
     }
     public function auctionDetail(Request $request,$id)
     {
@@ -59,7 +56,7 @@ class HomeController extends Controller
     {
         return view('auction.detail.live.index');
     }
-    public function myaccount()
+    public function myaccount(Request $request)
     {
         if (!$request->session()->has('users')) {
             Alert::warning('Warning title', 'Warning Message');
