@@ -18,7 +18,7 @@
 		<!--Slides-->
 		<!-- nav -->
 
-		@include ('home.assets.filtroBarra')
+		@include('home.assets.filtroBarra')
 		<!-- main content -- nr° 1-->
 		@foreach ($productos->chunk(3) as $key => $productCollection)
 		<!--First slide-->
@@ -31,7 +31,7 @@
 						<strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
 					</p>
 					<p class="card-text text-center title-to_annoucement">
-						<strong>{{ $product->producto }}</strong>
+						<strong></strong>
 					</p>
 					<div class="align-items-center">
 						<div class="btn-group d-flex justify-content-center">

@@ -1,4 +1,4 @@
-<div>
+
   <h4 class="d-flex justify-content-between align-items-center mb-3">
     <span class="text-muted"></span>
     <span class="badge badge-secondary badge-pill"></span>
@@ -170,4 +170,3 @@
     </article>
     <img class="img-fluid d-md-block" src="./assets/img/image-021.png" alt="">
   </div>
-</div>
