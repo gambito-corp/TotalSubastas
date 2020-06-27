@@ -168,8 +168,7 @@
     </div>
     <!-- end row -->
 </div>
-<div class="container-fluid">
-
+<div class="container-fluid pl-0 pr-0">
     @include('assets.footer')
 </div>
 @endsection

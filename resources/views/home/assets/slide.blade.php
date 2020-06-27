@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="b pl-5 pt-5 d-none d-sm-none d-md-block col-md-12">
+        <div class="b pl-5 pt-5 ml-3 d-none d-sm-none d-md-block col-md-12">
           <div class="row">
             <div class="col-md-5">
               <article>
@@ -71,7 +71,6 @@
             </div>
             <div class="col-md-6 d-flex justify-content-center top-slide_carousel-item-b">
               <div class="oval"></div>
-
               <img src="./assets/img/kiara-png-kiara-clipart-png-298.png" alt="">
             </div>
           </div>

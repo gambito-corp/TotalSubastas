@@ -77,7 +77,7 @@
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-5 social-network_footer">
-           <a href="{{  url('/') }}"> <img src="./assets/img/Logo_front.png"></a>
+           <a href="{{  url('/') }}"> <img src="{{ asset('./assets/img/Logo_front.png') }}"></a>
           </form>
         </nav>
      </div>

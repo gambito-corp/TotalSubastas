@@ -9,7 +9,7 @@
           </a></div>
         <div class="col mt-2">
           <a href="#" class="text-dark">
-            <img src="./assets/img/Imagen 1.png" alt="">
+            <img src=" {{ asset('./assets/img/Imagen 1.png') }}" alt="">
             Chat en vivo
           </a>
         </div>
@@ -17,7 +17,7 @@
       <div class="row ">
         <div class="col-md  mr-auto  ">
           <a href="{{  url('/') }}" class="navbar-brand d-flex text-dark align-items-center">
-            <img src="./assets/img/Logo_front.png">
+            <img src="{{ asset('./assets/img/Logo_front.png') }}">
           </a></div>
       </div>
       @guest

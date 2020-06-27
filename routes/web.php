@@ -30,7 +30,7 @@ Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 //testeo
 Route::get('/test', 'ChatController@Test')->name('test');
-
+Route::livewire('/auctions', 'Aunctions');
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
