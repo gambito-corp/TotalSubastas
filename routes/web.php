@@ -29,8 +29,9 @@ Route::get('/game', 'HomeController@game')->name('game.show');
 Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 //testeo
+Route::resource('file', 'store');
 Route::get('/test', 'ChatController@Test')->name('test');
-Route::livewire('/auctions', 'Aunctions');
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {

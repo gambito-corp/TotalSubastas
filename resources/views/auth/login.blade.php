@@ -4,15 +4,12 @@
 <div class="container  d-grid justify-content-center">
     <div class="row ">
         <!-- main content -->
-        <div class="col-md col-md-12 mt-5 mb-5 text-center">
-            <div class="col-sm col-sm-12 col-lg-6 p-5 main-container  mt-5">
+        <div class="col-md col-md-12   mt-5 mb-5 text-center">
+            <div class="col-sm col-sm-6 col-lg-6 offset-md-3 p-5 main-container  mt-5">
                 <h1 class="font-weight-bold">
                     Hola nuevamente
                 </h1><a href="{{ url('my-account') }}">Mi cuenta</a>
                 <p>ingresa tus datos</p>
-                {!! Form::open(['url' => 'foo/bar', 'method' => 'put']) !!}
-                    //
-                {!! Form::close() !!}
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <div class="form-group row justify-content-center">
@@ -31,7 +28,7 @@
                         </div>
                     </div>
                     <div class="form-group row justify-content-center">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 ">
                             <div class="input-group mb-3 ">
 
                                 <div class="input-group-prepend">

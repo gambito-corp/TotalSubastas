@@ -6,6 +6,7 @@ use App\Helpers\Gambito;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hashids\Hashids;
+
 class HomeController extends Controller
 {
     /**
@@ -35,7 +36,8 @@ class HomeController extends Controller
     {
         return view('about.aboutus');
     }
-    public function terms(){
+    public function terms()
+    {
         return view('terms.conditions');
     }
     public function faqs()
@@ -45,13 +47,12 @@ class HomeController extends Controller
     public function auction(Request $request)
     {
         return view('auction.index');
-      
     }
-    public function auctionDetail(Request $request,$id)
+    public function auctionDetail(Request $request, $id)
     {
         return view('auction.detail.index');
     }
-    public function auctionLiveDetail(Request $request,$id)
+    public function auctionLiveDetail(Request $request, $id)
     {
         return view('auction.detail.live.index');
     }
@@ -60,27 +61,24 @@ class HomeController extends Controller
         if (!$request->session()->has('users')) {
             Alert::warning('Warning title', 'Warning Message');
             return redirect()->back();
-        }else {
+        } else {
             return view('auth.myaccount.show');
         }
     }
-    public function myaccountEdit()
+    public function myaccountEdit(Request $request)
+    {
+      
+            return view('auth.myaccount.edit');
+     
+    }
+    public function sell(Request $request)
     {
         if (!$request->session()->has('users')) {
             Alert::warning('Warning title', 'Warning Message');
             return redirect()->back();
-        }else {
-        return view('auth.myaccount.edit');
-        }
-    }
-   public function sell(Request $request){
-        if (!$request->session()->has('users')) {
-            Alert::warning('Warning title', 'Warning Message');
-            return redirect()->back();
-        }else{
+        } else {
             return view('sell.index');
         }
-             
     }
     public function myaccountFilestore(Request $request)
     {

@@ -257,13 +257,9 @@
 
             <!--end row-->
             <!--  -->
-
-
             <div class="container-fluid pl-0 pr-0">
-
-            @include('assets.footer')
+                @include('assets.footer')
             </div>
-
             @endsection
         </div>
     </div>

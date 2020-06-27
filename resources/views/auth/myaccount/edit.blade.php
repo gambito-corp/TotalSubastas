@@ -135,7 +135,7 @@
                                         Dropzone
                                     </div>
                                     <div class="panel-body">
-                                        {!! Form::open(['route'=> 'file.store', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
+                                        {!! Form::open([ 'route' => 'file.store' 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
                                         <div class="dz-message" style="height:200px;">
                                             Drop your files here
                                         </div>

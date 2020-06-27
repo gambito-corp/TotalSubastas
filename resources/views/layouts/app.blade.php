@@ -17,7 +17,8 @@
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/grid.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-   
+    <!-- my account upload file -->
+    <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
     @livewireStyles
     @stack('styles')
 </head>
@@ -43,6 +44,7 @@
         crossorigin="anonymous"></script>
     <script src="{{ mix('js/app.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('js/dropzone.js') }}"></script>
     @livewireScripts
     @stack('scripts')
 </body>

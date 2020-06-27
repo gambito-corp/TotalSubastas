@@ -17,7 +17,7 @@
 
 		<!--Slides-->
 		<!-- nav -->
-		
+
 		@include ('home.assets.filtroBarra')
 		<!-- main content -- nr° 1-->
 		@foreach ($productos->chunk(3) as $key => $productCollection)
@@ -35,9 +35,9 @@
 					</p>
 					<div class="align-items-center">
 						<div class="btn-group d-flex justify-content-center">
-						<a href=" auction/id/{{ $hashids->encode($product->id, 0,1,2,3,4,5,6) }}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
-							<strong><span class="mr-2">$</span>{{ $product->precio }}</strong>
-						</a>
+							<a href=" auction/id/{{ $hashids->encode($product->id, 0,1,2,3,4,5,6) }}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+								<strong><span class="mr-2">$</span>{{ $product->precio }}</strong>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -46,4 +46,3 @@
 		@endforeach
 		<!--/.end products fetch-->
 		@endforeach
-	
