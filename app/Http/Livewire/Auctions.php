@@ -8,6 +8,6 @@ class Auctions extends Component
 {
     public function render()
     {
-        return view('livewire.auctions');
+        return view('livewire.auctions.index');
     }
 }

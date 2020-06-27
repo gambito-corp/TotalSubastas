@@ -17,7 +17,7 @@
                                         <rect width="100%" height="100%" fill="#ffd980"></rect>
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
-                                    <h1 class="font-weight-bold">    {{ $product }} </h1>
+                                    <h1 class="font-weight-bold">   </h1>
                                     <h3>2003</h3>
                                 </figure>
                                 <ul class="nav justify-content-end">

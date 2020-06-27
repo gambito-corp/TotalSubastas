@@ -46,15 +46,15 @@ class HomeController extends Controller
     }
     public function auction(Request $request)
     {
-        return view('auction.index');
+       //return view('auction.index');
     }
     public function auctionDetail(Request $request, $id)
     {
-        return view('auction.detail.index');
+        return view('livewire.auctions.show');
     }
     public function auctionLiveDetail(Request $request, $id)
     {
-        return view('auction.detail.live.index');
+        return view('livewire.auctions.live');
     }
     public function myaccount(Request $request)
     {

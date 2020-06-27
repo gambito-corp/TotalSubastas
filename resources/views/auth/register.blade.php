@@ -69,10 +69,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="form-group col-md-12">
-
-                                <input type="submit" name="enviar" class="form-control btn btn-primary rounded-pill btn-block" placeholder="">
-                            </div>
+                            
                             <div class="form-group col-md-6 pt-5 text-center">
                                 <h3 class="display-6  text-darken">Ya tienes cuenta ?</h3>
                             </div>

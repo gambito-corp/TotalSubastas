@@ -18,7 +18,6 @@
 <div class="container">
     <div class="row">
         <!-- main content -->
-      
         <div class="col-md-3 order-md-1 mb-4  ">
             <div class="text-center ">
                 <div class="bg-light-card topics shadow-sm ">
@@ -40,11 +39,9 @@
                             <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> tex paragraph
                             </li>
                         </ul>
-
                     </div>
                 </div>
             </div>
-
             <p class="mt-5 card-side_faqs">
                 ¿ C&oacute;mo subastar ?
             </p>

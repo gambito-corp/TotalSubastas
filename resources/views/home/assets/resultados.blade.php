@@ -1,4 +1,4 @@
-@livewire('resultados-index')
+@livewire('auctions')
 <div class="col-6 text-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"
                     data-whatever="@mdo">Open modal for @mdo</button>
