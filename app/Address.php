@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Address extends Model
 {
     use SoftDeletes;
-
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-
+        
     ];
 
     /**
@@ -25,7 +25,7 @@ class Address extends Model
      * @var array
      */
     protected $hidden = [
-
+        
     ];
 
     /**
@@ -40,13 +40,8 @@ class Address extends Model
     ];
 
     //Scope
-    public function scopepais($query)
+    public function scopePais($query)
     {
         return $query->where('pais_id', 1);
     }
-
-//    public function address_belongsto_department_relationship($query)
-//    {
-////        $this->belongsTo(App\Departments, )
-//    }
 }

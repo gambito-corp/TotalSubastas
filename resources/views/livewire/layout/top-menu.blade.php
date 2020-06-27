@@ -1,5 +1,3 @@
-<!-- Navbar header bottom -->
-
 <div class="navbar navbar-dark navbar-top navbar-expand-lg bg-nav">
 	<div class="container">
 		<a class="navbar-brand  d-flex align-items-center pl-5 mr-5" href="#"><img src="./assets/img/peru.png" alt="" /></a>

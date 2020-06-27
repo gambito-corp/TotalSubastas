@@ -8,14 +8,13 @@ use Livewire\Component;
 class Filtro extends Component
 {
 
-
+    public $empresas = '';
 
     public function mount()
     {
+        
 
     }
-
-
 
 
 

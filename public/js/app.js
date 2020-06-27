@@ -37626,7 +37626,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-
+  
 )
 
 component.options.__file = "resources/js/components/ExampleComponent.vue"
@@ -37652,10 +37652,8 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 __webpack_require__(/*! C:\laragon\www\hotfix\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\laragon\www\hotfix\resources\sass\app.scss */"./resources/sass/app.scss");
-
 
 
 /***/ })

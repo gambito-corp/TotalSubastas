@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-@livewire('resultados-index')
-
-=======
 @livewire('auctions')
 <div class="col-6 text-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable"
@@ -35,4 +31,3 @@
                     </div>
                 </div>
             </div>
->>>>>>> 8262107901bd49f311cb8d9d01c6df732fc9765b

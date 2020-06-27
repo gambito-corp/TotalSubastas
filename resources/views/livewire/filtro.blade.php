@@ -1,4 +1,4 @@
-<div>
+
   <h4 class="d-flex justify-content-between align-items-center mb-3">
     <span class="text-muted"></span>
     <span class="badge badge-secondary badge-pill"></span>
@@ -123,19 +123,16 @@
           <div class="col d-flex justify-content-between mt-2">
             <div class="input-group m-2">
               <div class="input-group ">
-                <input class="form-control py-2 border-right-0 border" type="text" id="example-search-input" wire:model="empresas">
+                <input class="form-control py-2 border-right-0 border" type="text" id="example-search-input" wire:model.debounce.500ms="empresas">
                 <span class="input-group-append">
-                  <button class="btn btn-outline-secondary border-left-0 border" type="button" wire:click="search">
+                  <button class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fa fa-search"></i>
                   </button>
                 </span>
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-=======
                   {{$empresas}} 
->>>>>>> 8262107901bd49f311cb8d9d01c6df732fc9765b
         </div>
       </div>
     </div>
@@ -173,4 +170,3 @@
     </article>
     <img class="img-fluid d-md-block" src="./assets/img/image-021.png" alt="">
   </div>
-</div>

@@ -35,6 +35,8 @@ class Producto extends Model
      * @var array
      */
     protected $casts = [
+        'started_at' => 'datetime',
+        'finalized_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
