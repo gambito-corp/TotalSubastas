@@ -15,29 +15,10 @@
 
 		@include('home.assets.slide', ['data' => $data])
 
-		<!--<div class="col col-md-12 mb-4 "> -->
-		<!-- Navbar -->
-		<!--	@include('home.assets.nav-resultados') -->
-		<!-- </div>-->
 	</div>
-	<div class="row">
-		@include('home.assets.breadcrumb-index')
-		<div class="col col-md-3  pl-0  order-md-1 mb-4 ">
-			@include('home.assets.filtro')
-		</div>
-		<div class="col-md-9 order-md-2 mt-3">
-			<div class="row">
-			@include('home.assets.nav-resultados')
-				<div class="container">
-					<div class="row main-container">
-						@include('home.assets.resultados')
-						<!-- -->
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
+    <div>
+        @livewire('busqueda.index')
+    </div>
 	@include('assets.widgets')
 </div>
 

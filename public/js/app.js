@@ -37652,8 +37652,13 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 __webpack_require__(/*! C:\laragon\www\hotfix\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\laragon\www\hotfix\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\laragon\www\TotalSubastas\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\TotalSubastas\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Stashed changes
 
 
 /***/ })

@@ -123,16 +123,15 @@
           <div class="col d-flex justify-content-between mt-2">
             <div class="input-group m-2">
               <div class="input-group ">
-                <input class="form-control py-2 border-right-0 border" type="text" id="example-search-input" wire:model.debounce.500ms="empresas">
+                <input class="form-control py-2 border-right-0 border" type="text" id="example-search-input" wire:model="empresas">
                 <span class="input-group-append">
-                  <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                  <button class="btn btn-outline-secondary border-left-0 border" type="button" wire:click="search">
                     <i class="fa fa-search"></i>
                   </button>
                 </span>
               </div>
             </div>
           </div>
-                  {{$empresas}}
         </div>
       </div>
     </div>

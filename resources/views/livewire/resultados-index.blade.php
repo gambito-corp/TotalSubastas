@@ -1,20 +1,7 @@
-		<div>
-			<!--Carousel Wrapper-->
-			@php
-			use Hashids\Hashids;
-			$productos = App\Producto::all();
-			$users = App\User::all();
-			$hashids = new Hashids();
-			@endphp
-		</div>
+<div>
 
-		<!--Indicators
-        <ol class="carousel-indicators">
-            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-            <li data-target="#multi-item-example" data-slide-to="1"></li>
-        </ol>
-      Indicators-->
 
+<<<<<<< Updated upstream
 		<!--Slides-->
 		<!-- nav -->
 
@@ -46,3 +33,8 @@
 		@endforeach
 		<!--/.end products fetch-->
 		@endforeach
+=======
+
+
+</div>
+>>>>>>> Stashed changes
