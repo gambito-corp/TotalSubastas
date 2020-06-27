@@ -17,6 +17,7 @@
 
 	</div>
     <div>
+
         @livewire('busqueda.index')
     </div>
 	@include('assets.widgets')
@@ -26,5 +27,4 @@
     @include('assets.footer')
 </div>
 @endsection
-</div>
-</div>
+
