@@ -28,11 +28,11 @@
     @else
         <body class="bg-darken-light">
     @endif
-
+    
     @include('assets.header')
 
     @include('assets.menuPrincipal')
-
+    
     @yield('content')
 
     <!-- Scripts -->

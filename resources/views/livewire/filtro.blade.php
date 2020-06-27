@@ -132,6 +132,10 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+                  {{$empresas}} 
+>>>>>>> 8262107901bd49f311cb8d9d01c6df732fc9765b
         </div>
       </div>
     </div>
