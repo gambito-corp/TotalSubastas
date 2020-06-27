@@ -155,7 +155,7 @@
 
                 </div>
 
-                <div class="col-md-3 order-md-3 live-push_action-ranking">
+                <div class="col-md-3 mt-sm-4 order-md-3 live-push_action-ranking">
                     <article class="border-bottom">
                         <h5 class="text-uppercase ranking_live">ranking</h5>
                     </article>

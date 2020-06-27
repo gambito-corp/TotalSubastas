@@ -67,9 +67,7 @@ class HomeController extends Controller
     }
     public function myaccountEdit(Request $request)
     {
-      
-            return view('auth.myaccount.edit');
-     
+        return view('auth.myaccount.edit');
     }
     public function sell(Request $request)
     {

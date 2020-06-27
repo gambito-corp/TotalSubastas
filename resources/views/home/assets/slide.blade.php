@@ -58,6 +58,7 @@
                 <p class="carousel-text_item_b-top">como subastar?</p>
                 <h2 class="carousel-text_item_b">
                   Te enseñamos a Subastar
+				 
                 </h2>
                 <p class="carousel-text_item_b-text">
                   Encuentra oportunidades de ingreso, o a lo mejor un gran
