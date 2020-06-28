@@ -19,20 +19,20 @@ Route::get('/auction', 'HomeController@auction')->name('auction');
 Route::get('/sell', 'HomeController@sell')->name('sell');
 Route::get('/about', 'HomeController@aboutus')->name('aboutus');
 Route::get('/terms', 'HomeController@terms')->name('terms');
-Route::get('/auction/id/{id}', 'HomeController@auctionDetail')->name('auctionDetail');
+Route::get('/auction/id/{id}', 'HomeController@auctionDetail')->name('auctionDetail')->middleware('verified');
 Route::get('/live/auction/id/{id}', 'HomeController@auctionLiveDetail')->name('auctionLiveDetail');
 Route::get('/my-account', 'HomeController@myaccount')->name('myaccount');
 Route::get('/my-account/edit/{id}', 'HomeController@myaccountEdit')->name('editmyaccount');
 Route::get('/users', 'HomeController@users')->name('users.all');
 Route::get('/account', 'HomeController@accout')->name('users.all');
 Route::get('/game', 'HomeController@game')->name('game.show');
-Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show');
+Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show')->middleware('verified');
 Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
 //testeo
 Route::resource('file', 'store');
 Route::get('/test', 'ChatController@Test')->name('test');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

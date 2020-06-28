@@ -784,10 +784,7 @@
 
             const timerUpdate = setInterval(()=>{
                 let t = getRemainTime(deadline);
-                el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds;
-
-
-                    // `${}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;
+                el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
                 if(t.remainTime <= 1){
                     clearInterval(timerUpdate);
                     el.innerHTML = finalMessage;
