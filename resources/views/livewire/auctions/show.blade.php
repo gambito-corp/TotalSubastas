@@ -36,7 +36,7 @@
                                                 <div class="col pt-3 ">
                                                     <p class="title-d_sheet-jumb text-center">cierra en</p>
                                                     <div class="d-flex" wire:poll.100000s="contador">
-                                                        <p class="title-d_sheet-sp mr-3">{{$Producto->finalized_at->diffForHumans()}}</p>
+                                                        <p class="title-d_sheet-sp mr-3" id="regresiva"></p>
 {{--                                                        <p class="title-d_sheet-sp mr-3">{{$Producto->finalized_at}}</p>--}}
 
                                                     </div>
@@ -106,9 +106,9 @@
                                             @else
                                                 <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="#"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$Producto->puja}} $ </a>
                                             @endif
-
                                         </div>
                                     </div>
+
                                     <div class="form-check pt-4">
                                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                                         <label class="form-check-label" for="defaultCheck1">
@@ -757,9 +757,47 @@
         </div>
     </div>
 
-
-
-    <div class="container-fluid pl-0 pr-0">
-
 {{--        @include('assets.footer')--}}
+
+{!! $Producto->started_at->toCookieString()!!}
+    @push('scripts')
+    <script>
+        var hora = @json($Producto->started_at);
+        const getRemainTime = deadline => {
+            let now = new Date(),
+                remainTime = (new Date(deadline) - now +1000) / 1000,
+                remainSeconds = ('0'+Math.floor(remainTime % 60)).slice(-2),
+                remainMinutes = ('0'+Math.floor(remainTime / 60 % 60)).slice(-2),
+                remainHours = ('0'+Math.floor(remainTime / 3600 % 24)).slice(-2),
+                remainDays = Math.floor(remainTime / (3600 * 24));
+            return {
+                remainTime,
+                remainSeconds,
+                remainMinutes,
+                remainHours,
+                remainDays
+            }
+        };
+
+        const countdown = (deadline, elem, finalMessage) =>{
+            const el = document.getElementById(elem);
+
+            const timerUpdate = setInterval(()=>{
+                let t = getRemainTime(deadline);
+                el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds;
+
+
+                    // `${}d:${t.remainHours}h:${t.remainMinutes}m:${t.remainSeconds}s`;
+                if(t.remainTime <= 1){
+                    clearInterval(timerUpdate);
+                    el.innerHTML = finalMessage;
+                }
+
+            }, 1000)
+        };
+
+        countdown(hora, 'regresiva', 'Finalizo');
+        // console.log(Date(hora));
+    </script>
+    @endpush
     </div>
