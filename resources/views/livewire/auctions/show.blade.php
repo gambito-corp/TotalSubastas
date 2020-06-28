@@ -1,7 +1,4 @@
-
-@extends('layouts.app')
-@section('content')
-    <div class="container">
+<div class="container">
         <div class="row main-container mr-1 mb-5 mt-5">
             <div class="col-sm-12 mt-5 mb-5">
                 <div class="row">
@@ -16,7 +13,8 @@
                                             <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                         </svg>
                                         <h1 class="font-weight-bold">   </h1>
-                                    <h3>2003{{$hola}}</h3>
+                                    <h3>{{"$Vehiculo->marca_id $Vehiculo->modelo_id $Vehiculo->nombre"}}</h3>
+                                    <h3>{{$Vehiculo->year}}</h3>
                                     </figure>
                                     <ul class="nav justify-content-end">
                                         <li class="nav-item text-light_darken mr-2">
@@ -37,11 +35,10 @@
                                             <div class="row">
                                                 <div class="col pt-3 ">
                                                     <p class="title-d_sheet-jumb text-center">cierra en</p>
-                                                    <div class="d-flex">
-                                                        <p class="title-d_sheet-sp mr-3"> 12 <br> <span class="jumb-title_count-bottom"> hor </span>
-                                                        </p> : <p class="title-d_sheet-sp mr-3 ml-3"> 43 <br><span class="jumb-title_count-bottom">
-                                                                min </span></p> : <p class="title-d_sheet-sp mr-3 ml-3">12 <br> <span class="jumb-title_count-bottom"> seg </span></p>
-                                                        <br>
+                                                    <div class="d-flex" wire:poll.100000s="contador">
+                                                        <p class="title-d_sheet-sp mr-3">{{$Producto->finalized_at->diffForHumans()}}</p>
+{{--                                                        <p class="title-d_sheet-sp mr-3">{{$Producto->finalized_at}}</p>--}}
+
                                                     </div>
                                                 </div>
                                                 <div class="col pt-3">
@@ -60,15 +57,13 @@
                                                 Garantia
                                             </div>
                                             <div class="col-12  col-md-3 col-sm-12 col-xs-12">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text m-0">$
-                                                    150</button>
+                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text m-0">$ {{$Producto->garantia}}</button>
                                             </div>
                                             <div class="col-12 col-md-3 text-center col-sm-12 col-xs-12 text-s_gd-sheet">
                                                 Ganador actual
                                             </div>
                                             <div class="col-12 col-md-3 col-sm-12 col-xs-12 ">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> JAV193
-                                                </button>
+                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text ">{{$Producto->user_id}}</button>
                                             </div>
                                         </div>
                                         <!--  -->
@@ -77,8 +72,8 @@
                                                 comision
                                             </div>
                                             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> 5
-                                                    %</button>
+                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> {{$Producto->comision}}
+                                                    </button>
                                             </div>
                                             <div class="col-12 col-md-3  text-center col-sm-12 col-xs-12 text-s_gd-sheet">
                                                 Tipo subasta
@@ -94,14 +89,24 @@
                                             </div>
                                         </div>
                                     </div>
+
+
                                     <div class="row mt-5">
                                         <div class="col">
                                             <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom">
-                                                $ 3500 actual
+                                                $ {{$Producto->precio}} actual
                                             </button>
                                         </div>
+
                                         <div class="col">
-                                            <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ url('/live').'/'.Request::path() }} "><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Participar </a>
+                                            @if($Estado[0] == 'ganador')
+                                                <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none"><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
+                                            @elseif($Estado[0] == 'online')
+                                                <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ url('/live').'/'.Request::path() }} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
+                                            @else
+                                                <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="#"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$Producto->puja}} $ </a>
+                                            @endif
+
                                         </div>
                                     </div>
                                     <div class="form-check pt-4">
@@ -756,7 +761,5 @@
 
     <div class="container-fluid pl-0 pr-0">
 
-        @include('assets.footer')
+{{--        @include('assets.footer')--}}
     </div>
-
-@endsection

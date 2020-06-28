@@ -1,5 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    @dump(Request())
-    @livewire('auctions.show')
+    @livewire('auctions.show', ['id' => $id])
 @endsection
