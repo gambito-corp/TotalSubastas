@@ -16,7 +16,7 @@ class Lot extends Model
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class Lot extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -39,5 +39,16 @@ class Lot extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
+    //Relaciones Belongs to
+    public function Empresas()
+    {
+        return $this->belongsTo('App\Company', 'empresa_id');
+    }
+    // relaciones HasMany
+    public function Producto()
+    {
+        return $this->hasMany('App\Producto', 'lote_id');
+    }
+
 }

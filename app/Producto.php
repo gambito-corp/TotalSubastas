@@ -10,14 +10,14 @@ class Producto extends Model
     use SoftDeletes;
 
     protected $table='productos';
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -26,7 +26,7 @@ class Producto extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -41,5 +41,10 @@ class Producto extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
+
+    public function Lotes()
+    {
+        return $this->belongsTo('App\Lot', 'lote_id');
+    }
 
 }

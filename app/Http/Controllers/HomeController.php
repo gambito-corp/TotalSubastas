@@ -50,7 +50,7 @@ class HomeController extends Controller
     }
     public function auctionDetail(Request $request, $id)
     {
-        return view('livewire.auctions.show', ['auction' => $request]);
+        return view('auction.show', ['auction' => $request]);
     }
     public function auctionLiveDetail(Request $request, $id)
     {

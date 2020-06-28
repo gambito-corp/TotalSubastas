@@ -3,11 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
-    
+
         <!-- Styles -->
         <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/grid.css') }}" rel="stylesheet">
@@ -17,25 +17,19 @@
         @livewireStyles
         @stack('styles')
     </head>
-    
-        @if (Request::is('auction/id/*'))
-            <body class="bg-dark">
-        @else 
-            <body class="bg-darken-light">
-        @endif
-        
-        @livewire('layout.header')
-    
-        @livewire('layout.top-menu')
-        
+    <body class="{{Request::is('auction/id/*') ?  'bg-dark': 'bg-darken-light'}}">
+        @include('assets.header')
+
+        @include('assets.menuPrincipal')
+
         @yield('content')
-    
-        @livewire('layout.footer')
-       
+
+        @include('assets.footer')
+
         <script src="{{ mix('js/app.js') }}"></script>
         <script src="{{ asset('js/dropzone.js') }}"></script>
         @livewireScripts
         @stack('scripts')
     </body>
-    
-    </html>
+
+</html>
