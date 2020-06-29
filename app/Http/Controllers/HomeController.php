@@ -6,12 +6,16 @@ use App\Balance;
 use App\Helpers\Gambito;
 use App\Message;
 use App\Producto;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hashids\Hashids;
 
 class HomeController extends Controller
 {
+    public $Gambito;
+
     /**
      * Create a new controller instance.
      *
@@ -19,6 +23,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->Gambito = new Gambito();
         $this->middleware('auth')->only('home');
     }
 
@@ -60,28 +65,16 @@ class HomeController extends Controller
     }
     public function auctionLiveDetail(Request $request, $id)
     {
-        $user_id = \Auth::user()->id;
         // Poder acceder solo durante el tiempo que esta permitido en la BD de lo contrario no poder entrar
-        $producto = Producto::where('id', $id)->first();
-        if(now() < $producto->started_at)
-        {
-            return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
-        }elseif(now() > $producto->finalized_at)
-        {
-            return redirect()->route('index')->with('flash', 'La Subasta ya finalizo');
-        }
+        $this->Gambito->checkInicioSubasta($id);
+
         //preguntar si el usuario tiene balance
-        $balance = Balance::where('user_id', $user_id)->first();
-        //comprobar si puedo descontar el monto
-        $descuento = $balance->monto - $producto->garantia;
-        if ($descuento <= 0)
-        {
-            return redirect()->route('index')->with('flash', 'No dispone de fondos suficientes para asumir la garantia, porfavor recarge sus fondos "AQUI"');
-        }
-        //descontar la garantia al balance si es positivo devolver vista, de lo contrario retornar al index
-        $balance->update([
-            'monto' => $balance->monto - $producto->garantia
-        ]);
+        $this->Gambito->checkBalance();
+
+        //comprobar si puedo descontar el monto, descontarlo de asi poder y registrar que fue descontado para futura devolucion
+        $this->Gambito->descuentoGarantia();
+
+
 
         $data = Message::where('subasta_id', $id)->get();
         return view('livewire.auctions.live')->with([
@@ -134,8 +127,5 @@ class HomeController extends Controller
  * id
  * producto_id
  * user_id
- * monto_id
- *
- *
- *
+ * monto
  * */
