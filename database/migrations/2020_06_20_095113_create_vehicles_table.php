@@ -16,7 +16,7 @@ class CreateVehiclesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
-			$table->integer('lote_id')->unsigned();
+			$table->integer('producto_id')->unsigned();
 			$table->integer('marca_id')->unsigned();
 			$table->integer('modelo_id')->unsigned();
 			$table->year('year')->nullable();

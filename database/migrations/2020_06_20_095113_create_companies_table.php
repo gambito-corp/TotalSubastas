@@ -16,7 +16,7 @@ class CreateCompaniesTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('persona_juridica_id')->unsigned();
-			$table->integer('direccion_id')->unsigned();
+			$table->integer('direccion_id')->unsigned()->nullable();
 			$table->string('nombre')->nullable();
 			$table->string('razon_social')->nullable();
 			$table->string('ruc')->nullable();

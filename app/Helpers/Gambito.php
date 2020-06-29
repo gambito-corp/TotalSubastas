@@ -6,8 +6,10 @@ namespace App\Helpers;
 
 use App\Balance;
 use App\Garantia;
+use App\Message;
 use App\Producto;
 use App\User;
+use App\Vehicle;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +23,9 @@ class Gambito
     {
         $this->id = $id;
         $producto = Producto::findOrFail($this->id);
-        if(now() < $producto->started_at)
-        {
+        if (now() < $producto->started_at) {
             return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
-        }elseif(now() > $producto->finalized_at)
-        {
+        } elseif (now() > $producto->finalized_at) {
             return redirect()->route('index')->with('flash', 'La Subasta ya finalizo');
         }
         return $producto;
@@ -42,8 +42,7 @@ class Gambito
 
         $descuento = $this->checkBalance()->monto - $this->checkInicioSubasta($this->id)->garantia;
 
-        if ($descuento <= 0)
-        {
+        if ($descuento <= 0) {
             return redirect()->route('index')->with('flash', 'No dispone de fondos suficientes para asumir la garantia, porfavor recarge sus fondos "AQUI"');
         }
 
@@ -51,8 +50,7 @@ class Gambito
         $this->check = Garantia::where('producto_id', $this->id)
             ->where('user_id', Auth::id())
             ->first();
-        if(is_null($this->check))
-        {
+        if (is_null($this->check)) {
             //descontar la garantia al balance solo si no se hizo para esta subasta
             $this->hacerDescuento($descuento);
         }
@@ -63,23 +61,41 @@ class Gambito
     protected function hacerDescuento($descuento)
     {
         //comprobar que el descuento no se hizo antes
-        $check = new Garantia();
+        $this->check = new Garantia();
+
         //Hacer el descuento
         $this->checkBalance()->update([
             'monto' => $this->checkBalance()->monto - $this->checkInicioSubasta($this->id)->garantia
         ]);
-        //guardar el descuento en la tabla especial
 
-        $check = Garantia::create([
+        //guardar el descuento en la tabla especial
+        $this->check = Garantia::create([
             'producto_id' => $this->id,
             'user_id' => Auth::id(),
             'monto' => $this->checkInicioSubasta($this->id)->garantia,
         ]);
     }
 
-    public function quienGana($id)
+    protected function mensajes()
     {
-        
+        $data = Message::where('producto_id', $this->id)->get();
+        return $data;
+    }
+
+    protected function vehiculo()
+    {
+        return Vehicle::where('producto_id', $this->id)->first();
+    }
+
+    public function data()
+    {
+        return $data = [
+            'mensajes' => collect($this->mensajes()),
+            'producto' => $this->checkInicioSubasta($this->id),
+            'usuario' => Auth::user(),
+            'vehiculo' => $this->vehiculo(),
+            'balance' => $this->checkBalance()
+        ];
     }
 
 }

@@ -74,11 +74,8 @@ class HomeController extends Controller
         //comprobar si puedo descontar el monto, descontarlo de asi poder y registrar que fue descontado para futura devolucion
         $this->Gambito->descuentoGarantia();
 
-
-
-        $data = Message::where('subasta_id', $id)->get();
-        return view('livewire.auctions.live')->with([
-            'data' => $data
+        return view('auction.live')->with([
+            'data' => $this->Gambito->data()
         ]);
     }
     public function myaccount(Request $request)

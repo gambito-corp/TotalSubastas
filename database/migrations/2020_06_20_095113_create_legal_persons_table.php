@@ -16,9 +16,9 @@ class CreateLegalPersonsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('persona_id')->unsigned();
-			$table->integer('banco_id')->unsigned();
-			$table->integer('direccion_id')->unsigned();
-			$table->integer('direccion2_id')->unsigned();
+			$table->integer('banco_id')->unsigned()->nullable();
+			$table->integer('direccion_id')->unsigned()->nullable();
+			$table->integer('direccion2_id')->unsigned()->nullable();
 			$table->string('nombre')->nullable();
 			$table->string('razon_social')->nullable();
 			$table->string('ruc')->nullable();

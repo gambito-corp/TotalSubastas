@@ -26,7 +26,7 @@ class Show extends Component
         $id = $hashids->decode($id);
         $this->Producto->id = $id[0];
         $this->Producto = Producto::where('id', $this->Producto->id)->first();
-        $this->Vehiculo = Vehicle::where('lote_id', $this->Producto->id)->first();
+        $this->Vehiculo = Vehicle::where('producto_id', $this->Producto->id)->first();
         $this->Detalle = VehicleDetail::where('Vehiculo_id', $this->Vehiculo->id)->first();
         //comprobar si existe el usuario actual
 

@@ -2,13 +2,15 @@ SET FOREIGN_KEY_CHECKS =0;
 -- address
 INSERT INTO realtimeapp.addresses (id, pais_id, departamento_id, provincia_id, distrito_id, tipo_via, direccion1, direccion2, numero, int_ext, referencia, titulo_direccion, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 1, 1, 'JR', 'jr. huarmey', null, '1410', 'null', 'a la ewspalda del parque del niño', 'direccion de casa', '2020-06-23 06:38:44', '2020-06-23 06:38:44', null);
 -- balance
-INSERT INTO realtimeapp.balances (id, user_id, banco_id, monto, tipo, descripcion, boucher, motivo, cuenta, transaccion_banco, abono_at, created_at, updated_at, deleted_at) VALUES (1, 1, 1, '1234', 'deposito de garantia', 'texto de prueba', 'balances\\June2020\\VDy0VHNQh1lbl9uPICGX.jpg', 'cbfcxbdfbvdfbv', 'fdsfsdfsaf', 'fsfsdfsaf', '2020-06-04 19:15:00', '2020-06-23 00:17:04', '2020-06-23 00:17:04', null);
+INSERT INTO realtimeapp.balances (id, user_id, banco_id, monto, tipo, descripcion, boucher, motivo, cuenta, transaccion_banco, abono_at, created_at, updated_at, deleted_at) VALUES (1, 1, 1, '1000000', 'deposito de garantia', 'texto de prueba', 'balances\\June2020\\VDy0VHNQh1lbl9uPICGX.jpg', 'cbfcxbdfbvdfbv', 'fdsfsdfsaf', 'fsfsdfsaf', '2020-06-04 19:15:00', '2020-06-23 00:17:04', '2020-06-23 00:17:04', null);
 -- bancos
 INSERT INTO realtimeapp.banks (id, nombre, siglas, created_at, updated_at, deleted_at) VALUES (1, 'Banco de Credito del Perú', 'BCP', '2020-06-22 21:27:09', '2020-06-22 21:27:09', null);
 -- marcas
 INSERT INTO realtimeapp.brands (id, nombre, slug, created_at, updated_at, deleted_at) VALUES (1, 'Toyota', null, '2020-06-23 06:34:37', '2020-06-23 06:34:37', null);
 -- compañias
 INSERT INTO realtimeapp.companies (id, persona_juridica_id, direccion_id, nombre, razon_social, ruc, telefono, email, informacion, imagen, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 'PAC', 'Pedro Aguirre Consultores SAC', '20604045747', '960717583', 'asesor.pedro@gmail.com', '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>', 'companies\\June2020\\0PER7AyHXRE6UDqdqYhX.jpg', '2020-06-23 06:51:03', '2020-06-23 06:51:03', null);
+INSERT INTO realtimeapp.companies (id, persona_juridica_id, direccion_id, nombre, razon_social, ruc, telefono, email, informacion, imagen, created_at, updated_at, deleted_at) VALUES (2, 1, 1, 'Gambito Corp', 'GambitoCorp SAC', '20604045747', '960717583', 'asesor.pedro@gmail.com', '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>', 'companies\\June2020\\0PER7AyHXRE6UDqdqYhX.jpg', '2020-06-23 06:51:03', '2020-06-23 06:51:03', null);
+INSERT INTO realtimeapp.companies (id, persona_juridica_id, direccion_id, nombre, razon_social, ruc, telefono, email, informacion, imagen, created_at, updated_at, deleted_at) VALUES (3, 1, 1, 'Saga Falabella', 'Almacenes Peruanos SAC', '20604045747', '960717583', 'asesor.pedro@gmail.com', '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>', 'companies\\June2020\\0PER7AyHXRE6UDqdqYhX.jpg', '2020-06-23 06:51:03', '2020-06-23 06:51:03', null);
 -- paises
 INSERT INTO realtimeapp.countries (id, nombre, codigo, created_at, updated_at, deleted_at) VALUES (1, 'Perú', 'PE', '2020-06-22 21:30:31', '2020-06-22 21:30:31', null);
 INSERT INTO realtimeapp.countries (id, nombre, codigo, created_at, updated_at, deleted_at) VALUES (2, 'España', 'ES', '2020-06-23 03:35:47', '2020-06-23 03:35:47', null);
@@ -422,8 +424,8 @@ INSERT INTO realtimeapp.menu_items (id, menu_id, title, url, target, icon_class,
 -- Menus
 INSERT INTO realtimeapp.menus (id, name, created_at, updated_at) VALUES (1, 'admin', '2020-06-20 00:21:00', '2020-06-20 00:21:00');
 -- mensajes
-INSERT INTO realtimeapp.messages (id, subasta_id, user_id, message, created_at, updated_at, deleted_at) VALUES (1, 0, 1, 'Hola mundo', '2020-06-19 03:46:04', null, null);
-INSERT INTO realtimeapp.messages (id, subasta_id, user_id, message, created_at, updated_at, deleted_at) VALUES (2, 0, 2, 'Adios Mundo', '2020-06-19 03:46:20', null, null);
+INSERT INTO realtimeapp.messages (id, producto_id, user_id, message, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 'Hola mundo', '2020-06-19 03:46:04', null, null);
+INSERT INTO realtimeapp.messages (id, producto_id, user_id, message, created_at, updated_at, deleted_at) VALUES (2, 1, 2, 'Adios Mundo', '2020-06-19 03:46:20', null, null);
 -- modelos
 INSERT INTO realtimeapp.models (id, marca_id, nombre, slug, created_at, updated_at, deleted_at) VALUES (1, 1, 'Yaris', null, '2020-06-23 06:36:12', '2020-06-23 06:36:12', null);
 -- persona natural
@@ -699,7 +701,7 @@ INSERT INTO realtimeapp.permissions (id, `key`, table_name, created_at, updated_
 INSERT INTO realtimeapp.permissions (id, `key`, table_name, created_at, updated_at) VALUES (134, 'edit_productos', 'productos', '2020-06-23 00:02:08', '2020-06-23 00:02:08');
 INSERT INTO realtimeapp.permissions (id, `key`, table_name, created_at, updated_at) VALUES (135, 'add_productos', 'productos', '2020-06-23 00:02:08', '2020-06-23 00:02:08');
 INSERT INTO realtimeapp.permissions (id, `key`, table_name, created_at, updated_at) VALUES (136, 'delete_productos', 'productos', '2020-06-23 00:02:08', '2020-06-23 00:02:08');
--- productos asdfghjklñ
+-- productos
 INSERT INTO realtimeapp.productos (id, user_id, lote_id, producto, precio, precio_reserva, garantia, puja, comision, started_at, finalized_at, created_at, updated_at, deleted_at) VALUES (1, 1, 0, 'Producto a subasta de la BD', '1300', '3000', '1000', '100', '5%', '2020-06-23 15:55:00', '2020-06-23 16:05:00', '2020-06-15 06:28:23', '2020-06-19 14:22:09', null);
 INSERT INTO realtimeapp.productos (id, user_id, lote_id, producto, precio, precio_reserva, garantia, puja, comision, started_at, finalized_at, created_at, updated_at, deleted_at) VALUES (2, null, 0, 'Producto 2 de la BD', '1100', '3000', '1000', '100', '5%', '2020-06-23 15:55:00', '2020-06-23 16:05:00', '2020-06-18 06:18:23', null, null);
 INSERT INTO realtimeapp.productos (id, user_id, lote_id, producto, precio, precio_reserva, garantia, puja, comision, started_at, finalized_at, created_at, updated_at, deleted_at) VALUES (3, null, 0, 'Producto 3 de la BD', '900', '3000', '1000', '100', '5%',  '2020-06-23 15:55:00', '2020-06-23 16:05:00', '2020-06-18 06:18:42', null, null);
@@ -730,7 +732,7 @@ INSERT INTO realtimeapp.users (id, role_id, name, email, avatar, email_verified_
 -- veiculos details
 INSERT INTO realtimeapp.vehicle_details (id, vehiculo_id, combustible, traccion, torque, potencia, cilindrada, velocidades, trasmision, puertas, freno_delantero, freno_trasero, tipo_freno, am_fm, cd, sd, aux, usb, bluetooth, neumaticos, tapizado, airbag, alarma, aros, neblineros, lunas, gps, sensores, created_at, updated_at, deleted_at) VALUES (1, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2020-06-23 07:39:03', '2020-06-23 07:39:03', null);
 -- vehiculos
-INSERT INTO realtimeapp.vehicles (id, user_id, lote_id, marca_id, modelo_id, year, nombre, placa, color, version, timon, asientos, estado_vehiculo, ficha_tecnica, informacion, direccion, video, video_url, valor_interno_activo, saneado, captura, seguro, soat, rtv, terminos, created_at, updated_at, deleted_at) VALUES (1, 2, 1, 1, 1, 2017, 'papelera', 'h4j-558', 'rojo', '1.5', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2020-06-23 07:38:39', '2020-06-23 07:38:39', null);
+INSERT INTO realtimeapp.vehicles (id, user_id, producto_id, marca_id, modelo_id, year, nombre, placa, color, version, timon, asientos, estado_vehiculo, ficha_tecnica, informacion, direccion, video, video_url, valor_interno_activo, saneado, captura, seguro, soat, rtv, terminos, created_at, updated_at, deleted_at) VALUES (1, 2, 1, 1, 1, 2017, 'papelera', 'h4j-558', 'rojo', '1.5', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '2020-06-23 07:38:39', '2020-06-23 07:38:39', null);
 -- almacenes
 INSERT INTO realtimeapp.warehouses (id, company_id, direccion_id, turnos_visita, telefono, informacion, max_personas, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 'yuhgvyvuyjvh', '960717587', '<h2>hboliuuhiu&nbsp; jhgiulygbliubg</h2>', '20', '2020-06-23 06:51:47', '2020-06-23 06:51:47', null);
 SET FOREIGN_KEY_CHECKS =1;

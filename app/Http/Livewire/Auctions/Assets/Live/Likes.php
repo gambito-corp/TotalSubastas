@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Auctions;
+namespace App\Http\Livewire\Auctions\Assets\Live;
 
 use Livewire\Component;
 
-class Live extends Component
+class Likes extends Component
 {
     public $data;
 
@@ -12,8 +12,9 @@ class Live extends Component
     {
         $this->data = $data;
     }
+
     public function render()
     {
-        return view('livewire.auctions.live');
+        return view('livewire.auctions.assets.live.likes');
     }
 }

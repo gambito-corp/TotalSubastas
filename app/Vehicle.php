@@ -46,4 +46,14 @@ class Vehicle extends Model
         return $this->belongsTo('App\Producto', 'producto_id');
     }
 
+    public function Marca()
+    {
+        return $this->belongsTo('App\Brand', 'marca_id');
+    }
+
+    public function Modelo()
+    {
+        return $this->belongsTo('App\ModelVehicle', 'modelo_id');
+    }
+
 }
