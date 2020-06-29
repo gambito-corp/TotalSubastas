@@ -20,7 +20,8 @@ class Busqueda extends Component
         $this->buscar = "";
         $this->picked = true;
         $this->usuarios = [];
-        $this->empresas = [];
+        $this->empresas = Company::all();
+//        dd($this->empresas);
         $this->resultado = [];
     }
 
