@@ -49,10 +49,7 @@ class Show extends Component
             $this->Estado[0] = 'puja';
         }
     }
-    public function pujar()
-    {
-        dd('Hola Mundo');
-    }
+
 
     public function render()
     {

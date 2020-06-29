@@ -47,6 +47,16 @@ class ShowButtom extends Component
         }
     }
 
+    public function pujar()
+    {
+        $this->Producto = Producto::where('id', $this->Producto->id)->first();
+        $this->Producto->precio += $this->Producto->puja;
+        $this->Producto->user_id = Auth::user()->id;
+        $this->Producto->update();
+        $this->estado();
+
+    }
+
     public function render()
     {
         return view('livewire.auctions.assets.show-buttom');

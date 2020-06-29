@@ -38,8 +38,8 @@
             </div>
         </div>
     </div>
-{{--PONER NI BIEN TERMINE DE CONFIGURAR LA PUJA  wire:poll.1000ms="estado"--}}
-    <div class="row mt-5" >
+
+    <div class="row mt-5" wire:poll.1000ms="estado">
         <div class="col">
             <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom">
                 $ {{$Producto->precio}} actual
@@ -56,7 +56,11 @@
                 <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => $Producto->id])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
             @endif
             @if($Estado[0] == 'puja')
-                <button class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 " wire:click="pujar"></i> Pujar {{$Producto->puja}} $ </button>
+                @auth
+                    <form wire:submit.prevent="pujar">
+                        <button class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$Producto->puja}} $ </button>
+                    </form>
+                @endauth
             @endif
                 @if($Estado[0] == 'Finalizada')
                 <p class="btn btn-warning rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>

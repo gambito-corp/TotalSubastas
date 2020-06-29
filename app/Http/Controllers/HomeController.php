@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Balance;
 use App\Helpers\Gambito;
+use App\Message;
+use App\Producto;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Hashids\Hashids;
@@ -57,7 +60,33 @@ class HomeController extends Controller
     }
     public function auctionLiveDetail(Request $request, $id)
     {
-        return view('livewire.auctions.live');
+        $user_id = \Auth::user()->id;
+        // Poder acceder solo durante el tiempo que esta permitido en la BD de lo contrario no poder entrar
+        $producto = Producto::where('id', $id)->first();
+        if(now() < $producto->started_at)
+        {
+            return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
+        }elseif(now() > $producto->finalized_at)
+        {
+            return redirect()->route('index')->with('flash', 'La Subasta ya finalizo');
+        }
+        //preguntar si el usuario tiene balance
+        $balance = Balance::where('user_id', $user_id)->first();
+        //comprobar si puedo descontar el monto
+        $descuento = $balance->monto - $producto->garantia;
+        if ($descuento <= 0)
+        {
+            return redirect()->route('index')->with('flash', 'No dispone de fondos suficientes para asumir la garantia, porfavor recarge sus fondos "AQUI"');
+        }
+        //descontar la garantia al balance si es positivo devolver vista, de lo contrario retornar al index
+        $balance->update([
+            'monto' => $balance->monto - $producto->garantia
+        ]);
+
+        $data = Message::where('subasta_id', $id)->get();
+        return view('livewire.auctions.live')->with([
+            'data' => $data
+        ]);
     }
     public function myaccount(Request $request)
     {
@@ -99,3 +128,14 @@ class HomeController extends Controller
         return view('game.show');
     }
 }
+
+
+/*
+ * id
+ * producto_id
+ * user_id
+ * monto_id
+ *
+ *
+ *
+ * */
