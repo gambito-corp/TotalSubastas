@@ -18,7 +18,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-light text-light_darken" id="email" type="email"><i class="fas fa-user"></i></i></span>
                                 </div>
-                                <input type="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Username" value="{{ old('email') }}" equired autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }} no-validator>
+                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Username" value="{{ old('email') }}" equired autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }} no-validator>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -32,8 +32,8 @@
                             <div class="input-group mb-3 ">
 
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></i></span>
-                                    <!-- -->
+                                    <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></span>
+
                                 </div>
                                 <input type="password" placeholder="contrase&ntilde;a" class="form-control @error('password') is-invalid @enderror" name="password" no-require autocomplete="current-password">
                                 <div class="input-group-append">

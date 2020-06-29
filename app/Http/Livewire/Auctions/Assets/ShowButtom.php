@@ -1,33 +1,30 @@
 <?php
 
-namespace App\Http\Livewire\Auctions;
+namespace App\Http\Livewire\Auctions\Assets;
 
 use App\Producto;
 use App\User;
-use App\Vehicle;
-use App\VehicleDetail;
-use Composer\DependencyResolver\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Hashids\Hashids;
 
-class Show extends Component
+class ShowButtom extends Component
 {
+
     public $Producto;
-    public $Vehiculo;
-    public $Detalle;
-    public $hola = 'hola';
     public $Estado;
 
-    public function mount($id)
+    public $puja = 100;
+
+    public function mount(Producto $Producto,  $Estado)
     {
-        $this->Producto = new Producto();
-        $hashids = new Hashids();
-        $id = $hashids->decode($id);
-        $this->Producto->id = $id[0];
-        $this->Producto = Producto::where('id', $this->Producto->id)->first();
-        $this->Vehiculo = Vehicle::where('lote_id', $this->Producto->id)->first();
-        $this->Detalle = VehicleDetail::where('Vehiculo_id', $this->Vehiculo->id)->first();
+        $this->Producto = $Producto;
+        $this->Estado = $Estado;
+
+
+    }
+
+    public function estado()
+    {
         //comprobar si existe el usuario actual
 
         if(!is_null(Auth::user())){
@@ -49,13 +46,10 @@ class Show extends Component
             $this->Estado[0] = 'puja';
         }
     }
-    public function pujar()
-    {
-        dd('Hola Mundo');
-    }
 
     public function render()
     {
-        return view('livewire.auctions.show');
+        return view('livewire.auctions.assets.show-buttom');
     }
+
 }

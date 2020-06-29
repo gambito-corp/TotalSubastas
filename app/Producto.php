@@ -47,6 +47,11 @@ class Producto extends Model
         return $this->belongsTo('App\Lot', 'lote_id');
     }
 
+    public function Usuarios()
+    {
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
     public function Vehiculo()
     {
         return $this->hasMany('App\Vehicle');

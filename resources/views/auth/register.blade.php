@@ -43,7 +43,7 @@
                                         <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></i></span>
                                         <!-- -->
                                     </div>
-                                    <input type="password" id="myInput" class="form-control" name="password" value="Contrase&ntilde;a" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="password" id="myInput" class="form-control" name="password" value="" aria-label="Username" aria-describedby="basic-addon1">
                                     <div class="input-group-append">
                                         <span class="input-group-text bg-light  text-light_darken "> <i class="fas fa-eye" id="showpassword"></i></span>
                                     </div>
@@ -61,6 +61,9 @@
                                 <label for="direccion" class="font-weight-bold text-dark">Address</label>
                                 <input type="text" name="direccion" class="form-control" value="">
                             </div>
+                            <div class="form-group col-md-12">
+                                <input type="submit" value="Registrarse" class="btn btn-success btn-block">
+                            </div>
                             <div class="form-group col-md-8 text-center offset-md-2 pt-4">
                                 <div class="form-check">
                                     <input class="form-check-input checkbox-primary" type="checkbox" id="gridCheck" name="Check"">
@@ -69,7 +72,7 @@
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group col-md-6 pt-5 text-center">
                                 <h3 class="display-6  text-darken">Ya tienes cuenta ?</h3>
                             </div>

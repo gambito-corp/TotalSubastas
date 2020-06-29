@@ -34,11 +34,9 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col pt-3 ">
-                                                    <p class="title-d_sheet-jumb text-center">cierra en</p>
-                                                    <div class="d-flex" wire:poll.100000s="contador">
-                                                        <p class="title-d_sheet-sp mr-3" id="regresiva"></p>
-{{--                                                        <p class="title-d_sheet-sp mr-3">{{$Producto->finalized_at}}</p>--}}
-
+                                                    <p class="title-d_sheet-jumb text-center">Inicia en</p>
+                                                    <div class="d-flex">
+                                                        <p class="title-d_sheet-sp mr-3" id="{{$Producto->finalized_at <= now()? '': 'regresiva'}}">{{$Producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col pt-3">
@@ -50,64 +48,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 col-md-12  pd-0 m-0">
-                                        <!--  -->
-                                        <div class="row row-cols-4 ">
-                                            <div class="col-12 col-md-3 text-center col-sm-12 col-xs-12 p-0 m-0 text-s_gd-sheet">
-                                                Garantia
-                                            </div>
-                                            <div class="col-12  col-md-3 col-sm-12 col-xs-12">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text m-0">$ {{$Producto->garantia}}</button>
-                                            </div>
-                                            <div class="col-12 col-md-3 text-center col-sm-12 col-xs-12 text-s_gd-sheet">
-                                                Ganador actual
-                                            </div>
-                                            <div class="col-12 col-md-3 col-sm-12 col-xs-12 ">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text ">{{$Producto->user_id}}</button>
-                                            </div>
-                                        </div>
-                                        <!--  -->
-                                        <div class="row row-cols-4 mt-2">
-                                            <div class="col-12 col-md-3 text-center col-sm-12 col-xs-12 text-s_gd-sheet">
-                                                comision
-                                            </div>
-                                            <div class="col-12 col-md-3 col-sm-12 col-xs-12">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> {{$Producto->comision}}
-                                                    </button>
-                                            </div>
-                                            <div class="col-12 col-md-3  text-center col-sm-12 col-xs-12 text-s_gd-sheet">
-                                                Tipo subasta
-                                            </div>
-                                            <div class="col-12 col-md-3 col-sm-12 col-xs-12">
-                                                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text"> subasta
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="row-cols-2">
-                                            <div class="col">
-
-                                            </div>
-                                        </div>
-                                    </div>
 
 
-                                    <div class="row mt-5">
-                                        <div class="col">
-                                            <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom">
-                                                $ {{$Producto->precio}} actual
-                                            </button>
-                                        </div>
+                                    @livewire('auctions.assets.show-buttom', ['Producto' => $Producto, 'Estado' => $Estado])
 
-                                        <div class="col">
-                                            @if($Estado[0] == 'ganador')
-                                                <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none"><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
-                                            @elseif($Estado[0] == 'online')
-                                                <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ url('/live').'/'.Request::path() }} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
-                                            @else
-                                                <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="#"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$Producto->puja}} $ </a>
-                                            @endif
-                                        </div>
-                                    </div>
 
                                     <div class="form-check pt-4">
                                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
@@ -793,7 +737,7 @@
             }, 1000)
         };
 
-        countdown(hora, 'regresiva', 'Finalizo');
+        countdown(hora, 'regresiva', 'La Subasta Inicio');
         // console.log(Date(hora));
     </script>
     @endpush
