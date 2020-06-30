@@ -16,7 +16,7 @@ class Mensajes extends Component
 
     public function Pujar($mensaje)
     {
-        dd($mensaje);
+        $this->data = $mensaje;
     }
 
     public function render()

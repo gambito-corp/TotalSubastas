@@ -10,7 +10,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
-use Hashids\Hashids;
 
 class HomeController extends Controller
 {
@@ -52,32 +51,9 @@ class HomeController extends Controller
     {
         return view('faqs.index');
     }
-    public function auction(Request $request)
-    {
-        return view('auction.index');
-    }
-    public function auctionDetail(Request $request, $id)
-    {
-        return view('auction.show', [
-            'auction' => $request,
-            'id' => $id
-        ]);
-    }
-    public function auctionLiveDetail(Request $request, $id)
-    {
-        // Poder acceder solo durante el tiempo que esta permitido en la BD de lo contrario no poder entrar
-        $this->Gambito->checkInicioSubasta($id);
 
-        //preguntar si el usuario tiene balance
-        $this->Gambito->checkBalance();
 
-        //comprobar si puedo descontar el monto, descontarlo de asi poder y registrar que fue descontado para futura devolucion
-        $this->Gambito->descuentoGarantia();
 
-        return view('auction.live')->with([
-            'data' => $this->Gambito->data()
-        ]);
-    }
     public function myaccount(Request $request)
     {
         if (!$request->session()->has('users')) {
@@ -118,11 +94,3 @@ class HomeController extends Controller
         return view('game.show');
     }
 }
-
-
-/*
- * id
- * producto_id
- * user_id
- * monto
- * */

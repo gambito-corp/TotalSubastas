@@ -28,6 +28,7 @@ class Gambito
             :  $hashids->decode($id);
     }
 
+
     public function checkInicioSubasta($id)
     {
         $this->id = $id;
@@ -107,12 +108,6 @@ class Gambito
             'balance' => $this->checkBalance()
         ];
     }
-    public function Pujar()
-    {
-        dd($this->id);
-        $this->checkInicioSubasta($this->id)->precio += $this->checkInicioSubasta($this->id)->puja;
-        $this->checkInicioSubasta($this->id)->user_id = Auth::id();
-        return $this->Producto->update();
-    }
+
 
 }

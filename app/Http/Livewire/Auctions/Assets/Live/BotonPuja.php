@@ -17,12 +17,17 @@ class BotonPuja extends Component
         $this->producto = $producto;
     }
 
+    public function refescar()
+    {
+        //
+    }
+
 
 
     public function Pujar($pujar)
     {
-        dd($pujar, $this->producto);
-        $producto = Producto::where('id', 1)->first();
+        $producto = Producto::where('id', $this->producto)->first();
+        dd($pujar, $producto);
         $producto->user_id = Auth::user()->id;
         $producto->precio = $pujar;
         $producto->update();
@@ -31,6 +36,8 @@ class BotonPuja extends Component
             'id' => Auth::user()->id,
             'puja' => $pujar
         ];
+        $this->pujar = $pujar;
+        $this->refescar();
         $this->emit('Pujar', $mensaje);
     }
     public function render()
