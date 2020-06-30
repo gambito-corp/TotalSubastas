@@ -153,7 +153,7 @@
                 {{-- TODO: Vista del Chat--}}
                 <div class="col-md-5 order-md-2  rounded bg-dark scroll" wire:model="mensajes" wire:poll="refresh">
                     @foreach($mensajes as $mensaje )
-                        <p class="text-light">
+                        <p class="alert alert-success">
                             {{$mensaje->message}}
                         </p>
                     @endforeach
