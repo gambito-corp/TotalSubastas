@@ -48,7 +48,7 @@ class Index extends Component
     public function Pujar()
     {
 //        dd($this->producto);
-        $this->producto->precio += $this->producto->puja;
+        $this->producto->precio = $this->producto->puja + $this->producto->precio;
         $this->producto->user_id = Auth::id();
         $this->producto->update();
 
@@ -58,7 +58,7 @@ class Index extends Component
             'message' => $this->producto->precio
         ]);
 
-        $this->pujar = $this->producto->precio + $this->producto->puja;
+        $this->pujar = $this->producto->precio;
 
 
         $this->emitSelf('refresh');
