@@ -23,6 +23,10 @@
         @include('assets.menuPrincipal')
 
         @yield('content')
+        <div class="container">
+            @include('assets.anuncio')
+            @include('assets.widgets')
+        </div>
 
         @include('assets.footer')
 

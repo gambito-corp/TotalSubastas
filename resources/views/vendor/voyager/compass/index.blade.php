@@ -47,7 +47,7 @@
                                 </a>
                             </div>
                             <div class="col-md-4">
-                                <a href="https://laravelvoyager.com" target="_blank" class="voyager-link" style="background-image:url('{{ voyager_asset('images/compass/voyager-home.jpg') }}')">
+                                <a href="https://laravelvoyager.com" target="_blank" class="voyager-link" style="background-image:url('{{ voyager_asset('images/compass/voyager-index.jpg') }}')">
                                     <span class="resource_label"><i class="voyager-browser"></i> <span class="copy">{{ __('voyager::compass.links.voyager_homepage') }}</span></span>
                                 </a>
                             </div>

@@ -2,7 +2,6 @@
 @section('content')
 <div class="container">
 	<div class="row ">
-		<!-- slider -->
 		@php
 		$data = [
 		'0' => 0,
@@ -12,12 +11,8 @@
 		'4' => 4
 		];
 		@endphp
-
 		@include('home.assets.slide', ['data' => $data])
-
-	{{-- @include('home.assets.nav-resultados') --}}
-
 	</div>
-	@livewire('refactor.busqueda')
+	@livewire('index.index')
 </div>
 @endsection

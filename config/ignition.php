@@ -99,7 +99,7 @@ return [
     | "remote_sites_path" is an absolute base path for your sites or projects
     | in Homestead, Vagrant, Docker, or another remote development server.
     |
-    | Example value: "/home/vagrant/Code"
+    | Example value: "/index/vagrant/Code"
     |
     | "local_sites_path" is an absolute base path for your sites or projects
     | on your local computer where your IDE or code editor is running on.

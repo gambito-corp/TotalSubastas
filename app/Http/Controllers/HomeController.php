@@ -13,8 +13,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
-    public $Gambito;
-
     /**
      * Create a new controller instance.
      *
@@ -22,8 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->Gambito = new Gambito();
-        $this->middleware('auth')->only('home');
+        $this->middleware('auth')->only('index');
     }
 
     /**
@@ -39,58 +36,58 @@ class HomeController extends Controller
     {
         return view('home.home');
     }
-    public function aboutus()
-    {
-        return view('about.aboutus');
-    }
-    public function terms()
-    {
-        return view('terms.conditions');
-    }
-    public function faqs()
-    {
-        return view('faqs.index');
-    }
 
 
+//    public function aboutus()
+//    {
+//        return view('about.aboutus');
+//    }
+//    public function terms()
+//    {
+//        return view('terms.conditions');
+//    }
+//    public function faqs()
+//    {
+//        return view('faqs.index');
+//    }
 
-    public function myaccount(Request $request)
-    {
-        if (!$request->session()->has('users')) {
-            Alert::warning('Warning title', 'Warning Message');
-            return redirect()->back();
-        } else {
-            return view('auth.myaccount.show');
-        }
-    }
-    public function myaccountEdit(Request $request)
-    {
-        return view('auth.myaccount.edit');
-    }
-    public function sell(Request $request)
-    {
-        if (!$request->session()->has('users')) {
-            Alert::warning('Warning title', 'Warning Message');
-            return redirect()->back();
-        } else {
-            return view('sell.index');
-        }
-    }
-    public function myaccountFilestore(Request $request)
-    {
-        $path = public_path() . '/uploads/';
-        $files = $request->file('file');
-        foreach ($files as $file) {
-            $fileName = $file->getClientOriginalName();
-            $file->move($path, $fileName);
-        }
-    }
-    public function users()
-    {
-        return view('users.index');
-    }
-    public function game()
-    {
-        return view('game.show');
-    }
+//    public function myaccount(Request $request)
+//    {
+//        if (!$request->session()->has('users')) {
+//            Alert::warning('Warning title', 'Warning Message');
+//            return redirect()->back();
+//        } else {
+//            return view('auth.myaccount.show');
+//        }
+//    }
+//    public function myaccountEdit(Request $request)
+//    {
+//        return view('auth.myaccount.edit');
+//    }
+//    public function sell(Request $request)
+//    {
+//        if (!$request->session()->has('users')) {
+//            Alert::warning('Warning title', 'Warning Message');
+//            return redirect()->back();
+//        } else {
+//            return view('sell.index');
+//        }
+//    }
+//    public function myaccountFilestore(Request $request)
+//    {
+//        $path = public_path() . '/uploads/';
+//        $files = $request->file('file');
+//        foreach ($files as $file) {
+//            $fileName = $file->getClientOriginalName();
+//            $file->move($path, $fileName);
+//        }
+//    }
+//    public function users()
+//    {
+//        return view('users.index');
+//    }
+//    public function game()
+//    {
+//        return view('game.show');
+//    }
 }

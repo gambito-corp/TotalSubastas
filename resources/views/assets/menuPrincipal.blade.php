@@ -7,23 +7,22 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
-			<a href="{{  url('auction') }}" class="navbar-brand d-flex align-items-center">
-				Subastas
-			</a>
-			<a href="{{  url('faqs') }}" class="navbar-brand d-flex align-items-center">
-				Preguntas
-			</a>
-			<a href="{{ url('terms') }}" class="navbar-brand d-flex align-items-center">
-				Condiciones
-			</a>
-			<a href="{{ url('about') }}" class="navbar-brand d-flex align-items-center">
-				Quienes somos
-			</a>
-			<!-- Link nav - Link nr° 5- top -->
-			
-			<a href="{{ url('sell') }}" class="navbar-brand d-flex align-items-center">
-				Vender 
-			</a>
+{{--			<a href="{{  url('auction') }}" class="navbar-brand d-flex align-items-center">--}}
+{{--				Subastas--}}
+{{--			</a>--}}
+{{--			<a href="{{  url('faqs') }}" class="navbar-brand d-flex align-items-center">--}}
+{{--				Preguntas--}}
+{{--			</a>--}}
+{{--			<a href="{{ url('terms') }}" class="navbar-brand d-flex align-items-center">--}}
+{{--				Condiciones--}}
+{{--			</a>--}}
+{{--			<a href="{{ url('about') }}" class="navbar-brand d-flex align-items-center">--}}
+{{--				Quienes somos--}}
+{{--			</a>--}}
+{{--			--}}
+{{--			<a href="{{ url('sell') }}" class="navbar-brand d-flex align-items-center">--}}
+{{--				Vender --}}
+{{--			</a>--}}
 			<a href="#" class="navbar-brand d-flex align-items-center">
 				<svg class="bd-placeholder-img rounded-circle" width="25" height="25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Completely round image: 75x75">
 					<title>Completely round image</title>
