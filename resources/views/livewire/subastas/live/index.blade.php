@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" wire:poll="refresh">
     <div class="row">
         <div class="col-md col-md-12 mt-5">
             {{--TODO: CREAR COMPONENTE LIVEWIRE PARA PUJA--}}
@@ -7,8 +7,8 @@
                     <img src="./assets/img/image-077.png" width="240px" height="231" alt="" />
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <h2 class="ml-2">{{$marca.' '.$modelo.' '.$nombre}}</h2>
-                    <p class="ml-2">{{$year}}</p>
+                    <h2 class="ml-2">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h2>
+                    <p class="ml-2">{{$vehiculo->year}}</p>
                     <!-- content -->
                     <div class="col-md-9 pd-0 m-0 pl-4">
                         <!--  -->
@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
                                 <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text m-0">
-                                    $ {{$garantia}}
+                                    $ {{$producto->garantia}}
                                 </button>
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 text-light col-xs-12 text-s_gd-sheet">
@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
                                 <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text">
-                                    {{$ganador}}
+                                    {{$producto->Usuarios->name}}
                                 </button>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
                                 <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text">
-                                    {{$comision}}
+                                    {{$producto->comision}}
                                 </button>
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light text-s_gd-sheet">
@@ -60,8 +60,8 @@
                                         <rect width="100%" height="100%" fill="#ffd980"></rect>
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
-                                    <span class="ml-2">concedido por {{$empresa}}</span>
-                                    <h5 class="pt-2">{{$placa}}</h5>
+                                    <span class="ml-2">concedido por {{'ahora veo'}}</span>
+                                    <h5 class="pt-2">{{$vehiculo->year}}</h5>
                                 </figure>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                         <div class="col-6 col-md-6 col-sm-12">
                             <h5>
                                 <span> INICIO <br /></span>
-                                <span> {{$fechaHumana}}</span>
+                                <span> {{$producto->started_at->diffForHumans()}}</span>
                             </h5>
                         </div>
                         <div class="col-6 col-md-6 col-sm-12">
@@ -81,8 +81,8 @@
                             </h3>
                         </div>
                         <div class="col-12">
-                            <span class="text-badge_live" wire:model="ganador"> se Lo va LLevando {{$ganador}} a </span>
-                            <span class="ml-3 pl-3 badge_live"> $ {{$precio}}</span>
+                            <span class="text-badge_live" wire:model="ganador"> se Lo va LLevando {{$producto->Usuarios->name}} a </span>
+                            <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
                         </div>
                         {{--//TODO: Renderizar Hijo contador--}}
                         <div class="col">
@@ -97,12 +97,12 @@
                     </div>
                     <div class="row">
                         <div class="col mt-5">
-                            @dump($Estado[0])
+                            @dump($producto->precio, $pujar)
                             @if($Estado[0] == 'ganador')
                                 <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
                             @endif
                             @if($Estado[0] == 'puja')
-                                    <button wire:click="Pujar()" wire:model="pujar" class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light">
+                                    <button wire:click="Pujar()" wire:model="precio" class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light">
                                         <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
                                         Pujar {{$pujar}} $
                                     </button>
@@ -151,16 +151,12 @@
                     </div>
                 </div>
                 {{-- TODO: Vista del Chat--}}
-                <div class="col-md-5 order-md-2  rounded bg-dark scroll">
-                    @forelse($mensajes as $mensaje)
-                        @isset($mensaje->message)
-                            <p class="text-light" wire:model="mensajes" wire:poll>
-                                {{$mensaje->message}}
-                            </p>
-                        @endisset
-                    @empty
-                        <h1>Hola Mundo</h1>
-                    @endforelse
+                <div class="col-md-5 order-md-2  rounded bg-dark scroll" wire:model="mensajes" wire:poll="refresh">
+                    @foreach($mensajes as $mensaje )
+                        <p class="text-light">
+                            {{$mensaje->message}}
+                        </p>
+                    @endforeach
                 </div>
                 {{--TODO: HACER RANKING--}}
                 <div class="col-md-3 mt-sm-4 order-md-3 live-push_action-ranking">
@@ -180,19 +176,21 @@
                             </div>
                         </div>
                         <div class="row" style="height:200px; overflow: auto;">
-                            @for($c=0; $c<6; $c++)
+                            @forelse($ranking as $rank)
                                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                                     <div class="col-md-4 text-darken font-weight-normal">
-                                        1
+{{--                                        {{$rank}}--}}
+                                        @dump($rank['cantidad'])
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal">
-                                        Usuario
+{{--                                        {{$ranking[$key]['cantidad']}}--}}
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
                                         $ 12800
                                     </div>
                                 </div>
-                            @endfor
+                            @empty
+                            @endforelse
                         </div>
                     </div>
                 </div>
