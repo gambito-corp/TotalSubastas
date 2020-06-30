@@ -1,4 +1,4 @@
-<div class="container">
+    <div class="container">
         <div class="row main-container mr-1 mb-5 mt-5">
             <div class="col-sm-12 mt-5 mb-5">
                 <div class="row">
@@ -13,8 +13,8 @@
                                             <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                         </svg>
                                         <h1 class="font-weight-bold">   </h1>
-                                    <h3>{{"$Vehiculo->marca_id $Vehiculo->modelo_id $Vehiculo->nombre"}}</h3>
-                                    <h3>{{$Vehiculo->year}}</h3>
+                                        <h3>{{"$Vehiculo->marca_id $Vehiculo->modelo_id $Vehiculo->nombre"}}</h3>
+                                        <h3>{{$Vehiculo->year}}</h3>
                                     </figure>
                                     <ul class="nav justify-content-end">
                                         <li class="nav-item text-light_darken mr-2">
@@ -31,7 +31,7 @@
                                 </article>
                                 <div class="col-md-12 col-md-12 col-sm-12  ">
                                     <div class="jumbotron auction-jumbotron mr-2 p-0">
-                                        <div class="container">
+                                        
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col pt-3 ">
@@ -49,8 +49,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                     @livewire('auctions.assets.show-buttom', ['Producto' => $Producto, 'Estado' => $Estado])
 
 
@@ -118,14 +116,6 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <!--  <a class="carousel-control-prev" href="#auction-control" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#auction-control" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                    </a>-->
                             </div>
                         </div>
                         <div class="col-md-2 d-md-none d-flex d-flex justify-content-center mt-5">
@@ -161,45 +151,7 @@
                     </div>
                 </div>
             </div>
-            <!--
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable" data-whatever="@mdo">Open modal for @mdo</button>
-        <div class="modal fade " id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-modal="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            </div>
-        </div>
-    -->
+            
         </div>
         <!-- container -->
         <!-- End Navbar -->
@@ -250,7 +202,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="accordion md-accordion mt-4" id="ofertas" role="tablist" aria-multiselectable="true">
                         <!-- Accordion card -->
                         <div class="card side-nav">

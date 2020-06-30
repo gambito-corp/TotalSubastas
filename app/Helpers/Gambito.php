@@ -33,6 +33,7 @@ class Gambito
 
     public function checkBalance()
     {
+        
         $balance = Balance::where('user_id', Auth::user()->id)->firstOrFail();
         return $balance;
     }
@@ -43,7 +44,7 @@ class Gambito
         $descuento = $this->checkBalance()->monto - $this->checkInicioSubasta($this->id)->garantia;
 
         if ($descuento <= 0) {
-            return redirect()->route('index')->with('flash', 'No dispone de fondos suficientes para asumir la garantia, porfavor recarge sus fondos "AQUI"');
+            return redirect()->route('index');
         }
 
         //comprobar que el descuento no se hizo antes

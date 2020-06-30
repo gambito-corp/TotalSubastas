@@ -41,19 +41,19 @@
 
     <div class="row mt-5" wire:poll.1000ms="estado">
         <div class="col">
-            <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom">
+            <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom precio-tamaño">
                 $ {{$Producto->precio}} actual
             </button>
         </div>
 
         <div class="col" >
-
-
             @if($Estado[0] == 'ganador')
                 <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
             @endif
             @if($Estado[0] == 'online')
-                <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => $Producto->id])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
+                @auth
+                    <a class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => $Producto->id])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
+                @endauth
             @endif
             @if($Estado[0] == 'puja')
                 @auth
@@ -62,9 +62,9 @@
                     </form>
                 @endauth
             @endif
-                @if($Estado[0] == 'Finalizada')
+            @if($Estado[0] == 'Finalizada')
                 <p class="btn btn-warning rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
-                @endif
+            @endif
         </div>
     </div>
 </div>

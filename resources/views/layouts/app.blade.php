@@ -1,4 +1,3 @@
-
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -9,11 +8,12 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{mix('css/app.css')}}">
         <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/grid.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
         <!-- my account upload file -->
-        <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
+        {{-- <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet"> --}}
         @livewireStyles
         @stack('styles')
     </head>

@@ -46338,6 +46338,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./UserNotification */ "./resources/js/UserNotification.js");
 
+__webpack_require__(/*! ./holamundo.js */ "./resources/js/holamundo.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue"));
 var app = new Vue({
@@ -46420,6 +46422,17 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 component.options.__file = "resources/js/components/ExampleComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/holamundo.js":
+/*!***********************************!*\
+  !*** ./resources/js/holamundo.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+alert('hola mundo');
 
 /***/ }),
 
