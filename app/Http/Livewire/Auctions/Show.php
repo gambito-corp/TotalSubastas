@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auctions;
 
+use App\Helpers\Gambito;
 use App\Producto;
 use App\User;
 use App\Vehicle;
@@ -21,15 +22,12 @@ class Show extends Component
 
     public function mount($id)
     {
+        $gambito = new Gambito();
         $this->Producto = new Producto();
-        $hashids = new Hashids();
-        $id = $hashids->decode($id);
-        $this->Producto->id = $id[0];
+        $this->Producto->id = $gambito::hash($id, true);
         $this->Producto = Producto::where('id', $this->Producto->id)->first();
         $this->Vehiculo = Vehicle::where('producto_id', $this->Producto->id)->first();
         $this->Detalle = VehicleDetail::where('Vehiculo_id', $this->Vehiculo->id)->first();
-        //comprobar si existe el usuario actual
-
         if(!is_null(Auth::user())){
             $user = Auth::user();
         }else{

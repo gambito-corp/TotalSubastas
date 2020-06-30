@@ -54,7 +54,7 @@ class HomeController extends Controller
     }
     public function auction(Request $request)
     {
-      return view('auction.index');
+        return view('auction.index');
     }
     public function auctionDetail(Request $request, $id)
     {

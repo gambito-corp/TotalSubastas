@@ -10,6 +10,7 @@ use App\Message;
 use App\Producto;
 use App\User;
 use App\Vehicle;
+use Hashids\Hashids;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -18,6 +19,14 @@ class Gambito
 {
     public $id;
     public $check;
+
+    public static function hash($id, $decode = null)
+    {
+        $hashids = new Hashids();
+        return is_null($decode)
+            ?  $hashids->encode($id, 0,1,2,3,4,5,6)
+            :  $hashids->decode($id);
+    }
 
     public function checkInicioSubasta($id)
     {
@@ -33,7 +42,7 @@ class Gambito
 
     public function checkBalance()
     {
-        
+
         $balance = Balance::where('user_id', Auth::user()->id)->firstOrFail();
         return $balance;
     }
@@ -97,6 +106,13 @@ class Gambito
             'vehiculo' => $this->vehiculo(),
             'balance' => $this->checkBalance()
         ];
+    }
+    public function Pujar()
+    {
+        dd($this->id);
+        $this->checkInicioSubasta($this->id)->precio += $this->checkInicioSubasta($this->id)->puja;
+        $this->checkInicioSubasta($this->id)->user_id = Auth::id();
+        return $this->Producto->update();
     }
 
 }

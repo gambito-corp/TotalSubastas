@@ -4,23 +4,23 @@ namespace App\Http\Livewire\Auctions\Assets;
 
 use App\Producto;
 use App\User;
+use Hashids\Hashids;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Helpers\Gambito;
 
 class ShowButtom extends Component
 {
 
     public $Producto;
     public $Estado;
-
+    public $identificador;
     public $puja = 100;
 
     public function mount(Producto $Producto,  $Estado)
     {
         $this->Producto = $Producto;
         $this->Estado = $Estado;
-
-
     }
 
     public function estado()
@@ -49,10 +49,10 @@ class ShowButtom extends Component
 
     public function pujar()
     {
-        $this->Producto = Producto::where('id', $this->Producto->id)->first();
-        $this->Producto->precio += $this->Producto->puja;
-        $this->Producto->user_id = Auth::user()->id;
-        $this->Producto->update();
+        $hasids = new Hashids();
+        dd($this->identificador);
+
+
         $this->estado();
 
     }

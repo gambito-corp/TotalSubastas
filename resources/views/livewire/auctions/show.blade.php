@@ -31,7 +31,7 @@
                                 </article>
                                 <div class="col-md-12 col-md-12 col-sm-12  ">
                                     <div class="jumbotron auction-jumbotron mr-2 p-0">
-                                        
+
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col pt-3 ">
@@ -151,7 +151,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <!-- container -->
         <!-- End Navbar -->
