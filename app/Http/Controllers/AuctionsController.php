@@ -12,7 +12,7 @@ class AuctionsController extends Controller
     public function __construct()
     {
         $this->Gambito = new Gambito();
-        $this->middleware('auth')->only(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index(Request $request)

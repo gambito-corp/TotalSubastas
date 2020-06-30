@@ -39,7 +39,7 @@ class Message extends Model
     ];
 
 
-    public function users()
+    public function Usuarios()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

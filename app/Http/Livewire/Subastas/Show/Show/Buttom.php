@@ -13,6 +13,7 @@ class Buttom extends Component
     public $Producto;
     public $Estado;
     public $Gambito;
+    protected $listeners = ['refreshChildren'];
 
     public $puja = 100;
 
@@ -56,6 +57,7 @@ class Buttom extends Component
         $this->Producto->user_id = Auth::user()->id;
         $this->Producto->update();
         $this->estado();
+        $this->emitUp('refresh');
     }
 
     public function render()

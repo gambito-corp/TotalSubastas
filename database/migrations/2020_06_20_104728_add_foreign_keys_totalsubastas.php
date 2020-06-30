@@ -86,7 +86,7 @@ class AddForeignKeysTotalsubastas extends Migration
             $table->foreign('user_id')
             ->references('id')->on('users');
             $table->foreign('producto_id')
-            ->references('id')->on('auctions');
+            ->references('id')->on('productos');
         });
 
         Schema::table('people', function (Blueprint $table) {
