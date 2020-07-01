@@ -12,7 +12,7 @@
                 Ganador actual
             </div>
             <div class="col-12 col-md-3 col-sm-12 col-xs-12 ">
-                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text ">{{$Producto->Usuarios->name}}</button>
+                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text ">{{$Producto->Usuario->name}}</button>
             </div>
         </div>
         <!--  -->

@@ -3,19 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class Lot extends Model
+class Ranking extends Model
 {
-    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
+    protected $guarded = [
 
     ];
 
@@ -34,21 +31,20 @@ class Lot extends Model
      * @var array
      */
     protected $casts = [
-        'subasta_at' => 'datetime',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
     ];
 
-    //Relaciones Belongs to
-    public function Empresa()
+
+
+
+    public function users()
     {
-        return $this->belongsTo('App\Company', 'empresa_id');
-    }
-    // relaciones HasMany
-    public function Producto()
-    {
-        return $this->hasMany('App\Producto', 'lote_id');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function products()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
 }

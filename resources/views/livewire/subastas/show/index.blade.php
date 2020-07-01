@@ -13,7 +13,7 @@
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
                                     <h1 class="font-weight-bold">   </h1>
-                                    <h3>{{"$Vehiculo->marca_id $Vehiculo->modelo_id $Vehiculo->nombre"}}</h3>
+                                    <h3>{{$Vehiculo->Marca->nombre.' '.$Vehiculo->Modelo->nombre.' '.$Vehiculo->nombre}}</h3>
                                     <h3>{{$Vehiculo->year}}</h3>
                                 </figure>
                                 <ul class="nav justify-content-end">
@@ -480,16 +480,18 @@
                         </div>
                     </div>
                     <div class="tab-pane fade  p-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
+                        <p>
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation
                             +1
                             labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft
                             beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
                             vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
                             helvetica
                             VHS
-                        <p> yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson </p>salvia
-                        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-                        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                            yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson salvia
+                            8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+                            stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+                        </p>
                     </div>
                     <div class="tab-pane fade  p-4 " id="contact" role="tabpanel" aria-labelledby="contact-tab">
                         <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro

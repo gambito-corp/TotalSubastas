@@ -17,29 +17,73 @@ class Index extends Component
     Public $Estado;
     public $pujar;
     public $ranking;
+    public $timer;
+    public $finaliza;
+    public $resultado;
 
     protected $listeners = ['refresh'];
 
     public function mount()
     {
-        $this->producto = Producto::find(request()->route()->parameter('id'))->first();
+        $this->producto = Producto::find(request()->route()->parameter('id'))
+            ->with(
+                [
+                    'Mensaje'=>function($query)
+                    {
+                        $query;
+                    }
+                ]
+            )
+            ->first();
         $this->vehiculo = Vehicle::where('producto_id', request()->route()->parameter('id'))->first();
+        //Consulta para los mensajes
         $this->mensajes = Message::where('producto_id', request()->route()->parameter('id'))->get();
+        //Consulta para el array
+        $this->resultado = Message::with('Usuario')
+            ->where('producto_id', request()->route()->parameter('id'))
+            ->orderBy('user_id')
+            ->get()
+            ->groupBy('user_id');
         $this->usuario = Auth::user();
         $this->pujar = $this->producto->precio + $this->producto->puja;
-        $this->ranking[] = ['cantidad' => 0, 'usuario' => 0];
-        if($this->producto->user_id == Auth::id()){
-            $this->Estado[0] = 'ganador';
+        $this->ranking = [];
+        foreach($this->resultado as $key => $value) {
+            $this->ranking[$key]['name'] = $this->resultado[$key]->first()->Usuario->name;
+            $this->ranking[$key]['total'] = $this->resultado[$key]->count();
+        }
+//        foreach ($this->ranking as $value){
+//            dump($value['name']);
+//            dump($value['total']);
+//        }
+//        die();
+
+        $this->timer = time();
+
+        if($this->producto->finalized_at <= now()){
+            $this->Estado[0] = 'Finalizada';
+        }elseif($this->producto->user_id == Auth::id()){
+            $this->Estado[0] = 'puja';
         }else{
             $this->Estado[0] = 'puja';
         }
+
+        $this->finaliza = mktime(
+            $this->producto->finalized_at->hour,
+            $this->producto->finalized_at->minute,
+            $this->producto->finalized_at->second
+        );
+        $this->resultado = $this->finaliza - $this->timer;
+        $this->resultado = date('H:i:s', $this->resultado);
     }
+
 
 
     public function estado()
     {
-        if($this->producto->user_id == Auth::id()){
-            $this->Estado[0] = 'ganador';
+        if($this->producto->finalized_at <= now()){
+            $this->Estado[0] = 'Finalizada';
+        }elseif($this->producto->user_id == Auth::id()){
+            $this->Estado[0] = 'puja';
         }else{
             $this->Estado[0] = 'puja';
         }
@@ -47,9 +91,9 @@ class Index extends Component
 
     public function Pujar()
     {
-//        dd($this->producto);
         $this->producto->precio = $this->producto->puja + $this->producto->precio;
         $this->producto->user_id = Auth::id();
+        $this->producto->finalized_at = now()->addSeconds(120);
         $this->producto->update();
 
         Message::create([
@@ -58,36 +102,14 @@ class Index extends Component
             'message' => $this->producto->precio
         ]);
 
-        $this->pujar = $this->producto->precio;
-
+        $this->pujar = $this->producto->precio + $this->producto->puja;
 
         $this->emitSelf('refresh');
-
     }
 
 
     public function refresh()
     {
-        $this->mensajes = Message::where('producto_id', $this->producto->id)->get();
-
-        foreach ($this->mensajes as $key => $mensaje){
-            $this->ranking[$key] = [
-            'cantidad' => $key,
-                'usuario' => $mensaje->user_id
-            ];
-        }
-//        arsort($this->ranking, 1);
-//        dump($this->ranking);
-//        die();
-//        $sorted = $this->mensajes->sortBy('user_id');
-//        dd($this->mensajes->user_id);
-
-
-
-
-
-
-
         if($this->producto->user_id == Auth::id()){
             $this->Estado[0] = 'puja';
         }else{
@@ -98,6 +120,7 @@ class Index extends Component
 
     public function render()
     {
+//        dd('entra a render');
         return view('livewire.subastas.live.index');
     }
 }

@@ -26,7 +26,7 @@
                             </div>
                             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
                                 <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text">
-                                    {{$producto->Usuarios->name}}
+                                    {{$producto->Usuario->name}}
                                 </button>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                                         <rect width="100%" height="100%" fill="#ffd980"></rect>
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
-                                    <span class="ml-2">concedido por {{'ahora veo'}}</span>
+                                    <span class="ml-2">concedido por {{$producto->Lote->Empresa->nombre}}</span>
                                     <h5 class="pt-2">{{$vehiculo->year}}</h5>
                                 </figure>
                             </div>
@@ -81,23 +81,24 @@
                             </h3>
                         </div>
                         <div class="col-12">
-                            <span class="text-badge_live" wire:model="ganador"> se Lo va LLevando {{$producto->Usuarios->name}} a </span>
+                            <span class="text-badge_live" wire:model="ganador"> se Lo va LLevando {{$producto->Usuario->name}} a </span>
                             <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
                         </div>
                         {{--//TODO: Renderizar Hijo contador--}}
                         <div class="col">
-                            <span class="text-badge_live"> en 00:04 </span>
-                        </div>
-                        <div class="col">
-                            <div class="progress rounded-pill">
-                                <div class="progress-bar data_sheet-live_bg-progress_bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        {{--FIN Renderizar Hijo contador--}}
+
+                            <span class="text-badge_live"wire:model="resultado" wire:poll="refresh">
+                                @if($producto->finalized_at>=now())
+                                    {{$producto->finalized_at->diffInSeconds(now())}}
+                                @else
+                                    La Subasta finalizo, el ganador es {{$producto->Usuario->name}}
+                                @endif
+                            </span>
+
                     </div>
                     <div class="row">
                         <div class="col mt-5">
-                            @dump($producto->precio, $pujar)
+                            @dump($producto->precio, $pujar, $Estado)
                             @if($Estado[0] == 'ganador')
                                 <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
                             @endif
@@ -106,6 +107,13 @@
                                         <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
                                         Pujar {{$pujar}} $
                                     </button>
+                            @endif
+                            @if($Estado[0] == 'Finalizada')
+                                @if($producto->user_id == Auth()->id())
+                                    <a class="btn btn-success pr-4 text-light" style="cursor:pointer" href="#"><i class="fas fa-star  pr-3 pl-3 "></i> Felicidades Ganaste la subasta por {{$producto->precio}} $</a>
+                                @else
+                                    <a class="btn btn-danger pr-4 text-light" style="cursor:pointer" href="#"><i class="fas fa-star  pr-3 pl-3 "></i> La subasta Finalizo El Ganador es  {{$producto->Usuario->name}}</a>
+                                @endif
                             @endif
                         </div>
                     </div>
@@ -134,7 +142,7 @@
                             <div class="text-center">
                                 <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                                 <span class="d-block text-center">
-                                    <p class="text-dark text text-_to-auction_bottom">24</p>
+                                    <p class="text-dark text text-_to-auction_bottom">{{count($mensajes)}}</p>
                                     Ofertas
                                 </span>
                             </div>
@@ -143,7 +151,7 @@
                             <div class="text-center">
                                 <i class="fas fa-user"> </i>
                                 <span class="d-block">
-                                    <p class="text-dark text text-_to-auction_bottom">30</p>
+                                    <p class="text-dark text text-_to-auction_bottom">{{count($ranking)}}</p>
                                     Participa<br>ntes
                                 </span>
                             </div>
@@ -152,9 +160,9 @@
                 </div>
                 {{-- TODO: Vista del Chat--}}
                 <div class="col-md-5 order-md-2  rounded bg-dark scroll" wire:model="mensajes" wire:poll="refresh">
-                    @foreach($mensajes as $mensaje )
+                    @foreach($mensajes as $value )
                         <p class="alert alert-success">
-                            {{$mensaje->message}}
+                            {{$value->message}}
                         </p>
                     @endforeach
                 </div>
@@ -176,20 +184,28 @@
                             </div>
                         </div>
                         <div class="row" style="height:200px; overflow: auto;">
-                            @forelse($ranking as $rank)
+                            @forelse($ranking as $key => $rank)
                                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                                     <div class="col-md-4 text-darken font-weight-normal">
-{{--                                        {{$rank}}--}}
-                                        @dump($rank['cantidad'])
+                                        @isset($rank['total'])
+                                        {{$rank['total']}}
+                                        @else
+                                        todavia nadie pujo
+                                            @endisset
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal">
-{{--                                        {{$ranking[$key]['cantidad']}}--}}
+                                        @isset($rank['name'])
+                                        {{$rank['name']}}
+                                        @else
+                                        todavia nadie pujo
+                                            @endisset
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
                                         $ 12800
                                     </div>
                                 </div>
                             @empty
+                                No Hay Ranking
                             @endforelse
                         </div>
                     </div>

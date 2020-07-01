@@ -42,12 +42,12 @@ class Producto extends Model
         'deleted_at' => 'datetime',
     ];
 
-    public function Lotes()
+    public function Lote()
     {
         return $this->belongsTo('App\Lot', 'lote_id');
     }
 
-    public function Usuarios()
+    public function Usuario()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
@@ -55,6 +55,16 @@ class Producto extends Model
     public function Vehiculo()
     {
         return $this->hasMany('App\Vehicle');
+    }
+
+    public function ranking()
+    {
+        return $this->hasMany(Ranking::class);
+    }
+
+    public function Mensaje()
+    {
+        return $this->hasMany(Message::class);
     }
 
 }
