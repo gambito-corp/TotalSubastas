@@ -25,7 +25,7 @@ class Gambito
         $hashids = new Hashids();
         return is_null($decode)
             ?  $hashids->encode($id, 0,1,2,3,4,5,6)
-            :  $hashids->decode($id);
+            :  $hashids->decode($id)[0];
     }
 
     public static function checkUser()
@@ -34,6 +34,22 @@ class Gambito
         return !is_null(Auth::user())
             ? Auth::user()
             : $user;
+    }
+
+    public static function checkEstado(Producto $producto, $id)
+    {
+        if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now()){
+            $estado = 'online';
+        }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
+            $estado = 'ganador';
+        }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
+            $estado = 'puja';
+        }elseif($producto->finalized_at <= now()){
+            $estado = 'Finalizada';
+        }else{
+            $estado = 'puja';
+        }
+        return $estado;
     }
 
 

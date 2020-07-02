@@ -15,16 +15,14 @@ class AuctionsController extends Controller
         $this->middleware('auth')->except(['index', 'show']);
     }
 
-    public function index(Request $request)
+    public function index()
     {
         return view('auction.index');
     }
 
-    public function show(Request $request, $id)
+    public function show()
     {
-        return view('auction.show', [
-            'id' => $id
-        ]);
+        return view('auction.show');
     }
 
     public function live(Request $request, $id)

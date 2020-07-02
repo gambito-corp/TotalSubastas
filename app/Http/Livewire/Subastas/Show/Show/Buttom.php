@@ -9,44 +9,26 @@ use Livewire\Component;
 use App\Helpers\Gambito;
 class Buttom extends Component
 {
-
-    public $Producto;
-    public $Estado;
-    public $Gambito;
+    public $producto;
+    public $estado;
     protected $listeners = ['refreshChildren'];
 
-    public $puja = 100;
-
-    public function mount(Producto $Producto,  $Estado)
+    public function mount($producto)
     {
-        $this->Producto = $Producto;
-        $this->Estado = $Estado;
+        $this->producto = $producto;
     }
 
     public function estado()
     {
-        //comprobar si existe el usuario actual
         $user = Gambito::checkUser();
-        //TODO: Pasar a metodo en gambito checkEstado()
-        if($this->Producto->started_at->sub(15, 'Minutes')<=now() && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'online';
-        }elseif($this->Producto->user_id == $user->id && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'ganador';
-        }elseif($this->Producto->user_id != $user->id && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'puja';
-        }elseif($this->Producto->finalized_at <= now()){
-            $this->Estado[0] = 'Finalizada';
-        }else{
-            $this->Estado[0] = 'puja';
-        }
+        $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }
 
     public function pujar()
     {
-        $this->Producto = Producto::where('id', $this->Producto->id)->first();
-        $this->Producto->precio += $this->Producto->puja;
-        $this->Producto->user_id = Auth::user()->id;
-        $this->Producto->update();
+        $this->producto->precio += $this->producto->puja;
+        $this->producto->user_id = Auth::user()->id;
+        $this->producto->update();
         $this->estado();
         $this->emitUp('refresh');
     }

@@ -14,36 +14,19 @@ use Hashids\Hashids;
 
 class Index extends Component
 {
-
-
-
-    public $Producto;
-    public $Vehiculo;
-    public $Detalle;
-    public $hola = 'hola';
-    public $Estado;
+    public $producto;
+    public $vehiculo;
+    public $detalle;
+    public $estado;
 
     public function mount()
     {
         $id = Gambito::hash(request()->route()->parameter('id'), true);
-        $this->Producto = Producto::where('id', $id)->first();
-        $this->Vehiculo = Vehicle::where('producto_id', $id)->first();
-        $this->Detalle = VehicleDetail::where('Vehiculo_id', $this->Vehiculo->id)->first();
-
+        $this->producto = Producto::where('id', $id)->with('Usuario')->first();
+        $this->vehiculo = Vehicle::where('producto_id', $id)->first();
+        $this->detalle = VehicleDetail::where('Vehiculo_id', $this->vehiculo->id)->first();
         $user = Gambito::checkUser();
-
-        //TODO: Pasar a metodo en gambito checkEstado()
-        if($this->Producto->started_at->sub(15, 'Minutes')<=now() && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'online';
-        }elseif($this->Producto->user_id == $user->id && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'ganador';
-        }elseif($this->Producto->user_id != $user->id && $this->Producto->finalized_at >= now()){
-            $this->Estado[0] = 'puja';
-        }elseif($this->Producto->finalized_at <= now()){
-            $this->Estado[0] = 'Finalizada';
-        }else{
-            $this->Estado[0] = 'puja';
-        }
+        $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }
 
     public function render()

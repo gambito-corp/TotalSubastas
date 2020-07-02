@@ -13,8 +13,8 @@
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
                                     <h1 class="font-weight-bold">   </h1>
-                                    <h3>{{$Vehiculo->Marca->nombre.' '.$Vehiculo->Modelo->nombre.' '.$Vehiculo->nombre}}</h3>
-                                    <h3>{{$Vehiculo->year}}</h3>
+                                    <h3>{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h3>
+                                    <h3>{{$vehiculo->year}}</h3>
                                 </figure>
                                 <ul class="nav justify-content-end">
                                     <li class="nav-item text-light_darken mr-2">
@@ -37,7 +37,7 @@
                                             <div class="col pt-3 ">
                                                 <p class="title-d_sheet-jumb text-center">Inicia en</p>
                                                 <div class="d-flex">
-                                                    <p class="title-d_sheet-sp mr-3" id="{{$Producto->finalized_at <= now()? '': 'regresiva'}}">{{$Producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
+                                                    <p class="title-d_sheet-sp mr-3" id="{{$producto->finalized_at <= now()? '': 'regresiva'}}">{{$producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
                                                 </div>
                                             </div>
                                             <div class="col pt-3">
@@ -49,7 +49,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                @livewire('subastas.show.show.buttom', ['Producto' => $Producto, 'Estado' => $Estado])
+
+                                @livewire('subastas.show.show.buttom', ['producto' => $producto])
 
 
                                 <div class="form-check pt-4">
@@ -657,10 +658,10 @@
 
 {{--        @include('assets.footer')--}}
 
-{!! $Producto->started_at->toCookieString()!!}
+{!! $producto->started_at->toCookieString()!!}
 @push('scripts')
     <script>
-        var hora = @json($Producto->started_at);
+        var hora = @json($producto->started_at);
         const getRemainTime = deadline => {
             let now = new Date(),
                 remainTime = (new Date(deadline) - now +1000) / 1000,
