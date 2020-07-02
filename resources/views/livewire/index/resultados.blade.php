@@ -1,8 +1,4 @@
 <div class="container">
-        @php
-            use App\Helpers\Gambito;
-            $Gambito = new Gambito();
-        @endphp
     @foreach($empresas as $empresa)
     <div class="row main-container">
 
@@ -49,7 +45,7 @@
                             </p>
                             <div class="align-items-center">
                                 <div class="btn-group d-flex justify-content-center">
-                                    <a href="{{route('subastaOnline', ['id' => $Gambito->hash($producto->id)])}}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+                                    <a href="{{route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($producto->id)])}}" type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
                                         <strong><span class="mr-2">$</span>{{ $producto->precio }}</strong>
                                     </a>
                                 </div>
