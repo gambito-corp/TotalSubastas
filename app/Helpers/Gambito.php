@@ -52,64 +52,60 @@ class Gambito
         return $estado;
     }
 
-
-    public function checkInicioSubasta($id)
+    protected static function redireccionTime(Producto $producto)
     {
-        $this->id = $id;
-        $producto = Producto::findOrFail($this->id);
 
         if (now() < $producto->started_at) {
             return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
         } elseif (now() > $producto->finalized_at) {
             return redirect()->route('index')->with('flash', 'La Subasta ya finalizo');
         }
-        return $producto;
+        return true;
     }
 
-    public function checkBalance()
-    {
 
-        $balance = Balance::where('user_id', Auth::user()->id)->firstOrFail();
-        return $balance;
+    public static function checkInicioSubasta()
+    {
+        $producto = Producto::findOrFail(self::hash(request()->route()->parameter('id'),true));
+
+        return self::redireccionTime($producto)
+            ? $producto
+            : redirect()->route('index')->with('flash', 'Problemas tecnicos');
     }
 
-    public function descuentoGarantia()
+    public static function checkBalance()
     {
+        return Balance::where('user_id', Auth::user()->id)->firstOrFail();
+    }
 
-        $descuento = $this->checkBalance()->monto - $this->checkInicioSubasta($this->id)->garantia;
+    public static function descuentoGarantia()
+    {
+        $descuento = self::checkBalance()->monto - self::checkInicioSubasta()->garantia;
 
-        if ($descuento <= 0) {
-            return redirect()->route('index');
+        if ($descuento < 0) {
+            return redirect()->route('index')->with('flash', 'No se le puede descuntar ese monto de garantia, no tiene suficientes fondos, porfavor recargue');
         }
 
         //comprobar que el descuento no se hizo antes
-        $this->check = Garantia::where('producto_id', $this->id)
+        $check = Garantia::where('producto_id', self::hash(request()->route()->parameter('id'), true))
             ->where('user_id', Auth::id())
             ->first();
-        if (is_null($this->check)) {
+
+        if (is_null($check)) {
             //descontar la garantia al balance solo si no se hizo para esta subasta
-            $this->hacerDescuento($descuento);
+            self::hacerDescuento();
         }
-
-
+        return true;
     }
 
-    protected function hacerDescuento($descuento)
+    protected static function hacerDescuento()
     {
-        //comprobar que el descuento no se hizo antes
-        $this->check = new Garantia();
-
-        //Hacer el descuento
-        $this->checkBalance()->update([
-            'monto' => $this->checkBalance()->monto - $this->checkInicioSubasta($this->id)->garantia
-        ]);
-
-        //guardar el descuento en la tabla especial
-        $this->check = Garantia::create([
-            'producto_id' => $this->id,
+        Garantia::create([
+            'producto_id' => self::hash(request()->route()->parameter('id'), true),
             'user_id' => Auth::id(),
-            'monto' => $this->checkInicioSubasta($this->id)->garantia,
+            'monto' => self::checkInicioSubasta(self::hash(request()->route()->parameter('id'), true))->garantia,
         ]);
+        return true;
     }
 
     protected function mensajes()

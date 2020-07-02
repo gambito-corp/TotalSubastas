@@ -25,20 +25,12 @@ class AuctionsController extends Controller
         return view('auction.show');
     }
 
-    public function live(Request $request, $id)
+    public function live()
     {
-        // Poder acceder solo durante el tiempo que esta permitido en la BD de lo contrario no poder entrar
-        $this->Gambito->checkInicioSubasta($id);
-
-        //preguntar si el usuario tiene balance
-        $this->Gambito->checkBalance();
-
-        //comprobar si puedo descontar el monto, descontarlo de asi poder y registrar que fue descontado para futura devolucion
-        $this->Gambito->descuentoGarantia();
-
-        return view('auction.live')->with([
-            'data' => $this->Gambito->data()
-        ]);
+        Gambito::checkInicioSubasta();
+        Gambito::checkBalance();
+        Gambito::descuentoGarantia();
+        return view('auction.live');
     }
 
 
