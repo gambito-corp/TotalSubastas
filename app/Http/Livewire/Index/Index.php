@@ -6,7 +6,7 @@ use App\Company;
 use Livewire\Component;
 
 class Index extends Component
-{
+{ 
     public $usuarios;
     public $resultado;
     public $url;
