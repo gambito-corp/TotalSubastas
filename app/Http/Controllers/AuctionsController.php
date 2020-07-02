@@ -23,7 +23,6 @@ class AuctionsController extends Controller
     public function show(Request $request, $id)
     {
         return view('auction.show', [
-            'auction' => $request,
             'id' => $id
         ]);
     }

@@ -89,7 +89,7 @@
                         <input type="checkbox" name="remember" id="remember" value="1"><label for="remember" class="remember-me-text">{{ __('voyager::generic.remember_me') }}</label>
                         </div>
                     </div>
-                    
+
                     <button type="submit" class="btn btn-block login-button">
                         <span class="signingin hidden"><span class="voyager-refresh"></span> {{ __('voyager::login.loggingin') }}...</span>
                         <span class="signin">{{ __('voyager::generic.login') }}</span>
@@ -115,7 +115,7 @@
     </div> <!-- .row -->
 </div> <!-- .container-fluid -->
 <script>
-    var btn = document.querySelector('button[type="submit"]');
+    var btn = document.querySelector('button.blade.php[type="submit"]');
     var form = document.forms[0];
     var email = document.querySelector('[name="email"]');
     var password = document.querySelector('[name="password"]');

@@ -21,22 +21,13 @@ class Buttom extends Component
     {
         $this->Producto = $Producto;
         $this->Estado = $Estado;
-
-
-
     }
 
     public function estado()
     {
         //comprobar si existe el usuario actual
-
-        if(!is_null(Auth::user())){
-            $user = Auth::user();
-        }else{
-            $user = new User();
-            $user->id = 0;
-        }
-
+        $user = Gambito::checkUser();
+        //TODO: Pasar a metodo en gambito checkEstado()
         if($this->Producto->started_at->sub(15, 'Minutes')<=now() && $this->Producto->finalized_at >= now()){
             $this->Estado[0] = 'online';
         }elseif($this->Producto->user_id == $user->id && $this->Producto->finalized_at >= now()){

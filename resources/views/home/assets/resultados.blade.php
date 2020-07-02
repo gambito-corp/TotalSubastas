@@ -24,8 +24,8 @@
                                 </article>
                             </div>
                             <!--  <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button.blade.php type="button.blade.php" class="btn btn-secondary" data-dismiss="modal">Close</button.blade.php>
+                                <button.blade.php type="button.blade.php" class="btn btn-primary">Save changes</button.blade.php>
                             </div>  -->
                         </div>
                     </div>

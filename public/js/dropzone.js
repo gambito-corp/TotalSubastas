@@ -1215,7 +1215,7 @@ function (_Emitter) {
       }
 
       if (this.element.classList.contains("dropzone") && !this.element.querySelector(".dz-message")) {
-        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><button class=\"dz-button\" type=\"button\">".concat(this.options.dictDefaultMessage, "</button></div>")));
+        this.element.appendChild(Dropzone.createElement("<div class=\"dz-default dz-message\"><button.blade.php class=\"dz-button.blade.php\" type=\"button.blade.php\">".concat(this.options.dictDefaultMessage, "</button.blade.php></div>")));
       }
 
       if (this.clickableElements.length) {
@@ -1496,7 +1496,7 @@ function (_Emitter) {
       return this.options.renameFile(file);
     } // Returns a form that can be used as fallback if the browser does not support DragnDrop
     //
-    // If the dropzone is already a form, only the input field and button are returned. Otherwise a complete form element is provided.
+    // If the dropzone is already a form, only the input field and button.blade.php are returned. Otherwise a complete form element is provided.
     // This code has to pass in IE7 :(
 
   }, {
@@ -2110,7 +2110,7 @@ function (_Emitter) {
 
       fileReader.readAsDataURL(file);
     } // `mockFile` needs to have these attributes:
-    // 
+    //
     //     { name: 'name', size: 12345, imageUrl: '' }
     //
     // `callback` will be invoked when the image has been downloaded and displayed.
@@ -2710,7 +2710,7 @@ function (_Emitter) {
         var _iteratorError23 = undefined;
 
         try {
-          for (var _iterator23 = this.element.querySelectorAll("input, textarea, select, button")[Symbol.iterator](), _step23; !(_iteratorNormalCompletion23 = (_step23 = _iterator23.next()).done); _iteratorNormalCompletion23 = true) {
+          for (var _iterator23 = this.element.querySelectorAll("input, textarea, select, button.blade.php")[Symbol.iterator](), _step23; !(_iteratorNormalCompletion23 = (_step23 = _iterator23.next()).done); _iteratorNormalCompletion23 = true) {
             var input = _step23.value;
             var inputName = input.getAttribute("name");
             var inputType = input.getAttribute("type");

@@ -6068,7 +6068,7 @@ var isHTMLTag = makeMap(
   's,samp,small,span,strong,sub,sup,time,u,var,wbr,area,audio,map,track,video,' +
   'embed,object,param,source,canvas,script,noscript,del,ins,' +
   'caption,col,colgroup,table,thead,tbody,td,th,tr,' +
-  'button,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
+  'button.blade.php,datalist,fieldset,form,input,label,legend,meter,optgroup,option,' +
   'output,progress,select,textarea,' +
   'details,dialog,menu,menuitem,summary,' +
   'content,element,shadow,template,blockquote,iframe,tfoot'
@@ -11247,9 +11247,9 @@ var modifierCode = {
   shift: genGuard("!$event.shiftKey"),
   alt: genGuard("!$event.altKey"),
   meta: genGuard("!$event.metaKey"),
-  left: genGuard("'button' in $event && $event.button !== 0"),
-  middle: genGuard("'button' in $event && $event.button !== 1"),
-  right: genGuard("'button' in $event && $event.button !== 2")
+  left: genGuard("'button.blade.php' in $event && $event.button.blade.php !== 0"),
+  middle: genGuard("'button.blade.php' in $event && $event.button.blade.php !== 1"),
+  right: genGuard("'button.blade.php' in $event && $event.button.blade.php !== 2")
 };
 
 function genHandlers (

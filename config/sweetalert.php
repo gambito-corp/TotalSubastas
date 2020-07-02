@@ -86,7 +86,7 @@ return [
     |--------------------------------------------------------------------------
     | ShowConfirmButton
     |--------------------------------------------------------------------------
-    | If set to false, a "Confirm"-button will not be shown.
+    | If set to false, a "Confirm"-button.blade.php will not be shown.
     | It can be useful when you're using custom HTML description.
     | This is for the all Modal windows.
     | For specific modal just use the showConfirmButton() helper method.
@@ -99,7 +99,7 @@ return [
     |--------------------------------------------------------------------------
     | ShowCloseButton
     |--------------------------------------------------------------------------
-    | If set to true, a "Close"-button will be shown,
+    | If set to true, a "Close"-button.blade.php will be shown,
     | which the user can click on to dismiss the modal.
     | This is for the all Modal windows.
     | For specific modal just use the showCloseButton() helper method.

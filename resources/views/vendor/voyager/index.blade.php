@@ -120,7 +120,7 @@
 
                 /**
                  * Authorize the user immediately if the user has already granted access.
-                 * If no access has been created, render an authorize button inside the
+                 * If no access has been created, render an authorize button.blade.php inside the
                  * element with the ID "embed-api-auth-container".
                  */
                 gapi.analytics.auth.authorize({

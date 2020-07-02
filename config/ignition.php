@@ -7,7 +7,7 @@ return [
     | Editor
     |--------------------------------------------------------------------------
     |
-    | Choose your preferred editor to use when clicking any edit button.
+    | Choose your preferred editor to use when clicking any edit button.blade.php.
     |
     | Supported: "phpstorm", "vscode", "vscode-insiders",
     |            "sublime", "atom"

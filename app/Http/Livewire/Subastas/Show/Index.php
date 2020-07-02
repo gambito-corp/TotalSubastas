@@ -23,21 +23,16 @@ class Index extends Component
     public $hola = 'hola';
     public $Estado;
 
-    public function mount($id)
+    public function mount()
     {
-        $gambito = new Gambito();
-        $this->Producto = new Producto();
-        $this->Producto->id = $gambito::hash($id, true);
-        $this->Producto = Producto::where('id', $this->Producto->id)->first();
-        $this->Vehiculo = Vehicle::where('producto_id', $this->Producto->id)->first();
+        $id = Gambito::hash(request()->route()->parameter('id'), true);
+        $this->Producto = Producto::where('id', $id)->first();
+        $this->Vehiculo = Vehicle::where('producto_id', $id)->first();
         $this->Detalle = VehicleDetail::where('Vehiculo_id', $this->Vehiculo->id)->first();
-        if(!is_null(Auth::user())){
-            $user = Auth::user();
-        }else{
-            $user = new User();
-            $user->id = 0;
-        }
 
+        $user = Gambito::checkUser();
+
+        //TODO: Pasar a metodo en gambito checkEstado()
         if($this->Producto->started_at->sub(15, 'Minutes')<=now() && $this->Producto->finalized_at >= now()){
             $this->Estado[0] = 'online';
         }elseif($this->Producto->user_id == $user->id && $this->Producto->finalized_at >= now()){

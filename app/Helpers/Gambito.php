@@ -28,6 +28,14 @@ class Gambito
             :  $hashids->decode($id);
     }
 
+    public static function checkUser()
+    {
+        $user = new User();
+        return !is_null(Auth::user())
+            ? Auth::user()
+            : $user;
+    }
+
 
     public function checkInicioSubasta($id)
     {

@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    @livewire('subastas.show.index', ['id' => $id])
+    @livewire('subastas.show.index')
 @endsection
