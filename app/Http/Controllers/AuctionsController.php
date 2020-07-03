@@ -31,6 +31,7 @@ class AuctionsController extends Controller
         Gambito::checkInicioSubasta($producto);
         Gambito::checkBalance();
         Gambito::descuentoGarantia();
+
         return view('auction.live');
     }
 

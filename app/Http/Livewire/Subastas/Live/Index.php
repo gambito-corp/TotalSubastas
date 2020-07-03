@@ -57,6 +57,8 @@ class Index extends Component
      */
     public $countDown;
 
+    protected $listeners = ['refresh'];
+
 
     public function mount()
     {
@@ -65,16 +67,19 @@ class Index extends Component
         $this->vehiculo = Gambito::obtenerVehiculo($this->identificador);
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
-//        dd($this->resultado);
+
         $this->pujar = $this->producto->precio + $this->producto->puja;
         $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
-        $this->timer = Gambito::cuentaRegresiva();
+        $this->timer = Gambito::cuentaRegresiva($this->identificador);
     }
 
     public function hydrate()
     {
+        $this->pujar = $this->producto->precio + $this->producto->puja;
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
+        $this->timer = Gambito::cuentaRegresiva($this->identificador);
+
         $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
     }
 

@@ -1,4 +1,4 @@
-<div class="container" wire:poll="refresh">
+<div class="container" wire:poll.500ms="$refresh">
     <div class="row">
         <div class="col-md col-md-12 mt-5">
             {{--TODO: CREAR COMPONENTE LIVEWIRE PARA PUJA--}}
@@ -87,8 +87,9 @@
                         {{--//TODO: Renderizar Hijo contador--}}
                         <div class="col">
 
-                            <span class="text-badge_live"wire:model="resultado" wire:poll="refresh">
+                            <span class="text-badge_live"wire:model="resultado">
                                 @if($producto->finalized_at>=now())
+                                    @dump($timer)
                                     {{$producto->finalized_at->diffInSeconds(now())}}
                                 @else
                                     La Subasta finalizo, el ganador es {{$producto->Usuario->name}}
@@ -127,7 +128,7 @@
                             <div class="text-center">
                                 <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                                 <span class="d-block text-center">
-                                    <p class="text-dark text text-_to-auction_bottom" wire:model="mensajes" wire:poll="refresh">{{count($mensajes)}}</p>
+                                    <p class="text-dark text text-_to-auction_bottom" wire:model="mensajes">{{count($mensajes)}}</p>
                                     Ofertas
                                 </span>
                             </div>
@@ -146,7 +147,7 @@
                     </div>
                 </div>
                 {{-- TODO: Vista del Chat--}}
-                <div class="col-md-5 order-md-2  rounded bg-dark scroll" wire:model="mensajes" wire:poll="refresh">
+                <div class="col-md-5 order-md-2  rounded bg-dark scroll" wire:model="mensajes">
                     @foreach($mensajes as $value )
                         <p class="alert alert-success">
                             {{$value->message}}
@@ -170,7 +171,7 @@
                                 Oferta
                             </div>
                         </div>
-                        <div class="row" style="height:200px; overflow: auto;" wire:model="resultado" wire:poll="refresh">
+                        <div class="row" style="height:200px; overflow: auto;" wire:model="resultado">
                             @forelse($resultado as $key => $rank)
                                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                                     <div class="col-md-4 text-darken font-weight-normal">

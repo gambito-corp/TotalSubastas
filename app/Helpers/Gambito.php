@@ -77,7 +77,7 @@ class Gambito
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'puja'; /*Cambar a ganador una vez finaliza el test*/
+            $estado = 'ganador';
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
         }elseif($producto->finalized_at <= now()){
@@ -139,12 +139,12 @@ class Gambito
         return $resultado;
     }
 
-    public static function cuentaRegresiva()
+    public static function cuentaRegresiva($id)
     {
         $finaliza = mktime(
-            self::obtenerProducto()->finalized_at->hour,
-            self::obtenerProducto()->finalized_at->minute,
-            self::obtenerProducto()->finalized_at->second
+            self::obtenerProducto($id)->finalized_at->hour,
+            self::obtenerProducto($id)->finalized_at->minute,
+            self::obtenerProducto($id)->finalized_at->second
         );
         $countDown = $finaliza - time();
 
