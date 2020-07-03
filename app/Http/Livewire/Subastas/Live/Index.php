@@ -11,111 +11,86 @@ use Livewire\Component;
 
 class Index extends Component
 {
+
+    /**
+     * @var mixed|string
+     */
+    public $identificador;
+    /**
+     * @var mixed
+     */
     public $producto;
+    /**
+     * @var mixed
+     */
     public $vehiculo;
+    /**
+     * @var mixed
+     */
     public $mensajes;
+    /**
+     * @var mixed
+     */
     public $resultado;
-    public $pujar;
-
-    Public $Estado;
+    /**
+     * @var mixed
+     */
     public $ranking;
+    /**
+     * @var mixed
+     */
+    public $pujar;
+    /**
+     * @var int|mixed
+     */
     public $timer;
+    /**
+     * @var mixed
+     */
+    public $estado;
+    /**
+     * @var false|int|mixed
+     */
     public $finaliza;
+    /**
+     * @var false|int|mixed
+     */
+    public $countDown;
 
-    protected $listeners = ['refresh'];
 
     public function mount()
     {
-//        dd('mount de live', request()->route()->parameter('id'));
-        $this->producto = Producto::find(Gambito::hash(request()->route()->parameter('id'), true))
-            ->with(['Mensaje'=>function($query){$query;}])
-            ->first();
-        $this->vehiculo = Vehicle::where('producto_id', Gambito::hash(request()->route()->parameter('id'), true))->first();
-        //Consulta para los mensajes
-        $this->mensajes = Message::where('producto_id', Gambito::hash(request()->route()->parameter('id'), true))->get();
-        //Consulta para el array
-        $this->resultado = Message::with('Usuario')
-            ->where('producto_id', Gambito::hash(request()->route()->parameter('id'), true))
-            ->orderBy('user_id')
-            ->get()
-            ->groupBy('user_id');
-
+        $this->identificador = Gambito::hash(request()->route()->parameter('id'), true);
+        $this->producto = Gambito::obtenerProducto($this->identificador);
+        $this->vehiculo = Gambito::obtenerVehiculo($this->identificador);
+        $this->mensajes = Gambito::obtenerMensajes($this->identificador);
+        $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
+//        dd($this->resultado);
         $this->pujar = $this->producto->precio + $this->producto->puja;
-        $this->ranking = [];
-        foreach($this->resultado as $key => $value) {
-            $this->ranking[$key]['name'] = $this->resultado[$key]->first()->Usuario->name;
-            $this->ranking[$key]['total'] = $this->resultado[$key]->count();
-        }
-//        foreach ($this->ranking as $value){
-//            dump($value['name']);
-//            dump($value['total']);
-//        }
-//        die();
-
-        $this->timer = time();
-
-        if($this->producto->finalized_at <= now()){
-            $this->Estado[0] = 'Finalizada';
-        }elseif($this->producto->user_id == Auth::id()){
-            $this->Estado[0] = 'puja';
-        }else{
-            $this->Estado[0] = 'puja';
-        }
-
-        $this->finaliza = mktime(
-            $this->producto->finalized_at->hour,
-            $this->producto->finalized_at->minute,
-            $this->producto->finalized_at->second
-        );
-        $this->resultado = $this->finaliza - $this->timer;
-        $this->resultado = date('H:i:s', $this->resultado);
+        $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
+        $this->timer = Gambito::cuentaRegresiva();
     }
 
-
-
-    public function estado()
+    public function hydrate()
     {
-        if($this->producto->finalized_at <= now()){
-            $this->Estado[0] = 'Finalizada';
-        }elseif($this->producto->user_id == Auth::id()){
-            $this->Estado[0] = 'puja';
-        }else{
-            $this->Estado[0] = 'puja';
-        }
+        $this->mensajes = Gambito::obtenerMensajes($this->identificador);
+        $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
+        $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
     }
 
-    public function Pujar()
+    public function pujar()
     {
-        $this->producto->precio = $this->producto->puja + $this->producto->precio;
-        $this->producto->user_id = Auth::id();
-        $this->producto->finalized_at = now()->addSeconds(120);
-        $this->producto->update();
-
-        Message::create([
-            'producto_id' => $this->producto->id,
-            'user_id' => Auth::user()->id,
-            'message' => $this->producto->precio
-        ]);
-
-        $this->pujar = $this->producto->precio + $this->producto->puja;
-
+        Gambito::Pujar($this->identificador,true);
         $this->emitSelf('refresh');
     }
 
-
     public function refresh()
     {
-        if($this->producto->user_id == Auth::id()){
-            $this->Estado[0] = 'puja';
-        }else{
-            $this->Estado[0] = 'puja';
-        }
-        $this->estado();
+        $this->hydrate();
     }
 
     public function render()
     {
-//        dd('entra a render');
         return view('livewire.subastas.live.index');
     }
 }

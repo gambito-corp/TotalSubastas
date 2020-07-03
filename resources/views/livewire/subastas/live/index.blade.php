@@ -60,7 +60,7 @@
                                         <rect width="100%" height="100%" fill="#ffd980"></rect>
                                         <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                     </svg>
-                                    <span class="ml-2">concedido por {{$producto->Lote->Empresa->nombre}}</span>
+                                    <span class="ml-2">concedido por {{$producto->Lote->Empresa->razon_social}}</span>
                                     <h5 class="pt-2">{{$vehiculo->year}}</h5>
                                 </figure>
                             </div>
@@ -98,23 +98,8 @@
                     </div>
                     <div class="row">
                         <div class="col mt-5">
-                            @dump($producto->precio, $pujar, $Estado)
-                            @if($Estado[0] == 'ganador')
-                                <p class="btn btn-success rounded-pill pr-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
-                            @endif
-                            @if($Estado[0] == 'puja')
-                                    <button wire:click="Pujar()" wire:model="precio" class="btn btn-primary rounded-pill pr-4 btn-to_action-bottom text-light">
-                                        <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
-                                        Pujar {{$pujar}} $
-                                    </button>
-                            @endif
-                            @if($Estado[0] == 'Finalizada')
-                                @if($producto->user_id == Auth()->id())
-                                    <a class="btn btn-success pr-4 text-light" style="cursor:pointer" href="#"><i class="fas fa-star  pr-3 pl-3 "></i> Felicidades Ganaste la subasta por {{$producto->precio}} $</a>
-                                @else
-                                    <a class="btn btn-danger pr-4 text-light" style="cursor:pointer" href="#"><i class="fas fa-star  pr-3 pl-3 "></i> La subasta Finalizo El Ganador es  {{$producto->Usuario->name}}</a>
-                                @endif
-                            @endif
+                            @dump($producto->precio, $pujar, $estado)
+                            @include('livewire.subastas.includes.button')
                         </div>
                     </div>
                 </div>
@@ -142,7 +127,7 @@
                             <div class="text-center">
                                 <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                                 <span class="d-block text-center">
-                                    <p class="text-dark text text-_to-auction_bottom">{{count($mensajes)}}</p>
+                                    <p class="text-dark text text-_to-auction_bottom" wire:model="mensajes" wire:poll="refresh">{{count($mensajes)}}</p>
                                     Ofertas
                                 </span>
                             </div>
@@ -151,7 +136,9 @@
                             <div class="text-center">
                                 <i class="fas fa-user"> </i>
                                 <span class="d-block">
-                                    <p class="text-dark text text-_to-auction_bottom">{{count($ranking)}}</p>
+
+
+                                    <p class="text-dark text text-_to-auction_bottom">{{count($resultado)}}</p>
                                     Participa<br>ntes
                                 </span>
                             </div>
@@ -183,25 +170,30 @@
                                 Oferta
                             </div>
                         </div>
-                        <div class="row" style="height:200px; overflow: auto;">
-                            @forelse($ranking as $key => $rank)
+                        <div class="row" style="height:200px; overflow: auto;" wire:model="resultado" wire:poll="refresh">
+                            @forelse($resultado as $key => $rank)
                                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                                     <div class="col-md-4 text-darken font-weight-normal">
-                                        @isset($rank['total'])
-                                        {{$rank['total']}}
+{{--                                        {{dd($rank)}}--}}
+                                        @isset($rank)
+                                        {{count($rank)}}
                                         @else
                                         todavia nadie pujo
                                             @endisset
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal">
-                                        @isset($rank['name'])
-                                        {{$rank['name']}}
+                                        @isset($rank)
+                                            {{$rank[0]['usuario']['name']}}
                                         @else
-                                        todavia nadie pujo
-                                            @endisset
+                                            todavia nadie pujo
+                                        @endisset
                                     </div>
                                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        $ 12800
+                                        @isset($rank[$key])
+                                            {{end($rank)['message']}}
+                                        @else
+                                            todavia nadie pujo
+                                        @endisset
                                     </div>
                                 </div>
                             @empty

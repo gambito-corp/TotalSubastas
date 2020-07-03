@@ -22,9 +22,9 @@ class Index extends Component
     public function mount()
     {
         $id = Gambito::hash(request()->route()->parameter('id'), true);
-        $this->producto = Producto::where('id', $id)->with('Usuario')->first();
-        $this->vehiculo = Vehicle::where('producto_id', $id)->first();
-        $this->detalle = VehicleDetail::where('Vehiculo_id', $this->vehiculo->id)->first();
+        $this->producto = Gambito::obtenerProducto();
+        $this->vehiculo = Gambito::obtenerVehiculo();
+        $this->detalle = VehicleDetail::where('Vehiculo_id', Gambito::obtenerVehiculo()->id)->first();
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }

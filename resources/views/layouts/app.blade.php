@@ -21,6 +21,13 @@
         @include('assets.header')
 
         @include('assets.menuPrincipal')
+        <div>
+            @if (session()->has('message'))
+                <div class="alert alert-success">
+                    {{ session('message') }}
+                </div>
+            @endif
+        </div>
 
         @yield('content')
         <div class="container">

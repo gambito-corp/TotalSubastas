@@ -20,6 +20,8 @@ class Gambito
     public $id;
     public $check;
 
+
+    //METODOS DE ENCRIPTACION
     public static function hash($id, $decode = null)
     {
         $hashids = new Hashids();
@@ -28,6 +30,40 @@ class Gambito
             :  $hashids->decode($id)[0];
     }
 
+    // METODOS DE SELECT
+    public static function obtenerProducto($id = null)
+    {
+        return Producto::findOrFail(is_null($id) ? self::hash(request()->route()->parameter('id'),true): $id)->with('Usuario')->first();
+    }
+
+    public static function checkBalance()
+    {
+        return Balance::where('user_id', Auth::user()->id)->firstOrFail();
+    }
+
+    public static function obtenerMensajes($id = null, $ranking = false )
+    {
+        return $ranking
+            ? self::generarRanking($id)
+            : Message::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->get();
+    }
+
+    public static function obtenerVehiculo($id = null)
+    {
+        return Vehicle::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->first();
+    }
+
+    //METODOS DE CREATE/UPDATE
+    protected static function hacerDescuento()
+    {
+        return Garantia::create([
+            'producto_id' => self::hash(request()->route()->parameter('id'), true),
+            'user_id' => Auth::id(),
+            'monto' => self::obtenerProducto()->garantia,
+        ]);
+    }
+
+    //METODOS DE COMPROBACION
     public static function checkUser()
     {
         $user = new User();
@@ -36,12 +72,12 @@ class Gambito
             : $user;
     }
 
-    public static function checkEstado(Producto $producto, $id)
+    public static function checkEstado(Producto $producto, $id, $live = false)
     {
-        if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now()){
+        if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'ganador';
+            $estado = 'puja'; /*Cambar a ganador una vez finaliza el test*/
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
         }elseif($producto->finalized_at <= now()){
@@ -52,35 +88,23 @@ class Gambito
         return $estado;
     }
 
-    protected static function redireccionTime(Producto $producto)
+    public static function checkInicioSubasta(Producto $producto)
     {
 
         if (now() < $producto->started_at) {
             return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
         } elseif (now() > $producto->finalized_at) {
-            return redirect()->route('index')->with('flash', 'La Subasta ya finalizo');
+            session()->flash('message', 'La subasta finalizo');
+            return redirect()->route('index');
         }
         return true;
     }
 
-
-    public static function checkInicioSubasta()
-    {
-        $producto = Producto::findOrFail(self::hash(request()->route()->parameter('id'),true));
-
-        return self::redireccionTime($producto)
-            ? $producto
-            : redirect()->route('index')->with('flash', 'Problemas tecnicos');
-    }
-
-    public static function checkBalance()
-    {
-        return Balance::where('user_id', Auth::user()->id)->firstOrFail();
-    }
-
+    // ACCIONES COMPLEJAS Y REDIRECCIONES
+    //TODO: Corregir este Redirect
     public static function descuentoGarantia()
     {
-        $descuento = self::checkBalance()->monto - self::checkInicioSubasta()->garantia;
+        $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
 
         if ($descuento < 0) {
             return redirect()->route('index')->with('flash', 'No se le puede descuntar ese monto de garantia, no tiene suficientes fondos, porfavor recargue');
@@ -98,37 +122,54 @@ class Gambito
         return true;
     }
 
-    protected static function hacerDescuento()
+    public static function generarRanking($id = false)
     {
-        Garantia::create([
-            'producto_id' => self::hash(request()->route()->parameter('id'), true),
-            'user_id' => Auth::id(),
-            'monto' => self::checkInicioSubasta(self::hash(request()->route()->parameter('id'), true))->garantia,
-        ]);
-        return true;
+        $resultado = Message::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->with('Usuario')
+            ->orderBy('user_id')
+            ->get()
+            ->groupBy('user_id')
+            ->toArray();
+
+        foreach ($resultado as $key => $value){
+            $ranking[$key]['total'] = count($resultado[$key]);
+            $ranking[$key]['nombre'] = $resultado[$key][0]['usuario']['name'];
+            $ranking[$key]['puja'] = end($resultado[$key])['message'];
+        }
+
+        return $resultado;
     }
 
-    protected function mensajes()
+    public static function cuentaRegresiva()
     {
-        $data = Message::where('producto_id', $this->id)->get();
-        return $data;
+        $finaliza = mktime(
+            self::obtenerProducto()->finalized_at->hour,
+            self::obtenerProducto()->finalized_at->minute,
+            self::obtenerProducto()->finalized_at->second
+        );
+        $countDown = $finaliza - time();
+
+        return date('H:i:s', $countDown);
     }
 
-    protected function vehiculo()
+    public static function Pujar($id, $live = false)
     {
-        return Vehicle::where('producto_id', $this->id)->first();
+        $producto = self::obtenerProducto($id);
+        $producto->precio += $producto->puja;
+        $producto->user_id = Auth::id();
+        if($live){
+            $producto->finalized_at = now()->addSeconds(120);
+        }
+        $producto->update();
+
+        if($live){
+            $mensaje = Message::create([
+                'producto_id' => $producto->id,
+                'user_id' => Auth::id(),
+                'message' => $producto->precio
+            ]);
+        }
+        return $live
+            ? [$producto, $mensaje]
+            : $producto;
     }
-
-    public function data()
-    {
-        return $data = [
-            'mensajes' => collect($this->mensajes()),
-            'producto' => $this->checkInicioSubasta($this->id),
-            'usuario' => Auth::user(),
-            'vehiculo' => $this->vehiculo(),
-            'balance' => $this->checkBalance()
-        ];
-    }
-
-
 }
