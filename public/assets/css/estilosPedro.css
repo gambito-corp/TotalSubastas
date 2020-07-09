@@ -1,0 +1,78 @@
+.color_marca{
+    background-color: #FFD980;
+    border-radius: 10px;
+}
+.pl--1{
+    margin-left: -15px !important;
+}
+.bg-blanco{
+    background-color: #fff;
+}
+
+
+.pl--2{
+    margin-left: 15px !important;
+}
+
+.txt-overtitle {
+    opacity: 70%;
+    font-size: 0.75rem;
+    margin-top: 30px;
+}
+
+.txt-title {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+.alert-primary{
+    background-color: #0275d8;
+}
+
+.ancho--220{
+    width: 220px;
+}
+
+.img-position {
+    margin: auto;
+}
+
+.dwnld-card{
+    background-image:url("../../assets/img/File.svg");
+    background-repeat: no-repeat;
+    background-position-x: 180px;
+    background-position-y: 20px;
+    border-radius: 10px;
+}
+
+.prom-card{
+    border-radius:10px;
+}
+
+.prom-card-txt{
+    margin-top: 30px;
+}
+
+.dwnld-txt-title{
+    margin-top: 20px;
+}
+
+.logo-carousel{
+    border-radius:50%;
+    width:20%;
+    height:20%;
+}
+
+.sec-carousel {
+    position: absolute;
+    top:10%;    
+    left: 15%;
+    right: 15%;
+    color: white;
+    z-index: 20;
+    text-align: center;
+}
+
+.div-carousel{
+    border-radius: 10px;
+}

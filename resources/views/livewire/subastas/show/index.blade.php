@@ -37,7 +37,7 @@
                                             <div class="col pt-3 ">
                                                 <p class="title-d_sheet-jumb text-center">Inicia en</p>
                                                 <div class="d-flex">
-                                                    <p class="title-d_sheet-sp mr-3" id="{{$producto->finalized_at <= now()? '': 'regresiva'}}">{{$producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
+                                                    <p class="title-d_sheet-sp mr-3" id="regresiva">{{$producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
                                                 </div>
                                             </div>
                                             <div class="col pt-3">
@@ -660,40 +660,40 @@
 
 {!! $producto->started_at->toCookieString()!!}
 @push('scripts')
-    <script>
-        var hora = @json($producto->started_at);
-        const getRemainTime = deadline => {
-            let now = new Date(),
-                remainTime = (new Date(deadline) - now +1000) / 1000,
-                remainSeconds = ('0'+Math.floor(remainTime % 60)).slice(-2),
-                remainMinutes = ('0'+Math.floor(remainTime / 60 % 60)).slice(-2),
-                remainHours = ('0'+Math.floor(remainTime / 3600 % 24)).slice(-2),
-                remainDays = Math.floor(remainTime / (3600 * 24));
-            return {
-                remainTime,
-                remainSeconds,
-                remainMinutes,
-                remainHours,
-                remainDays
+<script>
+    var hora = @json($producto->started_at);
+    const getRemainTime = deadline => {
+        let now = new Date(),
+            remainTime = (new Date(deadline) - now +1000) / 1000,
+            remainSeconds = ('0'+Math.floor(remainTime % 60)).slice(-2),
+            remainMinutes = ('0'+Math.floor(remainTime / 60 % 60)).slice(-2),
+            remainHours = ('0'+Math.floor(remainTime / 3600 % 24)).slice(-2),
+            remainDays = Math.floor(remainTime / (3600 * 24));
+        return {
+            remainTime,
+            remainSeconds,
+            remainMinutes,
+            remainHours,
+            remainDays
+        }
+    };
+
+    const countdown = (deadline, elem, finalMessage) =>{
+        const el = document.getElementById(elem);
+
+        const timerUpdate = setInterval(()=>{
+            let t = getRemainTime(deadline);
+            el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
+            if(t.remainTime <= 1){
+                clearInterval(timerUpdate);
+                el.innerHTML = finalMessage;
             }
-        };
 
-        const countdown = (deadline, elem, finalMessage) =>{
-            const el = document.getElementById(elem);
+        }, 1000)
+    };
 
-            const timerUpdate = setInterval(()=>{
-                let t = getRemainTime(deadline);
-                el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
-                if(t.remainTime <= 1){
-                    clearInterval(timerUpdate);
-                    el.innerHTML = finalMessage;
-                }
-
-            }, 1000)
-        };
-
-        countdown(hora, 'regresiva', 'La Subasta Inicio');
-        // console.log(Date(hora));
-    </script>
-    @endpush
+    countdown(hora, 'regresiva', 'La Subasta Inicio');
+    // console.log(Date(hora));
+</script>
+@endpush
     </div>

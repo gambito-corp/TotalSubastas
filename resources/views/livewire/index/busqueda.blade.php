@@ -1,4 +1,4 @@
-<div class="col col-md-3  pl-0  order-md-1 mb-4 ">
+<div class="">
     <div>
         {{--//TODO: Inicio de acordeon--}}
         <div class="accordion md-accordion" id="categorias" role="tablist" aria-multiselectable="true">
@@ -15,7 +15,7 @@
                     </div>
                 </a>
                 <!-- Card body -->
-                <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
+                <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between border-bottom mt-2">
                             <p class="car-side-nav_bp"> Autos livianos </p> <span class="car-side-nav_bp-span"> 25 </span>
@@ -43,7 +43,7 @@
                     </div>
                 </a>
                 <!-- Card body -->
-                <div id="collapseOne2" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#tiposubasta">
+                <div id="collapseOne2" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#tiposubasta">
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between ">
 
@@ -86,7 +86,7 @@
                     </div>
                 </a>
                 <!-- Card body -->
-                <div id="collapseOne3" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
+                <div id="collapseOne3" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
                     <div class="card-body ">
                         <div class="col-12 d-flex justify-content-between  mt-2">
                             <form class="m-2">
@@ -173,7 +173,7 @@
                     </div>
                 </a>
                 <!-- Card body -->
-                <div id="collapseOne5" class="collapse car-side-nav_bp" role="tabpanel" aria-labelledby="headingOne1" data-parent="#ciudad">
+                <div id="collapseOne5" class="collapse car-side-nav_bp show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#ciudad">
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between mt-2">
                             <select class="custom-select">

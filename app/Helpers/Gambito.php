@@ -45,7 +45,7 @@ class Gambito
     {
         return $ranking
             ? self::generarRanking($id)
-            : Message::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->get();
+            : Message::with('Usuario')->where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->get();
     }
 
     public static function obtenerVehiculo($id = null)

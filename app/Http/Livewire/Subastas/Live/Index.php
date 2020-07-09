@@ -69,7 +69,7 @@ class Index extends Component
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
 
         $this->pujar = $this->producto->precio + $this->producto->puja;
-        $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
     }
 
@@ -80,7 +80,7 @@ class Index extends Component
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
 
-        $this->estado = Gambito::checkEstado($this->producto, $this->identificador, true);
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
     }
 
     public function pujar()

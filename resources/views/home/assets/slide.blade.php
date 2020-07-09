@@ -1,56 +1,10 @@
       <!-- slider -->
+
+      <h1>HOLA MUNDO</h1>
+
+
       <div class="top-slide pl-0 pr-0 pt-5 mb-2 col-md-12 col-sm-12 col-xs-12">
-        <div class="a pl-0 pr-0 col-md-12">
-          <div id="FirstSlide" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              @forelse($data as $dat)
 
-              <li data-target="#FirstSlide" data-slide-to="0" class="active"></li>
-              @empty
-
-              @endforelse
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-interval="100000">
-
-                <span class="text-light pt-1 live-today">
-                  Hoy
-                </span>
-
-                <article class="top-slide_carousel-item-a">
-                  <figure class="heading-carousel_top ">
-                    <!-- slider item carousel logo fallabella -->
-                    <img class="mb-2 logo_top-slide-sg_falabella" src="./assets/img/image-207.png" alt="">
-                    <h5 class="">Saga Falabella {{$dat}}</h5>
-                    <p class="date_top-slide-sg_falabella">20.05.20</p>
-                  </figure>
-                  <figure class="heading-carousel ">
-                    <h1 class="text-uppercase">
-                      Gran subasta <br />
-                      10 activos <br />podran ser tuyos
-                    </h1>
-                    <button class="btn btn-primary  rounded-pill carousel-btn-look_lote">
-                      <span><i class="fas fa-image ml-2 mr-4"></i></span>
-                      Ver lote
-                      <span class="badge ml-4 badge-button_count_slide">10</span>
-                    </button>
-                  </figure>
-                </article>
-                <!-- slider item carousel nr° 1 -->
-                <img class="carousel-item-a_imagen" src="./assets/img/image-205.png" height="499px" class="d-block w-100" alt="..." />
-              </div>
-              <div class="carousel-item" data-interval="2000">
-                <!-- slider item carousel nr° 2 -->
-                <img src="..." height="499px" class="d-block w-100" alt="..." />
-              </div>
-              <div class="carousel-item">
-                <!-- slider item carousel nr° 3 -->
-                <img src="..." height="499px" class="d-block w-100" alt="..." />
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="b pl-5 pt-5 ml-3 d-none d-sm-none d-md-block col-md-12">
           <div class="row">
             <div class="col-md-5">
@@ -58,7 +12,7 @@
                 <p class="carousel-text_item_b-top">como subastar?</p>
                 <h2 class="carousel-text_item_b">
                   Te enseñamos a Subastar
-				 
+
                 </h2>
                 <p class="carousel-text_item_b-text">
                   Encuentra oportunidades de ingreso, o a lo mejor un gran

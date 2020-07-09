@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28.699" height="40.14" viewBox="0 0 28.699 40.14">
+  <g id="Clipboard" transform="translate(1 1)">
+    <g id="Icon">
+      <path id="Line-62" d="M20.562,3H26.7V35.419H0V3H6.693" transform="translate(0 2.721)" fill="none" stroke="#656b70" stroke-width="2"/>
+      <rect id="Line-61" width="15" height="6" stroke-width="2" fill="none" stroke="#656b70" transform="translate(5.726 4)"/>
+      <path id="Line-60" d="M8.814,5.721c2.106,0,3.814.2,3.814-1.907A3.814,3.814,0,0,0,5,3.814C5,5.92,6.708,5.721,8.814,5.721Z" transform="translate(4.535)" fill="none" stroke="#656b70" stroke-linecap="square" stroke-width="2"/>
+      <path id="Line-59" d="M3.5,12.5h9.535" transform="translate(3.175 11.338)" fill="none" stroke="#656b70" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" fill-rule="evenodd"/>
+      <path id="Line-58" d="M3.5,9.5H14.942" transform="translate(3.175 8.617)" fill="none" stroke="#656b70" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" fill-rule="evenodd"/>
+      <path id="Line-57" d="M3.5,15.5H16.849" transform="translate(3.175 14.059)" fill="none" stroke="#656b70" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

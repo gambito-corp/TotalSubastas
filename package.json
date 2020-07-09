@@ -10,6 +10,7 @@
         "watch-poll": "npm run watch -- --watch-poll"
     },
     "dependencies": {
+        "animate.css": "^4.1.0",
         "font-awesome": "^4.7.0"
     },
     "devDependencies": {

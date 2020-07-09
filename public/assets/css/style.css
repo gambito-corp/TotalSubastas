@@ -63,7 +63,7 @@ footer {
   height: 113px;
 }
 .navbar-top a {
-  margin: 0 auto;
+  margin: 0 auto;l
   font-size: medium;
   padding-left: 65px;
   color: var(--var-nav-top);
@@ -1048,3 +1048,5 @@ article.p-side_nav h2 {
   from {background-position:left;}
   to { background-position:right;}
 }
+
+

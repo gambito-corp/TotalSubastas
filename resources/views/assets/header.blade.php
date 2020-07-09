@@ -5,6 +5,7 @@
       <div class="row">
         <div class="col ">
           <a href="#" class="navbar-brand d-flex text-dark align-items-center">
+              <img src="{{asset('assets\img\Icon-Phone.svg')}}" class="mr-2 " alt="" srcset="">
             (+51) 460-2000
           </a></div>
         <div class="col mt-2">
@@ -49,4 +50,4 @@
       @endguest
     </div>
   </div>
-</header>
+
