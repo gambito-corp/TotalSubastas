@@ -3,19 +3,19 @@
         if($producto->finalized_at<=now()){
             Artisan::call('auction:end L9fpcBfzhyiBsOtL');
         }
-    @endphp
+    @endphp 
     {{-- panel de control de la subasta --}}
-    <div class="container" style="border-radius: 10px">
+    <div class="container" style="border-radius: 10px!important">
         <div class="row mt-5 bg-dark text-light p-4 live--central redondo-px-10">
             <div class="col-md-3 col-sm-12">
                 <img src="{{asset('assets/img/image-077.png')}}" class="rounded mx-auto d-block img-fluid" alt="" />
             </div>
             <div class="col-md-5">
-                <h2 class="ml-2">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h2>
+                <h1 class="ml-2">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h1>
                 <p class="ml-2">{{$vehiculo->year}}</p>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light p-0 m-0 text-s_gd-sheet">
                             <p class="text-capitalize">
                                 Garantia
                             </p>
@@ -25,7 +25,7 @@
                                 $ {{$producto->garantia}}
                             </p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light p-0 m-0 text-s_gd-sheet">
                             <p class="text-capitalize">
                                 Usuario Ganador
                             </p>
@@ -37,7 +37,7 @@
                         </div> 
                     </div>
                     <div class="row">                       
-                        <div class="col-md-3">
+                        <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light p-0 m-0 text-s_gd-sheet">
                             <p class="text-capitalize">
                                 Comision
                             </p>
@@ -47,7 +47,7 @@
                                 {{$producto->comision}}
                             </p>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light p-0 m-0 text-s_gd-sheet">
                             <p class="text-capitalize">
                                 Tipo subasta
                             </p>

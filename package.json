@@ -27,7 +27,6 @@
         "pusher-js": "^6.0.3",
         "resolve-url-loader": "^3.1.0",
         "sass": "^1.26.9",
-        "sass-loader": "^8.0.0",
-        "vue-template-compiler": "^2.6.11"
+        "sass-loader": "^8.0.0"
     }
 }

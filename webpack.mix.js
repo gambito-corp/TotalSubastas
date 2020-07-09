@@ -17,4 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
         'node_modules/animate.css/animate.min.css'
     ], 'public/css/assets.css')
     .copy('node_modules/font-awesome/fonts', 'public/fonts')
-    .browserSync('http://totalsubastas.test');
+    .browserSync('http://localhost:8000');

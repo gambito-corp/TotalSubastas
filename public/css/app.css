@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -7059,6 +7059,7 @@ button.bg-light:focus {
 
 .bg-dark {
   background-color: #343a40 !important;
+  border-radius:15px;
 }
 
 a.bg-dark:hover,

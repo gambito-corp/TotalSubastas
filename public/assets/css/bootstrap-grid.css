@@ -50,9 +50,9 @@ html {
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
   padding-right: 15px;
-  padding-left: 15px;
+  padding-left: auto;
   margin-right: auto;
-  margin-left: auto;
+  margin-left: 9px;
 }
 
 @media (min-width: 576px) {
