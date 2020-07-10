@@ -99,7 +99,7 @@
                         <a href="#" class="navbar-brand d-flex align-items-center">
                             Subastas
                         </a>
-                        <a href="#" class="navbar-brand d-flex align-items-center">
+                        <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
                             Preguntas
                         </a>
                         <a href="#" class="navbar-brand d-flex align-items-center">

@@ -78,7 +78,6 @@
           <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
 
         </p>
-        {{ message }}
         <router-view></router-view>
 
         <h1 class="font-weight-bold text-capitalize text-dark">preguntas b&aacute;sicas</h1>
