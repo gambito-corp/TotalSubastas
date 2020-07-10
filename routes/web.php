@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use RealRashid\SweetAlert\Facades\Alert;
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/index', 'HomeController@index')->name('index');
 //Route::get('/faqs', 'HomeController@faqs')->name('faqs');
@@ -43,3 +42,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 //rutas vista
 Route::view('nombre', 'andree.vista1');
+
+Route::view('indextest', 'test.index');
+Route::view('showtest', 'test.show');
+Route::view('livetest', 'test.live');

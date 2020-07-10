@@ -1,4 +1,8 @@
-<div class="">
+<div class="col col-md-3 mb-4 ">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted"></span>
+        <span class="badge badge-secondary badge-pill"></span>
+    </h4>
     <div>
         {{--//TODO: Inicio de acordeon--}}
         <div class="accordion md-accordion" id="categorias" role="tablist" aria-multiselectable="true">
@@ -189,4 +193,11 @@
         </div>
         {{-- //TODO: Fin del Acordeon --}}
     </div>
+    <div class="mr-2  side-nav mt-4 rounded ">
+        <article class="p-side_nav text-light">
+          <p class="text-capitalize">mas de
+          <h2>500</h2> usuarios <br> conf&iacute;an en nosotros</p>
+        </article>
+        <img class="img-fluid d-md-block" src="./assets/img/image-021.png" alt="">
+      </div>
 </div>
