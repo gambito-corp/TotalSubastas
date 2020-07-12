@@ -68,12 +68,14 @@ class AuctionsController extends Controller
             $balance->update();
         }
         // nombrar del 1ª al 4ª puesto
-        $ganadores = Message::where('producto_id', $producto->id)->orderBy('user_id')->get()->groupBy('user_id');
+        $ganadores = Message::where('producto_id', $producto->id)
+            ->orderBy('message', 'desc')
+            ->get()
+            ->groupBy('user_id');
         foreach($ganadores as $key => $win){
             $llave[$i] = $key;
             $i++;
         }
-
         $auction = Auction::where('producto_id', $producto->id)->first();
 
         if(!$auction){
