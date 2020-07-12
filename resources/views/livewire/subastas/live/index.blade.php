@@ -80,30 +80,30 @@
                         <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
                     </div>
                     <div class="col">
-                        @if ($producto->finalized_at->subSeconds(5)<=now())                    
-                            <p 
+                        @if ($producto->finalized_at->subSeconds(5)<=now())
+                            <p
                                 class="
                                 {{$producto->finalized_at>=now()? 'col-md-2 animate__animated animate__fadeIn': 'col-md-12 animate__animated animate__fadeIn'}}"
                                 >
-                                    {{$producto->finalized_at>=now()? 'En 00:0'.$producto->finalized_at->diffInSeconds(now()): 'La Subasta finalizo, el ganador es '.$producto->Usuario->name }}                        
+                                    {{$producto->finalized_at>=now()? 'En 00:0'.$producto->finalized_at->diffInSeconds(now()): 'La Subasta finalizo, el ganador es '.$producto->Usuario->name }}
                             </p>
                             @if ($producto->finalized_at>=now())
                                 <div class="col-md 10">
                                     <div class="progress rounded-pill border border-light ml-2 animate__animated animate__fadeIn" wire:model="resultado">
-                                        <div 
-                                            class="progress-bar progress-bar-striped progress-bar-animated bg-warning" 
-                                            role="progressbar" 
-                                            aria-valuenow="{{5 - $producto->finalized_at->diffInSeconds(now())}}" 
-                                            aria-valuemin="0" 
-                                            aria-valuemax="100" 
+                                        <div
+                                            class="progress-bar progress-bar-striped progress-bar-animated bg-warning"
+                                            role="progressbar"
+                                            aria-valuenow="{{5 - $producto->finalized_at->diffInSeconds(now())}}"
+                                            aria-valuemin="0"
+                                            aria-valuemax="100"
                                             style="width: {{20*(5 - $producto->finalized_at->diffInSeconds(now()))}}% "
-                                        >                                        
+                                        >
                                         </div>
                                     </div>
                                 </div>
                             @endif
                         @endif
-                    </div>                    
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col mt-5">
@@ -124,9 +124,9 @@
             <div class="row p-4">
                 <div class="col-12 pt-5 pb-5">
                     <p>
-        
+
                     </p>
-                </div>                   
+                </div>
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
                         <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
@@ -147,9 +147,10 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-5 order-md-2 p-4 text-light rounded bg-dark scroll" style="height: 400px;">
-            @foreach($mensajes as $value )
+            @isset($mensajes)
+                @foreach($mensajes as $value )
                     @if ($value->user_id == Auth::id())
                         <div class="mt-2 alert text-light rounded-pill ancho--220 float-right chat-box-user align-items-end animate__animated animate__backInLeft" width="55%">
                             <p class="chat-box-txt">
@@ -166,7 +167,8 @@
                         <br>
                     @endif
                     <br>
-                @endforeach          
+                @endforeach
+            @endisset
         </div>
 
         <div class="col-md-3 order-md-3 live-push_action-ranking">
@@ -207,28 +209,28 @@
                         <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
                             $ 12800
                         </div>
-                    </div>                
+                    </div>
                 </div>
             </div>
-        </div>        
+        </div>
     </div>
 </div>
 @push('styles')
     <style>
         .scroll{
             height: 420px;
-            overflow: auto;  
+            overflow: auto;
             -ms-overflow-style:none;
-            scrollbar-width:none;          
+            scrollbar-width:none;
         }
          .scroll::-webkit-scrollbar{
              display:none;
          }
-        
+
         .chat-box-txt{
             margin-block-end:0px;
         }
-    
+
         .chat-box-user{
             background-color: #227dc7;
             width:auto;
@@ -245,7 +247,7 @@
             padding-top: 0.25rem;
             padding-bottom: 0rem;
         }
-    
+
         .margin-row{
             margin-left:0%;
             margin-right:0%;
