@@ -30,11 +30,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $ganadores = Message::where('producto_id', 1)
-            ->orderBy('message', 'desc')
-            ->get()
-            ->groupBy('user_id');
-        dd($ganadores);
         return view('home.index');
     }
     public function home()
