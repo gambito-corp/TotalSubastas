@@ -1,7 +1,7 @@
 @if (session()->has('message'))
-<div>
-    <div class="alert {{session('alerta')? session('alerta'): ''}}">
-        {{ session('message') }}
+    <div>
+        <div class="{{session('alerta')? 'alert alert-'.session('alerta'): ''}}">
+            {{ session('message') }}
+        </div>
     </div>
-</div>
 @endif

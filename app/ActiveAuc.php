@@ -3,24 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use VoyagerRelationSelector\Traits\RelationModel;
 
-
-class Address extends Model
+class ActiveAuc extends Model
 {
-    use SoftDeletes;
-    use RelatioModel;
-
-    protected $parentKey = 'pid';
-    
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+
     ];
 
     /**
@@ -29,7 +21,7 @@ class Address extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -40,12 +32,18 @@ class Address extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
     ];
 
-    //Scope
-    public function scopePais($query)
+
+
+
+    public function users()
     {
-        return $query->where('pais_id', 1);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function products()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 }

@@ -15,8 +15,8 @@ class Auction extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class Auction extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -38,5 +38,5 @@ class Auction extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
 }

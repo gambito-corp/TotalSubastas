@@ -123,6 +123,14 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
       <path value="$PROJECT_DIR$/vendor/realrashid/sweet-alert" />
       <path value="$PROJECT_DIR$/vendor/jpmurray/laravel-countdown" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/src" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/routes" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/resources" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/public" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/database" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/fonts" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/assets" />
+      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/.git" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

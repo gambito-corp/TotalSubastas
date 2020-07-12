@@ -1,1 +1,11 @@
-{}
+{
+    "last_remote_check": 1594428758,
+    "hooks": {
+        "voyager-relation-selector": {
+            "name": "voyager-relation-selector",
+            "description": "voyager relation selector",
+            "version": "dev-master",
+            "enabled": true
+        }
+    }
+}

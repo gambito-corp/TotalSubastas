@@ -1,4 +1,4 @@
-<div class="row main-container mr-md-1 mb-5 mt-5">
+<div class="row main-container mr-md-0 ml-md-0 mb-5 mt-5">
     <div class="col-sm-12 mt-5 mb-5">
         <div class="row">
             <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-12">
@@ -65,11 +65,11 @@
             
                                 <fieldset class="thumbs_auction">
                                     <img class="rounded thumbs_auction-img  p-1" data-target='#auction-control' data-slide-to='0'
-                                    src="./assets/img/thumbs/image-074.png" alt="">
+                                    src="{{asset('assets/img/thumbs/image-074.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target='#auction-control' data-slide-to='1'
-                                    src="./assets/img/thumbs/image-075.png" alt="">
+                                    src="{{asset('assets/img/thumbs/image-075.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target="#auction-control" data-slide-to='2'
-                                    src="./assets/img/thumbs/image-076.png" alt="">                
+                                    src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">                
                                 </fieldset>
 
                                 <div class=" text-center mt-3">
@@ -98,7 +98,7 @@
                     <div id="auction-control" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="./assets/img/image-077.png" width="100%" height="400">
+                                <img src="{{asset('assets/img/image-077.png')}}" width="100%" height="400">
                             </div>
                             <div class="carousel-item">
                                 <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
@@ -140,11 +140,11 @@
                         <figure>
                             <fieldset class="thumbs_auction">
                             <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='0'
-                                src="./assets/img/thumbs/image-074.png" alt="">
+                                src="{{asset('assets/img/thumbs/image-074.png')}}" alt="">
                             <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='1'
-                                src="./assets/img/thumbs/image-075.png" alt="">
+                                src=".{{asset('assets/img/thumbs/image-075.png')}}" alt="">
                             <img class="rounded pl-1 thumbs_auction-img" data-target="#auction-control" data-slide-to='2'
-                                src="./assets/img/thumbs/image-076.png" alt="">
+                                src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
                             </fieldset>
                             <div class="display-1 d-flex justify-content-center text-center caret-play_auction-gallery">
                             <ul class="nav  ml-2 mt-4">

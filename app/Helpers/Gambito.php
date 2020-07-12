@@ -10,6 +10,7 @@ use App\Message;
 use App\Producto;
 use App\User;
 use App\Vehicle;
+use App\VehicleDetail;
 use Hashids\Hashids;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Collection;
@@ -53,6 +54,12 @@ class Gambito
         return Vehicle::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->first();
     }
 
+
+    public static function obtenerDetalleV($id = null)
+    {
+        return VehicleDetail::where('vehiculo_id', is_null($id)?self::obtenerVehiculo()->id:$id)->first();
+    }
+
     //METODOS DE CREATE/UPDATE
     protected static function hacerDescuento()
     {
@@ -77,7 +84,7 @@ class Gambito
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'ganador';
+            $estado = 'ganador'; //Cambiar a Ganador
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
         }elseif($producto->finalized_at <= now()){
@@ -157,7 +164,7 @@ class Gambito
         $producto->precio += $producto->puja;
         $producto->user_id = Auth::id();
         if($live){
-            $producto->finalized_at = now()->addSeconds(8);
+             $producto->finalized_at = now()->addSeconds(8);
         }
         $producto->update();
 

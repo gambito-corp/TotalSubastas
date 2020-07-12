@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
-    <div class="row main-container  mt-5 mb-5 ">
+    <div class="row margin-row main-container  mt-5 mb-5 ">
       <!-- nav -->
       <div class="col col-md-12 col-sm-12 mb-3  pl-0 pr-0">
         <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">

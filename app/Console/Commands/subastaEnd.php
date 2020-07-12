@@ -38,7 +38,7 @@ class subastaEnd extends Command
     public function handle()
     {
 
+        
 
-        dd($this->argument('hash'));
     }
 }

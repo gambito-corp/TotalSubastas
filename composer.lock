@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ec108192f8cf7e351143fa155c9da45",
+    "content-hash": "94a47a0bfc7417f70f2d25b085f9f382",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -5928,6 +5928,58 @@
                 }
             ],
             "time": "2020-06-15T23:49:30+00:00"
+        },
+        {
+            "name": "voyager-relation-selector",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tu6ge/voyager-relation-selector.git",
+                "reference": "master"
+            },
+            "require": {
+                "larapack/hooks": "^1.0.5"
+            },
+            "require-dev": {
+                "laravel/support": "^5.5 || ^6"
+            },
+            "type": "library",
+            "extra": {
+                "hook": {
+                    "providers": [
+                        "VoyagerRelationSelector\\VoyagerRelationSelectorServiceProvider"
+                    ],
+                    "migrations": [
+                        "database/migrations"
+                    ],
+                    "seeders": [
+                        "database/seeds/RegionTableSeeder.php"
+                    ],
+                    "unseeders": [
+                        "database/seeds/UnRegionTableSeeder.php"
+                    ],
+                    "assets": {
+                        "public": "public/vendor/voyager-relation-selector"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "VoyagerRelationSelector\\": "src/"
+                }
+            },
+            "notification-url": "https://larapack.io/downloads",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tu6ge",
+                    "email": "772364230@qq.com"
+                }
+            ],
+            "description": "voyager relation selector",
+            "time": "2020-02-24T00:29:32+00:00"
         }
     ],
     "packages-dev": [
@@ -7980,7 +8032,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "voyager-relation-selector": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

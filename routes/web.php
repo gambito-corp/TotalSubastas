@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/index', 'HomeController@index')->name('index');
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs');
+Route::view('/tyc', 'estaticas.terminos')->name('terminos');
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');
 //Route::get('/terms', 'HomeController@terms')->name('terms');
@@ -29,6 +30,7 @@ Route::view('/faqs', 'estaticas.FAQ')->name('faqs');
 Route::get('/auction', 'AuctionsController@index')->name('auction');
 Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
 Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
+Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
 
 ////testeo
 //Route::resource('file', 'store');

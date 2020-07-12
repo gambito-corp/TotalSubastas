@@ -1,12 +1,7 @@
 <div class="row" wire:poll.750ms="$refresh">
-    @php
-        if($producto->finalized_at<=now()){
-            Artisan::call('auction:end L9fpcBfzhyiBsOtL');
-        }
-    @endphp 
     <!-- main content -->
-    <div class="col-md col-md-12 mt-5">
-        <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4" style="border-radius: 10px;">
+    <div class="row mt-5 margin-row">
+        <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;">
             <div class="col-md-3 col-sm-12">
                 <img src="{{asset('assets/img/image-077.png')}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
             </div>
@@ -41,7 +36,7 @@
                         </div>
                         <div class="col-12 col-md-3 col-sm-12 col-xs-12">
                             <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text">
-                                {{$producto->comision}} %
+                                {{$producto->comision}}
                             </button>
                         </div>
                         <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light text-s_gd-sheet">
@@ -121,7 +116,7 @@
             <img src="" alt="" />
         </div>
     </div>
-    <div class="row mt-2 justify-content-between  mb-5">
+    <div class="row mt-2 justify-content-between margin-row mb-5">
         <div class=" col col-md-3 order-md-1 live-push_action-ranking">
             <article class="border-bottom">
                 <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
@@ -153,18 +148,18 @@
             </div>
         </div>
         
-        <div class="col-md-4 order-md-2 mt-2 mb-sm-4 p-4 text-light rounded bg-dark scroll" style="height: 299px;">
+        <div class="col-md-5 order-md-2 p-4 text-light rounded bg-dark scroll" style="height: 400px;">
             @foreach($mensajes as $value )
                     @if ($value->user_id == Auth::id())
-                        <div class="mt-2 alert alert-primary text-light rounded-pill ancho--220 float-right d-flex align-items-end animate__animated animate__backInLeft" width="55%">
-                            <p>
+                        <div class="mt-2 alert text-light rounded-pill ancho--220 float-right chat-box-user align-items-end animate__animated animate__backInLeft" width="55%">
+                            <p class="chat-box-txt">
                                 <strong>{{$value->Usuario->name}}</strong>  ofertó  <strong>$ {{$value->message}}</strong>
                             </p>
                         </div>
                         <br>
                     @else
-                        <div class="mt-2 alert alert-light text-dark rounded-pill ancho--220 float-left d-flex align-items-end animate__animated animate__backInRight" width="55%">
-                            <p>
+                        <div class="mt-2 alert alert-light text-dark rounded-pill ancho--220 float-left chat-box-else align-items-end animate__animated animate__backInRight" width="55%">
+                            <p class="chat-box-txt">
                                 <strong>{{$value->Usuario->name}}</strong>  oferto  <strong>$ {{$value->message}}</strong>
                             </p>
                         </div>
@@ -221,8 +216,40 @@
 @push('styles')
     <style>
         .scroll{
-            height: 375px;
-            overflow: auto;
+            height: 420px;
+            overflow: auto;  
+            -ms-overflow-style:none;
+            scrollbar-width:none;          
+        }
+         .scroll::-webkit-scrollbar{
+             display:none;
+         }
+        
+        .chat-box-txt{
+            margin-block-end:0px;
+        }
+    
+        .chat-box-user{
+            background-color: #227dc7;
+            width:auto;
+            margin: 0 0 0 40%;
+            box-sizing:content-box;
+            padding-top: 0.25rem;
+            padding-bottom: 0rem;
+        }
+
+        .chat-box-else{
+            margin:0 40% 0 0;
+            width:auto;
+            box-sizing:content-box;
+            padding-top: 0.25rem;
+            padding-bottom: 0rem;
+        }
+    
+        .margin-row{
+            margin-left:0%;
+            margin-right:0%;
         }
     </style>
 @endpush
+

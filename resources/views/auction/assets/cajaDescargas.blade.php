@@ -1,7 +1,10 @@
-<div class="col col-md-4 pl-0 pr-md-2 pr-sm-0 col-sm-12 col-xs-12 mt-4 ">
+<div class="col col-md-4 pl-0 pr-md-2 pr-sm-0 col-sm-12 col-xs-12 mt-4">
   <div class="card data_sheet-bottom_files">
-    <div class="card-body d_sheet-card  text-center">
-      <img src="./assets/img/File.svg" alt="">
+    <div class="card-body d_sheet-card  text-center" style= "background-image: url('{{asset('/assets/img/File.svg')}}');
+            background-repeat:no-repeat;
+            background-position-x: 180px;
+            background-position-y: 20px;">
+      <!--<img src="./assets/img/File.svg" alt="">-->
       <h5 class="card-title pl-4 pt-2 text-light  text-uppercase text-left title_data-sheet_bottom">ficha
         sunarp
       </h5>
@@ -24,10 +27,12 @@
     </div>
   </div>
 </div>
-<div class="col col-md-4 col-sm-12 pr-md-2 col-xs-12 mt-4 pl-0 pr-0 ">
+<div class="col col-md-4 col-sm-12 pr-md-2 col-xs-12 mt-4 pl-0 pr-0">
   <div class="card data_sheet-bottom_files">
-    <div class="card-body d_sheet-card  text-center">
-      <img src="./assets/img/File.svg" alt="">
+    <div class="card-body d_sheet-card  text-center" style="background-image: url('{{asset('/assets/img/File.svg')}}');
+            background-repeat:no-repeat;
+            background-position-x: 180px;
+            background-position-y: 20px;">
       <h5 class="card-title pl-4 pt-2 text-light  text-uppercase text-left title_data-sheet_bottom">ficha
         tecnica
       </h5>
@@ -52,8 +57,10 @@
 </div>
 <div class="col col-md-4 pl-sm-0 col-sm-12 col-xs-12 mt-4 pr-0">
   <div class="card data_sheet-bottom_files">
-    <div class="card-body d_sheet-card  text-center">
-      <img src="./assets/img/File.svg" alt="">
+    <div class="card-body d_sheet-card  text-center" style= "background-image: url('{{asset('/assets/img/File.svg')}}');
+            background-repeat:no-repeat;
+            background-position-x: 180px;
+            background-position-y: 20px;">
       <h5 class="card-title pl-4 text-light  text-uppercase text-left title_data-sheet_bottom">terminos y
         <br>
         condiciones

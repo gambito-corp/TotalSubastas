@@ -67,10 +67,12 @@ class Index extends Component
         $this->vehiculo = Gambito::obtenerVehiculo($this->identificador);
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
-
         $this->pujar = $this->producto->precio + $this->producto->puja;
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
+
+
+
     }
 
     public function hydrate()
@@ -79,8 +81,13 @@ class Index extends Component
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
         $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
-
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+
+        if($this->producto->finalized_at->toDateTimeString() <= now()->toDateTimeString())
+        {
+            $holi = 'holi';
+            $this->redirect(route('endAuc', ['id' => Gambito::hash($this->identificador)]));
+        }
     }
 
     public function pujar()
@@ -96,6 +103,7 @@ class Index extends Component
 
     public function render()
     {
+
         return view('livewire.subastas.live.index');
     }
 }

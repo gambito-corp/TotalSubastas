@@ -1,4 +1,4 @@
-<div class="row mb-5 mt-5 ">
+<div class="row margin-row mb-5 mt-5 ">
   <div class=" bg-light auction-content_tab w-100 ">
     <ul class="nav nav-tabs nav-auction_bottom border-bottom pb-2" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">

@@ -3,10 +3,10 @@
 <div class="container">
     @livewire('subastas.show.index')
 </div>
-<div class="container pr-md-0">
-    <div class="row">
+<div class="container">
+    <div class="row margin-row">
         @include('auction.assets.cajaAside')
-        <div class="col-md-9 order-md-1 pl-0">
+        <div class="col-md-9 order-md-1">
             <div class="row main-container ">
                 @include('auction.assets.cajaCaracteristica')
             </div><!-- row main container -->
@@ -23,3 +23,14 @@
 @include('auction.assets.cajaReferidos')
     
 @endsection
+
+@push('styles')
+    <style>
+        .margin-row{
+            margin-left:0%;
+            margin-right: 0%;
+        }
+            
+
+    </style>
+@endpush

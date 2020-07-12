@@ -20,7 +20,8 @@
         "laravel/ui": "^2.0",
         "livewire/livewire": "^1.2",
         "pusher/pusher-php-server": "^4.1",
-        "tcg/voyager": "^1.4"
+        "tcg/voyager": "^1.4",
+        "voyager-relation-selector": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

@@ -58,7 +58,7 @@
                             Ingresar
                         </a>
                         {{--//TODO: poner ruta --}}
-                        <a href="./registro.html" class="btn btn-primary rounded-pill "> <span></span><i class="fas fa-user mr-2"></i>
+                        <a href="{{route('register')}}" class="btn btn-primary rounded-pill "> <span></span><i class="fas fa-user mr-2"></i>
                             Registrate 
                         </a>
                     </div>
@@ -102,7 +102,7 @@
                         <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
                             Preguntas
                         </a>
-                        <a href="#" class="navbar-brand d-flex align-items-center">
+                    <a href="{{route('terminos')}}" class="navbar-brand d-flex align-items-center">
                             Condiciones
                         </a>
                         <a href="#" class="navbar-brand d-flex align-items-center">
@@ -124,13 +124,7 @@
                 </div>
             </div>
         </header>
-        @if (session()->has('message'))
-        <div class="container-fluid">
-            <div class="alert {{session('alerta')? session('alerta'): ''}}">
-                {{ session('message') }}
-            </div>
-        </div>
-        @endif
+        @include('assets.alertas')
         @yield('content')
                 <footer>
                     <div class="container">

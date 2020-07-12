@@ -127,6 +127,13 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/tijsverkoyen/css-to-inline-styles" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/database" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/fonts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/public" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/resources" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/routes" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/voyager-relation-selector/src" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
     </content>
     <orderEntry type="inheritedJdk" />
