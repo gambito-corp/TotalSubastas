@@ -2,10 +2,10 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron tyc">
+      <div class="jumbotron politic">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
-            Terminos y <br> Condiciones
+            Politicas y<br> Privacidad
           </h1>
           <p class="text-light ">Informate bien antes de participar de una subasta</p>
 
