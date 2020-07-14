@@ -11,6 +11,9 @@
     border-radius: 15px;
 }
 
+.radius{
+    border-radius: 10px;
+}
 
 .pl--2{
     /* margin-left: 15px !important; */

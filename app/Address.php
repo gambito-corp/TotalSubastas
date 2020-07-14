@@ -10,17 +10,17 @@ use VoyagerRelationSelector\Traits\RelationModel;
 class Address extends Model
 {
     use SoftDeletes;
-    use RelatioModel;
+    use RelationModel;
 
-    protected $parentKey = 'pid';
-    
+
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -29,7 +29,7 @@ class Address extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -43,9 +43,20 @@ class Address extends Model
         'deleted_at' => 'datetime',
     ];
 
-    //Scope
+   //Scope
     public function scopePais($query)
     {
-        return $query->where('pais_id', 1);
+
+        dd($query);
+//        $query = Department::where('pais_id', 1)->get();
+
+        return $query;
+    }
+
+    public function scopeDepartamento($query, $departamento_id)
+    {
+        ddd('holi', $query);
+        return $query->where('pais_id', $departamento_id);
+        // return 'hola mundo';   ç 
     }
 }

@@ -30,7 +30,7 @@
   --var-badge-sea_text: #55839e;
   --var-to_aution-on-ranking: #1dab5f;
   --var-carousel-item: #ffd980;
-  --var-font-family: "Graphik";
+  --var-font-family: "nunito";
   --var-progress-bar: var(--var-carousel-item);
   --var-rating-star: #ffa34d;
 }
@@ -940,7 +940,7 @@ article.sec-carousel {
   font-weight: 600;
 }
 .r-timer_live::before {
-  content: "\f111";
+  content: "\2B24";
   font-family: "Font Awesome\ 5 Free";
   color: var(--var-to_buy);
   margin-right: 9px;

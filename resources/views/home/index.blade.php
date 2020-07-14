@@ -11,8 +11,8 @@
 		'4' => 4
 		];
         @endphp        
-        <div class="col-md-6  pl-md-0  mb-sm-4 mb-xs-4 col-sm-12 order-md-1 ">
-            <div id="FirstSlide" class="carousel slide   first-slide" data-ride="carousel">
+        <div class="col-md-6  pl-md-0  mb-sm-4 mb-xs-4 col-sm-12 order-md-1 radius">
+            <div id="FirstSlide" class="carousel slide first-slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#FirstSlide" data-slide-to="0" class=" indicator "></li>
                     <li data-target="#FirstSlide" data-slide-to="1"></li>
@@ -44,7 +44,7 @@
                                 </button>
                             </figure>
                         </article>
-                        <img class="carousel-item-a_imagen rounded" src="./assets/img/image-205.png" height="555px" alt="...">
+                        <img class="carousel-item-a_imagen" src="./assets/img/image-205.png" height="555px" alt="...">
                     </div>
                 </div>
             </div>

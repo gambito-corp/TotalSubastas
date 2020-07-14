@@ -41,6 +41,7 @@
                         <option value="{{ $relationshipData->{$options->key} }}" @if(old($options->column, $dataTypeContent->{$options->column}) == $relationshipData->{$options->key}) selected="selected" @endif>{{ $relationshipData->{$options->label} }}</option>
                     @endforeach
                 </select>
+                {{-- @dump($query, $options, $options->column,  $dataTypeContent) --}}
 
             @endif
 

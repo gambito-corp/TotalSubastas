@@ -16,7 +16,7 @@ class Department extends Model
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class Department extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -39,10 +39,11 @@ class Department extends Model
         'deleted_at' => 'datetime',
     ];
 
-    public function scopePaisId($query)
+    public function scopePais($query, $pais_id)
     {
-        // dd($query);
-        return $query->where('pais_id', 1);
+        ddd('holi', $query);
+        return $query->where('pais_id', $pais_id);
+        // return 'hola mundo';   ç 
     }
-    
+
 }

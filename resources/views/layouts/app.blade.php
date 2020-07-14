@@ -4,22 +4,17 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
-        
-        {{-- llamar desde Mix --}}
-        {{-- <script src="https://unpkg.com/lodash@4.16.6"></script> --}}
-        {{-- llamar desde mix
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" /> --}}
-            {{-- llamar desde mix --}}
+
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{mix('css/app.css')}}" />
-        <link rel="stylesheet" href="{{mix('css/assets.css')}}" />        
+        <link rel="stylesheet" href="{{mix('css/assets.css')}}" />
         {{-- llamar desde mix --}}
         {{-- <script src="https://use.fontawesome.com/c01ac736c1.js"></script> --}}
-        
+
         {{-- Fin de los estilos de live share --}}
         @livewireStyles
         @stack('styles')
@@ -59,7 +54,7 @@
                         </a>
                         {{--//TODO: poner ruta --}}
                         <a href="{{route('register')}}" class="btn btn-primary rounded-pill "> <span></span><i class="fas fa-user mr-2"></i>
-                            Registrate 
+                            Registrate
                         </a>
                     </div>
                     @else
@@ -72,9 +67,9 @@
                                 <span class="caret"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a 
-                                class="dropdown-item" 
-                                href="{{ route('logout') }}" 
+                                <a
+                                class="dropdown-item"
+                                href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();"
                                 >
@@ -107,7 +102,7 @@
                         </a>
                         <a href="#" class="navbar-brand d-flex align-items-center">
                             Quienes somos
-                        </a>                
+                        </a>
                         <a href="#" class="navbar-brand d-flex align-items-center">
                             Vender
                         </a>
@@ -132,9 +127,9 @@
                             <div class="col-sm col-8 pt-5 col-md-8 align-self-center col-sm-12 col-xs-12 mb-2 mt-5 ml-sm-auto">
                                 <article>
                                     <div class="input-group col-md-8 offset-md-6">
-                                        <input 
-                                            type="text" 
-                                            class="form-control" 
+                                        <input
+                                            type="text"
+                                            class="form-control"
                                             placeholder="Ingresa tu correo para alerta de oportunidades!"
                                             aria-label="Ingresa tu correo para alerta de oportunidades!" aria-describedby="basic-addon2" /
                                         >
@@ -154,7 +149,7 @@
                                                 <a href="">
                                                     <i class="fab fa-facebook"></i>
                                                 </a>
-                                            </li>   
+                                            </li>
                                             <li class="nav-item">
                                                 <a href="">
                                                     <i class="fab fa-twitter"></i>
@@ -169,7 +164,7 @@
                                     </article>
                                 </article>
                             </div>
-                        </div>            
+                        </div>
                         <div class="navbar nav-footer shadow-sm pt-5 pb-5">
                             <div class="container d-flex justify-content-between">
                                 <a href="#" class="navbar-brand d-flex align-items-center">

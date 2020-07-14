@@ -53,11 +53,16 @@
                     </div>
                     <div class="row">
                         <div class="row pt-3 row-cols pl-3">
-                            <figure>
-                                <img src="{{asset('assets\img\empresas\bancoFalabella.jpg')}}" class="rounded-circle my-auto d-inline-flex img-fluid" width="50" alt="">
-                                <span class="my-auto px-2">concedido por <strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
+                            <!--<figure>-->
+                                <div class="col-md-3">
+                                    <img src="{{asset('assets\img\empresas\bancoFalabella.jpg')}}" class="rounded-circle my-auto d-inline-flex img-fluid" width="50" alt="">
+                                    
+                                </div>
+                                <div class="col-md-9">
+                                    <span class="my-auto align text-center">concedido por: <br><strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
+                                </div>    
                                 <h5 class="my-auto px-2">{{$vehiculo->year}}</h5>
-                            </figure>
+                            
                         </div>
                     </div>
                 </div>
@@ -148,7 +153,7 @@
             </div>
         </div>
 
-        <div class="col-md-5 order-md-2 p-4 text-light rounded bg-dark scroll" style="height: 400px;">
+        <div class="col-md-5 order-md-2 p-4 text-light bg-dark scroll" id="scroll" style="height: 400px; border-radius: 10px;">
             @isset($mensajes)
                 @foreach($mensajes as $value )
                     @if ($value->user_id == Auth::id())
@@ -176,7 +181,7 @@
                 <h5 class="text-uppercase ranking_live">ranking</h5>
             </article>
             <div class="row p-4">
-                <div class="col-12 pt-2 d-flex pb-2  border-bottom">
+                <div class="col-12 pt-2 d-flex pb-2 pl-0 border-bottom">
                     <div class="col-md-4 text-darken text-to_title-auction_ranking">
                         Puesto
                     </div>
@@ -196,7 +201,7 @@
                             Usuario
                         </div>
                         <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                            $ 12800
+                            $12800
                         </div>
                     </div>
                     <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
@@ -207,7 +212,7 @@
                             Usuario
                         </div>
                         <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                            $ 12800
+                            $12800
                         </div>
                     </div>
                 </div>
@@ -215,6 +220,12 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        var scroll = document.getElementById("scroll");
+        scroll.scrollTop = scroll.scrollHeight;
+    </script>
+@endpush    
 @push('styles')
     <style>
         .scroll{
@@ -251,6 +262,11 @@
         .margin-row{
             margin-left:0%;
             margin-right:0%;
+        }
+
+        .align{
+            text-align: center;
+            margin:auto;
         }
     </style>
 @endpush

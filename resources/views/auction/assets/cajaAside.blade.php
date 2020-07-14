@@ -62,7 +62,7 @@
         <!-- Card body -->
         <div id="collapse2" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
           data-parent="#accordionEx">
-          <div class="row">
+          <div class="row mr-0 ml-0">
             
             <!--<div class="col-12 pt-2 pb-2 d-flex  ">-->
               <div class="col-md-4 text-to_title-auction_live ">
@@ -85,7 +85,7 @@
                 25.05.20
               </div>
               <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $ 12800
+                $12800
               </div>
               <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
                 Usuario
@@ -94,7 +94,7 @@
                 25.05.20
               </div>
               <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $ 12800
+                $12800
               </div>
               <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
                 Usuario
@@ -103,7 +103,7 @@
                 25.05.20
               </div>
               <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $ 12800
+                $12800
               </div>
               <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
                 Usuario
@@ -112,7 +112,7 @@
                 25.05.20
               </div>
               <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $ 12800
+                $12800
               </div>
             </div>
           </div>

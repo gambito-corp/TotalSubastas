@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/index', 'HomeController@index')->name('index');
-Route::view('/faqs', 'estaticas.FAQ')->name('faqs');
-Route::view('/tyc', 'estaticas.terminos')->name('terminos');
+Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
+Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
+Router::view('polices', 'estaticas.politicas')->name('politicas');
+
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');
 //Route::get('/terms', 'HomeController@terms')->name('terms');
@@ -42,9 +44,20 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-//rutas vista
-Route::view('nombre', 'andree.vista1');
+/*
+CONSTRUYE UNA URL PARA VER EL PARAMETRO
+*/
+Route::get('test/consulta/{id}', 'HomeController@testAjax');
+/*
+FIN DE LA CONSTRUCCION
+ */
 
+
+
+/* RUTA DE TEST */
 Route::view('indextest', 'test.index');
 Route::view('showtest', 'test.show');
 Route::view('livetest', 'test.live');
+Route::view('testAjax', 'include._test');
+
+

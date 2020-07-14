@@ -41,5 +41,13 @@ class Province extends Model
     ];
 
 
+    public function scopeDepartamento($query, $departamento_id)
+    {
+        ddd('holi', $query);
+        return $query->where('pais_id', $departamento_id);
+        // return 'hola mundo';   ç 
+    }
+
+
 
 }

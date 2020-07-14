@@ -48,7 +48,12 @@
 
         <div class="col" >
             @include('livewire.subastas.includes.button')
-        </div>
+        </div>        
     </div>
+    <div class="row" style="margin-left: 30px;">
+        <input type="checkbox" class="form-check-input" id="">
+        <label class="form-check-label" for="">Acepto terminos y condiciones</label>
+    </div>
+    
 </div>
 
