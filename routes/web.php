@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/index', 'HomeController@index')->name('index');
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
 Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
-Router::view('polices', 'estaticas.politicas')->name('politicas');
+Route::view('polices', 'estaticas.politicas')->name('politicas');
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');

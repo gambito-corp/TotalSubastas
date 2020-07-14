@@ -131,8 +131,9 @@ class Gambito
 
     public static function generarRanking($id = false)
     {
-        $resultado = Message::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->with('Usuario')
-            ->orderBy('user_id')
+        $resultado = Message::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)
+            ->with('Usuario')
+            ->orderBy('message')
             ->get()
             ->groupBy('user_id')
             ->toArray();

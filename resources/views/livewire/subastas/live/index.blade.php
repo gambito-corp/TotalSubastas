@@ -54,15 +54,13 @@
                     <div class="row">
                         <div class="row pt-3 row-cols pl-3">
                             <!--<figure>-->
-                                <div class="col-md-3">
-                                    <img src="{{asset('assets\img\empresas\bancoFalabella.jpg')}}" class="rounded-circle my-auto d-inline-flex img-fluid" width="50" alt="">
-                                    
-                                </div>
-                                <div class="col-md-9">
-                                    <span class="my-auto align text-center">concedido por: <br><strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
-                                </div>    
+                            <div class="col-md-3">
+                                <img src="{{asset('assets\img\empresas\bancoFalabella.jpg')}}" class="rounded-circle my-auto d-inline-flex img-fluid" width="50" alt="">
+                            </div>
+                            <div class="col-md-9">
+                                <span class="my-auto align text-center">concedido por: <br><strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
                                 <h5 class="my-auto px-2">{{$vehiculo->year}}</h5>
-                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -136,7 +134,7 @@
                     <div class="text-center">
                         <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                         <span class="d-block text-center">
-                            <p class="text-dark text text-_to-auction_bottom">24</p>
+                            <p class="text-dark text text-_to-auction_bottom">{{count($mensajes)}}</p>
                             Ofertas
                         </span>
                     </div>
@@ -145,8 +143,8 @@
                     <div class="text-center">
                         <i class="fas fa-user"> </i>
                         <span class="d-block">
-                            <p class="text-dark text text-_to-auction_bottom">30</p>
-                            Participa<br>ntes
+                            <p class="text-dark text-center text text-_to-auction_bottom">{{$activos}}</p>
+                            Participantes
                         </span>
                     </div>
                 </div>
@@ -193,28 +191,33 @@
                     </div>
                 </div>
                 <div class="row" style="height:200px; overflow: auto;">
-                    <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                        <div class="col-md-4 text-darken font-weight-normal">
-                            1
+                    @forelse($resultados as $resultado)
+{{--                        @dump($resultado)--}}
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                {{$contador++}}
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                {{end($resultado)['usuario']['name']}}
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                {{end($resultado)['message']}}
+                            </div>
                         </div>
-                        <div class="col-md-4 text-darken font-weight-normal">
-                            Usuario
+                    @empty
+                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Sin Rank
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal">
+                                Sin Rank
+                            </div>
+                            <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                Sin Rank
+                            </div>
                         </div>
-                        <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                            $12800
-                        </div>
-                    </div>
-                    <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                        <div class="col-md-4 text-darken font-weight-normal">
-                            1
-                        </div>
-                        <div class="col-md-4 text-darken font-weight-normal">
-                            Usuario
-                        </div>
-                        <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                            $12800
-                        </div>
-                    </div>
+                    @endforelse
+
                 </div>
             </div>
         </div>
@@ -225,7 +228,7 @@
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;
     </script>
-@endpush    
+@endpush
 @push('styles')
     <style>
         .scroll{

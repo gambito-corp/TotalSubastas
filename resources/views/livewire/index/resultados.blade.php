@@ -3,11 +3,11 @@
     <div class="row">
         @foreach($empresa->Lote as $lote)
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
-            <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>            
+            <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link title-to_results" href="#">hay {{count($empresas)}} Resultados 
+                        <a class="nav-link title-to_results" href="#">hay {{count($empresas)}} Resultados
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -33,9 +33,9 @@
                 </form>
             </div>
         </nav>
-        {{-- @endforeach --}}
+         @endforeach
     </div>
-    <div class="row main-container">        
+    <div class="row main-container">
         <div class="col-md col-md-12 mb-3 pl-0 pr-0">
             <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
                 <a class="navbar-brand text-darken" href="#">{{$lote->Empresa->razon_social}}</a>
@@ -58,7 +58,7 @@
                                 <i class="fas fa-caret-right"></i>
                             </label>
                         </div>
-                    </article>        
+                    </article>
                 </div>
             </nav>
         </div>
@@ -94,6 +94,6 @@
         </div>
         @endforeach
     </div>
-    @endforeach
+{{--    @endforeach--}}
     @endforeach
 </div>
