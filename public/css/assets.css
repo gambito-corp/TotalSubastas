@@ -150,14 +150,14 @@ footer {
   font-weight: 400;
 }
 .jumbotron-bottom_container {
-    width: 100%;
-    height: auto;
-    /* padding: 130px; */
-    background-image: url(../img/online1.png) !important;
-    background-size: cover;
-    background-position: center;
-    /*filter: opacity(74%); */
-  }
+  width: 100%;
+  height: auto;
+  /* padding: 130px; */
+  background-image: url(../img/image-216.png) !important;
+  background-size: cover;
+  background-position: center;
+  /*filter: opacity(74%); */
+}
 .auction-jumbotron {
   height: 114px;
   background-color: #f5f5f5;
@@ -219,14 +219,29 @@ footer {
   padding: 8px;
 }
 .jumbotron-top_container {
-    background-image: url(../img/faqs.png) !important;
-    /* background-color: var(--var-darken); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 349px;
-    width: 100%;
-  }
+  background-image: url(../img/faqs.png) !important;
+  /*background-color: var(--var-darken);*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 349px;
+  width: 100%;
+}
+.tyc {
+  background-image: url(../img/ter_condic.png) !important;
+  /*background-color: var(--var-darken);*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 349px;
+  width: 100%;
+}
+.politic {
+  background-image: url(../img/politi_priva.png) !important;
+  /*background-color: var(--var-darken);*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 349px;
+  width: 100%;
+}
 .jumbotron-top_container h1 {
   font-size: 55px;
   font-family: var(--var-font);
@@ -1432,7 +1447,7 @@ article.sec-carousel {
   background-position-x: 90%;
   border-radius: 10px;
 }
-:root {
+:root { 
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;
