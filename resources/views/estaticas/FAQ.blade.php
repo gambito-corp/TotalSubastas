@@ -2,12 +2,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron  jumbotron-top_container ">
+      <div class="jumbotron jumbotron-top_container">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
             Preguntas <br> frecuentes
           </h1>
-          <p class="text-light">conoce las bases para realizar una subasta correcta!</p>
+          <p class="text-light text-capitalize">conoce las bases para realizar una subasta correcta!</p>
 
         </div>
       </div>
@@ -22,19 +22,19 @@
             <div class="card-body myList">
               <p class=" font-weight-bold text-left">T&oacute;picos</p>
               <ul class="nav">
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">Preguntas basicas</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">Preguntas basicas</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">Recarga de saldos</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">Recarga de saldos</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">Calidad de miembro</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">Calidad de miembro</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">Comision</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">Comision</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">Subasta del martillo virtual</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">Subasta del martillo virtual</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">Historial de participacion</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">Historial de participacion</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">Penalidades</a>
+                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">Penalidades</a>
                 </li>
               </ul>
             </div>
