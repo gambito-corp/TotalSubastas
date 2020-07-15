@@ -21,7 +21,7 @@ Route::view('/participacion', 'estaticas.participar')->name('participar');
 Route::view('/reclamos', 'estaticas.reclamos')->name('reclamos');
 Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
-
+Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');

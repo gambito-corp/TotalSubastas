@@ -4,7 +4,7 @@
     <div class="container"> 
         <div class="col text-center">
             <span class="badge badge-success service-badge mt-4">Servicios</span>
-            <h1 class="mt-3"><strong>ASESOR&Iacute;A LEGAL</strong></h1>
+            <h1 class="mt-3"><strong>CR&Eacute;DITO VEHICULAR</strong></h1>
             <p>contamos con un equipo de abogados para asesorarlo en todas las dificultades que tenga en el camino</p>
         </div>  
         <div class="col mt-5">
@@ -12,21 +12,21 @@
                 <div class="col-md-3 card card-style">
                     <div class="card-body">
                         <img class="mb-4 radius" src="https://picsum.photos/100" alt="">
-                        <h3 class="card-title"><strong>Vehicular</strong></h3>
+                        <h3 class="card-title"><strong>Cr&eacute;dito vehicular</strong></h3>
                         <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
                     </div>
                 </div>
                 <div class="col-md-3 card card-style">
                     <div class="card-body">
                         <img class="mb-4 radius" src="https://picsum.photos/100" alt="">
-                        <h3 class="card-title"><strong>Vehicular</strong></h3>
+                        <h3 class="card-title"><strong>Cr&eacute;dito Hipotecario</strong></h3>
                         <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
                     </div>
                 </div>
                 <div class="col-md-3 card card-style">
                     <div class="card-body">
                         <img class="mb-4 radius" src="https://picsum.photos/100" alt="">
-                        <h3 class="card-title"><strong>Vehicular</strong></h3>
+                        <h3 class="card-title"><strong>Cr&eacute;dito Personal</strong></h3>
                         <p class="card-text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</p>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         <input class="input" type="text" name="nombre" id="nombre">
                     </div>
                     <div class="col-6">
-                        <label for="venta">Tipo de venta:</label>
+                        <label for="venta">Tipo de cr&eacute;dito:</label>
                         <br>
                         <select class="input" name="venta" id="venta">
                             <option value="value1">Persona particular</option> 
@@ -75,15 +75,20 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-6">
-                        <label for="correo">Correo:</label>
-                        <br>
-                        <input class="input" type="email" name="correo" id="correo">
-                    </div>
-                    <div class="col-6">
                         <label for="celular">Celular:</label>
                         <br>
                         <input class="input" type="number" name="celular" id="celular">
-                    </div>                     
+                    </div>
+                    <div class="col-3">
+                        <label for="celular">Monto:</label>
+                        <br>
+                        <input class="input" type="number" name="celular" id="celular">
+                    </div>
+                    <div class="col-3">
+                        <label for="celular">Cuotas:</label>
+                        <br>
+                        <input class="input" type="number" name="celular" id="celular">
+                    </div>                         
                 </div>
                 <div class="row mb-2">
                     <div class="col-12">

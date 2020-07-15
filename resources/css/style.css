@@ -1462,3 +1462,8 @@ article.sec-carousel {
 .service-badge {
   font-size: 100%;
 }
+.card-style {
+  border-radius:10px;
+  padding: 2rem 1rem 2rem 1rem;
+  border: 1px solid var(--var-dark);
+}
