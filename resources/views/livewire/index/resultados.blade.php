@@ -1,7 +1,5 @@
 <div class="col-md-9 mt-3">
-
     <div class="row">
-
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
             <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -12,7 +10,7 @@
                         </a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                {{-- <form class="form-inline my-2 my-lg-0">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle text-fh_nav" type="button" id="dropdownMenu2"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,72 +28,76 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form> --}}
             </div>
         </nav>
         {{-- @endforeach --}}
     </div>
     @foreach($empresas as $empresa)
-        @foreach($empresa->Lote as $lote)
-    <div class="row main-container mb-5">
-        <div class="col-md col-md-12 mb-3 pl-0 pr-0">
-            <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
-                <a class="navbar-brand text-darken" href="#">{{$lote->Empresa->razon_social}}</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <p>{{$lote->nombre}}</p>
-                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-                    <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
-                        <i class="fas fa-clock nav-content_text"></i>
-                        <span class="ml-3">{{$lote->subasta_at->diffForHumans()}}</span>
-                    </h2>
-                    <article class="ml-3">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                            <label class="btn btn-light active">
-                                <i class="fas fa-caret-left"></i>
-                            </label>
-                            <label class="btn btn-light">
-                                <i class="fas fa-caret-right"></i>
-                            </label>
+        <div class="row main-container mb-5">
+            <div class="col-md col-md-12 mb-3 pl-0 pr-0">
+                <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
+                    <a class="navbar-brand text-darken" href="#">Nombre Empresa</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </nav>
+                @foreach($empresa->Lote as $lote)
+                    <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
+                        <a class="navbar-brand text-darken" href="#">nombre del lote</a>
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+                            <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
+                                <i class="fas fa-clock nav-content_text"></i>
+                                <span class="ml-3">{{$lote->subasta_at->diffForHumans()}}</span>
+                            </h2>
+                            <article class="ml-3">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-light active">
+                                        <i class="fas fa-caret-left"></i>
+                                    </label>
+                                    <label class="btn btn-light">
+                                        <i class="fas fa-caret-right"></i>
+                                    </label>
+                                </div>
+                            </article>
                         </div>
-                    </article>
-                </div>
-            </nav>
-        </div>
-        @foreach($productos as $key => $producto)
-        <div class="col-md-4 col-sm-6 border-right col-xs-12 blogBox  moreBox">
-            <div class="card mb-4 pub-item_cont">
-                <article class="pub-item_head">
-                    <span> <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
-                        <p class="mb-2 text-light">90</p>
-                    </span>
-                    <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-{{--                    <img src="{{asset($producto->Vehiculo->Imagenes)}}" alt="">--}}
-                </article>
-                <div class="card-body justify-content-center">
-                    <p class="card-text text-center text-to_auction">
-                        <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
-                    <p class="card-text text-center title-to_annoucement">
-                        <strong></strong>
-                    </p>
-                    <div class="align-items-center btn_auction ">
-                        <div class="btn-group d-flex justify-content-center">
-                            <a href="{{ route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($producto->id)])}}">
-                                <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
-                                    <strong><span class="mr-2">$</span>3500 </strong><i class="fa fa-long-arrow-right  ml-2"
-                                        aria-hidden="true"></i>
-                                </button>
-                            </a>
+                    </nav>
+                    @foreach($productos as $key => $producto)
+                        <div class="col-md-4 col-sm-6 border-right col-xs-12 blogBox  moreBox">
+                            <div class="card mb-4 pub-item_cont">
+                                <article class="pub-item_head">
+                        <span> <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
+                            <p class="mb-2 text-light">90</p>
+                        </span>
+                                    <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
+                                    @isset($producto->Imagenes->first()->imagen)
+                                        <img src="{{asset($producto->Imagenes->first()->imagen)}}" alt="">
+                                    @endisset
+                                </article>
+                                <div class="card-body justify-content-center">
+                                    <p class="card-text text-center text-to_auction">
+                                        <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
+                                    <p class="card-text text-center title-to_annoucement">
+                                        <strong></strong>
+                                    </p>
+                                    <div class="align-items-center btn_auction ">
+                                        <div class="btn-group d-flex justify-content-center">
+                                            <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($producto->id)])!!}">
+                                                <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+                                                    <strong><span class="mr-2">$</span>3500 </strong><i class="fa fa-long-arrow-right  ml-2"
+                                                                                                        aria-hidden="true"></i>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endforeach
             </div>
         </div>
-        @endforeach
-    </div>
     @endforeach
     @endforeach
 </div>

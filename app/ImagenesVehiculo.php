@@ -44,4 +44,9 @@ class ImagenesVehiculo extends Model
         return $this->belongsTo('App\Vehicle', 'vehiculo_id');
     }
 
+    public function Producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
+
 }

@@ -429,7 +429,7 @@ INSERT INTO dbtotalsubastas.messages (id, producto_id, user_id, message, created
 -- modelos
 INSERT INTO dbtotalsubastas.models (id, marca_id, nombre, slug, created_at, updated_at, deleted_at) VALUES (1, 1, 'Yaris', null, '2020-06-23 06:36:12', '2020-06-23 06:36:12', null);
 -- persona natural
-INSERT INTO dbtotalsubastas.people (id, user_id, documento_id, direccion_id, banco_id, nombres, apellidos, numero_documento, digito_documento, genero, estado_civil, cuenta_banco, b_day, telefono, email, dni_front, dni_back, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 1, 1, 'Sidi Farid', 'Raoui Aguirre', '1234567', '8', 'Hombre', 'casado', '133-5544-5566-6589', '1988-10-12', '960717583', 'asesor.pedro@gmail.com', 'persona-natural\\June2020\\BE0RisRffDdDxrq6YvTA.jpg', 'persona-natural\\June2020\\L01xNFjr5dnlOeXbCcPN.jpg', '2020-06-23 06:40:41', '2020-06-23 06:40:41', null);
+    INSERT INTO dbtotalsubastas.people (id, user_id, documento_id, direccion_id, banco_id, nombres, apellidos, numero_documento, digito_documento, genero, estado_civil, cuenta_banco, b_day, telefono, email, dni_front, dni_back, created_at, updated_at, deleted_at) VALUES (1, 1, 1, 1, 1, 'Sidi Farid', 'Raoui Aguirre', '1234567', '8', 'Hombre', 'casado', '133-5544-5566-6589', '1988-10-12', '960717583', 'asesor.pedro@gmail.com', 'persona-natural\\June2020\\BE0RisRffDdDxrq6YvTA.jpg', 'persona-natural\\June2020\\L01xNFjr5dnlOeXbCcPN.jpg', '2020-06-23 06:40:41', '2020-06-23 06:40:41', null);
 -- permisos_rol
 INSERT INTO dbtotalsubastas.permission_role (permission_id, role_id) VALUES (1, 1);
 INSERT INTO dbtotalsubastas.permission_role (permission_id, role_id) VALUES (2, 1);

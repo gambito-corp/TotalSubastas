@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\ModelVehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -29,15 +30,19 @@ class ModeloController extends Controller
     public function create()
     {
         $modelo = new ModelVehicle();
-        return view('admin.modelo.form', compact('modelo'));
+        $modelo2 = ModelVehicle::where('id', 1)->first();
+        $marcas = Brand::all();
+        return view('admin.modelo.form', compact('modelo', 'marcas', 'modelo2'));
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required|unique:modelo',
+            'marca_id' => 'required',
+            'nombre' => 'required|unique:models',
         ]);
         ModelVehicle::create([
+            'marca_id' => $request->input('marca_id'),
             'nombre' => $request->input('nombre'),
             'slug' => Str::of($request->input('nombre'))->slug('-')->lower()
         ]);
@@ -54,14 +59,17 @@ class ModeloController extends Controller
 
     public function edit(ModelVehicle $modelo)
     {
-        return view('admin.modelo.form', compact('modelo'));
+//        dd(is_null($modelo->id));
+        $marcas = Brand::all();
+        return view('admin.modelo.form', compact('modelo', 'marcas'));
     }
 
     public function update(ModelVehicle $modelo, Request $request)
     {
         $request->validate([
-            'nombre' => 'unique:modelvehicles,nombre,'.$modelo->nombre,
+            'nombre' => 'unique:models,nombre,'.$modelo->nombre,
         ]);
+        $modelo->marca_id = $request->input('marca_id');
         $modelo->nombre = $request->input('nombre');
         $modelo->update();
 

@@ -2,6 +2,7 @@
 
 use App\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -13,8 +14,7 @@ class UserSeeder extends Seeder
             'email'             => 'asesor.pedro@gmail.com',
             'avatar'            => 'users/default.png',
             'email_verified_at' => now(),
-            'password'          => bcript('C4tntnox*+'),
-            'settings'          => '{"locale":"es"}',
+            'password'          => Hash::make('C4tntnox*+')
         ]);
         User::create([
             'role_id'           => '1',
@@ -22,8 +22,7 @@ class UserSeeder extends Seeder
             'email'             => 'test1@test.com',
             'avatar'            => 'users/default.png',
             'email_verified_at' => now(),
-            'password'          => bcript('Admin'),
-            'settings'          => '{"locale":"es"}',
+            'password'          => Hash::make('Admin')
         ]);
         User::create([
             'role_id'           => '1',
@@ -31,8 +30,7 @@ class UserSeeder extends Seeder
             'email'             => 'admin@gonzalo.com',
             'avatar'            => 'users/default.png',
             'email_verified_at' => now(),
-            'password'          => '$2y$10$kxtT5iAxHNGLisAnFI6dbuHtJFZxqddivOnVlJvH7ndal/gp15x3y',
-            'settings'          => '{"locale":"es"}',
+            'password'          => '$2y$10$kxtT5iAxHNGLisAnFI6dbuHtJFZxqddivOnVlJvH7ndal/gp15x3y'
         ]);
         factory(User::class)->times(100)->create();
 

@@ -39,7 +39,7 @@ class Resultados extends Component
         $this->picked = true;
         $this->empresas = $empresas;
         $this->lotes = Lot::with('Producto')->get();
-        $this->productos = Producto::with('Vehiculo')->get();
+        $this->productos = Producto::with('Vehiculo')->with('Imagenes')->get();
         $this->vehiculos = Vehicle::with('Imagenes')->with('Detalle')->get();
 //        dd($this->productos);
 
