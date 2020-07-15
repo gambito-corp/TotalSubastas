@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron tyc">
+      <div class="jumbotron jumbotron-top_container tyc">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
             Terminos y <br> Condiciones
