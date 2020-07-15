@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron politic">
+      <div class="jumbotron jumbotron-top_container politic">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
             Politicas y<br> Privacidad
@@ -22,19 +22,19 @@
             <div class="card-body myList">
               <p class=" font-weight-bold text-left">T&oacute;picos</p>
               <ul class="nav">
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">I.Introduccion</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">I.Introduccion</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">II.Definiciones generales</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link link-style" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">II.Definiciones generales</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">III.Declaraciones de las partes</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">III.Declaraciones de las partes</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">IV.Declaraciones de total</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">IV.Declaraciones de total</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">V.Politica de puntaje</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">V.Politica de puntaje</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">VI.Bases de servicio</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link link-style" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">VI.Bases de servicio</a>
                 </li>
-                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">VII.Obligaciones de los participantes</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link link-style" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">VII.Obligaciones de los participantes</a>
                 </li>
               </ul>
             </div>

@@ -35,16 +35,16 @@ class HomeController extends Controller
     }
     public function home()
     {
-        return view('home.home');
+        return view('admin.home');
     }
 
     public function testAjax(Request $request)
-    {   
+    {
 
         $id = $request->id;
 
         return User::where('id','like', '%' .$id . '%')->get()->dd();
-        
+
     }
 
 

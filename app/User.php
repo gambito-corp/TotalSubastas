@@ -57,6 +57,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     ];
 
 
+
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);

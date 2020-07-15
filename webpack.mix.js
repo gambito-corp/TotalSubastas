@@ -19,4 +19,5 @@ mix.js('resources/js/app.js', 'public/js')
         'resources/css/grid.css',
         'resources/css/dropzone.css',
     ], 'public/css/assets.css')
-    .browserSync('http://localhost:8000');
+    .browserSync('http://localhost:8000')
+    ;

@@ -172,6 +172,13 @@ footer {
   border-right: 0;
   border-radius: 0;
 }
+.link-style {
+  text-decoration: none; 
+  color: var(--var-darken); 
+}
+.link-style:hover {
+  color: var(--var-primary);
+}
 /* Chevron on Small size */
 .auction-chevron_right {
   position: absolute;
@@ -210,11 +217,20 @@ footer {
   padding: 8px;
 }
 .jumbotron-top_container {
-  background-color: var(--var-darken);
+  /*background-color: var(--var-darken);*/
   background-size: cover;
   background-repeat: no-repeat;
   height: 349px;
   width: 100%;
+}
+.faq{
+  background-image: url(../img/faqs.png);
+}
+.politic{
+  background-image: url(../img/politi_priva.png);
+}
+.tyc{
+  background-image: url(../img/ter_condic.png);
 }
 .jumbotron-top_container h1 {
   font-size: 55px;

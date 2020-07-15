@@ -1,7 +1,7 @@
 <div class="col-md-9 mt-3">
-    @foreach($empresas as $empresa)
+
     <div class="row">
-        @foreach($empresa->Lote as $lote)
+
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
             <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -33,9 +33,11 @@
                 </form>
             </div>
         </nav>
-         @endforeach
+        {{-- @endforeach --}}
     </div>
-    <div class="row main-container">
+    @foreach($empresas as $empresa)
+        @foreach($empresa->Lote as $lote)
+    <div class="row main-container mb-5">
         <div class="col-md col-md-12 mb-3 pl-0 pr-0">
             <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
                 <a class="navbar-brand text-darken" href="#">{{$lote->Empresa->razon_social}}</a>
@@ -44,6 +46,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <p>{{$lote->nombre}}</p>
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                     <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
                         <i class="fas fa-clock nav-content_text"></i>
@@ -62,7 +65,7 @@
                 </div>
             </nav>
         </div>
-        @foreach($lote->Producto as $key => $producto)
+        @foreach($productos as $key => $producto)
         <div class="col-md-4 col-sm-6 border-right col-xs-12 blogBox  moreBox">
             <div class="card mb-4 pub-item_cont">
                 <article class="pub-item_head">
@@ -70,14 +73,13 @@
                         <p class="mb-2 text-light">90</p>
                     </span>
                     <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                    <img src="./assets/img/auctions/image-165.png" alt="">
+{{--                    <img src="{{asset($producto->Vehiculo->Imagenes)}}" alt="">--}}
                 </article>
                 <div class="card-body justify-content-center">
                     <p class="card-text text-center text-to_auction">
                         <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
-                    </p>
                     <p class="card-text text-center title-to_annoucement">
-                        <strong>CHEVROLET A91/2018</strong>
+                        <strong></strong>
                     </p>
                     <div class="align-items-center btn_auction ">
                         <div class="btn-group d-flex justify-content-center">
@@ -94,6 +96,6 @@
         </div>
         @endforeach
     </div>
-{{--    @endforeach--}}
+    @endforeach
     @endforeach
 </div>

@@ -2,12 +2,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-      <div class="jumbotron jumbotron-top_container">
+      <div class="jumbotron jumbotron-top_container tyc">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
-            Preguntas <br> frecuentes
+           Terminos y <br> Condiciones
           </h1>
-          <p class="text-light text-capitalize">conoce las bases para realizar una subasta correcta!</p>
+          <p class="text-light ">Informate bien antes de participar de una subasta</p>
 
         </div>
       </div>
@@ -17,24 +17,24 @@
     <div class="row" id="app">
       <!-- main content -->
       <div class="col-md-3 order-md-1 mb-4  ">
-        <div class="text-center ">
+        <div class="">
           <div class="bg-light-card topics shadow-sm ">
             <div class="card-body myList">
               <p class=" font-weight-bold text-left">T&oacute;picos</p>
               <ul class="nav">
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">Preguntas basicas</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">I.Introduccion</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">Recarga de saldos</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link link-style" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">II.Definiciones generales</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">Calidad de miembro</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">III.Declaraciones de las partes</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">Comision</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-comision" data-toggle="list" href="#comision" role="tab" aria-controls="home">IV.Declaraciones de total</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">Subasta del martillo virtual</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link link-style" id="list-subasta" data-toggle="list" href="#subasta" role="tab" aria-controls="home">V.Politica de puntaje</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">Historial de participacion</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link link-style" id="list-historial" data-toggle="list" href="#historial" role="tab" aria-controls="home">VI.Bases de servicio</a>
                 </li>
-                <li class="nav-link text-darken-flat text-nav_faqs"> <i class="fas fa-file mr-2"> </i><a class="list-link" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">Penalidades</a>
+                <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i><a class="list-link link-style" id="list-penalidades" data-toggle="list" href="#penalidades" role="tab" aria-controls="home">VII.Obligaciones de los participantes</a>
                 </li>
               </ul>
             </div>
@@ -63,7 +63,7 @@
       <div class="col-md col-md-9 order-md-2 mt-5">    
         <div class="tab-content">
           <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="basicas-tab" id="basicas">
-            <h1 class="font-weight-bold text-capitalize text-dark">preguntas b&aacute;sicas</h1>
+            <h1 class="font-weight-bold text-capitalize text-dark">I.Introduccion</h1>
             <div class="col-md col-sm-9">
               <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
               <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod

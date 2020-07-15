@@ -2,7 +2,10 @@
 
 namespace App\Http\Livewire\Index;
 
+use App\Lot;
 use App\Company;
+use App\Vehicle;
+use App\Producto;
 use Livewire\Component;
 
 class Resultados extends Component
@@ -15,6 +18,18 @@ class Resultados extends Component
     public $picked;
 
     protected $listeners = ['buscarEmpresas', 'selecionEmpresa'];
+    /**
+     * @var Lot[]|\Illuminate\Database\Eloquent\Collection|mixed
+     */
+    public $lotes;
+    /**
+     * @var \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|mixed
+     */
+    public $productos;
+    /**
+     * @var mixed
+     */
+    public $vehiculos;
 
     public function mount($empresas)
     {
@@ -23,6 +38,11 @@ class Resultados extends Component
         $this->buscar = "";
         $this->picked = true;
         $this->empresas = $empresas;
+        $this->lotes = Lot::with('Producto')->get();
+        $this->productos = Producto::with('Vehiculo')->get();
+        $this->vehiculos = Vehicle::with('Imagenes')->with('Detalle')->get();
+//        dd($this->productos);
+
     }
 
     public function buscarEmpresas($buscar)
