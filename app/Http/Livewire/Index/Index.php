@@ -19,7 +19,13 @@ class Index extends Component
         $this->resultado = [];
         $this->buscar = "";
         $this->picked = true;
-        $this->empresas = Company::all();
+        $this->empresas = Company::all()->load('Lotes');
+//        foreach ($this->empresas as $dat){
+//            foreach ($dat->Lotes()->with('Productos')->get() as $dat){
+//                foreach ($dat->Productos()->with('Imagenes')->get() as $dat)
+//                    dd($dat->Imagenes);
+//            }
+//        }
     }
 
     public function render()

@@ -13,27 +13,26 @@
             </div>
         </nav>
     </div>
-    @forelse($empresas as $empresa)
+    @forelse($this->empresas as $dat)
         <div class="row main-container mb-5">
             <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                 <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
-                    <a class="navbar-brand text-darken" href="#">{{$empresa->razon_social}}</a>
+                    <a class="navbar-brand text-darken" href="#">{{$dat->razon_social}}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                             aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </nav>
             </div>
-            @forelse($empresa->Lote as $lote)
-                @dump($lote)
+            @forelse($dat->Lotes()->with('Productos')->get() as $dat)
                 <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                     <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
-                        <a class="navbar-brand text-darken" href="#">{{$lote->nombre}}</a>
+                        <a class="navbar-brand text-darken" href="#">{{$dat->nombre}}</a>
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                             <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
                                 <i class="fas fa-clock nav-content_text"></i>
-                                <span class="ml-3">{{$lote->subasta_at->diffForHumans()}}</span>
+                                <span class="ml-3">{{$dat->subasta_at->diffForHumans()}}</span>
                             </h2>
                             <article class="ml-3">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -47,7 +46,7 @@
                             </article>
                         </div>
                     </nav>
-                    @forelse($productos as $producto)
+                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)
                         <div class="col-md-4 col-sm-6 border-right col-xs-12 blogBox moreBox">
                             <div class="card mb-4 pub-item_cont">
                                 <article class="pub-item_head">
@@ -55,21 +54,21 @@
                                         <p class="mb-2 text-light">90</p>
                                     </span>
                                     <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                    @isset($producto->Imagenes->first()->imagen)
-                                        <img src="{{asset($producto->Imagenes->first()->imagen)}}" alt="">
+                                    @isset($dat->Imagenes->first()->imagen)
+                                        <img src="{{asset($dat->Imagenes->first()->imagen)}}" alt="">
                                     @endisset
                                 </article>
                                 <div class="card-body justify-content-center">
                                     <p class="card-text text-center text-to_auction">
                                         <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
                                     <p class="card-text text-center title-to_annoucement">
-                                        <strong>{{$producto->producto}}</strong>
+                                        <strong>{{$dat->producto}}</strong>
                                     </p>
                                     <div class="align-items-center btn_auction ">
                                         <div class="btn-group d-flex justify-content-center">
-                                            <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($producto->id)])!!}">
+                                            <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dat->id)])!!}">
                                                 <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
-                                                    <strong><span class="mr-2">$</span>3500 </strong>
+                                                    <strong><span class="mr-2">$</span>{{$dat->precio}} </strong>
                                                     <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
                                                 </button>
                                             </a>
