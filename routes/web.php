@@ -17,19 +17,11 @@ Route::get('/index', 'HomeController@index')->name('index');
 //VISTAS ESTATICAS
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
 Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
-<<<<<<< HEAD
-Route::view('polices', 'estaticas.politicas')->name('politicas');
-
-=======
 Route::view('/polices', 'estaticas.politicas')->name('politicas');
->>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211
 Route::view('/participacion', 'estaticas.participar')->name('participar');
 Route::view('/reclamos', 'estaticas.reclamos')->name('reclamos');
 Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
-<<<<<<< HEAD
-
-=======
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 
@@ -63,7 +55,6 @@ Route::put('admin/modelos/actualizar/{modelo}', 'ModeloController@update')->name
 Route::get('admin/modelos/delete/{modelo}', 'ModeloController@delete')->name('admin.modelos.delete');
 Route::get('admin/modelos/destroy/{id}', 'ModeloController@destroy')->name('admin.modelos.destroy');
 Route::get('admin/modelos/restore/{id}', 'ModeloController@restore')->name('admin.modelos.restore');
->>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');

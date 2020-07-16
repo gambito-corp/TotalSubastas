@@ -231,6 +231,12 @@ footer {
 .tyc {
     background-image: url(../img/ter_condic.png);
 }
+.faq {
+  background-image: url(../img/faqs.png);
+}
+.tyc {
+  background-image: url(../img/ter_condic.png);
+}
 .jumbotron-top_container h1 {
     font-size: 55px;
     font-family: var(--var-font);
@@ -1430,6 +1436,49 @@ article.sec-carousel {
 }
 
 .dwnld-card{
+<<<<<<< HEAD
+  background-image:url("../../assets/img/File.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 90%;
+  border-radius: 10px;
+}
+.radius {
+  border-radius: 10px;
+}
+.green-overtitle {
+  color: var(--var-to_aution-on-ranking);
+  font-size: 30px;
+  font-weight: 1000;
+}
+.part-title {
+  font-size: 25px;  
+  font-weight: 1000;
+}
+.btn-padding {
+  padding: 0.375rem 4rem 0.375rem 4rem;
+}
+.form-container {
+  background-color: var(--var-bg-light-card);
+  border-radius: 10px;  
+}
+.input {
+  width: 100%;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  border: 1px solid var(--var-ligthen);
+  border-radius: 4px;
+}
+.form-padding {
+  padding: 3rem 5rem 3rem 5rem;
+}
+.comment-box {
+  border: 15px solid rgba(197, 228, 252, 1);  
+}
+.service-badge {
+  font-size: 100%;
+}
+=======
     background-image:url("../../assets/img/File.svg");
     background-repeat: no-repeat;
     background-position: right;
@@ -1476,6 +1525,7 @@ article.sec-carousel {
     padding: 2rem 1rem 2rem 1rem;
     border: 1px solid var(--var-dark);
 }
+>>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211
 
 :root { 
   --var-to_buy: #3dc47e;
