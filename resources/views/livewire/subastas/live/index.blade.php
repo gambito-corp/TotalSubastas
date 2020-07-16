@@ -68,15 +68,15 @@
             <div class="col-md-3 col-sm-12">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <h5>
+                        <h6>
                             <span> INICIO <br /></span>
                             <span> {{$producto->started_at->diffForHumans()}}</span>
-                        </h5>
+                        </h6>
                     </div>
                     <div class="col-md-6 col-sm-12">
-                        <h3>
+                        <h3><i><b>
                             {{Auth()->user()->name}}
-                        </h3>
+                        </b></i></h3>
                     </div>
                     <div class="col-12">
                         <span class="text-badge_live" wire:model="ganador">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
@@ -119,7 +119,7 @@
             <img src="" alt="" />
         </div>
     </div>
-    <div class="row mt-2 justify-content-between margin-row mb-5">
+    <div class="row mt-2 justify-content-between margin-row width-100 mb-5">
         <div class=" col col-md-3 order-md-1 live-push_action-ranking">
             <article class="border-bottom">
                 <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
@@ -277,6 +277,9 @@
         .align{
             text-align: center;
             margin:auto;
+        }
+        .width-100 {
+            width: 100%;
         }
     </style>
 @endpush

@@ -48,7 +48,7 @@
                             </article>
                         </div>
                     </nav>
-                    <diV class="row">
+                    <diV class="row mr-0 ml-0">
                     @forelse($dat->Productos()->with('Imagenes')->get() as $dat)
                             <div class="col-md-4 col-sm-6 border-right col-xs-12">
                                 <div class="card mb-4 pub-item_cont">
