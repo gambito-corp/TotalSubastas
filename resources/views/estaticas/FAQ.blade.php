@@ -1,15 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
-<div class="container-fluid">
-    <div class="row">
-      <div class="jumbotron  jumbotron-top_container faq">
-        <div class="container">
-          <h1 class="font-weight-bold text-light text-uppercase">
-            Preguntas <br> frecuentes
-          </h1>
-          <p class="text-light">conoce las bases para realizar una subasta correcta!</p>
-=======
+
     <div class="container-fluid">
         <div class="row">
             <div class="jumbotron  jumbotron-top_container faq">
@@ -18,8 +9,6 @@
                         Preguntas <br> frecuentes
                     </h1>
                     <p class="text-light">conoce las bases para realizar una subasta correcta!</p>
->>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211
-
                 </div>
             </div>
         </div>
@@ -319,24 +308,11 @@
     </div>
 @endsection
 @push('scripts')
-<<<<<<< HEAD
-<script>  
+<script>
   $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     e.target // newly activated tab
     e.relatedTarget // previous active tab
   })
-
-
-</script>    
+</script>
 @endpush
-=======
-    <script>
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            e.target // newly activated tab
-            e.relatedTarget // previous active tab
-        })
 
-
-    </script>
-@endpush
->>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211

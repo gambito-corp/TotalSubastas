@@ -54,8 +54,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-
-
         return Validator::make($data, [
             "nombre" => ['required', 'string', 'max:255'],
             "apellido" => ['required', 'string', 'max:255'],
@@ -97,7 +95,7 @@ class RegisterController extends Controller
         event(new Registered($user = $this->create($request->all())));
 
         $user1 = User::all()->last();
-        $persona = Person::create([
+        Person::create([
             'user_id' => $user1->id,
             'nombres' => $request->input('nombre'),
             'apellidos' => $request->input('apellido'),

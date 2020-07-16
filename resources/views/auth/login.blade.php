@@ -30,13 +30,11 @@
                     <div class="form-group row justify-content-center">
                         <div class="col-sm-8 ">
                             <div class="input-group mb-3 ">
-
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></span>
-
                                 </div>
                                 <input type="password" placeholder="contrase&ntilde;a" class="form-control @error('password') is-invalid @enderror" name="password" no-require autocomplete="current-password">
-                                <div class="input-group-append">
+                                <div class="input-group-append"  onclick="mostrarContrasena()">
                                     <span class="input-group-text bg-light  text-light_darken "> <i class="fas fa-eye" id="showpassword"></i></span>
                                 </div>
                             </div>
@@ -82,3 +80,15 @@
     </div>
     </div>
 @endsection
+@push('scripts')
+    <script>
+        function mostrarContrasena(){
+            var tipo = document.getElementById("password");
+            if(tipo.type == "password"){
+                tipo.type = "text";
+            }else{
+                tipo.type = "password";
+            }
+        }
+    </script>
+@endpush

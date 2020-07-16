@@ -1,7 +1,4 @@
 @import "fonts/stylesheet.css";
-@import "./fontawesome.css";
-@import "./brands.css";
-@import "./solid.css";
 /* Var root */
 :root {
   --var-to_buy: #3dc47e;

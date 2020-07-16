@@ -30,6 +30,14 @@ class Resultados extends Component
      * @var mixed
      */
     public $vehiculos;
+    /**
+     * @var mixed
+     */
+    public $precioMin;
+    /**
+     * @var mixed
+     */
+    public $precioMax;
 
     public function mount($empresas)
     {
@@ -40,20 +48,26 @@ class Resultados extends Component
         $this->empresas = $empresas;
     }
 
-    public function buscarEmpresas($buscar)
+    public function buscarEmpresas($buscar = [], $Min = 0, $Max = 0)
     {
-//        dd($buscar);
-        $this->buscar = $buscar[0];
-//        dd($this->buscar['nombre']);
-        $this->picked = false;
-        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar['nombre']) . "%")
-            ->take(3)
-            ->get();
-//        dd($this->empresas);
+        $this->precioMin = $Min;
+        $this->precioMax = $Max;
+//        dd($this->precioMin, $this->precioMax);
+
+        if(empty($buscar)){
+            $this->empresas = Company::with('Productos')->whereHas('Productos', function($query){
+                $query->whereBetween('precio', [$this->precioMin, $this->precioMax]);
+            })->get();
+        }else{
+            $this->buscar = $buscar[0];
+            $this->picked = false;
+            $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar['nombre']) . "%")
+                ->take(3)
+                ->get();
+        }
     }
     public function selecionEmpresa($buscar)
     {
-        dd($buscar);
         $this->buscar = $buscar;
         $this->picked = false;
         $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
@@ -66,5 +80,3 @@ class Resultados extends Component
         return view('livewire.index.resultados');
     }
 }
-
-//$this->emit('buscarEmpresas', $this->buscar);

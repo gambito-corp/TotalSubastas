@@ -96,10 +96,10 @@
                             <form class="m-2">
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 3000">
+                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 3000"  wire:model="precioMin">
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 5000">
+                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 5000" wire:model="precioMax">
                                     </div>
                                 </div>
                             </form>

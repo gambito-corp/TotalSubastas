@@ -1,4 +1,4 @@
-<div class="col-md-9 mt-3">
+<div class="col-md-9 mt-3" wire:pool.750ms>
     <div class="row">
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
             <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
@@ -48,8 +48,8 @@
                             </article>
                         </div>
                     </nav>
-                    <diV class="row">                        
-                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)                                                        
+                    <diV class="row">
+                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)
                             <div class="col-md-4 col-sm-6 border-right col-xs-12">
                                 <div class="card mb-4 pub-item_cont">
                                     <article class="pub-item_head">
@@ -79,11 +79,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>                                                         
+                            </div>
                         @empty
 
                         @endforelse
-                        
+
                     </diV>
                 </div>
                 @empty

@@ -42,6 +42,12 @@ class Producto extends Model
         'deleted_at' => 'datetime',
     ];
 
+
+    public function Empresas()
+    {
+        return $this->hasManyThrough(Company::class, Lot::class, 'empresa_id', 'lote_id');
+    }
+
     public function Lote()
     {
         return $this->belongsTo('App\Lot', 'lote_id');

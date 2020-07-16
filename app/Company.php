@@ -44,6 +44,11 @@ class Company extends Model
     // relaciones HasMany
     public function Lotes()
     {
-        return $this->hasMany('App\Lot', 'empresa_id');
+        return $this->hasMany(Lot::class, 'empresa_id');
+    }
+
+    public function Productos()
+    {
+        return $this->hasManyThrough(Producto::class, Lot::class, 'empresa_id', 'lote_id');
     }
 }

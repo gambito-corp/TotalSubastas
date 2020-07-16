@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
+
 <div class="container-fluid">
     <div class="row">
       <div class="jumbotron jumbotron-top_container tyc">
@@ -9,16 +9,6 @@
             Terminos y <br> Condiciones
           </h1>
           <p class="text-light ">Informate bien antes de participar de una subasta</p>
-=======
-    <div class="container-fluid">
-        <div class="row">
-            <div class="jumbotron jumbotron-top_container tyc">
-                <div class="container">
-                    <h1 class="font-weight-bold text-light text-uppercase">
-                        Terminos y <br> Condiciones
-                    </h1>
-                    <p class="text-light ">Informate bien antes de participar de una subasta</p>
->>>>>>> 3f276d305fc38b5a5601fd269a63d0f47bb5c211
 
                 </div>
             </div>

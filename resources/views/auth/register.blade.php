@@ -18,23 +18,52 @@
                         <div class="form-row">
                             <div class="form-group col-md-6 col-sm-12">
                                 <label for="nombre" class="font-weight-bold text-dark">Nombres</label>
-                                <input type="text" name="nombre" class="form-control" value="">
+                                <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="">
+                                @error('nombre')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apellido" class="font-weight-bold text-dark">Apellidos</label>
-                                <input type="text" name="apellido" class="form-control" value="">
+                                <input type="text" name="apellido" class="form-control @error('apellido') is-invalid @enderror" value="">
+                                @error('apellido')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email" class="font-weight-bold text-dark">Correo electronico</label>
-                                <input type="text" name="email" class="form-control" value="">
+                                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tel" class="font-weight-bold text-dark">Celular</label>
-                                <input type="tel" name="tel" class="form-control" value="">
+                                <input type="tel" name="tel" class="form-control @error('tel') is-invalid @enderror" value="">
+                                @error('tel')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="dni" class="font-weight-bold text-dark">Documento de identidad</label>
-                                <input type="text" name="dni" class="form-control" value="">
+                                <input type="text" name="dni" class="form-control @error('dni') is-invalid @enderror" value="">
+                                @error('dni')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="password" class="font-weight-bold text-dark">Contrase&ntilde;a</label>
@@ -43,33 +72,33 @@
                                         <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></i></span>
                                         <!-- -->
                                     </div>
-                                    <input type="password" id="myInput" class="form-control" name="password" value="" aria-label="Username" aria-describedby="basic-addon1">
-                                    <div class="input-group-append">
+                                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" value="" aria-label="Username" aria-describedby="basic-addon1">
+                                    <div class="input-group-append"  onclick="mostrarContrasena()">
                                         <span class="input-group-text bg-light  text-light_darken "> <i class="fas fa-eye" id="showpassword"></i></span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="pais" class="font-weight-bold text-dark">Pais</label>
-                                <input type="text" name="pais" class="form-control" value="">
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="ciudad" class="font-weight-bold text-dark">Ciudad</label>
-                                <input type="text" name="ciudad" class="form-control" value="">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="direccion" class="font-weight-bold text-dark">Address</label>
-                                <input type="text" name="direccion" class="form-control" value="">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                             </div>
                             <div class="form-group col-md-12">
                                 <input type="submit" value="Registrarse" class="btn btn-success btn-block">
                             </div>
                             <div class="form-group col-md-8 text-center offset-md-2 pt-4">
                                 <div class="form-check">
-                                    <input class="form-check-input checkbox-primary" type="checkbox" id="gridCheck" name="Check"">
+                                    <input class="form-check-input checkbox-primary @error('Check') is-invalid @enderror" type="checkbox" id="gridCheck" name="Check"">
                                     <label class="form-check-label" for="Check">
                                         Acepta los terminos y condiciones y las leyes de privacidad de datos
                                     </label>
+                                    @error('Check')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+
                                 </div>
                             </div>
 
@@ -81,7 +110,7 @@
 
                             </div>
                         </div>
-                    </>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -90,9 +119,16 @@
         </div>
     </div>
 </div>
-<!-- Btn -- load more items -->
-
-<div class="container-fluid pl-0 pr-0">
-    @include('assets.footer')
-</div>
 @endsection
+@push('scripts')
+    <script>
+        function mostrarContrasena(){
+            var tipo = document.getElementById("password");
+            if(tipo.type == "password"){
+                tipo.type = "text";
+            }else{
+                tipo.type = "password";
+            }
+        }
+    </script>
+@endpush
