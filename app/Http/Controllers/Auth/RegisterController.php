@@ -54,6 +54,7 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+//        dd('leego al validador');
         return Validator::make($data, [
             "nombre" => ['required', 'string', 'max:255'],
             "apellido" => ['required', 'string', 'max:255'],
@@ -72,14 +73,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+//        dd('leego al create');
         $user_name = substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3);
-
-        return User::create([
-            'name' => $user_name,
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-
-        ]);
+//        dd('Creo el Nombre de usuario');
+        $user = new User();
+        $persona = new Person();
+        $user->role_id = 2;
+        $user->name = $user_name;
+        $user->email = $data['email'];
+        $user->avatar = 'users/default.png';
+        $user->password = Hash::make($data['password']);
+        $save = $user->save();
+//        $user->find();
+//        dd($save, $user);
+//        $user = User::create([
+//
+//            'name' => $user_name,
+//            'email' => $data['email'],
+//            'password' => Hash::make($data['password']),
+//        ])->dd();
+        return $user;
     }
 
     /**
@@ -90,11 +103,17 @@ class RegisterController extends Controller
      */
     public function register(Request $request)
     {
+//        dd('Metodo Register Antes del validador');
         $this->validator($request->all())->validate();
+//        dd('Metodo Register despues del validador');
 
+//        dd('Metodo Register antes del evento registered');
         event(new Registered($user = $this->create($request->all())));
+//        dd('Metodo Register despues del evento registered');
 
+//        dd('Metodo Register antes de llamar al usuario recien creado');
         $user1 = User::all()->last();
+//        dd('Metodo Register antes de crear persona');
         Person::create([
             'user_id' => $user1->id,
             'nombres' => $request->input('nombre'),
@@ -103,13 +122,16 @@ class RegisterController extends Controller
             'telefono'=> $request->input('tel'),
             'email' => $request->input('email'),
         ]);
+//        dd('Metodo Register despues de crearla');
 
         $this->guard()->login($user);
+//        dd('Metodo Register despues de autenticar');
 
         if ($response = $this->registered($request, $user)) {
+            dd('Metodo Registerdentro de la respuesta if');
             return $response;
         }
-
+//dd('Metodo Register antes de la falida final');
         return $request->wantsJson()
             ? new Response('', 201)
             : redirect($this->redirectPath());

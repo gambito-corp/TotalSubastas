@@ -152,8 +152,8 @@
         </div>
 
         <div class="col-md-5 order-md-2 p-4 text-light bg-dark scroll" id="scroll" style="height: 400px; border-radius: 10px;">
-            @isset($mensajes)
-                @foreach($mensajes as $value )
+{{--            @isset($mensajes)--}}
+                @forelse($mensajes as $value )
                     @if ($value->user_id == Auth::id())
                         <div class="mt-2 alert text-light rounded-pill ancho--220 float-right chat-box-user align-items-end animate__animated animate__backInLeft" width="55%">
                             <p class="chat-box-txt">
@@ -170,8 +170,15 @@
                         <br>
                     @endif
                     <br>
-                @endforeach
-            @endisset
+                    @empty
+                    <div class="mt-2 alert text-light rounded-pill ancho--220 float-right chat-box-user align-items-end animate__animated animate__backInLeft" width="55%">
+                        <p class="chat-box-txt">
+                            <strong>Subasta Por Iniciar</strong>
+                        </p>
+                    </div>
+                    <br>
+                @endforelse
+{{--            @endisset--}}
         </div>
 
         <div class="col-md-3 order-md-3 live-push_action-ranking">
