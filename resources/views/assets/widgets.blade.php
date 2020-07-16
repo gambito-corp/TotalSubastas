@@ -7,9 +7,11 @@
                 totalsubastas contactanos
             </p>
             <img src="./assets/img/image-368.png" class="img-fluid" alt="" />
-            <button class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
-                Aqu&iacute;
-            </button>
+            <a href="{{Route('creditos')}}" class="text-light">
+                <button class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
+                    Aqu&iacute;
+                </button>
+            </a>
         </article>
     </div>
 
@@ -21,10 +23,11 @@
                 totalsubastas contactanos
             </p>
             <img src="./assets/img/image-368-1.png" alt="" />
-            <button class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
-                Aqu&iacute;
-                <i class="fa fa"></i>
-            </button>
+            <a href="Route{{route('asesoria')}}" class="text-light">
+                <button  class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
+                    Aqu&iacute;
+                </button>
+            </a>
         </article>
     </div>
 </div>

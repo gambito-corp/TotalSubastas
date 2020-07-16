@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/index', 'HomeController@index')->name('index');
+
+//VISTAS ESTATICAS
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
 Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
-Route::view('polices', 'estaticas.politicas')->name('politicas');
+Route::view('/polices', 'estaticas.politicas')->name('politicas');
+Route::view('/participacion', 'estaticas.participar')->name('participar');
+Route::view('/reclamos', 'estaticas.reclamos')->name('reclamos');
+Route::view('/vender', 'estaticas.vender')->name('vender');
+Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
+Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 
 // RUTAS DE ADMINISTRADOR
