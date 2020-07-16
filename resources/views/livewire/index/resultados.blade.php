@@ -36,50 +36,55 @@
                             </h2>
                             <article class="ml-3">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-light active">
-                                        <i class="fas fa-caret-left"></i>
-                                    </label>
-                                    <label class="btn btn-light">
-                                        <i class="fas fa-caret-right"></i>
-                                    </label>
+                                    <a class="carousel-control-prev btn btn-light active" href="#carousel-slide">
+                                        <i class="fas fa-caret-left">
+                                        </i>
+                                    </a>
+                                    <a class="carousel-control-next btn btn-light" href="#carousel-slide">
+                                        <i class="fas fa-caret-right">
+                                        </i>
+                                    </a>
                                 </div>
                             </article>
                         </div>
                     </nav>
-                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)
-                        <div class="col-md-4 col-sm-6 border-right col-xs-12 blogBox moreBox">
-                            <div class="card mb-4 pub-item_cont">
-                                <article class="pub-item_head">
-                                    <span> <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
-                                        <p class="mb-2 text-light">90</p>
-                                    </span>
-                                    <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                    @isset($dat->Imagenes->first()->imagen)
-                                        <img src="{{asset($dat->Imagenes->first()->imagen)}}" alt="">
-                                    @endisset
-                                </article>
-                                <div class="card-body justify-content-center">
-                                    <p class="card-text text-center text-to_auction">
-                                        <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
-                                    <p class="card-text text-center title-to_annoucement">
-                                        <strong>{{$dat->producto}}</strong>
-                                    </p>
-                                    <div class="align-items-center btn_auction ">
-                                        <div class="btn-group d-flex justify-content-center">
-                                            <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dat->id)])!!}">
-                                                <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
-                                                    <strong><span class="mr-2">$</span>{{$dat->precio}} </strong>
-                                                    <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
-                                                </button>
-                                            </a>
+                    <diV class="row">                        
+                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)                                                        
+                            <div class="col-md-4 col-sm-6 border-right col-xs-12">
+                                <div class="card mb-4 pub-item_cont">
+                                    <article class="pub-item_head">
+                                        <span> <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
+                                            <p class="mb-2 text-light">90</p>
+                                        </span>
+                                        <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
+                                        @isset($dat->Imagenes->first()->imagen)
+                                            <img src="{{asset($dat->Imagenes->first()->imagen)}}" alt="">
+                                        @endisset
+                                    </article>
+                                    <div class="card-body justify-content-center">
+                                        <p class="card-text text-center text-to_auction">
+                                            <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
+                                        <p class="card-text text-center title-to_annoucement">
+                                            <strong>{{$dat->producto}}</strong>
+                                        </p>
+                                        <div class="align-items-center btn_auction ">
+                                            <div class="btn-group d-flex justify-content-center">
+                                                <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dat->id)])!!}">
+                                                    <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+                                                        <strong><span class="mr-2">$</span>{{$dat->precio}} </strong>
+                                                        <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>                                                         
                         @empty
 
                         @endforelse
+                        
+                    </diV>
                 </div>
                 @empty
 
