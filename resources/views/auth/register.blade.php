@@ -6,10 +6,10 @@
     <div class="row">
         <!-- main content -->
         <div class="col-md col-md-12 mt-5">
-            <div class="row">
-                <div class="col-md-4  t-rform_top_img  d-sm-none d-lg-block">
+            <div class="row main-container">
+                <div class="col-md-4 t-rform_top_img d-sm-none d-lg-block">
                 </div>
-                <div class="col-md-8 col-sm-12  col-xs-12t-rform_top main-container p-5">
+                <div class="col-md-8 col-sm-12  col-xs-12 p-5">
                     <h2 class=" font-weight-bold text-dark pb-5 text-center">
                         Crea tu cuenta para el mejor portal para subastar de tus sue&ntilde;o
                     </h2>
@@ -102,13 +102,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-6 pt-5 text-center">
-                                <h3 class="display-6  text-darken">Ya tienes cuenta ?</h3>
+                            <div class="form-group col-md-12 pt-5 text-center"> 
+                                <a href="{{route('login')}}" class="font-weight-bold text-dark">
+                                    <h5 class="display-6  text-darken">Ya tienes cuenta ?</h5>
+                                </a>                               
                             </div>
-                            <div class="form-group col-md-6 pt-5 text-center">
-                                <a href="{{route('login')}}" class="font-weight-bold text-dark">Ingresar</a>
-
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

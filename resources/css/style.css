@@ -1139,11 +1139,11 @@ article.sec-carousel {
 }
 .t-rform_top_img {
     background-color: var(--var-dark);
-    background-image: url("../img/image-083.png");
+    background-image: url("../assets/img/image-083.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 14px;
+    border-radius: 10px 0 0 10px;
     background-repeat: no-repeat;
 }
 .checkbox-primary {
