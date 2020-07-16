@@ -12,6 +12,36 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{mix('css/app.css')}}" />
         <link rel="stylesheet" href="{{mix('css/assets.css')}}" />
+        <!-- Start of Async Drift Code -->
+
+        <script>
+        "use strict";
+
+        !function() {
+        var t = window.driftt = window.drift = window.driftt || [];
+        if (!t.init) {
+            if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+            t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+            t.factory = function(e) {
+            return function() {
+                var n = Array.prototype.slice.call(arguments);
+                return n.unshift(e), t.push(n), t;
+            };
+            }, t.methods.forEach(function(e) {
+            t[e] = t.factory(e);
+            }), t.load = function(t) {
+            var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+            var i = document.getElementsByTagName("script")[0];
+            i.parentNode.insertBefore(o, i);
+            };
+        }
+        }();
+        drift.SNIPPET_VERSION = '0.3.1';
+        drift.load('6r6634p4k2sk');
+        </script>
+
+<!-- End of Async Drift Code -->
         {{-- llamar desde mix --}}
         {{-- <script src="https://use.fontawesome.com/c01ac736c1.js"></script> --}}
 
