@@ -46,7 +46,7 @@ class Lot extends Model
         return $this->belongsTo('App\Company', 'empresa_id');
     }
     // relaciones HasMany
-    public function Producto()
+    public function Productos()
     {
         return $this->hasMany('App\Producto', 'lote_id');
     }

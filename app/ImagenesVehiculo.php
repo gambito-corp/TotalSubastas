@@ -16,7 +16,7 @@ class ImagenesVehiculo extends Model
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class ImagenesVehiculo extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -38,5 +38,15 @@ class ImagenesVehiculo extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
+    public function Vehiculo()
+    {
+        return $this->belongsTo('App\Vehicle', 'vehiculo_id');
+    }
+
+    public function Producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
+
 }

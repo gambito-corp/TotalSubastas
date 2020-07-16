@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Subastas\Live;
 
+use App\ActiveAuc;
 use App\Helpers\Gambito;
 use App\Message;
 use App\Producto;
@@ -31,7 +32,7 @@ class Index extends Component
     /**
      * @var mixed
      */
-    public $resultado;
+    public $resultados;
     /**
      * @var mixed
      */
@@ -55,9 +56,13 @@ class Index extends Component
     /**
      * @var false|int|mixed
      */
-    public $countDown;
+    public $contador;
 
     protected $listeners = ['refresh'];
+    /**
+     * @var mixed
+     */
+    public $activos;
 
 
     public function mount()
@@ -66,20 +71,21 @@ class Index extends Component
         $this->producto = Gambito::obtenerProducto($this->identificador);
         $this->vehiculo = Gambito::obtenerVehiculo($this->identificador);
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
-        $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
+        $this->resultados = Gambito::obtenerMensajes($this->identificador, true);
         $this->pujar = $this->producto->precio + $this->producto->puja;
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
-
-
-
+        $this->activos = ActiveAuc::where('producto_id', $this->identificador)->count();
+        $this->contador = 1;
+//        dd($this->resultados);
     }
 
     public function hydrate()
     {
+        $this->activos = ActiveAuc::where('producto_id', $this->identificador)->count();
         $this->pujar = $this->producto->precio + $this->producto->puja;
         $this->mensajes = Gambito::obtenerMensajes($this->identificador);
-        $this->resultado = Gambito::obtenerMensajes($this->identificador, true);
+        $this->resultados = Gambito::obtenerMensajes($this->identificador, true);
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
 

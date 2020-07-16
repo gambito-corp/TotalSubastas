@@ -17,6 +17,7 @@ class CreateImagenesVehiculosTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->integer('vehiculo_id')->unsigned();
+			$table->integer('producto_id')->unsigned();
 			$table->string('imagen')->nullable();
 			$table->string('titulo')->nullable();
 			$table->text('descripcion', 65535)->nullable();

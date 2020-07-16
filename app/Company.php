@@ -42,7 +42,7 @@ class Company extends Model
     //Relaciones Belongs to
 
     // relaciones HasMany
-    public function Lote()
+    public function Lotes()
     {
         return $this->hasMany('App\Lot', 'empresa_id');
     }

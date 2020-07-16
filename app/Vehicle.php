@@ -41,9 +41,19 @@ class Vehicle extends Model
         'deleted_at' => 'datetime',
     ];
 
-    public function Productos()
+    public function Producto()
     {
-        return $this->belongsTo('App\Producto', 'producto_id');
+        return $this->hasOne('App\Producto', 'producto_id');
+    }
+
+    public function Detalle()
+    {
+        return $this->hasOne('App\VehicleDetail', 'vehiculo_id');
+    }
+
+    public function Imagenes()
+    {
+        return $this->hasMany('App\ImagenesVehiculo', 'vehiculo_id');
     }
 
     public function Marca()

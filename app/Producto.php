@@ -67,4 +67,12 @@ class Producto extends Model
         return $this->hasMany(Message::class);
     }
 
+    public function Imagenes()
+    {
+        return $this->hasMany(ImagenesVehiculo::class);
+    }
+    public function getFirstImageAttribute()
+    {
+        return asset($this->Imagenes->first()->imagen);
+    }
 }
