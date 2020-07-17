@@ -10,9 +10,9 @@ clonar repositorio en tu entorno de desarrollo en introducir los siguientes coma
 
 `php artisan key:generate`
 
-----------
+****
 `php artisan migrate`
----------
+****
 
 una vez ejecutados esos 5 comandos entrar a la carpeta raiz del proyecto y modificar el archivo `webpack.mix.js` modificar en la linea 17 `.browserSync('http://tu-url-o-IP+:puerto-en-caso-de-usarse/'); `
 
