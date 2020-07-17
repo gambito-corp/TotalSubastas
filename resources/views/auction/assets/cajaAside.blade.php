@@ -76,7 +76,7 @@
               </div>
             
 
-            <div class="row margin-row pt-2 d-flex pb-2 border-bottom border-top">
+            <div class="row margin-row pt-2 d-flex pb-2 border-bottom border-top ml-1 mr-1">
               
               <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
                 Usuario

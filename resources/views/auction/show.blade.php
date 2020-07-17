@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container pr-0 pl-0">
     @livewire('subastas.show.index')
 </div>
 <div class="container">
@@ -24,13 +24,4 @@
     
 @endsection
 
-@push('styles')
-    <style>
-        .margin-row{
-            margin-left:0%;
-            margin-right: 0%;
-        }
-            
 
-    </style>
-@endpush

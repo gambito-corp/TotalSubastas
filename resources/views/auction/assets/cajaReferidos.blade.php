@@ -30,7 +30,7 @@
       <!-- main content -- nr° 2-->
       <div class="col col-md-3 col-sm-6 border-right col-xs-6">
         <div class="card mb-3 pub-item_cont ">
-          <img src="./assets/img/auctions/image-165.png" alt="">
+          <img src="{{asset('./assets/img/auctions/image-165.png')}}" alt="">
           <div class="card-body justify-content-center">
             <p class="card-text text-center text-to_auction">
               <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
@@ -50,7 +50,7 @@
       </div>
       <div class="col col-md-3 border-right col-sm-6 col col-xs-6">
         <div class="card mb-4 pub-item_cont">
-          <img src="./assets/img/auctions/image-166.png" alt="">
+          <img src="{{asset('./assets/img/auctions/image-166.png')}}" alt="">
           <div class="card-body justify-content-center">
             <p class="card-text text-center text-to_buy">
               <strong>comprar ya</strong>
@@ -71,7 +71,7 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-6">
         <div class="card mb-4 pub-item_cont">
-          <img src="./assets/img/auctions/image-167.png" alt="">
+          <img src="{{asset('./assets/img/auctions/image-167.png')}}" alt="">
           <div class="card-body justify-content-center">
             <p class="card-text text-center text-to_buy">
               <strong>comprar ya</strong><i class="fas fa-shopping-cart ml-2"></i>
@@ -94,7 +94,7 @@
       </div>
       <div class="col-md-3 col-sm-6 col-xs-6 border-left mb-0">
         <div class="card mb-4 pub-item_cont ">
-          <img src="./assets/img/auctions/image-168.png" alt="">
+          <img src="{{asset('./assets/img/auctions/image-168.png')}}" alt="">
           <div class="card-body justify-content-center">
             <p class="card-text text-center text-to_buy">
               <strong>comprar ya</strong><i class="fas fa-shopping-cart ml-2"></i>

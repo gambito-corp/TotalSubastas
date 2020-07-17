@@ -1471,4 +1471,8 @@ article.sec-carousel {
     padding: 2rem 1rem 2rem 1rem;
     border: 1px solid var(--var-dark);
 }
+.button-finish {
+    background-color: var(--var-dark);
+    color: var(--var-ligthen);
+}
 

@@ -65,11 +65,11 @@
             
                                 <fieldset class="thumbs_auction">
                                     <img class="rounded thumbs_auction-img  p-1" data-target='#auction-control' data-slide-to='0'
-                                    src="{{asset('assets/img/thumbs/image-074.png')}}" alt="">
+                                    src="{{asset('/img/vehiculos/image-074.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target='#auction-control' data-slide-to='1'
-                                    src="{{asset('assets/img/thumbs/image-075.png')}}" alt="">
+                                    src="{{asset('/img/vehiculos/image-075.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target="#auction-control" data-slide-to='2'
-                                    src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">                
+                                    src="{{asset('/img/vehiculos/image-076.png')}}" alt="">                
                                 </fieldset>
 
                                 <div class=" text-center mt-3">
