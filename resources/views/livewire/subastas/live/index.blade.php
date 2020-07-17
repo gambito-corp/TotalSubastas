@@ -125,10 +125,8 @@
                 <h5 class="text-uppercase r-timer_live">Subasta en vivo</h5>
             </article>
             <div class="row p-4">
-                <div class="col-12 pt-5 pb-5">
-                    <p>
-
-                    </p>
+                <div class="col-12 pb-5 text-center">
+                    <img class="gif-size" src="{{asset('assets/img/gif/animacion.gif')}}" alt="">
                 </div>
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
@@ -253,7 +251,7 @@
         }
 
         .chat-box-user{
-            background-color: #227dc7;
+            background-color: #4592FF;
             width:auto;
             margin: 0 0 0 40%;
             box-sizing:content-box;
@@ -280,6 +278,10 @@
         }
         .width-100 {
             width: 100%;
+        }
+        .gif-size {
+            height: 100px;
+            width: 100px;
         }
     </style>
 @endpush
