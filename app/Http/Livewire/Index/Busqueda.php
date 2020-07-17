@@ -3,55 +3,49 @@
 namespace App\Http\Livewire\Index;
 
 use App\Company;
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class Busqueda extends Component
 {
+    public $currentUrl;
     public $buscar = '';
     public $empresas = [];
     public $picked;
     public $precioMin;
     public $precioMax;
 
-    public function mount()
+    public function mount(Request $request)
     {
+        $this->currentUrl = $request->url();
         $this->buscar = "";
         $this->picked = true;
-        $this->empresas = Company::all();
+        $this->empresas = Company::all()->load('Productos', 'Lotes');
         $this->precioMin = 0;
         $this->precioMax = 0;
-
-
-
     }
 
     public function updatedBuscar()
     {
         $this->picked = false;
         $this->validate([
-            "buscar" => "required|min:2"
+            "buscar" => "string"
         ]);
         $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
             ->orWhere("razon_social", "like", "%".trim($this->buscar) . "%")
-            ->take(3)
+            ->with('Productos', 'Lotes')
             ->get();
         $this->emit('buscarEmpresas', $this->empresas);
     }
 
     public function updatedPrecioMin()
     {
-        $this->empresas = Company::with('Productos')->whereHas('Productos', function($query){
-            $query->whereBetween('precio', [$this->precioMin, $this->precioMax]);
-        })->get();
-        $this->emit('buscarEmpresas', $this->empresas, $this->precioMin, $this->precioMax);
+        $this->emit('Precio', $this->precioMin, $this->precioMax);
     }
 
     public function updatedPrecioMax()
     {
-        $this->empresas = Company::with('Productos')->whereHas('Productos', function($query){
-            $query->whereBetween('precio', [$this->precioMin, $this->precioMax]);
-        })->get();
-        $this->emit('buscarEmpresas', $this->empresas, $this->precioMin, $this->precioMax);
+        $this->emit('Precio', [], $this->precioMin, $this->precioMax);
     }
 
 

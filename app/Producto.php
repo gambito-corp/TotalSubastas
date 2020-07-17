@@ -45,7 +45,7 @@ class Producto extends Model
 
     public function Empresas()
     {
-        return $this->hasManyThrough(Company::class, Lot::class, 'empresa_id', 'lote_id');
+        return $this->hasManyThrough(Company::class, Lot::class, 'empresa_id', 'lote_id')->withDefault();
     }
 
     public function Lote()

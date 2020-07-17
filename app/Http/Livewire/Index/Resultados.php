@@ -17,7 +17,7 @@ class Resultados extends Component
     public $empresas;
     public $picked;
 
-    protected $listeners = ['buscarEmpresas', 'selecionEmpresa'];
+    protected $listeners = ['buscarEmpresas', 'selecionEmpresa', 'Precio'];
     /**
      * @var Lot[]|\Illuminate\Database\Eloquent\Collection|mixed
      */
@@ -45,33 +45,40 @@ class Resultados extends Component
         $this->resultado = [];
         $this->buscar = "";
         $this->picked = true;
-        $this->empresas = $empresas;
+        $this->empresas = $empresas->load('Productos');
+        $this->precioMax = 1000000;
+        $this->precioMin = 1;
     }
 
-    public function buscarEmpresas($buscar = [], $Min = 0, $Max = 0)
+    public function buscarEmpresas($buscar = [])
     {
-        $this->precioMin = $Min;
-        $this->precioMax = $Max;
-//        dd($this->precioMin, $this->precioMax);
-
-        if(empty($buscar)){
-            $this->empresas = Company::with('Productos')->whereHas('Productos', function($query){
-                $query->whereBetween('precio', [$this->precioMin, $this->precioMax]);
-            })->get();
-        }else{
-            $this->buscar = $buscar[0];
-            $this->picked = false;
-            $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar['nombre']) . "%")
-                ->take(3)
-                ->get();
-        }
+        $this->buscar = $buscar[0];
+        $this->picked = false;
+        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar['nombre']) . "%")
+            ->get();
     }
+
     public function selecionEmpresa($buscar)
     {
         $this->buscar = $buscar;
         $this->picked = false;
         $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
             ->get();
+    }
+
+    public function Precio($min = 0, $max = 0)
+    {
+        $this->precioMin = intval($min);
+        $this->precioMax = intval($max);
+
+        if ($this->precioMax == 0){
+            $this->precioMax = 1000000;
+        }elseif ($this->precioMin > $this->precioMax){
+            $this->precioMax = $this->precioMin+1;
+        }elseif($this->precioMin = 0) {
+            $this->precioMin = 1;
+        }
+        $this->empresas = Company::all();
     }
 
 

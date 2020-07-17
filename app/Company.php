@@ -39,6 +39,7 @@ class Company extends Model
         'deleted_at' => 'datetime',
     ];
 
+
     //Relaciones Belongs to
 
     // relaciones HasMany

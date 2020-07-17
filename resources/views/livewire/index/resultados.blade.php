@@ -34,22 +34,11 @@
                                 <i class="fas fa-clock nav-content_text"></i>
                                 <span class="ml-3">{{$dat->subasta_at->diffForHumans()}}</span>
                             </h2>
-                            <!-- <article class="ml-3">
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <a class="carousel-control-prev btn btn-light active" href="#carousel-slide">
-                                        <i class="fas fa-caret-left">
-                                        </i>
-                                    </a>
-                                    <a class="carousel-control-next btn btn-light" href="#carousel-slide">
-                                        <i class="fas fa-caret-right">
-                                        </i>
-                                    </a>
-                                </div>
-                            </article> -->
                         </div>
                     </nav>
                     <diV class="row mr-0 ml-0">
-                    @forelse($dat->Productos()->with('Imagenes')->get() as $dat)
+                    @forelse($dat->Productos()->with('Imagenes')->get() as $dato)
+                        @if($dato->precio > $precioMin && $dato->precio < $precioMax)
                             <div class="col-md-4 col-sm-6 border-right col-xs-12">
                                 <div class="card mb-4 pub-item_cont">
                                     <article class="pub-item_head">
@@ -57,21 +46,21 @@
                                             <p class="mb-2 text-light">190</p>
                                         </span>
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                        @isset($dat->Imagenes->first()->imagen)
-                                            <img src="{{asset($dat->Imagenes->first()->imagen)}}" alt="">
+                                        @isset($dato->Imagenes->first()->imagen)
+                                            <img src="{{asset($dato->Imagenes->first()->imagen)}}" alt="">
                                         @endisset
                                     </article>
                                     <div class="card-body justify-content-center">
                                         <p class="card-text text-center text-to_auction">
                                             <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
                                         <p class="card-text text-center title-to_annoucement">
-                                            <strong>{{$dat->producto}}</strong>
+                                            <strong>{{$dato->producto}}</strong>
                                         </p>
                                         <div class="align-items-center btn_auction ">
                                             <div class="btn-group d-flex justify-content-center">
-                                                <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dat->id)])!!}">
+                                                <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
                                                     <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
-                                                        <strong><span class="mr-2">$</span>{{$dat->precio}} </strong>
+                                                        <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>
                                                         <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
                                                     </button>
                                                 </a>
@@ -80,9 +69,10 @@
                                     </div>
                                 </div>
                             </div>
-                        @empty
+                        @endif
+                    @empty
 
-                        @endforelse
+                    @endforelse
 
                     </diV>
                 </div>
