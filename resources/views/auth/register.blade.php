@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
 <!-- Container -->
@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-8 col-sm-12  col-xs-12 p-5">
                     <h2 class=" font-weight-bold text-dark pb-5 text-center">
-                        Crea tu cuenta para el mejor portal para subastar de tus sue&ntilde;o
+                        Crea tu cuenta para el mejor portal para subastar de tus sue&ntilde;os
                     </h2>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf

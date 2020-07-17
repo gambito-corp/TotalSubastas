@@ -1475,4 +1475,10 @@ article.sec-carousel {
     background-color: var(--var-dark);
     color: var(--var-ligthen);
 }
+.footer-color {
+    background-color: var(--var-darken_light);
+}
+.vertical-align-middle {
+    vertical-align: middle;
+}
 
