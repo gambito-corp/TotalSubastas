@@ -142,7 +142,7 @@ footer {
     background-color: var(--var-dark);
 }
 .title-light_darken {
-    font-size: 20px;
+    font-size: 15px;
     font-family: var(--var-font);
     font-weight: 400;
 }
@@ -345,9 +345,9 @@ article.p-side_nav h2 {
 
 .pub-item_head .bookmark {
     right: 0;
-    margin-right: 10px;
-    margin-top: 14px;
-    color: #bcbfc2;
+    margin-right: 15px;
+    margin-top: 15px;
+    color: #ffffff;
 }
 .text-fh_nav {
     font-size: 14px;
@@ -1303,7 +1303,7 @@ article.sec-carousel {
     height: 14px;
     width: 50px;
     background-image: url(https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png);
-    background-position: left;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: 2900%;
 }
@@ -1413,7 +1413,7 @@ article.sec-carousel {
 }
 
 .heart:hover {
-    background-position: right;
+    background-position: left;
 }
 
 .is_animating {
@@ -1482,7 +1482,7 @@ article.sec-carousel {
 }
 
 
-:root { 
+:root {
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;
