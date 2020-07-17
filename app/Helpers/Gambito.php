@@ -164,7 +164,7 @@ class Gambito
         $producto = self::obtenerProducto($id);
         $producto->precio += $producto->puja;
         $producto->user_id = Auth::id();
-        if($live){
+        if($live && $producto->finalized_at == now()){
              $producto->finalized_at = now()->addSeconds(8);
         }
         $producto->update();
