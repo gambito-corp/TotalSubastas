@@ -9,6 +9,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
 {
@@ -56,8 +58,31 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         'deleted' => UserDeleted::class,
     ];
 
+    //Metodos Personalizados
+    public static function registerUser(array $data)
+    {
+        DB::transaction(function()use($data){
+            User::create([
+                'role_id' => 2,
+                'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
+                'email' => $data['email'],
+                'avatar' => 'users/default.png',
+                'password' => Hash::make($data['password']),
+            ]);
+
+            Person::create([
+
+                'nombres' => $data['nombre'],
+                'apellidos' => $data['apellido'],
+                'numero_documento' => $data['dni'],
+                'telefono'=> $data['tel'],
+                'email' => $data['email'],
+            ]);
+        });
+    }
 
 
+    //Relaciones
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);
