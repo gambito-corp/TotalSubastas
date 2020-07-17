@@ -34,7 +34,7 @@
                                 <i class="fas fa-clock nav-content_text"></i>
                                 <span class="ml-3">{{$dat->subasta_at->diffForHumans()}}</span>
                             </h2>
-                            <article class="ml-3">
+                            <!-- <article class="ml-3">
                                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                     <a class="carousel-control-prev btn btn-light active" href="#carousel-slide">
                                         <i class="fas fa-caret-left">
@@ -45,7 +45,7 @@
                                         </i>
                                     </a>
                                 </div>
-                            </article>
+                            </article> -->
                         </div>
                     </nav>
                     <diV class="row mr-0 ml-0">
@@ -54,7 +54,7 @@
                                 <div class="card mb-4 pub-item_cont">
                                     <article class="pub-item_head">
                                         <span> <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
-                                            <p class="mb-2 text-light">90</p>
+                                            <p class="mb-2 text-light">190</p>
                                         </span>
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
                                         @isset($dat->Imagenes->first()->imagen)

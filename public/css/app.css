@@ -13044,7 +13044,12 @@ button.bg-dark:focus {
 
 .mb-2,
 .my-2 {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.9rem !important;
+}
+
+.mb-2 ,
+.text-light{
+    margin-top: 0.8rem;
 }
 
 .ml-2,
