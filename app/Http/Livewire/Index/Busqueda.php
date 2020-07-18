@@ -40,11 +40,17 @@ class Busqueda extends Component
 
     public function updatedPrecioMin()
     {
+        $this->validate([
+            "precioMin" => "integer"
+        ]);
         $this->emit('Precio', $this->precioMin, $this->precioMax);
     }
 
     public function updatedPrecioMax()
     {
+        $this->validate([
+            "precioMax" => "integer"
+        ]);
         $this->emit('Precio', [], $this->precioMin, $this->precioMax);
     }
 
