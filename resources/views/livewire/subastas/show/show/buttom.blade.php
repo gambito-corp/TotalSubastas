@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="row mt-5" wire:poll.10000ms="estado">
+    <div class="row mt-5" wire:poll.1000ms="estado">
         <div class="col">
             <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom precio-tamaño">
                 $ {{$producto->precio}} actual
