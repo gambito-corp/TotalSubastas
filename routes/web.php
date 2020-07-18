@@ -72,6 +72,7 @@ Route::get('/auction', 'AuctionsController@index')->name('auction');
 Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
 Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
 Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
+Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 
 ////testeo
 //Route::resource('file', 'store');

@@ -129,7 +129,11 @@ class AuctionsController extends Controller
 
     public function noBalance()
     {
-
+//        dd('holi');
+        return redirect()->route('index')->with([
+            'message' => 'estimado lamentablemente no Dispones de suficiente dinero para cubrir la garantia',
+            'alerta' => 'danger'
+        ]);
     }
 
 

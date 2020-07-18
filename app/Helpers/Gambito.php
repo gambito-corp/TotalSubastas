@@ -116,16 +116,14 @@ class Gambito
     {
         $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
 
-        if ($descuento < 0) {
-    //TODO: Corregir este Redirect 1
-            return redirect()->route('index')->with('flash', 'No se le puede descuntar ese monto de garantia, no tiene suficientes fondos, porfavor recargue');
+        if (is_numeric($descuento) && ($descuento<0)) {
+        //TODO: Corregir este Redirect 1
+            return redirect(route('noBalance'));
         }
-
         //comprobar que el descuento no se hizo antes
         $check = Garantia::where('producto_id', self::hash(request()->route()->parameter('id'), true))
             ->where('user_id', Auth::id())
             ->first();
-
         if (is_null($check)) {
             //descontar la garantia al balance solo si no se hizo para esta subasta
             self::hacerDescuento($descuento);
