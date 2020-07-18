@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="row mt-5" wire:poll.1000ms="estado">
+    <div class="row mt-5" wire:poll.10000ms="estado">
         <div class="col">
             <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom precio-tamaño">
                 $ {{$producto->precio}} actual
@@ -47,12 +47,17 @@
         </div>
 
         <div class="col" >
-            @include('livewire.subastas.includes.button', ['producto', $producto])
+            @include('livewire.subastas.includes.button', ['producto'=> $producto, 'tyc' => $tyc])
         </div>
     </div>
     <div class="row" style="margin-left: 30px;">
-        <input type="checkbox" class="form-check-input" id="" wire:model="tyc">
+        <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" id="" wire:model="tyc" {{$tyc? 'checked':''}}>
         <label class="form-check-label" for="">Acepto terminos y condiciones</label>
+        @error('tyc')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
 
 </div>

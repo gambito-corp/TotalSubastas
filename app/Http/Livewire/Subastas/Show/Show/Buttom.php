@@ -18,15 +18,26 @@ class Buttom extends Component
         $this->producto = $producto;
     }
 
+    public function updatedTyc()
+    {
+        $this->validate([
+           'tyc' => 'required',
+        ]);
+    }
+
+
     public function estado()
     {
+        $this->tyc = $this->tyc;
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }
 
-    public function pujar()
+    public function pujar($tyc)
     {
-        dd($this->tyc);
+        $this->validate([
+            'tyc' => 'required',
+        ]);
         $this->producto->precio += $this->producto->puja;
         $this->producto->user_id = Auth::user()->id;
         $this->producto->update();
