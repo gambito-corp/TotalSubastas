@@ -3,58 +3,70 @@
 namespace App\Http\Livewire\Index;
 
 use App\Company;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Busqueda extends Component
 {
-    public $currentUrl;
     public $buscar = '';
     public $empresas = [];
     public $picked;
     public $precioMin;
     public $precioMax;
+    public $memoria;
 
-    public function mount(Request $request)
+
+
+    public function mount()
     {
-        $this->currentUrl = $request->url();
-        $this->buscar = "";
+        $this->memoria = 3000;
         $this->picked = true;
         $this->empresas = Company::all()->load('Productos', 'Lotes');
-        $this->precioMin = 0;
-        $this->precioMax = 0;
+        $this->precioMax = 1000000;
     }
 
     public function updatedBuscar()
     {
+        if($this->buscar != ''){
+            Cache::put('buscar', $this->buscar, $this->memoria);
+        }
+        if(Cache::has('buscar')) {
+            $this->buscar == Cache::get('buscar');
+        }
+        $this->General();
+    }
+
+    public function updatedPrecioMin()
+    {
+        if($this->precioMin != 0){
+            Cache::put('Min', intval($this->precioMin), $this->memoria);
+        }
+        if(Cache::has('Min')) {
+            $this->precioMin == Cache::get('Min');
+        }
+        $this->General();
+    }
+
+    public function updatedPrecioMax()
+    {
+        if($this->precioMax != 0 || $this->precioMax != 1000000 ){
+            Cache::put('Max', intval($this->precioMax), $this->memoria);
+        }
+        if(Cache::has('Max')) {
+            $this->precioMax == Cache::get('Max');
+        }
+        $this->General();
+    }
+
+    protected function General()
+    {
         $this->picked = false;
-        $this->validate([
-            "buscar" => "string"
-        ]);
         $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
             ->orWhere("razon_social", "like", "%".trim($this->buscar) . "%")
             ->with('Productos', 'Lotes')
             ->get();
         $this->emit('buscarEmpresas', $this->empresas);
     }
-
-    public function updatedPrecioMin()
-    {
-        $this->validate([
-            "precioMin" => "integer"
-        ]);
-        $this->emit('Precio', $this->precioMin, $this->precioMax);
-    }
-
-    public function updatedPrecioMax()
-    {
-        $this->validate([
-            "precioMax" => "integer"
-        ]);
-        $this->emit('Precio', [], $this->precioMin, $this->precioMax);
-    }
-
-
 
     public function asignarEmpresa($nombre)
     {
