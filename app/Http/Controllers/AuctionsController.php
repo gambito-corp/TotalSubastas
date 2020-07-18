@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\ActiveAuc;
 use App\Auction;
 use App\Balance;
 use App\Garantia;
 use App\Helpers\Gambito;
 use App\Message;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 class AuctionsController extends Controller
 {
@@ -126,6 +125,11 @@ class AuctionsController extends Controller
                 'alerta' => 'danger'
             ]);
         }
+    }
+
+    public function noBalance()
+    {
+
     }
 
 

@@ -1,4 +1,4 @@
-<div>
+<div xmlns:wire="http://www.w3.org/1999/xhtml">
     <div class="col-lg-12 col-md-12  pd-0 m-0">
         <!--  -->
         <div class="row row-cols-4 ">
@@ -47,13 +47,13 @@
         </div>
 
         <div class="col" >
-            @include('livewire.subastas.includes.button')
-        </div>        
+            @include('livewire.subastas.includes.button', ['producto', $producto])
+        </div>
     </div>
     <div class="row" style="margin-left: 30px;">
-        <input type="checkbox" class="form-check-input" id="">
+        <input type="checkbox" class="form-check-input" id="" wire:model="tyc">
         <label class="form-check-label" for="">Acepto terminos y condiciones</label>
     </div>
-    
+
 </div>
 

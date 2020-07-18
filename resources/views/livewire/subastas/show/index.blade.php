@@ -45,7 +45,7 @@
                                             <span class="title-d_sheet-sp">Mayo</span> <span class="title-d_sheet-sp">29 <br> </span>
                                             <span class="title-d_sheet-sp">7:15 pm </span> <br>
                                         </div>
-                                    </div>          
+                                    </div>
                                 </div>
                             </div>
                             @livewire('subastas.show.show.buttom', ['producto' => $producto])
@@ -62,14 +62,14 @@
                                     <path d="M30 20 L16 8 2 20"></path>
                                     </svg>
                                 </div>
-            
+
                                 <fieldset class="thumbs_auction">
                                     <img class="rounded thumbs_auction-img  p-1" data-target='#auction-control' data-slide-to='0'
                                     src="{{asset('/img/vehiculos/image-074.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target='#auction-control' data-slide-to='1'
                                     src="{{asset('/img/vehiculos/image-075.png')}}" alt="">
                                     <img class="rounded thumbs_auction-img p-1" data-target="#auction-control" data-slide-to='2'
-                                    src="{{asset('/img/vehiculos/image-076.png')}}" alt="">                
+                                    src="{{asset('/img/vehiculos/image-076.png')}}" alt="">
                                 </fieldset>
 
                                 <div class=" text-center mt-3">
@@ -178,10 +178,10 @@
                 remainDays
             }
         };
-    
+
         const countdown = (deadline, elem, finalMessage) =>{
             const el = document.getElementById(elem);
-    
+
             const timerUpdate = setInterval(()=>{
                 let t = getRemainTime(deadline);
                 el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
@@ -189,16 +189,16 @@
                     clearInterval(timerUpdate);
                     el.innerHTML = finalMessage;
                 }
-    
+
             }, 1000)
         };
-    
+
         countdown(hora, 'regresiva', 'La Subasta Inicio');
         // console.log(Date(hora));
     </script>
     @endpush
 </div>
-    
+
 
 
 

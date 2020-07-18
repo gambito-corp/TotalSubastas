@@ -12,9 +12,8 @@ use App\User;
 use App\Vehicle;
 use App\VehicleDetail;
 use Hashids\Hashids;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Gambito
 {
@@ -34,12 +33,12 @@ class Gambito
     // METODOS DE SELECT
     public static function obtenerProducto($id = null)
     {
-        return Producto::findOrFail(is_null($id) ? self::hash(request()->route()->parameter('id'),true): $id)->with('Usuario')->first();
+        return Producto::where('id', is_null($id) ? self::hash(request()->route()->parameter('id'),true): $id)->with('Usuario')->first();
     }
 
     public static function checkBalance()
     {
-        return Balance::where('user_id', Auth::user()->id)->firstOrFail();
+        return Balance::where('user_id', Auth::user()->id)->first();
     }
 
     public static function obtenerMensajes($id = null, $ranking = false )
@@ -61,13 +60,18 @@ class Gambito
     }
 
     //METODOS DE CREATE/UPDATE
-    protected static function hacerDescuento()
+    protected static function hacerDescuento($descuento)
     {
-        return Garantia::create([
-            'producto_id' => self::hash(request()->route()->parameter('id'), true),
-            'user_id' => Auth::id(),
-            'monto' => self::obtenerProducto()->garantia,
-        ]);
+        return DB::transaction(function()use($descuento){
+            Garantia::create([
+                'producto_id' => self::hash(request()->route()->parameter('id'), true),
+                'user_id' => Auth::id(),
+                'monto' => self::obtenerProducto()->garantia,
+            ]);
+            Balance::where('user_id', Auth::id())->update([
+                'monto' => $descuento
+            ]);
+        });
     }
 
     //METODOS DE COMPROBACION
@@ -108,12 +112,12 @@ class Gambito
     }
 
     // ACCIONES COMPLEJAS Y REDIRECCIONES
-    //TODO: Corregir este Redirect
     public static function descuentoGarantia()
     {
         $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
 
         if ($descuento < 0) {
+    //TODO: Corregir este Redirect 1
             return redirect()->route('index')->with('flash', 'No se le puede descuntar ese monto de garantia, no tiene suficientes fondos, porfavor recargue');
         }
 
@@ -124,7 +128,7 @@ class Gambito
 
         if (is_null($check)) {
             //descontar la garantia al balance solo si no se hizo para esta subasta
-            self::hacerDescuento();
+            self::hacerDescuento($descuento);
         }
         return true;
     }

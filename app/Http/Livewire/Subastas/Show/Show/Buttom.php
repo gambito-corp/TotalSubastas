@@ -2,15 +2,15 @@
 
 namespace App\Http\Livewire\Subastas\Show\Show;
 
-use App\Producto;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use App\Helpers\Gambito;
+
 class Buttom extends Component
 {
     public $producto;
     public $estado;
+    public $tyc;
     protected $listeners = ['refreshChildren'];
 
     public function mount($producto)
@@ -26,6 +26,7 @@ class Buttom extends Component
 
     public function pujar()
     {
+        dd($this->tyc);
         $this->producto->precio += $this->producto->puja;
         $this->producto->user_id = Auth::user()->id;
         $this->producto->update();
