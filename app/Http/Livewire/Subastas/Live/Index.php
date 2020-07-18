@@ -77,7 +77,6 @@ class Index extends Component
         $this->timer = Gambito::cuentaRegresiva($this->identificador);
         $this->activos = ActiveAuc::where('producto_id', $this->identificador)->count();
         $this->contador = 1;
-//        dd($this->resultados);
     }
 
     public function hydrate()

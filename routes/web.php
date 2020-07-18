@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('index');
-Route::get('/index', 'HomeController@index')->name('index');
+//Route::get('/index', 'HomeController@index')->name('index');
 
 //VISTAS ESTATICAS
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta

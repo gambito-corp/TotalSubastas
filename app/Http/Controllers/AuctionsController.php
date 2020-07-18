@@ -38,7 +38,10 @@ class AuctionsController extends Controller
         $producto = Gambito::obtenerProducto();
         Gambito::checkInicioSubasta($producto);
         Gambito::checkBalance();
-        Gambito::descuentoGarantia();
+        $return  = Gambito::descuentoGarantia();
+        if($return == false){
+            return redirect()->route('noBalance');
+        }
 
         $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $producto->id)->first();
         if(!$activo)
@@ -129,8 +132,7 @@ class AuctionsController extends Controller
 
     public function noBalance()
     {
-//        dd('holi');
-        return redirect()->route('index')->with([
+        return redirect('/')->with([
             'message' => 'estimado lamentablemente no Dispones de suficiente dinero para cubrir la garantia',
             'alerta' => 'danger'
         ]);

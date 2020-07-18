@@ -60,18 +60,21 @@ class Gambito
     }
 
     //METODOS DE CREATE/UPDATE
-    protected static function hacerDescuento($descuento)
+    protected static function hacerDescuento($descuento, $noBalance)
     {
-        return DB::transaction(function()use($descuento){
-            Garantia::create([
-                'producto_id' => self::hash(request()->route()->parameter('id'), true),
-                'user_id' => Auth::id(),
-                'monto' => self::obtenerProducto()->garantia,
-            ]);
-            Balance::where('user_id', Auth::id())->update([
-                'monto' => $descuento
-            ]);
-        });
+        if($noBalance){
+            DB::transaction(function()use($descuento){
+                Garantia::create([
+                    'producto_id' => self::hash(request()->route()->parameter('id'), true),
+                    'user_id' => Auth::id(),
+                    'monto' => self::obtenerProducto()->garantia,
+                ]);
+                Balance::where('user_id', Auth::id())->update([
+                    'monto' => $descuento
+                ]);
+            });
+        }
+        return true;
     }
 
     //METODOS DE COMPROBACION
@@ -114,11 +117,11 @@ class Gambito
     // ACCIONES COMPLEJAS Y REDIRECCIONES
     public static function descuentoGarantia()
     {
+        $return = true;
         $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
 
         if (is_numeric($descuento) && ($descuento<0)) {
-        //TODO: Corregir este Redirect 1
-            return redirect(route('noBalance'));
+           $return = false;
         }
         //comprobar que el descuento no se hizo antes
         $check = Garantia::where('producto_id', self::hash(request()->route()->parameter('id'), true))
@@ -126,9 +129,9 @@ class Gambito
             ->first();
         if (is_null($check)) {
             //descontar la garantia al balance solo si no se hizo para esta subasta
-            self::hacerDescuento($descuento);
+            self::hacerDescuento($descuento, $return);
         }
-        return true;
+        return $return;
     }
 
     public static function generarRanking($id = false)
