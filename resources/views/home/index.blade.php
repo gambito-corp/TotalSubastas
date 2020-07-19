@@ -10,8 +10,8 @@
 		'3' => 3,
 		'4' => 4
 		];
-        @endphp        
-        <div class="col-md-6  pl-md-0  mb-sm-4 mb-xs-4 col-sm-12 order-md-1 radius">
+        @endphp
+        <div class="col-md-6  pl-md-0  mb-sm-4 mb-xs-4 col-sm-12 order-md-1 radius slider">
             <div id="FirstSlide" class="carousel slide first-slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#FirstSlide" data-slide-to="0" class=" indicator "></li>
@@ -23,7 +23,7 @@
                 <div class="carousel-inner slide-border">
                     {{-- //TODO: hACER lOOP --}}
                     <div class="carousel-item active first" data-interval="100000">
-                        <span class="text-light pt-1 live-today">
+                        <!-- <span class="text-light pt-1 live-today">
                             Hoy
                         </span>
                         <article class="first-slide">
@@ -43,16 +43,16 @@
                                     <span class="badge ml-4 badge-button_count_slide">10</span>
                                 </button>
                             </figure>
-                        </article>
-                        <img class="carousel-item-a_imagen" src="./assets/img/image-205.png" height="555px" alt="...">
+                        </article> -->
+                        <img class="carousel-item-a_imagen" src="./assets/img/banner1.png" height="555px" alt="...">
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6  sec_in-out order-md-2">
-            <div class="row bg-y-light  slide-border ">
-                <div class="oval third_in-out  mr-5 mt-4"></div>
+            <div class="row slide-border ">
+                <!-- <div class="oval third_in-out  mr-5 mt-4"></div>
                 <div class=" col ml-3">
                     <article class=" sec-carousel">
                         <p class="carousel-text_item_b-top">¿COMO SUBASTAR?</p>
@@ -71,13 +71,14 @@
                     <div class="col-md-7 col-sm-7 float-right grl-slideshow  ">
                         <img src="./assets/img/image-169.png " width="85%" style="height:352px;" class="responsive mt-3 " alt="">
                     </div>
-                </div>
+                </div> -->
+                <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
             </div>
             <div class="row">
                 <div class="col-md-6 p-0  d-md-flex  mt-4 order-md-3">
-                    <div class="col col-md-11 mb-sm-1 card-slide card-slide_success col-sm-12 p-0  mr-md-4 order-md-1 bg-success_light order-md-1     ">
-                        
-                        <article class="dwnld-card">
+
+                    <div class="col col-md-11 mb-sm-1 card-slide card-slide_success col-sm-12 p-0  mr-md-4 order-md-1 bg-success_light order-md-1 banner3">
+                        <!-- <article class="dwnld-card">
                             <strong class="text-light d-flex justify-content-center pt-3 pr-2">Documentación a la mano <br> de
                                 cada
                                 subasta
@@ -85,12 +86,14 @@
                             <p class="text-light d-flex justify-content-center pt-2 pr-2 border-bottom pl-2 pr-2 pb-2 text-doc_saga-fallabella">
                                 PDF, 125 MB, Sep 8 at 2:03 pm
                             </p>
-                            <span class="d-flex justify-content-center text-light pb-3">                            
+                            <span class="d-flex justify-content-center text-light pb-3">
                                 <span class="f-500">Download</span>
                             </span>
-                        </article>
+                        </article> -->
+                        <!-- <img class="carousel-item-a_imagen" src="./assets/img/banner3.png" height="182px" width="385px" alt="..."> -->
                     </div>
-                    <div class="col col-md-11 mb-sm-1 card-slide col-sm-12 ml-md-4 pb-sm-3  order-md-2  bg-primary ">
+
+                    <div class="col col-md-11 mb-sm-1 card-slide col-sm-12 ml-md-4 pb-sm-3  order-md-2  bg-primary banner4">
                         <article>
                             <strong class="text-light d-flex justify-content-start pl-3  gift_card">Regalamos 20$</strong>
                             <p class="text-light d-flex justify-content-start pl-3">
@@ -115,5 +118,5 @@
       @livewire('index.index')
     </div>
     @include('assets.widgets')
-    
+
 @endsection
