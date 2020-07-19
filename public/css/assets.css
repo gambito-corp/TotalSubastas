@@ -709,9 +709,10 @@ article.sec-carousel {
 .carousel-item-a_imagen {
     opacity: 0.99;
     background: #40303d59 0% 0% no-repeat padding-box;
-    width: 99%;
+    width: 100%;
     overflow: hidden;
     box-sizing: border-box;
+    border-radius: 10px;
 }
 .carousel-text_item_b {
     font-weight: 700;
@@ -794,6 +795,10 @@ article.sec-carousel {
 .badge-button_count_slide {
     font-family: var(--var-font-family);
     font-weight: 100;
+}
+
+.slider{
+    padding-right: 20px !important;
 }
 .badge-sea {
     background-color: var(--var-badge-sea);
@@ -1249,6 +1254,19 @@ article.sec-carousel {
 .card-slide {
     border-radius: 10px;
 }
+
+.banner3 {
+    background-image:url(../../assets/img/banner3.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.banner4 {
+    background-image:url(http://127.0.0.1:8000/assets/img/banner4.png);
+    background-size: cover;
+    background-position: center;
+}
+
 .gift_card {
     font-size: 25px;
     padding-top: 5px;
@@ -1256,8 +1274,9 @@ article.sec-carousel {
 .card-slide_success img {
     position: absolute;
     right: 0;
-    padding-right: 20px;
+    padding-right: 0px;
 }
+
 .text-light_darken {
     color: var(--var-light-gray);
 }
