@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Address;
 use App\Http\Controllers\Controller;
-use App\Person;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -55,7 +51,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-//        dd('leego al validador');
         return Validator::make($data, [
             "nombre" => ['required', 'string', 'max:255'],
             "apellido" => ['required', 'string', 'max:255'],
@@ -80,13 +75,11 @@ class RegisterController extends Controller
 
 
         $this->guard()->login($user);
-//        dd('Metodo Register despues de autenticar');
 
         if ($response = $this->registered($request, $user)) {
             dd('Metodo Registerdentro de la respuesta if');
             return $response;
         }
-//dd('Metodo Register antes de la falida final');
         return $request->wantsJson()
             ? new Response('', 201)
             : redirect($this->redirectPath());

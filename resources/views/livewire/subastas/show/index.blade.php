@@ -13,7 +13,7 @@
                                     <rect width="100%" height="100%" fill="#ffd980"></rect>
                                     <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
                                 </svg>
-                                <h1 class="font-weight-bold">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h1>
+                                <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
                                 <h3>{{$vehiculo->year}}</h3>
                             </figure>
                             <ul class="nav justify-content-end">

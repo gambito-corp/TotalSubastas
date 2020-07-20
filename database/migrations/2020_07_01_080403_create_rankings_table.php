@@ -18,6 +18,7 @@ class CreateRankingsTable extends Migration
             $table->foreignId('producto_id');
             $table->foreignId('user_id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

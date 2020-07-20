@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\ActiveAuc;
 use App\Balance;
+use App\Company;
 use App\Helpers\Gambito;
 use App\Message;
 use App\Producto;
 use App\User;
-use App\Vehicles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeController extends Controller
 {
@@ -45,6 +45,12 @@ class HomeController extends Controller
 
         return User::where('id','like', '%' .$id . '%')->get()->dd();
 
+    }
+
+    public function test()
+    {
+        $relacion = Company::all();
+        dd($relacion->load('Lotes', 'Productos')->first());
     }
 
 

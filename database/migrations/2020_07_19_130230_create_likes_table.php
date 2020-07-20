@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKeyToImagenesVehiculosTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddForeignKeyToImagenesVehiculosTable extends Migration
      */
     public function up()
     {
-        Schema::table('imagenes_vehiculos', function (Blueprint $table) {
-            $table->foreign('producto_id')
-                ->references('id')->on('productos');
+        Schema::create('likes', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('producto_id');
+            $table->foreignId('user_id');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -26,8 +29,6 @@ class AddForeignKeyToImagenesVehiculosTable extends Migration
      */
     public function down()
     {
-        Schema::table('imagenes_vehiculos', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('likes');
     }
 }

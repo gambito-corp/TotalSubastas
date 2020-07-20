@@ -14,10 +14,10 @@ class CreateMessagesTable extends Migration {
 	{
 		Schema::create('messages', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true)->unsigned();
-			$table->integer('producto_id')->unsigned();
-			$table->integer('user_id')->unsigned();
-			$table->string('message')->nullable();
+			$table->id();
+			$table->unsignedBigInteger('producto_id');
+			$table->unsignedBigInteger('user_id');
+			$table->string('message');
 			$table->timestamps();
 			$table->softDeletes();
 		});

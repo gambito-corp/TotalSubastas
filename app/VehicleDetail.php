@@ -15,8 +15,11 @@ class VehicleDetail extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     /**
@@ -25,7 +28,7 @@ class VehicleDetail extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -38,5 +41,16 @@ class VehicleDetail extends Model
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-    
+
+    //RELACIONES
+    public function Marca()
+    {
+        return $this->belongsTo(Brand::class, 'marca_id')->withDefault();
+    }
+
+    public function Modelo()
+    {
+        return $this->belongsTo(Brand::class, 'modelo_id')->withDefault();
+    }
+
 }

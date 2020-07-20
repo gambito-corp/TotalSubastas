@@ -3,16 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ActiveAuc extends Model
 {
+//    use SoftDeletes;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $guarded = [
-
+    protected $fillable = [
+        'producto_id',
+        'user_id'
     ];
 
     /**
@@ -30,20 +34,22 @@ class ActiveAuc extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'id'            => 'integer',
+        'producto_id'   => 'integer',
+        'user_id'       => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+//        'deleted_at'    => 'datetime',
     ];
 
 
-
-
-    public function users()
+    public function User()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class)->withDefault();
     }
 
-    public function products()
+    public function Producto()
     {
-        return $this->belongsTo(Producto::class, 'producto_id');
+        return $this->belongsTo(Producto::class)->withDefault();
     }
 }

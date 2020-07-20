@@ -21,7 +21,7 @@ class Buttom extends Component
     public function updatedTyc()
     {
         $this->validate([
-           'tyc' => 'required',
+            'tyc' => 'required',
         ]);
     }
 

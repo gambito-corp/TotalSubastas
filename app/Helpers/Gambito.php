@@ -9,7 +9,6 @@ use App\Garantia;
 use App\Message;
 use App\Producto;
 use App\User;
-use App\Vehicle;
 use App\VehicleDetail;
 use Hashids\Hashids;
 use Illuminate\Support\Facades\Auth;
@@ -50,13 +49,7 @@ class Gambito
 
     public static function obtenerVehiculo($id = null)
     {
-        return Vehicle::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->first();
-    }
-
-
-    public static function obtenerDetalleV($id = null)
-    {
-        return VehicleDetail::where('vehiculo_id', is_null($id)?self::obtenerVehiculo()->id:$id)->first();
+        return VehicleDetail::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->first();
     }
 
     //METODOS DE CREATE/UPDATE
@@ -121,7 +114,7 @@ class Gambito
         $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
 
         if (is_numeric($descuento) && ($descuento<0)) {
-           $return = false;
+            $return = false;
         }
         //comprobar que el descuento no se hizo antes
         $check = Garantia::where('producto_id', self::hash(request()->route()->parameter('id'), true))
@@ -170,7 +163,7 @@ class Gambito
         $producto->precio += $producto->puja;
         $producto->user_id = Auth::id();
         if($live && $producto->finalized_at == now()){
-             $producto->finalized_at = now()->addSeconds(8);
+            $producto->finalized_at = now()->addSeconds(8);
         }
         $producto->update();
 

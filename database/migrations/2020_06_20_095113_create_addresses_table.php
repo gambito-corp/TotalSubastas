@@ -14,18 +14,19 @@ class CreateAddressesTable extends Migration {
 	{
 		Schema::create('addresses', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('pais_id')->unsigned();
-			$table->integer('departamento_id')->unsigned();
-			$table->integer('provincia_id')->unsigned();
-			$table->integer('distrito_id')->unsigned();
-			$table->string('tipo_via')->nullable();
-			$table->string('direccion1')->nullable();
+			$table->id();
+			$table->unsignedBigInteger('user_id');
+			$table->unsignedBigInteger('pais_id');
+			$table->unsignedBigInteger('departamento_id');
+			$table->unsignedBigInteger('provincia_id');
+			$table->unsignedBigInteger('distrito_id');
+			$table->string('tipo_via');
+			$table->string('direccion1');
 			$table->string('direccion2')->nullable();
-			$table->string('numero')->nullable();
+			$table->string('numero');
 			$table->string('int_ext')->nullable();
 			$table->string('referencia')->nullable();
-			$table->string('titulo_direccion')->nullable();
+			$table->string('titulo_direccion');
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -39,7 +40,7 @@ class CreateAddressesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('addresses');
+		Schema::dropIfExists('addresses');
 	}
 
 }

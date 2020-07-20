@@ -4,15 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use VoyagerRelationSelector\Traits\RelationModel;
-
 
 class Address extends Model
 {
     use SoftDeletes;
-    use RelationModel;
-
-
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +15,17 @@ class Address extends Model
      * @var array
      */
     protected $fillable = [
-
+        'pais_id',
+        'departamento_id',
+        'provincia_id',
+        'distrito_id',
+        'tipo_via',
+        'direccion1',
+        'direccion2',
+        'numero',
+        'int_ext',
+        'referencia',
+        'titulo_direccion'
     ];
 
     /**
@@ -38,25 +43,34 @@ class Address extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'                => 'integer',
+        'pais_id'           => 'integer',
+        'departamento_id'   => 'integer',
+        'provincia_id'      => 'integer',
+        'distrito_id'       => 'integer',
+        'created_at'        => 'datetime',
+        'updated_at'        => 'datetime',
+        'deleted_at'        => 'datetime',
     ];
 
-   //Scope
-    public function scopePais($query)
+    //RELACIONES
+    public function Pais()
     {
-
-        dd($query);
-//        $query = Department::where('pais_id', 1)->get();
-
-        return $query;
+        return $this->hasOne(Country::class, 'pais_id', 'id');
     }
 
-    public function scopeDepartamento($query, $departamento_id)
+    public function Departamento()
     {
-        ddd('holi', $query);
-        return $query->where('pais_id', $departamento_id);
-        // return 'hola mundo';   ç 
+        return $this->hasOne(Country::class, 'departamento_id', 'id');
+    }
+
+    public function Provincia()
+    {
+        return $this->hasOne(Country::class, 'provincia_id', 'id');
+    }
+
+    public function Distrito()
+    {
+        return $this->hasOne(Country::class, 'distrito_id', 'id');
     }
 }

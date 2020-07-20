@@ -15,7 +15,16 @@ class Balance extends Model
      * @var array
      */
     protected $guarded = [
-
+        'user_id',
+        'banco_id',
+        'monto',
+        'tipo',
+        'descripcion',
+        'boucher',
+        'motivo',
+        'cuenta',
+        'transaccion_banco',
+        'abono_at',
     ];
 
     /**
@@ -33,10 +42,19 @@ class Balance extends Model
      * @var array
      */
     protected $casts = [
-        'abono_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'user_id'       => 'integer',
+        'banco_id'      => 'integer',
+        'abono_at'      => 'datetime',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
+
+    //RELACIONES
+//    public function Usuario()
+//    {
+//        return
+//    }
 
 }

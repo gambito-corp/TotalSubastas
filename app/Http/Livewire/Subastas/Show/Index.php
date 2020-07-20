@@ -18,7 +18,6 @@ class Index extends Component
         $id = Gambito::hash(request()->route()->parameter('id'), true);
         $this->producto = Gambito::obtenerProducto($id);
         $this->vehiculo = Gambito::obtenerVehiculo();
-        $this->detalle = VehicleDetail::where('Vehiculo_id', Gambito::obtenerVehiculo()->id)->first();
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }

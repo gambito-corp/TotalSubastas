@@ -14,16 +14,16 @@ class CreateLegalPersonsTable extends Migration {
 	{
 		Schema::create('legal_persons', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('persona_id')->unsigned();
-			$table->integer('banco_id')->unsigned()->nullable();
-			$table->integer('direccion_id')->unsigned()->nullable();
-			$table->integer('direccion2_id')->unsigned()->nullable();
-			$table->string('nombre')->nullable();
-			$table->string('razon_social')->nullable();
-			$table->string('ruc')->nullable();
+			$table->id();
+			$table->unsignedBigInteger('persona_id');
+			$table->unsignedBigInteger('banco_id');
+			$table->unsignedBigInteger('direccion_id')->nullable();
+			$table->unsignedBigInteger('direccion2_id')->nullable();
+			$table->string('nombre');
+			$table->string('razon_social');
+			$table->string('ruc');
 			$table->string('numero_cuenta')->nullable();
-			$table->string('telefono')->nullable();
+			$table->string('telefono');
 			$table->timestamps();
 			$table->softDeletes();
 		});

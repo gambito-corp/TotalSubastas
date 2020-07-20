@@ -14,13 +14,13 @@ class CreatePeopleTable extends Migration {
 	{
 		Schema::create('people', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->integer('documento_id')->unsigned()->nullable();
-			$table->integer('direccion_id')->unsigned()->nullable();
-			$table->integer('banco_id')->unsigned()->nullable();
+			$table->id();
+			$table->unsignedBigInteger('user_id');
+			$table->unsignedBigInteger('direccion_id')->nullable();
+			$table->unsignedBigInteger('banco_id')->nullable();
 			$table->string('nombres')->nullable();
 			$table->string('apellidos')->nullable();
+			$table->string('tipo_documento')->nullable();
 			$table->string('numero_documento')->nullable();
 			$table->string('digito_documento')->nullable();
 			$table->string('genero')->nullable();

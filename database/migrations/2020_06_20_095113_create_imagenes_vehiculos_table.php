@@ -14,11 +14,11 @@ class CreateImagenesVehiculosTable extends Migration {
 	{
 		Schema::create('imagenes_vehiculos', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->integer('vehiculo_id')->unsigned();
-			$table->integer('producto_id')->unsigned();
-			$table->string('imagen')->nullable();
+			$table->id();
+			$table->unsignedBigInteger('empresa_id');
+			$table->unsignedBigInteger('lote_id');
+			$table->unsignedBigInteger('producto_id');
+			$table->string('imagen');
 			$table->string('titulo')->nullable();
 			$table->text('descripcion', 65535)->nullable();
 			$table->timestamps();

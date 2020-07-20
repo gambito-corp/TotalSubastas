@@ -15,7 +15,13 @@ class Audit extends Model
      *
      * @var array
      */
-    protected $guarded = [
+    protected $fillable = [
+        'user_id',
+        'ip',
+        'tipo_dispositivo',
+        'tipo_so',
+        'navegador',
+        'version',
 
     ];
 
@@ -34,9 +40,15 @@ class Audit extends Model
      * @var array
      */
     protected $casts = [
+        'id'            => 'integer',
+        'user_id'    => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime',
     ];
-
+    //RELACIONES
+    public function Usuario()
+    {
+        return $this->hasMany(User::class)->withDefault();
+    }
 }

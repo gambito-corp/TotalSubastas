@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActiveAucsTable extends Migration
+class CreateRolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateActiveAucsTable extends Migration
      */
     public function up()
     {
-        Schema::create('active_aucs', function (Blueprint $table) {
+        Schema::create('rols', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('producto_id');
-            $table->foreignId('user_id');
+            $table->string('name')->unique();
+            $table->string('display_name');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateActiveAucsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('active_aucs');
+        Schema::dropIfExists('rols');
     }
 }

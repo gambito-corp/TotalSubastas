@@ -15,7 +15,7 @@ class MarcasController extends Controller
 
     public function index()
     {
-        $marcas = Brand::with('Modelo')->get();
+        $marcas = Brand::all();
         return view('admin.marcas.view', compact('marcas'));
     }
 

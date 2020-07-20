@@ -14,17 +14,23 @@ class CreateProductosTable extends Migration {
 	{
 		Schema::create('productos', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->Integer('user_id')->unsigned()->nullable();
-			$table->Integer('lote_id')->unsigned()->nullable();
-			$table->string('producto');
+			$table->id();
+			$table->unsignedBigInteger('user_id')->nullable();
+			$table->unsignedBigInteger('empresa_id');
+			$table->unsignedBigInteger('lote_id');
+			$table->string('ciudad');
+            $table->string('tipo_vehiculo');
+            $table->string('tipo_subasta');
+            $table->string('tipo_reserva');
+			$table->string('nombre');
+			$table->string('imagen')->default('img/vehiculos/coche.png');
 			$table->string('precio');
 			$table->string('precio_reserva');
 			$table->string('garantia');
 			$table->string('puja');
 			$table->string('comision');
-            $table->dateTime('started_at')->nullable();
-            $table->dateTime('finalized_at')->nullable();
+            $table->dateTime('started_at');
+            $table->dateTime('finalized_at');
 			$table->timestamps();
 			$table->softDeletes();
 		});

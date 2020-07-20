@@ -27,10 +27,10 @@ class AuctionsController extends Controller
 
     public function show()
     {
-        $producto = Gambito::obtenerProducto();
-        $vehiculo = Gambito::obtenerVehiculo();
-        $detalle = Gambito::obtenerDetalleV();
-        return view('auction.show', compact('producto', 'vehiculo', 'detalle'));
+        $producto = Gambito::obtenerProducto()->load('Vehiculo');
+//        dd($producto->Vehiculo);
+
+        return view('auction.show', compact('producto'));
     }
 
     public function live()

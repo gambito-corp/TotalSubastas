@@ -30,10 +30,7 @@ class UserSeeder extends Seeder
             'email'             => 'admin@gonzalo.com',
             'avatar'            => 'users/default.png',
             'email_verified_at' => now(),
-            'password'          => '$2y$10$kxtT5iAxHNGLisAnFI6dbuHtJFZxqddivOnVlJvH7ndal/gp15x3y'
+            'password'          => Hash::make('Admin')
         ]);
-        factory(User::class)->times(100)->create();
-
-
     }
 }

@@ -96,7 +96,7 @@ FIN DE LA CONSTRUCCION
 
 
 /* RUTA DE TEST */
-Route::view('indextest', 'test.index');
+Route::get('indextest', 'HomeController@test');
 Route::view('showtest', 'test.show');
 Route::view('livetest', 'test.live');
 Route::view('testAjax', 'include._test');

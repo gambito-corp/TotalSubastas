@@ -14,12 +14,11 @@ class CreateLotsTable extends Migration {
 	{
 		Schema::create('lots', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->integer('user_id')->unsigned();
-			$table->integer('empresa_id')->unsigned();
-			$table->string('nombre')->nullable();
+			$table->id();
+			$table->unsignedBigInteger('empresa_id');
+			$table->string('nombre');
 			$table->string('descripcion')->nullable();
-			$table->string('slug')->nullable();
+			$table->string('slug');
 			$table->dateTime('subasta_at')->nullable();
 			$table->timestamps();
 			$table->softDeletes();

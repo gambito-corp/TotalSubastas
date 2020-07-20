@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use TCG\Voyager\Models\Role;
+use App\Rol as Role;
 
 class RolesController extends Controller
 {

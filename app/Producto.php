@@ -60,7 +60,7 @@ class Producto extends Model
 
     public function Vehiculo()
     {
-        return $this->hasMany('App\Vehicle');
+        return $this->hasOne(VehicleDetail::class)->withDefault();
     }
 
     public function ranking()

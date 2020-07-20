@@ -14,9 +14,10 @@ class CreateBrandTable extends Migration {
 	{
 		Schema::create('brands', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->string('nombre')->nullable();
-			$table->string('slug')->nullable();
+			$table->id();
+            $table->unsignedBigInteger('parent_id')->nullable();
+			$table->string('nombre')->unique();
+			$table->string('slug')->unique();
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -30,7 +31,8 @@ class CreateBrandTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('brand');
+
+		Schema::dropIfExists('brands');
 	}
 
 }
