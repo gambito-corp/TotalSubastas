@@ -54,5 +54,12 @@ class LoteSeeder extends Seeder
             'slug'          => 'lote_040420',
             'subasta_at'    => '2020-07-19 17:20:00'
         ]);
+        Lot::create([
+            'empresa_id'    => 4,
+            'nombre'        => 'Lote #050420',
+            'descripcion'   => '<p>Lote de test 7</p>',
+            'slug'          => 'lote_050420',
+            'subasta_at'    => '2020-07-19 17:20:00'
+        ]);
     }
 }

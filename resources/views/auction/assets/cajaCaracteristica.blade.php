@@ -78,7 +78,7 @@
               <strong>Modelo</strong>
               <br>
               @isset($producto->Vehiculo->Modelo->nombre)
-                <small>{{$producto->Vehiculo->Marca->nombre}}</small>
+                <small>{{$producto->Vehiculo->Modelo->nombre}}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset

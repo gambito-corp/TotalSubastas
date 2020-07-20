@@ -32,6 +32,24 @@ class ProductoSeeder extends Seeder
         ]);
         Producto::create([
             'user_id'           => 3,
+            'empresa_id'        => 4,
+            'lote_id'           => 7,
+            'ciudad'            => 'Lima',
+            'tipo_vehiculo'     => 'Vehiculo Ligero',
+            'tipo_subasta'      => 'Subasta',
+            'tipo_reserva'      => 'Sin Reserva',
+            'nombre'            => 'CHEVROLET SAIL 2015',
+            'imagen'            => 'img/vehiculos/coche.png',
+            'precio'            => 1000,
+            'precio_reserva'    => 3000,
+            'garantia'          => 1000,
+            'puja'              => 100,
+            'comision'          => 5,
+            'started_at'        => '2020-06-13 15:55:00',
+            'finalized_at'      => '2020-07-20 17:04:14'
+        ]);
+        Producto::create([
+            'user_id'           => 3,
             'empresa_id'        => 1,
             'lote_id'           => 2,
             'ciudad'            => 'Lima',

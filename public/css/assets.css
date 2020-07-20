@@ -142,7 +142,7 @@ footer {
     background-color: var(--var-dark);
 }
 .title-light_darken {
-    font-size: 15px;
+    font-size: 20px;
     font-family: var(--var-font);
     font-weight: 400;
 }
@@ -345,9 +345,9 @@ article.p-side_nav h2 {
 
 .pub-item_head .bookmark {
     right: 0;
-    margin-right: 15px;
-    margin-top: 15px;
-    color: #ffffff;
+    margin-right: 10px;
+    margin-top: 14px;
+    color: #bcbfc2;
 }
 .text-fh_nav {
     font-size: 14px;
@@ -709,10 +709,9 @@ article.sec-carousel {
 .carousel-item-a_imagen {
     opacity: 0.99;
     background: #40303d59 0% 0% no-repeat padding-box;
-    width: 100%;
+    width: 99%;
     overflow: hidden;
     box-sizing: border-box;
-    border-radius: 10px;
 }
 .carousel-text_item_b {
     font-weight: 700;
@@ -795,10 +794,6 @@ article.sec-carousel {
 .badge-button_count_slide {
     font-family: var(--var-font-family);
     font-weight: 100;
-}
-
-.slider{
-    padding-right: 20px !important;
 }
 .badge-sea {
     background-color: var(--var-badge-sea);
@@ -1153,11 +1148,11 @@ article.sec-carousel {
 }
 .t-rform_top_img {
     background-color: var(--var-dark);
-    background-image: url("../img/image-083.png");
+    background-image: url("../assets/img/image-083.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 14px;
+    border-radius: 10px 0 0 10px;
     background-repeat: no-repeat;
 }
 .checkbox-primary {
@@ -1254,19 +1249,6 @@ article.sec-carousel {
 .card-slide {
     border-radius: 10px;
 }
-
-.banner3 {
-    background-image:url(../../assets/img/banner3.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.banner4 {
-    background-image:url(http://127.0.0.1:8000/assets/img/banner4.png);
-    background-size: cover;
-    background-position: center;
-}
-
 .gift_card {
     font-size: 25px;
     padding-top: 5px;
@@ -1274,9 +1256,8 @@ article.sec-carousel {
 .card-slide_success img {
     position: absolute;
     right: 0;
-    padding-right: 0px;
+    padding-right: 20px;
 }
-
 .text-light_darken {
     color: var(--var-light-gray);
 }
@@ -1322,7 +1303,7 @@ article.sec-carousel {
     height: 14px;
     width: 50px;
     background-image: url(https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png);
-    background-position: right;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: 2900%;
 }
@@ -1432,7 +1413,7 @@ article.sec-carousel {
 }
 
 .heart:hover {
-    background-position: left;
+    background-position: right;
 }
 
 .is_animating {
@@ -1499,9 +1480,19 @@ article.sec-carousel {
     padding: 2rem 1rem 2rem 1rem;
     border: 1px solid var(--var-dark);
 }
+.button-finish {
+    background-color: var(--var-dark);
+    color: var(--var-ligthen);
+}
+.footer-color {
+    background-color: var(--var-darken_light);
+}
+.vertical-align-middle {
+    vertical-align: middle;
+}
 
 
-:root {
+:root { 
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;

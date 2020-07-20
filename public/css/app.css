@@ -13044,12 +13044,7 @@ button.bg-dark:focus {
 
 .mb-2,
 .my-2 {
-  margin-bottom: 0.9rem !important;
-}
-
-.mb-2 ,
-.text-light{
-    margin-top: 0.8rem;
+  margin-bottom: 0.5rem !important;
 }
 
 .ml-2,
@@ -13458,7 +13453,7 @@ button.bg-dark:focus {
 
   .mb-sm-1,
   .my-sm-1 {
-    margin-bottom: 0 rem !important;
+    margin-bottom: 0.25rem !important;
   }
 
   .ml-sm-1,
@@ -15511,5 +15506,149 @@ a.text-dark:focus {
 
 .bg-fondo {
   background-color: #FFF;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Thin.eot?cdf3394d41c21996b4a3b40bf12fec19);
+  src: local("../assets/fonts/graphik/Graphik Thin"), local("../assets/fonts/graphik/Graphik-Thin"), url(/fonts/Graphik-Thin.eot?cdf3394d41c21996b4a3b40bf12fec19) format("embedded-opentype"), url(/fonts/Graphik-Thin.woff2?d4b25fe4abfc79d73fa378ad09f25a9e) format("woff2"), url(/fonts/Graphik-Thin.woff?a1738728d9d055531e504cbb14db2e4a) format("woff"), url(/fonts/Graphik-Thin.ttf?64ea3ce106c8e9ffaf839150d6d7c297) format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-ThinItalic.eot?d1ddf6d0dbd0296fd4b849b07f163644);
+  src: local("../assets/fonts/graphik/Graphik Thin Italic"), local("../assets/fonts/graphik/Graphik-ThinItalic"), url(/fonts/Graphik-ThinItalic.eot?d1ddf6d0dbd0296fd4b849b07f163644) format("embedded-opentype"), url(/fonts/Graphik-ThinItalic.woff2?e79f0c52482c18f822e3a56643f301c8) format("woff2"), url(/fonts/Graphik-ThinItalic.woff?5528414e56ebe4ee75bb0362e4330478) format("woff"), url(/fonts/Graphik-ThinItalic.ttf?5f33ed0b472461031b46672095fe8494) format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik Super";
+  src: url(/fonts/Graphik-SuperItalic.eot?84a2603acbff407dc4eab4cb8fa52cb5);
+  src: local("../assets/fonts/graphik/Graphik Super Italic"), local("../assets/fonts/graphik/Graphik-SuperItalic"), url(/fonts/Graphik-SuperItalic.eot?84a2603acbff407dc4eab4cb8fa52cb5) format("embedded-opentype"), url(/fonts/Graphik-SuperItalic.woff2?7fc5ec40eb306472154728a0c311f183) format("woff2"), url(/fonts/Graphik-SuperItalic.woff?f3a29784cb4a309923f72dfa29c81974) format("woff"), url(/fonts/Graphik-SuperItalic.ttf?bc504334d81143399c198ef49218ffc8) format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Medium.eot?9d1076f03cb3999e9c2ac33a6503be3b);
+  src: local("../assets/fonts/graphik/Graphik Medium"), local("../assets/fonts/graphik/Graphik-Medium"), url(/fonts/Graphik-Medium.eot?9d1076f03cb3999e9c2ac33a6503be3b) format("embedded-opentype"), url(/fonts/Graphik-Medium.woff2?d92a58e99202047fe2aa5212f4f5f76b) format("woff2"), url(/fonts/Graphik-Medium.woff?320dfef11ff346be8471ce27b1ca7c9d) format("woff"), url(/fonts/Graphik-Medium.ttf?f4bf4d53aedf028b5ff1513eee2dd797) format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Black.eot?ce8bddde3442e0c8fff08ec36bedcdd2);
+  src: local("../assets/fonts/graphik/Graphik Black"), local("../assets/fonts/graphik/Graphik-Black"), url(/fonts/Graphik-Black.eot?ce8bddde3442e0c8fff08ec36bedcdd2) format("embedded-opentype"), url(/fonts/Graphik-Black.woff2?9a0ef8b2440a975746b25967c816e879) format("woff2"), url(/fonts/Graphik-Black.woff?3ae1eec6e3597f93895e3a51571ea25a) format("woff"), url(/fonts/Graphik-Black.ttf?d4877556151af42f5922bd6d66c785e8) format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik-Semibold";
+  src: url(/fonts/Graphik-Semibold.eot?08fb8dbe62fc049f5410142ecbee8863);
+  src: local("../assets/fonts/graphik/Graphik Semibold"), local("../assets/fonts/graphik/Graphik-Semibold"), url(/fonts/Graphik-Semibold.eot?08fb8dbe62fc049f5410142ecbee8863) format("embedded-opentype"), url(/fonts/Graphik-Semibold.woff2?1c8df4528ee25113741d08341bbdf35c) format("woff2"), url(/fonts/Graphik-Semibold.woff?1b205519a54eb297e538a728cbb9b281) format("woff"), url(/fonts/Graphik-Semibold.ttf?997ca93da23720efe44a4cb7c2107b07) format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik Super";
+  src: url(/fonts/Graphik-Super.eot?1da412ad13f6cca6eb3533e9828ec6f8);
+  src: local("../assets/fonts/graphik/Graphik Super"), local("../assets/fonts/graphik/Graphik-Super"), url(/fonts/Graphik-Super.eot?1da412ad13f6cca6eb3533e9828ec6f8) format("embedded-opentype"), url(/fonts/Graphik-Super.woff2?5173cb55b96f80c0c00fad6c21cc116d) format("woff2"), url(/fonts/Graphik-Super.woff?63abbbadbd32b08ba309bebed155d591) format("woff"), url(/fonts/Graphik-Super.ttf?eb19fd4dd79002801c9f3fdb5e3015c7) format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-ExtralightItalic.eot?9ceb3e0731f5ad6f56c46c2419a0dcfc);
+  src: local("../assets/fonts/graphik/Graphik Extralight Italic"), local("../assets/fonts/graphik/Graphik-ExtralightItalic"), url(/fonts/Graphik-ExtralightItalic.eot?9ceb3e0731f5ad6f56c46c2419a0dcfc) format("embedded-opentype"), url(/fonts/Graphik-ExtralightItalic.woff2?bf101a55a3468e86f17332195eee9895) format("woff2"), url(/fonts/Graphik-ExtralightItalic.woff?50e465dd8b0ed7b513f13dde474d29c8) format("woff"), url(/fonts/Graphik-ExtralightItalic.ttf?c268b44a958d24c040e3fc8c2c3b27d9) format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-BlackItalic.eot?cbdf90c5ad7289b728bbc59bee247432);
+  src: local("../assets/fonts/graphik/Graphik Black Italic"), local("../assets/fonts/graphik/Graphik-BlackItalic"), url(/fonts/Graphik-BlackItalic.eot?cbdf90c5ad7289b728bbc59bee247432) format("embedded-opentype"), url(/fonts/Graphik-BlackItalic.woff2?40fb262dc7b9e91311b9d9c6f92c2eaa) format("woff2"), url(/fonts/Graphik-BlackItalic.woff?53c76fad7598f08532fb4d5c46045558) format("woff"), url(/fonts/Graphik-BlackItalic.ttf?4e36eb5556124d63e77305272a8e35fd) format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-RegularItalic.eot?640f994868b6d1cc9077f9b54347ddf3);
+  src: local("../assets/fonts/graphik/Graphik Regular Italic"), local("../assets/fonts/graphik/Graphik-RegularItalic"), url(/fonts/Graphik-RegularItalic.eot?640f994868b6d1cc9077f9b54347ddf3) format("embedded-opentype"), url(/fonts/Graphik-RegularItalic.woff2?4595d07baf82ae4a476c50d09dda31dc) format("woff2"), url(/fonts/Graphik-RegularItalic.woff?fea48e83ca0c2101d9eb67b1edc4ff83) format("woff"), url(/fonts/Graphik-RegularItalic.ttf?8f5bc5ce8e62837c37f13182095ab723) format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Light.eot?1c566fc64004ded0e1b18bd03c0e0114);
+  src: local("../assets/fonts/graphik/Graphik Light"), local("../assets/fonts/graphik/Graphik-Light"), url(/fonts/Graphik-Light.eot?1c566fc64004ded0e1b18bd03c0e0114) format("embedded-opentype"), url(/fonts/Graphik-Light.woff2?51daf1e00e09fbb85a90f42ca0c22001) format("woff2"), url(/fonts/Graphik-Light.woff?6dfde0e1c1d954b51c6c874b6b048209) format("woff"), url(/fonts/Graphik-Light.ttf?179fb7fc645953b9e0d66f96d7482bdb) format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Bold.eot?8a2d9bd26154e5fd7b220fe8dbc24d70);
+  src: local("../assets/fonts/graphik/Graphik Bold"), local("../assets/fonts/graphik/Graphik-Bold"), url(/fonts/Graphik-Bold.eot?8a2d9bd26154e5fd7b220fe8dbc24d70) format("embedded-opentype"), url(/fonts/Graphik-Bold.woff2?d818a0ff3d2e9abc06721196728d1a19) format("woff2"), url(/fonts/Graphik-Bold.woff?798585dd090cbe09e9d3805abb3b02dd) format("woff"), url(/fonts/Graphik-Bold.ttf?5cf27aa73a35c097e433ba385c98a434) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Regular.eot?8d6a7a8ef761d547f377d389b2628941);
+  src: local("../assets/fonts/graphik/Graphik Regular"), local("../assets/fonts/graphik/Graphik-Regular"), url(/fonts/Graphik-Regular.eot?8d6a7a8ef761d547f377d389b2628941) format("embedded-opentype"), url(/fonts/Graphik-Regular.woff2?13c6337caf0e2d05d511208c36337b8c) format("woff2"), url(/fonts/Graphik-Regular.woff?475fb1f8332e3a4a5364d0cc76d2a9cd) format("woff"), url(/fonts/Graphik-Regular.ttf?a26f29fbb31ea51421fdcb9c57251886) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-BoldItalic.eot?a9951bfa5d33cd7ca56abf9d3c8d5169);
+  src: local("../assets/fonts/graphik/Graphik Bold Italic"), local("../assets/fonts/graphik/Graphik-BoldItalic"), url(/fonts/Graphik-BoldItalic.eot?a9951bfa5d33cd7ca56abf9d3c8d5169) format("embedded-opentype"), url(/fonts/Graphik-BoldItalic.woff2?29c192c8c29c41f563ef00118f8b0324) format("woff2"), url(/fonts/Graphik-BoldItalic.woff?4aca2e5da8a36ffc2f083ec8381cbf07) format("woff"), url(/fonts/Graphik-BoldItalic.ttf?056149d6da9bd9c000c003b2fc87af5f) format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-SemiboldItalic.eot?61dcf5569e20e7ad629aeec554fe8098);
+  src: local("../assets/fonts/graphik/Graphik Semibold Italic"), local("../assets/fonts/graphik/Graphik-SemiboldItalic"), url(/fonts/Graphik-SemiboldItalic.eot?61dcf5569e20e7ad629aeec554fe8098) format("embedded-opentype"), url(/fonts/Graphik-SemiboldItalic.woff2?b80f4c8d1db84653cc543731d22734e8) format("woff2"), url(/fonts/Graphik-SemiboldItalic.woff?befa974be380e8b1f1600f0b3d843fdb) format("woff"), url(/fonts/Graphik-SemiboldItalic.ttf?d302adac337265fe5c5ef638a9153e99) format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-LightItalic.eot?67d9f08a37f0d7a11d6c5b4b5130b5fa);
+  src: local("../assets/fonts/graphik/Graphik Light Italic"), local("../assets/fonts/graphik/Graphik-LightItalic"), url(/fonts/Graphik-LightItalic.eot?67d9f08a37f0d7a11d6c5b4b5130b5fa) format("embedded-opentype"), url(/fonts/Graphik-LightItalic.woff2?5d038a8a3b3a8040ce9bf4db7a5a3d10) format("woff2"), url(/fonts/Graphik-LightItalic.woff?fef68480e523776e329d6d9a0afd7e4e) format("woff"), url(/fonts/Graphik-LightItalic.ttf?d4ec70328ddef961cce8952baf958c82) format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-Extralight.eot?71e1dce23bbec905df5d32e3b3c3ba47);
+  src: local("../assets/fonts/graphik/Graphik Extralight"), local("../assets/fonts/graphik/Graphik-Extralight"), url(/fonts/Graphik-Extralight.eot?71e1dce23bbec905df5d32e3b3c3ba47) format("embedded-opentype"), url(/fonts/Graphik-Extralight.woff2?bb232df2a36841d87d1917ac483e4569) format("woff2"), url(/fonts/Graphik-Extralight.woff?6b319c6c89b38758bac1a25caad15373) format("woff"), url(/fonts/Graphik-Extralight.ttf?e2edac9e393cecdca5a61b94f2573f7e) format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url(/fonts/Graphik-MediumItalic.eot?62ffe3e2efbdfa03f2241714c72b12dd);
+  src: local("../assets/fonts/graphik/Graphik Medium Italic"), local("../assets/fonts/graphik/Graphik-MediumItalic"), url(/fonts/Graphik-MediumItalic.eot?62ffe3e2efbdfa03f2241714c72b12dd) format("embedded-opentype"), url(/fonts/Graphik-MediumItalic.woff2?83cdbcab4a3a06ed3e5796ef41735cc6) format("woff2"), url(/fonts/Graphik-MediumItalic.woff?6959e6168dc32817f26301cd8d8b5fa7) format("woff"), url(/fonts/Graphik-MediumItalic.ttf?6f88035f2589813d33194aa7fccbd16a) format("truetype");
+  font-weight: 500;
+  font-style: italic;
 }
 
