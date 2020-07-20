@@ -37,20 +37,20 @@
         <div class="row p-3">
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4 ">
             <article>
-              <div class="media">
-                <img src="./assets/img/image-173.png" alt="">
+            <div class="media">
+                <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
-                  <p class="mt-0 pl-2 mr-2 text-capitalize"> <small>Llantas en buen estado </small><br>
-                    <small><strong> Observaci&oacute;n 1</strong></small> </p>
-                  <h6 class="pl-2 text-capitalize"> </h6>
+                    <p class="mt-0 pl-2 mr-2 text-capitalize"> <small>Llantas en buen estado </small><br>
+                        <small><strong> Observaci&oacute;n 1</strong></small> </p>
+                    <h6 class="pl-2 text-capitalize"> </h6>
                 </div>
-              </div>
+            </div>
             </article>
           </div>
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/image-173.png" alt="">
+              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"> <small>Capote <br>no abre</small> <br>
                     <small><strong> Observaci&oacute;n</strong></small> </p>
@@ -62,7 +62,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/image-173.png" alt="">
+              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"> <small> Lata del Auto <br> hundido </small><br>
                     <small><strong> Observaci&oacute;n</strong></small> </p>
@@ -74,7 +74,7 @@
           <div class="col col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/image-173.png" alt="">
+              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"><small>Faros delanteros <br> Quebrados</small> <br>
                     <small><strong>
@@ -91,7 +91,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4 ">
             <article>
               <div class="media">
-                <img src="./assets/img/Clipboard.svg" alt="">
+                <img src="../../assets/img/Clipboard.svg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-uppercase">PDF, 12 MB <br> <small><strong> Papeleta lima
                         23.05.18.</strong></small> </p>
@@ -103,7 +103,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/Clipboard.svg" alt="">
+                <img src="../../assets/img/Clipboard.svg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-uppercase">PDF, 12 MB <br> <small><strong> Papeleta lima
                         23.05.18.</strong></small> </p>
@@ -115,7 +115,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/Clipboard.svg" alt="">
+                <img src="../../assets/img/Clipboard.svg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-uppercase">PDF, 12 MB <br> <small><strong> Papeleta lima
                         23.05.18.</strong></small> </p>
@@ -127,7 +127,7 @@
           <div class="col col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-                <img src="./assets/img/Clipboard.svg" alt="">
+                <img src="../../assets/img/Clipboard.svg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-uppercase">PDF, 12 MB <br> <small><strong> Papeleta lima
                         23.05.18.</strong></small> </p>
