@@ -47,9 +47,14 @@ class Company extends Model
     {
         return $this->hasMany(Lot::class, 'empresa_id');
     }
-
     public function Productos()
     {
-        return $this->hasManyThrough(Producto::class, Lot::class, 'empresa_id', 'lote_id');
+        return $this->hasMany(Producto::class, 'empresa_id');
     }
+    public function Rango($min, $max)
+    {
+        dd($min, $max);
+        return $this->hasMany(Producto::class, 'empresa_id')->whereBetween('precio', [$min, $max])->dd();
+    }
+
 }

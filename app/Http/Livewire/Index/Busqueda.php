@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Index;
 
 use App\Company;
+use App\Producto;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Busqueda extends Component
@@ -14,14 +16,25 @@ class Busqueda extends Component
     public $precioMin;
     public $precioMax;
     public $memoria;
+    /**
+     * @var mixed
+     */
+    public $ciudad;
+    /**
+     * @var mixed
+     */
+    public $tipoV;
+    /**
+     * @var mixed
+     */
+    public $tipoR;
 
 
-
-    public function mount()
+    public function mount($empresas)
     {
         $this->memoria = 3000;
         $this->picked = true;
-        $this->empresas = Company::all()->load('Productos', 'Lotes');
+        $this->empresas = $empresas;
         $this->precioMax = 1000000;
     }
 
@@ -49,8 +62,10 @@ class Busqueda extends Component
 
     public function updatedPrecioMax()
     {
-        if($this->precioMax != 0 || $this->precioMax != 1000000 ){
+        if($this->precioMax != 1 || $this->precioMax != 1000000 ){
             Cache::put('Max', intval($this->precioMax), $this->memoria);
+        }elseif($this->precioMax == 0 ){
+            Cache::put('Max', 1000000, $this->memoria);
         }
         if(Cache::has('Max')) {
             $this->precioMax == Cache::get('Max');
@@ -61,10 +76,24 @@ class Busqueda extends Component
     protected function General()
     {
         $this->picked = false;
-        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
-            ->orWhere("razon_social", "like", "%".trim($this->buscar) . "%")
-            ->with('Productos', 'Lotes')
-            ->get();
+        $producto = Producto::with('Empresa')->get();
+        dd($producto->groupBy('Empresa', ''));
+        $this->empresas;
+
+//        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
+//            ->orWhere("razon_social", "like", "%".trim($this->buscar) . "%")
+//            ->with('Productos')
+//            ->whereExists(function ($query) {
+//
+//                $query->select('precio', 'ciudad')
+//                    ->from('productos')
+//                    ->where('precio', '<', intval($this->precioMin))
+//                    ->where('precio', '>', intval($this->precioMax))
+//                    ->where('ciudad', '<', intval($this->ciudad))
+//                    ->where('tipo_vehiculo', '=', intval($this->tipoV))
+//                    ->where('tipo_reserva', '=', intval($this->tipoR));
+//            })
+//            ->get()->dd();
         $this->emit('buscarEmpresas', $this->empresas);
     }
 

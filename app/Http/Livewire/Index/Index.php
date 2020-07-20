@@ -18,7 +18,7 @@ class Index extends Component
     public function mount()
     {
         $this->picked = true;
-        $this->empresas = Company::all()->load('Lotes');
+        $this->empresas = Company::all()->load('Lotes', 'Productos');
     }
     public function hydrate()
     {

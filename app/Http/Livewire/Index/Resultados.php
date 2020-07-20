@@ -48,7 +48,7 @@ class Resultados extends Component
         $this->usuarios = [];
         $this->resultado = [];
         $this->picked = true;
-        $this->empresas = $empresas->load('Productos');
+        $this->empresas = $empresas;
         $this->mount = 1;
         $this->precioMin = 0;
         $this->precioMax = 1000000;
