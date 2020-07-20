@@ -6,13 +6,14 @@
                     <div class="col-12 col-md-9 col-sm-12 col-xs-12 ml-md-4">
                         <article class="top-slide_carousel-item-a">
                             <figure>
-                                <svg class="bd-placeholder-img rounded-sm" width="36" height="36" xmlns="http://www.w3.org/2000/svg"
+                                <!-- <svg class="bd-placeholder-img rounded-sm" width="36" height="36" xmlns="http://www.w3.org/2000/svg"
                                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
                                     aria-label="Example small rounded image: 36x36">
                                     <title>Example small rounded image</title>
                                     <rect width="100%" height="100%" fill="#ffd980"></rect>
                                     <text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text>
-                                </svg>
+                                </svg> -->
+                                <img class="mb-2 logo_top-slide-sg_falabella" src="../../assets/img/image-207.png" alt="" width="36" height="36">
                                 <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
                                 <h3>{{$vehiculo->year}}</h3>
                             </figure>

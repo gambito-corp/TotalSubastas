@@ -245,10 +245,10 @@
       </div>
     </div>
     <div class="row  mt-2">
-      <!-- Navbar 
+      <!-- Navbar
       <div class="col-md col-md-12 mt-5 mb-2  pl-3 pr-1">
         <div class="row mb-2">
-        
+
         </div>
       </div>-->
       <!-- End Navbar -->
@@ -440,11 +440,11 @@
           <!-- Accordion wrapper -->
 
           <div class="mr-2  side-nav mt-4 rounded ">
-            <article class="p-side_nav text-light">
+            <!-- <article class="p-side_nav text-light">
               <p class="text-capitalize">mas de
               <h2>500</h2> usuarios <br> conf&iacute;an en nosotros</p>
-            </article>
-            <img class="img-fluid d-md-block" src="./assets/img/image-021.png" alt="">
+            </article> -->
+            <img class="img-fluid d-md-block radius" src="./assets/img/image-021.png" alt="">
           </div>
         </div>
 
@@ -842,7 +842,7 @@
           </div>
         </nav>
       </div>
-      <!-- main content -- nr° 2 
+      <!-- main content -- nr° 2
       <div class="col col-md-3 col-sm-6 border-right col-xs-6">
         <div class="card mb-3 pub-item_cont ">
           <svg class="bd-placeholder-img card-img-top rounded" width="100%" height="172"
@@ -952,7 +952,7 @@
     </div>-->
 
     </div>
-    
+
   </div>
 
   </div>
