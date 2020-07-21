@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index')->name('index');
-//Route::get('/index', 'HomeController@index')->name('index');
+
 
 //VISTAS ESTATICAS
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
@@ -26,8 +26,8 @@ Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 //VISTA DE PERFIL
 
-Route::view('/mi-perfil', 'perfil.account')->name('perfil');
-Route::view('/perfil/edit', 'perfil.profile-edit')->name('perfil-edit');
+Route::get('/perfil', 'PerfilController@show')->name('perfil');
+Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 
 // RUTAS DE ADMINISTRADOR
 Route::get('admin', 'AdminController@home')->name('admin');
