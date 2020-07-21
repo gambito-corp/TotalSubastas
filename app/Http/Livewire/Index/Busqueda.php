@@ -36,7 +36,7 @@ class Busqueda extends Component
 
     public function mount($empresas)
     {
-        $this->memoria = 3000;
+        $this->memoria = 120;
         $this->picked = true;
         $this->empresas = $empresas;
         $this->precioMax = 1000000;
@@ -45,6 +45,9 @@ class Busqueda extends Component
 
     public function updatedBuscar()
     {
+        if(Cache::has('buscar')){
+            Cache::forget('buscar');
+        }
         if($this->buscar != ''){
             Cache::put('buscar', $this->buscar, $this->memoria);
         }
@@ -56,6 +59,9 @@ class Busqueda extends Component
 
     public function updatedPrecioMin()
     {
+        if(Cache::has('Min')){
+            Cache::forget('Min');
+        }
         if($this->precioMin != 0){
             Cache::put('Min', intval($this->precioMin), $this->memoria);
         }
@@ -67,6 +73,9 @@ class Busqueda extends Component
 
     public function updatedPrecioMax()
     {
+        if(Cache::has('Max')){
+            Cache::forget('Max');
+        }
         if($this->precioMax != 1 || $this->precioMax != 1000000 ){
             Cache::put('Max', intval($this->precioMax), $this->memoria);
         }elseif($this->precioMax == 0 ){
@@ -80,6 +89,9 @@ class Busqueda extends Component
 
     public function updatedCiudad()
     {
+        if(Cache::has('ciudad')){
+            Cache::forget('ciudad');
+        }
         if($this->ciudad != ''){
             Cache::put('ciudad', $this->ciudad, $this->memoria);
         }
@@ -89,20 +101,34 @@ class Busqueda extends Component
         $this->General();
     }
 
+    public function updatedTipoR()
+    {
+        if(Cache::has('tipoR')){
+            Cache::forget('tipoR');
+        }
+        if($this->tipoR != '' || $this->tipoR == false){
+            Cache::put('tipoR', $this->tipoR, $this->memoria);
+        }
+        if(Cache::has('tipoR')) {
+            $this->tipoR == Cache::get('tipoR');
+        }
+        $this->General();
+    }
+    public function TipoV($tipoV)
+    {
+        if(Cache::has('tipoV')){
+            Cache::forget('tipoV');
+        }
+        $this->tipoV = $tipoV;
+        if($this->tipoV != ''){
+            Cache::put('tipoV', $this->tipoV, $this->memoria);
+        }
+        $this->General();
+    }
+
     protected function General()
     {
-        $this->picked = false;
-        $Max = Cache::get('Max');
-        $Min = Cache::get('Min');
-        $buscar = trim($this->buscar);
-        $this->empresas = Company::with(['Productos' => function ($query){
-            $query->whereBetween("precio", [$this->precioMin, $this->precioMax])
-                ->when(!empty($this->ciudad), function ($query){
-                    $query->where("ciudad", $this->ciudad);
-                });
-        }, 'Productos.Lote'])
-            ->get();
-        $this->emit('buscarEmpresas', $this->empresas);
+        $this->emit('buscarEmpresas');
     }
 
     public function asignarEmpresa($nombre)

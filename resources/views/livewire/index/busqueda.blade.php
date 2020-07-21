@@ -21,14 +21,14 @@
                 <!-- Card body -->
                 <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
                     <div class="card-body ">
-                        <div class="col d-flex justify-content-between border-bottom mt-2">
-                            <p class="car-side-nav_bp"> Autos livianos </p> <span class="car-side-nav_bp-span"> 25 </span>
+                        <div class="col d-flex justify-content-between border-bottom mt-2" wire:click="TipoV('Vehiculo Ligero')">
+                            <p class="car-side-nav_bp"> Vehiculo Ligero </p> <span class="car-side-nav_bp-span"> 25 </span>
                         </div>
-                        <div class="col d-flex justify-content-between border-bottom mt-2">
-                            <p class="car-side-nav_bp"> Autos pesados </p> <span class="car-side-nav_bp-span"> 13 </span>
+                        <div class="col d-flex justify-content-between border-bottom mt-2" wire:click="TipoV('Vehiculo Pesado')">
+                            <p class="car-side-nav_bp"> Vehiculo Pesado </p> <span class="car-side-nav_bp-span"> 13 </span>
                         </div>
-                        <div class="col d-flex justify-content-between  mt-2">
-                            <p class="car-side-nav_bp"> Autos pesados </p><span class="car-side-nav_bp-span"> 2 </span>
+                        <div class="col d-flex justify-content-between  mt-2" wire:click="TipoV('Vehiculo Pesado')">
+                            <p class="car-side-nav_bp"> Vehiculo Pesado </p><span class="car-side-nav_bp-span"> 2 </span>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <div class="col d-flex justify-content-between ">
 
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="Con Reserva" wire:model="tipoR">
                                 <label class="form-check-label car-side-nav_bp" for="exampleCheck1">con reserva</label>
                             </div>
 
@@ -60,7 +60,7 @@
                         <div class="col d-flex justify-content-between ">
 
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="Sin Reserva" wire:model="tipoR">
                                 <label class="form-check-label car-side-nav_bp" for="exampleCheck1">sin reserva</label>
                             </div>
 
@@ -68,7 +68,7 @@
                         <div class="col d-flex justify-content-between mt-2">
 
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="Compra Directa" wire:model="tipoR">
                                 <label class="form-check-label car-side-nav_bp" for="exampleCheck1">compra inmediata</label>
                             </div>
 
@@ -181,7 +181,7 @@
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between mt-2">
                             <select class="custom-select" wire:model="ciudad">
-                                <option selected>Open this select menu</option>
+                                <option selected value="null">Elige una ciudad</option>
                                 @foreach($this->select->unique('ciudad') as $dat)
                                     <option value="{{$dat->ciudad}}">{{$dat->ciudad}}</option>
                                 @endforeach

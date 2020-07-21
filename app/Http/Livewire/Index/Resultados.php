@@ -46,6 +46,14 @@ class Resultados extends Component
      * @var mixed
      */
     public $ciudad;
+    /**
+     * @var mixed
+     */
+    public $tipoV;
+    /**
+     * @var mixed
+     */
+    public $tipoR;
 
 
     public function mount($empresas)
@@ -73,26 +81,81 @@ class Resultados extends Component
         if(Cache::has('ciudad')) {
             $this->ciudad = Cache::get('ciudad');
         }
-//        dd($this->ciudad, 'resultados para ciudad', Cache::get('ciudad'));
+        if(Cache::has('tipoV')) {
+            $this->tipoV = Cache::get('tipoV');
+        }
+        if(Cache::has('tipoR')) {
+            $this->tipoR = Cache::get('tipoR');
+        }
+//        dd( 'Buscar = '.$this->buscar,'PrecioMinimo = '.$this->precioMin,'PrecioMaximo = '.$this->precioMax,'ciudad = '.$this->ciudad  ,'Tipo de Vehiculo = '.$this->tipoV  ,'tipo de Reserva = '.$this->tipoR  );//        dd($this->ciudad, 'resultados para ciudad', Cache::get('ciudad'));
         $this->picked = false;
 
         $this->empresas = Company::with(['Productos' => function ($query){
-            $query->whereBetween("precio", [$this->precioMin, $this->precioMax])
-                ->when(!empty($this->ciudad), function ($query){
-                    $query->where("ciudad", $this->ciudad);
-                });
+            $query->when(!empty($this->ciudad), function ($query){
+                $query->where("ciudad", $this->ciudad);
+            })
+                ->when(!empty($this->tipoV), function ($query){
+                    $query->where('tipo_vehiculo', $this->tipoV);
+                })
+                ->when(!empty($this->tipoR),function ($query){
+                    $query->where('tipo_reserva', $this->tipoR);
+                })
+                ->whereBetween("precio", [$this->precioMin, $this->precioMax]);
         }, 'Productos.Lote'])
+            ->when(!empty($this->buscar), function ($query){
+                $query->where('nombre', 'like', "%".trim($this->buscar) . "%")
+                    ->orWhere('razon_social', 'like', "%".trim($this->buscar) . "%");
+            })
+            ->with('Lotes')
             ->get();
-//        dd($this->empresas);
+        $array[] = [];
+        $i = 0;
+        foreach ($this->empresas as $key => $empresa){
+            if (count($empresa->Productos) == 0)
+            {
 
-//        $empresas->whereDoesntHave('Productos', function ($query){
-//            $query->where("precio", "<", $this->precioMin);
-//        })->get();
-//        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
-//            ->get();
-//        $this->empresas = DB::select('Select * from companies,lots,productos where companies.id = lots.empresa_id and lots.id = productos.lote_id and productos.precio >= 1000 and productos.precio <= 2000');
-//        $this->empresas = DB::select("Select * from companies as emp join lots as lot on lot.empresa_id=emp.id join productos as prod on prod.lote_id = lot.id where prod.precio between $this->precioMin and $this->precioMax");
-//        dd(collect($this->empresas));
+                $empresa->pull('Productos');
+            }
+            dump($empresa->Productos);
+        }
+        dd($this->empresas);
+//        foreach ($this->empresas as $key1 => $empresa){
+//            $array[$key1]['id'] = $empresa['id'];
+//            $array[$key1]['empresa'] = $empresa['nombre'];
+//            $array[$key1]['razon_social'] = $empresa['razon_social'];
+//            dump('antes del for', $array);
+//                foreach ($empresa as $key2 => $lote){
+//                    $array['lotes'] = [
+//                        $array['nombre']        => $lote['nombre'],
+//                        $array['subasta_at']    => $lote['subasta_at']
+//                    ];
+//                    dd($array);
+//
+//                }
+//
+//            dump('despues del for', $array);
+////                foreach ($empresa['productos'] as $key3 => $producto){
+////                   'productos'     => [
+////                        'id'            => $empresa['productos']['id'],
+////                        'ciudad'        => $empresa['productos']['ciudad'],
+////                        'tipo_vehiculo' => $empresa['productos']['tipo_vehiculo'],
+////                        'tipo_subasta'  => $empresa['productos']['tipo_subasta'],
+////                        'tipo_reserva'  => $empresa['productos']['tipo_reserva'],
+////                        'nombreVehiculo'=> $empresa['productos']['tipo_subasta'],
+////                        'imagen'        => $empresa['productos']['imagen'],
+////                        'precio'        => $empresa['productos']['precio'],
+////                    ],
+////                }
+////            dump('resultados = ', $empresa['lotes'], $i);
+////            dump('resultados = ', $array);
+//        }
+
+        die();
+
+
+
+
+
     }
 
     public function selecionEmpresa($buscar)
