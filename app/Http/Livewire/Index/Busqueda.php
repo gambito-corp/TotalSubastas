@@ -106,7 +106,7 @@ class Busqueda extends Component
 
     public function updatedCiudad()
     {
-        if(Cache::has('ciudad')){
+        if(Cache::has('ciudad') || $this->ciudad == '+'){
             Cache::forget('ciudad');
         }
         if($this->ciudad != ''){

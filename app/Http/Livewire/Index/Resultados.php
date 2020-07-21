@@ -112,6 +112,27 @@ class Resultados extends Component
             })
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
+        if ($this->ciudad == '*'){
+            if(Cache::has('tipoV')){
+                Cache::forget('tipoV');
+            }
+            if(Cache::has('tipoR')){
+                Cache::forget('tipoR');
+            }
+            if(Cache::has('Min')){
+                Cache::forget('Min');
+            }
+            if(Cache::has('Max')){
+                Cache::forget('Max');
+            }
+            if(Cache::has('buscar')){
+                Cache::forget('buscar');
+            }
+            if(Cache::has('ciudad')){
+                Cache::forget('ciudad');
+            }
+            $this->empresas = Company::with('Lotes', 'Productos')->get();
+        }
     }
 
     public function addLike($id)
