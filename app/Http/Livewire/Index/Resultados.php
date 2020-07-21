@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Index;
 
 use App\Lot;
 use App\Company;
+use App\Producto;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -41,6 +42,10 @@ class Resultados extends Component
      * @var bool|mixed
      */
     public $mount;
+    /**
+     * @var mixed
+     */
+    public $ciudad;
 
 
     public function mount($empresas)
@@ -54,7 +59,7 @@ class Resultados extends Component
         $this->precioMax = 1000000;
     }
 
-    public function buscarEmpresas(Company $empresas)
+    public function buscarEmpresas()
     {
         if(Cache::has('buscar')) {
             $this->buscar = Cache::get('buscar');
@@ -65,10 +70,26 @@ class Resultados extends Component
         if(Cache::has('Max')) {
             $this->precioMax = Cache::get('Max');
         }
-//        die();
+        if(Cache::has('ciudad')) {
+            $this->ciudad = Cache::get('ciudad');
+        }
+//        dd($this->ciudad, 'resultados para ciudad', Cache::get('ciudad'));
         $this->picked = false;
-        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
+
+        $this->empresas = Company::with(['Productos' => function ($query){
+            $query->whereBetween("precio", [$this->precioMin, $this->precioMax])
+                ->when(!empty($this->ciudad), function ($query){
+                    $query->where("ciudad", $this->ciudad);
+                });
+        }, 'Productos.Lote'])
             ->get();
+//        dd($this->empresas);
+
+//        $empresas->whereDoesntHave('Productos', function ($query){
+//            $query->where("precio", "<", $this->precioMin);
+//        })->get();
+//        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
+//            ->get();
 //        $this->empresas = DB::select('Select * from companies,lots,productos where companies.id = lots.empresa_id and lots.id = productos.lote_id and productos.precio >= 1000 and productos.precio <= 2000');
 //        $this->empresas = DB::select("Select * from companies as emp join lots as lot on lot.empresa_id=emp.id join productos as prod on prod.lote_id = lot.id where prod.precio between $this->precioMin and $this->precioMax");
 //        dd(collect($this->empresas));

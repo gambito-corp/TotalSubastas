@@ -28,6 +28,10 @@ class Busqueda extends Component
      * @var mixed
      */
     public $tipoR;
+    /**
+     * @var Producto[]|\Illuminate\Database\Eloquent\Collection|mixed
+     */
+    public $select;
 
 
     public function mount($empresas)
@@ -36,6 +40,7 @@ class Busqueda extends Component
         $this->picked = true;
         $this->empresas = $empresas;
         $this->precioMax = 1000000;
+        $this->select = Producto::all();
     }
 
     public function updatedBuscar()
@@ -73,27 +78,30 @@ class Busqueda extends Component
         $this->General();
     }
 
+    public function updatedCiudad()
+    {
+        if($this->ciudad != ''){
+            Cache::put('ciudad', $this->ciudad, $this->memoria);
+        }
+        if(Cache::has('ciudad')) {
+            $this->ciudad == Cache::get('ciudad');
+        }
+        $this->General();
+    }
+
     protected function General()
     {
         $this->picked = false;
-        $producto = Producto::with('Empresa')->get();
-        dd($producto->groupBy('Empresa', ''));
-        $this->empresas;
-
-//        $this->empresas = Company::where("nombre", "like", "%".trim($this->buscar) . "%")
-//            ->orWhere("razon_social", "like", "%".trim($this->buscar) . "%")
-//            ->with('Productos')
-//            ->whereExists(function ($query) {
-//
-//                $query->select('precio', 'ciudad')
-//                    ->from('productos')
-//                    ->where('precio', '<', intval($this->precioMin))
-//                    ->where('precio', '>', intval($this->precioMax))
-//                    ->where('ciudad', '<', intval($this->ciudad))
-//                    ->where('tipo_vehiculo', '=', intval($this->tipoV))
-//                    ->where('tipo_reserva', '=', intval($this->tipoR));
-//            })
-//            ->get()->dd();
+        $Max = Cache::get('Max');
+        $Min = Cache::get('Min');
+        $buscar = trim($this->buscar);
+        $this->empresas = Company::with(['Productos' => function ($query){
+            $query->whereBetween("precio", [$this->precioMin, $this->precioMax])
+                ->when(!empty($this->ciudad), function ($query){
+                    $query->where("ciudad", $this->ciudad);
+                });
+        }, 'Productos.Lote'])
+            ->get();
         $this->emit('buscarEmpresas', $this->empresas);
     }
 

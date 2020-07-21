@@ -180,11 +180,11 @@
                 <div id="collapseOne5" class="collapse car-side-nav_bp show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#ciudad">
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between mt-2">
-                            <select class="custom-select">
+                            <select class="custom-select" wire:model="ciudad">
                                 <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                @foreach($this->select->unique('ciudad') as $dat)
+                                    <option value="{{$dat->ciudad}}">{{$dat->ciudad}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

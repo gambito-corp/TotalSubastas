@@ -35,6 +35,11 @@ class Producto extends Model
      * @var array
      */
     protected $casts = [
+        'id'            => 'integer',
+        'empresa_id'   => 'integer',
+        'lote_id'       => 'integer',
+        'user_id'       => 'integer',
+        'precio'       => 'integer',
         'started_at' => 'datetime',
         'finalized_at' => 'datetime',
         'created_at' => 'datetime',

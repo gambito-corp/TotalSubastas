@@ -13,7 +13,7 @@
             </div>
         </nav>
     </div>
-    @forelse($this->empresas as $dat)
+    @forelse($empresas as $dat)
         <div class="row main-container mb-5">
             <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                 <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
@@ -38,7 +38,6 @@
                     </nav>
                     <diV class="row mr-0 ml-0">
                     @forelse($datos->Productos()->with('Imagenes')->get() as $dato)
-                        @if($dato->precio >= $precioMin && $dato->precio <= $precioMax)
                         <div class="col-md-4 col-sm-6 border-right col-xs-12">
                             <div class="card mb-4 pub-item_cont">
                                 <article class="pub-item_head">
@@ -46,20 +45,20 @@
                                     <p class="mb-2 text-light">190</p>
                                 </span>
                                     <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                    @isset($dato->Imagenes->first()->imagen)
-                                        <img src="{{asset($dato->Imagenes->first()->imagen)}}" alt="">
+                                    @isset($dato->imagen)
+                                        <img src="{{asset($dato->imagen)}}" alt="">
                                     @endisset
                                 </article>
                                 <div class="card-body justify-content-center">
-                                    <p class="card-text text-center text-to_auction">
-                                        <strong>Subasta</strong><i class="fas fa-bell ml-2"></i>
+                                    <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">
+                                        <strong>{{$dato->tipo_subasta}}</strong><i class="fas fa-bell ml-2"></i>
                                     <p class="card-text text-center title-to_annoucement">
-                                        <strong>{{$dato->producto}}</strong>
+                                        <strong>{{$dato->nombre}}</strong>
                                     </p>
-                                    <div class="align-items-center btn_auction ">
+                                    <div class="align-items-center btn_auction">
                                         <div class="btn-group d-flex justify-content-center">
                                             <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
-                                                <button type="button" class="btn btn-sm btn-to_auction rounded-pill text-light">
+                                                <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}}">
                                                     <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>
                                                     <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
                                                 </button>
@@ -69,7 +68,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
                     @empty
 
                     @endforelse
