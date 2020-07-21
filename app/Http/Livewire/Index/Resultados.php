@@ -116,9 +116,9 @@ class Resultados extends Component
 
                 $empresa->pull('Productos');
             }
-            dump($empresa->Productos);
+//            dump($empresa->Productos);
         }
-        dd($this->empresas);
+//        dd($this->empresas);
 //        foreach ($this->empresas as $key1 => $empresa){
 //            $array[$key1]['id'] = $empresa['id'];
 //            $array[$key1]['empresa'] = $empresa['nombre'];
@@ -150,7 +150,7 @@ class Resultados extends Component
 ////            dump('resultados = ', $array);
 //        }
 
-        die();
+//        die();
 
 
 
