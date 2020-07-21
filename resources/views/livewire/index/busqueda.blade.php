@@ -181,7 +181,7 @@
                     <div class="card-body ">
                         <div class="col d-flex justify-content-between mt-2">
                             <select class="custom-select" wire:model="ciudad">
-                                <option selected value="null">Elige una ciudad</option>
+                                <option selected value="*">Elige una ciudad</option>
                                 @foreach($this->select->unique('ciudad') as $dat)
                                     <option value="{{$dat->ciudad}}">{{$dat->ciudad}}</option>
                                 @endforeach
