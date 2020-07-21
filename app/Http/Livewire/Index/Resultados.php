@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Index;
 
 use App\Company;
+use App\Like;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
@@ -50,6 +52,10 @@ class Resultados extends Component
     public $tipoR;
 
     protected $listeners = ['buscarEmpresas'];
+    /**
+     * @var Like[]|\Illuminate\Database\Eloquent\Collection|mixed
+     */
+    public $like;
 
 
     public function mount($empresas)
@@ -60,6 +66,7 @@ class Resultados extends Component
         $this->empresas = $empresas;
         $this->precioMin = 0;
         $this->precioMax = 1000000;
+        $this->like = Like::all();
     }
 
     public function buscarEmpresas()
@@ -105,6 +112,20 @@ class Resultados extends Component
             })
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
+    }
+
+    public function addLike($id)
+    {
+        $like = $this->like->where('producto_id', $id)->where('user_id', Auth::id())->first();
+        if ($like){
+            $like->delete();
+        }elseif (Auth::id() != null){
+            Like::create([
+                'producto_id' => $id,
+                'user_id' => Auth::id()
+            ]);
+        }
+        $this->like = Like::all();
     }
 
     public function render()
