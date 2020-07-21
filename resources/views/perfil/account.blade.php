@@ -1,104 +1,9 @@
-<!DOCTYPE html>
-<html>
-<!-- head -->
-
-<head>
-    <title>Getting Started</title>
-    <script src="https://unpkg.com/lodash@4.16.6"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-<!-- body -->
-
-<head>
-    <title>Getting Started</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://unpkg.com/lodash@4.16.6"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-    <script src="https://use.fontawesome.com/c01ac736c1.js"></script>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-</head>
-<!-- body -->
-
+@extends('layouts.app')
+@section('content')
 <body class="bg-darken-light">
-    <!-- Header -->
-    <header>
-        <div class="navbar nav-top ">
-            <div class="container flex-wrap justify-content-md-between justify-content-sm-center">
-
-                <div class="row">
-                    <div class="col ">
-                        <a href="#" class="navbar-brand d-flex text-dark align-items-center">
-                            <img src="./assets/img/Icon-Phone.svg" class="mr-2 " alt="" srcset=""> (+51) 460-2000
-                        </a></div>
-                    <div class="col mt-2 ml-2">
-                        <a href="#" class="text-dark">
-                            <img src="./assets/img/Imagen 1.png" alt="">
-                            Chat en vivo
-                        </a>
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="col-md  mr-auto  ">
-                        <a href="./index.html" class="navbar-brand d-flex text-dark align-items-center">
-                            <img src="./assets/img/Logo-TS.svg">
-                        </a></div>
-                </div>
-                <div class="row ">
-                    <a class="nav-link text-dark signin-text" href="./login.html">
-                        <img src="./assets/img/Icon-Key.svg" class="mr-2" alt="" srcset="">
-                        Ingresar</a>
-                    <a href="./registro.html" class="btn btn-primary rounded-pill "> <span></span><i
-                            class="fas fa-user mr-2"></i>
-                        Registrate </a>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar header bottom -->
-        <div class="navbar navbar-dark navbar-top navbar-expand-lg bg-nav">
-            <div class="container">
-                <a class="navbar-brand  d-flex align-items-center pl-5 mr-5" href="#"><img src="./assets/img/peru.png"
-                        alt="" /></a>
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
-                    data-target="#navbarNavDropdown">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <a href="./subastas.html" class="navbar-brand d-flex align-items-center">
-                        Subastas
-                    </a>
-                    <a href="./FAQS.html" class="navbar-brand d-flex align-items-center">
-                        Preguntas
-                    </a>
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        Condiciones
-                    </a>
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        Quienes somos
-                    </a>
-                    <!-- Link nav - Link nr° 5- top -->
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        Vender
-                    </a>
-                    <a href="#" class="navbar-brand d-flex align-items-center">
-                        <svg class="bd-placeholder-img rounded-circle" width="25" height="25"
-                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
-                            role="img" aria-label="Completely round image: 75x75">
-                            <title>Completely round image</title>
-                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                            <text x="25%" y="25%" fill="#dee2e6" dy=".3em"></text>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="jumbotron jumbotron-top_container">
+            <div class="jumbotron jumbotron-top_container faq">
                 <div class="container">
                     <!-- <h1 class="font-weight-bold text-light text-uppercase">
           Preguntas <br> frecuentes
@@ -117,9 +22,9 @@
                 <div class="text-center">
                     <!-- Accordion card -->
 
-                    <div class="bg-light-card shadow-sm ">
-                        <img src="./assets/img/adobe.png" class=" mt-4" with="" alt="..." style="width: 90px;
-                height: 90px; border-radius:50%;">
+                    <div class="bg-light-card shadow-sm radius">
+                        <img src="{{asset('/assets/img/image-173.png')}}" class=" mt-4" with="" alt="..." style="width: 90px;
+                                    height: 90px; border-radius:50%;">
                         <div class="card-body pl-0 pr-0">
                             <h5 class="card-title font-weight-bold text-dark">Card title</h5>
                             <p class="card-text">email@example.com</p>
@@ -226,10 +131,10 @@
                     <!--   Level 1: .col-sm-9 -->
                     <!-- Participaciones activas -->
                     <div class="row ">
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
                             <h2 class="text-darken pb-3">Participaciones Activas</h2>
                             <div class="row ">
-                                <div class="col pl-5  ">
+                                <div class="col">
                                     <div class="media bg-light border-bottom">
                                         <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
                                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
@@ -291,10 +196,10 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">
                             <h2 class="text-darken pb-3">Participaciones Activas</h2>
                             <div class="row ">
-                                <div class="col pl-5  ">
+                                <div class="col">
                                     <div class="media bg-light border-bottom">
                                         <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
                                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
@@ -356,10 +261,10 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
                             <h2 class="text-darken pb-3">Lotes Ganados</h2>
                             <div class="row ">
-                                <div class="col pl-5  ">
+                                <div class="col pl-3 radius">
                                     <div class="media bg-light border-bottom">
                                         <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
                                             xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
@@ -421,9 +326,9 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">
                             <h2 class="text-darken pb-3">Puntaje</h2>
-                            <div class="row row-cols-2 m-acc_points">
+                            <div class="row row-cols-2 m-acc_points mr-0 ml-0">
                                 <div class="col-12 border-bottom  p-5 m-acc_char"> 3 pts</div>
                                 <div class="col-6 p-5 border-right m-acc_points-bottom">
                                     Poisitivo
@@ -437,25 +342,24 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-12 col-sm-12 col-xs-12 m-acc_text pt-5">
+                    <div class="col-12 col-md-12 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0 pl-0">
                         <h2 class="text-darken pb-3 border-top pt-5">Movimientos</h2>
                         <div class="col-12 pl-0 pr-0 col-md-12 col-sm-12 col-xs-12 live-push_action-floating">
                             <article>
                                 <!-- <h5 class="text-uppercase ranking_live">ranking</h5>-->
                             </article>
                             <!-- <div class="col-12 pt-2 d-flex pb-2  border-bottom">
-                  <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                    Puesto
-                  </div>
-                  <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                    Usuario
-                  </div>
-                  <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                    Oferta
-                  </div>
-                </div> -->
-                            <div class="row mb-5"
-                                style="height: 200px; overflow: auto;background-color: #AC8EE3;color: aliceblue;border-radius: 10px; ">
+                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                                Puesto
+                            </div>
+                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                                Usuario
+                            </div>
+                            <div class="col-md-4 text-darken text-to_title-auction_ranking">
+                                Oferta
+                            </div>
+                            </div> -->
+                            <div class="row mb-5 scroll-account">
                                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                                     <div class="col-md-4 text-light font-weight-normal">
                                         Abono desde bcp
@@ -541,18 +445,40 @@
                 </div>
             </div>
         </div>
-        <!-- end container -->
-        <script src="./src/index.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
-        <script src="./assets/js/app.js"></script>
-</body>
-
-</html>
+        <div class="row mb-sm-4">
+            <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
+                <article>
+                    <!-- <h2 class="ml-5">Credito vehicular</h2>
+                    <p class="ml-5">
+                        Te ofrecemos asesoria especializada, si eres cliente de
+                        totalsubastas contactanos
+                    </p> -->
+                    <a href="/">
+                        <img src="./assets/img/image-368.png" class="img-fluid" alt="" />
+                    </a>
+                    <!-- <a href="{{Route('creditos')}}" class="text-light">
+                        <button class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
+                            Aqu&iacute;
+                        </button>
+                    </a> -->
+                </article>
+            </div>
+        
+            <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
+                <article>
+                    <!-- <h2 class="ml-5">Asesoria legal?</h2>
+                    <p class="ml-5">
+                        Te ofrecemos asesoria especializada, si eres cliente de
+                        totalsubastas contactanos
+                    </p> -->
+                    <img src="./assets/img/image-368-1.png" alt="" />
+                    <!-- <a href="Route{{route('asesoria')}}" class="text-light">
+                        <button  class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
+                            Aqu&iacute;
+                        </button>
+                    </a> -->
+                </article>
+            </div>
+        </div>
+        
+@endsection

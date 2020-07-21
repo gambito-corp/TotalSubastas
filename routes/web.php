@@ -24,6 +24,10 @@ Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
+//VISTA DE PERFIL
+
+Route::view('/mi-perfil', 'perfil.account')->name('perfil');
+Route::view('/perfil/edit', 'perfil.profile-edit')->name('perfil-edit');
 
 // RUTAS DE ADMINISTRADOR
 Route::get('admin', 'AdminController@home')->name('admin');
