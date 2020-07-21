@@ -1,5 +1,4 @@
 <div class="col-md-9 mt-3" wire:pool.750ms>
-    @dump($empresas)
     <div class="row">
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
             <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
@@ -15,6 +14,7 @@
         </nav>
     </div>
     @forelse($empresas as $dat)
+
         <div class="row main-container mb-5">
             <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                 <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
@@ -25,7 +25,8 @@
                     </button>
                 </nav>
             </div>
-            @forelse($dat->Lotes()->with('Productos')->get() as $key => $datos)
+            @forelse($dat->Lotes as $key => $datos)
+{{--                {{dd( $dat->getRelations())}}--}}
                 <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                     <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
                         <a class="navbar-brand text-darken" href="#">{{$datos->nombre}}</a>
@@ -38,7 +39,8 @@
                         </div>
                     </nav>
                     <diV class="row mr-0 ml-0">
-                    @forelse($datos->Productos()->with('Imagenes')->get() as $dato)
+                    @forelse($datos->Productos as $dato)
+{{--                        {{dd($dato)}}--}}
                         <div class="col-md-4 col-sm-6 border-right col-xs-12">
                             <div class="card mb-4 pub-item_cont">
                                 <article class="pub-item_head">

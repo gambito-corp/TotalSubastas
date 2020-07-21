@@ -90,34 +90,74 @@ class Resultados extends Component
 //        dd( 'Buscar = '.$this->buscar,'PrecioMinimo = '.$this->precioMin,'PrecioMaximo = '.$this->precioMax,'ciudad = '.$this->ciudad  ,'Tipo de Vehiculo = '.$this->tipoV  ,'tipo de Reserva = '.$this->tipoR  );//        dd($this->ciudad, 'resultados para ciudad', Cache::get('ciudad'));
         $this->picked = false;
 
-        $this->empresas = Company::with(['Productos' => function ($query){
-            $query->when(!empty($this->ciudad), function ($query){
+//        $this->empresas = Company::with(['Productos' => function ($query){
+//            $query->when(!empty($this->ciudad), function ($query){
+//                $query->where("ciudad", $this->ciudad);
+//            })
+//                ->when(!empty($this->tipoV), function ($query){
+//                    $query->where('tipo_vehiculo', $this->tipoV);
+//                })
+//                ->when(!empty($this->tipoR),function ($query){
+//                    $query->where('tipo_reserva', $this->tipoR);
+//                })
+//                ->whereBetween("precio", [$this->precioMin, $this->precioMax])
+//                ->with('Lote');
+//        }])
+//            ->when(!empty($this->buscar), function ($query){
+//                $query->where('nombre', 'like', "%".trim($this->buscar) . "%")
+//                    ->orWhere('razon_social', 'like', "%".trim($this->buscar) . "%");
+//            })
+//            ->with('Lotes')
+//            ->has('Productos')
+//            ->get();
+///////////////////////////////////////////////////////////
+
+        $productosClosure = function ($query)
+        {
+            $query->when(!empty($this->ciudad), function ($query)
+            {
                 $query->where("ciudad", $this->ciudad);
             })
-                ->when(!empty($this->tipoV), function ($query){
+                ->when(!empty($this->tipoV), function ($query)
+                {
                     $query->where('tipo_vehiculo', $this->tipoV);
                 })
-                ->when(!empty($this->tipoR),function ($query){
+                ->when(!empty($this->tipoR),function ($query)
+                {
                     $query->where('tipo_reserva', $this->tipoR);
                 })
-                ->whereBetween("precio", [$this->precioMin, $this->precioMax]);
-        }, 'Productos.Lote'])
-            ->when(!empty($this->buscar), function ($query){
+                ->whereBetween("precio", [intval($this->precioMin), intval($this->precioMax)])
+                ->with('Lote');
+        };
+
+        $lotesClosure = function ($query) use ($productosClosure)
+        {
+            $query->whereHas('Productos', $productosClosure)->with([
+                'Productos' => $productosClosure
+            ]);
+        };
+
+        $this->empresas = Company::whereHas('Productos', $productosClosure)
+            ->with(['Productos' => $productosClosure])
+            ->when(!empty($this->buscar), function ($query)
+            {
                 $query->where('nombre', 'like', "%".trim($this->buscar) . "%")
                     ->orWhere('razon_social', 'like', "%".trim($this->buscar) . "%");
             })
-            ->with('Lotes')
+            ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
-        $array[] = [];
-        $i = 0;
-        foreach ($this->empresas as $key => $empresa){
-            if (count($empresa->Productos) == 0)
-            {
 
-                $empresa->pull('Productos');
-            }
-//            dump($empresa->Productos);
-        }
+
+        //////////////////////////////////////////////////
+//        dd($this->empresas);
+//        $array[] = [];
+//        $i = 0;
+//        foreach ($this->empresas as $key => $empresa){
+//            if(count($empresa->Productos == 0)){
+//                dump('holi');
+//            }
+//            dump($empresa);
+//        }
 //        dd($this->empresas);
 //        foreach ($this->empresas as $key1 => $empresa){
 //            $array[$key1]['id'] = $empresa['id'];

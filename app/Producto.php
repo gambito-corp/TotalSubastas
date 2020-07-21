@@ -50,7 +50,7 @@ class Producto extends Model
 
     public function Empresa()
     {
-        return $this->belongsTo(Company::class, 'empresa_id')->withDefault();
+        return $this->belongsTo(Company::class, 'empresa_id');
     }
 
     public function Lote()
@@ -65,7 +65,7 @@ class Producto extends Model
 
     public function Vehiculo()
     {
-        return $this->hasOne(VehicleDetail::class)->withDefault();
+        return $this->hasOne(VehicleDetail::class);
     }
 
     public function ranking()

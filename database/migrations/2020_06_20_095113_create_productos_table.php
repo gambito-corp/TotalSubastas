@@ -24,11 +24,11 @@ class CreateProductosTable extends Migration {
             $table->string('tipo_reserva');
 			$table->string('nombre');
 			$table->string('imagen')->default('img/vehiculos/coche.png');
-			$table->string('precio');
-			$table->string('precio_reserva');
-			$table->string('garantia');
-			$table->string('puja');
-			$table->string('comision');
+			$table->BigInteger('precio');
+			$table->BigInteger('precio_reserva');
+			$table->BigInteger('garantia');
+			$table->BigInteger('puja');
+			$table->BigInteger('comision');
             $table->dateTime('started_at');
             $table->dateTime('finalized_at');
 			$table->timestamps();

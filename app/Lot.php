@@ -51,4 +51,6 @@ class Lot extends Model
         return $this->hasMany('App\Producto', 'lote_id');
     }
 
+
+
 }
