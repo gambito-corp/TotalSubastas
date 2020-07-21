@@ -12,7 +12,10 @@
                             </figure>
                             <ul class="nav justify-content-end">
                                 <li class="nav-item text-light_darken mr-2">
-                                    <span class="mr-2 "><i class="fa fa-heart-o heart" aria-hidden="true"></i> 234</span>
+                                    <span class="mr-2 " wire:click="addLike({{$producto->id}})" wire:model="like">
+                                        <i class="fa fa-heart-o heart" aria-hidden="true"></i>
+                                        {{count($this->like->where('producto_id', $producto->id))}}
+                                    </span>
                                 </li>
                                 <li class="nav-item text-light_darken mr-4">
                                     <span id="hammer" class="mr-2"> <i class="fas  fa-gavel fa-rotate-270 ml-2"></i> 4</span>

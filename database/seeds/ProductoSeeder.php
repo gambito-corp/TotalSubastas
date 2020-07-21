@@ -27,8 +27,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -45,8 +45,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -63,8 +63,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -81,8 +81,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -99,8 +99,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -117,8 +117,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -135,8 +135,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -153,8 +153,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -171,8 +171,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -189,8 +189,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -207,8 +207,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => '2020-07-20 15:55:00',
+            'finalized_at'      => '2020-07-23 17:04:14'
         ]);
     }
 }

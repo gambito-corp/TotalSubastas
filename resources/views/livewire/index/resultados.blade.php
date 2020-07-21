@@ -43,7 +43,7 @@
                                     <article class="pub-item_head">
                                         <span wire:click="addLike({{$dato->id}})" wire:model="like">
                                             <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
-                                            <p class="mb-2 text-light" wire:pool.500ms="$refresh">{{count($this->like->where('producto_id', $dato->id))}}</p>
+                                            <p class="mb-2 text-light">{{count($this->like->where('producto_id', $dato->id))}}</p>
                                         </span>
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
                                         @isset($dato->imagen)
