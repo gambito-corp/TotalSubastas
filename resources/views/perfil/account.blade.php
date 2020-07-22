@@ -167,66 +167,83 @@
                         </div>
 
                         <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">
-                            <h2 class="text-darken pb-3">Participaciones Activas</h2>
+                            <h2 class="text-darken pb-3">Participaciones Pasadas</h2>
                             <div class="row ">
                                 <div class="col">
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                    @forelse($pasadas as $producto)
+                                        <div class="media bg-light border-bottom">
+                                            <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70" height="70" class="mx-2 my-auto">
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                    <span>$ {{$producto->Productos->precio}}</span>
+                                                </div>
+                                                <p>fecha en vivo : {{$producto->Productos->started_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                                    @empty
+                                        <div class="media bg-light border-bottom">
+                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
+                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
 
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                                </text>
+                                            </svg>
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> kia rio 2007 </h5>
+                                                    <span>$ 23 400</span>
+                                                </div>
+                                                <p>fecha en vivo : 12/04/20</p>
+                                                <p>fecha registro : 10/04/20</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                                    @endforelse
+                                </div>
+                            </div>
+                        </div>
 
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
+                            <h2 class="text-darken pb-3">Vas Ganando</h2>
+                            <div class="row ">
+                                <div class="col pl-3 radius">
+                                    @forelse($ganando as $producto)
+                                        <div class="media bg-light border-bottom">
+                                            <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70" height="70" class="mx-2 my-auto">
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                    <span>$ {{$producto->Productos->precio}}</span>
+                                                </div>
+                                                <p>fecha en vivo : {{$producto->Productos->started_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
+                                    @empty
+                                        <div class="media bg-light border-bottom">
+                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
+                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+
+                                                </text>
+                                            </svg>
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> kia rio 2007 </h5>
+                                                    <span>$ 23 400</span>
+                                                </div>
+                                                <p>fecha en vivo : 12/04/20</p>
+                                                <p>fecha registro : 10/04/20</p>
+                                            </div>
+                                        </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -235,83 +252,58 @@
                             <h2 class="text-darken pb-3">Lotes Ganados</h2>
                             <div class="row ">
                                 <div class="col pl-3 radius">
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                    @forelse($ganadas as $producto)
+                                        <div class="media bg-light border-bottom">
+                                            <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70" height="70" class="mx-2 my-auto">
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                    <span>$ {{$producto->Productos->precio}}</span>
+                                                </div>
+                                                <p>fecha en vivo : {{$producto->Productos->started_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                                    @empty
+                                        <div class="media bg-light border-bottom">
+                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
+                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
 
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                                </text>
+                                            </svg>
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> kia rio 2007 </h5>
+                                                    <span>$ 23 400</span>
+                                                </div>
+                                                <p>fecha en vivo : 12/04/20</p>
+                                                <p>fecha registro : 10/04/20</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
-                                            </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
-                                        </div>
-                                    </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">
-                            <h2 class="text-darken pb-3">Puntaje</h2>
-                            <div class="row row-cols-2 m-acc_points mr-0 ml-0">
-                                <div class="col-12 border-bottom  p-5 m-acc_char"> 3 pts</div>
-                                <div class="col-6 p-5 border-right m-acc_points-bottom">
-                                    Poisitivo
-                                    <p class="p-2">40.8%</p>
-                                </div>
-                                <div class="col-6 p-5 m-acc_points-bottom">
-                                    Negativo
-                                    <p class="p-2">59.2%</p>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">--}}
+{{--                            <h2 class="text-darken pb-3">Puntaje</h2>--}}
+{{--                            <div class="row row-cols-2 m-acc_points mr-0 ml-0">--}}
+{{--                                <div class="col-12 border-bottom  p-5 m-acc_char"> 3 pts</div>--}}
+{{--                                <div class="col-6 p-5 border-right m-acc_points-bottom">--}}
+{{--                                    Poisitivo--}}
+{{--                                    <p class="p-2">40.8%</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-6 p-5 m-acc_points-bottom">--}}
+{{--                                    Negativo--}}
+{{--                                    <p class="p-2">59.2%</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
-
                     <div class="col-12 col-md-12 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0 pl-0">
                         <h2 class="text-darken pb-3 border-top pt-5">Movimientos</h2>
                         <div class="col-12 pl-0 pr-0 col-md-12 col-sm-12 col-xs-12 live-push_action-floating">
@@ -329,83 +321,34 @@
                                 Oferta
                             </div>
                             </div> -->
+
                             <div class="row mb-5 scroll-account">
-                                <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                    <div class="col-md-4 text-light font-weight-normal">
-                                        Abono desde bcp
+                                @forelse($garantiaDetail as $detail)
+
+                                    <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                                        <div class="col-md-4 text-dark font-weight-normal">
+                                            {{$detail->descripcion}}
+                                        </div>
+                                        <div class="col-md-2 text-dark font-weight-normal">
+                                            {{$detail->tipo}}
+                                        </div>
+                                        <div class="col-md-2 text-dark font-weight-normal">
+                                            {{$detail->created_at->format('d-M-Y')}}
+                                        </div>
+                                        <div
+                                            class="col-md-2 text-dark font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                            $ {{$detail->monto}}
+                                        </div>
+                                        <div
+                                            class="col-md-2 text-dark font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                            <i class="fas fa-download"></i> <span class="font-weight-light"></span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        Ingreso
+                                @empty
+                                    <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                                        <h2 class="text-darken">Ho hay un registro</h2>
                                     </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        10 mayo 2020
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        $ 100
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        <i class="fas fa-download"></i> <span class="font-weight-light"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                    <div class="col-md-4 text-light font-weight-normal">
-                                        Abono desde bcp
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        Ingreso
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        10 mayo 2020
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        $ 100
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        <i class="fas fa-download"></i> <span class="font-weight-light"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                    <div class="col-md-4 text-light font-weight-normal">
-                                        Abono desde bcp
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        Ingreso
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        10 mayo 2020
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        $ 100
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        <i class="fas fa-download"></i> <span class="font-weight-light"></span>
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                    <div class="col-md-4 text-light font-weight-normal">
-                                        Abono desde bcp
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        Ingreso
-                                    </div>
-                                    <div class="col-md-2 text-light font-weight-normal">
-                                        10 mayo 2020
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        $ 100
-                                    </div>
-                                    <div
-                                        class="col-md-2 text-light font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                        <i class="fas fa-download"></i> <span class="font-weight-light"></span>
-                                    </div>
-                                </div>
+                                @endforelse
                                 <div class="col-md-12 text-center pt-3 pb-3" style="background-color:#8F79D4; ">
                                     load more
                                 </div>
@@ -418,37 +361,16 @@
         <div class="row mb-sm-4">
             <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
                 <article>
-                    <!-- <h2 class="ml-5">Credito vehicular</h2>
-                    <p class="ml-5">
-                        Te ofrecemos asesoria especializada, si eres cliente de
-                        totalsubastas contactanos
-                    </p> -->
                     <a href="/">
                         <img src="./assets/img/image-368.png" class="img-fluid" alt="" />
                     </a>
-                    <!-- <a href="{{Route('creditos')}}" class="text-light">
-                        <button class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
-                            Aqu&iacute;
-                        </button>
-                    </a> -->
                 </article>
             </div>
 
             <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
                 <article>
-                    <!-- <h2 class="ml-5">Asesoria legal?</h2>
-                    <p class="ml-5">
-                        Te ofrecemos asesoria especializada, si eres cliente de
-                        totalsubastas contactanos
-                    </p> -->
                     <img src="./assets/img/image-368-1.png" alt="" />
-                    <!-- <a href="Route{{route('asesoria')}}" class="text-light">
-                        <button  class="btn btn-primary rounded-pill mb-5 mr-5 pt-1 pb-1 pr-5 pl-4 border-0">
-                            Aqu&iacute;
-                        </button>
-                    </a> -->
                 </article>
             </div>
         </div>
-
 @endsection

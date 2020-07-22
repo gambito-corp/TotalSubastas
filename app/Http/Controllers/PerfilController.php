@@ -47,10 +47,26 @@ class PerfilController extends Controller
 
         $activas = Participacion::where('user_id', $id)
             ->whereHas('Productos', function($query){
-                $query->where('finalized_at', '!=', null);
+                $query->where('finalized_at', '>', now());
+            })->with('Productos')->get();
+        $pasadas = Participacion::where('user_id', $id)
+            ->whereHas('Productos', function($query){
+                $query->where('finalized_at', '<', now());
+            })->with('Productos')->get();
+        $ganando = Participacion::where('user_id', $id)
+            ->whereHas('Productos', function($query)use($id){
+                $query->where('user_id', $id)
+                    ->where('finalized_at', '>', now());
+            })->with('Productos')->get();
+        $ganadas = Participacion::where('user_id', $id)
+            ->whereHas('Productos', function($query)use($id){
+                $query->where('user_id', $id)
+                    ->where('finalized_at', '<', now());
             })->with('Productos')->get();
 
-        return view('perfil.account', compact('persona', 'audit', 'balance', 'garantia', 'likes', 'ofertas', 'participacion', 'activas'));
+        $garantiaDetail = Balance::where('user_id', $id)->get();
+
+        return view('perfil.account', compact('persona', 'audit', 'balance', 'garantia', 'likes', 'ofertas', 'participacion', 'activas', 'pasadas', 'ganando','ganadas', 'garantiaDetail'));
     }
 
     public function edit ()
