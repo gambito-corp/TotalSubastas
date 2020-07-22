@@ -1,18 +1,17 @@
 @extends('layouts.app')
 @section('content')
-<body class="bg-darken-light">
   <!-- Header -->
   <!-- Grid columns slider custom-->
   <div class="container-fluid">
     <div class="row">
       <div class="jumbotron jumbotron-top_container faq">
         <div class="container">
-          <!-- <h1 class="font-weight-bold text-light text-uppercase">
-              Preguntas <br> frecuentes
+          <h1 class="font-weight-bold text-light text-uppercase">
+              Editar Perfil
           </h1>
-        
-          <p class="text-light text-capitalize">conoce las bases para realizar una subasta correcta!</p>
-          -->
+
+          <p class="text-light text-capitalize">De {{$persona->nombres.' '.$persona->apellidos}}</p>
+
         </div>
       </div>
     </div>
@@ -27,58 +26,86 @@
               </div>-->
           <div class="col-md-3 order-md-1 mb-4   ">
             <div class="text-center">
-              <div class="bg-light-card shadow-sm radius">
-              <img src="{{asset('/assets/img/image-173.png')}}" class="side-nav-br_50 mt-4" with="" alt="...">
-                <div class="card-body pl-0 pr-0">
-                  <h5 class="card-title font-weight-bold  side-nav_title-card">Card title</h5>
-                  <p class="card-text">email@example.com</p>
-                  <p>
-                    <span><i class="bg-rating_star fas fa-star"></i></span>
-                    <span><i class="bg-rating_star fas fa-star"></i></span>
-                    <span><i class="bg-rating_star fas fa-star"></i></span>
-                    <span><i class="bg-rating_star fas fa-star  "></i></span>
-                    <span><i class="darken-flat fas fa-star"></i></span>
-                  </p>
-                  <p class="font-weight-bold text-dark">3 pts</p>
-                  <hr>
-                  <a href=""> editar perfil</a>
+                <div class="bg-light-card shadow-sm radius">
+                    <img src="{{asset(Auth::user()->avatar)}}" class=" mt-4" with="" alt="..." style="width: 90px;
+                                    height: 90px; border-radius:50%;">
+                    <div class="card-body pl-0 pr-0">
+                        <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
+                        <p class="card-text">{{Auth::user()->email}}</p>
+
+                    </div>
                 </div>
-              </div>
             </div>
           </div>
           <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
             <h2 class=" font-weight-bold text-dark pb-5 text-center">
               Customer information
             </h2>
-            <form>
+            <form action="{{route('perfil')}}" method="post">
+                @csrf @method('PATCH')
               <div class="form-row">
                 <div class="form-group col-md-4 col-sm-12">
-                  <label for="name" class="font-weight-bold text-dark">Nombres</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                  <label for="nombres" class="font-weight-bold text-dark">Nombres</label>
+                  <input type="text" name="nombres" class="form-control @error('nombres') is-invalid @enderror" value="{{old('nombres')?old('nombres'):$persona->nombres}}">
+                    @error('nombres')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">Apellidos</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                    <label for="apellidos" class="font-weight-bold text-dark">Apellidos</label>
+                    <input type="text" name="apellidos" class="form-control @error('apellidos') is-invalid @enderror" value="{{old('apellidos')?old('apellidos'):$persona->apellidos}}">
+                    @error('apellidos')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">Celular</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                    <label for="telefono" class="font-weight-bold text-dark">Telefono</label>
+                    <input type="text" name="telefono" class="form-control @error('telefono') is-invalid @enderror" value="{{old('telefono')?old('telefono'):$persona->telefono}}">
+                    @error('telefono')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">Correo electronico</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                    <label for="email" class="font-weight-bold text-dark">Email</label>
+                    <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')?old('email'):Auth::user()->email}}">
+                    @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">Fecha de nacimiento</label>
-                  <input type="date" name="name" class="form-control" placeholder="">
+                    <label for="d_day" class="font-weight-bold text-dark">Fecha de Nacimiento</label>
+                    <input type="date" name="d_day" class="form-control @error('d_day') is-invalid @enderror" value="{{old('d_day')?old('d_day'):$persona->b_day}}">
+                    @error('d_day')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
+{{--                  <div class="form-group col-md-4">--}}
+{{--                      <label for="numero_documento" class="font-weight-bold text-dark">DNI</label>--}}
+{{--                      <input type="text" name="numero_documento" class="form-control @error('numero_documento') is-invalid @enderror" value="{{old('numero_documento')?old('numero_documento'):$persona->numero_documento}}">--}}
+{{--                      @error('numero_documento')--}}
+{{--                      <span class="invalid-feedback" role="alert">--}}
+{{--                        <strong>{{ $message }}</strong>--}}
+{{--                    </span>--}}
+{{--                      @enderror--}}
+{{--                  </div>--}}
                 <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">RUC</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
-                </div>
-                <div class="form-group col-md-4">
-                  <label for="name" class="font-weight-bold text-dark">Documento de identidad</label>
-                  <input type="text" name="name" class="form-control" placeholder="">
+                    <label for="numero_documento" class="font-weight-bold text-dark">DNI</label>
+                    <input type="text" name="numero_documento" class="form-control @error('numero_documento') is-invalid @enderror" value="{{old('numero_documento')?old('numero_documento'):$persona->numero_documento}}">
+                    @error('numero_documento')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
                 <div class="form-group col-md-4">
                   <label for="name" class="font-weight-bold text-dark">Contrase&ntilde;a</label>
@@ -178,7 +205,7 @@
               </a> -->
           </article>
       </div>
-  
+
       <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
           <article>
               <!-- <h2 class="ml-5">Asesoria legal?</h2>

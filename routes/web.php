@@ -28,6 +28,7 @@ Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
+Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
 // RUTAS DE ADMINISTRADOR
 Route::get('admin', 'AdminController@home')->name('admin');

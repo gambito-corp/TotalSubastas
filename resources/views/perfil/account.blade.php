@@ -22,14 +22,14 @@
                         <div class="card-body pl-0 pr-0">
                             <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
                             <p class="card-text">{{Auth::user()->email}}</p>
-                            <p>
-                                <span><i class=" fas fa-star bg-rating_star"></i></span>
-                                <span><i class=" fas fa-star bg-rating_star"></i></span>
-                                <span><i class=" fas fa-star bg-rating_star"></i></span>
-                                <span><i class=" fas fa-star bg-rating_star"></i></span>
-                                <span><i class="darken-flat fas fa-star"></i></span>
-                            </p>
-                            <p class="font-weight-bold text-dark">3 pts</p>
+{{--                            <p>--}}
+{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
+{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
+{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
+{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
+{{--                                <span><i class="darken-flat fas fa-star"></i></span>--}}
+{{--                            </p>--}}
+{{--                            <p class="font-weight-bold text-dark">3 pts</p>--}}
                             <hr>
                             <a href="{{route('perfil.edit')}}"> editar perfil</a>
                         </div>
@@ -42,7 +42,8 @@
                     <div class="col-12 col-md-4 col-sm-12 col-xs-12 ml mb-5">
                         <div class="card bg-darken text-light mc-card_top">
                             <div class="card-body">
-                                <p class="card-title">Registro <svg class="bi bi-calendar3 float-right mr-3 "
+                                <p class="card-title">Registro
+                                    <svg class="bi bi-calendar3 float-right mr-3 "
                                         width="1.4em" height="1.4em" viewBox="0 0 16 16" fill="currentColor"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
@@ -51,7 +52,8 @@
                                         <path fill-rule="evenodd"
                                             d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z">
                                         </path>
-                                    </svg></p>
+                                    </svg>
+                                </p>
                                 <div class="col-sm-12">
                                     <div class="row text-center">
                                         <div class="col-12 col-sm-6">
@@ -71,7 +73,9 @@
                     <div class="col-md col-md-4 col-sm-12 col-xs-12 ml mb-5">
                         <div class="card bg-darken text-light mc-card_top">
                             <div class="card-body">
-                                <h5 class="card-title ">Saldo </h5>
+                                <p class="card-title ">Saldo
+                                    <i class="fa fa-money-bill-alt float-right mr-3 fa-w-20"></i>
+                                </p>
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 text-center">

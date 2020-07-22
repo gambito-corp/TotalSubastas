@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Audit;
 use App\Balance;
 use App\Garantia;
@@ -71,6 +72,13 @@ class PerfilController extends Controller
 
     public function edit ()
     {
-        return view('perfil.profile-edit');
+        $id = Auth::id();
+        $persona = Person::where('user_id', $id)->first();
+        return view('perfil.profile-edit', compact('persona'));
+    }
+
+    public function update(Request $request)
+    {
+        dd('update perfil');
     }
 }

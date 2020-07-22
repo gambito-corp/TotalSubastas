@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'Pedro',
             'email'             => 'asesor.pedro@gmail.com',
-            'avatar'            => 'users/default.png',
+            'avatar'            => 'img/users/default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('C4tntnox*+')
         ]);
@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'test 1',
             'email'             => 'test1@test.com',
-            'avatar'            => 'users/default.png',
+            'avatar'            => 'img/users/default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'gonsan300',
             'email'             => 'admin@gonzalo.com',
-            'avatar'            => 'users/default.png',
+            'avatar'            => 'img/users/default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
