@@ -37,7 +37,7 @@ class BalancesSeeder extends Seeder
             'abono_at'          => now()
         ]);
         Balance::create([
-            'user_id'           => 12,
+            'user_id'           => 3,
             'banco_id'          => 1,
             'monto'             => 1000000,
             'tipo'              => 'Deposito de garantia',

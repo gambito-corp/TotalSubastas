@@ -162,10 +162,10 @@ class Gambito
         $producto = self::obtenerProducto($id);
         if($live && $producto->finalized_at == now()){
             $producto->finalized_at = now()->addSeconds(8);
-            if($live && $producto->finalized_at == now()->subSecond())
-            {
-                self::checkEstado($producto, Auth::id(), true, true);
-            }
+        }
+        if($live && $producto->finalized_at == now()->subSecond())
+        {
+            self::checkEstado($producto, Auth::id(), true, true);
         }
 
         $producto->update();
