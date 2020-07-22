@@ -39,9 +39,9 @@
         </div>
     </div>
 
-    <div class="row mt-5" wire:poll.1000ms="estado">
+    <div class="row mt-5">
         <div class="col">
-            <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom precio-tamaño">
+            <button class="btn btn-outline-dark rounded-pill pr-4 pl-4 btn-to_action-bottom precio-tamaño" wire:poll.1000ms="estado">
                 $ {{$producto->precio}} actual
             </button>
         </div>

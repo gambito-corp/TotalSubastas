@@ -79,7 +79,7 @@ class Gambito
             : $user;
     }
 
-    public static function checkEstado(Producto $producto, $id, $live = false)
+    public static function checkEstado(Producto $producto, $id, $live = false, $set = false)
     {
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
@@ -87,7 +87,7 @@ class Gambito
             $estado = 'ganador'; //Cambiar a Ganador
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif($producto->finalized_at <= now()){
+        }elseif($producto->finalized_at <= now() || $set == true){
             $estado = 'Finalizada';
         }else{
             $estado = 'puja';
@@ -160,11 +160,14 @@ class Gambito
     public static function Pujar($id, $live = false)
     {
         $producto = self::obtenerProducto($id);
-        $producto->precio += $producto->puja;
-        $producto->user_id = Auth::id();
         if($live && $producto->finalized_at == now()){
             $producto->finalized_at = now()->addSeconds(8);
+            if($live && $producto->finalized_at == now()->subSecond())
+            {
+                self::checkEstado($producto, Auth::id(), true, true);
+            }
         }
+
         $producto->update();
 
         if($live){

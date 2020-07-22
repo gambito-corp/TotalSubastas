@@ -5,9 +5,11 @@ namespace App\Http\Livewire\Subastas\Live;
 use App\ActiveAuc;
 use App\Helpers\Gambito;
 use App\Message;
+use App\Participacion;
 use App\Producto;
 use App\Vehicle;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Index extends Component
@@ -97,6 +99,36 @@ class Index extends Component
 
     public function pujar()
     {
+        $participacion = Participacion::where('user_id', Auth::id())
+            ->where('producto_id', $this->producto->id)
+            ->pluck('participacion')
+            ->first();
+//        dd($participacion);
+        DB::transaction(function()use($participacion){
+            DB::table('productos')
+                ->where('id', $this->producto->id)
+                ->update([
+                    'precio' => $this->producto->puja+$this->producto->precio,
+                    'user_id' => Auth::id(),
+                    'updated_at' => now()
+                ]);
+            DB::table('participacions')
+                ->updateOrInsert(
+                    [
+                        'user_id' => Auth::id(),
+                        'producto_id' => $this->producto->id,
+                    ],
+                    [
+                        'participacion' => $participacion+1,
+                        'updated_at' => now()
+                    ]
+                );
+        });
+        $participacion = Participacion::where('user_id', Auth::id())
+            ->where('producto_id', $this->producto->id)
+            ->first();
+        $participacion->created_at == null?$participacion->created_at = now():'';
+        $participacion->update();
         Gambito::Pujar($this->identificador,true);
         $this->emitSelf('refresh');
     }

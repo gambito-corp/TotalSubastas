@@ -5,12 +5,6 @@
         <div class="row">
             <div class="jumbotron jumbotron-top_container faq">
                 <div class="container">
-                    <!-- <h1 class="font-weight-bold text-light text-uppercase">
-          Preguntas <br> frecuentes
-      </h1>
-    
-      <p class="text-light text-capitalize">conoce las bases para realizar una subasta correcta!</p>
-      -->
                 </div>
             </div>
         </div>
@@ -23,11 +17,11 @@
                     <!-- Accordion card -->
 
                     <div class="bg-light-card shadow-sm radius">
-                        <img src="{{asset('/assets/img/image-173.png')}}" class=" mt-4" with="" alt="..." style="width: 90px;
+                        <img src="{{asset(Auth::user()->avatar)}}" class=" mt-4" with="" alt="..." style="width: 90px;
                                     height: 90px; border-radius:50%;">
                         <div class="card-body pl-0 pr-0">
-                            <h5 class="card-title font-weight-bold text-dark">Card title</h5>
-                            <p class="card-text">email@example.com</p>
+                            <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
+                            <p class="card-text">{{Auth::user()->email}}</p>
                             <p>
                                 <span><i class=" fas fa-star bg-rating_star"></i></span>
                                 <span><i class=" fas fa-star bg-rating_star"></i></span>
@@ -37,7 +31,7 @@
                             </p>
                             <p class="font-weight-bold text-dark">3 pts</p>
                             <hr>
-                            <a href="./Profile-edit.html"> editar perfil</a>
+                            <a href="{{route('perfil.edit')}}"> editar perfil</a>
                         </div>
                     </div>
                 </div>
@@ -61,12 +55,12 @@
                                 <div class="col-sm-12">
                                     <div class="row text-center">
                                         <div class="col-12 col-sm-6">
-                                            <p class="b-title">30 abril 2019</p>
+                                            <p class="b-title">{{Auth::user()->created_at->format('d-M-Y')}}</p>
 
                                             <small class="sm-text_card">fecha Registro </small>
                                         </div>
                                         <div class="col-4 col-sm-6 ">
-                                            <p class="b-title">05 Mayo 2019</p>
+                                            <p class="b-title">{{$audit}}</p>
                                             <small class="sm-text_card"> ultimo ingreso</small>
                                         </div>
                                     </div>
@@ -81,11 +75,11 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">S/. 600 </p>
+                                            <p class="b-title">S/. {{$balance}} </p>
                                             <small class="sm-text_card">Saldo actual</small>
                                         </div>
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">S/. 150</p>
+                                            <p class="b-title">S/. {{$garantia}}</p>
                                             <small class="sm-text_card ">Monto retenido</small>
                                         </div>
                                     </div>
@@ -108,17 +102,17 @@
                                     <div class="row">
                                         <div class="col-12 col-md-4 col-sm-4 col-xs-2">
                                             <p class="b-title  text-center"><i class="fas fa-heart "></i></p>
-                                            <p class="sm-text_card text-center">234 <br> Me gusta</p>
+                                            <p class="sm-text_card text-center">{{$likes}} <br> Me gusta</p>
                                             <small class="sm-text_card"></small>
                                         </div>
                                         <div class="col-12 col-md-4 col-sm-4 col-xs-4">
                                             <p class="b-title text-center"><i class="fas fa-gavel fa-rotate-270"></i>
                                             </p>
-                                            <p class="sm-text_card text-center">4 <br> Ofertas</p>
+                                            <p class="sm-text_card text-center">{{$ofertas}} <br> Ofertas</p>
                                         </div>
                                         <div class="col-12 col-md-4 col-sm-4 col-xs-4">
                                             <p class="b-title  text-center"><i class="fas fa-user"></i></p>
-                                            <p class="sm-text_card text-center">23 Participaciones</p>
+                                            <p class="sm-text_card text-center">{{$participacion}} Participaciones</p>
                                         </div>
                                     </div>
                                 </div>
@@ -135,63 +129,39 @@
                             <h2 class="text-darken pb-3">Participaciones Activas</h2>
                             <div class="row ">
                                 <div class="col">
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                    @forelse($activas as $producto)
+                                        <div class="media bg-light border-bottom">
+                                            <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70" height="70" class="mx-2 my-auto">
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                    <span>$ {{$producto->Productos->precio}}</span>
+                                                </div>
+                                                <p>fecha en vivo : {{$producto->Productos->started_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
+                                    @empty
+                                        <div class="media bg-light border-bottom">
+                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
+                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
+                                                <title>Placeholder</title>
+                                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
 
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
+                                                </text>
+                                            </svg>
+                                            <div class="media-body pb-4">
+                                                <div class="mt-3 m-acc_text">
+                                                    <h5 class="mt-0"> kia rio 2007 </h5>
+                                                    <span>$ 23 400</span>
+                                                </div>
+                                                <p>fecha en vivo : 12/04/20</p>
+                                                <p>fecha registro : 10/04/20</p>
                                             </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
                                         </div>
-                                    </div>
-                                    <div class="media bg-light border-bottom">
-                                        <svg class="bd-placeholder-img mr-3  ml-3 mt-3" width="70" height="70"
-                                            xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                            focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                            <title>Placeholder</title>
-                                            <rect width="100%" height="100%" fill="#868e96"></rect>
-                                            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                            </text>
-                                        </svg>
-                                        <div class="media-body pb-4">
-                                            <div class="mt-3 m-acc_text">
-                                                <h5 class="mt-0"> kia rio 2007 </h5>
-                                                <span>$ 23 400</span>
-                                            </div>
-                                            <p>fecha en vivo : 12/04/20</p>
-                                            <p>fecha registro : 10/04/20</p>
-                                        </div>
-                                    </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
@@ -463,7 +433,7 @@
                     </a> -->
                 </article>
             </div>
-        
+
             <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
                 <article>
                     <!-- <h2 class="ml-5">Asesoria legal?</h2>
@@ -480,5 +450,5 @@
                 </article>
             </div>
         </div>
-        
+
 @endsection
