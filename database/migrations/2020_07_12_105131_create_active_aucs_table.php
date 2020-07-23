@@ -15,8 +15,8 @@ class CreateActiveAucsTable extends Migration
     {
         Schema::create('active_aucs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('producto_id');
-            $table->foreignId('user_id');
+            $table->foreignId('producto_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -15,9 +15,9 @@ class CreateProductosTable extends Migration {
 		Schema::create('productos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('user_id')->nullable();
-			$table->unsignedBigInteger('empresa_id');
-			$table->unsignedBigInteger('lote_id');
+			$table->foreignId('user_id')->nullable()->default(1)->constrained();
+			$table->foreignId('empresa_id')->default(1)->constrained('companies');
+			$table->foreignId('lote_id')->default(1)->constrained('lots');
 			$table->string('ciudad');
             $table->string('tipo_vehiculo');
             $table->string('tipo_subasta');

@@ -32,7 +32,7 @@
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                             <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
                                 <i class="fas fa-clock nav-content_text"></i>
-                                <span class="ml-3">{{$datos->subasta_at->diffForHumans()}}</span>
+                                <span class="ml-3">{{$datos->subasta_at->format('M-d g:i A')}}</span>
                             </h2>
                         </div>
                     </nav>
@@ -58,7 +58,12 @@
                                         </p>
                                         <div class="align-items-center btn_auction">
                                             <div class="btn-group d-flex justify-content-center">
-                                                <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
+                                                @if($dato->tipo_subasta == 'Compra')
+{{--                                                    cambiar a compra cuando la vista este habilitada--}}
+                                                    <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
+                                                @else
+                                                    <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
+                                                @endif
                                                     <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}}">
                                                         <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>
                                                         <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>

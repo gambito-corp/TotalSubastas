@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\ActiveAuc;
 use App\Auction;
 use App\Balance;
+use App\Company;
 use App\Garantia;
 use App\Helpers\Gambito;
+use App\Lot;
 use App\Message;
+use App\Producto;
 use Illuminate\Support\Facades\Auth;
 
 class AuctionsController extends Controller
@@ -28,9 +31,13 @@ class AuctionsController extends Controller
     public function show()
     {
         $producto = Gambito::obtenerProducto()->load('Vehiculo');
-//        dd($producto->Vehiculo);
-
-        return view('auction.show', compact('producto'));
+        $referidos = Producto::where('lote_id', $producto->lote_id)
+            ->where('finalized_at', '>', now())
+            ->where('id', '!=', $producto->id)
+            ->get();
+        $empresa = Company::find($producto->empresa_id)->pluck('nombre')->first();
+        $fecha = Lot::find($producto->lote_id)->pluck('subasta_at')->first()->format('M-d g:i A');
+        return view('auction.show', compact('producto', 'referidos', 'empresa', 'fecha'));
     }
 
     public function live()

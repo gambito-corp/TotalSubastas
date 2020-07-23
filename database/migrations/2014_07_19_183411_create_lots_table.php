@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateImagenesVehiculosTable extends Migration {
+class CreateLotsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,14 @@ class CreateImagenesVehiculosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('imagenes_vehiculos', function(Blueprint $table)
+		Schema::create('lots', function(Blueprint $table)
 		{
 			$table->id();
 			$table->foreignId('empresa_id')->constrained('companies');
-			$table->foreignId('lote_id')->constrained('lots');
-			$table->foreignId('producto_id')->constrained();
-			$table->string('imagen');
-			$table->string('titulo')->nullable();
-			$table->text('descripcion', 65535)->nullable();
+			$table->string('nombre');
+			$table->string('descripcion')->nullable();
+			$table->string('slug');
+			$table->dateTime('subasta_at')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -34,7 +33,7 @@ class CreateImagenesVehiculosTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('imagenes_vehiculos');
+		Schema::drop('lots');
 	}
 
 }

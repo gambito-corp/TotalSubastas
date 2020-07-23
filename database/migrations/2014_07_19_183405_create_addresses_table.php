@@ -15,11 +15,11 @@ class CreateAddressesTable extends Migration {
 		Schema::create('addresses', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('user_id');
-			$table->unsignedBigInteger('pais_id');
-			$table->unsignedBigInteger('departamento_id');
-			$table->unsignedBigInteger('provincia_id');
-			$table->unsignedBigInteger('distrito_id');
+			$table->foreignId('user_id')->constrained();
+			$table->foreignId('pais_id')->constrained('countries');
+			$table->foreignId('departamento_id')->constrained('countries');
+			$table->foreignId('provincia_id')->constrained('countries');
+			$table->foreignId('distrito_id')->constrained('countries');
 			$table->string('tipo_via');
 			$table->string('direccion1');
 			$table->string('direccion2')->nullable();

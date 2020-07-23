@@ -15,10 +15,11 @@ class CreateParticipacionsTable extends Migration
     {
         Schema::create('participacions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('producto_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('producto_id')->constrained();
             $table->bigInteger('participacion')->nullable()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

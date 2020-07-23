@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateLotsTable extends Migration {
+class CreateCountriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateLotsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('lots', function(Blueprint $table)
+		Schema::create('countries', function(Blueprint $table)
 		{
-			$table->id();
-			$table->unsignedBigInteger('empresa_id');
+			$table->id('id');
+			$table->foreignId('parent_id')->nullable()->constrained('countries');
 			$table->string('nombre');
-			$table->string('descripcion')->nullable();
-			$table->string('slug');
-			$table->dateTime('subasta_at')->nullable();
+			$table->string('descripcion')->default('sin Descripccion');
+			$table->string('codigo')->default('sin Codigo');
 			$table->timestamps();
 			$table->softDeletes();
 		});
@@ -33,7 +32,7 @@ class CreateLotsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('lots');
+		Schema::drop('countries');
 	}
 
 }

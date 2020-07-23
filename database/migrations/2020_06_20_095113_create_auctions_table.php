@@ -15,11 +15,11 @@ class CreateAuctionsTable extends Migration {
 		Schema::create('auctions', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('producto_id');
-			$table->unsignedBigInteger('ganador_id')->nullable();
-			$table->unsignedBigInteger('segundo_id')->nullable();
-			$table->unsignedBigInteger('tercero_id')->nullable();
-			$table->unsignedBigInteger('cuarto_id')->nullable();
+			$table->foreignId('producto_id')->constrained('productos');
+			$table->foreignId('ganador_id')->nullable()->constrained('users');
+			$table->foreignId('segundo_id')->nullable()->constrained('users');
+			$table->foreignId('tercero_id')->nullable()->constrained('users');
+			$table->foreignId('cuarto_id')->nullable()->constrained('users');
 			$table->timestamps();
 			$table->softDeletes();
 		});

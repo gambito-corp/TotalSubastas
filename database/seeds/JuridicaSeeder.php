@@ -15,10 +15,43 @@ class JuridicaSeeder extends Seeder
             'persona_id'    => 1,
             'banco_id'      => 1,
             'direccion_id'  => 1,
-            'direccion2_id' => 1,
-            'nombre'        => 'Pedro Aguirre Consultores',
-            'razon_social'  => 'Pedro Aguirre Consultores SAC',
-            'ruc'           => '20000000000',
+            'direccion2_id' => 2,
+            'nombre'        => 'Multitiendas Perú',
+            'razon_social'  => 'Multitiendas S.A.C',
+            'ruc'           => '20604045747',
+            'numero_cuenta' => '64645646541651564',
+            'telefono'      => '960717583'
+        ]);
+        LegalPerson::create([
+            'persona_id'    => 2,
+            'banco_id'      => 2,
+            'direccion_id'  => 3,
+            'direccion2_id' => 4,
+            'nombre'        => 'Belcorp',
+            'razon_social'  => 'Belcorp S.A.C',
+            'ruc'           => '20604045747',
+            'numero_cuenta' => '64645646541651564',
+            'telefono'      => '960717583'
+        ]);
+        LegalPerson::create([
+            'persona_id'    => 3,
+            'banco_id'      => 3,
+            'direccion_id'  => 5,
+            'direccion2_id' => 6,
+            'nombre'        => 'Saga Falabella',
+            'razon_social'  => 'Almacenes Peruanos S.A.C.',
+            'ruc'           => '20604045747',
+            'numero_cuenta' => '64645646541651564',
+            'telefono'      => '960717583'
+        ]);
+        LegalPerson::create([
+            'persona_id'    => 1,
+            'banco_id'      => 2,
+            'direccion_id'  => 1,
+            'direccion2_id' => 2,
+            'nombre'        => 'Banco Ripley',
+            'razon_social'  => 'Ripley S.A.C.',
+            'ruc'           => '20604045747',
             'numero_cuenta' => '64645646541651564',
             'telefono'      => '960717583'
         ]);
