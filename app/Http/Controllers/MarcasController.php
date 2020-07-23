@@ -15,13 +15,13 @@ class MarcasController extends Controller
 
     public function index()
     {
-        $marcas = Brand::all();
+        $marcas = Brand::with('Parent')->get();
         return view('admin.marcas.view', compact('marcas'));
     }
 
     public function trash()
     {
-        $marcas = Brand::onlyTrashed()->get();
+        $marcas = Brand::onlyTrashed()->with('Parent')->get();
         $trash = true;
         return view('admin.marcas.view', compact('marcas', 'trash'));
     }
@@ -29,7 +29,8 @@ class MarcasController extends Controller
     public function create()
     {
         $marca = new Brand();
-        return view('admin.marcas.form', compact('marca'));
+        $marcas = Brand::where('parent_id', null)->select('id', 'nombre')->get();
+        return view('admin.marcas.form', compact('marca', 'marcas'));
     }
 
     public function store(Request $request)
@@ -37,67 +38,73 @@ class MarcasController extends Controller
         $request->validate([
             'nombre' => 'required|unique:brands',
         ]);
+//        dd($request->input());
         Brand::create([
+            'parent_id' => $request->input('parent_id') == 'Selecciona una marca para el modelo' ? null : $request->input('parent_id'),
             'nombre' => $request->input('nombre'),
             'slug' => Str::of($request->input('nombre'))->slug('-')->lower()
         ]);
         return redirect()->route('admin.marcas.index')->with([
-            'message' => 'La Marca Fue Creada Con Exito',
+            'message' => 'El Rol Fue Creado Con Exito',
             'alerta' => 'success'
         ]);
     }
 
-    public function show(Brand $marca)
+    public function show($id)
     {
-        dd($marca, 'show');
+        dd($id, 'show');
     }
 
-    public function edit(Brand $marca)
+    public function edit($id)
     {
-        return view('admin.marcas.form', compact('marca'));
+        $marca = Brand::where('id',$id)->firstOrFail();
+        $marcas = Brand::where('parent_id', null)->select('id', 'nombre')->get();
+        return view('admin.marcas.form', compact('marca', 'marcas'));
     }
 
-    public function update(Brand $marca, Request $request)
+    public function update($id, Request $request)
     {
+        $rol = Brand::where('id',$id)->firstOrFail();
         $request->validate([
-            'nombre' => 'unique:brands,nombre,'.$marca->nombre,
+            'name' => 'unique:marcas,name,'.$rol->name,
         ]);
-        $marca->nombre = $request->input('nombre');
-        $marca->update();
-
+        $marcas->name = $request->input('name');
+        $marcas->display_name = Str::of($request->input('name'))->slug('-')->lower();
+        $marcas->update();
         return redirect()->route('admin.marcas.index')->with([
-            'message' => 'La Marca Fue Actualizada Con Exito',
+            'message' => 'El Rol Fue  Actualizado Con Exito',
             'alerta' => 'success'
         ]);
     }
 
-    public function delete(Brand $marca)
+    public function delete($id)
     {
-        $marca->delete();
-        return redirect()->route('admin.marcas.index')->with([
-            'message' => 'La Marca Fue Borrada',
+        $rol = Rol::where('id',$id)->firstOrFail();
+        $rol->delete();
+        return redirect()->route('admin.rol.index')->with([
+            'message' => 'El Rol Fue Borrado de la Base de Datos',
             'alerta' => 'warning'
         ]);
     }
 
     public function destroy($id)
     {
-        Brand::withTrashed()
+        Rol::withTrashed()
             ->where('id', $id)
             ->forceDelete();
-        return redirect()->route('admin.marcas.trash')->with([
-            'message' => 'La Marca Fue Eliminada',
+        return redirect()->route('admin.rol.trash')->with([
+            'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
             'alerta' => 'danger'
         ]);
     }
 
     public function restore($id)
     {
-        Brand::withTrashed()
+        Rol::withTrashed()
             ->where('id', $id)
             ->restore();
-        return redirect()->route('admin.marcas.trash')->with([
-            'message' => 'La Marca Fue Restaurada',
+        return redirect()->route('admin.rol.trash')->with([
+            'message' => 'El Rol Fue Restaurado Correctamente',
             'alerta' => 'warning'
         ]);
     }

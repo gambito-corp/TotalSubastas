@@ -56,7 +56,7 @@
                 </li>
                 {{--Roles--}}
                 <li class="nav-item has-treeview">
-                    <a href="{{route('admin.roles')}}" class="nav-link">
+                    <a href="{{route('admin.rol.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-user-lock"></i>
                         <p>
                             Roles
@@ -76,15 +76,7 @@
                             <a href="{{route('admin.marcas.index')}}" class="nav-link">
                                 <i class="fas fa-truck-pickup"></i>
                                 <p>
-                                    Marcas
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="{{route('admin.modelos.index')}}" class="nav-link">
-                                <i class="fas fa-truck-pickup"></i>
-                                <p>
-                                    Modelo De Vehiculos
+                                    Marcas y modelos
                                 </p>
                             </a>
                         </li>

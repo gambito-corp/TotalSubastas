@@ -33,33 +33,28 @@ Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 // RUTAS DE ADMINISTRADOR
 Route::get('admin', 'AdminController@home')->name('admin');
 //Roles
-Route::get('admin/roles', 'RolesController@index')->name('admin.roles');
-Route::get('admin/roles/create', 'RolesController@create')->name('admin.roles.create');
-Route::get('admin/roles/{rol}', 'RolesController@show')->name('admin.roles.show');
-Route::put('admin/roles/{rol}', 'RolesController@edit')->name('admin.roles.edit');
-Route::delete('admin/roles/{rol}', 'RolesController@edit')->name('admin.roles.delete');
+Route::get('admin/rol/index', 'RolesController@index')->name('admin.rol.index');
+Route::get('admin/rol/trash', 'RolesController@trash')->name('admin.rol.trash');
+Route::get('admin/rol/create', 'RolesController@create')->name('admin.rol.create');
+Route::post('admin/rol/guardar', 'RolesController@store')->name('admin.rol.store');
+Route::get('admin/rol/mostrar/{id}', 'RolesController@show')->name('admin.rol.show');
+Route::get('admin/rol/editar/{id}', 'RolesController@edit')->name('admin.rol.edit');
+Route::put('admin/rol/actualizar/{id}', 'RolesController@update')->name('admin.rol.update');
+Route::get('admin/rol/delete/{id}', 'RolesController@delete')->name('admin.rol.delete');
+Route::get('admin/rol/destroy/{id}', 'RolesController@destroy')->name('admin.rol.destroy')->middleware('password.confirm');
+Route::get('admin/rol/restore/{id}', 'RolesController@restore')->name('admin.rol.restore');
 //Marcas
 Route::get('admin/marcas/index', 'MarcasController@index')->name('admin.marcas.index');
 Route::get('admin/marcas/trash', 'MarcasController@trash')->name('admin.marcas.trash');
 Route::get('admin/marcas/create', 'MarcasController@create')->name('admin.marcas.create');
 Route::post('admin/marcas/guardar', 'MarcasController@store')->name('admin.marcas.store');
-Route::get('admin/marca/mostrar/{marca}', 'MarcasController@show')->name('admin.marcas.show');
-Route::get('admin/marcas/editar/{marca}', 'MarcasController@edit')->name('admin.marcas.edit');
-Route::put('admin/marcas/actualizar/{marca}', 'MarcasController@update')->name('admin.marcas.update');
-Route::get('admin/marcas/delete/{marca}', 'MarcasController@delete')->name('admin.marcas.delete');
+Route::get('admin/marca/mostrar/{id}', 'MarcasController@show')->name('admin.marcas.show');
+Route::get('admin/marcas/editar/{id}', 'MarcasController@edit')->name('admin.marcas.edit');
+Route::put('admin/marcas/actualizar/{id}', 'MarcasController@update')->name('admin.marcas.update');
+Route::get('admin/marcas/delete/{id}', 'MarcasController@delete')->name('admin.marcas.delete');
 Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy');
 Route::get('admin/marcas/restore/{id}', 'MarcasController@restore')->name('admin.marcas.restore');
-//Modelo
-Route::get('admin/modelos/index', 'ModeloController@index')->name('admin.modelos.index');
-Route::get('admin/modelos/trash', 'ModeloController@trash')->name('admin.modelos.trash');
-Route::get('admin/modelos/create', 'ModeloController@create')->name('admin.modelos.create');
-Route::post('admin/modelos/guardar', 'ModeloController@store')->name('admin.modelos.store');
-Route::get('admin/modelos/mostrar/{modelo}', 'ModeloController@show')->name('admin.modelos.show');
-Route::get('admin/modelos/editar/{modelo}', 'ModeloController@edit')->name('admin.modelos.edit');
-Route::put('admin/modelos/actualizar/{modelo}', 'ModeloController@update')->name('admin.modelos.update');
-Route::get('admin/modelos/delete/{modelo}', 'ModeloController@delete')->name('admin.modelos.delete');
-Route::get('admin/modelos/destroy/{id}', 'ModeloController@destroy')->name('admin.modelos.destroy');
-Route::get('admin/modelos/restore/{id}', 'ModeloController@restore')->name('admin.modelos.restore');
+
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');

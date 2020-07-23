@@ -1,30 +1,49 @@
 @extends('layouts.admin')
 @section('title')
 @section('header')
-    <h1 class="m-0 text-dark">Añadir Marca</h1>
+    <h1 class="m-0 text-dark">{{is_null($marca->id)? 'Crear' : 'Editar'}} Marca/Modelo</h1>
 @endsection
 @push('style')
 
 @endpush
 @section('content')
-    <form action="{{is_null($marca) ? route('admin.marcas.update', ['marca' => $marca]) : route('admin.marcas.store')}}" method="Post">
-    @csrf @if(!is_null($marca))@method('PUT')@endif
-    <div class="card">
+{{--    {{dd($marca->parent_id)}}--}}
+    <form action="{{is_null($marca->id)? route('admin.marcas.store') : route('admin.marcas.update', ['id'=> $marca->id])}}" method="Post">
+    @csrf @if(!is_null($marca->id))@method('PUT')@endif
+        <div class="card">
         <div class="card-body">
             <div class="form-group">
                 <div class="custom-control">
-                    <label for="nombre">nombre</label>
-                    <input type="text" name="nombre" class="form-control  @error('nombre') is-invalid @enderror" placeholder="Nombre de la Marca" value="{{is_null($marca)? $marca->nombre : old('nombre') }}" required autocomplete="nombre" autofocus aria-label="Nombre De Marca" aria-describedby="basic-addon1">
+                    <label for="name">Marca</label>
+                        <select class="form-control  @error('parent_id') is-invalid @enderror" name="parent_id">
+                            <option>Selecciona una marca para el modelo</option>
+                            @forelse($marcas as $parent)
+                                <option value="{{$marca->parent_id == $parent->id? $parent->id:''}}">{{$parent->nombre}}</option>
+                            @empty
+                                <option>No hay Marcas Crea una</option>
+                            @endforelse
+                        </select>
+                    @error('parent_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-control">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" class="form-control  @error('nombre') is-invalid @enderror" placeholder="Nombre del Marca/Modelo" value="{{!is_null($marca->id) ? $marca->name : old('nombre') }}" required autofocus aria-label="Nombre Del Marca/Modelo" aria-describedby="basic-addon1">
                     @error('nombre')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                  <div class="">
-                        <button type="submit" class="btn btn-primary ml-4 py-2 px-4"> {{is_null($marca)? 'Editar':'Crear' }}</button>
+                        <button type="submit" class="btn btn-primary ml-4 py-2 px-4"> {{!is_null($marca->id) ? 'Editar':'Crear' }}</button>
                 </div>
             </div>
         </div>

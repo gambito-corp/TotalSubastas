@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Rol;
 use Illuminate\Http\Request;
-use App\Rol as Role;
+use Illuminate\Support\Str;
 
 class RolesController extends Controller
 {
@@ -14,49 +15,93 @@ class RolesController extends Controller
 
     public function index()
     {
-        $roles = Role::all();
-        return view('admin.roles.view', compact('roles'));
+        $roles = Rol::all();
+        return view('admin.rol.view', compact('roles'));
+    }
+
+    public function trash()
+    {
+        $roles = Rol::onlyTrashed()->get();
+        $trash = true;
+        return view('admin.rol.view', compact('roles', 'trash'));
     }
 
     public function create()
     {
-        dd('creado');
+        $rol = new Rol();
+        return view('admin.rol.form', compact('rol'));
     }
 
     public function store(Request $request)
     {
-        dd($request);
+        $request->validate([
+            'name' => 'required|unique:rols',
+        ]);
+        Rol::create([
+            'name' => $request->input('name'),
+            'display_name' => Str::of($request->input('name'))->slug('-')->lower()
+        ]);
+        return redirect()->route('admin.rol.index')->with([
+            'message' => 'El Rol Fue Creado Con Exito',
+            'alerta' => 'success'
+        ]);
     }
 
-    public function show(Role $rol)
+    public function show($id)
     {
-        dd($rol);
+        dd($id, 'show');
     }
 
-    public function edit(Role $rol)
+    public function edit($id)
     {
-        dd($rol);
+        $rol = Rol::where('id',$id)->firstOrFail();
+        return view('admin.rol.form', compact('rol'));
     }
 
-    public function update(Role $rol, Request $request)
+    public function update($id, Request $request)
     {
-
+        $rol = Rol::where('id',$id)->firstOrFail();
+        $request->validate([
+            'name' => 'unique:rols,name,'.$rol->name,
+        ]);
+        $rol->name = $request->input('name');
+        $rol->display_name = Str::of($request->input('name'))->slug('-')->lower();
+        $rol->update();
+        return redirect()->route('admin.rol.index')->with([
+            'message' => 'El Rol Fue  Actualizado Con Exito',
+            'alerta' => 'success'
+        ]);
     }
 
-    public function delete(Role $rol)
+    public function delete($id)
     {
-        dd($rol);
+        $rol = Rol::where('id',$id)->firstOrFail();
+        $rol->delete();
+        return redirect()->route('admin.rol.index')->with([
+            'message' => 'El Rol Fue Borrado de la Base de Datos',
+            'alerta' => 'warning'
+        ]);
     }
 
-    public function destroy(Role $rol)
+    public function destroy($id)
     {
-        dd($rol);
+        Rol::withTrashed()
+            ->where('id', $id)
+            ->forceDelete();
+        return redirect()->route('admin.rol.trash')->with([
+            'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
+            'alerta' => 'danger'
+        ]);
     }
 
-    public function restore(Role $rol)
+    public function restore($id)
     {
-        dd($rol);
+        Rol::withTrashed()
+            ->where('id', $id)
+            ->restore();
+        return redirect()->route('admin.rol.trash')->with([
+            'message' => 'El Rol Fue Restaurado Correctamente',
+            'alerta' => 'warning'
+        ]);
     }
-
-
 }
