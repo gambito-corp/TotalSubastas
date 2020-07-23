@@ -18,7 +18,9 @@ class Index extends Component
     public function mount()
     {
         $this->picked = true;
-        $this->empresas = Company::all()->load('Lotes', 'Productos');
+        $this->empresas = Company::with('Lotes', 'Productos')->whereHas('Productos', function($query){
+                $query->where('finalized_at' , '>', now());
+            })->get();
     }
     public function hydrate()
     {

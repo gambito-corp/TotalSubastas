@@ -93,6 +93,7 @@ class Resultados extends Component
                     $query->where('tipo_reserva', $this->tipoR);
                 })
                 ->whereBetween("precio", [intval($this->precioMin), intval($this->precioMax)])
+                ->where('finalized_at', '<', now())
                 ->with('Lote');
         };
 
