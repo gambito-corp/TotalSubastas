@@ -8,7 +8,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <meta name="theme-color" content="#0394F0" />
+        <link  rel="icon"   href="{{asset('favicon.ico')}}" type="image/ico" />
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{mix('css/app.css')}}" />
         <link rel="stylesheet" href="{{mix('css/assets.css')}}" />
@@ -62,19 +63,19 @@
                                 <img src="{{asset('assets/img/Logo-TS.svg')}}">
                             </a>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </header>
         @include('assets.alertas')
-        @yield('content')               
+        @yield('content')
             </div>
         </div>
         <footer class="footer-color">
             <div class="container">
                 <!--Footer navbar-->
-                <nav class="navbar navbar-expand-lg d-flex justify-content-between pt-5 pb-5">                   
-                    
+                <nav class="navbar navbar-expand-lg d-flex justify-content-between pt-5 pb-5">
+
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">
@@ -84,9 +85,9 @@
                                 </a>
                             </li>
                         </ul>
-                   
-                    
-                        <ul class="navbar-nav">   
+
+
+                        <ul class="navbar-nav">
                             <li class="nav-item ml-5">
                                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">whatsapp</a>
                             </li>
@@ -96,9 +97,9 @@
                             <li class="nav-item ml-5">
                                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Cont&aacute;ctenos</a>
                             </li>
-                        </ul> 
-                   
-                                      
+                        </ul>
+
+
                 </nav>
             </div>
         </footer>
