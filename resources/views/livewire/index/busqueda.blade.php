@@ -60,16 +60,16 @@
                         <div class="col d-flex justify-content-between ">
 
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="Sin Reserva" wire:model="tipoR">
-                                <label class="form-check-label car-side-nav_bp" for="exampleCheck1">sin reserva</label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck2" value="Sin Reserva" wire:model="tipoR">
+                                <label class="form-check-label car-side-nav_bp" for="exampleCheck2">sin reserva</label>
                             </div>
 
                         </div>
                         <div class="col d-flex justify-content-between mt-2">
 
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" value="Compra Directa" wire:model="tipoR">
-                                <label class="form-check-label car-side-nav_bp" for="exampleCheck1">compra inmediata</label>
+                                <input type="checkbox" class="form-check-input" id="exampleCheck3" value="Compra Directa" wire:model="tipoR">
+                                <label class="form-check-label car-side-nav_bp" for="exampleCheck3">compra inmediata</label>
                             </div>
 
                         </div>
@@ -96,10 +96,10 @@
                             <form class="m-2">
                                 <div class="form-row">
                                     <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 3000"  wire:model.lazy="precioMin">
+                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 0"  wire:model.lazy="precioMin">
                                     </div>
                                     <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 5000" wire:model.lazy="precioMax">
+                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 0" wire:model.lazy="precioMax">
                                     </div>
                                 </div>
                             </form>
