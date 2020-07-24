@@ -54,9 +54,9 @@
 
     <body class="{{Request::is('auction/id/*') ?  'bg-dark': 'bg-darken-light'}}">
         <!-- Header -->
-        <header class="sticky-top" id="cabecera">
+        <header id="cabecera">
             <div class="navbar">
-                <div class="container flex-wrap justify-content-sm-center">
+                <div class="container flex-wrap justify-content-center">
                     <div class="row ">
                         <div class="col-md  mr-auto  ">
                             <a href="{{route('index')}}" class="navbar-brand d-flex text-dark align-items-center">

@@ -1502,3 +1502,6 @@ article.sec-carousel {
     background: #808080; 
     border-radius: 10px;
   }
+  .row-width {
+      width: 100%;
+  }
