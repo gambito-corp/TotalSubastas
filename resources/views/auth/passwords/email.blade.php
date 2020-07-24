@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="form-group justify-content-center row border-bottom mb-2 pb-5 pt-2">
-                            <div class="col-md-6">
+                            <div class="col-xs-12">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Enviar correo de recuperacion') }}
                                 </button>

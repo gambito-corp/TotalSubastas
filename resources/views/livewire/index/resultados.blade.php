@@ -1,4 +1,4 @@
-<div class="col-md-9 mt-3" wire:pool.750ms>
+<div class="col-md-9 mt-3 pr-0" wire:pool.750ms>
     <div class="row">
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
             <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
