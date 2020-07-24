@@ -34,9 +34,13 @@ class ImagenesVehiculo extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'lote_id'       => 'integer',
+        'producto_id'   => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     public function Vehiculo()

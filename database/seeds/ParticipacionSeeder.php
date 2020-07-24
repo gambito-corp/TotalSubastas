@@ -1,5 +1,7 @@
 <?php
 
+use App\ActiveAuc;
+use App\Participacion;
 use Illuminate\Database\Seeder;
 
 class ParticipacionSeeder extends Seeder
@@ -14,9 +16,9 @@ class ParticipacionSeeder extends Seeder
         $i = 1;
         for ($c = 1; $c < 3; $c++) {
             for ($l = 1; $l < 5; $l++) {
-                ActiveAuc::create([
-                    'producto_id' => $l,
+                Participacion::create([
                     'user_id' => $c,
+                    'producto_id' => $l,
                     'participacion' => $i++
                 ]);
             }

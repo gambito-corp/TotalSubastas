@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ActiveAuc extends Model
 {
-//    use SoftDeletes;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -39,7 +39,7 @@ class ActiveAuc extends Model
         'user_id'       => 'integer',
         'created_at'    => 'datetime',
         'updated_at'    => 'datetime',
-//        'deleted_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
 

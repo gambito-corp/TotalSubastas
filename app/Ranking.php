@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Ranking extends Model
 {
-
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -31,8 +32,12 @@ class Ranking extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'id'            => 'integer',
+        'producto_id'   => 'integer',
+        'user_id'       => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
 

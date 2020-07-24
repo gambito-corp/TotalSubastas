@@ -52,9 +52,5 @@ class Balance extends Model
     ];
 
     //RELACIONES
-//    public function Usuario()
-//    {
-//        return
-//    }
 
 }

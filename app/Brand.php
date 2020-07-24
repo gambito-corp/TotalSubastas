@@ -33,11 +33,11 @@ class Brand extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer',
-        'parent_id' => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'parent_id'     => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     //Relaciones

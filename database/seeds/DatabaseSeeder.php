@@ -1,6 +1,29 @@
 <?php
 
+use App\Lot;
+use App\Rol;
+use App\Like;
 use App\User;
+use App\Bank;
+use App\Audit;
+use App\Brand;
+use App\Person;
+use App\Address;
+use App\Auction;
+use App\Balance;
+use App\Company;
+use App\Country;
+use App\Message;
+use App\Ranking;
+use App\Garantia;
+use App\Producto;
+use App\Warehouse;
+use App\ActiveAuc;
+use App\LegalPerson;
+use App\Participacion;
+use App\VehicleDetail;
+use App\ImagenesVehiculo;
+use App\DocumentosVehiculo;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -13,32 +36,31 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $this->truncateTable([
-            \App\Rol::class,
-            \App\Bank::class,
-            \App\Brand::class,
-            \App\Country::class,
-            \App\User::class,
-            \App\Address::class,
-            \App\Audit::class,
-            \App\Balance::class,
-            \App\Person::class,
-            \App\LegalPerson::class,
-            \App\Company::class,
-            \App\Lot::class,
-            \App\Warehouse::class,
-            \App\Producto::class,
-            \App\Auction::class,
-            \App\ImagenesVehiculo::class,
-            \App\Message::class,
-            \App\VehicleDetail::class,
-            \App\Garantia::class,
-            \App\Ranking::class,
-            \App\ActiveAuc::class,
-            \App\Like::class,
-            \App\DocumentosVehiculo::class,
-            \App\Participacion::class
+            Rol::class,
+            Bank::class,
+            Brand::class,
+            Country::class,
+            User::class,
+            Address::class,
+            Audit::class,
+            Balance::class,
+            Person::class,
+            LegalPerson::class,
+            Company::class,
+            Lot::class,
+            Warehouse::class,
+            Producto::class,
+            Auction::class,
+            ImagenesVehiculo::class,
+            Message::class,
+            VehicleDetail::class,
+            Garantia::class,
+            Ranking::class,
+            ActiveAuc::class,
+            Like::class,
+            DocumentosVehiculo::class,
+            Participacion::class
         ]);
         Schema::disableForeignKeyConstraints();
         $this->call(RolesSeeder::class);

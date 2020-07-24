@@ -14,9 +14,13 @@ class Garantia extends Model
     protected $guarded=[];
 
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'producto_id'   => 'integer',
+        'user_id'       => 'integer',
+        'monto'         => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     public function Usuario()

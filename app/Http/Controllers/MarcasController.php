@@ -40,7 +40,7 @@ class MarcasController extends Controller
         ]);
 //        dd($request->input());
         Brand::create([
-            'parent_id' => $request->input('parent_id') == 'Selecciona una marca para el modelo' ? null : $request->input('parent_id'),
+            'parent_id' => $request->input('parent_id') == '0' ? null : $request->input('parent_id'),
             'nombre' => $request->input('nombre'),
             'slug' => Str::of($request->input('nombre'))->slug('-')->lower()
         ]);
@@ -64,12 +64,15 @@ class MarcasController extends Controller
 
     public function update($id, Request $request)
     {
-        $rol = Brand::where('id',$id)->firstOrFail();
+        $marcas = Brand::where('id',$id)->firstOrFail();
         $request->validate([
-            'name' => 'unique:marcas,name,'.$rol->name,
+            'name' => 'unique:brands,nombre,'.$marcas->id,
         ]);
-        $marcas->name = $request->input('name');
-        $marcas->display_name = Str::of($request->input('name'))->slug('-')->lower();
+        if ($request->input('parent_id') != 0){
+            $marcas->parent_id = $request->input('parent_id');
+        }
+        $marcas->nombre = $request->input('nombre');
+        $marcas->slug = Str::of($request->input('nombre'))->slug('-')->lower();
         $marcas->update();
         return redirect()->route('admin.marcas.index')->with([
             'message' => 'El Rol Fue  Actualizado Con Exito',
@@ -79,9 +82,9 @@ class MarcasController extends Controller
 
     public function delete($id)
     {
-        $rol = Rol::where('id',$id)->firstOrFail();
-        $rol->delete();
-        return redirect()->route('admin.rol.index')->with([
+        $marca = Brand::where('id',$id)->firstOrFail();
+        $marca->delete();
+        return redirect()->route('admin.marcas.index')->with([
             'message' => 'El Rol Fue Borrado de la Base de Datos',
             'alerta' => 'warning'
         ]);
@@ -89,10 +92,10 @@ class MarcasController extends Controller
 
     public function destroy($id)
     {
-        Rol::withTrashed()
+        Brand::withTrashed()
             ->where('id', $id)
             ->forceDelete();
-        return redirect()->route('admin.rol.trash')->with([
+        return redirect()->route('admin.marcas.trash')->with([
             'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
             'alerta' => 'danger'
         ]);
@@ -100,10 +103,10 @@ class MarcasController extends Controller
 
     public function restore($id)
     {
-        Rol::withTrashed()
+        Brand::withTrashed()
             ->where('id', $id)
             ->restore();
-        return redirect()->route('admin.rol.trash')->with([
+        return redirect()->route('admin.marcas.trash')->with([
             'message' => 'El Rol Fue Restaurado Correctamente',
             'alerta' => 'warning'
         ]);

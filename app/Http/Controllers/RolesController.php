@@ -62,7 +62,7 @@ class RolesController extends Controller
     {
         $rol = Rol::where('id',$id)->firstOrFail();
         $request->validate([
-            'name' => 'unique:rols,name,'.$rol->name,
+            'name' => 'unique:rols,name,'.$rol->id,
         ]);
         $rol->name = $request->input('name');
         $rol->display_name = Str::of($request->input('name'))->slug('-')->lower();

@@ -35,9 +35,16 @@ class Person extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'                => 'integer',
+        'user_id'           => 'integer',
+        'direccion_id'      => 'integer',
+        'banco_id'          => 'integer',
+        'numero_documento'  => 'integer',
+        'digito_documento'  => 'integer',
+        'b_day'             => 'integer',
+        'created_at'        => 'datetime',
+        'updated_at'        => 'datetime',
+        'deleted_at'        => 'datetime',
     ];
 
 }

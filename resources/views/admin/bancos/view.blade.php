@@ -1,18 +1,17 @@
 @extends('layouts.admin')
-@section('title', 'Marcas y Modelos')
+@section('title', 'Listado de Bancos')
 @section('header')
-{{--    //TODO: cambiar Iconos--}}
-    <i class="fas fa-truck-pickup fa-3x"></i>
-    <h1 class="m-0 text-dark d-inline-flex mr-3">Marcas y Modelos de Vehiculos</h1>
-    <a href="{{route('admin.marcas.create')}}" class="btn btn-success btn-small">
+    <i class="fas fa-university fa-3x"></i>
+    <h1 class="m-0 text-dark d-inline-flex mr-3">Listado de Bancos</h1>
+    <a href="{{route('admin.bancos.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
     @isset($trash)
-        <a href="{{route('admin.marcas.index')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.bancos.index')}}" class="btn btn-info btn-small">
             <i class="fas fa-eye"></i> Regresar
         </a>
     @else
-        <a href="{{route('admin.marcas.trash')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.bancos.trash')}}" class="btn btn-info btn-small">
             <i class="fas fa-recycle"></i> Ver Borrados
         </a>
     @endisset
@@ -26,13 +25,12 @@
     <div class="card">
         <!-- /.card-header -->
         <div class="card-body">
-            <table id="Marcas" class="table table-bordered table-striped">
+            <table id="Bancos" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                     <th>Orden</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>slug</th>
+                    <th>Nombre</th>
+                    <th>Siglas</th>
                     @isset($trash)
                         <td>Borrado Hace</td>
                     @endisset
@@ -40,35 +38,30 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($marcas as $key => $marca)
+                @forelse($bancos as $key => $banco)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td>
-                            {{$marca->parent_id ? $marca->Parent->nombre: $marca->nombre}}
-                        </td>
-                        <td>
-                            {{$marca->parent_id ? $marca->nombre:'' }}
-                        </td>
-                        <td>{{$marca->slug}}</td>
+                        <td>{{$banco->nombre}}</td>
+                        <td>{{$banco->siglas}}</td>
                         @isset($trash)
-                            <td>{{$marca->deleted_at}}</td>
+                            <td>{{$banco->deleted_at}}</td>
                         @endisset
                         <td class="align-items-center">
                             @isset($trash)
-                                <a href="{{route('admin.marcas.restore', ['id' => $marca->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                <a href="{{route('admin.marcas.destroy', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{route('admin.bancos.restore', ['id' => $banco->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
+                                <a href="{{route('admin.bancos.destroy', ['id' => $banco->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                             @else
-                                <a href="{{route('admin.marcas.show', ['id' => $marca->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                <a href="{{route('admin.marcas.edit', ['id' => $marca->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{{route('admin.marcas.delete', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                <a href="{{route('admin.bancos.show', ['id' => $banco->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
+                                <a href="{{route('admin.bancos.edit', ['id' => $banco->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="{{route('admin.bancos.delete', ['id' => $banco->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                             @endisset
                         </td>
                     </tr>
                 @empty
                     <tr>
-                        <td>No hay marca</td>
-                        <td>No hay marca</td>
-                        <td>No hay marca</td>
+                        <td>No hay rol</td>
+                        <td>No hay rol</td>
+                        <td>No hay rol</td>
                         <td>Borrado Hace</td>
                         <td>Sin Acciones</td>
                     </tr>
@@ -77,9 +70,8 @@
                 <tfoot>
                 <tr>
                     <th>Orden</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>slug</th>
+                    <th>Nombre</th>
+                    <th>Siglas</th>
                     @isset($trash)
                         <td>Borrado Hace</td>
                     @endisset
@@ -100,7 +92,7 @@
     <script src="{{asset('js/responsive.bootstrap4.min.js')}}"></script>
     <script>
         $(function () {
-            $("#Marcas").DataTable({
+            $("#Bancos").DataTable({
                 "responsive": true,
                 "autoWidth": false,
             });

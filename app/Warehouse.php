@@ -16,7 +16,7 @@ class Warehouse extends Model
      * @var array
      */
     protected $fillable = [
-        
+
     ];
 
     /**
@@ -25,7 +25,7 @@ class Warehouse extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -34,9 +34,12 @@ class Warehouse extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'direccion_id'  => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
-    
+
 }

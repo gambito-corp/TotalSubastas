@@ -17,6 +17,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 1,
             'producto_id' => 1,
             'titulo' => 'documento 1 del producto 1',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
         DocumentosVehiculo::create([
@@ -24,6 +25,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 1,
             'producto_id' => 1,
             'titulo' => 'documento 2 del producto 1',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
         DocumentosVehiculo::create([
@@ -31,6 +33,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 1,
             'producto_id' => 1,
             'titulo' => 'documento 3 del producto 1',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
         DocumentosVehiculo::create([
@@ -38,6 +41,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 7,
             'producto_id' => 2,
             'titulo' => 'documento 1 del producto 2',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
         DocumentosVehiculo::create([
@@ -45,6 +49,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 7,
             'producto_id' => 2,
             'titulo' => 'documento 2 del producto 2',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
         DocumentosVehiculo::create([
@@ -52,6 +57,7 @@ class DocumentosSeeder extends Seeder
             'lote_id' => 7,
             'producto_id' => 2,
             'titulo' => 'documento 3 del producto 2',
+            'tipo' => 'PDF',
             'documento' => 'documentos/vehidulos/doc.pdf'
         ]);
     }

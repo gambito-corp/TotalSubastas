@@ -52,9 +52,30 @@ Route::get('admin/marca/mostrar/{id}', 'MarcasController@show')->name('admin.mar
 Route::get('admin/marcas/editar/{id}', 'MarcasController@edit')->name('admin.marcas.edit');
 Route::put('admin/marcas/actualizar/{id}', 'MarcasController@update')->name('admin.marcas.update');
 Route::get('admin/marcas/delete/{id}', 'MarcasController@delete')->name('admin.marcas.delete');
-Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy');
+Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy')->middleware('password.confirm');;
 Route::get('admin/marcas/restore/{id}', 'MarcasController@restore')->name('admin.marcas.restore');
-
+//Bancos
+Route::get('admin/bancos/index', 'BancosController@index')->name('admin.bancos.index');
+Route::get('admin/bancos/trash', 'BancosController@trash')->name('admin.bancos.trash');
+Route::get('admin/bancos/create', 'BancosController@create')->name('admin.bancos.create');
+Route::post('admin/bancos/guardar', 'BancosController@store')->name('admin.bancos.store');
+Route::get('admin/bancos/mostrar/{id}', 'BancosController@show')->name('admin.bancos.show');
+Route::get('admin/bancos/editar/{id}', 'BancosController@edit')->name('admin.bancos.edit');
+Route::put('admin/bancos/actualizar/{id}', 'BancosController@update')->name('admin.bancos.update');
+Route::get('admin/bancos/delete/{id}', 'BancosController@delete')->name('admin.bancos.delete');
+Route::get('admin/bancos/destroy/{id}', 'BancosController@destroy')->name('admin.bancos.destroy')->middleware('password.confirm');;
+Route::get('admin/bancos/restore/{id}', 'BancosController@restore')->name('admin.bancos.restore');
+//Countries
+Route::get('admin/marcas/index', 'MarcasController@index')->name('admin.marcas.index');
+Route::get('admin/marcas/trash', 'MarcasController@trash')->name('admin.marcas.trash');
+Route::get('admin/marcas/create', 'MarcasController@create')->name('admin.marcas.create');
+Route::post('admin/marcas/guardar', 'MarcasController@store')->name('admin.marcas.store');
+Route::get('admin/marca/mostrar/{id}', 'MarcasController@show')->name('admin.marcas.show');
+Route::get('admin/marcas/editar/{id}', 'MarcasController@edit')->name('admin.marcas.edit');
+Route::put('admin/marcas/actualizar/{id}', 'MarcasController@update')->name('admin.marcas.update');
+Route::get('admin/marcas/delete/{id}', 'MarcasController@delete')->name('admin.marcas.delete');
+Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy')->middleware('password.confirm');;
+Route::get('admin/marcas/restore/{id}', 'MarcasController@restore')->name('admin.marcas.restore');
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');

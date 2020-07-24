@@ -34,10 +34,12 @@ class Lot extends Model
      * @var array
      */
     protected $casts = [
-        'subasta_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'subasta_at'    => 'datetime',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     //Relaciones Belongs to

@@ -80,6 +80,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{route('admin.bancos.index')}}" class="nav-link">
+                                <i class="fas fa-university"></i>
+                                <p>
+                                    Bancos
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

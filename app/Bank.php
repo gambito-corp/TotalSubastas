@@ -16,7 +16,7 @@ class Bank extends Model
      * @var array
      */
     protected $fillable = [
-        
+        'nombre', 'siglas'
     ];
 
     /**
@@ -25,7 +25,7 @@ class Bank extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -34,9 +34,11 @@ class Bank extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
-    
+    //Relaciones
+
 }

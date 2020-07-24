@@ -16,9 +16,9 @@
                 <div class="custom-control">
                     <label for="name">Marca</label>
                         <select class="form-control  @error('parent_id') is-invalid @enderror" name="parent_id">
-                            <option>Selecciona una marca para el modelo</option>
+                            <option value="0">Selecciona una marca para el modelo</option>
                             @forelse($marcas as $parent)
-                                <option value="{{$parent->id}} {{$marca->parent_id == $parent->id? 'selected':old('parent_id')}}">{{$marca->parent_id == $parent->id? $parent->nombre :old('parent_id')}}</option>
+                                <option value="{{$parent->id}}" {{$marca->parent_id == $parent->id? 'selected':old('parent_id')}}>{{$parent->nombre}}</option>
                             @empty
                                 <option>No hay Marcas Crea una</option>
                             @endforelse
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <div class="custom-control">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" class="form-control  @error('nombre') is-invalid @enderror" placeholder="Nombre del Marca/Modelo" value="{{!is_null($marca->id) ? $marca->name : old('nombre') }}" required autofocus aria-label="Nombre Del Marca/Modelo" aria-describedby="basic-addon1">
+                    <input type="text" name="nombre" class="form-control  @error('nombre') is-invalid @enderror" placeholder="Nombre del Marca/Modelo" value="{{!is_null($marca->id) ? $marca->nombre : old('nombre') }}" required autofocus aria-label="Nombre Del Marca/Modelo" aria-describedby="basic-addon1">
                     @error('nombre')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
