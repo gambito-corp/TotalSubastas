@@ -18,7 +18,7 @@
                         <select class="form-control  @error('parent_id') is-invalid @enderror" name="parent_id">
                             <option>Selecciona una marca para el modelo</option>
                             @forelse($marcas as $parent)
-                                <option value="{{$marca->parent_id == $parent->id? $parent->id:''}}">{{$parent->nombre}}</option>
+                                <option value="{{$parent->id}} {{$marca->parent_id == $parent->id? 'selected':old('parent_id')}}">{{$marca->parent_id == $parent->id? $parent->nombre :old('parent_id')}}</option>
                             @empty
                                 <option>No hay Marcas Crea una</option>
                             @endforelse
