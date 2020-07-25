@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-        {{-- @livewireStyles --}}
+@livewireStyles
         @stack('styles')
     </head>
     <body class="hold-transition sidebar-mini">
@@ -44,7 +44,7 @@
         <script src="{{asset('js/demo.js')}}"></script>
         <script src="{{asset('js/dashboard.js')}}"></script>
         <script src="{{asset('js/Chart.min.js')}}"></script>
-        {{-- @livewireScripts --}}
+@livewireScripts
         @stack('scripts')
     </body>
 </html>

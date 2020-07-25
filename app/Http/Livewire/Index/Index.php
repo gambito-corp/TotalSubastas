@@ -33,6 +33,7 @@ class Index extends Component
             ->with(['Productos' => $productosClosure])
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
+
     }
     public function hydrate()
     {

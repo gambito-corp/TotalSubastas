@@ -80,9 +80,18 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
             ]);
         });
     }
+    public function puedePersonificar()
+    {
+        return $this->Rol->name == 'Admin';
+    }
 
 
     //Relaciones
+    public function Rol()
+    {
+        return $this->belongsTo(Rol::class, 'role_id');
+    }
+
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);

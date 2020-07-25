@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin\rol;
 
+use App\Http\Controllers\Controller;
 use App\Rol;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

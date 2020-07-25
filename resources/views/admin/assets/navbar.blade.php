@@ -12,6 +12,9 @@
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <div class="row ">
+                <a class="nav-link text-dark signin-text" href="#">
+                    Dejar de Personificar
+                </a>
                 <a class="nav-link text-dark signin-text" href="{{  url('login') }}">
                     {{ Auth::user()->name }}
                 </a>

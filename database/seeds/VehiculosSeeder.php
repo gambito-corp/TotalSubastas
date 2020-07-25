@@ -18,7 +18,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 1,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -72,7 +72,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 2,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -126,7 +126,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 3,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -180,7 +180,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 4,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -234,7 +234,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 5,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -288,7 +288,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 6,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -342,7 +342,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 7,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -396,7 +396,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 8,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -450,7 +450,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 9,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -504,7 +504,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 10,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',
@@ -558,7 +558,7 @@ class VehiculosSeeder extends Seeder
             'producto_id'           => 11,
             'marca_id'              => 1,
             'modelo_id'             => 2,
-            'year'                  => '2020',
+
             'placa'                 => 'hfe-123',
             'color'                 => 'rojo',
             'version'               => 'version',

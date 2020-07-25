@@ -115,6 +115,7 @@
         </div>
     </div>
     <div class="mt-2">
+
       @livewire('index.index')
     </div>
     @include('assets.widgets')

@@ -15,7 +15,7 @@ class Country extends Model
      * @var array
      */
     protected $fillable = [
-
+        'parent_id', 'nombre', 'descripcion', 'codigo'
     ];
 
     /**
@@ -39,5 +39,11 @@ class Country extends Model
         'updated_at'    => 'datetime',
         'deleted_at'    => 'datetime',
     ];
+
+    //Relaciones
+    public function Parent()
+    {
+        return $this->belongsTo(Country::class, 'parent_id');
+    }
 
 }

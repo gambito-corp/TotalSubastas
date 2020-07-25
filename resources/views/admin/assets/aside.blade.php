@@ -88,7 +88,23 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item has-treeview">
+                            <a href="{{route('admin.pais.index')}}" class="nav-link">
+                                <i class="fas fa-flag"></i>
+                                <p>
+                                    Paises/ubiego
+                                </p>
+                            </a>
+                        </li>
                     </ul>
+                </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{route('admin.user.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Usuarios
+                        </p>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">

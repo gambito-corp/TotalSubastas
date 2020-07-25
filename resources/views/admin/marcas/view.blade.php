@@ -42,25 +42,25 @@
                 <tbody>
                 @forelse($marcas as $key => $marca)
                     <tr>
-                        <td>{{$loop->iteration}}</td>
+                        <td>@isset($loop->iteration){{$loop->iteration}}@endisset</td>
                         <td>
-                            {{$marca->parent_id ? $marca->Parent->nombre: $marca->nombre}}
+                            @isset($marca->id){{$marca->parent_id ? $marca->Parent->nombre: $marca->nombre}}@endisset
                         </td>
                         <td>
-                            {{$marca->parent_id ? $marca->nombre:'' }}
+                            @isset($marca->id){{$marca->parent_id ? $marca->nombre:'' }}@endisset
                         </td>
-                        <td>{{$marca->slug}}</td>
+                        <td>@isset($marca->id){{$marca->slug}}@endisset</td>
                         @isset($trash)
                             <td>{{$marca->deleted_at}}</td>
                         @endisset
                         <td class="align-items-center">
                             @isset($trash)
-                                <a href="{{route('admin.marcas.restore', ['id' => $marca->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                <a href="{{route('admin.marcas.destroy', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                @isset($marca->id)<a href="{{route('admin.marcas.restore', ['id' => $marca->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>@endisset
+                                @isset($marca->id)<a href="{{route('admin.marcas.destroy', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>@endisset
                             @else
-                                <a href="{{route('admin.marcas.show', ['id' => $marca->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                <a href="{{route('admin.marcas.edit', ['id' => $marca->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                <a href="{{route('admin.marcas.delete', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                @isset($marca->id)<a href="{{route('admin.marcas.show', ['id' => $marca->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>@endisset
+                                @isset($marca->id)<a href="{{route('admin.marcas.edit', ['id' => $marca->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>@endisset
+                                @isset($marca->id)<a href="{{route('admin.marcas.delete', ['id' => $marca->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>@endisset
                             @endisset
                         </td>
                     </tr>

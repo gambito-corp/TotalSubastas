@@ -31,51 +31,75 @@ Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
 // RUTAS DE ADMINISTRADOR
-Route::get('admin', 'AdminController@home')->name('admin');
-//Roles
-Route::get('admin/rol/index', 'RolesController@index')->name('admin.rol.index');
-Route::get('admin/rol/trash', 'RolesController@trash')->name('admin.rol.trash');
-Route::get('admin/rol/create', 'RolesController@create')->name('admin.rol.create');
-Route::post('admin/rol/guardar', 'RolesController@store')->name('admin.rol.store');
-Route::get('admin/rol/mostrar/{id}', 'RolesController@show')->name('admin.rol.show');
-Route::get('admin/rol/editar/{id}', 'RolesController@edit')->name('admin.rol.edit');
-Route::put('admin/rol/actualizar/{id}', 'RolesController@update')->name('admin.rol.update');
-Route::get('admin/rol/delete/{id}', 'RolesController@delete')->name('admin.rol.delete');
-Route::get('admin/rol/destroy/{id}', 'RolesController@destroy')->name('admin.rol.destroy')->middleware('password.confirm');
-Route::get('admin/rol/restore/{id}', 'RolesController@restore')->name('admin.rol.restore');
-//Marcas
-Route::get('admin/marcas/index', 'MarcasController@index')->name('admin.marcas.index');
-Route::get('admin/marcas/trash', 'MarcasController@trash')->name('admin.marcas.trash');
-Route::get('admin/marcas/create', 'MarcasController@create')->name('admin.marcas.create');
-Route::post('admin/marcas/guardar', 'MarcasController@store')->name('admin.marcas.store');
-Route::get('admin/marca/mostrar/{id}', 'MarcasController@show')->name('admin.marcas.show');
-Route::get('admin/marcas/editar/{id}', 'MarcasController@edit')->name('admin.marcas.edit');
-Route::put('admin/marcas/actualizar/{id}', 'MarcasController@update')->name('admin.marcas.update');
-Route::get('admin/marcas/delete/{id}', 'MarcasController@delete')->name('admin.marcas.delete');
-Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy')->middleware('password.confirm');;
-Route::get('admin/marcas/restore/{id}', 'MarcasController@restore')->name('admin.marcas.restore');
-//Bancos
-Route::get('admin/bancos/index', 'BancosController@index')->name('admin.bancos.index');
-Route::get('admin/bancos/trash', 'BancosController@trash')->name('admin.bancos.trash');
-Route::get('admin/bancos/create', 'BancosController@create')->name('admin.bancos.create');
-Route::post('admin/bancos/guardar', 'BancosController@store')->name('admin.bancos.store');
-Route::get('admin/bancos/mostrar/{id}', 'BancosController@show')->name('admin.bancos.show');
-Route::get('admin/bancos/editar/{id}', 'BancosController@edit')->name('admin.bancos.edit');
-Route::put('admin/bancos/actualizar/{id}', 'BancosController@update')->name('admin.bancos.update');
-Route::get('admin/bancos/delete/{id}', 'BancosController@delete')->name('admin.bancos.delete');
-Route::get('admin/bancos/destroy/{id}', 'BancosController@destroy')->name('admin.bancos.destroy')->middleware('password.confirm');;
-Route::get('admin/bancos/restore/{id}', 'BancosController@restore')->name('admin.bancos.restore');
-//Countries
-Route::get('admin/marcas/index', 'MarcasController@index')->name('admin.marcas.index');
-Route::get('admin/marcas/trash', 'MarcasController@trash')->name('admin.marcas.trash');
-Route::get('admin/marcas/create', 'MarcasController@create')->name('admin.marcas.create');
-Route::post('admin/marcas/guardar', 'MarcasController@store')->name('admin.marcas.store');
-Route::get('admin/marca/mostrar/{id}', 'MarcasController@show')->name('admin.marcas.show');
-Route::get('admin/marcas/editar/{id}', 'MarcasController@edit')->name('admin.marcas.edit');
-Route::put('admin/marcas/actualizar/{id}', 'MarcasController@update')->name('admin.marcas.update');
-Route::get('admin/marcas/delete/{id}', 'MarcasController@delete')->name('admin.marcas.delete');
-Route::get('admin/marcas/destroy/{id}', 'MarcasController@destroy')->name('admin.marcas.destroy')->middleware('password.confirm');;
-Route::get('admin/marcas/restore/{id}', 'MarcasController@restore')->name('admin.marcas.restore');
+Route::get('admin', 'admin\AdminController@home')->name('admin');
+Route::prefix('admin')->name('admin.')->namespace('Admin')->group(function (){
+    Route::prefix('rol')->name('rol.')->namespace('rol')->group(function (){
+        //Roles
+        Route::get('index', 'RolesController@index')->name('index');
+        Route::get('trash', 'RolesController@trash')->name('trash');
+        Route::get('create', 'RolesController@create')->name('create');
+        Route::post('guardar', 'RolesController@store')->name('store');
+        Route::get('mostrar/{id}', 'RolesController@show')->name('show');
+        Route::get('editar/{id}', 'RolesController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'RolesController@update')->name('update');
+        Route::get('delete/{id}', 'RolesController@delete')->name('delete');
+        Route::get('destroy/{id}', 'RolesController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'RolesController@restore')->name('restore');
+    });
+    Route::prefix('marcas')->name('marcas.')->namespace('marcas')->group(function (){
+        //Marcas
+        Route::get('index', 'MarcasController@index')->name('index');
+        Route::get('trash', 'MarcasController@trash')->name('trash');
+        Route::get('create', 'MarcasController@create')->name('create');
+        Route::post('guardar', 'MarcasController@store')->name('store');
+        Route::get('mostrar/{id}', 'MarcasController@show')->name('show');
+        Route::get('editar/{id}', 'MarcasController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'MarcasController@update')->name('update');
+        Route::get('delete/{id}', 'MarcasController@delete')->name('delete');
+        Route::get('destroy/{id}', 'MarcasController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'MarcasController@restore')->name('restore');
+    });
+    Route::prefix('bancos')->name('bancos.')->namespace('bancos')->group(function (){
+        //Bancos
+        Route::get('index', 'BancosController@index')->name('index');
+        Route::get('trash', 'BancosController@trash')->name('trash');
+        Route::get('create', 'BancosController@create')->name('create');
+        Route::post('guardar', 'BancosController@store')->name('store');
+        Route::get('mostrar/{id}', 'BancosController@show')->name('show');
+        Route::get('editar/{id}', 'BancosController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'BancosController@update')->name('update');
+        Route::get('delete/{id}', 'BancosController@delete')->name('delete');
+        Route::get('destroy/{id}', 'BancosController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'BancosController@restore')->name('restore');
+    });
+    Route::prefix('pais')->name('pais.')->namespace('pais')->group(function (){
+        //Countries
+        Route::get('index', 'PaisController@index')->name('index');
+        Route::get('trash', 'PaisController@trash')->name('trash');
+        Route::get('create', 'PaisController@create')->name('create');
+        Route::post('guardar', 'PaisController@store')->name('store');
+        Route::get('mostrar/{id}', 'PaisController@show')->name('show');
+        Route::get('editar/{id}', 'PaisController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'PaisController@update')->name('update');
+        Route::get('delete/{id}', 'PaisController@delete')->name('delete');
+        Route::get('destroy/{id}', 'PaisController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'PaisController@restore')->name('restore');
+    });
+    Route::prefix('user')->name('user.')->namespace('user')->group(function (){
+        //Countries
+        Route::get('index', 'UserController@index')->name('index');
+        Route::get('trash', 'UserController@trash')->name('trash');
+        Route::get('create', 'UserController@create')->name('create');
+        Route::post('guardar', 'UserController@store')->name('store');
+        Route::get('mostrar/{id}', 'UserController@show')->name('show');
+        Route::get('editar/{id}', 'UserController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'UserController@update')->name('update');
+        Route::get('delete/{id}', 'UserController@delete')->name('delete');
+        Route::get('destroy/{id}', 'UserController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'UserController@restore')->name('restore');
+        Route::get('personificacion/{id}', 'UserController@personificacion')->name('personificacion');
+    });
+});
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');
 //Route::get('/about', 'HomeController@aboutus')->name('aboutus');
@@ -104,15 +128,6 @@ Auth::routes(['verify' => true]);
 Route::group(['prefix' => 'admin2'], function () {
     Voyager::routes();
 });
-
-
-/*
-CONSTRUYE UNA URL PARA VER EL PARAMETRO
-*/
-Route::get('test/consulta/{id}', 'HomeController@testAjax');
-/*
-FIN DE LA CONSTRUCCION
- */
 
 
 

@@ -41,4 +41,8 @@ class Rol extends Model
     ];
 
     //Relaciones
+    public function Rol()
+    {
+        return $this->hasOne(User::class);
+    }
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin\bancos;
 
 use App\Bank;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class BancosController extends Controller
 {
@@ -13,22 +13,13 @@ class BancosController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $bancos = Bank::all();
         return view('admin.bancos.view', compact('bancos'));
     }
 
-    /**
-     * Display a listing of the resource from Softdelete.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function trash()
     {
         $bancos = Bank::onlyTrashed()->get();
@@ -36,23 +27,14 @@ class BancosController extends Controller
         return view('admin.bancos.view', compact('bancos', 'trash'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $banco = new Bank();
         return view('admin.bancos.form', compact('banco'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -69,36 +51,19 @@ class BancosController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         dd('metodo show bancos controller', $id);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $banco = Bank::where('id',$id)->firstOrFail();
         return view('admin.bancos.form', compact('banco',));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
+
     public function update($id, Request $request)
     {
 
@@ -118,12 +83,7 @@ class BancosController extends Controller
 
 
 
-    /**
-     * Delete the specified resource from storage.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
+
     public function delete($id)
     {
         $banco = Bank::where('id',$id)->firstOrFail();
@@ -134,12 +94,7 @@ class BancosController extends Controller
         ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         Bank::withTrashed()
@@ -151,12 +106,7 @@ class BancosController extends Controller
         ]);
     }
 
-    /**
-     * Restore the specified resource from storage.
-     *
-     * @param  \App\Bank  $bank
-     * @return \Illuminate\Http\Response
-     */
+
     public function restore($id)
     {
         Bank::withTrashed()
