@@ -160,16 +160,14 @@ class Gambito
     public static function Pujar($id, $live = false)
     {
         $producto = self::obtenerProducto($id);
-        if($live && $producto->finalized_at == now()){
+        if($live && $producto->finalized_at <= now()){
+            if($live && $producto->finalized_at == now()->subSecond())
+            {
+                self::checkEstado($producto, Auth::id(), true, true);
+            }
             $producto->finalized_at = now()->addSeconds(8);
         }
-        if($live && $producto->finalized_at == now()->subSecond())
-        {
-            self::checkEstado($producto, Auth::id(), true, true);
-        }
-
         $producto->update();
-
         if($live){
             $mensaje = Message::create([
                 'producto_id' => $producto->id,

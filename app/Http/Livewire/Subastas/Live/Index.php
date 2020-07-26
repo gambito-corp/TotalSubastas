@@ -99,6 +99,7 @@ class Index extends Component
 
     public function pujar()
     {
+//        dd($this->producto->finalized_at >= now());
         $participacion = Participacion::where('user_id', Auth::id())
             ->where('producto_id', $this->producto->id)
             ->pluck('participacion')
