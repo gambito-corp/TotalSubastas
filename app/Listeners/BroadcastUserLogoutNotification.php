@@ -2,13 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\SessionUsuario;
-use Illuminate\Auth\Events\Login;
+use App\Events\UserSessionChanged;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UsuarioLogout
+class BroadcastUserLogoutNotification
 {
     /**
      * Create the event listener.
@@ -28,6 +27,6 @@ class UsuarioLogout
      */
     public function handle(Logout $event)
     {
-        broadcast(new SessionUsuario("{$event->user->name} Se Desconecto", 'danger'));
+        broadcast(new UserSessionChanged("{$event->user->name} Se Desconecto", 'danger'));
     }
 }

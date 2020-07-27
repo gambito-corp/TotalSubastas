@@ -106,9 +106,7 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/livewire/livewire" />
       <path value="$PROJECT_DIR$/vendor/larapack/hooks" />
-      <path value="$PROJECT_DIR$/vendor/larapack/voyager-hooks" />
       <path value="$PROJECT_DIR$/vendor/larapack/doctrine-support" />
-      <path value="$PROJECT_DIR$/vendor/tcg/voyager" />
       <path value="$PROJECT_DIR$/vendor/intervention/image" />
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
       <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
@@ -123,14 +121,22 @@
       <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
       <path value="$PROJECT_DIR$/vendor/realrashid/sweet-alert" />
       <path value="$PROJECT_DIR$/vendor/jpmurray/laravel-countdown" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/src" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/routes" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/resources" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/public" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/database" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/fonts" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/assets" />
-      <path value="$PROJECT_DIR$/vendor/voyager-relation-selector/.git" />
+      <path value="$PROJECT_DIR$/vendor/ringcentral/psr7" />
+      <path value="$PROJECT_DIR$/vendor/evenement/evenement" />
+      <path value="$PROJECT_DIR$/vendor/clue/buzz-react" />
+      <path value="$PROJECT_DIR$/vendor/react/stream" />
+      <path value="$PROJECT_DIR$/vendor/symfony/psr-http-message-bridge" />
+      <path value="$PROJECT_DIR$/vendor/react/socket" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-timer" />
+      <path value="$PROJECT_DIR$/vendor/react/promise-stream" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/react/http-client" />
+      <path value="$PROJECT_DIR$/vendor/react/event-loop" />
+      <path value="$PROJECT_DIR$/vendor/react/dns" />
+      <path value="$PROJECT_DIR$/vendor/react/cache" />
+      <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
+      <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-websockets" />
+      <path value="$PROJECT_DIR$/vendor/cboden/ratchet" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

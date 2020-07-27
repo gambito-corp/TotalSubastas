@@ -46,7 +46,7 @@
 /* total width */
 body::-webkit-scrollbar {
     background-color: #fff;
-    width: 16px;
+    width: 5px;
 }
 
 /* background of the scrollbar except button or resizer */
@@ -56,9 +56,8 @@ body::-webkit-scrollbar-track {
 
 /* scrollbar itself */
 body::-webkit-scrollbar-thumb {
-    background-color: #babac0;
-    border-radius: 16px;
-    border: 4px solid #fff;
+    background-color: #808080;
+    border-radius: 10px;    
 }
 /* set button(top and bottom of the scrollbar) */
 body::-webkit-scrollbar-button {
@@ -528,20 +527,6 @@ ol.carousel-indicators .orbit-on_load {
     }
 }
 
-.banner3 {
-    background-image:url(../../assets/img/banner3.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.banner4 {
-    background-image:url(../../assets/img/banner4.png);
-    background-size: cover;
-    background-position: center;
-}
-
-
-
 .first-slidel {
     position: absolute;
     z-index: 1;
@@ -719,19 +704,13 @@ article.sec-carousel {
     margin-left: 99px;
     margin-top: 25px;
 }
-
-.slider{
-    padding-right: 20px !important;
-}
-
 /* img item n° 1 */
 .carousel-item-a_imagen {
     opacity: 0.99;
     background: #40303d59 0% 0% no-repeat padding-box;
-    width: 100%;
+    width: 99%;
     overflow: hidden;
     box-sizing: border-box;
-    border-radius: 10px;
 }
 .carousel-text_item_b {
     font-weight: 700;
@@ -1108,10 +1087,6 @@ article.sec-carousel {
 .media-body .m-acc_text {
     display: flex;
 }
-
-.media > a{
-    width: 0px;;
-}
 .m-acc_text h2 {
     font-size: 20px;
     color: var(--var-dark);
@@ -1464,19 +1439,13 @@ article.sec-carousel {
   border-radius: 10px;
 }
 .radius {
-  border-radius: 10px !important;
+  border-radius: 10px;
 }
 .green-overtitle {
   color: var(--var-to_aution-on-ranking);
   font-size: 30px;
   font-weight: 1000;
 }
-
-.details{
-    border-radius: 5px;
-    width: 20%;
-}
-
 .part-title {
   font-size: 25px;
   font-weight: 1000;
@@ -1520,9 +1489,32 @@ article.sec-carousel {
 .vertical-align-middle {
     vertical-align: middle;
 }
-
-
-:root {
+.scroll-account {
+    height: 200px;
+    overflow: auto;
+    background-color: #AC8EE3;
+    color: aliceblue;
+    border-radius: 10px; 
+}
+.scroll-account::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .scroll-account::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .scroll-account::-webkit-scrollbar-thumb {
+    background: #808080; 
+    border-radius: 10px;
+  }
+  .row-width {
+      width: 100%;
+  }
+:root { 
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;

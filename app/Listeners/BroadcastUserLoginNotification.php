@@ -2,12 +2,13 @@
 
 namespace App\Listeners;
 
-use App\Events\SessionUsuario;
+
 use Illuminate\Auth\Events\Login;
+use App\Events\UserSessionChanged;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UsuarioLogin
+class BroadcastUserLoginNotification
 {
     /**
      * Create the event listener.
@@ -27,6 +28,6 @@ class UsuarioLogin
      */
     public function handle(Login $event)
     {
-        broadcast(new SessionUsuario("{$event->user->name} Se Conecto", 'success'));
+        broadcast(new UserSessionChanged("{$event->user->name} Se Conecto", 'success'));
     }
 }

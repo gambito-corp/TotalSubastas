@@ -6,6 +6,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Admin | @yield('title', 'Panel De Control')</title>
         <meta name="theme-color" content="#0394F0" />
+        <script src="https://js.pusher.com/6.0/pusher.min.js"></script>
         <link  rel="icon"   href="{{asset('favicon.ico')}}" type="image/ico" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" />
         <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -21,6 +22,7 @@
             <div class="content-wrapper">
                 <div class="content-header">
                     <div class="container-fluid">
+                        @include('assets.notification')
                         @include('assets.alertas')
                         <div class="row mb-2">
                             <div class="col-sm-6">

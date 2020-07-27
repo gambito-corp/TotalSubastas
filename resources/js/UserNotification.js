@@ -1,15 +1,15 @@
-Echo.private('notificacion')
-    .listen('SessionUsuario', (e) => {
+Echo.channel('notifications')
+    .listen('UserSessionChanged', (e) => {
         console.log(e);
-        console.log(e.mensaje);
-        console.log(e.clase);
-        const elementdiv = document.getElementById('notification');
+        console.log(e.message);
+        console.log(e.type);
+        const NOTIFICATION_ELEMENT = document.getElementById('notification');
 
-        elementdiv.innerText = e.mensaje;
+        NOTIFICATION_ELEMENT.innerText = e.message;
 
-        elementdiv.classList.remove('invisible');
-        elementdiv.classList.remove('alert-success');
-        elementdiv.classList.remove('alert-danger');
+        NOTIFICATION_ELEMENT.classList.remove('invisible');
+        NOTIFICATION_ELEMENT.classList.remove('alert-success');
+        NOTIFICATION_ELEMENT.classList.remove('alert-danger');
 
-        elementdiv.classList.add('alert-' + e.clase);
+        NOTIFICATION_ELEMENT.classList.add('alert-' + e.type);
     });

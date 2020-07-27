@@ -1,5 +1,6 @@
 <?php
 
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -124,12 +125,6 @@ Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 //Route::get('/test', 'ChatController@Test')->name('test');
 
 Auth::routes(['verify' => true]);
-
-Route::group(['prefix' => 'admin2'], function () {
-    Voyager::routes();
-});
-
-
 
 /* RUTA DE TEST */
 Route::get('indextest', 'HomeController@test');
