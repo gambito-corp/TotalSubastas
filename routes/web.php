@@ -32,8 +32,8 @@ Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
 // RUTAS DE ADMINISTRADOR
+Route::get('admin', 'admin/AdminController@home')->name('admin');
 Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
-Route::get('', 'AdminController@home')->name('');
     Route::prefix('rol')->name('rol.')->namespace('rol')->group(function (){
         //Roles
         Route::get('index', 'RolesController@index')->name('index');
