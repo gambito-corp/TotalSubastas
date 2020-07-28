@@ -38,7 +38,7 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: process.env.MIX_PUSHER_APP_KEY,
     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-    wsHost: '127.0.0.1', //desactivar en caso de Pusher activar en caso de WSServer
+    wsHost: process.env.MIX_APP_URL, //desactivar en caso de Pusher activar en caso de WSServer
     wsPort: 6001, //desactivar en caso de Pusher activar en caso de WSServer
     forceTLS: false,
     disableStats: false

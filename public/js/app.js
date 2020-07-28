@@ -52158,7 +52158,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
   key: "public-key-123",
   cluster: "mt1",
-  wsHost: '127.0.0.1',
+  wsHost: "http://localhost:8000",
   //desactivar en caso de Pusher activar en caso de WSServer
   wsPort: 6001,
   //desactivar en caso de Pusher activar en caso de WSServer
