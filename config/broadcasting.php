@@ -38,7 +38,7 @@ return [
             'options' => [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'host' => env('PUSHER_APP_IP'), //desactivar en caso de Pusher activar en caso de WSServer
-                'port' => 6001, //desactivar en caso de Pusher activar en caso de WSServer
+                'port' => env('PUSHER_APP_PORT'), //desactivar en caso de Pusher activar en caso de WSServer
                 'useTLS' => false,
             ],
         ],
