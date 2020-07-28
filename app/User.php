@@ -62,7 +62,7 @@ class User extends Authenticatable implements MustVerifyEmail
     //Metodos Personalizados
     public static function registerUser(array $data)
     {
-        DB::transaction(function()use($data){
+        return DB::transaction(function()use($data){
             $user = User::create([
                 'role_id' => 2,
                 'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
