@@ -52123,7 +52123,7 @@ __webpack_require__(/*! ./UserNotification */ "./resources/js/UserNotification.j
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
+/* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -52160,12 +52160,11 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   cluster: "mt1",
   wsHost: "34.212.35.229",
   //desactivar en caso de Pusher activar en caso de WSServer
-  wsPort: process.env.MIX_APP_PORT,
+  wsPort: "6001",
   //desactivar en caso de Pusher activar en caso de WSServer
   forceTLS: false,
   disableStats: false
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
