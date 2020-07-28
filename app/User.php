@@ -63,7 +63,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public static function registerUser(array $data)
     {
         DB::transaction(function()use($data){
-            User::create([
+            $user = User::create([
                 'role_id' => 2,
                 'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
                 'email' => $data['email'],
@@ -72,7 +72,7 @@ class User extends Authenticatable implements MustVerifyEmail
             ]);
 
             Person::create([
-
+                'user_id' => $user->id,
                 'nombres' => $data['nombre'],
                 'apellidos' => $data['apellido'],
                 'numero_documento' => $data['dni'],
