@@ -72,7 +72,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         event(new Registered($user = User::registerUser($request->all())));
-dd($user);
+//        dd($user);
 
         $this->guard()->login($user);
 
