@@ -26,10 +26,10 @@ Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 //VISTA DE PERFIL
-
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil');
+
 
 // RUTAS DE ADMINISTRADOR
 Route::get('admin', 'admin\AdminController@home')->name('admin');
@@ -122,7 +122,7 @@ Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 
 ////testeo
 //Route::resource('file', 'store');
-//Route::get('/test', 'ChatController@Test')->name('test');
+Route::get('/test', 'ChatController@Test')->name('test');
 
 Auth::routes(['verify' => true]);
 

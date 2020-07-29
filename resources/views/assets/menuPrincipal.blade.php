@@ -20,6 +20,9 @@
             <a href="#" class="navbar-brand d-flex align-items-center">
                 Vender
             </a>
+            <a href="{{route('test')}}" class="navbar-brand d-flex align-items-center">
+                Test
+            </a>
             @auth
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg class="bd-placeholder-img rounded-circle" width="25" height="25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Completely round image: 75x75">
