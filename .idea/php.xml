@@ -137,6 +137,7 @@
       <path value="$PROJECT_DIR$/vendor/ratchet/rfc6455" />
       <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-websockets" />
       <path value="$PROJECT_DIR$/vendor/cboden/ratchet" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

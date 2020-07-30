@@ -43,7 +43,7 @@ class VehicleDetail extends Model
         'producto_id'   => 'integer',
         'marca_id'      => 'integer',
         'modelo_id'     => 'integer',
-        'year'          => 'datetime',
+        'year'          => 'integer',
         'asientos'      => 'integer',
         'created_at'    => 'datetime',
         'updated_at'    => 'datetime',

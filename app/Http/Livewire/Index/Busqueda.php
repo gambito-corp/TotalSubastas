@@ -6,6 +6,7 @@ use App\Company;
 use App\Producto;
 use Livewire\Component;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class Busqueda extends Component
 {

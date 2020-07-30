@@ -14,7 +14,6 @@ class CreateVehicleDetailsTable extends Migration {
     {
         Schema::create('vehicle_details', function(Blueprint $table)
         {
-            
             $table->id();
             $table->foreignId('empresa_id')->constrained('companies');
             $table->foreignId('lote_id')->constrained('lots');
