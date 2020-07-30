@@ -35,13 +35,6 @@ class Index extends Component
             ->with(['Productos' => $productosClosure])
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
-
-        if (Cache::has('hola')){
-            dd(Cache::get('hola'));
-        }else{
-            dd('nel prro');
-        }
-
     }
     public function hydrate()
     {
