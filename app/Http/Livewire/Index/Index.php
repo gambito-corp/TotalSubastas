@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Index;
 
 use App\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Index extends Component
@@ -17,6 +18,7 @@ class Index extends Component
 
     public function mount()
     {
+        Cache::put('hola', 'Hola mundo');
         $this->picked = true;
         $productosClosure = function ($query)
         {
@@ -33,6 +35,12 @@ class Index extends Component
             ->with(['Productos' => $productosClosure])
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
+
+        if (Cache::has('hola')){
+            dd(Cache::get('hola'));
+        }else{
+            dd('nel prro');
+        }
 
     }
     public function hydrate()
