@@ -59,6 +59,7 @@
                             </div>
                             <div class="col-md-9">
                                 <span class="my-auto align text-center">concedido por: <br><strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
+
                                 <h5 class="my-auto px-2">{{$vehiculo->year}}</h5>
                             </div>
                         </div>
@@ -79,7 +80,7 @@
                         </b></i></h3>
                     </div>
                     <div class="col-12">
-                        <span class="text-badge_live" wire:model="ganador">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
+                        <span class="text-badge_live">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
                         <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
                     </div>
                     <div class="col">
@@ -110,7 +111,30 @@
                 </div>
                 <div class="row">
                     <div class="col mt-5">
-                        @include('livewire.subastas.includes.button')
+                        @if($estado == 'ganador')
+                            <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
+                        @endif
+                        @if($estado == 'online')
+                            @auth
+                                <a class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($producto->id)])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
+                            @else
+                                <a class="btn btn-success rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
+                            @endauth
+                        @endif
+                        @if($estado == 'puja')
+                            @auth
+
+                                <form wire:submit.prevent="pujar">
+                                    <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$producto->puja + $producto->precio}} $ </button>
+                                </form>
+                            @else
+                                <a class="btn btn-success rounded-pill pr-1 pl-2 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
+                            @endauth
+                        @endif
+                        @if($estado == 'Finalizada')
+                            <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -285,4 +309,6 @@
         }
     </style>
 @endpush
+
+
 

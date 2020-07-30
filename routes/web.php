@@ -123,7 +123,7 @@ Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 ////testeo
 //Route::resource('file', 'store');
 Route::get('/test', 'ChatController@Test')->name('test');
-Route::post('/test/message', 'ChatController@TestEnviado')->name('test.message');
+Route::post('/test/message/{id}', 'ChatController@TestEnviado')->name('test.message');
 
 Auth::routes(['verify' => true]);
 
