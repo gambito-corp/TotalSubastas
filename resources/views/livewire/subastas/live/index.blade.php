@@ -1,4 +1,4 @@
-<div class="row" wire:poll.750ms="$refresh">
+<div class="row">
     <!-- main content -->
     <div class="row mt-5 margin-row">
         <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;">
@@ -141,7 +141,7 @@
                     <div class="text-center">
                         <i class="fas fa-user"> </i>
                         <span class="d-block">
-                            <p class="text-dark text-center text text-_to-auction_bottom">{{$activos}}</p>
+                            <p class="text-dark text-center text text-_to-auction_bottom" id="users"></p>
                             Participantes
                         </span>
                     </div>

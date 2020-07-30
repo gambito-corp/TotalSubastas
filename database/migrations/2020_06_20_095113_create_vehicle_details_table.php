@@ -20,7 +20,7 @@ class CreateVehicleDetailsTable extends Migration {
             $table->foreignId('producto_id')->constrained();
             $table->foreignId('marca_id')->constrained('brands');
             $table->foreignId('modelo_id')->constrained('brands');
-            $table->year('year')->nullable();
+            $table->string('year')->nullable();
             $table->string('placa')->nullable();
             $table->string('color')->nullable();
             $table->string('version')->nullable();
