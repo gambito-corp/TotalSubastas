@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+    @dump(\Illuminate\Support\Facades\Cache::get('hola'))
 <div class="container">
 	<div class="row mt-5">
 		@php
