@@ -4,7 +4,6 @@
             <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 " wire:pool.100ms></i>La Subasta Finalizo </p>
             @php
                 sleep(1);
-                dd('hola mundo');
             @endphp
         @elseif($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && isset($online))
             <a class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($producto->id)])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
