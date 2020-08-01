@@ -1,4 +1,4 @@
-<div class="col" wire:pool.1000ms>
+<div class="col" wire:pool.100ms="$refresh">
     @if ($producto->finalized_at->subSeconds(20)<=now())
         <p class="{{$producto->finalized_at>=now()? 'col-md-2 animate__animated animate__fadeIn': 'col-md-12 animate__animated animate__fadeIn'}}">
             {{$producto->finalized_at>=now()? 'En 00:'.$producto->finalized_at->diffInSeconds(now()): 'La Subasta finalizo, el ganador es '.$ganador }}
