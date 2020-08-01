@@ -1,7 +1,7 @@
-<div class="col mt-5" wire:pool.125ms>
+<div class="col mt-5" >
     @auth
         @if($producto->finalized_at <= now()->subSecond())
-            <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
+            <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 " wire:pool.100ms></i>La Subasta Finalizo </p>
             @php
                 sleep(1);
                 dd('hola mundo');
