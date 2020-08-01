@@ -18,7 +18,6 @@ class Index extends Component
 
     public function mount()
     {
-        Cache::put('hola', 'Hola mundo');
         $this->picked = true;
         $productosClosure = function ($query)
         {

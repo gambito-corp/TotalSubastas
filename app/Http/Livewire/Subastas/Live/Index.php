@@ -59,12 +59,12 @@ class Index extends Component
      * @var false|int|mixed
      */
     public $contador;
-
-    protected $listeners = ['refresh'];
     /**
      * @var mixed
      */
     public $activos;
+
+    protected $listeners = ['refresh'];
 
 
     public function mount()
@@ -81,6 +81,19 @@ class Index extends Component
         $this->contador = 1;
     }
 
+    public function getListeners()
+    {
+//        dd('holi 2');
+        return [
+            "echo-presence:subasta.{$this->producto->id},SubastaEvent" => 'ProcesarPuja',
+        ];
+    }
+
+    public function ProcesarPuja()
+    {
+        dd('llegue al final');
+    }
+
     public function hydrate()
     {
         $this->activos = ActiveAuc::where('producto_id', $this->identificador)->count();
@@ -92,45 +105,47 @@ class Index extends Component
 
         if($this->producto->finalized_at->toDateTimeString() <= now()->toDateTimeString())
         {
-            $holi = 'holi';
             $this->redirect(route('endAuc', ['id' => Gambito::hash($this->identificador)]));
         }
     }
 
     public function pujar()
     {
+        event(new SubastaEvent($this->producto, Auth::user(), 'Hola mundo'));
+        dd('hola mundo');
+
 //        dd($this->producto->finalized_at >= now());
-        $participacion = Participacion::where('user_id', Auth::id())
-            ->where('producto_id', $this->producto->id)
-            ->pluck('participacion')
-            ->first();
+//        $participacion = Participacion::where('user_id', Auth::id())
+//            ->where('producto_id', $this->producto->id)
+//            ->pluck('participacion')
+//            ->first();
 //        dd($participacion);
-        DB::transaction(function()use($participacion){
-            DB::table('productos')
-                ->where('id', $this->producto->id)
-                ->update([
-                    'precio' => $this->producto->puja+$this->producto->precio,
-                    'user_id' => Auth::id(),
-                    'updated_at' => now()
-                ]);
-            DB::table('participacions')
-                ->updateOrInsert(
-                    [
-                        'user_id' => Auth::id(),
-                        'producto_id' => $this->producto->id,
-                    ],
-                    [
-                        'participacion' => $participacion+1,
-                        'updated_at' => now()
-                    ]
-                );
-        });
-        $participacion = Participacion::where('user_id', Auth::id())
-            ->where('producto_id', $this->producto->id)
-            ->first();
-        $participacion->created_at == null?$participacion->created_at = now():'';
-        $participacion->update();
-        Gambito::Pujar($this->identificador,true);
+//        DB::transaction(function()use($participacion){
+//            DB::table('productos')
+//                ->where('id', $this->producto->id)
+//                ->update([
+//                    'precio' => $this->producto->puja+$this->producto->precio,
+//                    'user_id' => Auth::id(),
+//                    'updated_at' => now()
+//                ]);
+//            DB::table('participacions')
+//                ->updateOrInsert(
+//                    [
+//                        'user_id' => Auth::id(),
+//                        'producto_id' => $this->producto->id,
+//                    ],
+//                    [
+//                        'participacion' => $participacion+1,
+//                        'updated_at' => now()
+//                    ]
+//                );
+//        });
+//        $participacion = Participacion::where('user_id', Auth::id())
+//            ->where('producto_id', $this->producto->id)
+//            ->first();
+//        $participacion->created_at == null?$participacion->created_at = now():'';
+//        $participacion->update();
+//        Gambito::Pujar($this->identificador,true);
         $this->emitSelf('refresh');
     }
 

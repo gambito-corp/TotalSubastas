@@ -6,11 +6,13 @@ use App\ActiveAuc;
 use App\Auction;
 use App\Balance;
 use App\Company;
+use App\Events\SubastaEvent;
 use App\Garantia;
 use App\Helpers\Gambito;
 use App\Lot;
 use App\Message;
 use App\Producto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuctionsController extends Controller
@@ -61,6 +63,15 @@ class AuctionsController extends Controller
         }
         return view('auction.live');
     }
+
+    public function pujaRecibida(Request $request, $id)
+    {
+        $producto = Producto::where('id', $id)->first();
+//        $estado = 'ganador';
+        broadcast(new SubastaEvent($producto, Auth::user(), 'Hola Mundo'));
+        return response()->json('enviado');
+    }
+
     public function livEnd ($id)
     {
         $i = 0;

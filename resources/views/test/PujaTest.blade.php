@@ -166,6 +166,7 @@
                         </div>
                         <div class="row">
                             <div class="col mt-5">
+{{--                                @livewire('subastas.includes.button')--}}
                                 @if($estado == 'ganador')
                                     <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
                                 @endif
