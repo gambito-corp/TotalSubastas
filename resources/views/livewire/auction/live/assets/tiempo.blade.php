@@ -3,6 +3,11 @@
         <p class="{{$producto->finalized_at>=now()? 'col-md-2 animate__animated animate__fadeIn': 'col-md-12 animate__animated animate__fadeIn'}}">
             <div wire:poll.750ms>
                 {{$producto->finalized_at>=now()? 'En 00:'.$producto->finalized_at->diffInSeconds(now()): 'La Subasta finalizo, el ganador es '.$ganador }}
+            @if($producto->finalized_at>=now())
+                @php
+                    return redirect('/')
+                @endphp
+            @endif
             </div>
         </p>
         @if ($producto->finalized_at>=now())
