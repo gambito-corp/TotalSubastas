@@ -10,9 +10,11 @@
 @endif
 @if($estado == 'puja')
     @auth
-
         <form wire:submit.prevent="pujar">
-            <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$producto->puja + $producto->precio}} $ </button>
+            <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" id="send">
+                <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
+                Pujar {{$producto->puja + $producto->precio}} $
+            </button>
         </form>
     @else
         <a class="btn btn-success rounded-pill pr-1 pl-2 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>

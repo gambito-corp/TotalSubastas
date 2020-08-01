@@ -33,15 +33,8 @@ class ChatController extends Controller
         return view('test.PujaTest', compact('vehiculo', 'producto', 'estado', 'mensajes', 'resultados', 'rankings', 'contador'));
     }
 
-    public function TestEnviado(Request $request, $id)
+    public function pujaRecibida(Request $request, $id)
     {
-        $producto = Producto::where('id', $id)->first();
 
-        $estado = 'ganador';
-
-
-        broadcast(new SubastaEvent($producto, Auth::user(), 'Hola Mundo'));
-
-        return response()->json('enviado');
     }
 }

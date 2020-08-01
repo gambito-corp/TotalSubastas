@@ -30,7 +30,6 @@ class SubastaEvent implements ShouldBroadcastNow
 
     public function broadcastOn()
     {
-        Log::debug("{$this->user->name}: {$this->message}: {$this->producto->precio}");
-        return new PresenceChannel('subasta');
+        return new PresenceChannel('subasta.'.$this->producto->id);
     }
 }

@@ -3,10 +3,10 @@
     <div class="row mt-5 margin-row">
         <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;">
             <div class="col-md-3 col-sm-12">
-                <img src="{{asset('assets/img/image-077.png')}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
+                <img src="{{asset($producto->imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
             </div>
             <div class="col-md-6 col-sm-12">
-                <h1 class="ml-2">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h1>
+                <h1 class="ml-2">{{$producto->nombre}}</h1>
                 <p class="ml-2">{{$vehiculo->year}}</p>
                 <div class="col-md-9 pd-0 m-0 pl-4">
                     <!--  -->
@@ -111,30 +111,7 @@
                 </div>
                 <div class="row">
                     <div class="col mt-5">
-                        @if($estado == 'ganador')
-                            <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
-                        @endif
-                        @if($estado == 'online')
-                            @auth
-                                <a class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($producto->id)])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
-                            @else
-                                <a class="btn btn-success rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
-                            @endauth
-                        @endif
-                        @if($estado == 'puja')
-                            @auth
-
-                                <form wire:submit.prevent="pujar">
-                                    <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light"><i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i> Pujar {{$producto->puja + $producto->precio}} $ </button>
-                                </form>
-                            @else
-                                <a class="btn btn-success rounded-pill pr-1 pl-2 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
-                            @endauth
-                        @endif
-                        @if($estado == 'Finalizada')
-                            <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
-                        @endif
-
+                        @include('livewire.subastas.includes.button')
                     </div>
                 </div>
             </div>
@@ -164,10 +141,11 @@
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
                         <i class="fas fa-user"> </i>
+                        <span class="d-block" id="users">
+                                </span>
                         <span class="d-block">
-                            <p class="text-dark text-center text text-_to-auction_bottom" id="users"></p>
-                            Participantes
-                        </span>
+                                    Participantes
+                                </span>
                     </div>
                 </div>
             </div>
@@ -256,6 +234,60 @@
     <script>
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;
+    </script>
+
+    <script>
+        const UsersElement = document.getElementById('users');
+        const productoElement =  @json($producto);
+        var contador = 0;
+        // Echo.join(`subasta.${productoElement.id}`)
+        //     .here((users) =>{
+        //         contador = users.length;
+        //         let element = document.createElement('p');
+        //         element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
+        //         element.setAttribute('id', 'cuenta')
+        //         element.innerText = contador;
+        //         UsersElement.append(element);
+        //     })
+        //     .joining((users)=>{
+        //         contador++;
+        //         let element = document.getElementById('cuenta');
+        //         element.innerText = contador;
+        //         // console.log(contador + ' Metodo joining');
+        //     })
+        //     .leaving((users)=>{
+        //         contador--;
+        //         let element = document.getElementById('cuenta');
+        //         element.innerText = contador;
+        //     })
+        //     .listen('SubastaEvent', (e) => {
+        //
+        //     })
+
+
+    </script>
+
+    <script>
+        {{--const SendElement = document.getElementById('send');--}}
+        {{--const messageElement =  @json($producto);--}}
+
+        {{--console.log(messageElement.id);--}}
+
+        {{--SendElement.addEventListener('click', (e) => {--}}
+        {{--    e.preventDefault();--}}
+
+        {{--    let url = "/live/auction/puja/"+messageElement.id;--}}
+        {{--    axios.post(url)--}}
+        {{--        .then((response) =>{--}}
+        {{--            console.log(response.data);--}}
+        {{--        })--}}
+        {{--        .catch(function (error) {--}}
+        {{--            console.log(error);--}}
+        {{--        });--}}
+        {{--    // window.axios.get('/test/message?id=1',{--}}
+        {{--    //     message: messageElement.id--}}
+        {{--    // });--}}
+        {{--});--}}
     </script>
 @endpush
 @push('styles')
