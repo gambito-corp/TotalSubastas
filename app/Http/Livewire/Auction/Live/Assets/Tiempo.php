@@ -37,6 +37,12 @@ class Tiempo extends Component
             $this->time = 20;
         }
     }
+
+    public function foo()
+    {
+        dd('hola mundo')
+    }
+
     public function render()
     {
         return view('livewire.auction.live.assets.tiempo');
