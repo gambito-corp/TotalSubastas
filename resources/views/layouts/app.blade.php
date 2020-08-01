@@ -155,7 +155,6 @@
         {{-- Llmar desde Mix --}}
         {{-- <script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script> --}}
         <script src="{{mix('js/app.js')}}"></script>
-        <script src="{{asset('src/index.js')}}"></script>
 
         {{-- mix --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
