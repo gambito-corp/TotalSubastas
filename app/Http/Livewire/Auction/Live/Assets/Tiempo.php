@@ -38,8 +38,11 @@ class Tiempo extends Component
         }
     }
 
-    public function foo(){
-        dd('holamundo');
+    public function foo()
+    {
+        if($this->producto->finalized_at<=now()->subSecond()){
+            dd('hola mundo Actualizado');
+        }
     }
     public function render()
     {
