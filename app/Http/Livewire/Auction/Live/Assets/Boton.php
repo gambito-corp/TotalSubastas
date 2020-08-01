@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Auction\Live\Assets;
 
 
 use App\Events\ejemplo;
+use App\Events\Game\RemainingTimeChanged;
 use App\Producto;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -21,6 +22,10 @@ class Boton extends Component
     public $estado;
 
     protected $listeners = ['estado'];
+    /**
+     * @var int|mixed
+     */
+    public $time;
 
     public function listeners ()
     {

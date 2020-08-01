@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Events\Game\RemainingTimeChanged;
+use App\Events\Game\WinnerNumberGenerated;
 use App\Producto;
 use Livewire\Component;
 
@@ -17,6 +19,8 @@ class Tiempo extends Component
      */
     public $ganador;
 
+    public $time;
+
 
     protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
 
@@ -28,7 +32,10 @@ class Tiempo extends Component
 
     public function noop()
     {
-        //
+        if($this->producto->finalized_at->sub(20, 'Seconds') <= now())
+        {
+            $this->time = 20;
+        }
     }
     public function render()
     {

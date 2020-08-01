@@ -30,6 +30,10 @@ class ejemplo implements ShouldBroadcastNow
             'user_id' => Auth::id(),
             'message' => $this->producto->precio
         ]);
+        if($this->producto->finalized_at->sub(2, 'Minutes') <= now())
+        {
+            $this->producto->finalized_at = $producto->finalized_at = now()->addSeconds(20);
+        }
         $this->producto->update();
     }
 
