@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="row" style="height:200px; overflow: auto;">
-            {{dd($this->resultados->groupBy('user_id')->sortByDesc('*.message'))}}
+{{--            {{dd($this->resultados->groupBy('user_id')->sortByDesc('*.message'))}}--}}
             @forelse($this->resultados->groupBy('user_id')->sortByDesc('*.message') as $resultado)
 
                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
