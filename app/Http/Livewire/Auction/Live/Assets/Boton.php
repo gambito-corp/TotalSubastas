@@ -26,6 +26,10 @@ class Boton extends Component
      * @var int|mixed
      */
     public $time;
+    /**
+     * @var mixed
+     */
+    public $end;
 
     public function listeners ()
     {
@@ -47,6 +51,9 @@ class Boton extends Component
 
     public function estado()
     {
+
+        $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
+
         $this->estado = ($this->producto->user_id == Auth::id());
     }
 

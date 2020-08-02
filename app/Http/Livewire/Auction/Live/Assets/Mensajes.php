@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Helpers\Gambito;
 use App\Message;
 use Livewire\Component;
 
@@ -13,7 +14,8 @@ class Mensajes extends Component
 
     public function mount($mensajes)
     {
-        $this->mensajes = $mensajes;
+        $id = Gambito::hash(request()->route()->parameter('id'), true);
+        $this->mensajes = Message::where('producto_id', $id)->get();
     }
 
     public function noop()
