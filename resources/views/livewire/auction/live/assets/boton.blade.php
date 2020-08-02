@@ -1,8 +1,8 @@
 <div class="col mt-5" >
+    <div class="invisible" wire:pool.100ms="estado">
+        {{now()}}
+    </div>
     @auth
-        <div class="invisible" wire:pool.100ms="estado">
-            {{now()}}
-        </div>
         @if($end)
             <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
         @elseif($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && isset($online))
@@ -21,3 +21,9 @@
         <a class="btn btn-success rounded-pill pr-1 pl-2 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
     @endauth
 </div>
+
+
+
+:q
+
+::::::1
