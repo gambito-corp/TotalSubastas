@@ -1,4 +1,4 @@
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-sm-12"  onmouseover="bottom()">
     <h1 class="ml-2">{{$nombre}}</h1>
     <p class="ml-2">{{$year}}</p>
     <div class="col-md-9 pd-0 m-0 pl-4">

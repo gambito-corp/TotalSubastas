@@ -1,7 +1,7 @@
 <div class="row">
     <!-- main content -->
     <div class="row mt-5 margin-row">
-        <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;">
+        <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;"  onmouseover="bottom()">
             <div class="col-md-3 col-sm-12">
                 <img src="{{asset($imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
             </div>
@@ -43,6 +43,10 @@
     <script>
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;
+        function bottom() {
+            scroll.scrollBy(0, 200)
+            console.log('dentro');
+        }
     </script>
 
     <script>
