@@ -41,7 +41,8 @@ class Tiempo extends Component
     public function foo()
     {
         if($this->producto->finalized_at<=now()->subSeconds(3)){
-            return redirect()->route('endAuc');
+//            dd($this->producto->id);
+            return redirect()->route('endAuc', ['id' => $this->producto->id]);
         }
     }
     public function render()

@@ -72,12 +72,12 @@ class AuctionsController extends Controller
         return response()->json('enviado');
     }
 
-    public function livEnd ()
+    public function livEnd ($id)
     {
         $i = 0;
-        $producto = Gambito::obtenerProducto();
+        $producto = Producto::whereId($id)->first();
+        $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $id)->first();
         //obtener lista de usuarios activos
-        $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $producto->id)->first();
         $devolver = false;
         if($activo) {
             $pujo = Message::where('user_id', $activo->user_id)->whereBetween('created_at', [$producto->started_at->sub(15, 'Minutes'), $producto->finalized_at])->first();

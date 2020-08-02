@@ -118,7 +118,7 @@ Route::get('/auction', 'AuctionsController@index')->name('auction');
 Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
 Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
 Route::post('/live/auction/puja/{id}', 'AuctionsController@pujaRecibida')->name('pujaRecibida');
-Route::get('/endAuction', 'AuctionsController@livEnd')->name('endAuc');
+Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
 Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 
 ////testeo
