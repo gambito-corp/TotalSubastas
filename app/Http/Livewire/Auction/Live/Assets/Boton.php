@@ -33,7 +33,10 @@ class Boton extends Component
 
     public function listeners ()
     {
-        return ['echo:canal-ejemplo,ejemplo' => '$refresh'];
+        return [
+            'echo:canal-ejemplo,ejemplo' => '$refresh',
+            'estado' => 'foo'
+        ];
     }
 
     public function mount(Producto $producto, $estado)

@@ -44,6 +44,7 @@ class Tiempo extends Component
 //            dd($this->producto->id);
             return redirect()->route('endAuc', ['id' => $this->producto->id]);
         }
+        $this->emit('estado');
     }
     public function render()
     {
