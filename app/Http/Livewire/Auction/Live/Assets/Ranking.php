@@ -25,7 +25,8 @@ class Ranking extends Component
     public function noop()
     {
         $id = $this->identificador;
-        $this->resultados = Message::with('Usuario')->where('producto_id', $id)->orderBy('message')->get();
+        $resultados = Message::with('Usuario')->where('producto_id', $id)->orderBy('message')->get();
+        $this->resultados = $resultados;
     }
 
     public function render()

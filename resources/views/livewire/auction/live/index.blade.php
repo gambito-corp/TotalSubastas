@@ -44,8 +44,7 @@
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;
         function bottom() {
-            scroll.scrollBy(0, 200)
-            console.log('dentro');
+            scroll.scrollBy(0, 200);
         }
     </script>
 
