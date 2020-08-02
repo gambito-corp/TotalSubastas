@@ -11,16 +11,20 @@ class Mensajes extends Component
     public $mensajes;
 
     protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
+    /**
+     * @var mixed
+     */
+    public $identificador;
 
     public function mount($mensajes)
     {
-        $id = Gambito::hash(request()->route()->parameter('id'), true);
-        $this->mensajes = Message::where('producto_id', $id)->get();
+        $this->identificador = Gambito::hash(request()->route()->parameter('id'), true);
+        $this->mensajes = Message::where('producto_id', $this->identificador)->get();
     }
 
     public function noop()
     {
-        $this->mensajes = Message::where('producto_id', $this->mensajes->first()->producto_id)->get();
+        $this->mensajes = Message::where('producto_id', $this->identificador)->get();
     }
 
     public function render()
