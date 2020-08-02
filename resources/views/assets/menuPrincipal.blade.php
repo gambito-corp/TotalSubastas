@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <a href="#" class="navbar-brand d-flex align-items-center">
+            <a href="/" class="navbar-brand d-flex align-items-center">
                 Subastas
             </a>
             <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
@@ -14,14 +14,14 @@
             <a href="{{route('terminos')}}" class="navbar-brand d-flex align-items-center">
                 Condiciones
             </a>
-            <a href="#" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('quienessomos')}}" class="navbar-brand d-flex align-items-center">
                 Quienes somos
             </a>
-            <a href="#" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('vender')}}" class="navbar-brand d-flex align-items-center">
                 Vender
             </a>
-            <a href="{{route('test')}}" class="navbar-brand d-flex align-items-center">
-                Test
+            <a href="{{route('contacto')}}" class="navbar-brand d-flex align-items-center">
+                Contácto
             </a>
             @auth
                 <a href="#" class="navbar-brand d-flex align-items-center">

@@ -45,18 +45,19 @@
                     ¿ C&oacute;mo subastar ?
                 </p>
                 <div class="card mt-4 border-0">
-                    <svg class="bd-placeholder-img card-img-top fluid rounded" width="100%" height="180"
+                    <!-- <svg class="bd-placeholder-img card-img-top fluid rounded" width="100%" height="180"
                          xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
                          aria-label="Placeholder: Image cap">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
                                                                                      dy=".3em">Image
                             cap</text>
-                    </svg>
+                    </svg> -->
+                    <img src="../img/ter_condic.png" alt="" class="tyclateral radius">
                     <div class="card-body">
-                        <p class="card-text">In the essays "Overstating the Arab State", by Nazih Ayubi, and "Is Jordan
-                            Palestine?",
-                            by Raphael Israel, the authors deal with the psychologically fragmented postcolonial identity.</p>
+                        <p class="card-text">Esta guía te dara los 4 simples pasos para poder encontrar tu auto y dar tu mejor oferta, aprovecha la oportunidad de obtener un auto a un precio mucho más bajo que el mercado.
+                        </p>
+                        <a href="/participar" class="btn btn-primary">Conoce</a>
                     </div>
                 </div>
             </div>
@@ -70,27 +71,24 @@
                                 sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
                                 amet.
                             </p>
-                            <article class="col-md col-md-9">
-                                <figure>
-                                    <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p>
-                                    <img src="" alt="">
-                                </figure>
-                                <p class="mt-5">
-                                <div class="media">
-                                    <div class="media-body">
-                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                                        odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                        fringilla. Donec lacinia congue felis in faucibus.
-                                    </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
-                                </div>
-                                </p>
-                            </article>
+                            <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ? </p>
+                            <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
+                                sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
+                                amet.
+                            </p>
                             <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p>
                             <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
                                 veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
                                 distinctio sed labore sunt. Quidem, accusamus! </p>
-                            <p class="mt-5  font-weight-bold text-darken"> Donde se realizan las subastas ?</p>
+                            <p class="mt-5  font-weight-bold text-darken">4. Donde se realizan las subastas ?</p>
+                            <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
+                                provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
+                                provident sapiente totam? Nisi, assumenda?</p>
+                            <p class="mt-5  font-weight-bold text-darken">5. Donde se realizan las subastas ?</p>
+                            <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
+                                provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
+                                provident sapiente totam? Nisi, assumenda?</p>
+                            <p class="mt-5  font-weight-bold text-darken">6. Donde se realizan las subastas ?</p>
                             <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
                                 provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
                                 provident sapiente totam? Nisi, assumenda?</p>
@@ -104,7 +102,7 @@
                                 sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
                                 amet.
                             </p>
-                            <article class="col-md col-md-9">
+                            <!-- <article class="col-md col-md-9">
                                 <figure>
                                     <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p>
                                     <img src="" alt="">
@@ -116,18 +114,31 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+
                                 </div>
                                 </p>
-                            </article>
+                            </article> -->
+                            <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas </p>
+                            <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
+                                veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
+                                distinctio sed labore sunt. Quidem, accusamus!
+                            </p>
                             <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p>
                             <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
                                 veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
-                                distinctio sed labore sunt. Quidem, accusamus! </p>
-                            <p class="mt-5  font-weight-bold text-darken"> Donde se realizan las subastas ?</p>
+                                distinctio sed labore sunt. Quidem, accusamus!
+                            </p>
+                            <p class="mt-5  font-weight-bold text-darken">4. Donde se realizan las subastas ?</p>
                             <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
                                 provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
-                                provident sapiente totam? Nisi, assumenda?</p>
+                                provident sapiente totam? Nisi, assumenda?
+                            </p>
+                            <p class="mt-5 font-weight-bold text-darken">5. Donde se realizan las subastas </p>
+                            <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
+                                veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
+                                distinctio sed labore sunt. Quidem, accusamus!
+                            </p>
+
                         </div>
                     </div>
                     <div class="tab-pane fade " role="tabpanel" aria-labelledby="calidad-tab" id="calidad">
@@ -150,7 +161,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -184,7 +195,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -218,7 +229,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -252,7 +263,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -286,7 +297,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -300,6 +311,41 @@
                                 provident sapiente totam? Nisi, assumenda?</p>
                         </div>
                     </div>
+                    <div class="tab-pane fade " role="tabpanel" aria-labelledby="penalidades-tab" id="penalidades">
+                        <h1 class="font-weight-bold text-capitalize text-dark">preguntas b&aacute;sicas</h1>
+                        <div class="col-md col-sm-9">
+                            <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
+                            <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
+                                sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
+                                amet.
+                            </p>
+                            <article class="col-md col-md-9">
+                                <figure>
+                                    <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p>
+                                    <img src="" alt="">
+                                </figure>
+                                <p class="mt-5">
+                                <div class="media">
+                                    <div class="media-body">
+                                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                                        odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+                                        fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
+                                </div>
+                                </p>
+                            </article>
+                            <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p>
+                            <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
+                                veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
+                                distinctio sed labore sunt. Quidem, accusamus! </p>
+                            <p class="mt-5  font-weight-bold text-darken"> Donde se realizan las subastas ?</p>
+                            <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
+                                provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
+                                provident sapiente totam? Nisi, assumenda?</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- end footer -->

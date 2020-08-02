@@ -6,6 +6,64 @@
     <div>
         {{--//TODO: Inicio de acordeon--}}
         <div class="accordion md-accordion" id="categorias" role="tablist" aria-multiselectable="true">
+
+            {{-- //TODO: Empresas --}}
+            <div class="card side-nav">
+                <!-- Card header -->
+                <a data-toggle="collapse" data-parent="#empresa" href="#collapseOne4" aria-expanded="true" aria-controls="collapseOne4" class="">
+                    <div class="card-header  car-side-nav_header text-dark d-flex justify-content-between collapsed border-0" role="tab" id="empresa">
+
+                        <p class="mb-0 car-side-nav_title text-dark ">
+                            Empresa
+                        </p>
+                        <i class="fas fa-angle-down rotate-icon"></i>
+                    </div>
+                </a>
+                <!-- Card body -->
+                <div id="collapseOne4" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
+                    <div class="card-body ">
+                        <span class="badge {{$picked == true ? 'badge-success' : 'badge-danger'}}">{{$picked == true ? 'Busca Una Empresa' : 'buscando'}}</span>
+                        <div class="col d-flex justify-content-between mt-2">
+                            <div class="input-group m-2">
+                                <div class="input-group ">
+                                    <input class="form-control py-2 border-right-0 border" type="text" id="buscar" wire:model="buscar" wire:keydown.enter="asignarPrimero()">
+                                    <span class="input-group-append">
+                                        <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+
+                                @error("buscar")
+
+                                <small class="form-text text-danger">{{$message}}</small>
+
+                                @else
+                                    @if(count($empresas)>0)
+
+                                        @if(!$picked)
+                                            <div class="shadow rounded px-3 pt-3 pb-0 container">
+                                                @foreach($empresas as $empresa)
+                                                    <div style="cursor: pointer;" class="row sombreado-azul">
+                                                        <a wire:click="asignarEmpresa('{{ $empresa->nombre }}')">
+                                                            {{ $empresa->nombre }}
+                                                        </a>
+                                                    </div>
+                                                    <hr>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                    @else
+                                        <small class="form-text text-muted">Comienza a teclear para que aparezcan los resultados</small>
+                                    @endif
+                                    @enderror
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             {{-- //TODO: Categorias --}}
             <div class="card side-nav">
                 <!-- Card header -->
@@ -104,63 +162,6 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- //TODO: Empresas --}}
-            <div class="card side-nav">
-                <!-- Card header -->
-                <a data-toggle="collapse" data-parent="#empresa" href="#collapseOne4" aria-expanded="true" aria-controls="collapseOne4" class="">
-                    <div class="card-header  car-side-nav_header text-dark d-flex justify-content-between collapsed border-0" role="tab" id="empresa">
-
-                        <p class="mb-0 car-side-nav_title text-dark ">
-                            Empresa
-                        </p>
-                        <i class="fas fa-angle-down rotate-icon"></i>
-                    </div>
-                </a>
-                <!-- Card body -->
-                <div id="collapseOne4" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
-                    <div class="card-body ">
-                        <span class="badge {{$picked == true ? 'badge-success' : 'badge-danger'}}">{{$picked == true ? 'Busca Una Empresa' : 'buscando'}}</span>
-                        <div class="col d-flex justify-content-between mt-2">
-                            <div class="input-group m-2">
-                                <div class="input-group ">
-                                    <input class="form-control py-2 border-right-0 border" type="text" id="buscar" wire:model="buscar" wire:keydown.enter="asignarPrimero()">
-                                    <span class="input-group-append">
-                                        <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-
-                                @error("buscar")
-
-                                <small class="form-text text-danger">{{$message}}</small>
-
-                                @else
-                                    @if(count($empresas)>0)
-
-                                        @if(!$picked)
-                                            <div class="shadow rounded px-3 pt-3 pb-0 container">
-                                                @foreach($empresas as $empresa)
-                                                    <div style="cursor: pointer;" class="row sombreado-azul">
-                                                        <a wire:click="asignarEmpresa('{{ $empresa->nombre }}')">
-                                                            {{ $empresa->nombre }}
-                                                        </a>
-                                                    </div>
-                                                    <hr>
-                                                @endforeach
-                                            </div>
-                                        @endif
-                                    @else
-                                        <small class="form-text text-muted">Comienza a teclear para que aparezcan los resultados</small>
-                                    @endif
-                                    @enderror
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
