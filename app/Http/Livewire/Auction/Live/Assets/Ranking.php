@@ -13,7 +13,7 @@ class Ranking extends Component
 
     public $identificador;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
+    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop', 'noop'];
 
     public function mount($identificador)
     {
@@ -27,6 +27,7 @@ class Ranking extends Component
         $id = $this->identificador;
         $resultados = Message::with('Usuario')->where('producto_id', $id)->orderBy('message')->get();
         $this->resultados = $resultados;
+        $this->emitSelf('noop');
     }
 
     public function render()
