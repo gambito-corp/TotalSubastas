@@ -42,19 +42,19 @@
         <!-- Bottom footer -->
         <div class="navbar nav-footer shadow-sm pt-5 pb-5">
             <div class="container d-flex justify-content-between">
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="/" class="navbar-brand d-flex align-items-center">
                     <span>Subastas</span>
                 </a>
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
                     <span>Preguntas</span>
                 </a>
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="{{route('terminos')}}" class="navbar-brand d-flex align-items-center">
                     <span>Condiciones</span>
                 </a>
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="{{route('quienessomos')}}" class="navbar-brand d-flex align-items-center">
                     <span>Quienes somos</span>
                 </a>
-                <a href="#" class="navbar-brand d-flex align-items-center">
+                <a href="{{route('vender')}}" class="navbar-brand d-flex align-items-center">
                     <span>Vender</span>
                 </a>
             </div>
@@ -69,13 +69,13 @@
                         <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">whatsapp</a>
+                    <a class="nav-link disabled" href="https://api.whatsapp.com/send?phone=51986689676&text=Hola%20Total%20Subastas%2C%0ADeseo%20informaci%C3%B3n" tabindex="-1" aria-disabled="true">whatsapp</a>
                 </li>
                 <li class="nav-item ml-5">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Asesoria legal</a>
                 </li>
                 <li class="nav-item ml-5">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Cont&aacute;ctenos</a>
+                    <a class="nav-link disabled" href="{{route('contacto')}}" tabindex="-1" aria-disabled="true">Cont&aacute;ctenos</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0 mr-5 social-network_footer">

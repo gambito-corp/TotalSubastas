@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
-	<div class="row mt-5">
+<div class="container .container-slider-2">
+	<div class="row mt-5 container-slider">
 		@php
 		$data = [
 		'0' => 0,
@@ -45,7 +45,7 @@
                                 </button>
                             </figure>
                         </article> -->
-                        <img class="carousel-item-a_imagen" src="./assets/img/banner1.png" height="555px" alt="...">
+                        <img class="carousel-item-a_imagen" src="./assets/img/banner1.png" height="531px" alt="slider">
                     </div>
                 </div>
             </div>

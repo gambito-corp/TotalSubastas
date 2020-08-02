@@ -20,7 +20,8 @@ Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
 Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
 Route::view('/polices', 'estaticas.politicas')->name('politicas');
 Route::view('/participacion', 'estaticas.participar')->name('participar');
-Route::view('/reclamos', 'estaticas.reclamos')->name('reclamos');
+Route::view('/quienessomos', 'estaticas.quienessomos')->name('quienessomos');
+Route::view('/reclamos', 'estaticas.reclamos')->name('contacto');
 Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');

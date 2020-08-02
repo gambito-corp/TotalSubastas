@@ -6,7 +6,7 @@
       <div class="jumbotron jumbotron-top_container tyc">
         <div class="container">
           <h1 class="font-weight-bold text-light text-uppercase">
-            Terminos y <br> Condiciones
+            Quienes <br> Somos
           </h1>
           <p class="text-light ">Informate bien antes de participar de una subasta</p>
 
