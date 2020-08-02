@@ -1,5 +1,5 @@
 <div class="col-md-3 order-md-3 live-push_action-ranking">
-    <div class="invisible" wire:pool.100ms="noop">
+    <div class="invisible" wire:pool.100ms="foo">
         {{now()}}
     </div>
     <article class="border-bottom">
