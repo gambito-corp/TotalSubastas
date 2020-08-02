@@ -1,4 +1,7 @@
 <div class="col-md-3 order-md-3 live-push_action-ranking">
+    <div class="invisible" wire:pool.100ms="$refesh">
+        {{now()}}
+    </div>
     <article class="border-bottom">
         <h5 class="text-uppercase ranking_live">ranking</h5>
     </article>
