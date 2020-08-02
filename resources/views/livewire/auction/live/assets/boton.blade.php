@@ -1,6 +1,6 @@
 <div class="col mt-5" >
     @auth
-        <div class="invisible" wire:pool.100ms>
+        <div class="invisible" wire:pool.100ms="estado">
             {{now()}}
         </div>
         @if($end)

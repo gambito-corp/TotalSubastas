@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Helpers\Gambito;
 use App\Message;
 use Livewire\Component;
 
@@ -17,7 +18,7 @@ class Contador extends Component
 
     public function mount($mensajes)
     {
-        $this->identificador = $mensajes->first()->producto_id;
+        $this->identificador =  Gambito::hash(request()->route()->parameter('id'),true);
         $this->mensajes = count($mensajes);
     }
 
