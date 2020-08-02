@@ -72,7 +72,7 @@ class AuctionsController extends Controller
         return response()->json('enviado');
     }
 
-    public function livEnd ($id)
+    public function livEnd ()
     {
         $i = 0;
         $producto = Gambito::obtenerProducto();

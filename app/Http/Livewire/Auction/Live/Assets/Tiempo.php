@@ -40,8 +40,8 @@ class Tiempo extends Component
 
     public function foo()
     {
-        if($this->producto->finalized_at<=now()->subSecond()){
-            dd('hola mundo Actualizado');
+        if($this->producto->finalized_at<=now()->subSeconds(3)){
+            return redirect()->route('endAuc');
         }
     }
     public function render()
