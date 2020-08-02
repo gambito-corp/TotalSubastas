@@ -51,10 +51,14 @@ class Boton extends Component
 
     public function estado()
     {
-
         $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
-
         $this->estado = ($this->producto->user_id == Auth::id());
+    }
+    public function foo()
+    {
+        if($this->producto->finalized_at<=now()->subSeconds(2)){
+            $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
+        }
     }
 
     public function render()
