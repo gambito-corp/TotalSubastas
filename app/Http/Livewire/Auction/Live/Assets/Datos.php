@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Helpers\Gambito;
 use App\Producto;
 use App\VehicleDetail;
 use Livewire\Component;
@@ -30,10 +31,12 @@ class Datos extends Component
 
     public $tipo;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
+    public $identificador;
 
-    public function mount(Producto $producto, VehicleDetail $vehiculo)
+
+    public function mount(Producto $producto, VehicleDetail $vehiculo, $identificador)
     {
+        $this->identificador = $identificador;
         $this->producto = $producto;
         $this->vehiculo = $vehiculo;
         $this->razon_social = $producto->Lote->Empresa->razon_social;
@@ -46,9 +49,16 @@ class Datos extends Component
         $this->tipo = $producto->tipo_subasta;
     }
 
-    public function noop()
+    protected function getListeners()
     {
-        $this->ganador = $this->producto->Usuario->name;
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+        ];
+    }
+
+    public function noop($event)
+    {
+        $this->ganador = $event['user']['name'];
         $this->emit('estado');
     }
 

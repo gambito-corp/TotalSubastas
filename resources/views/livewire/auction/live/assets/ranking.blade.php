@@ -20,7 +20,7 @@
         <div class="row" style="height:200px; overflow: auto;">
 {{--            {{dd($this->resultados->groupBy('user_id')->sortByDesc('*.message'))}}--}}
             @forelse($this->resultados->groupBy('user_id')->sortByDesc('*.message') as $resultado)
-
+{{--                {{dd($resultado)}}--}}
                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                     <div class="col-md-4 text-darken font-weight-normal">
                         {{$contador++}}
@@ -29,7 +29,7 @@
                         {{$resultado->last()->Usuario->name}}
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                        {{$resultado->last()->message}}
+                        {{count($resultado)}}
                     </div>
                 </div>
             @empty

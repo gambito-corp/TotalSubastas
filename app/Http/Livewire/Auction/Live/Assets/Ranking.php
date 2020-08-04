@@ -13,7 +13,7 @@ class Ranking extends Component
 
     public $identificador;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop', 'foo'];
+
 
     public function mount($identificador)
     {
@@ -22,7 +22,14 @@ class Ranking extends Component
         $this->contador = 1;
     }
 
-    public function noop()
+    protected function getListeners()
+    {
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'orden',
+        ];
+    }
+
+    public function orden()
     {
         $id = $this->identificador;
         $resultados = Message::with('Usuario')->where('producto_id', $id)->orderBy('message')->get();

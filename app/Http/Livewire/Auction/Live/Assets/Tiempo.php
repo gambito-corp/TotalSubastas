@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Auction\Live\Assets;
 
 use App\Events\Game\RemainingTimeChanged;
 use App\Events\Game\WinnerNumberGenerated;
+use App\Helpers\Gambito;
 use App\Producto;
 use Livewire\Component;
 
@@ -21,13 +22,23 @@ class Tiempo extends Component
 
     public $time;
 
+    public $identificador;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
 
-    public function mount(Producto $producto)
+
+
+    public function mount(Producto $producto, $identificador)
     {
+        $this->identificador = $identificador;
         $this->producto = $producto->load('Usuario');
         $this->ganador = $producto->Usuario->name;
+    }
+
+    protected function getListeners()
+    {
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+        ];
     }
 
     public function noop()

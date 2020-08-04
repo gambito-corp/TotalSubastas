@@ -10,21 +10,27 @@ class Mensajes extends Component
 {
     public $mensajes;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
-    /**
-     * @var mixed
-     */
     public $identificador;
 
-    public function mount($mensajes)
+    public $actual;
+
+    public function mount($mensajes, $identificador)
     {
-        $this->identificador = Gambito::hash(request()->route()->parameter('id'), true);
-        $this->mensajes = Message::where('producto_id', $this->identificador)->get();
+        $this->identificador = $identificador;
+        $this->mensajes = Message::with('Usuario')->where('producto_id', $this->identificador)->get()->toArray();
+//        dd($this->mensajes);
     }
 
-    public function noop()
+    protected function getListeners()
     {
-        $this->mensajes = Message::where('producto_id', $this->identificador)->get();
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'Mensajes',
+        ];
+    }
+
+    public function Mensajes($event)
+    {
+        $this->mensajes = $event['mensaje'];
     }
 
     public function render()

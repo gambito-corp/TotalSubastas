@@ -2,12 +2,10 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
-
-use App\Events\ejemplo;
-use App\Events\Game\RemainingTimeChanged;
 use App\Producto;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Events\SubastaEvent;
+use Illuminate\Support\Facades\Auth;
 
 class Boton extends Component
 {
@@ -31,29 +29,34 @@ class Boton extends Component
      */
     public $end;
 
-    public function listeners ()
-    {
-        return [
-            'echo:canal-ejemplo,ejemplo' => '$refresh',
-            'estado' => 'foo'
-        ];
-    }
+    public $identificador;
 
-    public function mount(Producto $producto, $estado)
+    public function mount(Producto $producto, $estado, $identificador)
     {
+        $this->identificador = $identificador;
         $this->producto = $producto;
         $this->estado = $estado;
+    }
+
+    public function getListeners ()
+    {
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'foo',
+        ];
     }
 
 
     public function pujar()
     {
-        event(new ejemplo($this->producto));
-        $this->estado = ($this->producto->user_id == Auth::id());
+//        if($this->producto->user_id != Auth::id()){
+            event(new SubastaEvent($this->producto));
+            $this->estado();
+//        }
     }
 
     public function estado()
     {
+        $this->estado = ($this->producto->user_id == Auth::id());
         $bool = false;
         if($this->producto->finalized_at <= now()->subSeconds(2))
         {
@@ -62,11 +65,10 @@ class Boton extends Component
             $bool = false;
         }
         $this->end = $bool;
-        $this->estado = ($this->producto->user_id == Auth::id());
     }
     public function foo()
     {
-        dd('foo');
+//        dd('foo');
         if($this->producto->finalized_at<=now()->subSeconds(2)){
             $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
         }

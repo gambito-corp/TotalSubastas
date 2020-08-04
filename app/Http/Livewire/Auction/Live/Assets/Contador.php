@@ -10,22 +10,27 @@ class Contador extends Component
 {
     public $mensajes;
 
-    protected $listeners = ['echo:canal-ejemplo,ejemplo' => 'noop'];
     /**
      * @var mixed
      */
     public $identificador;
 
-    public function mount($mensajes)
+    public function mount($mensajes, $identificador)
     {
-        $this->identificador =  Gambito::hash(request()->route()->parameter('id'),true);
+        $this->identificador = $identificador;
         $this->mensajes = count($mensajes);
     }
 
-    public function noop()
+    protected function getListeners()
     {
-        $mensajes = Message::where('producto_id', $this->identificador)->get();
-        $this->mensajes = count($mensajes);
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'cuenta',
+        ];
+    }
+
+    public function cuenta()
+    {
+        $this->mensajes = Message::where('producto_id', $this->identificador)->get()->count();
     }
 
     public function render()

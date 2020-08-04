@@ -5,7 +5,7 @@
             <div class="col-md-3 col-sm-12">
                 <img src="{{asset($imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
             </div>
-            @livewire('auction.live.assets.datos', ['producto' => $producto, 'vehiculo' => $vehiculo])
+            @livewire('auction.live.assets.datos', ['producto' => $producto, 'vehiculo' => $vehiculo, 'identificador'=>$identificador])
             <div class="col-md-3 col-sm-12">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
@@ -23,19 +23,19 @@
                             </i>
                         </h3>
                     </div>
-                    @livewire('auction.live.assets.status-win', ['producto' => $producto])
-                    @livewire('auction.live.assets.tiempo', ['producto' => $producto])
+                    @livewire('auction.live.assets.status-win', ['producto' => $producto, 'identificador'=>$identificador])
+                    @livewire('auction.live.assets.tiempo', ['producto' => $producto, 'identificador'=>$identificador])
                 </div>
                 <div class="row">
-                    @livewire('auction.live.assets.boton', ['producto' => $producto, 'estado' => $estado])
+                    @livewire('auction.live.assets.boton', ['producto' => $producto, 'estado' => $estado, 'identificador'=>$identificador])
                 </div>
             </div>
         </div>
         <br>
     </div>
     <div class="row mt-2 justify-content-between margin-row width-100 mb-5">
-        @livewire('auction.live.assets.contador', ['mensajes' => $mensajes])
-        @livewire('auction.live.assets.mensajes', ['mensajes' => $mensajes])
+        @livewire('auction.live.assets.contador', ['mensajes' => $mensajes,'identificador'=>$identificador])
+        @livewire('auction.live.assets.mensajes', ['mensajes' => $mensajes,'identificador'=>$identificador])
         @livewire('auction.live.assets.ranking', ['identificador'=>$identificador])
     </div>
 </div>
@@ -52,34 +52,34 @@
         const UsersElement = document.getElementById('users');
         const productoElement =  @json($producto);
         var contador = 0;
-        Echo.join(`subasta.${productoElement.id}`)
-            .here((users) =>{
-                contador = users.length;
-                let element = document.createElement('p');
-                element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
-                element.setAttribute('id', 'cuenta')
-                element.innerText = contador;
-                UsersElement.append(element);
-            })
-            .joining((users)=>{
-                contador = users.length;
-                contador++;
-                let element = document.createElement('p');
-                element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
-                element.setAttribute('id', 'cuenta')
-                element.innerText = contador;
-                UsersElement.append(element);
-                // console.log(contador + ' Metodo joining');
-            })
-            .leaving((users)=>{
-                contador = users.length;
-                contador--;
-                let element = document.createElement('p');
-                element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
-                element.setAttribute('id', 'cuenta')
-                element.innerText = contador;
-                UsersElement.append(element);
-            })
+        // Echo.join(`subasta.${productoElement.id}`)
+        //     .here((users) =>{
+        //         contador = users.length;
+        //         let element = document.createElement('p');
+        //         element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
+        //         element.setAttribute('id', 'cuenta')
+        //         element.innerText = contador;
+        //         UsersElement.append(element);
+        //     })
+        //     .joining((users)=>{
+        //         contador = users.length;
+        //         contador++;
+        //         let element = document.createElement('p');
+        //         element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
+        //         element.setAttribute('id', 'cuenta')
+        //         element.innerText = contador;
+        //         UsersElement.append(element);
+        //         // console.log(contador + ' Metodo joining');
+        //     })
+        //     .leaving((users)=>{
+        //         contador = users.length;
+        //         contador--;
+        //         let element = document.createElement('p');
+        //         element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
+        //         element.setAttribute('id', 'cuenta')
+        //         element.innerText = contador;
+        //         UsersElement.append(element);
+        //     })
     </script>
 @endpush
 @push('styles')
