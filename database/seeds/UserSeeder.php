@@ -32,5 +32,21 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
+        User::create([
+            'role_id'           => '2',
+            'name'              => 'alevel418',
+            'email'             => 'alexis.veliz.83@gmail.com',
+            'avatar'            => 'img/users/default.png',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('Admin')
+        ]);
+        User::create([
+            'role_id'           => '2',
+            'name'              => 'andvel443',
+            'email'             => 'avega@rachacreativa.com',
+            'avatar'            => 'img/users/default.png',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('Admin')
+        ]);
     }
 }

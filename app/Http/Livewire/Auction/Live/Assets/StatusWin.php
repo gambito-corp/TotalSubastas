@@ -21,19 +21,20 @@ class StatusWin extends Component
     public function mount(Producto $producto, $identificador)
     {
         $this->identificador = $identificador;
-        $this->producto = $producto->load('Usuario');
+        $this->producto = $producto->load('Usuario')->toArray();
     }
 
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+            "echo-private:datos.{$this->identificador},DatosEvent" => 'noop',
         ];
     }
 
-    public function noop()
+    public function noop($event)
     {
-        $this->producto->precio;
+        $this->producto['precio'] = $event['producto']['precio'];
+        $this->producto['usuario']['name'] = $event['producto']['usuario']['name'];
     }
 
     public function render()

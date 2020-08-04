@@ -66,5 +66,37 @@ class PersonSeeder extends Seeder
             'dni_front'         => 'img/dni/delante.jpg',
             'dni_back'          => 'img/dni/atras.jpg'
         ]);
+        Person::create([
+            'user_id'           => 4,
+            'nombres'           => 'alexis edmundo',
+            'apellidos'         => 'veliz de la barrera',
+            'tipo_documento'    => 'DNI',
+            'numero_documento'  => 41891163,
+            'digito_documento'  => 1,
+            'genero'            => 'Hombre',
+            'estado_civil'      => 'Soltero',
+            'cuenta_banco'      => '133-5544-5566-6589',
+            'b_day'             => '1988-10-12',
+            'telefono'          => '983521436',
+            'email'             => 'alexis.veliz.83@gmail.com',
+            'dni_front'         => 'img/dni/delante.jpg',
+            'dni_back'          => 'img/dni/atras.jpg'
+        ]);
+        Person::create([
+            'user_id'           => 5,
+            'nombres'           => 'andres',
+            'apellidos'         => 'vela',
+            'tipo_documento'    => 'DNI',
+            'numero_documento'  => 44369984,
+            'digito_documento'  => 1,
+            'genero'            => 'Hombre',
+            'estado_civil'      => 'Soltero',
+            'cuenta_banco'      => '133-5544-5566-6589',
+            'b_day'             => '1988-10-12',
+            'telefono'          => '9910019333',
+            'email'             => 'avega@rachacreativa.com',
+            'dni_front'         => 'img/dni/delante.jpg',
+            'dni_back'          => 'img/dni/atras.jpg'
+        ]);
     }
 }

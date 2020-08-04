@@ -14,11 +14,11 @@
                     Pujar {{$producto->puja + $producto->precio}} $
                 </button>
             @else
-                <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" id="send" wire:click="pujar">
-                    <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
-                    Pujar {{$producto->puja + $producto->precio}} $
-                </button>
-{{--                <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none"><i class="fas fa-star  pr-3 pl-3 " wire:click="pujar"></i> Vas Ganando </p>--}}
+{{--                <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" id="send" wire:click="pujar">--}}
+{{--                    <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>--}}
+{{--                    Pujar {{$producto->puja + $producto->precio}} $--}}
+{{--                </button>--}}
+                <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none"><i class="fas fa-star  pr-3 pl-3 " wire:click="pujar"></i> Vas Ganando </p>
             @endunless
         @endif
     @else

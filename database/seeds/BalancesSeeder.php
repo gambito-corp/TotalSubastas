@@ -48,5 +48,29 @@ class BalancesSeeder extends Seeder
             'transaccion_banco' => 'campo transaccion de banco',
             'abono_at'          => now()
         ]);
+        Balance::create([
+            'user_id'           => 4,
+            'banco_id'          => 3,
+            'monto'             => 1000000,
+            'tipo'              => 'Deposito de garantia Alexis',
+            'descripcion'       => 'Deposito de la Garantia testeos Alexis',
+            'boucher'           => 'img/boucher/1.jpg',
+            'motivo'            => 'deposito inicial para test Alexis',
+            'cuenta'            => 'campo cuenta',
+            'transaccion_banco' => 'campo transaccion de banco',
+            'abono_at'          => now()
+        ]);
+        Balance::create([
+            'user_id'           => 5,
+            'banco_id'          => 3,
+            'monto'             => 1000000,
+            'tipo'              => 'Deposito de garantia Andres',
+            'descripcion'       => 'Deposito de la Garantia testeos Andres',
+            'boucher'           => 'img/boucher/1.jpg',
+            'motivo'            => 'deposito inicial para test Andres',
+            'cuenta'            => 'campo cuenta',
+            'transaccion_banco' => 'campo transaccion de banco',
+            'abono_at'          => now()
+        ]);
     }
 }

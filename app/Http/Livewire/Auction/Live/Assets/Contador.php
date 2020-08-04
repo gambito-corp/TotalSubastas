@@ -24,13 +24,13 @@ class Contador extends Component
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'cuenta',
+            "echo-private:contador.{$this->identificador},ContadorEvent"  => 'cuenta',
         ];
     }
 
-    public function cuenta()
+    public function cuenta($event)
     {
-        $this->mensajes = Message::where('producto_id', $this->identificador)->get()->count();
+        $this->mensajes += $event['contador'];
     }
 
     public function render()

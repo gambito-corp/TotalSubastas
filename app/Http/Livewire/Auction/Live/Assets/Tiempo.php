@@ -37,7 +37,7 @@ class Tiempo extends Component
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+            "echo-private:datos.{$this->identificador},DatosEvent" => 'noop',
         ];
     }
 

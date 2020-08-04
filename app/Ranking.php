@@ -43,12 +43,12 @@ class Ranking extends Model
 
 
 
-    public function users()
+    public function Usuario()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function products()
+    public function Producto()
     {
         return $this->belongsTo(Producto::class, 'producto_id');
     }

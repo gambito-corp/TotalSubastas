@@ -24,13 +24,13 @@ class Mensajes extends Component
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'Mensajes',
+            "echo-private:mensaje.{$this->identificador},MensajeEvent" => 'Mensajes',
         ];
     }
 
     public function Mensajes($event)
     {
-        $this->mensajes = $event['mensaje'];
+        $this->mensajes[] = $event['mensaje'];
     }
 
     public function render()

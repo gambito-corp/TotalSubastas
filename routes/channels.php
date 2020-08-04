@@ -38,3 +38,39 @@ Broadcast::channel('subasta.{id}', function ($user, $id) {
         ];
     }
 });
+
+Broadcast::channel('contador.{id}', function ($user, $id) {
+    if ($user != null){
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
+});
+
+Broadcast::channel('datos.{id}', function ($user, $id) {
+    if ($user != null){
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
+});
+
+Broadcast::channel('mensaje.{id}', function ($user, $id) {
+    if ($user != null){
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
+});
+
+Broadcast::channel('ranking.{id}', function ($user, $id) {
+    if ($user != null){
+        return [
+            'id' => $user->id,
+            'name' => $user->name
+        ];
+    }
+});

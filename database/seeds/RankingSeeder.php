@@ -12,15 +12,40 @@ class RankingSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 20; $i++){
-            for ($c = 1; $c < 3; $c++) {
-                for ($l = 1; $l < 5; $l++) {
-                    Ranking::create([
-                        'producto_id' => $l,
-                        'user_id' => $c
-                    ]);
-                }
-            }
+        for ($i = 1; $i <= 11; $i++){
+            Ranking::create([
+                'producto_id' => $i,
+                'user_id' => 1,
+                'cantidad' => 10
+            ]);
+        }
+        for ($i = 1; $i <= 11; $i++){
+            Ranking::create([
+                'producto_id' => $i,
+                'user_id' => 2,
+                'cantidad' => 5
+            ]);
+        }
+        for ($i = 1; $i <= 11; $i++){
+            Ranking::create([
+                'producto_id' => $i,
+                'user_id' => 3,
+                'cantidad' => 3
+            ]);
+        }
+        for ($i = 1; $i <= 11; $i++){
+            Ranking::create([
+                'producto_id' => $i,
+                'user_id' => 4,
+                'cantidad' => 7
+            ]);
+        }
+        for ($i = 1; $i <= 11; $i++){
+            Ranking::create([
+                'producto_id' => $i,
+                'user_id' => 5,
+                'cantidad' => 1
+            ]);
         }
     }
 }

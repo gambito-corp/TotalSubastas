@@ -2,39 +2,36 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
-use App\Message;
+use App\Ranking as Rank;
 use Livewire\Component;
 
 class Ranking extends Component
 {
     public $resultados;
 
-    public $contador;
-
     public $identificador;
+
+
 
 
 
     public function mount($identificador)
     {
         $this->identificador = $identificador;
-        $this->resultados = Message::with('Usuario')->where('producto_id', $this->identificador)->orderBy('message')->get();
-        $this->contador = 1;
+        $this->resultados = Rank::with('Usuario')->where('producto_id', $this->identificador)->orderBy('cantidad', 'desc')->take(6)->get()->toArray();
+
     }
 
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'orden',
+            "echo-private:ranking.{$this->identificador},RankingEvent" => 'orden',
         ];
     }
 
-    public function orden()
+    public function orden($event)
     {
-        $id = $this->identificador;
-        $resultados = Message::with('Usuario')->where('producto_id', $id)->orderBy('message')->get();
-        $this->resultados = $resultados;
-        $this->emitSelf('foo');
+        $this->resultados = $event['ranking'];
     }
 
     public function foo()

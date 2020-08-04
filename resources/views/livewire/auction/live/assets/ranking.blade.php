@@ -14,34 +14,34 @@
                 Usuario
             </div>
             <div class="col-md-4 text-darken text-to_title-auction_ranking">
-                Oferta
+                Ofertas
             </div>
         </div>
         <div class="row" style="height:200px; overflow: auto;">
 {{--            {{dd($this->resultados->groupBy('user_id')->sortByDesc('*.message'))}}--}}
-            @forelse($this->resultados->groupBy('user_id')->sortByDesc('*.message') as $resultado)
+            @forelse($this->resultados as $key => $resultado)
 {{--                {{dd($resultado)}}--}}
                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                     <div class="col-md-4 text-darken font-weight-normal">
-                        {{$contador++}}
+                        {{$key+1}}
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal">
-                        {{$resultado->last()->Usuario->name}}
+                        {{$resultado['usuario']['name']}}
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                        {{count($resultado)}}
+                        {{$resultado['cantidad']}}
                     </div>
                 </div>
             @empty
                 <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
                     <div class="col-md-4 text-darken font-weight-normal">
-                        Sin Rank
+                        -
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal">
-                        Sin Rank
+                        -
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
-                        Sin Rank
+                        -
                     </div>
                 </div>
             @endforelse

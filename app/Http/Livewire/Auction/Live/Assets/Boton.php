@@ -2,9 +2,13 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Events\MensajeEvent;
+use App\Events\RankingEvent;
 use App\Producto;
 use Livewire\Component;
+use App\Events\DatosEvent;
 use App\Events\SubastaEvent;
+use App\Events\ContadorEvent;
 use Illuminate\Support\Facades\Auth;
 
 class Boton extends Component
@@ -49,7 +53,12 @@ class Boton extends Component
     public function pujar()
     {
         if($this->producto->user_id != Auth::id()){
+            $mensaje = intval($this->producto->precio + $this->producto->puja);
             event(new SubastaEvent($this->producto));
+            event(new ContadorEvent($this->producto));
+            event(new DatosEvent($this->producto));
+            event(new MensajeEvent($this->producto, $mensaje));
+            event(new RankingEvent($this->producto));
             $this->estado();
         }
     }

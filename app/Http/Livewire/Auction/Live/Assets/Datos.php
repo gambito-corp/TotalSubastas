@@ -52,14 +52,15 @@ class Datos extends Component
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+            "echo-private:datos.{$this->identificador},DatosEvent" => 'noop',
         ];
     }
 
     public function noop($event)
     {
-        $this->ganador = $event['user']['name'];
-        $this->emit('estado');
+//        dd($event['producto']['usuario']['name']);
+        $this->ganador = $event['producto']['usuario']['name'];
+//        $this->emit('estado');
     }
 
     public function render()
