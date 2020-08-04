@@ -48,10 +48,10 @@ class Boton extends Component
 
     public function pujar()
     {
-//        if($this->producto->user_id != Auth::id()){
+        if($this->producto->user_id != Auth::id()){
             event(new SubastaEvent($this->producto));
             $this->estado();
-//        }
+        }
     }
 
     public function estado()
