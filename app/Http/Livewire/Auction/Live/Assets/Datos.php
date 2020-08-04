@@ -58,9 +58,9 @@ class Datos extends Component
 
     public function noop($event)
     {
-//        dd($event['producto']['usuario']['name']);
-        $this->ganador = $event['producto']['usuario']['name'];
-//        $this->emit('estado');
+//        dd(Gambito::obtenerProducto($this->identificador));
+        $this->ganador = Gambito::obtenerProducto($this->identificador)->Usuario->name;
+        $this->emit('estado');
     }
 
     public function render()

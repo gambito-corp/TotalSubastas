@@ -52,17 +52,17 @@ class Index extends Component
         $this->estado = ($this->producto->user_id == Auth::id());
     }
 
-//    protected function getListeners()
-//    {
-//        return [
-//            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
-//        ];
-//    }
-//
-//    public function noop()
-//    {
-//        //
-//    }
+    protected function getListeners()
+    {
+        return [
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+        ];
+    }
+
+    public function noop()
+    {
+        //
+    }
 
 
     public function render()

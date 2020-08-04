@@ -52,20 +52,21 @@ class Boton extends Component
 
     public function pujar()
     {
-        $this->estado = ($this->producto->user_id == Auth::id());
         if($this->producto->user_id != Auth::id()){
             $mensaje = intval($this->producto->precio + $this->producto->puja);
+            $usuario = Auth::id();
             event(new SubastaEvent($this->producto));
             event(new ContadorEvent($this->producto));
-            event(new DatosEvent($this->producto));
+            event(new DatosEvent($this->producto, $usuario));
             event(new MensajeEvent($this->producto, $mensaje));
             event(new RankingEvent($this->producto));
         }
+        $this->estado();
     }
 
     public function estado()
     {
-        $this->estado = ($this->producto->user_id == Auth::id());
+
         $bool = false;
         if($this->producto->finalized_at <= now()->subSeconds(2))
         {
@@ -77,7 +78,7 @@ class Boton extends Component
     }
     public function foo()
     {
-//        dd('foo');
+        $this->estado = ($this->producto->user_id == Auth::id());
         if($this->producto->finalized_at<=now()->subSeconds(2)){
             $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
         }

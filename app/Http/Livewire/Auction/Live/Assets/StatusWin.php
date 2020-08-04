@@ -33,8 +33,16 @@ class StatusWin extends Component
 
     public function noop($event)
     {
-        $this->producto['precio'] = $event['producto']['precio'];
+//        dd($event['producto']);
         $this->producto['usuario']['name'] = $event['producto']['usuario']['name'];
+        $this->producto['precio'] = $event['producto']['precio'];
+        $this->status($event['producto']['usuario']['name'], $event['producto']['precio']);
+    }
+
+    public function status($nombre, $precio)
+    {
+        $this->producto['usuario']['name'] = $this->ganador = Gambito::obtenerProducto($this->identificador)->Usuario->name;
+        $this->producto['precio'] = $this->ganador = Gambito::obtenerProducto($this->identificador)->precio;
     }
 
     public function render()

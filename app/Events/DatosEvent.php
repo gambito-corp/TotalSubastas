@@ -19,10 +19,10 @@ class DatosEvent implements ShouldBroadcastNow
 
     Public $producto;
 
-    public function __construct(Producto $producto)
+    public function __construct(Producto $producto, $id)
     {
         $this->producto = $producto;
-        $this->producto->user_id = Auth::id();
+        $this->producto->user_id = $id;
         $this->producto->update();
     }
 
