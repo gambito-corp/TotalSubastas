@@ -63,7 +63,6 @@ class Index extends Component
         $this->hace = $this->producto->started_at->diffForHumans();
         $this->mensajes = Message::where('producto_id', $this->identificador)->get();
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
-        $this->mensaje = '';
     }
 
     protected function getListeners()
@@ -75,8 +74,8 @@ class Index extends Component
 
     public function pujar()
     {
-//         || $this->producto->user_id != Auth::id()
-        if(now()->addSeconds(15)->toTimeString() <= $this->producto->finalized_at->toTimeString()){
+//        || $this->producto->user_id != Auth::id()
+        if(now()->toTimeString() <= $this->producto->finalized_at->toTimeString() ){
             $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
             $mensaje = intval($this->producto->precio + $this->producto->puja);
             $usuario = Auth::id();
@@ -94,7 +93,6 @@ class Index extends Component
     public function estado()
     {
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
-//        dd($this->estado);
     }
 
 
