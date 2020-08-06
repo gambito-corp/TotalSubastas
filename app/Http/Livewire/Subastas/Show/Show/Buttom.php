@@ -39,7 +39,7 @@ class Buttom extends Component
         ]);
         Participacion::updateOrCreate(
             ['producto_id' => $this->producto->id, 'user_id' => Auth::id()],
-            ['participacion' => $this->tyc]
+            ['participacion' => 'acepto']
         );
         Cache::put('tyc', $this->tyc, 120);
         $this->tyc = Cache::get('tyc');
