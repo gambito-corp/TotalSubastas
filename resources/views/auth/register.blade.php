@@ -18,7 +18,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6 col-sm-12">
                                 <label for="nombre" class="font-weight-bold text-dark">Nombres</label>
-                                <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="">
+                                <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{old('nombre')}}">
                                 @error('nombre')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="apellido" class="font-weight-bold text-dark">Apellidos</label>
-                                <input type="text" name="apellido" class="form-control @error('apellido') is-invalid @enderror" value="">
+                                <input type="text" name="apellido" class="form-control @error('apellido') is-invalid @enderror" value="{{old('apellido')}}">
                                 @error('apellido')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="email" class="font-weight-bold text-dark">Correo electronico</label>
-                                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="">
+                                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="tel" class="font-weight-bold text-dark">Celular</label>
-                                <input type="tel" name="tel" class="form-control @error('tel') is-invalid @enderror" value="">
+                                <input type="tel" name="tel" class="form-control @error('tel') is-invalid @enderror" value="{{old('tel')}}">
                                 @error('tel')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="dni" class="font-weight-bold text-dark">Documento de identidad</label>
-                                <input type="text" name="dni" class="form-control @error('dni') is-invalid @enderror" value="">
+                                <input type="text" name="dni" class="form-control @error('dni') is-invalid @enderror" value="{{old('dni')}}">
                                 @error('dni')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="form-group col-md-8 text-center offset-md-2 pt-4">
                                 <div class="form-check">
-                                    <input class="form-check-input checkbox-primary @error('Check') is-invalid @enderror" type="checkbox" id="gridCheck" name="Check"">
+                                    <input class="form-check-input checkbox-primary @error('Check') is-invalid @enderror" type="checkbox" id="gridCheck" name="Check">
                                     <label class="form-check-label" for="Check">
                                         Acepta los terminos y condiciones y las leyes de privacidad de datos
                                     </label>
@@ -102,12 +102,12 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-12 pt-5 text-center"> 
+                            <div class="form-group col-md-12 pt-5 text-center">
                                 <a href="{{route('login')}}" class="font-weight-bold text-dark">
                                     <h5 class="display-6  text-darken">Ya tienes cuenta ?</h5>
-                                </a>                               
+                                </a>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

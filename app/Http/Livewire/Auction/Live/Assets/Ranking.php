@@ -11,14 +11,10 @@ class Ranking extends Component
 
     public $identificador;
 
-
-
-
-
     public function mount($identificador)
     {
         $this->identificador = $identificador;
-        $this->resultados = Rank::with('Usuario')->where('producto_id', $this->identificador)->orderBy('cantidad', 'desc')->take(6)->get()->toArray();
+        $this->resultados = Rank::with('Usuario')->where('producto_id', $this->identificador)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
 
     }
 

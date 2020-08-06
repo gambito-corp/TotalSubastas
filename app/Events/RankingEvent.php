@@ -4,6 +4,7 @@ namespace App\Events;
 
 use App\Producto;
 use App\Ranking;
+use App\Ranking as Rank;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -25,7 +26,7 @@ class RankingEvent implements ShouldBroadcastNow
     public function __construct(Producto $producto)
     {
         $this->producto = $producto;
-        $this->ranking = Ranking::updateOrCreate([
+        $this->ranking = Rank::updateOrCreate([
             'producto_id' => $this->producto->id,
             'user_id' => Auth::id()
         ],
@@ -33,7 +34,7 @@ class RankingEvent implements ShouldBroadcastNow
                 'cantidad' => \DB::raw('cantidad + 1')
             ]
         );
-        $this->ranking = Ranking::with('Usuario')->where('producto_id', $this->producto->id)->orderBy('cantidad', 'desc')->take(6)->get();
+        $this->ranking = Rank::with('Usuario')->where('producto_id', $this->producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
     }
 
     /**
