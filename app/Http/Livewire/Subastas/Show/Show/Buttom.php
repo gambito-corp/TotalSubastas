@@ -46,11 +46,11 @@ class Buttom extends Component
 
     public function online()
     {
-//        $this->validate([
-//            'tyc' => 'required',
-//        ]);
+        $this->validate([
+            'tyc' => 'required',
+        ]);
         $balance = Balance::where('user_id', Auth::id())->first();
-        if($balance && $balance->monto < $this->producto->garantia){
+        if($balance && $balance->monto > $this->producto->garantia){
             return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
         }else{
             session()->flash('message', 'No le queda suficiente balance en su cuenta porfavor recarge.');
