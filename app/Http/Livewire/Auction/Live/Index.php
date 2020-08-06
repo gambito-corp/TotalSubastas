@@ -77,6 +77,7 @@ class Index extends Component
     {
 //         || $this->producto->user_id != Auth::id()
         if(now()->addSeconds(15)->toTimeString() <= $this->producto->finalized_at->toTimeString()){
+            $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
             $mensaje = intval($this->producto->precio + $this->producto->puja);
             $usuario = Auth::id();
             event(new SubastaEvent($this->producto));
@@ -85,6 +86,8 @@ class Index extends Component
             event(new MensajeEvent($this->producto, $mensaje));
             event(new RankingEvent($this->producto));
             $this->mensaje = 'debe';
+        }else{
+            $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
         }
         $this->estado();
     }
