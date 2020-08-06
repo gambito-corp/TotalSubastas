@@ -11,9 +11,13 @@
 @if($estado == 'puja')
     @auth
         <form wire:submit.prevent="pujar">
-            <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" id="send">
+            <button class="btn btn-primary rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" id="send" wire:model="mensaje">
                 <i class="fas fa-gavel fa-rotate-270 pr-3 pl-3 "></i>
+                @empty($mensaje)
                 Pujar {{$producto->puja + $producto->precio}} $
+                @else
+                    {{$mensaje}}
+                @endempty
             </button>
         </form>
     @else
