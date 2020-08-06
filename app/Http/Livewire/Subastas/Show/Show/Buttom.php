@@ -30,11 +30,12 @@ class Buttom extends Component
     {
         $this->producto = $producto;
         $this->participacion = Participacion::where('producto_id', $this->producto->id)->where('user_id', Auth::id())->pluck('participacion')->first();
+        dd($this->participacion);
     }
 
     public function updatedTyc()
     {
-//        dd($this->tyc);
+        dd($this->tyc);
         $this->validate([
             'tyc' => 'required',
         ]);
