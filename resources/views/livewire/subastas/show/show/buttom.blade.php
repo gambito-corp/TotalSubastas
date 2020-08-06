@@ -53,6 +53,7 @@
     <div class="row" style="margin-left: 30px;">
         @if($this->participacion == false)
             <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" wire:model="tyc" {{$tyc? 'checked':''}}>
+            <label class="form-check-label" for="">Acepto <a href="{{route('terminos')}}">terminos y condiciones</a></label>
         @else
             <label class="form-check-label" for="">Ya Acepte Los <a href="{{route('terminos')}}">Terminos y Condiciones</a></label>
         @endif
