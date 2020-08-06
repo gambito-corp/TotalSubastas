@@ -2,6 +2,11 @@
 
 namespace App\Http\Livewire\Auction\Live;
 
+use App\Events\ContadorEvent;
+use App\Events\DatosEvent;
+use App\Events\MensajeEvent;
+use App\Events\RankingEvent;
+use App\Events\SubastaEvent;
 use App\Helpers\Gambito;
 use App\Message;
 use App\Producto;
@@ -38,6 +43,10 @@ class Index extends Component
      * @var \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|mixed
      */
     public $mensajes;
+    /**
+     * @var bool|mixed
+     */
+    public $end;
 
 
     public function mount()
@@ -49,19 +58,34 @@ class Index extends Component
         $this->producto->user_id == Auth::id()? $this->estado=true:$this->estado=false;
         $this->hace = $this->producto->started_at->diffForHumans();
         $this->mensajes = Message::where('producto_id', $this->identificador)->get();
-        $this->estado = ($this->producto->user_id == Auth::id());
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
     }
 
     protected function getListeners()
     {
         return [
-            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'noop',
+            "echo-private:subasta.{$this->identificador},SubastaEvent" => 'estado',
         ];
     }
 
-    public function noop()
+    public function pujar()
     {
-        //
+//        if($this->producto->finalized_at <= now()->subSecond() || $this->producto->user_id != Auth::id()){
+        $mensaje = intval($this->producto->precio + $this->producto->puja);
+        $usuario = Auth::id();
+        event(new SubastaEvent($this->producto));
+        event(new ContadorEvent($this->producto));
+        event(new DatosEvent($this->producto, $usuario));
+        event(new MensajeEvent($this->producto, $mensaje));
+        event(new RankingEvent($this->producto));
+//        }
+        $this->estado();
+    }
+
+    public function estado()
+    {
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+//        dd($this->estado);
     }
 
 

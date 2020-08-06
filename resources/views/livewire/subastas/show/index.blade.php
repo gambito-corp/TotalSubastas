@@ -27,7 +27,8 @@
                             </ul>
                             <hr class="my-4" />
                         </article>
-                        <div class="col-md-12 col-sm-12  ">
+                        <div class="col-md-12 col-sm-12" >
+
                             <div class="jumbotron auction-jumbotron mr-2 p-0">
                                 <div class="container">
                                     <div class="row">
@@ -46,7 +47,6 @@
                                 </div>
                             </div>
                             @livewire('subastas.show.show.buttom', ['producto' => $producto])
-
                         </div>
                     </div>
                     <div class="col-md-2 d-none d-sm-none d-md-block">

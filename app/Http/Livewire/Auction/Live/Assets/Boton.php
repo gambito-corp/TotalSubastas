@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Auction\Live\Assets;
 
 use App\Events\MensajeEvent;
 use App\Events\RankingEvent;
+use App\Helpers\Gambito;
 use App\Producto;
 use Livewire\Component;
 use App\Events\DatosEvent;
@@ -35,11 +36,13 @@ class Boton extends Component
 
     public $identificador;
 
-    public function mount(Producto $producto, $estado, $identificador)
+    public function mount(Producto $producto, $estado, $identificador, $end)
     {
         $this->identificador = $identificador;
         $this->producto = $producto;
-        $this->estado = $estado;
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+        $this->end = $end;
+        $this->time = $this->producto->finalized_at->toTimeString();
     }
 
     public function getListeners ()
@@ -50,37 +53,33 @@ class Boton extends Component
     }
 
 
-    public function pujar()
-    {
-        if($this->producto->user_id != Auth::id()){
-            $mensaje = intval($this->producto->precio + $this->producto->puja);
-            $usuario = Auth::id();
-            event(new SubastaEvent($this->producto));
-            event(new ContadorEvent($this->producto));
-            event(new DatosEvent($this->producto, $usuario));
-            event(new MensajeEvent($this->producto, $mensaje));
-            event(new RankingEvent($this->producto));
-        }
-        $this->estado();
-    }
-
     public function estado()
     {
-
-        $bool = false;
-        if($this->producto->finalized_at <= now()->subSeconds(2))
-        {
-            $bool = true;
-        }else{
-            $bool = false;
-        }
-        $this->end = $bool;
+        $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+//        $bool = false;
+//        if($this->producto->finalized_at <= now()->subSeconds(2))
+//        {
+//            $bool = true;
+//        }else{
+//            $bool = false;
+//        }
+//        $this->end = $bool;
     }
     public function foo()
     {
         $this->estado = ($this->producto->user_id == Auth::id());
-        if($this->producto->finalized_at<=now()->subSeconds(2)){
-            $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
+//        if($this->producto->finalized_at<=now()->subSeconds(2)){
+//            $this->end = ($this->producto->finalized_at <= now()->subSeconds(2));
+//        }
+        $this->hydrate();
+    }
+
+    public function hydrate()
+    {
+        if($this->producto->finalized_at >= now()->subSeconds(300)){
+            $this->end = 'true x';
+        }else{
+            $this->end = 'false y';
         }
     }
 

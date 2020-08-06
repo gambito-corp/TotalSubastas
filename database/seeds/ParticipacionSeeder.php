@@ -13,15 +13,15 @@ class ParticipacionSeeder extends Seeder
      */
     public function run()
     {
-        $i = 1;
-        for ($c = 1; $c < 3; $c++) {
-            for ($l = 1; $l < 5; $l++) {
-                Participacion::create([
-                    'user_id' => $c,
-                    'producto_id' => $l,
-                    'participacion' => $i++
-                ]);
-            }
-        }
+//        $i = 1;
+//        for ($c = 1; $c < 3; $c++) {
+//            for ($l = 1; $l < 5; $l++) {
+//                Participacion::create([
+//                    'user_id' => $c,
+//                    'producto_id' => $l,
+//                    'participacion' => $i++
+//                ]);
+//            }
+//        }
     }
 }

@@ -81,13 +81,14 @@ class Gambito
 
     public static function checkEstado(Producto $producto, $id, $live = false, $set = false)
     {
+//        dd(($producto->finalized_at <= now()), $set, 'helper');
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'ganador'; //Cambiar a Ganador
+            $estado = 'puja'; //Cambiar a Ganador
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif($producto->finalized_at <= now() || $set == true){
+        }elseif($producto->finalized_at <= now()->subSecond()  || $set == true){
             $estado = 'Finalizada';
         }else{
             $estado = 'puja';

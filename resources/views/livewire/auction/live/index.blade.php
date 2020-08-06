@@ -26,8 +26,10 @@
                     @livewire('auction.live.assets.status-win', ['producto' => $producto, 'identificador'=>$identificador])
                     @livewire('auction.live.assets.tiempo', ['producto' => $producto, 'identificador'=>$identificador])
                 </div>
-                <div class="row">
-                    @livewire('auction.live.assets.boton', ['producto' => $producto, 'estado' => $estado, 'identificador'=>$identificador])
+                <div class="row" wire:poll.500ms="estado">
+                    @dump($end)
+                    @include('livewire.subastas.includes.button')
+{{--                    @livewire('auction.live.assets.boton', ['producto' => $producto, 'estado' => $estado, 'identificador'=>$identificador, 'end' => $end])--}}
                 </div>
             </div>
         </div>
