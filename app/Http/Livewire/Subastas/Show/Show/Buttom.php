@@ -34,8 +34,7 @@ class Buttom extends Component
 
     public function updatedTyc()
     {
-        dd($this->tyc);
-        if($this->participacion != 'acepto'){
+        if($this->participacion == false){
             $this->validate([
                 'tyc' => 'required',
             ]);
@@ -44,7 +43,7 @@ class Buttom extends Component
         }
         Participacion::updateOrCreate(
             ['producto_id' => $this->producto->id, 'user_id' => Auth::id()],
-            ['participacion' => 'acepto']
+            ['participacion' => $this->tyc]
         );
     }
 
@@ -58,7 +57,7 @@ class Buttom extends Component
 
     public function online()
     {
-        if($this->participacion != 'acepto'){
+        if($this->participacion == false){
             $this->validate([
                 'tyc' => 'required',
             ]);
@@ -75,7 +74,7 @@ class Buttom extends Component
 
     public function pujar($tyc)
     {
-        if($this->participacion != 'acepto'){
+        if($this->participacion == false){
             $this->validate([
                 'tyc' => 'required',
             ]);

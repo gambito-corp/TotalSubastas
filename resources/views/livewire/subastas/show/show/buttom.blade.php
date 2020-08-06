@@ -50,7 +50,7 @@
             @include('livewire.subastas.includes.button', ['producto'=> $producto, 'tyc' => $tyc])
         </div>
     </div>
-    @if($participacion =='acepto')
+    @if($this->participacion == false)
         <div class="row" style="margin-left: 30px;">
             <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" wire:model="tyc" {{$tyc? 'checked':''}}>
             <label class="form-check-label" for="">Acepto <a href="{{route('terminos')}}">terminos y condiciones</a></label>
