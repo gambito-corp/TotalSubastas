@@ -85,10 +85,10 @@ class Gambito
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'puja'; //Cambiar a Ganador
+            $estado = 'ganador'; //Cambiar a ganador
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif($producto->finalized_at <= now()->subSecond()  || $set == true){
+        }elseif($producto->finalized_at <= now()->subSeconds(2)  || $set == true){
             $estado = 'Finalizada';
         }else{
             $estado = 'puja';
