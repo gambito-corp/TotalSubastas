@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Subastas\Show\Show;
 
+use App\Balance;
 use App\Participacion;
 use App\Person;
 use App\Producto;
@@ -18,6 +19,7 @@ class Buttom extends Component
     public $producto;
     public $estado;
     public $tyc;
+    public $balance;
     protected $listeners = ['refreshChildren'];
 
     public function mount($producto)
@@ -47,7 +49,12 @@ class Buttom extends Component
         $this->validate([
             'tyc' => 'required',
         ]);
-        return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
+        $balance = Balance::where('user_id', Auth::id())->first();
+        if($balance && $balance < $this->producto->garantia){
+            return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
+        }else{
+            session()->flash('message', 'No tiene Suficiente Balance.')->flash('alerta', 'danger');
+        }
     }
 
     public function pujar($tyc)

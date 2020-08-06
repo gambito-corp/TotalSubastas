@@ -8,6 +8,7 @@ use App\Events\MensajeEvent;
 use App\Events\RankingEvent;
 use App\Events\SubastaEvent;
 use App\Helpers\Gambito;
+use App\ImagenesVehiculo;
 use App\Message;
 use App\Producto;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,8 @@ class Index extends Component
      */
     public $mensaje;
 
+    public $pictures;
+
 
     public function mount()
     {
@@ -63,6 +66,7 @@ class Index extends Component
         $this->hace = $this->producto->started_at->diffForHumans();
         $this->mensajes = Message::where('producto_id', $this->identificador)->get();
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+        $this->pictures = ImagenesVehiculo::where('producto_id', $this->producto->id)->get();
     }
 
     protected function getListeners()

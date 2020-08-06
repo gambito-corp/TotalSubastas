@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Subastas\Show;
 
 use App\Helpers\Gambito;
 use App\Like;
-use App\VehicleDetail;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -27,6 +26,7 @@ class Index extends Component
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
         $this->like = Like::all();
+
     }
     public function addLike($id)
     {
