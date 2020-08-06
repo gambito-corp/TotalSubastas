@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="row" style="margin-left: 30px;">
-        <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" id="" wire:model="tyc" {{$participacion == 'Checked'? 'checked':($tyc? 'checked':'')}}>
+        <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" id="" wire:model="tyc" {{$participacion? 'checked':($tyc? 'checked':'')}}>
         <label class="form-check-label" for="">Acepto <a href="{{route('terminos')}}">terminos y condiciones</a></label>
         @error('tyc')
             <span class="invalid-feedback" role="alert">
