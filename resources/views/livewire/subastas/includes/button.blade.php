@@ -3,7 +3,11 @@
 @endif
 @if($estado == 'online')
     @auth
-        <a class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light" href="{{ route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($producto->id)])}} "><i class="fas fa-eye pr-3 pl-3 "></i> Participar </a>
+        <form wire:submit.prevent="online">
+            <button class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light">
+                <i class="fas fa-eye pr-3 pl-3 "></i> Participar
+            </button>
+        </form>
     @else
         <a class="btn btn-success rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Logueate </a>
     @endauth

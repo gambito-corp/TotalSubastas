@@ -42,6 +42,14 @@ class Buttom extends Component
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
     }
 
+    public function online()
+    {
+        $this->validate([
+            'tyc' => 'required',
+        ]);
+        return $this->redirect()->route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($this->producto->id)]);
+    }
+
     public function pujar($tyc)
     {
         $this->validate([
