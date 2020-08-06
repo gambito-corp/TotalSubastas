@@ -34,15 +34,18 @@ class Buttom extends Component
 
     public function updatedTyc()
     {
-        $this->validate([
-            'tyc' => 'required',
-        ]);
+        dd($this->tyc);
+        if($this->participacion != 'acepto'){
+            $this->validate([
+                'tyc' => 'required',
+            ]);
+            Cache::put('tyc', $this->tyc, 120);
+            $this->tyc = Cache::get('tyc');
+        }
         Participacion::updateOrCreate(
             ['producto_id' => $this->producto->id, 'user_id' => Auth::id()],
             ['participacion' => 'acepto']
         );
-        Cache::put('tyc', $this->tyc, 120);
-        $this->tyc = Cache::get('tyc');
     }
 
 
@@ -55,9 +58,11 @@ class Buttom extends Component
 
     public function online()
     {
-        $this->validate([
-            'tyc' => 'required',
-        ]);
+        if($this->participacion != 'acepto'){
+            $this->validate([
+                'tyc' => 'required',
+            ]);
+        }
         $balance = Balance::where('user_id', Auth::id())->first();
         if($balance && $balance->monto > $this->producto->garantia){
             return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
@@ -70,9 +75,11 @@ class Buttom extends Component
 
     public function pujar($tyc)
     {
-        $this->validate([
-            'tyc' => 'required',
-        ]);
+        if($this->participacion != 'acepto'){
+            $this->validate([
+                'tyc' => 'required',
+            ]);
+        }
         $participacion = Participacion::where('user_id', Auth::id())
             ->where('producto_id', $this->producto->id)
             ->pluck('participacion')
