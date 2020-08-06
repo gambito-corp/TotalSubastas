@@ -85,7 +85,6 @@ class Index extends Component
             event(new DatosEvent($this->producto, $usuario));
             event(new MensajeEvent($this->producto, $mensaje));
             event(new RankingEvent($this->producto));
-            $this->mensaje = 'debe';
         }else{
             $this->mensaje = 'Ya no mas';
         }

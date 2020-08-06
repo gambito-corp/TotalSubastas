@@ -41,7 +41,6 @@ class Boton extends Component
         $this->identificador = $identificador;
         $this->producto = $producto;
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
-        $this->end = $end;
         $this->time = $this->producto->finalized_at->toTimeString();
     }
 
@@ -76,11 +75,6 @@ class Boton extends Component
 
     public function hydrate()
     {
-        if($this->producto->finalized_at >= now()->subSeconds(300)){
-            $this->end = 'true x';
-        }else{
-            $this->end = 'false y';
-        }
     }
 
     public function render()
