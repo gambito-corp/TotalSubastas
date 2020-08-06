@@ -47,7 +47,7 @@ class Buttom extends Component
         $this->validate([
             'tyc' => 'required',
         ]);
-        return $this->redirect()->route('auctionLiveDetail', ['id' => \App\Helpers\Gambito::hash($this->producto->id)]);
+        return $this->redirect()->to('/live/auction/id/', ['id' => Gambito::hash($this->producto->id)]);
     }
 
     public function pujar($tyc)
