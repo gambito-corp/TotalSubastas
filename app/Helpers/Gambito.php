@@ -88,7 +88,7 @@ class Gambito
             $estado = 'puja'; //Cambiar a ganador
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif($producto->finalized_at <= now()->subSeconds(5)  || $set == true){
+        }elseif($producto->finalized_at <= now()->subSeconds(300)  || $set == true){
             $estado = 'Finalizada';
         }else{
             $estado = 'puja';
