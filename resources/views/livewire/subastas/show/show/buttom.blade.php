@@ -50,16 +50,17 @@
             @include('livewire.subastas.includes.button', ['producto'=> $producto, 'tyc' => $tyc])
         </div>
     </div>
-    @if($this->participacion == false)
-        <div class="row" style="margin-left: 30px;">
+    <div class="row" style="margin-left: 30px;">
+        @if($this->participacion == false)
             <input type="checkbox" class="form-check-input  @error('tyc') is-invalid @enderror" wire:model="tyc" {{$tyc? 'checked':''}}>
-            <label class="form-check-label" for="">Acepto <a href="{{route('terminos')}}">terminos y condiciones</a></label>
-            @error('tyc')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-    @endif
+        @else
+            <label class="form-check-label" for="">Ya Acepte Los <a href="{{route('terminos')}}">Terminos y Condiciones</a></label>
+        @endif
+        @error('tyc')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
+    </div>
 </div>
 
