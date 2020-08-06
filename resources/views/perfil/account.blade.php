@@ -22,14 +22,6 @@
                         <div class="card-body pl-0 pr-0">
                             <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
                             <p class="card-text">{{Auth::user()->email}}</p>
-{{--                            <p>--}}
-{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
-{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
-{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
-{{--                                <span><i class=" fas fa-star bg-rating_star"></i></span>--}}
-{{--                                <span><i class="darken-flat fas fa-star"></i></span>--}}
-{{--                            </p>--}}
-{{--                            <p class="font-weight-bold text-dark">3 pts</p>--}}
                             <hr>
                             <a href="{{route('perfil.edit')}}"> editar perfil</a>
                         </div>
@@ -79,11 +71,11 @@
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">S/. {{$balance}} </p>
+                                            <p class="b-title">$ {{$balance}} </p>
                                             <small class="sm-text_card">Saldo actual</small>
                                         </div>
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">S/. {{$garantia}}</p>
+                                            <p class="b-title">$ {{$garantia}}</p>
                                             <small class="sm-text_card ">Monto retenido</small>
                                         </div>
                                     </div>

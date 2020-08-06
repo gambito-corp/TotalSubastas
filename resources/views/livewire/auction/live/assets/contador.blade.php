@@ -19,7 +19,8 @@
         <div class="col live-push_auction-timer_bottom">
             <div class="text-center">
                 <i class="fas fa-user"> </i>
-                <span class="d-block" id="users">
+                <span class="d-block">
+                    <p class="text-dark text text-_to-auction_bottom">{{$participantes}}</p>
                 </span>
                 <span class="d-block">
                     Participantes

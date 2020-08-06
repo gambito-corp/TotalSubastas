@@ -21,17 +21,27 @@ class Buttom extends Component
     public $tyc;
     public $balance;
     protected $listeners = ['refreshChildren'];
+    /**
+     * @var mixed
+     */
+    public $participacion;
 
     public function mount($producto)
     {
         $this->producto = $producto;
+        $this->participacion = Participacion::where('producto_id', $this->producto->id)->where('user_id', Auth::id())->pluck('participacion')->first();
     }
 
     public function updatedTyc()
     {
+        dd($this->tyc);
         $this->validate([
             'tyc' => 'required',
         ]);
+        Participacion::updateOrCreate(
+            ['producto_id' => $this->producto->id, 'user_id' => Auth::id()],
+            ['participacion' => $this->tyc]
+        );
         Cache::put('tyc', $this->tyc, 120);
         $this->tyc = Cache::get('tyc');
     }
