@@ -47,6 +47,10 @@ class Index extends Component
      * @var bool|mixed
      */
     public $end;
+    /**
+     * @var mixed|string
+     */
+    public $mensaje;
 
 
     public function mount()
@@ -59,6 +63,7 @@ class Index extends Component
         $this->hace = $this->producto->started_at->diffForHumans();
         $this->mensajes = Message::where('producto_id', $this->identificador)->get();
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
+        $this->mensaje = 'estandar';
     }
 
     protected function getListeners()
@@ -71,14 +76,17 @@ class Index extends Component
     public function pujar()
     {
 //         || $this->producto->user_id != Auth::id()
-        if($this->producto->finalized_at >= now()->subSeconds(10)){
-            $mensaje = intval($this->producto->precio + $this->producto->puja);
-            $usuario = Auth::id();
-            event(new SubastaEvent($this->producto));
-            event(new ContadorEvent($this->producto));
-            event(new DatosEvent($this->producto, $usuario));
-            event(new MensajeEvent($this->producto, $mensaje));
-            event(new RankingEvent($this->producto));
+        if($this->producto->finalized_at <= now()->subSeconds(10)){
+//            $mensaje = intval($this->producto->precio + $this->producto->puja);
+//            $usuario = Auth::id();
+//            event(new SubastaEvent($this->producto));
+//            event(new ContadorEvent($this->producto));
+//            event(new DatosEvent($this->producto, $usuario));
+//            event(new MensajeEvent($this->producto, $mensaje));
+//            event(new RankingEvent($this->producto));
+            $this->mensaje = 'debe';
+        }else{
+            $this->mensaje = 'no debe';
         }
         $this->estado();
     }
