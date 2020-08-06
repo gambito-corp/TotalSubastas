@@ -76,17 +76,15 @@ class Index extends Component
     public function pujar()
     {
 //         || $this->producto->user_id != Auth::id()
-        if($this->producto->finalized_at <= now()->subSeconds(300)){
-//            $mensaje = intval($this->producto->precio + $this->producto->puja);
-//            $usuario = Auth::id();
-//            event(new SubastaEvent($this->producto));
-//            event(new ContadorEvent($this->producto));
-//            event(new DatosEvent($this->producto, $usuario));
-//            event(new MensajeEvent($this->producto, $mensaje));
-//            event(new RankingEvent($this->producto));
+        if(now()->addSeconds(15)->toTimeString() <= $this->producto->finalized_at->toTimeString()){
+            $mensaje = intval($this->producto->precio + $this->producto->puja);
+            $usuario = Auth::id();
+            event(new SubastaEvent($this->producto));
+            event(new ContadorEvent($this->producto));
+            event(new DatosEvent($this->producto, $usuario));
+            event(new MensajeEvent($this->producto, $mensaje));
+            event(new RankingEvent($this->producto));
             $this->mensaje = 'debe';
-        }else{
-            $this->mensaje = 'no debe';
         }
         $this->estado();
     }
