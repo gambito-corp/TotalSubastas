@@ -71,7 +71,7 @@ class Index extends Component
     public function pujar()
     {
 //         || $this->producto->user_id != Auth::id()
-        if($this->producto->finalized_at <= now()->subSeconds(10)){
+        if($this->producto->finalized_at >= now()->subSeconds(10)){
             $mensaje = intval($this->producto->precio + $this->producto->puja);
             $usuario = Auth::id();
             event(new SubastaEvent($this->producto));
