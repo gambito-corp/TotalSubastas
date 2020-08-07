@@ -79,7 +79,7 @@ class Index extends Component
     public function pujar()
     {
 //
-        // if(now()->toTimeString() <= $this->producto->finalized_at->toTimeString() || $this->producto->user_id != Auth::id()){
+        if(now()->toTimeString() <= $this->producto->finalized_at->toTimeString() || $this->producto->user_id != Auth::id()){
             $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
             $mensaje = intval($this->producto->precio + $this->producto->puja);
             $usuario = Auth::id();
@@ -88,9 +88,9 @@ class Index extends Component
             event(new DatosEvent($this->producto, $usuario));
             event(new MensajeEvent($this->producto, $mensaje));
             event(new RankingEvent($this->producto));
-        // }else{
-        //     $this->mensaje = 'Ya no mas';
-        // }
+        }else{
+            $this->mensaje = 'Ya no mas';
+        }
         $this->estado();
     }
 

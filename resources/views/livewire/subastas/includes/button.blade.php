@@ -1,4 +1,4 @@
-@dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString()))
+{{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
 @if($estado == 'ganador')
     <p class="btn btn-success rounded-pill pr-5 pl-4 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i> Vas Ganando </p>
 @endif
