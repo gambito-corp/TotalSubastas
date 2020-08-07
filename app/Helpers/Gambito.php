@@ -91,12 +91,16 @@ class Gambito
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
             $estado = 'ganador'; //Cambiar a ganador
+        }elseif($producto->finalized_at->subSecond()->toTimeString() <= now()->toTimeString() && $live == true){
+            $estado = 'STOP';
+        }elseif($producto->started_at->toTimeString() >= now()->toTimeString() && $producto->finalized_at->toTimeString() >= now()->toTimeString()  && $live == true){
+            $estado = 'esperen';
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif(now()->addSeconds(3)->toTimeString() <= $producto->finalized_at->toTimeString()   || $set == true){
+        }elseif(now()->subSecond()->toTimeString() <= $producto->finalized_at->toTimeString()   || $set == true){
             $estado = 'Finalizada';
         }else{
-            $estado = 'puja';
+            $estado = 'hola';
         }
         return $estado;
     }
