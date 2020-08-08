@@ -18,8 +18,7 @@ class Gambito
 {
     public $id;
     public $check;
-
-
+    
     //METODOS DE ENCRIPTACION
     public static function hash($id, $decode = null)
     {
@@ -81,12 +80,6 @@ class Gambito
 
     public static function checkEstado(Producto $producto, $id, $live = false, $set = false)
     {
-//        dd(
-//            (now()->addSeconds(3)->toTimeString() <= $producto->finalized_at->toTimeString() ),
-//            now()->addSeconds(300)->toTimeString(),
-//            $producto->finalized_at->toTimeString(),
-//            'helper'
-//        );
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
