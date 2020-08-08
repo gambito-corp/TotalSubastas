@@ -107,7 +107,6 @@ class Gambito
 
     public static function checkInicioSubasta(Producto $producto)
     {
-
         if (now() < $producto->started_at) {
             return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
         } elseif (now() > $producto->finalized_at) {
