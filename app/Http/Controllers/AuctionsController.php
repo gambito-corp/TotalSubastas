@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 class AuctionsController extends Controller
 {
     public $Gambito;
+
     public function __construct()
     {
         $this->Gambito = new Gambito();
