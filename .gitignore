@@ -5,7 +5,6 @@
 .env
 .env.backup
 .phpunit.result.cache
-totalsubastas_codigoadsi.pem
 Homestead.json
 Homestead.yaml
 npm-debug.log
@@ -13,4 +12,5 @@ yarn-error.log
 *.rar
 /.idea
 /.vscode
+.pem
 
