@@ -12,5 +12,5 @@ yarn-error.log
 *.rar
 /.idea
 /.vscode
-.pem
+*.pem
 
