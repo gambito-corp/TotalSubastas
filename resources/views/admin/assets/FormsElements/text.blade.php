@@ -8,7 +8,12 @@
         @isset($place)
         placeholder="{{$place}}"
         @endisset
+        @isset($edit)
+        value="{{$valor}}"
+        @else
         value="{{old($nombre)}}"
+        @endisset
+
         {{isset($require) && $require? 'require':''}}
 >
 @error($nombre)

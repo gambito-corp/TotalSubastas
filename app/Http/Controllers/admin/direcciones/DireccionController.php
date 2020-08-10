@@ -73,7 +73,7 @@ class DireccionController extends Controller
             'direccion2'        => $dir2,
             'numero'            => $numero,
             'int_ext'           => $int_ext,
-            'referencia'               => $ref,
+            'referencia'        => $ref,
             'titulo_direccion'  => $titulo
         ]);
 
@@ -90,36 +90,55 @@ class DireccionController extends Controller
 
     public function edit($id)
     {
-        $pais = Address::where('id',$id)->firstOrFail();
-        $direcciones = Address::where('parent_id', null)->select('id', 'nombre')->get();
+        $direccion = Address::where('id',$id)->firstOrFail();
         $vista = 'update';
-        return view('admin.direccion.form', compact('pais', 'paises', 'vista'));
+        return view('admin.direccion.form', compact('direccion', 'vista'));
     }
 
     public function update(Request $request, $id)
     {
         $Address = Address::where('id', $id)->first();
         $request->validate([
-            'nombre' => 'required|unique:countries,nombre,'.$Address->id,
-            'descripcion' => 'required',
-            'codigo' => 'required',
+            'usuario'       => 'required',
+            'pais'          => 'required',
+            'departamento'  => 'required',
+            'provincia'     => 'required',
+            'distrito'      => 'required',
+            'via'           => 'required',
+            'dir1'          => 'required|string',
+            'numero'        => 'required|string',
+            'titulo'        => 'required|string',
+            'int_ext'       => 'required',
         ]);
-        $parent = null;
-        if($request->input('pais') != 0){
-            $parent = $request->input('pais');
-            if($request->input('departamento') != 0){
-                $parent = $request->input('departamento');
-                if($request->input('provincia') != 0){
-                    $parent = $request->input('provincia');
-                }
-            }
-        }
-        $Address->parent_id = $parent;
-        $Address->nombre = $request->input('nombre');
-        $Address->descripcion = $request->input('descripcion');
-        $Address->codigo = $request->input('codigo');
-        $Address->update();
-        return redirect()->route('admin.direccion.index')->with([
+
+        $usuario = $request->input('usuario');
+        $pais = $request->input('pais');
+        $departamento = $request->input('departamento');
+        $provincia = $request->input('provincia');
+        $distrito = $request->input('distrito');
+        $via = $request->input('via');
+        $dir1 = $request->input('dir1');
+        $dir2 = $request->input('dir2');
+        $numero = $request->input('numero');
+        $titulo = $request->input('titulo');
+        $int_ext = $request->input('int_ext');
+        $ref = $request->input('ref');
+
+        $Address->update([
+            'user_id'           => intval($usuario),
+            'pais_id'           => intval($pais),
+            'departamento_id'   => intval($departamento),
+            'provincia_id'      => intval($provincia),
+            'distrito_id'       => intval($distrito),
+            'tipo_via'          => $via,
+            'direccion1'        => $dir1,
+            'direccion2'        => $dir2,
+            'numero'            => $numero,
+            'int_ext'           => $int_ext,
+            'referencia'        => $ref,
+            'titulo_direccion'  => $titulo
+        ]);
+        return redirect()->route('admin.address.index')->with([
             'message' => 'El Rol Fue Actualizado Con Exito',
             'alerta' => 'success'
         ]);
@@ -129,7 +148,7 @@ class DireccionController extends Controller
     {
         $pais = Address::where('id',$id)->firstOrFail();
         $pais->delete();
-        return redirect()->route('admin.direccion.index')->with([
+        return redirect()->route('admin.address.index')->with([
             'message' => 'El Rol Fue Borrado de la Base de Datos',
             'alerta' => 'warning'
         ]);
@@ -140,7 +159,7 @@ class DireccionController extends Controller
         Address::withTrashed()
             ->where('id', $id)
             ->forceDelete();
-        return redirect()->route('admin.direccion.trash')->with([
+        return redirect()->route('admin.address.trash')->with([
             'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
             'alerta' => 'danger'
         ]);
@@ -151,7 +170,7 @@ class DireccionController extends Controller
         Address::withTrashed()
             ->where('id', $id)
             ->restore();
-        return redirect()->route('admin.direccion.trash')->with([
+        return redirect()->route('admin.address.trash')->with([
             'message' => 'El Rol Fue Restaurado Correctamente',
             'alerta' => 'warning'
         ]);

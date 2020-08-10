@@ -11,8 +11,7 @@
     @if($vista=='create')
         @livewire('admin.form.direcciones.create')
     @else
-
-        @livewire('admin.form.direcciones.update', ['pais' => $pais, 'paises' => $paises])
+        @livewire('admin.form.direcciones.update', ['direccion' => $direccion])
     @endif
 
 
