@@ -31,7 +31,7 @@ class DireccionController extends Controller
     {
         $direccion = new Address();
         $vista = 'create';
-        return view('admin.direccion.form', compact('direccion', 'usuarios', 'vista'));
+        return view('admin.direccion.form', compact('direccion', 'vista'));
     }
 
     public function store(Request $request)
