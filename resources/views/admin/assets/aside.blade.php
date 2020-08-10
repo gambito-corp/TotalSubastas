@@ -106,6 +106,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item has-treeview">
+                    <a href="{{route('admin.address.index')}}" class="nav-link">
+                        <i class="fas fa-atlas"></i>
+                        <p>
+                            Direcciones
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>

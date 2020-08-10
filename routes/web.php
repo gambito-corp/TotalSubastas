@@ -102,6 +102,19 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('personificacion/{id}', 'UserController@personificacion')->name('personificacion');
         Route::get('impersonar', 'UserController@impersonificacion')->name('impersonificacion');
     });
+    Route::prefix('direcciones')->name('address.')->namespace('direcciones')->group(function (){
+        //Address
+        Route::get('index', 'DireccionController@index')->name('index');
+        Route::get('trash', 'DireccionController@trash')->name('trash');
+        Route::get('create', 'DireccionController@create')->name('create');
+        Route::post('guardar', 'DireccionController@store')->name('store');
+        Route::get('mostrar/{id}', 'DireccionController@show')->name('show');
+        Route::get('editar/{id}', 'DireccionController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'DireccionController@update')->name('update');
+        Route::get('delete/{id}', 'DireccionController@delete')->name('delete');
+        Route::get('destroy/{id}', 'DireccionController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'DireccionController@restore')->name('restore');
+    });
 });
 
 //Route::get('/sell', 'HomeController@sell')->name('sell');

@@ -46,4 +46,9 @@ class Country extends Model
         return $this->belongsTo(Country::class, 'parent_id');
     }
 
+    public function Direccionres()
+    {
+        return $this->hasMany(Address::class);
+    }
+
 }

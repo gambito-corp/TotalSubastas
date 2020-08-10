@@ -15,6 +15,7 @@ class Address extends Model
      * @var array
      */
     protected $fillable = [
+        'user_id',
         'pais_id',
         'departamento_id',
         'provincia_id',
@@ -44,6 +45,7 @@ class Address extends Model
      */
     protected $casts = [
         'id'                => 'integer',
+        'user_id'           => 'integer',
         'pais_id'           => 'integer',
         'departamento_id'   => 'integer',
         'provincia_id'      => 'integer',
@@ -56,21 +58,26 @@ class Address extends Model
     //RELACIONES
     public function Pais()
     {
-        return $this->hasOne(Country::class, 'pais_id', 'id');
+        return $this->belongsTo(Country::class, 'pais_id', 'id');
     }
 
     public function Departamento()
     {
-        return $this->hasOne(Country::class, 'departamento_id', 'id');
+        return $this->belongsTo(Country::class, 'departamento_id', 'id');
     }
 
     public function Provincia()
     {
-        return $this->hasOne(Country::class, 'provincia_id', 'id');
+        return $this->belongsTo(Country::class, 'provincia_id', 'id');
     }
 
     public function Distrito()
     {
-        return $this->hasOne(Country::class, 'distrito_id', 'id');
+        return $this->belongsTo(Country::class, 'distrito_id', 'id');
+    }
+
+    public function Usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
