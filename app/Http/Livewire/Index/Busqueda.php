@@ -130,6 +130,7 @@ class Busqueda extends Component
         if(Cache::has('tipoR')) {
             $this->tipoR == Cache::get('tipoR');
         }
+//        dd($this->tipoR);
         $this->General();
     }
 

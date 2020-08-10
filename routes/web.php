@@ -100,6 +100,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('destroy/{id}', 'UserController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'UserController@restore')->name('restore');
         Route::get('personificacion/{id}', 'UserController@personificacion')->name('personificacion');
+        Route::get('impersonar', 'UserController@impersonificacion')->name('impersonificacion');
     });
 });
 

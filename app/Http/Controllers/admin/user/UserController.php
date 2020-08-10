@@ -143,17 +143,29 @@ class UserController extends Controller
 
         if(auth()->user()->puedePersonificar())
         {
-            session(['inpersonificacion_id' => auth()->id()]);
-
-            auth()->loginUsingId($id);
+            if(!session()->has('impersonificacion_id')){
+                session(['impersonificacion_id' => auth()->id()]);
+            }
+            $personificando = auth()->loginUsingId($id);
             return back()->with([
-                'message' => 'Estas Personificando al usuario con el id '.$id,
+                'message' => 'Estas Personificando al usuario '.$personificando->name,
                 'alerta' => 'info'
+
             ]);
         }
         return back()->with([
             'message' => 'No tienes Permitida esta accion',
             'alerta' => 'danger'
+        ]);
+    }
+
+    public function impersonificacion()
+    {
+        auth()->loginUsingId(session('impersonificacion_id'));
+        session()->forget('impersonificacion_id');
+        return back()->with([
+            'message' => 'Volviste a ser tu',
+            'alerta' => 'info'
         ]);
     }
 }

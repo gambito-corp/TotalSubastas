@@ -71,8 +71,10 @@
                                 <a href="{{route('admin.user.restore', ['id' => $user->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
                                 <a href="{{route('admin.user.destroy', ['id' => $user->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                             @else
-                                @if(auth()->user()->puedePersonificar())
-                                    <a href="{{route('admin.user.personificacion', ['id' => $user->id])}}" class="btn btn-success btn-small"><i class="fas fa-user"></i></a>
+                                @if(auth()->user()->puedePersonificar() && $user->id != auth()->id())
+                                    @if($user->id != session('impersonificacion_id'))
+                                        <a href="{{route('admin.user.personificacion', ['id' => $user->id])}}" class="btn btn-success btn-small"><i class="fas fa-user"></i></a>
+                                    @endif
                                 @endif
                                 <a href="{{route('admin.user.show', ['id' => $user->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
                                 <a href="{{route('admin.user.edit', ['id' => $user->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>

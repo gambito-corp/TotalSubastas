@@ -6,18 +6,21 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('index'}}" class="nav-link">Inicio</a>
+            <a href="{{route('index')}}" class="nav-link">Inicio</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{route('admin'}}" class="nav-link">Panel</a>
+            <a href="{{route('admin')}}" class="nav-link">Panel</a>
         </li>
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <div class="row ">
-                <a class="nav-link text-dark signin-text" href="#">
+
+                @if (session()->has('impersonificacion_id'))
+                <a class="nav-link text-dark signin-text btn btn-outline-danger btn-sm" href="{{route('admin.user.impersonificacion')}}">
                     Dejar de Personificar
                 </a>
+                @endif
                 <a class="nav-link text-dark signin-text" href="{{  url('login') }}">
                     {{ Auth::user()->name }}
                 </a>
