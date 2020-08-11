@@ -1,21 +1,11 @@
 <?php
 
-//use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+//Index
 Route::get('/', 'HomeController@index')->name('index');
 
-
-//VISTAS ESTATICAS
+//Vistas Estaticas
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
 Route::view('/tyc', 'estaticas.terminos')->name('terminos'); //Gonzalo esta es la ruta
 Route::view('/polices', 'estaticas.politicas')->name('politicas');
@@ -26,13 +16,23 @@ Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
-//VISTA DE PERFIL
+//Rutas de Subasta
+Route::get('/auction', 'AuctionsController@index')->name('auction');
+Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
+Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
+Route::post('/live/auction/puja/{id}', 'AuctionsController@pujaRecibida')->name('pujaRecibida');
+Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
+Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
+
+// Rutas Auth
+Auth::routes(['verify' => true]);
+
+//Vistas de Perfil
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
-
-// RUTAS DE ADMINISTRADOR
+//Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');
 Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
     Route::prefix('rol')->name('rol.')->namespace('rol')->group(function (){
@@ -88,7 +88,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('restore/{id}', 'PaisController@restore')->name('restore');
     });
     Route::prefix('user')->name('user.')->namespace('user')->group(function (){
-        //Countries
+        //Usuarios
         Route::get('index', 'UserController@index')->name('index');
         Route::get('trash', 'UserController@trash')->name('trash');
         Route::get('create', 'UserController@create')->name('create');
@@ -103,7 +103,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('impersonar', 'UserController@impersonificacion')->name('impersonificacion');
     });
     Route::prefix('direcciones')->name('address.')->namespace('direcciones')->group(function (){
-        //Address
+        //Direcciones
         Route::get('index', 'DireccionController@index')->name('index');
         Route::get('trash', 'DireccionController@trash')->name('trash');
         Route::get('create', 'DireccionController@create')->name('create');
@@ -115,38 +115,244 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('destroy/{id}', 'DireccionController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'DireccionController@restore')->name('restore');
     });
+    Route::prefix('auditoria')->name('auditoria.')->namespace('auditoria')->group(function (){
+        //Auditoria
+        Route::get('index', 'AuditoriaController@index')->name('index');
+        Route::get('trash', 'AuditoriaController@trash')->name('trash');
+        Route::get('create', 'AuditoriaController@create')->name('create');
+        Route::post('guardar', 'AuditoriaController@store')->name('store');
+        Route::get('mostrar/{id}', 'AuditoriaController@show')->name('show');
+        Route::get('editar/{id}', 'AuditoriaController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'AuditoriaController@update')->name('update');
+        Route::get('delete/{id}', 'AuditoriaController@delete')->name('delete');
+        Route::get('destroy/{id}', 'AuditoriaController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'AuditoriaController@restore')->name('restore');
+    });
+    Route::prefix('balance')->name('balance.')->namespace('balance')->group(function (){
+        //Balances
+        Route::get('index', 'BalanceController@index')->name('index');
+        Route::get('trash', 'BalanceController@trash')->name('trash');
+        Route::get('create', 'BalanceController@create')->name('create');
+        Route::post('guardar', 'BalanceController@store')->name('store');
+        Route::get('mostrar/{id}', 'BalanceController@show')->name('show');
+        Route::get('editar/{id}', 'BalanceController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'BalanceController@update')->name('update');
+        Route::get('delete/{id}', 'BalanceController@delete')->name('delete');
+        Route::get('destroy/{id}', 'BalanceController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'BalanceController@restore')->name('restore');
+    });
+    Route::prefix('persona')->name('persona.')->namespace('persona')->group(function (){
+        //Persona Natural
+        Route::get('index', 'PersonaController@index')->name('index');
+        Route::get('trash', 'PersonaController@trash')->name('trash');
+        Route::get('create', 'PersonaController@create')->name('create');
+        Route::post('guardar', 'PersonaController@store')->name('store');
+        Route::get('mostrar/{id}', 'PersonaController@show')->name('show');
+        Route::get('editar/{id}', 'PersonaController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'PersonaController@update')->name('update');
+        Route::get('delete/{id}', 'PersonaController@delete')->name('delete');
+        Route::get('destroy/{id}', 'PersonaController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'PersonaController@restore')->name('restore');
+    });
+    Route::prefix('juridica')->name('juridica.')->namespace('juridica')->group(function (){
+        //Personas Juridicas
+        Route::get('index', 'JuridicaProductoController@index')->name('index');
+        Route::get('trash', 'JuridicaProductoController@trash')->name('trash');
+        Route::get('create', 'JuridicaProductoController@create')->name('create');
+        Route::post('guardar', 'JuridicaProductoController@store')->name('store');
+        Route::get('mostrar/{id}', 'JuridicaProductoController@show')->name('show');
+        Route::get('editar/{id}', 'JuridicaProductoController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'JuridicaProductoController@update')->name('update');
+        Route::get('delete/{id}', 'JuridicaProductoController@delete')->name('delete');
+        Route::get('destroy/{id}', 'JuridicaProductoController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'JuridicaProductoController@restore')->name('restore');
+    });
+    Route::prefix('empresa')->name('empresa.')->namespace('empresa')->group(function (){
+        //Empresas
+        Route::get('index', 'EmpresaController@index')->name('index');
+        Route::get('trash', 'EmpresaController@trash')->name('trash');
+        Route::get('create', 'EmpresaController@create')->name('create');
+        Route::post('guardar', 'EmpresaController@store')->name('store');
+        Route::get('mostrar/{id}', 'EmpresaController@show')->name('show');
+        Route::get('editar/{id}', 'EmpresaController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'EmpresaController@update')->name('update');
+        Route::get('delete/{id}', 'EmpresaController@delete')->name('delete');
+        Route::get('destroy/{id}', 'EmpresaController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'EmpresaController@restore')->name('restore');
+    });
+    Route::prefix('lote')->name('lote.')->namespace('lote')->group(function (){
+        //Lotes
+        Route::get('index', 'LoteController@index')->name('index');
+        Route::get('trash', 'LoteController@trash')->name('trash');
+        Route::get('create', 'LoteController@create')->name('create');
+        Route::post('guardar', 'LoteController@store')->name('store');
+        Route::get('mostrar/{id}', 'LoteController@show')->name('show');
+        Route::get('editar/{id}', 'LoteController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'LoteController@update')->name('update');
+        Route::get('delete/{id}', 'LoteController@delete')->name('delete');
+        Route::get('destroy/{id}', 'LoteController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'LoteController@restore')->name('restore');
+    });
+    Route::prefix('almacen')->name('almacen.')->namespace('almacen')->group(function (){
+        //Almacen
+        Route::get('index', 'AlmacenController@index')->name('index');
+        Route::get('trash', 'AlmacenController@trash')->name('trash');
+        Route::get('create', 'AlmacenController@create')->name('create');
+        Route::post('guardar', 'AlmacenController@store')->name('store');
+        Route::get('mostrar/{id}', 'AlmacenController@show')->name('show');
+        Route::get('editar/{id}', 'AlmacenController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'AlmacenController@update')->name('update');
+        Route::get('delete/{id}', 'AlmacenController@delete')->name('delete');
+        Route::get('destroy/{id}', 'AlmacenController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'AlmacenController@restore')->name('restore');
+    });
+    Route::prefix('producto')->name('producto.')->namespace('producto')->group(function (){
+        //Productos
+        Route::get('index', 'ProductoController@index')->name('index');
+        Route::get('trash', 'ProductoController@trash')->name('trash');
+        Route::get('create', 'ProductoController@create')->name('create');
+        Route::post('guardar', 'ProductoController@store')->name('store');
+        Route::get('mostrar/{id}', 'ProductoController@show')->name('show');
+        Route::get('editar/{id}', 'ProductoController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'ProductoController@update')->name('update');
+        Route::get('delete/{id}', 'ProductoController@delete')->name('delete');
+        Route::get('destroy/{id}', 'ProductoController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'ProductoController@restore')->name('restore');
+    });
+    Route::prefix('subasta')->name('subasta.')->namespace('subasta')->group(function (){
+        //Ganadores de subastas
+        Route::get('index', 'SubastaController@index')->name('index');
+        Route::get('trash', 'SubastaController@trash')->name('trash');
+        Route::get('create', 'SubastaController@create')->name('create');
+        Route::post('guardar', 'SubastaController@store')->name('store');
+        Route::get('mostrar/{id}', 'SubastaController@show')->name('show');
+        Route::get('editar/{id}', 'SubastaController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'SubastaController@update')->name('update');
+        Route::get('delete/{id}', 'SubastaController@delete')->name('delete');
+        Route::get('destroy/{id}', 'SubastaController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'SubastaController@restore')->name('restore');
+    });
+    Route::prefix('imagenesproducto')->name('imagenesproducto.')->namespace('imagenesproducto')->group(function (){
+        //Imagenes de Producto
+        Route::get('index', 'ImagenesProductoController@index')->name('index');
+        Route::get('trash', 'ImagenesProductoController@trash')->name('trash');
+        Route::get('create', 'ImagenesProductoController@create')->name('create');
+        Route::post('guardar', 'ImagenesProductoController@store')->name('store');
+        Route::get('mostrar/{id}', 'ImagenesProductoController@show')->name('show');
+        Route::get('editar/{id}', 'ImagenesProductoController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'ImagenesProductoController@update')->name('update');
+        Route::get('delete/{id}', 'ImagenesProductoController@delete')->name('delete');
+        Route::get('destroy/{id}', 'ImagenesProductoController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'ImagenesProductoController@restore')->name('restore');
+    });
+    Route::prefix('mensajes')->name('mensajes.')->namespace('mensajes')->group(function (){
+        //Mensajes de la Subasta
+        Route::get('index', 'MensajesController@index')->name('index');
+        Route::get('trash', 'MensajesController@trash')->name('trash');
+        Route::get('create', 'MensajesController@create')->name('create');
+        Route::post('guardar', 'MensajesController@store')->name('store');
+        Route::get('mostrar/{id}', 'MensajesController@show')->name('show');
+        Route::get('editar/{id}', 'MensajesController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'MensajesController@update')->name('update');
+        Route::get('delete/{id}', 'MensajesController@delete')->name('delete');
+        Route::get('destroy/{id}', 'MensajesController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'MensajesController@restore')->name('restore');
+    });
+    Route::prefix('detallevehiculos')->name('detallevehiculos.')->namespace('detallevehiculos')->group(function (){
+        //Detalle de Vehiculos
+        Route::get('index', 'DetalleVehiculosController@index')->name('index');
+        Route::get('trash', 'DetalleVehiculosController@trash')->name('trash');
+        Route::get('create', 'DetalleVehiculosController@create')->name('create');
+        Route::post('guardar', 'DetalleVehiculosController@store')->name('store');
+        Route::get('mostrar/{id}', 'DetalleVehiculosController@show')->name('show');
+        Route::get('editar/{id}', 'DetalleVehiculosController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'DetalleVehiculosController@update')->name('update');
+        Route::get('delete/{id}', 'DetalleVehiculosController@delete')->name('delete');
+        Route::get('destroy/{id}', 'DetalleVehiculosController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'DetalleVehiculosController@restore')->name('restore');
+    });
+    Route::prefix('garantias')->name('garantias.')->namespace('garantias')->group(function (){
+        //Garantias Entregadas
+        Route::get('index', 'GarantiasController@index')->name('index');
+        Route::get('trash', 'GarantiasController@trash')->name('trash');
+        Route::get('create', 'GarantiasController@create')->name('create');
+        Route::post('guardar', 'GarantiasController@store')->name('store');
+        Route::get('mostrar/{id}', 'GarantiasController@show')->name('show');
+        Route::get('editar/{id}', 'GarantiasController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'GarantiasController@update')->name('update');
+        Route::get('delete/{id}', 'GarantiasController@delete')->name('delete');
+        Route::get('destroy/{id}', 'GarantiasController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'GarantiasController@restore')->name('restore');
+    });
+    Route::prefix('ranking')->name('ranking.')->namespace('ranking')->group(function (){
+        //Ranking de Usuarios
+        Route::get('index', 'RankingController@index')->name('index');
+        Route::get('trash', 'RankingController@trash')->name('trash');
+        Route::get('create', 'RankingController@create')->name('create');
+        Route::post('guardar', 'RankingController@store')->name('store');
+        Route::get('mostrar/{id}', 'RankingController@show')->name('show');
+        Route::get('editar/{id}', 'RankingController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'RankingController@update')->name('update');
+        Route::get('delete/{id}', 'RankingController@delete')->name('delete');
+        Route::get('destroy/{id}', 'RankingController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'RankingController@restore')->name('restore');
+    });
+    Route::prefix('activos')->name('activos.')->namespace('activos')->group(function (){
+        //Detalle de Vehiculos
+        Route::get('index', 'ActivosController@index')->name('index');
+        Route::get('trash', 'ActivosController@trash')->name('trash');
+        Route::get('create', 'ActivosController@create')->name('create');
+        Route::post('guardar', 'ActivosController@store')->name('store');
+        Route::get('mostrar/{id}', 'ActivosController@show')->name('show');
+        Route::get('editar/{id}', 'ActivosController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'ActivosController@update')->name('update');
+        Route::get('delete/{id}', 'ActivosController@delete')->name('delete');
+        Route::get('destroy/{id}', 'ActivosController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'ActivosController@restore')->name('restore');
+    });
+    Route::prefix('guardado')->name('guardado.')->namespace('guardado')->group(function (){
+        //Vehiculos Guardado
+        Route::get('index', 'GuardadoController@index')->name('index');
+        Route::get('trash', 'GuardadoController@trash')->name('trash');
+        Route::get('create', 'GuardadoController@create')->name('create');
+        Route::post('guardar', 'GuardadoController@store')->name('store');
+        Route::get('mostrar/{id}', 'GuardadoController@show')->name('show');
+        Route::get('editar/{id}', 'GuardadoController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'GuardadoController@update')->name('update');
+        Route::get('delete/{id}', 'GuardadoController@delete')->name('delete');
+        Route::get('destroy/{id}', 'GuardadoController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'GuardadoController@restore')->name('restore');
+    });
+    Route::prefix('documentos')->name('documentos.')->namespace('documentos')->group(function (){
+        //Documentos
+        Route::get('index', 'DocumentosController@index')->name('index');
+        Route::get('trash', 'DocumentosController@trash')->name('trash');
+        Route::get('create', 'DocumentosController@create')->name('create');
+        Route::post('guardar', 'DocumentosController@store')->name('store');
+        Route::get('mostrar/{id}', 'DocumentosController@show')->name('show');
+        Route::get('editar/{id}', 'DocumentosController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'DocumentosController@update')->name('update');
+        Route::get('delete/{id}', 'DocumentosController@delete')->name('delete');
+        Route::get('destroy/{id}', 'DocumentosController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'DocumentosController@restore')->name('restore');
+    });
+    Route::prefix('participacion')->name('participacion.')->namespace('participacion')->group(function (){
+        //Participaciones de usuarios
+        Route::get('index', 'ParticipacionesController@index')->name('index');
+        Route::get('trash', 'ParticipacionesController@trash')->name('trash');
+        Route::get('create', 'ParticipacionesController@create')->name('create');
+        Route::post('guardar', 'ParticipacionesController@store')->name('store');
+        Route::get('mostrar/{id}', 'ParticipacionesController@show')->name('show');
+        Route::get('editar/{id}', 'ParticipacionesController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'ParticipacionesController@update')->name('update');
+        Route::get('delete/{id}', 'ParticipacionesController@delete')->name('delete');
+        Route::get('destroy/{id}', 'ParticipacionesController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'ParticipacionesController@restore')->name('restore');
+    });
 });
 
-//Route::get('/sell', 'HomeController@sell')->name('sell');
-//Route::get('/about', 'HomeController@aboutus')->name('aboutus');
-//Route::get('/terms', 'HomeController@terms')->name('terms');
-//Route::get('/my-account', 'HomeController@myaccount')->name('myaccount');
-//Route::get('/my-account/edit/{id}', 'HomeController@myaccountEdit')->name('editmyaccount');
-//Route::get('/users', 'HomeController@users')->name('users.all');
-//Route::get('/account', 'HomeController@accout')->name('users.all');
-//Route::get('/game', 'HomeController@game')->name('game.show');
-//Route::get('/chat/{id}', 'ChatController@ShowChat')->name('chat.show')->middleware('verified');
-//Route::post('/chat/message', 'ChatController@MessageReceived')->name('chat.message');
-
-//Rutas de Subasta
-Route::get('/auction', 'AuctionsController@index')->name('auction');
-Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
-Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
-Route::post('/live/auction/puja/{id}', 'AuctionsController@pujaRecibida')->name('pujaRecibida');
-Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
-Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
-
-////testeo
-//Route::resource('file', 'store');
-Route::get('/test', 'ChatController@Test')->name('test');
-//Route::post('/test/message/{id}', 'ChatController@TestEnviado')->name('test.message');
-
-Auth::routes(['verify' => true]);
-
-/* RUTA DE TEST */
+// Rutas de Test
 Route::get('indextest', 'HomeController@test');
 Route::view('showtest', 'test.show');
 Route::view('livetest', 'test.live');
 Route::view('testAjax', 'include._test');
-
-

@@ -60,7 +60,7 @@ class BancosController extends Controller
     public function edit($id)
     {
         $banco = Bank::where('id',$id)->firstOrFail();
-        return view('admin.bancos.form', compact('banco',));
+        return view('admin.bancos.form', compact('banco'));
     }
 
 

@@ -16,13 +16,18 @@ class DireccionController extends Controller
 
     public function index()
     {
-        $direcciones = Address::with(['Usuario', 'Pais', 'Departamento', 'Provincia', 'Distrito'])->get();
+        $direcciones = Address::with(['Usuario', 'Pais', 'Departamento', 'Provincia', 'Distrito'])
+            ->orderBy('id', 'desc')
+            ->get();
         return view('admin.direccion.view', compact('direcciones'));
     }
 
     public function trash()
     {
-        $direcciones = Address::onlyTrashed()->with(['Usuario', 'Pais', 'Departamento', 'Provincia', 'Distrito'])->get();
+        $direcciones = Address::onlyTrashed()
+            ->with(['Usuario', 'Pais', 'Departamento', 'Provincia', 'Distrito'])
+            ->orderBy('id')
+            ->get();
         $trash = true;
         return view('admin.direccion.view', compact('direcciones', 'trash'));
     }
@@ -90,7 +95,9 @@ class DireccionController extends Controller
 
     public function edit($id)
     {
-        $direccion = Address::where('id',$id)->firstOrFail();
+        $direccion = Address::where('id',$id)
+            ->with(['Usuario', 'Pais', 'Departamento', 'Provincia', 'Distrito'])
+            ->firstOrFail();
         $vista = 'update';
         return view('admin.direccion.form', compact('direccion', 'vista'));
     }

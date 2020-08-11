@@ -39,7 +39,6 @@ class MarcasController extends Controller
         $request->validate([
             'nombre' => 'required|unique:brands',
         ]);
-//        dd($request->input());
         Brand::create([
             'parent_id' => $request->input('parent_id') == '0' ? null : $request->input('parent_id'),
             'nombre' => $request->input('nombre'),

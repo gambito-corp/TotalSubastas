@@ -17,34 +17,60 @@ class Update extends Component
     public $paises;
     public $departamentos;
     public $distrito;
-    /**
-     * @var int|mixed
-     */
     public $parent_id1;
-    /**
-     * @var int|mixed
-     */
     public $parent_id2;
-    /**
-     * @var int|mixed
-     */
     public $parent_id3;
-
 
     public function mount(Address $direccion)
     {
         $this->direccion = $direccion;
-        $this->usuarios = User::all();
-        $this->usuario = $this->usuarios->where('id', $this->direccion->user_id)->first();
-        $this->pais = Country::where('id', 1)->get();
-        $this->paises = Country::where('parent_id', null)->get();
-        $this->departamentos = Country::where('parent_id', 1)->get();
-        $this->provincias = Country::where('parent_id', 3)->get();
-        $this->distrito = Country::where('parent_id', 5)->get();
+        $this->usuarios = User::with('Rol', 'ranking')
+            ->get();
+        $this->usuario = $this->usuarios
+            ->where('id', $this->direccion->user_id)
+            ->first();
+        $this->pais = Country::with('parent_id')
+            ->where('id', 1)
+            ->get();
+        $this->paises = Country::with('parent_id')
+            ->where('parent_id', null)
+            ->get();
+        $this->departamentos = Country::with('parent_id')
+            ->where('parent_id', 1)
+            ->get();
+        $this->provincias = Country::with('parent_id')
+            ->where('parent_id', 3)
+            ->get();
+        $this->distrito = Country::with('parent_id')
+            ->where('parent_id', 5)
+            ->get();
         $this->parent_id1 = 1;
         $this->parent_id2 = 1;
         $this->parent_id3 = 1;
+    }
 
+    public function updatedParentid1()
+    {
+        $departamentos = Country::with('parent_id')
+            ->where('parent_id', $this->parent_id1)
+            ->get();
+        $this->departamentos = $departamentos;
+    }
+
+    public function updatedParentid2()
+    {
+        $provincias = Country::with('parent_id')
+            ->where('parent_id', $this->parent_id2)
+            ->get();
+        $this->provincias = $provincias;
+    }
+
+    public function updatedParentid3()
+    {
+        $provincias = Country::with('parent_id')
+            ->where('parent_id', $this->parent_id3)
+            ->get();
+        $this->distrito = $provincias;
     }
 
     public function render()

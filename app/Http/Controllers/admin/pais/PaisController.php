@@ -51,7 +51,6 @@ class PaisController extends Controller
                 }
             }
         }
-
         Country::create([
             'parent_id' => $parent,
             'nombre' => $request->input('nombre'),

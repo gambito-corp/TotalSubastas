@@ -44,7 +44,6 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => 'required',
         ]);
-
         $user = new User();
         $user->role_id = $request->input('rol');
         $user->name = $request->input('name');
@@ -57,7 +56,6 @@ class UserController extends Controller
             $user->avatar = $avatarNombre;
         }
         $user->save();
-
         return redirect()->route('admin.user.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',
             'alerta' => 'success'
@@ -140,7 +138,6 @@ class UserController extends Controller
 
     public function personificacion($id)
     {
-
         if(auth()->user()->puedePersonificar())
         {
             if(!session()->has('impersonificacion_id')){
@@ -150,7 +147,6 @@ class UserController extends Controller
             return back()->with([
                 'message' => 'Estas Personificando al usuario '.$personificando->name,
                 'alerta' => 'info'
-
             ]);
         }
         return back()->with([
