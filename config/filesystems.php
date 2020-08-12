@@ -66,7 +66,7 @@ return [
             'driver' => 'local',
             'root' => storage_path('app/public/boucher'),
             'url' => env('APP_URL').'/storage',
-            'visibility' => 'private',
+            'visibility' => 'public',
         ],
 
         's3' => [
