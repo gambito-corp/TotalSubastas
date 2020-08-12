@@ -59,7 +59,7 @@ class UserController extends Controller
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $imagen = $user->name.'_'.$avatar->getClientOriginalName();
-            Storage::disk('avatar')->put($imagen, File::get($avatar));
+            Storage::disk('s3')->put('avatar/'.$imagen, File::get($avatar));
             $user->avatar = $imagen;
         }
 

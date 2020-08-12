@@ -16,10 +16,10 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         if (Auth::user()){
             $data = User::where('id', $id)->first();
-            $file = Storage::disk('avatar')->get($data->avatar);
+            $file = Storage::disk('s3')->get('avatar/'.$data->avatar);
             $code = 200;
         }else{
-            $file = Storage::disk('avatar')->get('ejemplo.jpg');
+            $file = Storage::disk('s3')->get('avatar/ejemplo.jpg');
             $code = 401;
         }
         return new Response($file,$code);
