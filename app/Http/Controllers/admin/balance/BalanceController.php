@@ -152,9 +152,14 @@ class BalanceController extends Controller
 
     public function destroy($id)
     {
-        Data::withTrashed()
+        $data = Data::withTrashed()
             ->where('id', $id)
-            ->forceDelete();
+            ->first();
+        if (Auth::user()->isAdmin() || Auth::id() == $data->user_id){
+            $this->destroyImagen($data->boucher);
+        }
+        die();
+        $data->forceDelete();
         return redirect()->route('admin.balance.trash')->with([
             'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
             'alerta' => 'danger'
@@ -184,5 +189,10 @@ class BalanceController extends Controller
             $code = 401;
         }
         return new Response($file,$code);
+    }
+
+    protected function destroyImagen($file)
+    {
+        Storage::disk('s3')->delete('bouchers/'.$file);
     }
 }
