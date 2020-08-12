@@ -28,6 +28,7 @@
             <table id="Direcciones" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                    <th>Id</th>
                     <th>Usuario</th>
                     <th>Pais</th>
                     <th>Departamento</th>
@@ -47,8 +48,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($direcciones as $key => $direccion)
+                @forelse($direcciones as $direccion)
                     <tr>
+                        <td>{{$direccion->id}}</td>
                         <td>{{$direccion->Usuario->name}}</td>
                         <td>{{$direccion->Pais->nombre}}</td>
                         <td>{{$direccion->Departamento->nombre}}</td>
@@ -90,11 +92,13 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
+                        <td>-</td>
                         <td>Sin Acciones</td>
                     </tr>
                 @endforelse
                 <tbody>
                 <tr>
+                    <th>Id</th>
                     <th>Usuario</th>
                     <th>Pais</th>
                     <th>Departamento</th>

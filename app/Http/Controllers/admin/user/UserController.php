@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\admin\user;
 
-use App\Http\Controllers\Controller;
+use App\Helpers\Gambito;
 use App\Rol;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -49,12 +54,15 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
+
+        //subir imagen a storage
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
-            $avatarNombre = 'img/users/'.time().$avatar->getClientOriginalName();
-            $avatar->move(public_path().'/img/users/', $avatarNombre);
-            $user->avatar = $avatarNombre;
+            $imagen = $user->name.'_'.$avatar->getClientOriginalName();
+            Storage::disk('avatar')->put($imagen, File::get($avatar));
+            $user->avatar = $imagen;
         }
+
         $user->save();
         return redirect()->route('admin.user.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',
@@ -163,5 +171,19 @@ class UserController extends Controller
             'message' => 'Volviste a ser tu',
             'alerta' => 'info'
         ]);
+    }
+
+    public function getImagen($id)
+    {
+        $id = Gambito::hash($id, true);
+        if (Auth::user()){
+            $data = User::where('id', $id)->first();
+            $file = Storage::disk('avatar')->get($data->avatar);
+            $code = 200;
+        }else{
+            $file = Storage::disk('avatar')->get('ejemplo.jpg');
+            $code = 401;
+        }
+        return new Response($file,$code);
     }
 }

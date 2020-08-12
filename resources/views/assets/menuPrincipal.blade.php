@@ -26,7 +26,9 @@
             @auth
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <svg class="bd-placeholder-img rounded-circle" width="25" height="25" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Completely round image: 75x75">
-                        <img src="{{asset('img/users/default.png')}}" alt="" width="30" height="30">
+                        @if (isset(auth()->user()->avatar))
+                            @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '30', 'class'=> 'img-circle elevation-2'])
+                        @endif
                         <title>Completely round image</title>
                         <rect width="100%" height="100%" fill="#868e96"></rect>
                         <text x="25%" y="25%" fill="#dee2e6" dy=".3em"></text>

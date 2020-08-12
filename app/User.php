@@ -68,7 +68,7 @@ class User extends Authenticatable implements MustVerifyEmail
                 'role_id' => 2,
                 'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
                 'email' => $data['email'],
-                'avatar' => 'users/default.png',
+                'avatar' => 'default.png',
                 'password' => Hash::make($data['password']),
             ]);
 
@@ -83,9 +83,14 @@ class User extends Authenticatable implements MustVerifyEmail
         });
         return User::where('email', $data['email'])->first();
     }
+
+    public function isAdmin() {
+        return $this->Rol()->where('name', 'Admin')->exists();
+    }
+
     public function puedePersonificar()
     {
-        return $this->Rol->name == 'Admin';
+        return $this->isAdmin();
     }
 
 
@@ -98,6 +103,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);
+    }
+
+    //hasOne
+    public function Balance()
+    {
+        return $this->hasOne(Balance::class, 'user_id');
     }
 
 }

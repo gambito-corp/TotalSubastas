@@ -52,5 +52,13 @@ class Balance extends Model
     ];
 
     //RELACIONES
+    public function Usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function Banco()
+    {
+        return $this->belongsTo(Bank::class, 'banco_id');
+    }
 
 }

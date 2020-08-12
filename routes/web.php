@@ -32,6 +32,9 @@ Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
+//Controladora de Imagenes
+Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');
+
 //Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');
 Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
@@ -101,6 +104,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('restore/{id}', 'UserController@restore')->name('restore');
         Route::get('personificacion/{id}', 'UserController@personificacion')->name('personificacion');
         Route::get('impersonar', 'UserController@impersonificacion')->name('impersonificacion');
+        Route::get('imagen/{id}', 'UserController@getImagen')->name('getImagen');
     });
     Route::prefix('direcciones')->name('address.')->namespace('direcciones')->group(function (){
         //Direcciones
@@ -119,11 +123,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         //Auditoria
         Route::get('index', 'AuditoriaController@index')->name('index');
         Route::get('trash', 'AuditoriaController@trash')->name('trash');
-        Route::get('create', 'AuditoriaController@create')->name('create');
-        Route::post('guardar', 'AuditoriaController@store')->name('store');
         Route::get('mostrar/{id}', 'AuditoriaController@show')->name('show');
-        Route::get('editar/{id}', 'AuditoriaController@edit')->name('edit');
-        Route::put('actualizar/{id}', 'AuditoriaController@update')->name('update');
         Route::get('delete/{id}', 'AuditoriaController@delete')->name('delete');
         Route::get('destroy/{id}', 'AuditoriaController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'AuditoriaController@restore')->name('restore');
@@ -140,6 +140,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'BalanceController@delete')->name('delete');
         Route::get('destroy/{id}', 'BalanceController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'BalanceController@restore')->name('restore');
+        Route::get('imagen/{id}', 'BalanceController@getImagen')->name('getImagen');
     });
     Route::prefix('persona')->name('persona.')->namespace('persona')->group(function (){
         //Persona Natural

@@ -58,7 +58,9 @@
                             {{$user->email}}
                         </td>
                         <td>
-                            <img src="{{asset($user->avatar)}}" alt="" width="50">
+                            @if (isset($user->avatar))
+                                @include('assets.imagen', ['carpeta' => 'user', 'id' => $user->id, 'ancho' => '50', 'admin' => true])
+                            @endif
                         </td>
                         <td>
                             {{$user->email_verified_at == null? 'no':'si'}}

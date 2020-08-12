@@ -49,6 +49,6 @@ class Audit extends Model
     //RELACIONES
     public function Usuario()
     {
-        return $this->hasMany(User::class)->withDefault();
+        return $this->belongsTo(User::class, 'user_id');
     }
 }
