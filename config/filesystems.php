@@ -57,14 +57,14 @@ return [
 
         'avatar' => [
             'driver' => 'local',
-            'root' => storage_path('app/avatar'),
+            'root' => storage_path('app/public/avatar'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
 
         'boucher' => [
             'driver' => 'local',
-            'root' => storage_path('app/boucher'),
+            'root' => storage_path('app/public/boucher'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'private',
         ],
