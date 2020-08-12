@@ -104,7 +104,7 @@ class BalanceController extends Controller
     {
         $data = Data::where('id', $id)->firstOrFail();
         $bancos = Bank::all();
-        return view('admin.balance.form', compact('data', 'bancos', 'usuarios'));
+        return view('admin.balance.form', compact('data', 'bancos'));
     }
 
     public function update($id, Request $request)
