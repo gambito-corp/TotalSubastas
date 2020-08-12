@@ -131,7 +131,7 @@ class BalanceController extends Controller
         //subir imagen a storage
         if($boucher){
             $imagen = $balance->Usuario->name.'_'.$boucher->getClientOriginalName();
-            Storage::disk('s3')->put($imagen, File::get($boucher), 'public');
+            Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher), 'public');
             $balance->boucher = ($imagen == $balance->boucher) ? $balance->boucher : $imagen;
         }
         $balance->update();
@@ -177,10 +177,10 @@ class BalanceController extends Controller
         $id = Gambito::hash($id, true);
         if (Auth::user()->isAdmin() || Auth::id() == $id){
             $data = Data::where('id', $id)->first();
-            $file = Storage::disk('s3')->get($data->boucher);
+            $file = Storage::disk('s3')->get('bouchers/'.$data->boucher);
             $code = 200;
         }else{
-            $file = Storage::disk('s3')->get('ejemplo.jpg');
+            $file = Storage::disk('s3')->get('bouchers/ejemplo.jpg');
             $code = 401;
         }
         return new Response($file,$code);
