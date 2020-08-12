@@ -158,7 +158,7 @@ class BalanceController extends Controller
         if (Auth::user()->isAdmin() || Auth::id() == $data->user_id){
             $this->destroyImagen($data->boucher);
         }
-        die();
+
         $data->forceDelete();
         return redirect()->route('admin.balance.trash')->with([
             'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
