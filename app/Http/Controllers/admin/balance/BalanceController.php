@@ -85,7 +85,7 @@ class BalanceController extends Controller
         //subir imagen a storage
         if($boucher){
             $imagen = $balance->Usuario->name.'_'.$boucher->getClientOriginalName();
-            Storage::disk('boucher')->put($imagen, File::get($boucher));
+            Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher));
             $balance->boucher = $imagen;
         }
         $balance->save();
