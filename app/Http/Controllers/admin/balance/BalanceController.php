@@ -177,10 +177,10 @@ class BalanceController extends Controller
         $id = Gambito::hash($id, true);
         if (Auth::user()->isAdmin() || Auth::id() == $id){
             $data = Data::where('id', $id)->first();
-            $file = Storage::disk('boucher')->get($data->boucher);
+            $file = Storage::disk('s3')->get($data->boucher);
             $code = 200;
         }else{
-            $file = Storage::disk('boucher')->get('ejemplo.jpg');
+            $file = Storage::disk('s3')->get('ejemplo.jpg');
             $code = 401;
         }
         return new Response($file,$code);
