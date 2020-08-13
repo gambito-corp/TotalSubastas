@@ -10,33 +10,12 @@ use Illuminate\Support\Facades\Cache;
 class Create extends Component
 {
     use WithFileUploads;
-    /**
-     * @var Rol[]|\Illuminate\Database\Eloquent\Collection|mixed
-     */
     public $roles;
-    /**
-     * @var mixed
-     */
     public $rolId;
-    /**
-     * @var mixed
-     */
     public $rolName;
-    /**
-     * @var mixed
-     */
     public $nombre;
-    /**
-     * @var mixed
-     */
     public $email;
-    /**
-     * @var mixed
-     */
     public $avatar;
-    /**
-     * @var mixed
-     */
     public $password;
 
     public function mount ()

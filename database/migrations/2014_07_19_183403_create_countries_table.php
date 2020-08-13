@@ -15,7 +15,7 @@ class CreateCountriesTable extends Migration {
 		Schema::create('countries', function(Blueprint $table)
 		{
 			$table->id('id');
-			$table->foreignId('parent_id')->nullable()->constrained('countries');
+			$table->foreignId('parent_id')->nullable()->constrained('countries')->onDelete('set null');
 			$table->string('nombre');
 			$table->string('descripcion')->default('sin Descripccion');
 			$table->string('codigo')->default('sin Codigo');

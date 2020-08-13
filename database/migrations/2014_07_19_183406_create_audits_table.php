@@ -15,7 +15,7 @@ class CreateAuditsTable extends Migration {
 		Schema::create('audits', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('user_id')->constrained();
+			$table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
 			$table->string('ip')->nullable();
 			$table->string('tipo_dispositivo')->nullable();
 			$table->string('tipo_so')->nullable();

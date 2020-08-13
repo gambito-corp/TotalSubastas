@@ -15,7 +15,7 @@ class CreateBrandTable extends Migration {
 		Schema::create('brands', function(Blueprint $table)
 		{
 			$table->id();
-            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreignId('parent_id')->nullable()->constrained('brands')->onDelete('set null');
 			$table->string('nombre')->unique();
 			$table->string('slug')->unique();
 			$table->timestamps();

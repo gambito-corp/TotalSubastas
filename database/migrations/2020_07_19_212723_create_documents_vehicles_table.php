@@ -15,9 +15,9 @@ class CreateDocumentsVehiclesTable extends Migration
     {
         Schema::create('documents_vehicles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('empresa_id')->constrained('companies');
-            $table->foreignId('lote_id')->constrained('lots');
-            $table->foreignId('producto_id')->constrained();
+            $table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
+            $table->foreignId('lote_id')->nullable()->constrained('lots')->onDelete('set null');
+            $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
             $table->string('titulo');
             $table->string('tipo');
             $table->string('documento');

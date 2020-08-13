@@ -15,11 +15,11 @@ class CreateVehicleDetailsTable extends Migration {
         Schema::create('vehicle_details', function(Blueprint $table)
         {
             $table->id();
-            $table->foreignId('empresa_id')->constrained('companies');
-            $table->foreignId('lote_id')->constrained('lots');
-            $table->foreignId('producto_id')->constrained();
-            $table->foreignId('marca_id')->constrained('brands');
-            $table->foreignId('modelo_id')->constrained('brands');
+            $table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
+            $table->foreignId('lote_id')->nullable()->constrained('lots')->onDelete('set null');
+            $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('marca_id')->nullable()->constrained('brands')->onDelete('set null');
+            $table->foreignId('modelo_id')->nullable()->constrained('brands')->onDelete('set null');
             $table->string('year')->nullable();
             $table->string('placa')->nullable();
             $table->string('color')->nullable();

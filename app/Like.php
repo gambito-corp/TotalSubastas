@@ -20,6 +20,8 @@ class Like extends Model
         'user_id'
     ];
 
+    protected $table = 'bookmark';
+
     /**
      * The attributes that should be hidden for arrays.
      *

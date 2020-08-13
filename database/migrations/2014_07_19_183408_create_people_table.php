@@ -15,9 +15,9 @@ class CreatePeopleTable extends Migration {
 		Schema::create('people', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('user_id')->constrained();
-			$table->foreignId('direccion_id')->nullable()->constrained('addresses');
-			$table->foreignId('banco_id')->nullable()->constrained('banks');
+			$table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+			$table->foreignId('direccion_id')->nullable()->constrained('addresses')->onDelete('set null');
+			$table->foreignId('banco_id')->nullable()->constrained('banks')->onDelete('set null');
 			$table->string('nombres')->nullable()->default('test');
 			$table->string('apellidos')->nullable()->default('test');
 			$table->string('tipo_documento')->nullable()->default('test');

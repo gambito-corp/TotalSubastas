@@ -15,11 +15,11 @@ class CreateAddressesTable extends Migration {
 		Schema::create('addresses', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('user_id')->constrained();
-			$table->foreignId('pais_id')->constrained('countries');
-			$table->foreignId('departamento_id')->constrained('countries');
-			$table->foreignId('provincia_id')->constrained('countries');
-			$table->foreignId('distrito_id')->constrained('countries');
+			$table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+			$table->foreignId('pais_id')->nullable()->constrained('countries')->onDelete('set null');
+			$table->foreignId('departamento_id')->nullable()->constrained('countries')->onDelete('set null');
+			$table->foreignId('provincia_id')->nullable()->constrained('countries')->onDelete('set null');
+			$table->foreignId('distrito_id')->nullable()->constrained('countries')->onDelete('set null');
 			$table->string('tipo_via');
 			$table->string('direccion1');
 			$table->string('direccion2')->nullable();

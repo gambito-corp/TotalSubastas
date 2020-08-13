@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'Pedro',
             'email'             => 'asesor.pedro@gmail.com',
-            'avatar'            => 'img/users/default.png',
+            'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('C4tntnox*+')
         ]);
@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'test 1',
             'email'             => 'test1@test.com',
-            'avatar'            => 'img/users/default.png',
+            'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'role_id'           => '1',
             'name'              => 'gonsan300',
             'email'             => 'admin@gonzalo.com',
-            'avatar'            => 'img/users/default.png',
+            'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'role_id'           => '2',
             'name'              => 'alevel418',
             'email'             => 'alexis.veliz.83@gmail.com',
-            'avatar'            => 'img/users/default.png',
+            'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);
@@ -44,7 +44,7 @@ class UserSeeder extends Seeder
             'role_id'           => '2',
             'name'              => 'andvel443',
             'email'             => 'avega@rachacreativa.com',
-            'avatar'            => 'img/users/default.png',
+            'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin')
         ]);

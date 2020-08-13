@@ -15,8 +15,8 @@ class CreateGarantiasTable extends Migration
     {
         Schema::create('garantias', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('producto_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->string('monto');
             $table->timestamps();
             $table->softDeletes();

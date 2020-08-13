@@ -15,8 +15,8 @@ class CreateBalancesTable extends Migration {
 		Schema::create('balances', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('user_id')->constrained();
-			$table->unsignedBigInteger('banco_id')->constrained('banks');
+			$table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+			$table->foreignId('banco_id')->nullable()->constrained('banks')->onDelete('set null');
 			$table->string('monto', 50)->nullable();
 			$table->string('tipo')->nullable();
 			$table->text('descripcion', 65535)->nullable();

@@ -15,8 +15,8 @@ class CreateParticipacionsTable extends Migration
     {
         Schema::create('participacions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('producto_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
             $table->string('participacion')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();

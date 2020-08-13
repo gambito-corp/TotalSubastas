@@ -15,7 +15,7 @@ class CreateLotsTable extends Migration {
 		Schema::create('lots', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('empresa_id')->constrained('companies');
+			$table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
 			$table->string('nombre');
 			$table->string('descripcion')->nullable();
 			$table->string('slug');

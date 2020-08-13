@@ -15,10 +15,10 @@ class CreateLegalPersonsTable extends Migration {
 		Schema::create('legal_persons', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('persona_id')->constrained('people');
-			$table->foreignId('banco_id')->constrained('banks');
-			$table->foreignId('direccion_id')->nullable()->constrained('addresses');
-			$table->foreignId('direccion2_id')->nullable()->constrained('addresses');
+			$table->foreignId('persona_id')->nullable()->constrained('people')->onDelete('set null');
+			$table->foreignId('banco_id')->nullable()->constrained('banks')->onDelete('set null');
+			$table->foreignId('direccion_id')->nullable()->constrained('addresses')->onDelete('set null');
+			$table->foreignId('direccion2_id')->nullable()->constrained('addresses')->onDelete('set null');
 			$table->string('nombre');
 			$table->string('razon_social');
 			$table->string('ruc');

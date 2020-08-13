@@ -56,10 +56,10 @@ class UserController extends Controller
         $user->password = Hash::make($request->input('password'));
 
         //subir imagen a storage
-        if($request->hasFile('avatar')){
+        if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
-            $imagen = $user->name.'_'.$avatar->getClientOriginalName();
-            Storage::disk('s3')->put('avatar/'.$imagen, File::get($avatar));
+            $imagen = $user->name . '_' . $avatar->getClientOriginalName();
+            Storage::disk('s3')->put('avatar/' . $imagen, File::get($avatar));
             $user->avatar = $imagen;
         }
 
@@ -77,36 +77,39 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $pais = Country::where('id', $id)->firstOrFail();
-        $paises = Country::where('parent_id', null)->select('id', 'nombre')->get();
+        $user = User::where('id', $id)->with('Rol')->first();
+        $roles = Rol::all();
         $vista = 'update';
-        return view('admin.pais.form', compact('pais', 'paises', 'vista'));
+        return view('admin.user.form', compact('user', 'roles', 'vista'));
     }
 
     public function update(Request $request, $id)
     {
-        $country = Country::where('id', $id)->first();
         $request->validate([
-            'nombre' => 'required|unique:countries,nombre,' . $country->id,
-            'descripcion' => 'required',
-            'codigo' => 'required',
+            'rol' => 'required',
+            'name' => ['required', 'string', 'max:255', 'unique:users,name,'.$id],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$id],
         ]);
-        $parent = null;
-        if ($request->input('pais') != 0) {
-            $parent = $request->input('pais');
-            if ($request->input('departamento') != 0) {
-                $parent = $request->input('departamento');
-                if ($request->input('provincia') != 0) {
-                    $parent = $request->input('provincia');
-                }
-            }
+        $rol = $request->input('rol');
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        $avatar = $request->file('avatar');
+
+        $user = User::where('id', $id)->first();
+
+        $user->role_id = $rol != 0 ? $rol : $user->role_id;
+        $user->name = $name;
+        $user->email = $email;
+        $user->password = $password ? $password : $user->password;
+        if($avatar){
+            $imagen = $user->name.'_'.$avatar->getClientOriginalName();
+            Storage::disk('s3')->put('avatar/'.$imagen, File::get($avatar), 'public');
+            $user->avatar = $imagen;
         }
-        $country->parent_id = $parent;
-        $country->nombre = $request->input('nombre');
-        $country->descripcion = $request->input('descripcion');
-        $country->codigo = $request->input('codigo');
-        $country->update();
-        return redirect()->route('admin.pais.index')->with([
+        $user->update();
+
+        return redirect()->route('admin.user.index')->with([
             'message' => 'El Rol Fue Actualizado Con Exito',
             'alerta' => 'success'
         ]);
@@ -114,9 +117,8 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $pais = Country::where('id', $id)->firstOrFail();
-        $pais->delete();
-        return redirect()->route('admin.pais.index')->with([
+        User::where('id', $id)->first()->delete();
+        return redirect()->route('admin.user.index')->with([
             'message' => 'El Rol Fue Borrado de la Base de Datos',
             'alerta' => 'warning'
         ]);
@@ -124,10 +126,14 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        Country::withTrashed()
+        $user = User::withTrashed()
             ->where('id', $id)
-            ->forceDelete();
-        return redirect()->route('admin.pais.trash')->with([
+            ->first();
+        if ((Auth::user()->isAdmin() || Auth::id() == $id) && $user->avatar != 'default.png'){
+            $this->destroyImagen($user->avatar);
+        }
+        $user->forceDelete();
+        return redirect()->route('admin.user.trash')->with([
             'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
             'alerta' => 'danger'
         ]);
@@ -135,10 +141,10 @@ class UserController extends Controller
 
     public function restore($id)
     {
-        Country::withTrashed()
+        User::withTrashed()
             ->where('id', $id)
             ->restore();
-        return redirect()->route('admin.pais.trash')->with([
+        return redirect()->route('admin.user.trash')->with([
             'message' => 'El Rol Fue Restaurado Correctamente',
             'alerta' => 'warning'
         ]);
@@ -177,7 +183,7 @@ class UserController extends Controller
     {
         $id = Gambito::hash($id, true);
         if (Auth::user()){
-            $data = User::where('id', $id)->first();
+            $data = User::withTrashed()->where('id', $id)->first();
             $file = Storage::disk('s3')->get('avatar/'.$data->avatar);
             $code = 200;
         }else{
@@ -185,5 +191,10 @@ class UserController extends Controller
             $code = 401;
         }
         return new Response($file,$code);
+    }
+
+    protected function destroyImagen($file)
+    {
+        Storage::disk('s3')->delete('avatar/'.$file);
     }
 }

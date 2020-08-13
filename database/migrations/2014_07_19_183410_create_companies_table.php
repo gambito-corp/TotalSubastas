@@ -15,8 +15,8 @@ class CreateCompaniesTable extends Migration {
 		Schema::create('companies', function(Blueprint $table)
 		{
 			$table->id();
-			$table->foreignId('persona_juridica_id')->constrained('legal_persons');
-			$table->foreignId('direccion_id')->nullable()->constrained('addresses');
+			$table->foreignId('persona_juridica_id')->nullable()->constrained('legal_persons')->onDelete('set null');
+			$table->foreignId('direccion_id')->nullable()->constrained('addresses')->onDelete('set null');
 			$table->string('nombre')->nullable();
 			$table->string('razon_social')->nullable();
 			$table->string('ruc')->nullable();
