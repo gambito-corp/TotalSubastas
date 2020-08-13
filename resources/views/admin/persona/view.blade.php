@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="{{asset('css/responsive.bootstrap4.min.css')}}">
 @endpush
 @section('header')
-{{--    <i class="fas fa-flag fa-3x"></i>--}}
-    <h1 class="m-0 text-dark d-inline-flex mr-3">{{--Modelo--}}</h1>
+    <i class="far fa-user fa-3x"></i>
+    <h1 class="m-0 text-dark d-inline-flex mr-3">Usuarios</h1>
     <a href="{{route('admin.pais.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
@@ -23,20 +23,68 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <table id="Tabla" class="table table-bordered table-striped">
+            <table id="Tabla" class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Usuario</th>
+                        <th>Direccion</th>
+                        <th>Banco</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Tipo de Documento</th>
+                        <th>Numero de Documento</th>
+                        <th>Digito Verificado</th>
+                        <th>Genero</th>
+                        <th>Estado Civil</th>
+                        <th>Cuenta Bancaria</th>
+                        <th>Fecha de Cumpleaños</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Imagen del DNI Adelante</th>
+                        <th>Imagen del DNI Atras</th>
                         @isset($trash)
-                            <td>Borrado Hace</td>
+                            <th>Borrado Hace</th>
                         @endisset
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($data as $key => $dat)
-                        <tr>
-                            <td>{{$loop->iteration}}</td>
+                        <tr class="{{$dat->bDay() == 0? 'bg-success':''}}">
+                            <td>{{$dat->id}}</td>
+                            <td>{{$dat->Usuario->name}}</td>
+                            <td>
+                            @isset($dat->Direccion)
+                                {{$dat->Direccion->titulo_direccion}}
+                            @endisset
+                            </td>
+                            <td>
+                                @isset($dat->Banco)
+                                    {{$dat->Banco->siglas}}
+                                @endisset
+                            </td>
+                            <td>{{$dat->nombres}}</td>
+                            <td>{{$dat->apellidos}}</td>
+                            <td>{{$dat->tipo_documento}}</td>
+                            <td>{{$dat->numero_documento}}</td>
+                            <td>{{$dat->digito_documento}}</td>
+                            <td>{{$dat->genero}}</td>
+                            <td>{{$dat->estado_civil}}</td>
+                            <td>{{$dat->cuenta_banco}}</td>
+                            <td>{{$dat->b_day->format('d-m-Y')}} {{$dat->bDay() == 0? 'Hoy es su Cumpleaños': 'Faltan: '.$dat->bDay().' Dias'}}</td>
+                            <td>{{$dat->telefono}}</td>
+                            <td>{{$dat->Usuario->email}}</td>
+                            <td>
+                                @if (isset($dat->dni_front))
+                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '50', 'admin' => true])
+                                @endif
+                            </td>
+                            <td>
+                                @if (isset($dat->dni_back))
+                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '50', 'admin' => true])
+                                @endif
+                            </td>
                             @isset($trash)
                                 <td>{{$dat->deleted_at}}</td>
                             @endisset
@@ -53,15 +101,47 @@
                         </tr>
                     @empty
                         <tr>
-                            <td>Orden</td>
-                            <td>Borrado Hace</td>
-                            <td>Sin Acciones</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Usuario</th>
+                        <th>Direccion</th>
+                        <th>Banco</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Tipo de Documento</th>
+                        <th>Numero de Documento</th>
+                        <th>Digito Verificado</th>
+                        <th>Genero</th>
+                        <th>Estado Civil</th>
+                        <th>Cuenta Bancaria</th>
+                        <th>Fecha de Cumpleaños</th>
+                        <th>Telefono</th>
+                        <th>Email</th>
+                        <th>Imagen del DNI Adelante</th>
+                        <th>Imagen del DNI Atras</th>
                         @isset($trash)
                             <td>Borrado Hace</td>
                         @endisset
@@ -80,8 +160,7 @@
     <script>
         $(function () {
             $("#Tabla").DataTable({
-                "responsive": true,
-                "autoWidth": false,
+                "scrollX":true
             });
         });
     </script>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,10 +42,34 @@ class Person extends Model
         'banco_id'          => 'integer',
         'numero_documento'  => 'integer',
         'digito_documento'  => 'integer',
-        'b_day'             => 'integer',
+        'b_day'             => 'date',
         'created_at'        => 'datetime',
         'updated_at'        => 'datetime',
         'deleted_at'        => 'datetime',
     ];
+
+//    Metodos Personalizados
+
+    public function bDay()
+    {
+        return Carbon::parse($this->b_day->format('d-m-'.now('Y')))->diffInDays();
+
+    }
+
+    //Relaciones
+    public function Usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function Direccion()
+    {
+        return $this->belongsTo(Address::class, 'direccion_id');
+    }
+
+    public function Banco()
+    {
+        return $this->belongsTo(Bank::class, 'banco_id');
+    }
 
 }

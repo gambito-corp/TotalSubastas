@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin\persona;
 
 use App\Http\Controllers\Controller;
+use App\Person as Data;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PersonaController extends Controller
@@ -14,7 +16,8 @@ class PersonaController extends Controller
 
     public function index()
     {
-        //
+        $data = Data::with('Usuario', 'Direccion', 'Banco')->get();
+        return view('admin.persona.view', compact('data', 'restante'));
     }
 
     public function trash()
@@ -60,5 +63,15 @@ class PersonaController extends Controller
     public function restore($id)
     {
         //
+    }
+
+    public function getImagen()
+    {
+
+    }
+
+    public function getImagen2()
+    {
+
     }
 }

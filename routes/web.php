@@ -154,6 +154,8 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'PersonaController@delete')->name('delete');
         Route::get('destroy/{id}', 'PersonaController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'PersonaController@restore')->name('restore');
+        Route::get('imagen/{id}', 'PersonaController@getImagen')->name('getImagen');
+        Route::get('imagen2/{id}', 'PersonaController@getImagen2')->name('getImagen2');
     });
     Route::prefix('juridica')->name('juridica.')->namespace('juridica')->group(function (){
         //Personas Juridicas
