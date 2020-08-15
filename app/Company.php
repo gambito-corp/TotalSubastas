@@ -15,7 +15,7 @@ class Company extends Model
      *
      * @var array
      */
-    protected $fillable = [
+    protected $guarded = [
 
     ];
 
@@ -55,8 +55,17 @@ class Company extends Model
     }
     public function Rango($min, $max)
     {
-        dd($min, $max);
         return $this->hasMany(Producto::class, 'empresa_id')->whereBetween('precio', [$min, $max])->dd();
+    }
+
+    public function Juridica()
+    {
+        return $this->belongsTo(LegalPerson::class, 'persona_juridica_id');
+    }
+
+    public function Direccion()
+    {
+        return $this->belongsTo(Address::class, 'direccion_id');
     }
 
 }

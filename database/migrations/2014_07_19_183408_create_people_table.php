@@ -29,6 +29,7 @@ class CreatePeopleTable extends Migration {
 			$table->date('b_day')->nullable()->default(date('Y-m-d'));
 			$table->string('telefono')->nullable()->default('test');
 			$table->string('email')->nullable()->default('test');
+			$table->tinyInteger('juridica')->nullable()->default('0');
 			$table->string('dni_front')->nullable()->default('test');
 			$table->string('dni_back')->nullable()->default('test');
 			$table->timestamps();

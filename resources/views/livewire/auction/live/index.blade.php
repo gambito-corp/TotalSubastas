@@ -3,8 +3,6 @@
     <div class="row mt-5 margin-row">
         <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;"  onmouseover="bottom()">
 
-
-
             <div id="carouselExampleIndicators" class="carousel slide col-md-3 col-sm-12" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -25,10 +23,6 @@
                     @endforelse
                 </div>
             </div>
-
-{{--            <div class="col-md-3 col-sm-12">--}}
-{{--                <img src="{{asset($imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />--}}
-{{--            </div>--}}
             @livewire('auction.live.assets.datos', ['producto' => $producto, 'vehiculo' => $vehiculo, 'identificador'=>$identificador])
             <div class="col-md-3 col-sm-12">
                 <div class="row">

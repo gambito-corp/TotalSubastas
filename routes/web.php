@@ -34,6 +34,7 @@ Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 
 //Controladora de Imagenes
 Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');
+Route::get('/logotipo/{id}', 'ImagenesController@getEmpresa')->name('empresa.getImagen');
 
 //Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');
@@ -154,21 +155,21 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'PersonaController@delete')->name('delete');
         Route::get('destroy/{id}', 'PersonaController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'PersonaController@restore')->name('restore');
-        Route::get('imagen/{id}', 'PersonaController@getImagen')->name('getImagen');
+        Route::get('imagen/{id}', 'PersonaController@getImagen1')->name('getImagen1');
         Route::get('imagen2/{id}', 'PersonaController@getImagen2')->name('getImagen2');
     });
     Route::prefix('juridica')->name('juridica.')->namespace('juridica')->group(function (){
         //Personas Juridicas
-        Route::get('index', 'JuridicaProductoController@index')->name('index');
-        Route::get('trash', 'JuridicaProductoController@trash')->name('trash');
-        Route::get('create', 'JuridicaProductoController@create')->name('create');
-        Route::post('guardar', 'JuridicaProductoController@store')->name('store');
-        Route::get('mostrar/{id}', 'JuridicaProductoController@show')->name('show');
-        Route::get('editar/{id}', 'JuridicaProductoController@edit')->name('edit');
-        Route::put('actualizar/{id}', 'JuridicaProductoController@update')->name('update');
-        Route::get('delete/{id}', 'JuridicaProductoController@delete')->name('delete');
-        Route::get('destroy/{id}', 'JuridicaProductoController@destroy')->name('destroy')->middleware('password.confirm');
-        Route::get('restore/{id}', 'JuridicaProductoController@restore')->name('restore');
+        Route::get('index', 'JuridicaController@index')->name('index');
+        Route::get('trash', 'JuridicaController@trash')->name('trash');
+        Route::get('create', 'JuridicaController@create')->name('create');
+        Route::post('guardar', 'JuridicaController@store')->name('store');
+        Route::get('mostrar/{id}', 'JuridicaController@show')->name('show');
+        Route::get('editar/{id}', 'JuridicaController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'JuridicaController@update')->name('update');
+        Route::get('delete/{id}', 'JuridicaController@delete')->name('delete');
+        Route::get('destroy/{id}', 'JuridicaController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'JuridicaController@restore')->name('restore');
     });
     Route::prefix('empresa')->name('empresa.')->namespace('empresa')->group(function (){
         //Empresas
@@ -182,6 +183,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'EmpresaController@delete')->name('delete');
         Route::get('destroy/{id}', 'EmpresaController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'EmpresaController@restore')->name('restore');
+        Route::get('imagen/{id}', 'EmpresaController@getImagen')->name('getImagen');
     });
     Route::prefix('lote')->name('lote.')->namespace('lote')->group(function (){
         //Lotes
@@ -221,6 +223,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'ProductoController@delete')->name('delete');
         Route::get('destroy/{id}', 'ProductoController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'ProductoController@restore')->name('restore');
+        Route::get('imagen/{id}', 'ProductoController@getImagen')->name('getImagen');
     });
     Route::prefix('subasta')->name('subasta.')->namespace('subasta')->group(function (){
         //Ganadores de subastas
@@ -247,6 +250,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'ImagenesProductoController@delete')->name('delete');
         Route::get('destroy/{id}', 'ImagenesProductoController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'ImagenesProductoController@restore')->name('restore');
+        Route::get('imagen/{id}', 'ImagenesProductoController@getImagen')->name('getImagen');
     });
     Route::prefix('mensajes')->name('mensajes.')->namespace('mensajes')->group(function (){
         //Mensajes de la Subasta

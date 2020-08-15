@@ -7,15 +7,15 @@
 @section('header')
     <i class="far fa-user fa-3x"></i>
     <h1 class="m-0 text-dark d-inline-flex mr-3">Usuarios</h1>
-    <a href="{{route('admin.pais.create')}}" class="btn btn-success btn-small">
+    <a href="{{route('admin.persona.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
     @isset($trash)
-        <a href="{{route('admin.pais.index')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.persona.index')}}" class="btn btn-info btn-small">
             <i class="fas fa-eye"></i> Regresar
         </a>
     @else
-        <a href="{{route('admin.pais.trash')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.persona.trash')}}" class="btn btn-info btn-small">
             <i class="fas fa-recycle"></i> Ver Borrados
         </a>
     @endisset
@@ -38,6 +38,7 @@
                         <th>Genero</th>
                         <th>Estado Civil</th>
                         <th>Cuenta Bancaria</th>
+                        <th>Persona Juridica</th>
                         <th>Fecha de Cumpleaños</th>
                         <th>Telefono</th>
                         <th>Email</th>
@@ -65,6 +66,7 @@
                                 @endisset
                             </td>
                             <td>{{$dat->nombres}}</td>
+
                             <td>{{$dat->apellidos}}</td>
                             <td>{{$dat->tipo_documento}}</td>
                             <td>{{$dat->numero_documento}}</td>
@@ -72,17 +74,18 @@
                             <td>{{$dat->genero}}</td>
                             <td>{{$dat->estado_civil}}</td>
                             <td>{{$dat->cuenta_banco}}</td>
-                            <td>{{$dat->b_day->format('d-m-Y')}} {{$dat->bDay() == 0? 'Hoy es su Cumpleaños': 'Faltan: '.$dat->bDay().' Dias'}}</td>
+                            <td>{{$dat->juridica == 0? 'No':'Si'}}</td>
+                            <td>{{$dat->b_day->format('d-m-Y')}} {{Carbon\Carbon::parse($dat->b_day)->isBirthday()? 'Hoy es su Cumpleaños': Carbon\Carbon::parse($dat->b_day->format('d-m-'.now('Y')))->diffForHumans()}}</td>
                             <td>{{$dat->telefono}}</td>
                             <td>{{$dat->Usuario->email}}</td>
                             <td>
                                 @if (isset($dat->dni_front))
-                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '50', 'admin' => true])
+                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '150', 'admin' => true, 'dni'=>'1'])
                                 @endif
                             </td>
                             <td>
                                 @if (isset($dat->dni_back))
-                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '50', 'admin' => true])
+                                    @include('assets.imagen', ['carpeta' => 'persona', 'id' => $dat->id, 'ancho' => '150', 'admin' => true, 'dni'=>'2'])
                                 @endif
                             </td>
                             @isset($trash)
@@ -90,12 +93,12 @@
                             @endisset
                             <td class="align-items-center">
                                 @isset($trash)
-                                    <a href="{{route('admin.pais.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                    <a href="{{route('admin.pais.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.persona.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
+                                    <a href="{{route('admin.persona.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @else
-                                    <a href="{{route('admin.pais.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('admin.pais.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="{{route('admin.pais.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.persona.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('admin.persona.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{route('admin.persona.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @endisset
                             </td>
                         </tr>
@@ -137,6 +140,7 @@
                         <th>Genero</th>
                         <th>Estado Civil</th>
                         <th>Cuenta Bancaria</th>
+                        <th>Persona Juridica</th>
                         <th>Fecha de Cumpleaños</th>
                         <th>Telefono</th>
                         <th>Email</th>

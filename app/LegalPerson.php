@@ -17,7 +17,7 @@ class LegalPerson extends Model
      *
      * @var array
      */
-    protected $fillable = [
+    protected $guarded = [
 
     ];
 
@@ -45,5 +45,31 @@ class LegalPerson extends Model
         'updated_at'        => 'datetime',
         'deleted_at'        => 'datetime',
     ];
+
+    public function NombreCompleto()
+    {
+        return $this->Persona->nombres.' '.$this->Persona->apellidos;
+    }
+
+    public function Persona()
+    {
+        return $this->belongsTo(Person::class, 'persona_id');
+    }
+
+    public function Banco()
+    {
+        return $this->belongsTo(Bank::class, 'banco_id');
+    }
+
+    public function Direccion()
+    {
+        return $this->belongsTo(Address::class, 'direccion_id');
+    }
+
+    public function Direccion2()
+    {
+        return $this->belongsTo(Address::class, 'direccion2_id');
+    }
+
 
 }

@@ -110,5 +110,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Balance::class, 'user_id');
     }
+    public function Persona()
+    {
+        return $this->hasOne(Person::class, 'user_id');
+    }
 
 }

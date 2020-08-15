@@ -80,4 +80,14 @@ class Address extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function Persona()
+    {
+        return $this->hasOne(Person::class, 'user_id');
+    }
+
+    public function Juridica()
+    {
+        return $this->hasOne(LegalPerson::class, 'user_id');
+    }
 }

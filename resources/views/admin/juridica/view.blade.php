@@ -5,17 +5,17 @@
     <link rel="stylesheet" href="{{asset('css/responsive.bootstrap4.min.css')}}">
 @endpush
 @section('header')
-{{--    <i class="fas fa-flag fa-3x"></i>--}}
-    <h1 class="m-0 text-dark d-inline-flex mr-3">{{--Modelo--}}</h1>
-    <a href="{{route('admin.pais.create')}}" class="btn btn-success btn-small">
+    <i class="fas fa-user-tie fa-3x"></i>
+    <h1 class="m-0 text-dark d-inline-flex mr-3">Personas Juridicas</h1>
+    <a href="{{route('admin.juridica.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
     @isset($trash)
-        <a href="{{route('admin.pais.index')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.juridica.index')}}" class="btn btn-info btn-small">
             <i class="fas fa-eye"></i> Regresar
         </a>
     @else
-        <a href="{{route('admin.pais.trash')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.juridica.trash')}}" class="btn btn-info btn-small">
             <i class="fas fa-recycle"></i> Ver Borrados
         </a>
     @endisset
@@ -26,9 +26,18 @@
             <table id="Tabla" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Persona</th>
+                        <th>Banco</th>
+                        <th>Direccion Principal</th>
+                        <th>Direccion Secundaria</th>
+                        <th>Nombre Comercial</th>
+                        <th>Razon Social</th>
+                        <th>R.U.C.</th>
+                        <th>Numero de Cuenta</th>
+                        <th>Telefono</th>
                         @isset($trash)
-                            <td>Borrado Hace</td>
+                            <th>Borrado Hace</th>
                         @endisset
                         <th>Acciones</th>
                     </tr>
@@ -36,34 +45,61 @@
                 <tbody>
                     @forelse($data as $key => $dat)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{$dat->id}}</td>
+                            <td>{{$dat->NombreCompleto()}}</td>
+                            <td>{{$dat->Banco->siglas}}</td>
+                            <td>{{$dat->Direccion->titulo_direccion}}</td>
+                            <td>{{$dat->Direccion2->titulo_direccion}}</td>
+                            <td>{{$dat->nombre}}</td>
+                            <td>{{$dat->razon_social}}</td>
+                            <td>{{$dat->ruc}}</td>
+                            <td>{{$dat->numero_cuenta}}</td>
+                            <td>{{$dat->Persona->telefono}}</td>
                             @isset($trash)
                                 <td>{{$dat->deleted_at}}</td>
                             @endisset
                             <td class="align-items-center">
                                 @isset($trash)
-                                    <a href="{{route('admin.pais.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                    <a href="{{route('admin.pais.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.juridica.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
+                                    <a href="{{route('admin.juridica.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @else
-                                    <a href="{{route('admin.pais.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('admin.pais.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="{{route('admin.pais.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.juridica.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('admin.juridica.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{route('admin.juridica.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @endisset
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td>Orden</td>
-                            <td>Borrado Hace</td>
-                            <td>Sin Acciones</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Persona</th>
+                        <th>Banco</th>
+                        <th>Direccion Principal</th>
+                        <th>Direccion Secundaria</th>
+                        <th>Nombre Comercial</th>
+                        <th>Razon Social</th>
+                        <th>R.U.C.</th>
+                        <th>Numero de Cuenta</th>
+                        <th>Telefono</th>
                         @isset($trash)
-                            <td>Borrado Hace</td>
+                            <th>Borrado Hace</th>
                         @endisset
                         <th>Acciones</th>
                     </tr>
@@ -80,8 +116,7 @@
     <script>
         $(function () {
             $("#Tabla").DataTable({
-                "responsive": true,
-                "autoWidth": false,
+                "scrollX": true
             });
         });
     </script>

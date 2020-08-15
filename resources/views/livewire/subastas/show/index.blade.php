@@ -6,7 +6,7 @@
                     <div class="col-12 col-md-9 col-sm-12 col-xs-12 ml-md-4">
                         <article class="top-slide_carousel-item-a">
                             <figure>
-                                <img class="mb-2 logo_top-slide-sg_falabella" src="{{asset('img/empresas/bancoFalabella.jpg')}}" alt="" width="36" height="36">
+                                @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $producto->Empresa->id, 'ancho' => '100', ])
                                 <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
                                 <h3>{{$vehiculo->year}}</h3>
                             </figure>

@@ -53,7 +53,6 @@ class Person extends Model
     public function bDay()
     {
         return Carbon::parse($this->b_day->format('d-m-'.now('Y')))->diffInDays();
-
     }
 
     //Relaciones
@@ -70,6 +69,11 @@ class Person extends Model
     public function Banco()
     {
         return $this->belongsTo(Bank::class, 'banco_id');
+    }
+
+    public function Juridica()
+    {
+        return $this->hasOne(LegalPerson::class, 'persona_id');
     }
 
 }

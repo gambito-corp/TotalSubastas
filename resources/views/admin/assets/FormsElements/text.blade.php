@@ -14,6 +14,7 @@
         value="{{old($nombre)}}"
         @endisset
 
+        {{isset($multi) && $multi? 'multiple':''}}
         {{isset($require) && $require? 'require':''}}
 >
 @error($nombre)

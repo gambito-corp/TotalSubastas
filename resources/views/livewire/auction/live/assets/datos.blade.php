@@ -47,7 +47,7 @@
             <div class="row pt-3 row-cols pl-3">
                 <!--<figure>-->
                 <div class="col-md-3">
-                    <img src="{{asset($logo)}}" class="rounded-circle my-auto d-inline-flex img-fluid" width="150" alt="">
+                    @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $producto->Empresa->id, 'ancho' => '100', ])
                 </div>
                 <div class="col-md-9">
                     <span class="my-auto align text-center">concedido por: <br><strong>{{$razon_social}}</strong></span>

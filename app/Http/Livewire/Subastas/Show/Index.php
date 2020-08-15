@@ -21,7 +21,7 @@ class Index extends Component
     public function mount()
     {
         $id = Gambito::hash(request()->route()->parameter('id'), true);
-        $this->producto = Gambito::obtenerProducto($id)->load('Imagenes', 'Vehiculo');
+        $this->producto = Gambito::obtenerProducto($id)->load('Imagenes', 'Vehiculo', 'Empresa');
         $this->vehiculo = Gambito::obtenerVehiculo();
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
