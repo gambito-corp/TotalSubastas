@@ -47,7 +47,7 @@
             <div class="row pt-3 row-cols pl-3">
                 <!--<figure>-->
                 <div class="col-md-3">
-                    @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $producto->Empresa->id, 'ancho' => '100', ])
+                    @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $producto->Empresa->id, 'ancho' => '59', ])
                 </div>
                 <div class="col-md-9">
                     <span class="my-auto align text-center">concedido por: <br><strong>{{$razon_social}}</strong></span>
