@@ -16,6 +16,8 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "hashids/hashids": "^4.0",
+        "intervention/image": "^2.5",
+        "intervention/imagecache": "^2.4",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",

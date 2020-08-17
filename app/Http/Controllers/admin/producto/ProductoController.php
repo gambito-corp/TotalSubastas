@@ -13,6 +13,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class ProductoController extends Controller
 {
@@ -103,7 +105,9 @@ class ProductoController extends Controller
         if($imagen){
             $id = Data::all()->last()->id+1;
             $imagen_name = $producto->id.'.'.$imagen->getClientOriginalExtension();
-            Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen));
+//            Image::make($imagen->fit('400', '400')
+//                ->encode('jpg', 80)
+//                ->save(Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen)));
             $producto->imagen = $imagen_name;
         }
 
