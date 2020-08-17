@@ -41,6 +41,7 @@
                 </thead>
                 <tbody>
                     @forelse($data as $key => $dat)
+{{--                        @dump($dat)--}}
                         <tr>
                             <td>{{isset($dat->id)?$dat->id:''}}</td>
                             <td>{{isset($dat->Empresa->nombre)?$dat->Empresa->nombre:'Empresa no Asociada'}}</td>

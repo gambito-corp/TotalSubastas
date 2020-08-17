@@ -19,7 +19,7 @@
                         <div class="carousel-item">
                             @include('assets.imagen', [
                                 'carpeta' => 'set',
-                                 'id' => $imagen->id,
+                                 'id' => $value->id,
                                  'ancho' => '240',
                                  'alto' => '231',
                                  'class' => 'rounded mx-auto d-block img-fluid'
