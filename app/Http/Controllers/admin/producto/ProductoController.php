@@ -105,9 +105,9 @@ class ProductoController extends Controller
         if($imagen){
             $id = Data::all()->last()->id+1;
             $imagen_name = $producto->id.'.'.$imagen->getClientOriginalExtension();
-//            Image::make($imagen->fit('400', '400')
-//                ->encode('jpg', 80)
-//                ->save(Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen)));
+            Image::make($imagen->reside('400', '400')
+                ->encode('jpg', 90)
+                ->save(Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen))));
             $producto->imagen = $imagen_name;
         }
 
