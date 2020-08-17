@@ -148,7 +148,7 @@ class JuridicaController extends Controller
 
     public function destroy($id)
     {
-        $data = Data::withTrashed()
+        Data::withTrashed()
             ->where('id', $id)
             ->first()
             ->forceDelete();

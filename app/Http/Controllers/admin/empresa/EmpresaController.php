@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\empresa;
 
 use App\Address;
+use App\Company;
 use App\Helpers\Gambito;
 use App\Http\Controllers\Controller;
 use App\Company as Data;
@@ -12,6 +13,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class EmpresaController extends Controller
 {
@@ -95,28 +97,94 @@ class EmpresaController extends Controller
 
     public function edit($id)
     {
-        //
+        $data = Company::find($id);
+//        dd($data);
+        $personas = LegalPerson::all();
+        $direccion = Address::all();
+        return view('admin.empresa.form', compact('data', 'personas', 'direccion'));
     }
 
     public function update($id, Request $request)
     {
-        //
+        $this->validate($request,[
+            'direccion_id'          => 'required',
+            'nombre'                => 'required',
+            'razon_social'          => 'required',
+            'ruc'                   => 'required',
+            'email'                 => 'required|email',
+            'informacion'           => 'string',
+            'telefono'              => 'required',
+            'imagen'                => 'image'
+        ]);
+
+        $direccion_id = $request->input('direccion_id');
+        $nombre = $request->input('nombre');
+        $razon_social = $request->input('razon_social');
+        $ruc = $request->input('ruc');
+        $email = $request->input('email');
+        $informacion = $request->input('informacion');
+        $telefono = $request->input('telefono');
+        $imagen = $request->file('imagen');
+
+        $empresa = Data::where('id', $id)->first();
+        $empresa->direccion_id = $direccion_id;
+        $empresa->nombre = $nombre;
+        $empresa->razon_social = $razon_social;
+        $empresa->ruc = $ruc;
+        $empresa->email = $email;
+        $empresa->informacion = $informacion;
+        $empresa->telefono = $telefono;
+
+        //subir imagen a storage
+        if($imagen){
+            $imagen_name = Str::slug($empresa->nombre, '_').'.'.$imagen->getClientOriginalExtension();
+            Storage::disk('s3')->put('empresa/'.$imagen_name, File::get($imagen));
+            $empresa->imagen = $imagen_name;
+        }
+        $empresa->update();
+
+        return redirect()->route('admin.empresa.index')->with([
+            'message' => 'El Rol Fue Actualizado Con Exito',
+            'alerta' => 'success'
+        ]);
     }
 
     public function delete($id)
     {
-        //
+        Data::where('id',$id)->firstOrFail()->delete();
+        return redirect()->route('admin.empresa.index')->with([
+            'message' => 'El Rol Fue Borrado de la Base de Datos',
+            'alerta' => 'warning'
+        ]);
     }
 
     public function destroy($id)
     {
-        //
+        $data = Data::withTrashed()
+            ->where('id', $id)
+            ->first();
+        if (Auth::user()->isAdmin() || Auth::id() == $data->user_id){
+            $this->destroyImagen($data->imagen);
+        }
+
+        $data->forceDelete();
+        return redirect()->route('admin.empresa.trash')->with([
+            'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
+            'alerta' => 'danger'
+        ]);
     }
 
     public function restore($id)
     {
-        //
+        Data::withTrashed()
+            ->where('id', $id)
+            ->restore();
+        return redirect()->route('admin.empresa.trash')->with([
+            'message' => 'El Rol Fue Restaurado Correctamente',
+            'alerta' => 'warning'
+        ]);
     }
+
     public function getImagen($id)
     {
         $id = Gambito::hash($id, true);
@@ -133,6 +201,6 @@ class EmpresaController extends Controller
 
     protected function destroyImagen($file)
     {
-        Storage::disk('s3')->delete('bouchers/'.$file);
+        Storage::disk('s3')->delete('empresa/'.$file);
     }
 }

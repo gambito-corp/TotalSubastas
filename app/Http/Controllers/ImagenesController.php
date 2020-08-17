@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use App\Helpers\Gambito;
+use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -39,11 +40,10 @@ class ImagenesController extends Controller
     public function getProducto($id)
     {
         $id = Gambito::hash($id, true);
-        if (Auth::user()){
-
-        }else{
-
-        }
+        $data = Producto::where('id', $id)->first();
+        $file = Storage::disk('s3')->get('producto/'.$data->imagen);
+        $code = 200;
+        return new Response($file,$code);
     }
 
     public function getProductoImagen($id)

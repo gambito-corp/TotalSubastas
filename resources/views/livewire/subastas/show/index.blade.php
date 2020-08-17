@@ -61,17 +61,21 @@
                                 </div>
 
                                 <fieldset class="thumbs_auction">
+                                    @include('assets.imagen', [
+                                            'carpeta' => 'producto',
+                                             'id' => $producto->id,
+                                             'ancho' => '60',
+                                             'alto' => '60',
+                                             'class' => 'rounded p-1 thumbs_auction-img',
+                                             'data_target' => '#auction-control',
+                                             'data_slide_to' =>  '0'
+                                             ])
                                     @forelse($producto->Imagenes as $imagen)
-                                        <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='{{$loop->index}}'
+                                        <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'
                                              src="{{asset($imagen->imagen)}}" alt="">
                                     @empty
-                                        @if($producto->imagen != null)
-                                            <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='0'
-                                                 src="{{asset($producto->imagen)}}" alt="">
-                                        @else
-                                            <img class="rounded pl-1 thumbs_auction-img" width="60" height="60" data-target="#auction-control" data-slide-to='0'
-                                                 src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
-                                        @endif
+                                        <img class="rounded pl-1 thumbs_auction-img" width="60" height="60" data-target="#auction-control" data-slide-to='0'
+                                             src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
                                     @endforelse
                                 </fieldset>
 

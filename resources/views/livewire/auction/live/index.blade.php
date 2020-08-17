@@ -13,7 +13,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{asset($imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
+                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->id, 'ancho' => '240', 'alto' => '231', 'class'=>'rounded mx-auto d-block img-fluid' ])
                     </div>
                     @forelse($pictures as $value)
                         <div class="carousel-item">

@@ -2,21 +2,27 @@
     <div class="bd-example ">
         <div id="auction-control" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-{{--                Rotacion de Activos--}}
+                <div class="carousel-item active">
+                    @include('assets.imagen', [
+                        'carpeta' => 'producto',
+                         'id' => $producto->id,
+                         'ancho' => '100%',
+                         'alto' => '400',
+                        ])
+                </div>
                 @forelse($producto->Imagenes as $imagen)
-                    <div class="carousel-item {{$loop->first? 'active': ''}}">
-                        <img src="{{asset($imagen->imagen)}}" width="100%" height="400">
+                    <div class="carousel-item">
+                        @include('assets.imagen', [
+                            'carpeta' => 'producto',
+                             'id' => $imagen->id,
+                             'ancho' => '100%',
+                             'alto' => '400',
+                            ])
                     </div>
                 @empty
-                    @if($producto->imagen != null)
-                        <div class="carousel-item active">
-                            <img src="{{asset($producto->imagen)}}" width="100%" height="400">
-                        </div>
-                    @else
-                        <div class="carousel-item active">
-                            <img src="{{asset('img/vehiculos/default.jpg')}}" width="100%" height="400">
-                        </div>
-                    @endif
+                    <div class="carousel-item">
+                        <img src="{{asset('img/vehiculos/default.jpg')}}" width="100%" height="400">
+                    </div>
                 @endforelse
             </div>
         </div>
@@ -39,18 +45,18 @@
             </div>
             <figure>
                 <fieldset class="thumbs_auction">
-                    <!-- HOLA MUNDOOOOOOO IR A LINEA 287 DESDE LA 347 -->
+                    @include('assets.imagen', [
+                           'carpeta' => 'producto',
+                            'id' => $producto->id,
+                            'data_target' => '#auction-control',
+                            'data_slide_to' => '0',
+                        ])
                     @forelse($producto->Imagenes as $imagen)
-                        <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='{{$loop->index}}'
+                        <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'
                              src="{{asset($imagen->imagen)}}" alt="">
                     @empty
-                        @if($producto->imagen != null)
-                            <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='0'
-                                 src="{{asset($producto->imagen)}}" alt="">
-                        @else
-                            <img class="rounded pl-1 thumbs_auction-img" data-target="#auction-control" data-slide-to='0'
-                                 src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
-                        @endif
+                        <img class="rounded pl-1 thumbs_auction-img" data-target="#auction-control" data-slide-to='0'
+                             src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
                     @endforelse
                 </fieldset>
                 <div class="display-1 d-flex justify-content-center text-center caret-play_auction-gallery">

@@ -48,7 +48,7 @@
                                         </span>
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
                                         @isset($dato->imagen)
-                                            <img src="{{asset($dato->imagen)}}" alt="">
+                                            @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '70', ])
                                         @endisset
                                     </article>
                                     <div class="card-body justify-content-center">

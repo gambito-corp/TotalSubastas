@@ -45,12 +45,12 @@ class Lot extends Model
     //Relaciones Belongs to
     public function Empresa()
     {
-        return $this->belongsTo('App\Company', 'empresa_id');
+        return $this->belongsTo(Company::class, 'empresa_id');
     }
     // relaciones HasMany
     public function Productos()
     {
-        return $this->hasMany('App\Producto', 'lote_id');
+        return $this->hasMany(Producto::class, 'lote_id');
     }
 
 

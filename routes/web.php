@@ -35,6 +35,7 @@ Route::patch('/perfil', 'PerfilController@update')->name('perfil');
 //Controladora de Imagenes
 Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');
 Route::get('/logotipo/{id}', 'ImagenesController@getEmpresa')->name('empresa.getImagen');
+Route::get('/producto/{id}', 'ImagenesController@getproducto')->name('producto.getImagen');
 
 //Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');

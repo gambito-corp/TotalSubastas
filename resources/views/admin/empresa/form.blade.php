@@ -4,6 +4,7 @@
         {{--Estilos--}}
     @endpush
 @section('header')
+{{--    {{dd($data->id)}}--}}
     <h1 class="m-0 text-dark">{{is_null($data->id)? 'Crear' : 'Editar'}} Empresa</h1>
 @endsection
 @section('content')
@@ -99,10 +100,10 @@
                     </div>
                     <div class="custom-control col-md-3">
                         <label for="informacion">Informacion de la Empresa</label>
-                        <textarea name="informacion" id="info" cols="10" rows="2" class="form-control">{{!is_null($data->id) ? $data->informacion:old('informacion')}}</textarea>
+                        <textarea name="informacion" id="info" cols="10" rows="2" class="form-control">{!! !is_null($data->id) ? $data->informacion:old('informacion') !!}</textarea>
                     </div>
 
-                    <div class="custom-control {{!is_null($data->id)?'col-md-6':'col-md-3'}}">
+                    <div class="custom-control {{!is_null($data->id)?'col-md-3':'col-md-6'}}">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'imagen',
@@ -113,7 +114,7 @@
                     </div>
                     @if(!is_null($data->id))
                         <div class="custom-control col-md-3">
-                            @if (isset($data->boucher))
+                            @if (isset($data->imagen))
                                 @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $data->id, 'ancho' => '300', 'admin' => true])
                             @endif
                         </div>
