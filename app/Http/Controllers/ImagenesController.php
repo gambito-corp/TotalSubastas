@@ -45,7 +45,6 @@ class ImagenesController extends Controller
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
         $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(40)->resize('200', '200');
         $file->insert($watermark, 'center')
-            ->resize('400', '400')
             ->response();
         $code = 200;
         return new Response($file,$code);
@@ -54,11 +53,13 @@ class ImagenesController extends Controller
     public function getProductoImagen($id)
     {
         $id = Gambito::hash($id, true);
-        if (Auth::user()){
-
-        }else{
-
-        }
+        $data = Producto::where('id', $id)->first();
+        $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
+        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(40)->resize('200', '200');
+        $file->insert($watermark, 'center')
+            ->response();
+        $code = 200;
+        return new Response($file,$code);
     }
 
     public function getDocumentos($id)

@@ -53,4 +53,14 @@ class ImagenesVehiculo extends Model
         return $this->belongsTo(Producto::class, 'producto_id');
     }
 
+    public function Lote()
+    {
+        return $this->belongsTo(Lot::class, 'lote_id');
+    }
+
+    public function Empresa()
+    {
+        return $this->belongsTo(Company::class, 'empresa_id');
+    }
+
 }

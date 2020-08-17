@@ -13,11 +13,11 @@
                 @forelse($producto->Imagenes as $imagen)
                     <div class="carousel-item">
                         @include('assets.imagen', [
-                            'carpeta' => 'producto',
-                             'id' => $imagen->id,
-                             'ancho' => '100%',
-                             'alto' => '400',
-                            ])
+                                'carpeta' => 'set',
+                                 'id' => $imagen->id,
+                                 'ancho' => '100%',
+                                 'alto' => '400',
+                                 ])
                     </div>
                 @empty
                     <div class="carousel-item">
@@ -52,8 +52,15 @@
                             'data_slide_to' => '0',
                         ])
                     @forelse($producto->Imagenes as $imagen)
-                        <img class="rounded p-1 thumbs_auction-img" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'
-                             src="{{asset($imagen->imagen)}}" alt="">
+                        @include('assets.imagen', [
+                                'carpeta' => 'set',
+                                 'id' => $imagen->id,
+                                 'ancho' => '60',
+                                 'alto' => '60',
+                                 'class' => 'rounded p-1 thumbs_auction-img',
+                                 'data_target' => '#auction-control',
+                                 'data_slide_to' =>  $loop->iteration
+                                 ])
                     @empty
                         <img class="rounded pl-1 thumbs_auction-img" data-target="#auction-control" data-slide-to='0'
                              src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">

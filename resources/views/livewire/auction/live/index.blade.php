@@ -17,7 +17,13 @@
                     </div>
                     @forelse($pictures as $value)
                         <div class="carousel-item">
-                            <img src="{{asset($value->imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
+                            @include('assets.imagen', [
+                                'carpeta' => 'set',
+                                 'id' => $imagen->id,
+                                 'ancho' => '240',
+                                 'alto' => '231',
+                                 'class' => 'rounded mx-auto d-block img-fluid'
+                                 ])
                         </div>
                     @empty
                     @endforelse

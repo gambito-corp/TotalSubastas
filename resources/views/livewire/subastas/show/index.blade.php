@@ -71,8 +71,18 @@
                                              'data_slide_to' =>  '0'
                                              ])
                                     @forelse($producto->Imagenes as $imagen)
-                                        <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'
-                                             src="{{asset($imagen->imagen)}}" alt="">
+{{--                                        @dump($imagen)--}}
+                                        @include('assets.imagen', [
+                                                'carpeta' => 'set',
+                                                 'id' => $imagen->id,
+                                                 'ancho' => '60',
+                                                 'alto' => '60',
+                                                 'class' => 'rounded p-1 thumbs_auction-img',
+                                                 'data_target' => '#auction-control',
+                                                 'data_slide_to' =>  $loop->iteration
+                                                 ])
+{{--                                        <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'--}}
+{{--                                             src="{{asset($imagen->imagen)}}" alt="">--}}
                                     @empty
                                         <img class="rounded pl-1 thumbs_auction-img" width="60" height="60" data-target="#auction-control" data-slide-to='0'
                                              src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
