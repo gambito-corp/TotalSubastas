@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class ImagenesController extends Controller
 {
@@ -41,7 +42,10 @@ class ImagenesController extends Controller
     {
         $id = Gambito::hash($id, true);
         $data = Producto::where('id', $id)->first();
-        $file = Storage::disk('s3')->get('producto/'.$data->imagen);
+        $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
+        $watermark = Image::make(public_path('img/marca.png'))->opacity(40)->resize('200', '200')->greyscale();
+        $file->insert($watermark, 'center')
+            ->response();
         $code = 200;
         return new Response($file,$code);
     }

@@ -105,9 +105,11 @@ class ProductoController extends Controller
         if($imagen){
             $id = Data::all()->last()->id+1;
             $imagen_name = $id.'.jpg';
-            Image::make($imagen)->resize('400', '400')
-                ->encode('jpg', 90)
-                ->save(Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen)));
+            $file = Image::make($imagen)
+                ->resize('400', '400')
+                ->encode('jpg', 90);
+            $file->save(Storage::disk('s3')->put('producto/'.$imagen_name, $file));
+            $producto->imagen = $imagen_name;
             $producto->imagen = $imagen_name;
         }
 
@@ -185,9 +187,11 @@ class ProductoController extends Controller
 
         //subir imagen a storage
         if($imagen){
-            $id = Data::all()->last()->id+1;
-            $imagen_name = $producto->id.'.'.$imagen->getClientOriginalExtension();
-            Storage::disk('s3')->put('producto/'.$imagen_name, File::get($imagen));
+            $imagen_name = $producto->id.'.jpg';
+            $file = Image::make($imagen)
+                ->resize('400', '400')
+                ->encode('jpg', 90);
+            $file->save(Storage::disk('s3')->put('producto/'.$imagen_name, $file));
             $producto->imagen = $imagen_name;
         }
 
