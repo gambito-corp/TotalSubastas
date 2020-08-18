@@ -10,29 +10,89 @@ clonar repositorio en tu entorno de desarrollo en introducir los siguientes coma
 
 `php artisan key:generate`
 
-****
-`php artisan migrate`
-****
-
-una vez ejecutados esos 5 comandos entrar a la carpeta raiz del proyecto y modificar el archivo `webpack.mix.js` modificar en la linea 17 `.browserSync('http://tu-url-o-IP+:puerto-en-caso-de-usarse/'); `
-
-despues modificar el archivo `.env` a las variables acordes al proyecto en tu entorno de desarrollo algunas de esas vasiables son
+despues modificar el archivo `.env` a las variables acordes al proyecto en tu entorno de desarrollo algunas de esas variables son
 
 `APP_URL=http://tu-url-o-IP+:puerto-en-caso-de-usarse/`
 
-`DB_CONNECTION=mysql
+ejecuta el comando
+
+`php artisan serve`
+
+
+
+```
+DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=nombre-de-tu-BD
 DB_USERNAME=Tu-Usuario
-DB_PASSWORD=`
+DB_PASSWORD=
+```
+
+ejecuta este comando para migrar la Base de datos
+****
+`php artisan migrate --seed`
+****
+
+configura tu servidor de soket (websoketServer, beyondcode, pusher o cualquier otro) y tu cliente de redis 
+
+```
+BROADCAST_DRIVER=pusher
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+REDIS_CLIENT='predis'
+REDIS_CLUSTER=redis
+REDIS_PREFIX=null
+REDIS_URL=
+REDIS_DB=0
+REDIS_CACHE_DB=1
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_PATH=
+PUSHER_APP_CLUSTER=mt1
+PUSHER_APP_PORT=6001
+PUSHER_APP_IP=
+```
+
+ejecuta tu servidor de websocket y tu redis (redis ejecutalo segun los comandos de su documentacion al igual que websocket)
+***
+`php artisan websocket:serve`
+***
+configura tu servidor SMTP (por ejemplo gmail pero puedes seleccionar cualquier otro)
+
+````
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=
+MAIL_FROM_NAME="${APP_NAME}"
+````
+
+configura tu buket de S3 AWS (importante sin esto el sistema de imagenes no funcionara)
+````
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+````
 
 
+y ejecuta tu base de datos
 
-una vez realizados esos pasos tienes que usar tu SGBD o tu consola de Mysql y bolcar los catos que se encuentran en `{ROOT}/Database/esquema/BackUp Inserts/insertGeneral.sql`
+`mysql start`
 
-
-
+recuerda que si dispones de un gestor de apache seria optimo que lo corras en la carpeta asociada o podrias configurar los datos de conexion de tu BD a un entorno remoto
 
 
 
