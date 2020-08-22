@@ -51,14 +51,29 @@ class VehicleDetail extends Model
     ];
 
     //RELACIONES
+    public function Empresa()
+    {
+        return $this->belongsTo(Company::class, 'empresa_id');
+    }
+
+    public function Lote()
+    {
+        return $this->belongsTo(Lot::class, 'lote_id');
+    }
+
+    public function Producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
+
     public function Marca()
     {
-        return $this->belongsTo(Brand::class, 'marca_id')->withDefault();
+        return $this->belongsTo(Brand::class, 'marca_id');
     }
 
     public function Modelo()
     {
-        return $this->belongsTo(Brand::class, 'modelo_id')->withDefault();
+        return $this->belongsTo(Brand::class, 'modelo_id');
     }
 
 }

@@ -18,13 +18,13 @@ class Gambito
 {
     public $id;
     public $check;
-    
+
     //METODOS DE ENCRIPTACION
     public static function hash($id, $decode = null)
     {
         $hashids = new Hashids();
         return is_null($decode)
-            ?  $hashids->encode($id, 0,1,2,3,4,5,6)
+            ?  $hashids->encode($id, 0,1,2,3,4,5,6,5,4,3,2,1,0 ,$id)
             :  $hashids->decode($id)[0];
     }
 

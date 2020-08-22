@@ -32,7 +32,7 @@
         @enderror
     </div>
     <div class="custom-control col-md-4">
-        <label for="producto_id">Lotes</label>
+        <label for="producto_id">Producto</label>
         <select class="form-control  @error('producto_id') is-invalid @enderror" name="producto_id" id="producto_id">
             @forelse($productos as $data)
                 <option value="{{$data->id}}">{{$data->nombre}}</option>

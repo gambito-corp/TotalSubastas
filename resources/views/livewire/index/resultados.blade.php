@@ -61,9 +61,9 @@
                                             <div class="btn-group d-flex justify-content-center">
                                                 @if($dato->tipo_subasta == 'Compra')
 {{--                                                    cambiar a compra cuando la vista este habilitada--}}
-                                                    <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
+                                                    <a href="{!!route('subastaOnline', ['id' => $dato->hash($dato->id)])!!}">
                                                 @else
-                                                    <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
+                                                    <a href="{!!route('subastaOnline', ['id' => $dato->hash($dato->id)])!!}">
                                                 @endif
                                                     <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}}">
                                                         <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>

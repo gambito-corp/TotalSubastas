@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Helpers\Gambito;
 
 class Producto extends Model
 {
@@ -50,6 +51,10 @@ class Producto extends Model
         'updated_at'        => 'datetime',
         'deleted_at'        => 'datetime',
     ];
+
+    public function Hash ($id) {
+        return Helpers\Gambito::hash($id);
+    }
 
 
     public function Empresa()

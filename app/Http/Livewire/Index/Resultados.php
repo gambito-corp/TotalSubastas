@@ -10,52 +10,19 @@ use Livewire\Component;
 
 class Resultados extends Component
 {
-    /**
-     * @var mixed
-     */
     public $usuarios;
-    /**
-     * @var mixed
-     */
     public $resultado;
-    /**
-     * @var mixed
-     */
     public $buscar;
-    /**
-     * @var mixed
-     */
     public $empresas;
-    /**
-     * @var mixed
-     */
     public $picked;
-    /**
-     * @var mixed
-     */
     public $precioMin;
-    /**
-     * @var mixed
-     */
     public $precioMax;
-    /**
-     * @var mixed
-     */
     public $ciudad;
-    /**
-     * @var mixed
-     */
     public $tipoV;
-    /**
-     * @var mixed
-     */
     public $tipoR;
+    public $like;
 
     protected $listeners = ['buscarEmpresas'];
-    /**
-     * @var Like[]|\Illuminate\Database\Eloquent\Collection|mixed
-     */
-    public $like;
 
 
     public function mount($empresas)

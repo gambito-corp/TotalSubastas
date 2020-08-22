@@ -29,13 +29,7 @@
         <div class="tab-pane fade show active" id="v-pills-resumen" role="tabpanel"
           aria-labelledby="v-pills-resumen-tab">
           <p>
-            {!!'lo que determina el consumo de combustible de una moto, esta dado principalmente por el
-            tamaÃƒÂ±o de su
-            motor, el peso general de la moto y el tipo
-            de conducciÃ³n que mantenga el piloto. En leo 110, los dos primeros factores estan a favor de un
-            excelente rendimiento de combustible, que sumados
-            a una conducciÃ³n tranquila, permiten entregar una autonomia aproximada de 165 km. con su toque
-            de 0.92 galones a tope'!!}
+            {!!$producto->Vehiculo->informacion!!}
           </p>
 
           <div class="row">
@@ -201,7 +195,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Airbag</strong> <br>
               @isset($producto->Vehiculo->airbag)
-                <small>{{$producto->Vehiculo->airbag}}</small>
+                <small>{{$producto->Vehiculo->airbag ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -216,9 +210,9 @@
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
-              <strong>Lunas</strong> <br>
+              <strong>Lunas Polarizadas</strong> <br>
               @isset($producto->Vehiculo->lunas)
-                <small>{{$producto->Vehiculo->lunas}}</small>
+                <small>{{$producto->Vehiculo->lunas ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -228,7 +222,7 @@
               <strong>Gps</strong>
               <br>
               @isset($producto->Vehiculo->gps)
-                <small>{{$producto->Vehiculo->gps}}</small>
+                <small>{{$producto->Vehiculo->gps  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -248,7 +242,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Bluetooth</strong> <br>
               @isset($producto->Vehiculo->bluetooth)
-                <small>{{$producto->Vehiculo->bluetooth}}</small>
+                <small>{{$producto->Vehiculo->bluetooth  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -256,7 +250,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Radio</strong> <br>
               @isset($producto->Vehiculo->am_fm)
-                <small>{{$producto->Vehiculo->am_fm}}</small>
+                <small>{{$producto->Vehiculo->am_fm  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -265,7 +259,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Reproductor</strong> <br>
                 @isset($producto->Vehiculo->cd)
-                <small>{{$producto->Vehiculo->cd}}</small>
+                <small>{{$producto->Vehiculo->cd  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -273,7 +267,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Soporte de Tarjeta</strong> <br>
               @isset($producto->Vehiculo->sd)
-                <small>{{$producto->Vehiculo->sd}}</small>
+                <small>{{$producto->Vehiculo->sd  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -283,7 +277,7 @@
               <strong>Audio Aux</strong>
               <br>
               @isset($producto->Vehiculo->aux)
-                <small>{{$producto->Vehiculo->aux}}</small>
+                <small>{{$producto->Vehiculo->aux  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -291,7 +285,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Entrada USB</strong> <br>
                 @isset($producto->Vehiculo->usb)
-                <small>{{$producto->Vehiculo->usb}}</small>
+                <small>{{$producto->Vehiculo->usb  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -309,7 +303,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Alarma</strong> <br>
                 @isset($producto->Vehiculo->alarma)
-                <small>{{$producto->Vehiculo->alarma}}</small>
+                <small>{{$producto->Vehiculo->alarma  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -319,7 +313,7 @@
               <strong>Faros Neblineros</strong>
               <br>
               @isset($producto->Vehiculo->neblineros)
-                <small>{{$producto->Vehiculo->neblineros}}</small>
+                <small>{{$producto->Vehiculo->neblineros  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -327,7 +321,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Sensores</strong> <br>
                 @isset($producto->Vehiculo->sensores)
-                <small>{{$producto->Vehiculo->sensores}}</small>
+                <small>{{$producto->Vehiculo->sensores  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -347,7 +341,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Saneado</strong> <br>
               @isset($producto->Vehiculo->saneado)
-                <small>{{$producto->Vehiculo->saneado}}</small>
+                <small>{{$producto->Vehiculo->saneado  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -355,7 +349,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Captura</strong> <br>
               @isset($producto->Vehiculo->captura)
-                <small>{{$producto->Vehiculo->captura}}</small>
+                <small>{{$producto->Vehiculo->captura  ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -364,7 +358,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Seguro</strong> <br>
               @isset($producto->Vehiculo->seguro)
-                <small>{{$producto->Vehiculo->seguro}}</small>
+                <small>{{$producto->Vehiculo->seguro ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -372,7 +366,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>SOAT</strong> <br>
               @isset($producto->Vehiculo->soat)
-                <small>{{$producto->Vehiculo->soat}}</small>
+                <small>{{$producto->Vehiculo->soat ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
@@ -381,7 +375,7 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>RTV</strong> <br>
               @isset($producto->Vehiculo->rtv)
-                <small>{{$producto->Vehiculo->rtv}}</small>
+                <small>{{$producto->Vehiculo->rtv ? 'si':'no' }}</small>
               @else
                 <small>Sin Datos en la BD</small>
               @endisset
