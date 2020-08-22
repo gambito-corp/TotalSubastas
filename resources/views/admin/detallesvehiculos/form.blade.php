@@ -15,8 +15,8 @@
                     @livewire('admin.form.imagen.create',  ['empresas' => $empresas, 'lotes' => $lotes, 'productos' => $productos])
                     @livewire('admin.form.modelo.create')
                 @else
-{{--                    @livewire('admin.form.imagen.update',  ['dato' => $data, 'empresas' => $empresas, 'lotes' => $lotes, 'productos' => $productos])--}}
-{{--                    @livewire('admin.form.modelo.update, ['dato' => $data, 'marcas' => $marcas, 'modelos' => $modelos])--}}
+                    HOLA MUNDOOOO
+                    @livewire('admin.form.modelo.update', ['data' => $data])
                 @endif
                 <div class="form-group row">
                     <div class="custom-control col-md-2">
@@ -102,11 +102,11 @@
                     <div class="custom-control col-md-3">
                         <label for="estado_vehiculo">Estado del Vehiculo</label>
                         <select class="form-control  @error('marca_id') is-invalid @enderror" name="estado_vehiculo" id="estado_vehiculo">
-                            <option value="{{!is_null($data->id)?$data->estado->vehiculo:'Selecciona una opcion'}}"{{!is_null($data->id)?'selected':'disabled'}}>
-                                {{!is_null($data->id)?$data->estado->vehiculo:'Selecciona una opcion'}}
+                            <option value="{{!is_null($data->id)?$data->estado:'Selecciona una opcion'}}"{{!is_null($data->id)?'':'disabled'}}>
+                                {{!is_null($data->id)?$data->estado:'Selecciona una opcion'}}
                             </option>
-                            <option value="Nuevo">Nuevo</option>
-                            <option value="Seminuevo">Seminuevo</option>
+                            <option value="Nuevo"{{(!is_null($data->id)&&$data->estado == 'Nuevo')?'selected':''}}>Nuevo</option>
+                            <option value="Seminuevo"{{(!is_null($data->id)&&$data->estado == 'Seminuevo')?'selected':''}}>Seminuevo</option>
                         </select>
 
                         @error('estado_vehiculo')
@@ -117,9 +117,8 @@
                     </div>
                     <div class="custom-control col-md-6">
                         <label for="informacion">Informacion del Vehiculo</label>
-                        <textarea name="informacion" id="informacion" class="form-control  @error('informacion') is-invalid @enderror" cols="3" rows="2">
-                            {{!is_null($data->id) ? $data->informacion:old('informacion')}}
-                        </textarea>
+                        <textarea name="informacion" id="informacion" class="form-control  @error('informacion') is-invalid @enderror" cols="3" rows="2"
+                        >{{!is_null($data->id) ? $data->informacion:old('informacion')}}</textarea>
 
                         @error('informacion')
                         <span class="invalid-feedback" role="alert">
@@ -182,9 +181,8 @@
                 <div class="form-group row">
                     <div class="custom-control col-md-6">
                         <label for="terminos">Terminos y Condiciones Adicionales</label>
-                        <textarea name="terminos" id="terminos" class="form-control  @error('terminos') is-invalid @enderror" cols="3" rows="10">
-                            {{!is_null($data->id) ? $data->terminos:old('terminos')}}
-                        </textarea>
+                        <textarea name="terminos" id="terminos" class="form-control  @error('terminos') is-invalid @enderror" cols="3" rows="10"
+                        >{{!is_null($data->id) ? $data->terminos:old('terminos')}}</textarea>
                     </div>
                     <div class="col-md-6">
                         <div class="row">
