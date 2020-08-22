@@ -79,11 +79,11 @@
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Año</strong> <br>
-{{--                @isset($producto->Vehiculo->year)--}}
-{{--                    <small>{{$producto->Vehiculo->year}}</small>--}}
-{{--                @else--}}
-{{--                    <small>Sin Datos en la BD</small>--}}
-{{--                @endisset--}}
+                @isset($producto->Vehiculo->year)
+                    <small>{{$producto->Vehiculo->year}}</small>
+                @else
+                    <small>Sin Datos en la BD</small>
+                @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
