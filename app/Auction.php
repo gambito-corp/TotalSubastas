@@ -49,29 +49,29 @@ class Auction extends Model
     ];
 
     //RELACIONES
-    public function products()
+    public function Producto()
     {
-        return $this->hasOne(Producto::class)->withDefault();
+        return $this->belongsTo(Producto::class, 'producto_id');
     }
 
     public function Ganador()
     {
-        return $this->hasOne(User::class)->withDefault();
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function Segundo()
     {
-        return $this->hasOne(User::class)->withDefault();
+        return $this->belongsTo(User::class, '_id');
     }
 
     public function Tercero()
     {
-        return $this->hasOne(User::class)->withDefault();
+        return $this->belongsTo(User::class, '_id');
     }
 
     public function Cuarto()
     {
-        return $this->hasOne(User::class)->withDefault();
+        return $this->belongsTo(User::class, '_id');
     }
 
 }

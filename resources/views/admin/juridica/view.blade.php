@@ -27,7 +27,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Persona</th>
+                        <th>Representante</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
                         <th>Direccion Secundaria</th>
@@ -89,7 +89,7 @@
                 <tfoot>
                     <tr>
                         <th>Id</th>
-                        <th>Persona</th>
+                        <th>Representante</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
                         <th>Direccion Secundaria</th>

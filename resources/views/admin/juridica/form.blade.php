@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     @if (is_null($data->id))
                         <div class="custom-control col-md-6">
-                            <label for="persona_id">Persona</label>
+                            <label for="persona_id">Representante</label>
                             <select name="persona_id" id="persona_id" class="form-control">
                                 @forelse ($personas as $persona)
                                     <option value="{{$persona->id}}">{{$persona->nombres}}</option>

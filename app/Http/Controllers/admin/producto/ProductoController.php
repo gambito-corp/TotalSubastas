@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\producto;
 
+
 use App\Company;
 use App\Country;
 use App\Helpers\Gambito;
@@ -110,7 +111,6 @@ class ProductoController extends Controller
                 ->encode('jpg', 90);
             $file->save(Storage::disk('s3')->put('producto/'.$imagen_name, $file));
             $producto->imagen = $imagen_name;
-
         }
 
         $producto->save();
