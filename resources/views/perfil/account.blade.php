@@ -139,23 +139,7 @@
                                         </div>
                                     @empty
                                         <div class="media bg-light border-bottom">
-                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                                <title>Placeholder</title>
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                                </text>
-                                            </svg>
-                                            <div class="media-body pb-4">
-                                                <div class="mt-3 m-acc_text">
-                                                    <h5 class="mt-0"> kia rio 2007 </h5>
-                                                    <span>$ 23 400</span>
-                                                </div>
-                                                <p>fecha en vivo : 12/04/20</p>
-                                                <p>fecha registro : 10/04/20</p>
-                                            </div>
+                                            <h2><strong>No Hay Participaciones Activas</strong></h2>
                                         </div>
                                     @endforelse
                                 </div>
@@ -180,23 +164,7 @@
                                         </div>
                                     @empty
                                         <div class="media bg-light border-bottom">
-                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                                <title>Placeholder</title>
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                                </text>
-                                            </svg>
-                                            <div class="media-body pb-4">
-                                                <div class="mt-3 m-acc_text">
-                                                    <h5 class="mt-0"> kia rio 2007 </h5>
-                                                    <span>$ 23 400</span>
-                                                </div>
-                                                <p>fecha en vivo : 12/04/20</p>
-                                                <p>fecha registro : 10/04/20</p>
-                                            </div>
+                                            <h2><strong>No Hay Participaciones Pasadas</strong></h2>
                                         </div>
                                     @endforelse
                                 </div>
@@ -221,23 +189,7 @@
                                         </div>
                                     @empty
                                         <div class="media bg-light border-bottom">
-                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                                <title>Placeholder</title>
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                                </text>
-                                            </svg>
-                                            <div class="media-body pb-4">
-                                                <div class="mt-3 m-acc_text">
-                                                    <h5 class="mt-0"> kia rio 2007 </h5>
-                                                    <span>$ 23 400</span>
-                                                </div>
-                                                <p>fecha en vivo : 12/04/20</p>
-                                                <p>fecha registro : 10/04/20</p>
-                                            </div>
+                                            <h2><strong>No Vas Ganando en Ninguna Subastas</strong></h2>
                                         </div>
                                     @endforelse
                                 </div>
@@ -245,7 +197,7 @@
                         </div>
 
                         <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
-                            <h2 class="text-darken pb-3">Lotes Ganados</h2>
+                            <h2 class="text-darken pb-3">Vehiculos Ganados</h2>
                             <div class="row ">
                                 <div class="col pl-3 radius">
                                     @forelse($ganadas as $producto)
@@ -262,46 +214,15 @@
                                         </div>
                                     @empty
                                         <div class="media bg-light border-bottom">
-                                            <svg class="bd-placeholder-img mr-3 ml-3 mt-3" width="70" height="70"
-                                                 xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
-                                                 focusable="false" role="img" aria-label="Placeholder: 70x70">
-                                                <title>Placeholder</title>
-                                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">
-
-                                                </text>
-                                            </svg>
-                                            <div class="media-body pb-4">
-                                                <div class="mt-3 m-acc_text">
-                                                    <h5 class="mt-0"> kia rio 2007 </h5>
-                                                    <span>$ 23 400</span>
-                                                </div>
-                                                <p>fecha en vivo : 12/04/20</p>
-                                                <p>fecha registro : 10/04/20</p>
-                                            </div>
+                                            <h2><strong>Todavia No Ganaste Ningun Vehiculo</strong></h2>
                                         </div>
                                     @endforelse
                                 </div>
                             </div>
                         </div>
-
-{{--                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">--}}
-{{--                            <h2 class="text-darken pb-3">Puntaje</h2>--}}
-{{--                            <div class="row row-cols-2 m-acc_points mr-0 ml-0">--}}
-{{--                                <div class="col-12 border-bottom  p-5 m-acc_char"> 3 pts</div>--}}
-{{--                                <div class="col-6 p-5 border-right m-acc_points-bottom">--}}
-{{--                                    Poisitivo--}}
-{{--                                    <p class="p-2">40.8%</p>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-6 p-5 m-acc_points-bottom">--}}
-{{--                                    Negativo--}}
-{{--                                    <p class="p-2">59.2%</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
                     </div>
                     <div class="col-12 col-md-12 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0 pl-0">
-                        <h2 class="text-darken pb-3 border-top pt-5">Movimientos</h2>
+                        <h2 class="text-darken pb-3 border-top pt-5">Garantias Depositadas</h2>
                         <div class="col-12 pl-0 pr-0 col-md-12 col-sm-12 col-xs-12 live-push_action-floating">
                             <article>
                                 <!-- <h5 class="text-uppercase ranking_live">ranking</h5>-->
@@ -345,9 +266,6 @@
                                         <h2 class="text-darken">Ho hay un registro</h2>
                                     </div>
                                 @endforelse
-                                <div class="col-md-12 text-center pt-3 pb-3" style="background-color:#8F79D4; ">
-                                    load more
-                                </div>
                             </div>
                         </div>
                     </div>
