@@ -6,7 +6,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link title-to_results" href="#">hay {{count($empresas)}} Resultados
+                        <a class="nav-link title-to_results" href="#">hay {{$cuenta}} Resultados
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>

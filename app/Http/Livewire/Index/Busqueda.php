@@ -11,45 +11,15 @@ use Illuminate\Support\Facades\Redis;
 class Busqueda extends Component
 {
 //    METODO CERRADO 100%
-    /**
-     * @var mixed
-     */
     public $buscar = '';
-    /**
-     * @var mixed
-     */
     public $empresas = [];
-    /**
-     * @var mixed
-     */
     public $picked;
-    /**
-     * @var mixed
-     */
     public $precioMin;
-    /**
-     * @var mixed
-     */
     public $precioMax;
-    /**
-     * @var mixed
-     */
     public $memoria;
-    /**
-     * @var mixed
-     */
     public $ciudad;
-    /**
-     * @var mixed
-     */
     public $tipoV;
-    /**
-     * @var mixed
-     */
     public $tipoR;
-    /**
-     * @var mixed
-     */
     public $select;
 
     public function mount($empresas)
