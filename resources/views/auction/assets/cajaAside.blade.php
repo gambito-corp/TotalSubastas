@@ -14,7 +14,7 @@
             <p class="mb-0 car-side-nav_title text-dark  ">
               solicita una vista
             </p>
-            <img src="./assets/img/20x20.svg" alt="" srcset="">
+            <img src="{{asset('img/20x20.svg')}}" alt="" srcset="">
           </div>
         </a>
         <!-- Card body -->
@@ -24,18 +24,20 @@
             <div class="col d-flex justify-content-between  mt-2">
               <p class="car-side-nav_bp"> Puedes venir al almacén central, solicita una visita aquí: </p>
             </div>
-            <form class=" d-block  mb-3">
+            <form class=" d-block  mb-3" method="POST" action="{{route('citas', ['id' => $producto->id])}}">
+                @csrf
               <div class="form-group  mb-3">
                 <label class="tex-dark font-weight-bold">fecha</label>
-                <input type="date" class="form-control">
+                <input type="date" name="fecha" class="form-control">
               </div>
               <div class="form-groupmb-3">
                 <label class="tex-dark font-weight-bold">hora </label>
-                <input type="time" class="form-control">
+                <input type="time" name="hora" class="form-control">
               </div>
               <div class="form-group  mb-3 d-flex justify-content-center ">
-                <button type="button" class="btn  pl-4 pr-4 mt-3 btn-primary rounded-pill" value="solicitar">
-                  solicitar</button>
+                <button type="submit" class="btn  pl-4 pr-4 mt-3 btn-primary rounded-pill" value="solicitar">
+                    solicitar
+                </button>
               </div>
             </form>
           </div>
@@ -63,57 +65,40 @@
         <div id="collapse2" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
           data-parent="#accordionEx">
           <div class="row mr-0 ml-0">
-            
+
             <!--<div class="col-12 pt-2 pb-2 d-flex  ">-->
               <div class="col-md-4 text-to_title-auction_live ">
-                usuario
+                Puesto
               </div>
               <div class="col-md-4 text-to_title-auction_live">
-                fecha
+                Usuario
               </div>
               <div class="col-md-4 text-to_title-auction_live">
-                monto
+                Monto
               </div>
-            
-
             <div class="row margin-row pt-2 d-flex pb-2 border-bottom border-top ml-1 mr-1">
-              
+
+              @forelse($resultados as $key => $resultado)
               <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
-                Usuario
+                  {{$key+1}}
               </div>
               <div class="col-md-4 text-darken text-auction_live">
-                25.05.20
+                  {{$resultado['usuario']['name']}}
               </div>
               <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $12800
+                  {{$resultado['cantidad']}}
               </div>
-              <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
-                Usuario
-              </div>
-              <div class="col-md-4 text-darken text-auction_live">
-                25.05.20
-              </div>
-              <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $12800
-              </div>
-              <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
-                Usuario
-              </div>
-              <div class="col-md-4 text-darken text-auction_live">
-                25.05.20
-              </div>
-              <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $12800
-              </div>
-              <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
-                Usuario
-              </div>
-              <div class="col-md-4 text-darken text-auction_live">
-                25.05.20
-              </div>
-              <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
-                $12800
-              </div>
+                  @empty
+                    <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
+                        -
+                    </div>
+                    <div class="col-md-4 text-darken text-auction_live">
+                        -
+                    </div>
+                    <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
+                        -
+                    </div>
+                  @endforelse
             </div>
           </div>
         </div>

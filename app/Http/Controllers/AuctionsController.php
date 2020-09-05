@@ -12,6 +12,8 @@ use App\Helpers\Gambito;
 use App\Lot;
 use App\Message;
 use App\Producto;
+use App\Person;
+use App\Ranking;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,7 +41,14 @@ class AuctionsController extends Controller
             ->get();
         $empresa = Company::find($producto->empresa_id)->pluck('nombre')->first();
         $fecha = Lot::find($producto->lote_id)->pluck('subasta_at')->first()->format('M-d g:i A');
-        return view('auction.show', compact('producto', 'referidos', 'empresa', 'fecha'));
+        $resultados = Ranking::with('Usuario')->where('producto_id', $producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
+        return view('auction.show', compact('producto', 'referidos', 'empresa', 'fecha', 'resultados'));
+    }
+
+    public function citas(Request $request, $id)
+    {
+        $persona = Person::where('user_id', Auth::id())->first();
+        dd('Proceder a Enviar Correo',$id, $request, $persona);
     }
 
     public function live()
@@ -155,6 +164,8 @@ class AuctionsController extends Controller
             'alerta' => 'danger'
         ]);
     }
+
+
 
 
 }

@@ -38,6 +38,9 @@ Route::get('/logotipo/{id}', 'ImagenesController@getEmpresa')->name('empresa.get
 Route::get('/producto/{id}', 'ImagenesController@getproducto')->name('producto.getImagen');
 Route::get('/producto/set/{id}', 'ImagenesController@getProductoImagen')->name('set.getImagen');
 
+//Formularios diversos
+Route::post('/citas/{id}', 'AuctionsController@citas')->name('citas');
+
 //Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');
 Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
