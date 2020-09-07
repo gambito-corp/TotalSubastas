@@ -25,7 +25,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'role_id', 'name', 'email', 'password', 'incompleto', 'tipo'
     ];
 
     /**
@@ -60,26 +60,48 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     //Metodos Personalizados
-    public static function registerUser(array $data)
+    public static function registerUser(array $data, $tipo)
     {
+        if($tipo == 'natural'){
+            $rol = 2;
+            $nombre = substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3);
+        }elseif($tipo == 'juridica'){
+            $rol = 3;
+            $nombre = $data['nombre'];
+        }
+
         $user = new User();
-        $test = DB::transaction(function()use($data, $user){
+        DB::transaction(function()use($data, $tipo, $nombre, $rol){
             $user = User::create([
-                'role_id' => 2,
-                'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
+                'role_id' => $rol,
+                'name' => $nombre,
                 'email' => $data['email'],
                 'avatar' => 'default.png',
                 'password' => Hash::make($data['password']),
+                'completo' => false,
+                'tipo' => $tipo
             ]);
-
-            Person::create([
-                'user_id' => $user->id,
-                'nombres' => $data['nombre'],
-                'apellidos' => $data['apellido'],
-                'numero_documento' => $data['dni'],
-                'telefono'=> $data['tel'],
-                'email' => $data['email'],
-            ]);
+            if($tipo == 'natural'){
+                Person::create([
+                    'user_id' => $user->id,
+                    'nombres' => $data['nombre'],
+                    'apellidos' => $data['apellido'],
+                    'numero_documento' => $data['dni'],
+                    'telefono'=> $data['tel'],
+                    'email' => $data['email'],
+                ]);
+            }elseif($tipo == 'juridica'){
+                LegalPerson::create([
+                    'user_id'           => $user->id,
+                    'banco_id'          => $data['banco_id'],
+                    'nombre'            => $data['nombre'],
+                    'razon_social'      => $data['razon_social'],
+                    'ruc'               => $data['ruc'],
+                    'numero_cuenta'     => $data['numero_cuenta'],
+                    'telefono'          => $data['tel'],
+                    'email'             => $data['email']
+                ]);
+            }
         });
         return User::where('email', $data['email'])->first();
     }

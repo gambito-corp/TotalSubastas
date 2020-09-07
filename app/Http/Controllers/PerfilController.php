@@ -6,6 +6,7 @@ use App\Address;
 use App\Audit;
 use App\Balance;
 use App\Garantia;
+use App\LegalPerson;
 use App\Like;
 use App\Participacion;
 use App\Person;
@@ -62,9 +63,9 @@ class PerfilController extends Controller
 
     public function edit ()
     {
-        $id = Auth::id();
-        $persona = Person::where('user_id', $id)->first();
-        return view('perfil.profile-edit', compact('persona'));
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+
+        return view('perfil.profile-edit', compact('data'));
     }
 
     public function update(Request $request)

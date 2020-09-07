@@ -12,7 +12,7 @@ class JuridicaSeeder extends Seeder
     public function run()
     {
         LegalPerson::create([
-            'persona_id'    => 1,
+            'user_id'       => 1,
             'banco_id'      => 1,
             'direccion_id'  => 1,
             'direccion2_id' => 2,
@@ -20,10 +20,11 @@ class JuridicaSeeder extends Seeder
             'razon_social'  => 'Multitiendas S.A.C',
             'ruc'           => '20604045747',
             'numero_cuenta' => '64645646541651564',
-            'telefono'      => '960717583'
+            'telefono'      => '960717583',
+            'email'         => 'email@empresa.com'
         ]);
         LegalPerson::create([
-            'persona_id'    => 2,
+            'user_id'       => 1,
             'banco_id'      => 2,
             'direccion_id'  => 3,
             'direccion2_id' => 4,
@@ -31,10 +32,11 @@ class JuridicaSeeder extends Seeder
             'razon_social'  => 'Belcorp S.A.C',
             'ruc'           => '20604045747',
             'numero_cuenta' => '64645646541651564',
-            'telefono'      => '960717583'
+            'telefono'      => '960717583',
+            'email'         => 'email@empresa.com'
         ]);
         LegalPerson::create([
-            'persona_id'    => 3,
+            'user_id'       => 1,
             'banco_id'      => 3,
             'direccion_id'  => 5,
             'direccion2_id' => 6,
@@ -42,10 +44,11 @@ class JuridicaSeeder extends Seeder
             'razon_social'  => 'Almacenes Peruanos S.A.C.',
             'ruc'           => '20604045747',
             'numero_cuenta' => '64645646541651564',
-            'telefono'      => '960717583'
+            'telefono'      => '960717583',
+            'email'         => 'email@empresa.com'
         ]);
         LegalPerson::create([
-            'persona_id'    => 1,
+            'user_id'       => 1,
             'banco_id'      => 2,
             'direccion_id'  => 1,
             'direccion2_id' => 2,
@@ -53,7 +56,8 @@ class JuridicaSeeder extends Seeder
             'razon_social'  => 'Ripley S.A.C.',
             'ruc'           => '20604045747',
             'numero_cuenta' => '64645646541651564',
-            'telefono'      => '960717583'
+            'telefono'      => '960717583',
+            'email'         => 'email@empresa.com'
         ]);
     }
 }

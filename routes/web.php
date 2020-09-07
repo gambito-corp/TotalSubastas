@@ -25,7 +25,7 @@ Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
 Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
 
 // Rutas Auth
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true, 'register' => false]);
 
 //Vistas de Perfil
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
@@ -40,6 +40,12 @@ Route::get('/producto/set/{id}', 'ImagenesController@getProductoImagen')->name('
 
 //Formularios diversos
 Route::post('/citas/{id}', 'AuctionsController@citas')->name('citas');
+
+//Registro de Usuarios
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/registro', 'Auth\RegisterController@takeTipe')->name('TakeTipe');
+Route::get('/formulario', 'Auth\RegisterController@FormUser')->name('FormUser');
+Route::post('/registro/{tipo}', 'Auth\RegisterController@registro')->name('registro');
 
 //Rutras del Administrador
 Route::get('admin', 'admin\AdminController@home')->name('admin');

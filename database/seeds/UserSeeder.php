@@ -14,7 +14,9 @@ class UserSeeder extends Seeder
             'email'             => 'asesor.pedro@gmail.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
-            'password'          => Hash::make('C4tntnox*+')
+            'password'          => Hash::make('C4tntnox*+'),
+            'completo'          => true,
+            'tipo'              => 'natural'
         ]);
         User::create([
             'role_id'           => '1',
@@ -22,7 +24,9 @@ class UserSeeder extends Seeder
             'email'             => 'test1@test.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
-            'password'          => Hash::make('Admin')
+            'password'          => Hash::make('Admin'),
+            'completo'          => true,
+            'tipo'              => 'natural'
         ]);
         User::create([
             'role_id'           => '1',
@@ -30,7 +34,9 @@ class UserSeeder extends Seeder
             'email'             => 'admin@gonzalo.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
-            'password'          => Hash::make('Admin')
+            'password'          => Hash::make('Admin'),
+            'completo'          => true,
+            'tipo'              => 'natural'
         ]);
         User::create([
             'role_id'           => '2',
@@ -38,7 +44,9 @@ class UserSeeder extends Seeder
             'email'             => 'alexis.veliz.83@gmail.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
-            'password'          => Hash::make('Admin')
+            'password'          => Hash::make('Admin'),
+            'completo'          => true,
+            'tipo'              => 'natural'
         ]);
         User::create([
             'role_id'           => '2',
@@ -46,7 +54,9 @@ class UserSeeder extends Seeder
             'email'             => 'avega@rachacreativa.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
-            'password'          => Hash::make('Admin')
+            'password'          => Hash::make('Admin'),
+            'completo'          => true,
+            'tipo'              => 'natural'
         ]);
     }
 }

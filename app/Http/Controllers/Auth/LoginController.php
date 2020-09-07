@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -65,8 +66,7 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-//            dd($request->server(), Auth::user());
-            $audit = Audit::create([
+            Audit::create([
                 'user_id' => Auth::user()->id,
                 'ip' => $request->server('REMOTE_ADDR'),
                 'tipo_dispositivo' => '',
@@ -83,5 +83,26 @@ class LoginController extends Controller
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
+    }
+
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        if ($response = $this->authenticated($request, $this->guard()->user())) {
+            return $response;
+        }
+
+        if(Auth::user()->completo){
+            $respuesta = redirect()->intended($this->redirectPath());
+        }else{
+            $respuesta = redirect()->route('perfil.edit');
+        }
+
+        return $request->wantsJson()
+            ? new Response('', 204)
+            : $respuesta;
     }
 }

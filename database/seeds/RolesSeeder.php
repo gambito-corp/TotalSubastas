@@ -18,5 +18,9 @@ class RolesSeeder extends Seeder
             'name'          => 'User',
             'display_name'  => 'user'
         ]);
+        Rol::create([
+            'name'          => 'Empresa',
+            'display_name'  => 'empresa'
+        ]);
     }
 }
