@@ -184,7 +184,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="titulo_direccion" class="font-weight-bold text-dark">Titulo de Guardado</label>
+                                            <label for="titulo_direccion" class="font-weight-bold text-dark">Titulo Para Guardar La Direccion</label>
                                             <input type="text" name="titulo_direccion" class="form-control  @error('titulo_direccion') is-invalid @enderror" placeholder="">
 
                                             @error('titulo_direccion')
