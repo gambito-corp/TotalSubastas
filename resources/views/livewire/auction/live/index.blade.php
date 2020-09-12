@@ -67,6 +67,7 @@
     </div>
 </div>
 @push('scripts')
+
     <script>
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;

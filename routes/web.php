@@ -17,12 +17,12 @@ Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 
 //Rutas de Subasta
-Route::get('/auction', 'AuctionsController@index')->name('auction');
-Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline');
-Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail');
-Route::post('/live/auction/puja/{id}', 'AuctionsController@pujaRecibida')->name('pujaRecibida');
-Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc');
-Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance');
+Route::get('/auction', 'AuctionsController@index')->name('auction')->middleware('perfilCompleto');
+Route::get('/auction/id/{id}', 'AuctionsController@show')->name('subastaOnline')->middleware('perfilCompleto');
+Route::get('/live/auction/id/{id}', 'AuctionsController@live')->name('auctionLiveDetail')->middleware('perfilCompleto');
+Route::post('/live/auction/puja/{id}', 'AuctionsController@pujaRecibida')->name('pujaRecibida')->middleware('perfilCompleto');
+Route::get('/endAuction/{id}', 'AuctionsController@livEnd')->name('endAuc')->middleware('perfilCompleto');
+Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance')->middleware('perfilCompleto');
 
 // Rutas Auth
 Auth::routes(['verify' => true, 'register' => false]);
@@ -30,7 +30,7 @@ Auth::routes(['verify' => true, 'register' => false]);
 //Vistas de Perfil
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
-Route::patch('/perfil', 'PerfilController@update')->name('perfil');
+Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
 
 //Controladora de Imagenes
 Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');

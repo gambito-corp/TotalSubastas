@@ -35,7 +35,7 @@
                         <h2 class=" font-weight-bold text-dark pb-5 text-center">
                             Informacion del Usuario
                         </h2>
-                        <form action="{{route('perfil')}}" method="post">
+                        <form action="{{route('perfil.update')}}" method="post" enctype="multipart/form-data">
                             @csrf @method('PATCH')
                             @if(auth()->user()->tipo == 'natural')
                                 <div>
@@ -97,8 +97,22 @@
                                             </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="numero_documento" class="font-weight-bold text-dark">DNI</label>
+                                        <div class="form-group col-md-2">
+                                            <label for="tipo_documento" class="font-weight-bold text-dark">Tipo</label>
+                                            <select class="form-control  @error('tipo_documento') is-invalid @enderror" name="tipo_documento" id="tipo_documento">
+                                                <option value="DNI" {{(old('tipo_documento') == "DNI")? 'selected' : (($data->tipo_documento == "DNI") ? 'selected':'')}}>DNI</option>
+                                                <option value="CE" {{(old('tipo_documento') == "CE")? 'selected' : (($data->tipo_documento == "CE") ? 'selected':'')}}>CE</option>
+                                                <option value="Pasaporte" {{(old('tipo_documento') == "Pasaporte")? 'selected' : (($data->tipo_documento == "Pasaporte") ? 'selected':'')}}>Pasaporte</option>
+                                            </select>
+
+                                            @error('tipo_documento')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label for="numero_documento" class="font-weight-bold text-dark">Numero</label>
                                             <input type="text" name="numero_documento"
                                                    class="form-control @error('numero_documento') is-invalid @enderror"
                                                    value="{{old('numero_documento')?old('numero_documento'):$data->numero_documento}}">
@@ -113,31 +127,172 @@
                                     @livewire('form.direccion')
                                     <div class="row">
                                         <div class="form-group col-md-4">
-                                            <label for="name" class="font-weight-bold text-dark">Direccion 1</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <label for="direccion1" class="font-weight-bold text-dark">Direccion 1</label>
+                                            <input type="text" name="direccion1" class="form-control  @error('direccion1') is-invalid @enderror" placeholder="">
+
+                                            @error('direccion1')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="name" class="font-weight-bold text-dark">Segunda Linea</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <label for="direccion2" class="font-weight-bold text-dark">Segunda Linea</label>
+                                            <input type="text" name="direccion2" class="form-control  @error('direccion2') is-invalid @enderror" placeholder="">
+
+                                            @error('direccion2')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-2">
-                                            <label for="name" class="font-weight-bold text-dark">Numero</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <label for="numero" class="font-weight-bold text-dark">Numero</label>
+                                            <input type="text" name="numero" class="form-control  @error('numero') is-invalid @enderror" placeholder="">
+
+                                            @error('numero')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
+
                                         <div class="form-group col-md-2">
-                                            <label for="name" class="font-weight-bold text-dark">Interior/Exterior</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+
+                                            <label for="int_ext" class="font-weight-bold text-dark">Interior/Exterior</label>
+                                            <select class="form-control  @error('int_ext') is-invalid @enderror" name="int_ext" id="departamento">
+                                                <option value="Interior">Interior</option>
+                                                <option value="Exterior">Exterior</option>
+                                            </select>
+
+                                            @error('int_ext')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="name" class="font-weight-bold text-dark">Referencia</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <label for="referencia" class="font-weight-bold text-dark">Referencia</label>
+                                            <input type="text" name="referencia" class="form-control  @error('referencia') is-invalid @enderror" placeholder="">
+
+                                            @error('referencia')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label for="name" class="font-weight-bold text-dark">Titulo de Guardado</label>
-                                            <input type="text" name="name" class="form-control" placeholder="">
+                                            <label for="titulo_direccion" class="font-weight-bold text-dark">Titulo de Guardado</label>
+                                            <input type="text" name="titulo_direccion" class="form-control  @error('titulo_direccion') is-invalid @enderror" placeholder="">
+
+                                            @error('titulo_direccion')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-md-3">
+                                            <label for="banco_id" class="font-weight-bold text-dark">Banco del Usuario</label>
+                                            <select name="banco_id" id="banco_id" class="form-control @error('banco_id') is-invalid @enderror">
+                                                @forelse($bancos as $banco)
+                                                    <option value="{{$banco->id}}">{{$banco->siglas}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+
+                                            @error('banco_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="numero_cuenta" class="font-weight-bold text-dark">Numero de Cuenta</label>
+                                            <input type="text" name="numero_cuenta" class="form-control  @error('numero_cuenta') is-invalid @enderror" placeholder="">
+
+                                            @error('numero_cuenta')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="genero" class="font-weight-bold text-dark">Genero</label>
+                                            <select name="genero" id="genero" class="form-control @error('genero') is-invalid @enderror">
+                                                <option value="Hombre">Hombre</option>
+                                                <option value="Mujer">Mujer</option>
+                                            </select>
+
+                                            @error('genero')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="estado_civil" class="font-weight-bold text-dark">Estado Civil</label>
+                                            <select name="estado_civil" id="estado_civil" class="form-control @error('estado_civil') is-invalid @enderror">
+                                                <option value="Soltero">Soltero</option>
+                                                <option value="Casado">Casado</option>
+                                                <option value="Divorciado">Divorciado</option>
+                                                <option value="Viudo">Viudo</option>
+                                            </select>
+
+                                            @error('estado_civil')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        {{$data->dni_front?'':''}}
+                                        <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'2':'4'}}">
+                                            <label for="digito_documento" class="font-weight-bold text-dark">Digito de DNI</label>
+                                            <input type="text" name="digito_documento" class="form-control  @error('digito_documento') is-invalid @enderror" placeholder="">
+
+                                            @error('digito_documento')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'3':'4'}}">
+                                            <label for="dni_front" class="font-weight-bold text-dark">Documento Delante</label>
+                                            <input type="file" name="dni_front" class="form-control  @error('dni_front') is-invalid @enderror" placeholder="">
+
+                                            @error('dni_front')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'3':'4'}}">
+                                            <label for="dni_back" class="font-weight-bold text-dark">Documento Atras</label>
+                                            <input type="file" name="dni_back" class="form-control  @error('dni_back') is-invalid @enderror" placeholder="">
+
+                                            @error('dni_back')
+                                            <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                        @isset($data->dni_front)
+                                        <div class="form-group col-md-2">
+                                            <label for="dni_back" class="font-weight-bold text-dark">Documento Delante</label>
+
+                                        </div>
+                                        @endisset
+                                        @isset($data->dni_back)
+                                        <div class="form-group col-md-2">
+                                            <label for="dni_back" class="font-weight-bold text-dark">Documento Atras</label>
+
+                                        </div>
+                                        @endisset
                                     </div>
                                 @endif
                                 </div>

@@ -6,13 +6,13 @@
 <div class="container">
     <div class="row margin-row">
         @include('auction.assets.cajaAside', ['producto' => $producto, 'resultados' => $resultados])
-        <div class="col-md-9 order-md-1">
-            <div class="row main-container ">
-                @include('auction.assets.cajaCaracteristica')
-            </div><!-- row main container -->
-            <div class="row ">
-                @include('auction.assets.cajaDescargas')
-            </div>
+    </div>
+    <div class="col-md-9 order-md-1">
+        <div class="row main-container ">
+            @include('auction.assets.cajaCaracteristica')
+        </div><!-- row main container -->
+        <div class="row ">
+            @include('auction.assets.cajaDescargas')
         </div>
     </div>
     <div class="container">

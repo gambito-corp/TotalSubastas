@@ -57,7 +57,7 @@ body::-webkit-scrollbar-track {
 /* scrollbar itself */
 body::-webkit-scrollbar-thumb {
     background-color: #808080;
-    border-radius: 10px;
+    border-radius: 10px;    
 }
 /* set button(top and bottom of the scrollbar) */
 body::-webkit-scrollbar-button {
@@ -226,13 +226,6 @@ footer {
 }
 .tyc {
     background-image: url(../img/ter_condic.png);
-}
-.tyclateral{
-    /* background-image: url(../img/ter_condic.png);
-    background-size: cover;
-    background-repeat: no-repeat; */
-    width: 100%;
-    height: 10rem;
 }
 .faq {
   background-image: url(../img/faqs.png);
@@ -715,10 +708,9 @@ article.sec-carousel {
 .carousel-item-a_imagen {
     opacity: 0.99;
     background: #40303d59 0% 0% no-repeat padding-box;
-    width: 100%;
+    width: 99%;
     overflow: hidden;
     box-sizing: border-box;
-    border-radius: 10px;
 }
 .carousel-text_item_b {
     font-weight: 700;
@@ -808,14 +800,6 @@ article.sec-carousel {
     color: var(--var-badge-sea_text);
     font-family: "Graphik-Regular";
     font-weight: 100;
-}
-
-.slider{
-    padding-right: 20px !important;
-}
-
-.container-slider{
-    margin:0px !important;
 }
 
 .thumb-active {
@@ -1268,24 +1252,10 @@ article.sec-carousel {
     font-size: 25px;
     padding-top: 5px;
 }
-
-.banner3 {
-    background-image:url(../../assets/img/banner3.png);
-    background-size: cover;
-    background-position: center;
-}
-
-.banner4 {
-    background-image:url(../../assets/img/banner4.png);
-    background-size: cover;
-    background-position: center;
-}
-
 .card-slide_success img {
     position: absolute;
     right: 0;
     padding-right: 20px;
-    padding-right: 0px;
 }
 .text-light_darken {
     color: var(--var-light-gray);
@@ -1319,8 +1289,7 @@ article.sec-carousel {
 .bg-light-card {
     width: 100%;
     height: auto;
-    background-color: white;
-    border-radius: 10px;
+    background-color: var(--var-bg-light-card);
 }
 .fa-download {
     border-radius: 0;
@@ -1525,27 +1494,27 @@ article.sec-carousel {
     overflow: auto;
     background-color: #AC8EE3;
     color: aliceblue;
-    border-radius: 10px;
+    border-radius: 10px; 
 }
 .scroll-account::-webkit-scrollbar {
     width: 5px;
   }
-
+  
   /* Track */
   .scroll-account::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
+    box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
   }
-
+   
   /* Handle */
   .scroll-account::-webkit-scrollbar-thumb {
-    background: #808080;
+    background: #808080; 
     border-radius: 10px;
   }
   .row-width {
       width: 100%;
   }
-:root {
+:root { 
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;

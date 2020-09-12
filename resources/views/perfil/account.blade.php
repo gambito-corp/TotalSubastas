@@ -139,7 +139,7 @@
                                                 </div>
                                                 <p>fecha en vivo
                                                     : {{$producto->Productos->started_at->format('d-m-y')}}</p>
-                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{--$producto->created_at->format('d-m-y')--}}</p>
                                             </div>
                                         </div>
                                     @empty
@@ -166,7 +166,7 @@
                                                 </div>
                                                 <p>fecha en vivo
                                                     : {{$producto->Productos->started_at->format('d-m-y')}}</p>
-                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{--$producto->created_at->format('d-m-y')--}}</p>
                                             </div>
                                         </div>
                                     @empty
@@ -193,7 +193,7 @@
                                                 </div>
                                                 <p>fecha en vivo
                                                     : {{$producto->Productos->started_at->format('d-m-y')}}</p>
-                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{--$producto->created_at->format('d-m-y')--}}</p>
                                             </div>
                                         </div>
                                     @empty
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <p>fecha en vivo
                                                     : {{$producto->Productos->started_at->format('d-m-y')}}</p>
-                                                <p>fecha registro : {{$producto->created_at->format('d-m-y')}}</p>
+                                                <p>fecha registro : {{--$producto->created_at->format('d-m-y')--}}</p>
                                             </div>
                                         </div>
                                     @empty

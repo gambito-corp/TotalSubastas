@@ -48,7 +48,7 @@ body::-webkit-scrollbar-track {
 /* scrollbar itself */
 body::-webkit-scrollbar-thumb {
     background-color: #808080;
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 /* set button(top and bottom of the scrollbar) */
 body::-webkit-scrollbar-button {
@@ -1485,21 +1485,21 @@ article.sec-carousel {
     overflow: auto;
     background-color: #AC8EE3;
     color: aliceblue;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 .scroll-account::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   /* Track */
   .scroll-account::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
   }
-   
+
   /* Handle */
   .scroll-account::-webkit-scrollbar-thumb {
-    background: #808080; 
+    background: #808080;
     border-radius: 10px;
   }
   .row-width {

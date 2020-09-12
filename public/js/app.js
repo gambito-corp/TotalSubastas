@@ -52080,6 +52080,58 @@ module.exports = function(module) {
 
 /***/ }),
 
+/***/ "./resources/js/Cronometro.js":
+/*!************************************!*\
+  !*** ./resources/js/Cronometro.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function Lucia(TiempoRestante, cuentaRegresiva) {
+  var TiempoRestante = TiempoRestante;
+  var CuentaRegresiva = cuentaRegresiva;
+  console.log(TiempoRestante, cuentaRegresiva, 'Dentro de La Funcion');
+
+  function imprimir() {
+    console.log(TiempoRestante);
+  }
+
+  function regresiva() {
+    TiempoRestante--; // Hace el cambio de cuenta regresiva a progresiva cuando el contador toca 0
+
+    if (TiempoRestante <= 0) {
+      CuentaRegresiva = false;
+    }
+  }
+
+  function progresiva() {
+    TiempoRestante++; // Hace el cambio de cuenta progresiva a regresiva cuando el contador toca 5
+
+    if (TiempoRestante >= 5) {
+      CuentaRegresiva = true;
+    }
+  }
+
+  function inicializarConteo() {
+    imprimir(); // Hace la cuenta regresiva o progresiva dependiendo del parametro
+
+    if (CuentaRegresiva == true) {
+      regresiva();
+    } else {
+      progresiva();
+    }
+
+    var TimeOut = setTimeout(function () {
+      inicializarConteo();
+    }, 1000); // Actualiza el tiempo cada segundo, se puede modificar para manejarlo por milisegundos
+  }
+
+  console.log("Inicializando...");
+  inicializarConteo();
+}
+
+/***/ }),
+
 /***/ "./resources/js/UserNotification.js":
 /*!******************************************!*\
   !*** ./resources/js/UserNotification.js ***!
@@ -52109,6 +52161,8 @@ Echo.channel('notifications').listen('UserSessionChanged', function (e) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./Cronometro */ "./resources/js/Cronometro.js");
 
 __webpack_require__(/*! ./UserNotification */ "./resources/js/UserNotification.js");
 
@@ -52165,6 +52219,49 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   forceTLS: false,
   disableStats: false
 });
+
+function Lucia(TiempoRestante, cuentaRegresiva) {
+  var TiempoRestante = TiempoRestante;
+  var CuentaRegresiva = cuentaRegresiva;
+  console.log(TiempoRestante, cuentaRegresiva, 'Dentro de La Funcion');
+
+  function imprimir() {
+    console.log(TiempoRestante);
+  }
+
+  function regresiva() {
+    TiempoRestante--; // Hace el cambio de cuenta regresiva a progresiva cuando el contador toca 0
+
+    if (TiempoRestante <= 0) {
+      CuentaRegresiva = false;
+    }
+  }
+
+  function progresiva() {
+    TiempoRestante++; // Hace el cambio de cuenta progresiva a regresiva cuando el contador toca 5
+
+    if (TiempoRestante >= 5) {
+      CuentaRegresiva = true;
+    }
+  }
+
+  function inicializarConteo() {
+    imprimir(); // Hace la cuenta regresiva o progresiva dependiendo del parametro
+
+    if (CuentaRegresiva == true) {
+      regresiva();
+    } else {
+      progresiva();
+    }
+
+    var TimeOut = setTimeout(function () {
+      inicializarConteo();
+    }, 1000); // Actualiza el tiempo cada segundo, se puede modificar para manejarlo por milisegundos
+  }
+
+  console.log("Inicializando...");
+  inicializarConteo();
+}
 
 /***/ }),
 

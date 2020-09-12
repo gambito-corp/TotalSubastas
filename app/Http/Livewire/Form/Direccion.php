@@ -13,8 +13,15 @@ class Direccion extends Component
     public $departamentos;
     public $provincias;
     public $parent_id2;
+    public $nombre;
+    public $descripcion;
+    public $codigo;
+    public $usuarios;
     public $distrito;
     public $parent_id3;
+    public $dir1;
+    public $numero;
+    public $dir2;
 
     public function mount()
     {
@@ -56,10 +63,10 @@ class Direccion extends Component
 
     public function updatedParentid3()
     {
-        $provincias = Country::with('Parent')
+        $distritos = Country::with('Parent')
             ->where('parent_id', $this->parent_id3)
             ->get();
-        $this->distrito = $provincias;
+        $this->distrito = $distritos;
     }
 
     public function render()

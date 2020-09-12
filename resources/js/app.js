@@ -1,3 +1,3 @@
 require('./bootstrap');
-require('./UserNotification')
+require('./UserNotification');
 

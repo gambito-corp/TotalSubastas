@@ -39,7 +39,6 @@ body::-webkit-scrollbar {
   background-color: #fff;
   width: 16px;
 }
-
 /* background of the scrollbar except button or resizer */
 body::-webkit-scrollbar-track {
   background-color: #fff;

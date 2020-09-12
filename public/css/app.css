@@ -4674,12 +4674,6 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
-  line-height: 1.5rem;
-}
-
-.pcontainer{
-    line-height: 2rem;
-    font-size: 1rem;
 }
 
 abbr[title],
@@ -4794,11 +4788,6 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
-}
-
-.details{
-    width: 25%;
-    border-radius: 5px;
 }
 
 svg {
@@ -9562,7 +9551,7 @@ input[type=button].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 10px;
+  border-radius: 0.25rem;
 }
 
 .card > hr {
@@ -11747,10 +11736,6 @@ button.bg-dark:focus {
   border-radius: 0.25rem !important;
 }
 
-.rounded1 {
-    border-radius: 10px 10px 0 0;
-  }
-
 .rounded-top {
   border-top-left-radius: 0.25rem !important;
   border-top-right-radius: 0.25rem !important;
@@ -13059,15 +13044,7 @@ button.bg-dark:focus {
 
 .mb-2,
 .my-2 {
-  margin-bottom: 0.9rem !important;
-}
-
-.text-light.fa.fa-heart-o.heart.p-2{
-    margin-top: 0.8rem;
-}
-
-.mb-2.text-light{
-    margin-top: 0.8rem;
+  margin-bottom: 0.5rem !important;
 }
 
 .ml-2,
@@ -13129,8 +13106,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-    margin-top: 2rem !important;
-    margin-bottom: 2rem
+  margin-top: 3rem !important;
 }
 
 .mr-5,
@@ -13241,7 +13217,7 @@ button.bg-dark:focus {
 
 .pl-3,
 .px-3 {
-  padding-left: 0rem !important;
+  padding-left: 1rem !important;
 }
 
 .p-4 {
@@ -13279,7 +13255,7 @@ button.bg-dark:focus {
 
 .pr-5,
 .px-5 {
-  padding-right: 2rem !important;
+  padding-right: 3rem !important;
 }
 
 .pb-5,
@@ -13290,7 +13266,6 @@ button.bg-dark:focus {
 .pl-5,
 .px-5 {
   padding-left: 3rem !important;
-  padding-right: 3rem !important;
 }
 
 .m-n1 {
