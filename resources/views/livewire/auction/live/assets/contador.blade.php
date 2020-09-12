@@ -140,7 +140,6 @@
         startTimer()
         function startTimer() {
             timerInterval = setInterval(() => {
-            console.log('sigo aqui');
                 momentoActual = new Date()
                 hora = momentoActual.getHours()
                 if(hora < 10){hora = `0${hora}`;}
