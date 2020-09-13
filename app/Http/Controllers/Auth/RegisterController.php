@@ -50,7 +50,7 @@ class RegisterController extends Controller
     public function registro(CreateUserRequest $request, $tipo)
     {
         $user = User::registerUser($request->all(), $tipo);
-        return view('home.index');
+        return redirect()->route('index');
 //        $user = User::registerUser($request->all());
 
 

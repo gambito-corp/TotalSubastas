@@ -104,9 +104,11 @@ class User extends Authenticatable implements MustVerifyEmail
                     'email'             => $data['email']
                 ]);
             }
-            Mail::to($user->email)->send(new UsuarioRegristrado($user));
         });
         $user = User::where('email', $data['email'])->first();
+        if(env('APP_ENV') == 'production') {
+            Mail::to($user->email)->send(new UsuarioRegristrado($user));
+        }
         return $user;
     }
 
