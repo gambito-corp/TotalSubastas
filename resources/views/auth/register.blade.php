@@ -13,7 +13,6 @@
                     <h2 class=" font-weight-bold text-dark pb-5 text-center">
                         Crea tu cuenta para el mejor portal para subastar de tus sue&ntilde;os
                     </h2>
-                    @dump($data, $errors)
                     <form method="POST" action="{{ route('registro', ['tipo' => $data]) }}">
                         @csrf
                         @if($data == 'natural')
