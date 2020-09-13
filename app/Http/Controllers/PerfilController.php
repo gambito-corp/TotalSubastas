@@ -239,6 +239,6 @@ class PerfilController extends Controller
                 ]);
             }
         });
-        dd($test);
+        return redirect()->route('index');
     }
 }
