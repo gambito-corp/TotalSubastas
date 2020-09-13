@@ -5,6 +5,7 @@ namespace App;
 use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
+use App\Mail\UserRegristrado;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,6 +13,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -102,8 +104,10 @@ class User extends Authenticatable implements MustVerifyEmail
                     'email'             => $data['email']
                 ]);
             }
+            Mail::to($user->email)->send(new UserRegristrado($user));
         });
-        return User::where('email', $data['email'])->first();
+        $user = User::where('email', $data['email'])->first();
+        return $user;
     }
 
     public function isAdmin() {
