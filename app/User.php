@@ -5,7 +5,7 @@ namespace App;
 use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
-use App\Mail\UserRegristrado;
+use App\Mail\UsuarioRegristrado;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -104,7 +104,7 @@ class User extends Authenticatable implements MustVerifyEmail
                     'email'             => $data['email']
                 ]);
             }
-            Mail::to($user->email)->send(new UserRegristrado($user));
+            Mail::to($user->email)->send(new UsuarioRegristrado($user));
         });
         $user = User::where('email', $data['email'])->first();
         return $user;

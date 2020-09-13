@@ -28,6 +28,7 @@ Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance')->mid
 Auth::routes(['verify' => true, 'register' => false]);
 
 //Vistas de Perfil
+Route::get('/confirm/{hash}', 'PerfilController@confirm')->name('confirm');
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
@@ -40,6 +41,7 @@ Route::get('/producto/set/{id}', 'ImagenesController@getProductoImagen')->name('
 
 //Formularios diversos
 Route::post('/citas/{id}', 'AuctionsController@citas')->name('citas');
+Route::post('/contacto', 'HomeController@contacto')->name('contacto');
 
 //Registro de Usuarios
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -374,3 +376,10 @@ Route::get('indextest', 'HomeController@test');
 Route::view('showtest', 'test.show');
 Route::view('livetest', 'test.live');
 Route::view('testAjax', 'include._test');
+if(env('APP_ENV') == 'local'){
+    Route::get('email', function() {
+        $user = App\User::where('id',1)->first();
+        return new \App\Mail\UsuarioRegristrado($user);
+    });
+}
+

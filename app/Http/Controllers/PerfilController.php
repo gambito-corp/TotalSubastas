@@ -7,6 +7,7 @@ use App\Audit;
 use App\Balance;
 use App\Bank;
 use App\Garantia;
+use App\Helpers\Gambito;
 use App\LegalPerson;
 use App\Like;
 use App\Participacion;
@@ -29,7 +30,18 @@ class PerfilController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'confirm']);
+    }
+    public function confirm($hash){
+        $user = User::where('id',Gambito::hash($hash,true))->first();
+        auth()->loginUsingId($user->id);
+        if($user->email_verified_at == null){
+            $user->email_verified_at = now();
+            $user->update();
+        }
+        $data = ($user->tipo == 'natural') ? Person::where('user_id',  $user->id)->first() : LegalPerson::where('user_id', $user->id)->first();
+        $bancos = Bank::all('id', 'siglas');
+        return view('perfil.profile-edit', compact('data', 'bancos'));
     }
 
     public function show ()
