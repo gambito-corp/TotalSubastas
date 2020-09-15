@@ -6,7 +6,7 @@ use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
 use App\Mail\UsuarioRegristrado;
-use App\Notifications\ReseteoDePassword;
+use App\Notifications\ReseteoDelPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -72,8 +72,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendPasswordResetNotification($token)
     {
-        dd($token, 'User.php');
-        $this->notify(new ReseteoDePassword($token));
+//        dd($token, 'User.php');
+        $this->notify(new ReseteoDelPassword($token));
     }
 
     //Metodos Personalizados
