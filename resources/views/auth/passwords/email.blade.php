@@ -18,7 +18,7 @@
                 </div>
                 <div class="row justify-content-center mt-3">
                     <p>
-                        Ingresa tu correo y te enviaremos un email    
+                        Ingresa tu correo y te enviaremos un email
                     </p>
                 </div>
 
@@ -43,7 +43,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div>                            
+                            </div>
                         </div>
 
                         <div class="form-group justify-content-center row border-bottom mb-2 pb-5 pt-2">

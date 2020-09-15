@@ -32,8 +32,8 @@ class PerfilController extends Controller
     {
         $this->middleware('auth', ['except' => 'confirm']);
     }
-    public function confirm($hash){
-        $user = User::where('id',Gambito::hash($hash,true))->first();
+    public function confirm(Request $request){
+        $user = User::where('id',Gambito::hash($request->input('user'),true))->first();
         auth()->loginUsingId($user->id);
         if($user->email_verified_at == null){
             $user->email_verified_at = now();

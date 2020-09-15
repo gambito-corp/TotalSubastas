@@ -26,9 +26,10 @@ Route::get('/noBalance', 'AuctionsController@noBalance')->name('noBalance')->mid
 
 // Rutas Auth
 Auth::routes(['verify' => true, 'register' => false]);
+//Route::
 
 //Vistas de Perfil
-Route::get('/confirm/{hash}', 'PerfilController@confirm')->name('confirm');
+Route::post('/confirmar/usuario', 'PerfilController@confirm')->name('confirm');
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');

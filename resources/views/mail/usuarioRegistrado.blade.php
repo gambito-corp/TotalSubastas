@@ -6,6 +6,7 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Usuario Registrado</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style type="text/css">
         a { text-decoration: none; outline: none; }
         @media (max-width: 649px) {
@@ -115,12 +116,13 @@
                         <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Ya falta poco para crear tu cuenta</p>
                         <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                             <tbody>
+{{--                            @dump($user->created_at->toDateTimeString())--}}
+{{--                            @dump($user->created_at->addMinutes('6')->toDateTimeString())--}}
                             <tr>
-                                <td width="300" class="o_btn o_bg-primary o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #126de5;border-radius: 4px;">
-                                    <a class="o_text-white" href="{{$ruta}}/confirm/{{$hash}}" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">
-                                        Clic aquí para confirmar
-                                    </a>
-                                </td>
+                                <form action="{{$ruta}}/confirmar/usuario" method="Post" class='form_target'>
+                                    <input type="hidden" name="user" value="{{$hash}}">
+                                    <input type="submit" value="Clic aquí para confirmar" class="btn btn-primary btn-lg">
+                                </form>
                             </tr>
                             </tbody>
                         </table>

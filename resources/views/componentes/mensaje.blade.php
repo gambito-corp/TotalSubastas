@@ -113,6 +113,7 @@
                         <br/>
                         <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Felicitaciones {nombre}!</h2>
                         <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Ya falta poco para crear tu cuenta</p>
+                        <form action="xxx"></form>
                         <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                             <tbody>
                             <tr>

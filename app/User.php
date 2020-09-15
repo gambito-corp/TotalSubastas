@@ -6,6 +6,7 @@ use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
 use App\Mail\UsuarioRegristrado;
+use App\Notifications\ReseteoDePassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -60,6 +61,19 @@ class User extends Authenticatable implements MustVerifyEmail
         'updated' => UserUpdated::class,
         'deleted' => UserDeleted::class,
     ];
+
+    //Metodos Sobreescritos
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ReseteoDePassword($token));
+    }
 
     //Metodos Personalizados
     public static function registerUser(array $data, $tipo)
