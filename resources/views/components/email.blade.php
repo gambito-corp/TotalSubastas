@@ -6,13 +6,13 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{$titulo}}</title>
-    <link rel="stylesheet" href="{{$css}}">
+    <link rel="stylesheet" href="{{$css2}}">
     <style>
 
     </style>
 </head>
 <body>
-
+@dump($css, $css2)
 <table>
     <thead>
         <tr></tr>

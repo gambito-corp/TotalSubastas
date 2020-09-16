@@ -31,6 +31,8 @@ class email extends Component
      */
     public function render()
     {
-        return view('components.email');
+        return view('components.email')->with([
+            'css2' => env('APP_URL').'/css/app.css',
+        ]);
     }
 }
