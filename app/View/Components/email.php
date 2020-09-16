@@ -9,6 +9,7 @@ class email extends Component
     public $titulo;
     public $ruta;
     public $submit;
+    public $css;
 
     /**
      * Create a new component instance.
@@ -20,6 +21,7 @@ class email extends Component
         $this->titulo = $titulo;
         $this->ruta = $ruta;
         $this->submit = $submit;
+        $this->css = env('APP_URL').'/css/app.css';
     }
 
     /**
