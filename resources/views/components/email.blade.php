@@ -6,7 +6,7 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{$titulo}}</title>
-    <link rel="stylesheet" href="{{$css2}}">
+    <link rel="stylesheet" href="{{env('APP_URL').'/css/app.css'}}">
     <style>
 
     </style>
