@@ -6,6 +6,7 @@ use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
 use App\Mail\UsuarioRegristrado;
+use App\Notifications\NuevoUsuarioRegistrado;
 use App\Notifications\ReseteoDelPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
@@ -123,7 +124,7 @@ class User extends Authenticatable implements MustVerifyEmail
         $user = User::where('email', $data['email'])->first();
         if(env('APP_ENV') == 'production') {
             $user->notify(new NuevoUsuarioRegistrado());
-            Mail::to($user->email)->send(new UsuarioRegristrado($user));
+//            Mail::to($user->email)->send(new UsuarioRegristrado($user));
         }
         return $user;
     }
