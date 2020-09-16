@@ -10,10 +10,12 @@
         <div class="col-md col-md-12 mt-5 offset-md-3 text-center">
           <div class="col-sm col-sm-12 col-lg-6 p-5 main-container  mt-5">
             <h1 class="font-weight-bold">
-             Te ayudamos esta es
+             Te ayudamos esta es donde nos deve redirigir
             </h1>
             <p>ingresa tu correo electronico y te enviamos un email</p>
-          <form>
+          <form method="post" action="{{route('password.request')}}">
+              @csrf
+              <input type="hidden" name="token" value="token">
             <div class="form-group row justify-content-center">
               <div class="col-sm-10">
                 <div class="input-group mb-3">

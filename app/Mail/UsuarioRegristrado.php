@@ -17,12 +17,14 @@ class UsuarioRegristrado extends Mailable
     public $user;
     public $hash;
     public $ruta;
+    public $metodo;
 
-    public function __construct(User $user)
+    public function __construct(User $user, $metodo = 'post')
     {
         $this->user = $user;
         $this->hash = Gambito::hash($this->user->id);
         $this->ruta = env('APP_URL').'/confirmar/usuario';
+        $this->metodo = $metodo;
     }
 
     public function build()

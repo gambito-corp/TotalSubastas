@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use App\Mail\ReseteoDelPassword as reset;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -20,7 +21,6 @@ class ReseteoDelPassword extends Notification
      */
     public function __construct($token)
     {
-
         $this->token = $token;
     }
 
@@ -32,7 +32,6 @@ class ReseteoDelPassword extends Notification
      */
     public function via($notifiable)
     {
-//        dd($this->token, $notifiable, 'via');
         return ['mail'];
     }
 
@@ -40,15 +39,16 @@ class ReseteoDelPassword extends Notification
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return reset
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)->view('mail.resetPass',
-        [
-            'user'      => $notifiable,
-            'token'     => $this->token,
-        ])->subject('Olvido Su Contraseña de '.env('APP_NAME'));
+        return (new reset($notifiable, $this->token, 'get'))->to($notifiable->email);
+//        return (new MailMessage)->view('mail.resetPass',
+//        [
+//            'user'      => $notifiable,
+//            'token'     => $this->token,
+//        ])->subject('Olvido Su Contraseña de '.env('APP_NAME'));
     }
 
     /**

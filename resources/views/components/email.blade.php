@@ -79,7 +79,7 @@
         <br>
         @isset($ruta)
             <div class="div3">
-                <form action="{{$ruta?$ruta:'#'}}" method="post">
+                <form action="{{$ruta?$ruta:'#'}}" method="{{$metodo}}">
                     @csrf
                     @isset($oculto)
                         {{$oculto}}
