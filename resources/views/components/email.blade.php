@@ -12,7 +12,6 @@
     </style>
 </head>
 <body>
-@dump($css, $css2)
 <table>
     <thead>
         <tr></tr>
