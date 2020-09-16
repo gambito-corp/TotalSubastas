@@ -23,7 +23,7 @@ class UsuarioRegristrado extends Mailable
 
         $this->user = $user;
         $this->hash = Gambito::hash($this->user->id);
-        $this->ruta = env('APP_URL');
+        $this->ruta = env('APP_URL').'/confirmar/usuario';
     }
 
     public function build()

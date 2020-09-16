@@ -44,12 +44,11 @@ class ReseteoDelPassword extends Notification
      */
     public function toMail($notifiable)
     {
-//        dd($this->token, $notifiable, 'toMail'); 2ª
-        return $this->markdown('mail.usuarioRegistrado');
-//        return (new MailMessage)
-//                    ->line('The introduction to the notification.')
-//                    ->action('Notification Action', url('/'))
-//                    ->line('Thank you for using our application!');
+        return (new MailMessage)->view('mail.resetPass',
+        [
+            'user'      => $notifiable,
+            'token'     => $this->token,
+        ])->subject('Olvido Su Contraseña de '.env('APP_NAME'));
     }
 
     /**
@@ -60,9 +59,8 @@ class ReseteoDelPassword extends Notification
      */
     public function toArray($notifiable)
     {
-        dd($this->token, $notifiable, 'toArray');
         return [
-            //
+
         ];
     }
 }
