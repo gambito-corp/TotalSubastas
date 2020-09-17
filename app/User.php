@@ -56,9 +56,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $dispatchesEvents = [
-        'created' => UserCreated::class,
-        'updated' => UserUpdated::class,
-        'deleted' => UserDeleted::class,
+//        'created' => UserCreated::class,
+//        'updated' => UserUpdated::class,
+//        'deleted' => UserDeleted::class,
     ];
 
     //Metodos Sobreescritos
@@ -119,9 +119,7 @@ class User extends Authenticatable implements MustVerifyEmail
             }
         });
         $user = User::where('email', $data['email'])->first();
-        if(env('APP_ENV') == 'production') {
-            $user->notify(new NuevoUsuarioRegistrado());
-        }
+        $user->notify(new NuevoUsuarioRegistrado());
         return $user;
     }
 

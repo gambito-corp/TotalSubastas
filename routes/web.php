@@ -380,7 +380,17 @@ Route::view('testAjax', 'include._test');
 if(env('APP_ENV') == 'local'){
     Route::get('email', function() {
         $user = App\User::where('id',1)->first();
+        $producto = App\VehicleDetail::with('Empresa', 'Usuario')
+            ->where('id', 1)
+            ->first();
+
         return new \App\Mail\UsuarioRegristrado($user);
+    });
+}
+if(env('APP_ENV') == 'local'){
+    Route::get('reset', function() {
+        $token = 1;
+        return view('auth.passwords.reset', compact('token'));
     });
 }
 
