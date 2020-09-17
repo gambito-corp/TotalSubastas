@@ -71,7 +71,6 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendPasswordResetNotification($token)
     {
-//        dd($token, 'User.php');
         $this->notify(new ReseteoDelPassword($token));
     }
 
