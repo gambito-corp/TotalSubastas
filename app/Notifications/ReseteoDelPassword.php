@@ -44,11 +44,6 @@ class ReseteoDelPassword extends Notification
     public function toMail($notifiable)
     {
         return (new reset($notifiable, $this->token, 'get'))->to($notifiable->email);
-//        return (new MailMessage)->view('mail.resetPass',
-//        [
-//            'user'      => $notifiable,
-//            'token'     => $this->token,
-//        ])->subject('Olvido Su Contraseña de '.env('APP_NAME'));
     }
 
     /**

@@ -5,7 +5,6 @@ namespace App;
 use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
-use App\Mail\UsuarioRegristrado;
 use App\Notifications\NuevoUsuarioRegistrado;
 use App\Notifications\ReseteoDelPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,7 +14,6 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
