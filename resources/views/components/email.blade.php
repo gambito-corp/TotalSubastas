@@ -77,6 +77,7 @@
             {{$slot}}
         </div>
         <br>
+        @dump(isset($titulo),isset($ruta),isset($submit),isset($metodo))
         @isset($ruta)
             <div class="div3">
                 <form action="{{$ruta?$ruta:'#'}}" method="{{$metodo}}">
