@@ -56,9 +56,9 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $dispatchesEvents = [
-//        'created' => UserCreated::class,
-//        'updated' => UserUpdated::class,
-//        'deleted' => UserDeleted::class,
+        'created' => UserCreated::class,
+        'updated' => UserUpdated::class,
+        'deleted' => UserDeleted::class,
     ];
 
     //Metodos Sobreescritos
