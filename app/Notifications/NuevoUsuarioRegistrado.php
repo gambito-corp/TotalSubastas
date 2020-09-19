@@ -41,7 +41,7 @@ class NuevoUsuarioRegistrado extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new UsuarioRegristrado($notifiable, 'post'))->to($notifiable->email);
+        return (new UsuarioRegristrado($notifiable, 'get'))->to($notifiable->email);
     }
 
     /**
