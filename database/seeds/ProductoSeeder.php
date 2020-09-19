@@ -28,8 +28,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -46,8 +46,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -64,8 +64,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -82,8 +82,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -100,8 +100,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -118,8 +118,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -136,8 +136,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -154,8 +154,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -172,8 +172,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -190,8 +190,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -208,8 +208,8 @@ class ProductoSeeder extends Seeder
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now(),
-            'finalized_at'      => Carbon::now()->addYear(),
+            'started_at'        => Carbon::now()->addMinutes(30),
+            'finalized_at'      => Carbon::now()->addHours(20),
         ]);
     }
 }

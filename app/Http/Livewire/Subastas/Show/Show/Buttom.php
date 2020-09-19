@@ -72,18 +72,19 @@ class Buttom extends Component
         }
     }
 
-    public function pujar($tyc)
+    public function pujar()
     {
         if($this->participacion == false){
             $this->validate([
                 'tyc' => 'required',
             ]);
         }
+
         $participacion = Participacion::where('user_id', Auth::id())
             ->where('producto_id', $this->producto->id)
             ->pluck('participacion')
             ->first();
-//        dd($participacion);
+
         DB::transaction(function()use($participacion){
             DB::table('productos')
                 ->where('id', $this->producto->id)
