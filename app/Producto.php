@@ -72,9 +72,8 @@ class Producto extends Model
     /**
      * @param Producto $producto
      */
-    public function NotificarMasivo(Producto $producto)
+    public function NotificarMasivo(Producto $producto, User $user)
     {
-        $user = User::where('id', Auth::id())->first();
         $this->notify(new Aviso($user, $producto));
     }
 

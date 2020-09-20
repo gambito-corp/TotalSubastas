@@ -23,7 +23,8 @@ class RankingSeeder extends Seeder
             Ranking::create([
                 'producto_id' => $i,
                 'user_id' => 2,
-                'cantidad' => 5
+                'cantidad' => 5,
+                'updated_at' => now()->subHours(5)
             ]);
         }
         for ($i = 1; $i <= 11; $i++){

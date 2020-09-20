@@ -90,7 +90,9 @@ class Buttom extends Component
         $otros = Ranking::with('Usuario')->where('producto_id', $this->producto->id)->where('user_id', '!=', Auth::id())->get();
         if(!$otros->isEmpty()){
             foreach ($otros as $otro){
-                $producto->NotificarMasivo($this->producto);
+                if($otro->updated_at < now()->subHours(4)){
+                    $producto->NotificarMasivo($this->producto, $otro->Usuario);
+                }
             }
         }
         $participacion = Participacion::where('user_id', Auth::id())
