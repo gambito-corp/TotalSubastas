@@ -2,12 +2,17 @@
 
 namespace App;
 
+use App\Notifications\AvisoDePuja as Aviso;
+use App\Notifications\RegistroDeParticipante as Registro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Helpers\Gambito;
+use App\Helpers\Gambito;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
 class Producto extends Model
 {
+    use Notifiable;
     use SoftDeletes;
 
     protected $table='productos';
@@ -54,6 +59,23 @@ class Producto extends Model
 
     public function Hash ($id) {
         return Helpers\Gambito::hash($id);
+    }
+
+    /**
+     * @param Producto $producto
+     */
+    public function Notificar(Producto $producto)
+    {
+        $user = User::where('id', Auth::id())->first();
+        $this->notify(new Registro($user, $producto));
+    }
+    /**
+     * @param Producto $producto
+     */
+    public function NotificarMasivo(Producto $producto)
+    {
+        $user = User::where('id', Auth::id())->first();
+        $this->notify(new Aviso($user, $producto));
     }
 
 

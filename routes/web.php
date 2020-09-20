@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 //Index
@@ -380,10 +381,11 @@ Route::view('testAjax', 'include._test');
 if(env('APP_ENV') == 'local'){
     Route::get('email', function() {
         $user = App\User::where('id',1)->first();
+//        $user = Auth::user();
         $producto = App\Producto::with('Empresa', 'Usuario')
             ->where('id', 1)
             ->first();
-        return new \App\Mail\UsuarioRegristrado($user);
+        return new \App\Mail\AvisoDePuja($user, $producto, 'get');
     });
 }
 if(env('APP_ENV') == 'local'){

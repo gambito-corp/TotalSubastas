@@ -9,16 +9,24 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
 
-class RegistroDeParticipante extends Mailable
+class AvisoDePuja extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
-    public $producto;
-    public $ruta;
     public $metodo;
+    /**
+     * @var User
+     */
+    public $user;
+    /**
+     * @var Producto
+     */
+    public $producto;
+    /**
+     * @var string
+     */
+    public $ruta;
     /**
      * @var string
      */
@@ -28,19 +36,18 @@ class RegistroDeParticipante extends Mailable
      * Create a new message instance.
      *
      * @param User $user
+     * @param Producto $producto
+     * @param $metodo
      */
-    public function __construct(User $user, $producto, $metodo)
+    public function __construct(User $user, Producto $producto, $metodo)
     {
+        $this->metodo = $metodo;
         $this->user = $user;
         $this->producto = $producto;
         $hash = Gambito::hash($this->producto->id);
         $this->ruta = env('APP_URL').'/auction/id/'.$hash;
         $this->metodo = $metodo;
         $this->imagen = env('APP_URL').'/producto/'.Gambito::hash($this->producto->id);
-
-
-
-
     }
 
     /**
@@ -50,6 +57,6 @@ class RegistroDeParticipante extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.RegistroDeParticipante');
+        return $this->view('mail.AvisoDePuja');
     }
 }

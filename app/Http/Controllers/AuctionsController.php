@@ -11,9 +11,11 @@ use App\Garantia;
 use App\Helpers\Gambito;
 use App\Lot;
 use App\Message;
+use App\Notifications\RegistroDeParticipante;
 use App\Producto;
 use App\Person;
 use App\Ranking;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -76,7 +78,6 @@ class AuctionsController extends Controller
     public function pujaRecibida(Request $request, $id)
     {
         $producto = Producto::where('id', $id)->first();
-//        $estado = 'ganador';
         broadcast(new SubastaEvent($producto, Auth::user(), 'Hola Mundo'));
         return response()->json('enviado');
     }

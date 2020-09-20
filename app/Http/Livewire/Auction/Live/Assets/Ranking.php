@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auction\Live\Assets;
 
+use App\Producto;
 use App\Ranking as Rank;
 use Livewire\Component;
 
@@ -10,11 +11,23 @@ class Ranking extends Component
     public $resultados;
 
     public $identificador;
+    /**
+     * @var mixed
+     */
+    public $producto;
 
     public function mount($identificador)
     {
         $this->identificador = $identificador;
-        $this->resultados = Rank::with('Usuario')->where('producto_id', $this->identificador)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
+        $this->producto = Producto::where('id', $this->identificador)->first();
+        $this->resultados = Rank::with('Usuario')
+            ->where('producto_id', $this->identificador)
+            ->where('created_at'> $this->producto->started_at)
+            ->orderBy('cantidad', 'desc')
+            ->orderByDesc('updated_at')
+            ->take(6)
+            ->get()
+            ->toArray();
 
     }
 

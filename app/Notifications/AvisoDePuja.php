@@ -2,32 +2,31 @@
 
 namespace App\Notifications;
 
-use App\Producto;
-use App\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Mail\RegistroDeParticipante as Registro;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Mail\AvisoDePuja as Aviso;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Auth;
 
-class RegistroDeParticipante extends Notification
+class AvisoDePuja extends Notification
 {
     use Queueable;
 
-    public $user;
     public $producto;
+    public $user;
 
     /**
      * Create a new notification instance.
      *
-     * @param User $user
-     * @param Producto $producto
+     * @param $producto
+     * @param $user
      */
-    public function __construct(User $user, Producto $producto)
+    public function __construct($user, $producto)
     {
-        $this->user = $user;
+        //
         $this->producto = $producto;
+        $this->user = $user;
     }
 
     /**
@@ -45,11 +44,11 @@ class RegistroDeParticipante extends Notification
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return Registro
+     * @return Aviso
      */
     public function toMail($notifiable)
     {
-        return (new Registro($this->user, $this->producto, 'get'))->to($this->user->email);
+        return (new Aviso($this->user, $this->producto,'get'))->to($this->user->email);
     }
 
     /**

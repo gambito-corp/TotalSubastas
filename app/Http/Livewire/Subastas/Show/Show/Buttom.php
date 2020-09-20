@@ -3,9 +3,12 @@
 namespace App\Http\Livewire\Subastas\Show\Show;
 
 use App\Balance;
+use App\Events\RankingEvent;
+use App\Notifications\RegistroDeParticipante;
 use App\Participacion;
 use App\Person;
 use App\Producto;
+use App\Ranking;
 use App\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Auth;
@@ -79,12 +82,21 @@ class Buttom extends Component
                 'tyc' => 'required',
             ]);
         }
-
+        $nuevo = Ranking::where('producto_id', $this->producto->id)->where('user_id', Auth::id())->first();
+        $producto = Producto::where('id', $this->producto->id)->first();
+        if (is_null($nuevo)){
+            $producto->Notificar($this->producto);
+        }
+        $otros = Ranking::with('Usuario')->where('producto_id', $this->producto->id)->where('user_id', '!=', Auth::id())->get();
+        if(!$otros->isEmpty()){
+            foreach ($otros as $otro){
+                $producto->NotificarMasivo($this->producto);
+            }
+        }
         $participacion = Participacion::where('user_id', Auth::id())
             ->where('producto_id', $this->producto->id)
             ->pluck('participacion')
             ->first();
-
         DB::transaction(function()use($participacion){
             DB::table('productos')
                 ->where('id', $this->producto->id)
@@ -104,6 +116,7 @@ class Buttom extends Component
                         'updated_at' => now()
                     ]
                 );
+            event(new RankingEvent($this->producto));
         });
         $participacion = Participacion::where('user_id', Auth::id())
             ->where('producto_id', $this->producto->id)

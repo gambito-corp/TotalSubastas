@@ -12,11 +12,13 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\RegistroDeParticipante;
 use Illuminate\Support\Facades\DB;
 
 class SubastaEvent implements ShouldBroadcastNow
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable, InteractsWithSockets, SerializesModels, Notifiable;
 
     public $user;
     public $mensaje;
@@ -27,15 +29,13 @@ class SubastaEvent implements ShouldBroadcastNow
     {
         $this->user = Auth::user();
         $this->producto = $producto;
-//        dd($this->producto);
-//
         if($this->producto->user_id != Auth::id() || now()->addSecond()->toTimeString() <= $this->producto->finalized_at->toTimeString()) {
-                $this->producto->user_id = Auth::id();
-                $this->producto->precio = intval($this->producto->precio+ $this->producto->puja);
-                if ($this->producto->finalized_at->subSeconds(60) <= now()) {
-                    $this->producto->finalized_at = now()->addSeconds(9);
-                }
-                $this->producto->update();
+            $this->producto->user_id = Auth::id();
+            $this->producto->precio = intval($this->producto->precio+ $this->producto->puja);
+            if ($this->producto->finalized_at->subSeconds(60) <= now()) {
+                $this->producto->finalized_at = now()->addSeconds(9);
+            }
+            $this->producto->update();
         }
     }
 
