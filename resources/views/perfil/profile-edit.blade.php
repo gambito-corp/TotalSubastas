@@ -297,7 +297,176 @@
                                 @endif
                                 </div>
                             @else
-                                Adios
+                                <div class="row">
+                                    <div class="form-group col-md-4 col-sm-12">
+                                        <label for="nombre" class="font-weight-bold text-dark">Nombre Comercial</label>
+                                        <input type="text" name="nombre"
+                                               class="form-control @error('nombre') is-invalid @enderror"
+                                               value="{{old('nombre')?old('nombre'):$data->nombre}}">
+                                        @error('nombre')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="razon_social" class="font-weight-bold text-dark">Razon Social</label>
+                                        <input type="text" name="razon_social"
+                                               class="form-control @error('razon_social') is-invalid @enderror"
+                                               value="{{old('razon_social')?old('razon_social'):$data->razon_social}}">
+                                        @error('razon_social')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="ruc" class="font-weight-bold text-dark">R.U.C.</label>
+                                        <input type="text" name="ruc"
+                                               class="form-control @error('ruc') is-invalid @enderror"
+                                               value="{{old('ruc')?old('ruc'):$data->ruc}}">
+                                        @error('ruc')
+                                        <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-3">
+                                        <label for="banco_id" class="font-weight-bold text-dark">Banco del Usuario</label>
+                                        <select name="banco_id" id="banco_id" class="form-control @error('banco_id') is-invalid @enderror">
+                                            @forelse($bancos as $banco)
+
+                                                <option value="{{$banco->id}}" {{old("banco_id") == $banco->id ? 'selected' : ($data->banco_id = $banco->id
+                                            ? 'selected': '')}} >{{$banco->siglas}}</option>
+                                            @empty
+                                            @endforelse
+                                        </select>
+
+                                        @error('banco_id')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="numero_cuenta" class="font-weight-bold text-dark">Numero de Cuenta</label>
+                                        <input type="text" name="numero_cuenta"
+                                               class="form-control  @error('numero_cuenta') is-invalid @enderror"
+                                               placeholder=""
+                                               value="{{old('numero_cuenta')?old('numero_cuenta'):$data->numero_cuenta}}">>
+
+                                        @error('numero_cuenta')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="telefono" class="font-weight-bold text-dark">Telefono</label>
+                                        <input type="text" name="telefono"
+                                               class="form-control  @error('telefono') is-invalid @enderror"
+                                               placeholder=""
+                                               value="{{old('telefono')?old('telefono'):$data->telefono}}">>
+
+                                        @error('telefono')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="email" class="font-weight-bold text-dark">Email</label>
+                                        <input type="text" name="email"
+                                               class="form-control  @error('email') is-invalid @enderror"
+                                               placeholder=""
+                                               value="{{old('email')?old('email'):$data->email}}">>
+
+                                        @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div>
+                                    @if(auth()->user()->completo == false)
+
+                                        @livewire('form.direccion')
+
+                                        <div class="row">
+                                            <div class="form-group col-md-4">
+                                                <label for="direccion1" class="font-weight-bold text-dark">Direccion 1</label>
+                                                <input type="text" name="direccion1" class="form-control  @error('direccion1') is-invalid @enderror" placeholder="">
+
+                                                @error('direccion1')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                <label for="direccion2" class="font-weight-bold text-dark">Segunda Linea</label>
+                                                <input type="text" name="direccion2" class="form-control  @error('direccion2') is-invalid @enderror" placeholder="">
+
+                                                @error('direccion2')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-2">
+                                                <label for="numero" class="font-weight-bold text-dark">Numero</label>
+                                                <input type="text" name="numero" class="form-control  @error('numero') is-invalid @enderror" placeholder="">
+
+                                                @error('numero')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                                @enderror
+                                            </div>
+
+                                            <div class="form-group col-md-2">
+
+                                                <label for="int_ext" class="font-weight-bold text-dark">Interior/Exterior</label>
+                                                <select class="form-control  @error('int_ext') is-invalid @enderror" name="int_ext" id="departamento">
+                                                    <option value="Interior">Interior</option>
+                                                    <option value="Exterior">Exterior</option>
+                                                </select>
+
+                                                @error('int_ext')
+                                                <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="referencia" class="font-weight-bold text-dark">Referencia</label>
+                                                <input type="text" name="referencia" class="form-control  @error('referencia') is-invalid @enderror" placeholder="">
+
+                                                @error('referencia')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="titulo_direccion" class="font-weight-bold text-dark">Titulo Para Guardar La Direccion</label>
+                                                <input type="text" name="titulo_direccion" class="form-control  @error('titulo_direccion') is-invalid @enderror" placeholder="">
+
+                                                @error('titulo_direccion')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
                             @endif
                             <div class="row mx-lg-n5 mt-5">
                                 <div class="col py-3 ml-5 px-lg-5">

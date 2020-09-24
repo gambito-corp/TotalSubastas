@@ -61,17 +61,17 @@
                         Usuario
                     </div>
                     <div class="col-md-4 text-to_title-auction_live">
-                        Monto
+                        Pujas
                     </div>
                     <div class="row margin-row pt-2 d-flex pb-2 border-bottom border-top ml-1 mr-1">
                         @forelse($resultados as $key => $resultado)
-                            <div class="col-md-4 text-darken text-auction_live ranking-side_nav">
+                            <div class="col-md-3 text-darken text-auction_live ranking-side_nav">
                                 {{$key+1}}
                             </div>
-                            <div class="col-md-4 text-darken text-auction_live">
+                            <div class="col-md-6 text-darken text-auction_live">
                                 {{$resultado['usuario']['name']}}
                             </div>
-                            <div class="col-md-4 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
+                            <div class="col-md-3 text-darken text-auction_live text-to_best-auction ranking_to-auction_text">
                                 {{$resultado['cantidad']}}
                             </div>
                         @empty
