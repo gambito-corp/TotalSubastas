@@ -330,5 +330,5 @@ class PerfilController extends Controller
             });
         }
         return redirect()->route('index');
-    }`3`
+    }
 }
