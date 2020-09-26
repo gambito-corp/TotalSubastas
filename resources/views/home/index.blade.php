@@ -18,7 +18,7 @@
                     </div>
                     @empty
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="..." alt="Second slide">
+                        <img class="carousel-item-a_imagen" src="./assets/img/banner1.png" height="531px" alt="slider">
                     </div>
                     @endforelse
                 </div>
