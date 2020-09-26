@@ -62,11 +62,10 @@ class DatabaseSeeder extends Seeder
             Like::class,
             DocumentosVehiculo::class,
             Participacion::class,
-            Slide::class
+//            Slide::class
         ]);
         Schema::disableForeignKeyConstraints();
-        $this->call(SlideSeeder::class);
-
+//        $this->call(SlideSeeder::class);
         $this->call(RolesSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(BancosSeeder::class);
