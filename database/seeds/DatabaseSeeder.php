@@ -89,6 +89,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LikeSeeder::class);
         $this->call(DocumentosSeeder::class);
         $this->call(ParticipacionSeeder::class);
+        $this->call(Slide::class);
         Schema::enableForeignKeyConstraints();
     }
 
