@@ -34,6 +34,14 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item has-treeview">
+                            <a href="{{route('admin.slide.index')}}" class="nav-link">
+                                <i class="fas fa-sliders"></i>
+                                <p>
+                                    Configuracion del Slide
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item has-treeview">
                             <a href="{{route('admin.marcas.index')}}" class="nav-link">
                                 <i class="fas fa-truck-pickup"></i>
                                 <p>

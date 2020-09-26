@@ -36,7 +36,7 @@ class Gambito
 
     public static function checkBalance()
     {
-        return Balance::where('user_id', Auth::user()->id)->first();
+        return Balance::where('user_id', Auth::user()->id)->where('aprobado', true)->sum('monto');
     }
 
     public static function obtenerMensajes($id = null, $ranking = false )
@@ -113,8 +113,7 @@ class Gambito
     public static function descuentoGarantia()
     {
         $return = true;
-        $descuento = self::checkBalance()->monto - self::obtenerProducto()->garantia;
-
+        $descuento = self::checkBalance() - self::obtenerProducto()->garantia;
         if (is_numeric($descuento) && ($descuento<0)) {
             $return = false;
         }

@@ -25,6 +25,7 @@ class Balance extends Model
         'cuenta',
         'transaccion_banco',
         'abono_at',
+        'aprobado',
     ];
 
     /**

@@ -27,6 +27,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Aprobar</th>
                         <th>Usuario</th>
                         <th>Banco</th>
                         <th>Monto</th>
@@ -47,6 +48,7 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
+                            <td>{{$dat->aprobado?'Aprobado':'Espera o Rechazado'}}</td>
                             <td>{{$dat->Usuario->name}}</td>
                             <td>{{$dat->Banco->nombre}}</td>
                             <td>${{$dat->monto}}</td>
@@ -90,12 +92,14 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
+                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Id</th>
+                        <th>Aprobar</th>
                         <th>Usuario</th>
                         <th>Banco</th>
                         <th>Monto</th>

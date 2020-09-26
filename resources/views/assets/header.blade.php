@@ -57,6 +57,12 @@
                             </a>
                             <a
                                 class="dropdown-item"
+                                href="{{ route('recargar.perfil') }}"
+                            >
+                                Recargar mi cuenta
+                            </a>
+                            <a
+                                class="dropdown-item"
                                 href="{{ route('perfil.edit') }}"
                             >
                                 Editar Mi Perfil

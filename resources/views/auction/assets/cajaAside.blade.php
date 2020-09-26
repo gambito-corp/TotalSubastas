@@ -22,7 +22,7 @@
                             Puedes venir al almacén central, solicita una visita aquí:
                         </p>
                     </div>
-                <form class=" d-block  mb-3" method="POST" action="{{route('citas', ['id' => $producto->id])}}">
+                <form class=" d-block  mb-3" method="POST" action="{{route('citas', ['id' => App\Helpers\Gambito::hash($producto->id)])}}">
                     @csrf
                         <div class="form-group  mb-3">
                             <label class="tex-dark font-weight-bold">fecha</label>
@@ -41,7 +41,6 @@
             </div>
         </div>
     </div>
-    @endauth
     <div class="accordion md-accordion mt-4" id="ofertas" role="tablist" aria-multiselectable="true">
         <div class="card side-nav">
             <a data-toggle="collapse" data-parent="#ofertas" href="#collapse2" aria-expanded="true" aria-controls="collapse2" class="border-bottom ">
@@ -90,4 +89,5 @@
             </div>
         </div>
     </div>
+    @endauth
 </div>

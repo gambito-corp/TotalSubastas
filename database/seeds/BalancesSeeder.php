@@ -22,7 +22,8 @@ class BalancesSeeder extends Seeder
             'motivo'            => 'deposito inicial para test Pedro',
             'cuenta'            => 'campo cuenta',
             'transaccion_banco' => 'campo transaccion de banco',
-            'abono_at'          => now()
+            'abono_at'          => now(),
+            'aprobado'          => null
         ]);
         Balance::create([
             'user_id'           => 2,
@@ -34,7 +35,8 @@ class BalancesSeeder extends Seeder
             'motivo'            => 'deposito inicial para test Javier',
             'cuenta'            => 'campo cuenta',
             'transaccion_banco' => 'campo transaccion de banco',
-            'abono_at'          => now()
+            'abono_at'          => now(),
+            'aprobado'          => true
         ]);
         Balance::create([
             'user_id'           => 3,
@@ -46,7 +48,8 @@ class BalancesSeeder extends Seeder
             'motivo'            => 'deposito inicial para test Gonzalo',
             'cuenta'            => 'campo cuenta',
             'transaccion_banco' => 'campo transaccion de banco',
-            'abono_at'          => now()
+            'abono_at'          => now(),
+            'aprobado'          => true
         ]);
         Balance::create([
             'user_id'           => 4,
@@ -58,7 +61,8 @@ class BalancesSeeder extends Seeder
             'motivo'            => 'deposito inicial para test Alexis',
             'cuenta'            => 'campo cuenta',
             'transaccion_banco' => 'campo transaccion de banco',
-            'abono_at'          => now()
+            'abono_at'          => now(),
+            'aprobado'          => true
         ]);
         Balance::create([
             'user_id'           => 5,
@@ -70,7 +74,8 @@ class BalancesSeeder extends Seeder
             'motivo'            => 'deposito inicial para test Andres',
             'cuenta'            => 'campo cuenta',
             'transaccion_banco' => 'campo transaccion de banco',
-            'abono_at'          => now()
+            'abono_at'          => now(),
+            'aprobado'          => true
         ]);
     }
 }

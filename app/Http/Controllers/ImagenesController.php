@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Helpers\Gambito;
 use App\Producto;
+use App\Slide;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -90,5 +91,15 @@ class ImagenesController extends Controller
         }else{
 
         }
+    }
+
+    public function getSlide($id)
+    {
+        $id = Gambito::hash($id, true);
+        $data = Slide::where('id', $id)->first();
+        $file = Image::make(Storage::disk('s3')->get('slide/'.$data->imagen));
+        $file->response();
+        $code = 200;
+        return new Response($file,$code);
     }
 }

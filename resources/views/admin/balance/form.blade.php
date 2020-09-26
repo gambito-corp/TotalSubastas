@@ -12,6 +12,25 @@
         <div class="card">
             <div class="card-body">
                 <div class="form-group row">
+                    <div class="custom-control col-md-12">
+                        @if($data->id)
+                            <label for="aprobado">Aprobar Balance?</label>
+                            <select name="aprobado" id="aprobar" class="form-control">
+                                <option value="" {{$data->aprobado == null?'selected':''}}>Selecciona una Opcion</option>
+                                <option value="true" {{$data->aprobado == true?'selected':''}}>SI</option>
+                                <option value="false" {{$data->aprobado == false?'selected':''}}>NO</option>
+                            </select>
+                        @else
+                            <label for="aprobado">Aprobar Balance?</label>
+                            <select name="aprobado" id="aprobar" class="form-control">
+                                <option value="" {{old('aprobar') == null?'selected':''}}>Selecciona una Opcion</option>
+                                <option value="true" {{old('aprobar') == true?'selected':''}}>SI</option>
+                                <option value="false" {{old('aprobar') == false?'selected':''}}>NO</option>
+                            </select>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group row">
                     @if (is_null($data->id))
                         <div class="custom-control col-md-6">
                             <label for="user">Usuario</label>

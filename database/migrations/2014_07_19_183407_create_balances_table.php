@@ -25,6 +25,7 @@ class CreateBalancesTable extends Migration {
 			$table->string('cuenta')->nullable();
 			$table->string('transaccion_banco')->nullable();
 			$table->dateTime('abono_at')->nullable();
+			$table->boolean('aprobado')->nullable();
 			$table->timestamps();
 			$table->softDeletes();
 		});

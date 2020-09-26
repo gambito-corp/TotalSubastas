@@ -10,6 +10,7 @@ use App\Events\SubastaEvent;
 use App\Garantia;
 use App\Helpers\Gambito;
 use App\Lot;
+use App\Mail\citas;
 use App\Message;
 use App\Notifications\RegistroDeParticipante;
 use App\Producto;
@@ -18,6 +19,7 @@ use App\Ranking;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AuctionsController extends Controller
 {
@@ -49,8 +51,12 @@ class AuctionsController extends Controller
 
     public function citas(Request $request, $id)
     {
-        $persona = Person::where('user_id', Auth::id())->first();
-        dd('Proceder a Enviar Correo',$id, $request, $persona);
+        $id = Gambito::hash($id, true);
+        $producto = Producto::where('id', $id)->first();
+        $user = User::where('id', Auth::id())->first();
+        Mail::to('admin@totalsubastas.com')->send(new citas($request->input(), $producto, $user,  'admin'));
+        Mail::to(Auth::user()->email)->send(new citas($request->input(), $producto, $user, 'user'));
+        return redirect()->route('index')->with(['message' => ' Mensaje Enviado Correctamente', 'alerta' => 'success']);
     }
 
     public function live()

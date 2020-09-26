@@ -254,7 +254,7 @@
                                         </div>
                                         <div
                                             class="col-md-2 text-dark font-weight-normal text-to_best-auction ranking_to-auction_text">
-                                            <i class="fas fa-download"></i> <span class="font-weight-light"></span>
+                                            {{$detail->aprobado?'Aprobado':'Esperando Confirmacion'}}
                                         </div>
                                     </div>
                                 @empty

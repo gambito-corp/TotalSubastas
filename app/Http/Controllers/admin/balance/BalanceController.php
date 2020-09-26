@@ -37,7 +37,7 @@ class BalanceController extends Controller
     {
         $data = new Data();
         $bancos = Bank::all();
-        $usuarios = User::doesntHave('Balance')->get();
+        $usuarios = User::all();
         return view('admin.balance.form', compact('data', 'bancos', 'usuarios'));
     }
 
@@ -67,6 +67,7 @@ class BalanceController extends Controller
         $transaccion = $request->input('transaccion');
         $abono_at = $request->input('abono_at');
         $boucher = $request->file('boucher');
+        $aprobado = $request->input('aprobado');
 
         //asignar valores
 
@@ -80,6 +81,7 @@ class BalanceController extends Controller
         $balance->cuenta = $cuenta;
         $balance->transaccion_banco = $transaccion;
         $balance->abono_at = $abono_at;
+        $balance->aprobado = $aprobado;
         $balance->load('Usuario');
 
         //subir imagen a storage
@@ -134,6 +136,13 @@ class BalanceController extends Controller
             Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher), 'public');
             $balance->boucher = ($imagen == $balance->boucher) ? $balance->boucher : $imagen;
         }
+        if ($request->input('aprobado') == null){
+        }elseif($request->input('aprobado') == 'false'){
+            $balance->aprobado = false;
+        }else{
+            $balance->aprobado = true;
+        }
+
         $balance->update();
         return redirect()->route('admin.balance.index')->with([
             'message' => 'El Rol Fue Actualizado Con Exito',

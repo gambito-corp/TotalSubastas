@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\ActiveAuc;
-use App\Balance;
 use App\Company;
 use App\Helpers\Gambito;
-use App\Message;
-use App\Producto;
+use App\Slide;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\contacto;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except(['index', 'contacto', 'sendmail']);
     }
 
     public function index()
     {
-        return view('home.index');
+        $slide = Slide::where('activo', 1)->get();
+        return view('home.index', compact('slide'));
     }
     public function home()
     {
@@ -39,4 +38,23 @@ class HomeController extends Controller
         $relacion = Company::all();
         dd($relacion->load('Lotes', 'Productos')->first());
     }
+
+    public function contacto()
+    {
+        return view('home.contacto');
+    }
+
+    public function sendmail(Request $request)
+    {
+        $request->validate([
+            'nombre'    => 'required|string',
+            'asunto'    => 'required|string',
+            'correo'    => 'required|email',
+            'mensaje'   => 'required'
+        ]);
+        Mail::to('admin@totalsubastas.com')->send(new contacto($request->input()));
+        return redirect()->route('index')->with(['message' => ' Mensaje Enviado Correctamente', 'alerta' => 'success']);
+    }
+
+
 }

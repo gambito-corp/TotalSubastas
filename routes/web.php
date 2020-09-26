@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 //Index
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/contacto', 'HomeController@contacto')->name('contacto');
 
 //Vistas Estaticas
 Route::view('/faqs', 'estaticas.FAQ')->name('faqs'); //Gonzalo esta es la ruta
@@ -34,6 +35,7 @@ Route::get('/confirmar/usuario/{id}', 'PerfilController@confirm')->name('confirm
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
+Route::get('/recargar', 'PerfilController@recargar')->name('recargar.perfil');
 
 //Controladora de Imagenes
 Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');
@@ -43,7 +45,8 @@ Route::get('/producto/set/{id}', 'ImagenesController@getProductoImagen')->name('
 
 //Formularios diversos
 Route::post('/citas/{id}', 'AuctionsController@citas')->name('citas');
-Route::post('/contacto', 'HomeController@contacto')->name('contacto');
+Route::post('/contacto', 'HomeController@sendmail')->name('contacto');
+Route::post('/recargar/envio', 'PerfilController@recargarPost')->name('recargar');
 
 //Registro de Usuarios
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -371,6 +374,20 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('destroy/{id}', 'ParticipacionesController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'ParticipacionesController@restore')->name('restore');
     });
+    Route::prefix('slide')->name('slide.')->namespace('slide')->group(function (){
+        //Configuracion de Slide
+        Route::get('index', 'slideController@index')->name('index');
+        Route::get('trash', 'slideController@trash')->name('trash');
+        Route::get('create', 'slideController@create')->name('create');
+        Route::post('guardar', 'slideController@store')->name('store');
+        Route::get('mostrar/{id}', 'slideController@show')->name('show');
+        Route::get('editar/{id}', 'slideController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'slideController@update')->name('update');
+        Route::get('delete/{id}', 'slideController@delete')->name('delete');
+        Route::get('destroy/{id}', 'slideController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'slideController@restore')->name('restore');
+        Route::get('imagen/{id}', 'slideController@getImagen')->name('getImagen');
+    });
 });
 
 // Rutas de Test
@@ -380,12 +397,13 @@ Route::view('livetest', 'test.live');
 Route::view('testAjax', 'include._test');
 if(env('APP_ENV') == 'local'){
     Route::get('email', function() {
-        $user = App\User::where('id',1)->first();
-//        $user = Auth::user();
-        $producto = App\Producto::with('Empresa', 'Usuario')
-            ->where('id', 1)
-            ->first();
-        return new \App\Mail\AvisoDePuja($user, $producto, 'get');
+        $data = [
+            'nombre'    => 'pedro',
+            'asunto'    => 'Asunto del Mensaje',
+            'correo'    => 'Asesor.pedro@gmail.com',
+            'mensaje'   => 'Hola Mundo',
+        ];
+        return new \App\Mail\contacto($data);
     });
 }
 if(env('APP_ENV') == 'local'){

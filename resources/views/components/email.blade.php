@@ -77,7 +77,6 @@
             {{$slot}}
         </div>
         <br>
-{{--        @dump(isset($titulo),isset($ruta),isset($submit),isset($metodo))--}}
         @isset($ruta)
             <div class="div3">
                 <form action="{{$ruta?$ruta:'#'}}" method="{{$metodo}}">
@@ -86,7 +85,7 @@
                         {{$oculto}}
                     @endisset
                     @isset($submit)
-                        <input type="submit" class="submit" value="{{$submit}}"/>
+                        <input type="submit" class="submit" value="{{optional($submit)}}"/>
                     @endisset
                 </form>
             </div>

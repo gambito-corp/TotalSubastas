@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Audit;
 use App\Balance;
+use App\Balance as Data;
 use App\Bank;
 use App\Garantia;
 use App\Helpers\Gambito;
@@ -35,6 +36,14 @@ class PerfilController extends Controller
     public function confirm(Request $request, $id){
         $user = User::where('id',Gambito::hash($id,true))->first();
         auth()->loginUsingId($user->id);
+        Audit::create([
+            'user_id' => Auth::user()->id,
+            'ip' => $request->server('REMOTE_ADDR'),
+            'tipo_dispositivo' => '',
+            'tipo_so' => '',
+            'navegador' => $request->server('HTTP_USER_AGENT'),
+            'version' => ''
+        ]);
         if($user->email_verified_at == null){
             $user->email_verified_at = now();
             $user->update();
@@ -49,7 +58,7 @@ class PerfilController extends Controller
         $id = Auth::id();
         $persona = Person::where('user_id', $id)->first();
         $audit = Audit::where('user_id', $id)->get()->pluck('created_at')->last()->format('d-M-Y');
-        $balance = Balance::where('user_id', $id)->pluck('monto')->first();
+        $balance = Balance::where('user_id', $id)->where('aprobado', true)->pluck('monto')->first();
         $balance = intval($balance);
         $garantia = Garantia::where('user_id', $id)->pluck('monto')->sum();
         $likes = Like::where('user_id', $id)->count();
@@ -330,5 +339,62 @@ class PerfilController extends Controller
             });
         }
         return redirect()->route('index');
+    }
+
+    public function recargar()
+    {
+        $bancos = Bank::all();
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        return view('perfil.recarga', compact( 'bancos', 'data'));
+    }
+
+    public function recargarPost(Request $request)
+    {
+        $request->validate([
+            "banco_id"          => "required",
+            "monto"             => "required",
+            "tipo"              => "required",
+            "motivo"            => "required",
+            "cuenta"            => "required",
+            "transaccion_banco" => "required",
+            "abono_at"          => "required",
+            "descripcion"       => "required",
+            "boucher"           => "image|required"
+        ]);
+
+        $banco_id = $request->input('banco_id');
+        $monto = $request->input('monto');
+        $tipo = $request->input('tipo');
+        $motivo = $request->input('motivo');
+        $cuenta = $request->input('cuenta');
+        $transaccion_banco = $request->input('transaccion_banco');
+        $abono_at = $request->input('abono_at');
+        $descripcion = $request->input('descripcion');
+        $boucher = $request->file('boucher');
+
+        $balance = new Data();
+        $balance->user_id = Auth::id();
+        $balance->banco_id = $banco_id;
+        $balance->monto = $monto;
+        $balance->tipo = $tipo;
+        $balance->descripcion = $descripcion;
+        $balance->motivo = $motivo;
+        $balance->cuenta = $cuenta;
+        $balance->transaccion_banco = $transaccion_banco;
+        $balance->abono_at = $abono_at;
+        $balance->load('Usuario');
+
+        $balance->save();
+        if($boucher){
+            $imagen = $balance->id.'_'.$boucher->getClientOriginalName();
+            Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher));
+            $balance->boucher = $imagen;
+            $balance->update();
+        }
+
+        return redirect()->route('index')->with([
+            'message' => 'Fue Enviado el Boucher Para su Revision, porfavor Espere',
+            'alerta' => 'success'
+        ]);
     }
 }
