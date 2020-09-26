@@ -3,6 +3,7 @@
 use App\Lot;
 use App\Rol;
 use App\Like;
+use App\Slide;
 use App\User;
 use App\Bank;
 use App\Audit;
@@ -60,7 +61,8 @@ class DatabaseSeeder extends Seeder
             ActiveAuc::class,
             Like::class,
             DocumentosVehiculo::class,
-            Participacion::class
+            Participacion::class,
+            Slide::class
         ]);
         Schema::disableForeignKeyConstraints();
         $this->call(RolesSeeder::class);
