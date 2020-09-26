@@ -96,10 +96,15 @@ class ImagenesController extends Controller
     public function getSlide($id)
     {
         $id = Gambito::hash($id, true);
-        $data = Slide::where('id', $id)->first();
-        $file = Image::make(Storage::disk('s3')->get('slide/'.$data->imagen));
-        $file->response();
-        $code = 200;
+        if (Auth::user()){
+            $data = Slide::where('id', $id)->first();
+            $file = Storage::disk('s3')->get('slide/'.$data->ruta);
+            $code = 200;
+        }else{
+            $file = Storage::disk('s3')->get('slide/ejemplo.jpg');
+            $code = 401;
+        }
+        return new Response($file,$code);
         return new Response($file,$code);
     }
 }
