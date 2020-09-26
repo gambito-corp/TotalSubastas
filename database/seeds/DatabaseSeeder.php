@@ -65,6 +65,8 @@ class DatabaseSeeder extends Seeder
             Slide::class
         ]);
         Schema::disableForeignKeyConstraints();
+        $this->call(SlideSeeder::class);
+
         $this->call(RolesSeeder::class);
         $this->call(BrandSeeder::class);
         $this->call(BancosSeeder::class);
@@ -89,7 +91,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LikeSeeder::class);
         $this->call(DocumentosSeeder::class);
         $this->call(ParticipacionSeeder::class);
-        $this->call(SlideSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
 
