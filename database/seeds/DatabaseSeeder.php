@@ -3,9 +3,9 @@
 use App\Lot;
 use App\Rol;
 use App\Like;
-use App\Slide;
 use App\User;
 use App\Bank;
+use App\Slide;
 use App\Audit;
 use App\Brand;
 use App\Person;
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LikeSeeder::class);
         $this->call(DocumentosSeeder::class);
         $this->call(ParticipacionSeeder::class);
-        $this->call(Slide::class);
+        $this->call(SlideSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
 
