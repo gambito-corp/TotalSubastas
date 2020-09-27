@@ -19,9 +19,9 @@ class email extends Component
     public function __construct($titulo, $ruta, $submit, $metodo = 'post')
     {
         $this->titulo = $titulo;
-        $this->ruta = ($submit != null)?$ruta:null;
-        $this->submit = ($submit != null)?$submit:null;
-        $this->metodo = ($submit != null)?$metodo:null;
+        $this->ruta = $ruta;
+        $this->submit = $submit;
+        $this->metodo = $metodo;
     }
 
     public function render()
