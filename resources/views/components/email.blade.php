@@ -85,7 +85,7 @@
                         {{$oculto}}
                     @endisset
                     @isset($submit)
-                        <input type="submit" class="submit" value="{{optional($submit)}}"/>
+                        <input type="submit" class="submit" value="{{$submit}}"/>
                     @endisset
                 </form>
             </div>
