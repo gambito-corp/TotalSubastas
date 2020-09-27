@@ -58,7 +58,7 @@ class PerfilController extends Controller
         $id = Auth::id();
         $persona = Person::where('user_id', $id)->first();
         $audit = Audit::where('user_id', $id)->get()->pluck('created_at')->last()->format('d-M-Y');
-        $balance = Balance::where('user_id', $id)->where('aprobado', true)->pluck('monto')->first();
+        $balance = Balance::where('user_id', $id)->where('aprobado', true)->pluck('monto')->sum();
         $balance = intval($balance);
         $garantia = Garantia::where('user_id', $id)->pluck('monto')->sum();
         $likes = Like::where('user_id', $id)->count();
