@@ -67,7 +67,7 @@ class BalanceController extends Controller
         $transaccion = $request->input('transaccion');
         $abono_at = $request->input('abono_at');
         $boucher = $request->file('boucher');
-        $aprobado = $request->input('aprobado');
+        $aprobado = ($request->input('aprobado') == "true")?1:0;
 
         //asignar valores
 
