@@ -58,5 +58,15 @@ class UserSeeder extends Seeder
             'completo'          => true,
             'tipo'              => 'natural'
         ]);
+        User::create([
+            'role_id'           => '1',
+            'name'              => 'JavierAdmin',
+            'email'             => 'admin@totalsubastas.com',
+            'avatar'            => 'default.png',
+            'email_verified_at' => now(),
+            'password'          => Hash::make('Admin'),
+            'completo'          => true,
+            'tipo'              => 'natural'
+        ]);
     }
 }

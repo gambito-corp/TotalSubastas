@@ -98,5 +98,21 @@ class PersonSeeder extends Seeder
             'dni_front'         => 'img/dni/delante.jpg',
             'dni_back'          => 'img/dni/atras.jpg'
         ]);
+        Person::create([
+            'user_id'           => 6,
+            'nombres'           => 'Javier',
+            'apellidos'         => 'Diaz',
+            'tipo_documento'    => 'DNI',
+            'numero_documento'  => 44369984,
+            'digito_documento'  => 1,
+            'genero'            => 'Hombre',
+            'estado_civil'      => 'Casado',
+            'cuenta_banco'      => '133-5544-5566-6589',
+            'b_day'             => '1988-10-12',
+            'telefono'          => '9910019333',
+            'email'             => 'admin@totalsubastas.com',
+            'dni_front'         => 'img/dni/delante.jpg',
+            'dni_back'          => 'img/dni/atras.jpg'
+        ]);
     }
 }

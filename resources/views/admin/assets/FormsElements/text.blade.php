@@ -1,13 +1,19 @@
 <label for="{{$nombre}}">{{$tag}} {{isset($require) && $require? '*':''}}</label>
+
 <input  type="{{$tipo}}"
+
         name="{{$nombre}}"
+
         @isset($live)
         wire:model="{{$nombre}}"
         @endisset
+
         class="form-control @error($nombre) is-invalid @enderror"
+
         @isset($place)
         placeholder="{{$place}}"
         @endisset
+
         @isset($edit)
         value="{{$valor}}"
         @else
