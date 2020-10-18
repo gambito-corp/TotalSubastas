@@ -6,7 +6,7 @@
     @auth
         <form wire:submit.prevent="online">
             <button class="btn btn-primary rounded-pill pr-3 pl-2 btn-to_action-bottom text-light">
-                <i class="fas fa-eye pr-3 pl-3 "></i> ingresar a sala
+                <i class="fas fa-eye pr-3 pl-3 "></i> Ingresar a Sala
             </button>
         </form>
     @else
