@@ -1,28 +1,33 @@
 <header class="sticky-top" id="cabecera">
     <div class="navbar nav-top ">
-        <div class="container flex-wrap justify-content-md-between justify-content-sm-center">
-            <div class="row">
-                <div class="col-xs-3 col-md ">
-                    <a href="#" class="navbar-brand d-flex text-dark align-items-center">
-                        <img src="{{asset('assets/img/Icon-Phone.svg')}}" class="mr-2 " alt="" srcset=""> (+51) 460-2000
-                    </a>
-                </div>
-                <div class="col-xs-3 col-md   mt-2 ml-2">
-                    <a href="#" class="text-dark">
-                        <img src="{{asset('assets/img/Imagen 1.png')}}" alt="">
-                        Chat en vivo
-                    </a>
+        <div class="container-header">
+            <div class="container-header-left">
+                <div class="row">
+                    <div class="col-xs-3 col-md ">
+                        <a href="#" class="navbar-brand d-flex text-dark align-items-center">
+                            <img src="{{asset('assets/img/Icon-Phone.svg')}}" class="mr-2 " alt="" srcset=""> (+51) 460-2000
+                        </a>
+                    </div>
+                    <div class="col-xs-3 col-md   icono-chat">
+                        <a href="#" class="text-dark">
+                            <img src="{{asset('assets/img/Imagen 1.png')}}" alt="">
+                            Chat en vivo
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="row ">
-                <div class="col-md col-xs-12  mr-auto  ">
-                    <a href="{{route('index')}}" class="navbar-brand d-flex text-dark align-items-center">
-                        <img src="{{asset('assets/img/Logo-TS.svg')}}">
-                    </a>
+            <div class="container-header-logo">
+                <div class="row ">
+                    <div class="col-md col-xs-12  mr-auto  ">
+                        <a href="{{route('index')}}" class="navbar-brand d-flex text-dark align-items-center">
+                            <img src="{{asset('assets/img/Logo-TS.svg')}}">
+                        </a>
+                    </div>
                 </div>
             </div>
             @guest
-                <div class="row ">
+            <div class="container-header-right">
+                <div class="row flex-end-ts">
                     <a class="nav-link text-dark signin-text" href="{{route('login')}}">
                         <img src="./assets/img/Icon-Key.svg" class="mr-2" alt="" srcset="">
                         Ingresar
@@ -32,6 +37,8 @@
                         Registrate
                     </a>
                 </div>
+            </div>
+                
             @else
                 <div class="row ">
                     <div class="col ">

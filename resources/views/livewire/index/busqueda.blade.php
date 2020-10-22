@@ -21,10 +21,10 @@
                 </a>
                 <!-- Card body -->
                 <div id="collapseOne4" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
-                    <div class="card-body ">
+                    <div class="card-body pt-0">
                         <span class="badge {{$picked == true ? 'badge-success' : 'badge-danger'}}">{{$picked == true ? 'Busca Una Empresa' : 'buscando'}}</span>
-                        <div class="col d-flex justify-content-between mt-2">
-                            <div class="input-group m-2">
+                        <div class="d-flex justify-content-between mt-2">
+                            <div class="input-group">
                                 <div class="input-group ">
                                     <input class="form-control py-2 border-right-0 border" type="text" id="buscar" wire:model="buscar" wire:keydown.enter="asignarPrimero()">
                                     <span class="input-group-append">
@@ -78,11 +78,11 @@
                 </a>
                 <!-- Card body -->
                 <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx">
-                    <div class="card-body ">
-                        <div class="col d-flex justify-content-between border-bottom mt-2" wire:click="TipoV('Vehiculo Ligero')">
+                    <div class="card-body pt-0">
+                        <div class="border-bottom" wire:click="TipoV('Vehiculo Ligero')">
                             <p class="btn btn-outline-info"> Vehiculo Ligero </p>
                         </div>
-                        <div class="col d-flex justify-content-between border-bottom mt-2" wire:click="TipoV('Vehiculo Pesado')">
+                        <div class="" wire:click="TipoV('Vehiculo Pesado')">
                             <p class="btn btn-outline-info"> Vehiculo Pesado </p>
                         </div>
                     </div>
@@ -103,30 +103,18 @@
                 </a>
                 <!-- Card body -->
                 <div id="collapseOne2" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#tiposubasta">
-                    <div class="card-body ">
-                        <div class="col d-flex justify-content-between ">
-
-                            <div class="form-group form-check">
-                                <input type="radio" class="form-check-input" id="exampleCheck1" value="Con Reserva" wire:model="tipoR">
-                                <label class="form-check-label car-side-nav_bp" for="exampleCheck1">con reserva</label>
-                            </div>
-
+                    <div class="card-body pt-0">
+                        <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="exampleCheck1" value="Con Reserva" wire:model="tipoR">
+                            <label class="form-check-label car-side-nav_bp" for="exampleCheck1">con reserva</label>
                         </div>
-                        <div class="col d-flex justify-content-between ">
-
-                            <div class="form-group form-check">
-                                <input type="radio" class="form-check-input" id="exampleCheck1" value="Sin Reserva" wire:model="tipoR">
-                                <label class="form-check-label car-side-nav_bp" for="exampleCheck1">sin reserva</label>
-                            </div>
-
+                        <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="exampleCheck1" value="Sin Reserva" wire:model="tipoR">
+                            <label class="form-check-label car-side-nav_bp" for="exampleCheck1">sin reserva</label>
                         </div>
-                        <div class="col d-flex justify-content-between mt-2">
-
-                            <div class="form-group form-check">
-                                <input type="radio" class="form-check-input" id="exampleCheck1" value="Compra Directa" wire:model="tipoR">
-                                <label class="form-check-label car-side-nav_bp" for="exampleCheck1">compra inmediata</label>
-                            </div>
-
+                         <div class="form-group form-check">
+                            <input type="radio" class="form-check-input" id="exampleCheck1" value="Compra Directa" wire:model="tipoR">
+                            <label class="form-check-label car-side-nav_bp" for="exampleCheck1">compra inmediata</label>
                         </div>
                     </div>
                 </div>
@@ -146,19 +134,17 @@
                 </a>
                 <!-- Card body -->
                 <div id="collapseOne3" class="collapse show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#precio">
-                    <div class="card-body ">
-                        <div class="col-12 d-flex justify-content-between  mt-2">
-                            <form class="m-2">
-                                <div class="form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 3000"  wire:model.lazy="precioMin">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control car-side-nav_bp" placeholder="$ 5000" wire:model.lazy="precioMax">
-                                    </div>
+                    <div class="card-body pt-0">
+                        <form class="">
+                            <div class="form-row">
+                                <div class="col">
+                                    <input type="text" class="form-control car-side-nav_bp" placeholder="$ 3000"  wire:model.lazy="precioMin">
                                 </div>
-                            </form>
-                        </div>
+                                <div class="col">
+                                    <input type="text" class="form-control car-side-nav_bp" placeholder="$ 5000" wire:model.lazy="precioMax">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -176,8 +162,8 @@
                 </a>
                 <!-- Card body -->
                 <div id="collapseOne5" class="collapse car-side-nav_bp show" role="tabpanel" aria-labelledby="headingOne1" data-parent="#ciudad">
-                    <div class="card-body ">
-                        <div class="col d-flex justify-content-between mt-2">
+                    <div class="card-body pt-0">
+                        <div class="">
                             <select class="custom-select" wire:model="ciudad">
                                 <option selected value="*">Elige una ciudad</option>
                                 @foreach($this->select->unique('ciudad') as $dat)

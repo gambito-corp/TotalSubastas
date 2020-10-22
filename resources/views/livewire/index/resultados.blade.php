@@ -37,19 +37,22 @@
                             </h2>
                         </div>
                     </nav>
-                    <div class="row mr-0 ml-0">
+                    <div class="row mr-0 ml-0 container-item-subasta">
                         @forelse($datos->Productos as $dato)
-                            <div class="col-md-4 col-sm-6 border-right col-xs-12">
+                            <div class="col-md-4 col-sm-6 col-xs-12 item-subasta">
                                 <div class="card mb-4 pub-item_cont">
-                                    <article class="pub-item_head">
+                                    <article class="pub-item_head container-image-subasta">
                                         <span wire:click="addLike({{$dato->id}})" wire:model="like">
-                                            <i class="text-light fa fa-heart-o heart p-2" aria-hidden="true"></i>
-                                            <p class="mb-2 text-light">{{count($this->like->where('producto_id', $dato->id))}}</p>
+                                            <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>
+                                            <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
                                         </span>
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                        @isset($dato->imagen)
+                                        <div class="image-subasta">
+                                            @isset($dato->imagen)
                                             @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '70', ])
-                                        @endisset
+                                            @endisset
+                                        </div>
+                                        
                                     </article>
                                     <div class="card-body justify-content-center">
                                         <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">
@@ -65,7 +68,7 @@
                                                 @else
                                                     <a href="{!!route('subastaOnline', ['id' => $dato->hash($dato->id)])!!}">
                                                 @endif
-                                                    <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}}">
+                                                    <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}} btn-subasta">
                                                         <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>
                                                         <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
                                                     </button>
