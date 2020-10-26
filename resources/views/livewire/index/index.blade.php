@@ -1,4 +1,4 @@
-<div class="row row-width rounded pb-4">
+<div class="row row-width rounded pb-4 width100-responsive">
 
     @livewire('index.busqueda', ['empresas' => $empresas])
 

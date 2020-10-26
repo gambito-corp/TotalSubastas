@@ -38,7 +38,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4 ">
             <article>
             <div class="media">
-                <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
+                <img class="details detalle-img" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                     <p class="mt-0 pl-2 mr-2 text-capitalize"> <small>Llantas en buen estado </small><br>
                         <small><strong> Observaci&oacute;n 1</strong></small> </p>
@@ -50,7 +50,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
+              <img class="details detalle-img" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"> <small>Capote <br>no abre</small> <br>
                     <small><strong> Observaci&oacute;n</strong></small> </p>
@@ -62,7 +62,7 @@
           <div class="col-12 col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
+              <img class="details detalle-img" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"> <small> Lata del Auto <br> hundido </small><br>
                     <small><strong> Observaci&oacute;n</strong></small> </p>
@@ -74,7 +74,7 @@
           <div class="col col-md-3 col-sm-12 col-xs-12 p-4">
             <article>
               <div class="media">
-              <img class="details" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
+              <img class="details detalle-img" src="https://moneseguros.com/wp-content/uploads/2019/03/accidente-coche-faro-256x256.jpg" alt="">
                 <div class="media-body">
                   <p class="mt-0 pl-2 mr-2 text-capitalize"><small>Faros delanteros <br> Quebrados</small> <br>
                     <small><strong>

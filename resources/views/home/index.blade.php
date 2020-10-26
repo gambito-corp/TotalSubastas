@@ -33,11 +33,11 @@
             </div>
 
             <div class="col-md-6  sec_in-out order-md-2">
-                <div class="row slide-border ">
+                <div class="row slide-border container-slider-banner">
                     <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
                 </div>
                 <div class="row">
-                    <div class="col-md-6 p-0  d-md-flex  mt-4 order-md-3">
+                    <div class="col-md-6 p-0  d-md-flex  mt-4 order-md-3 container-banner-responsive">
                         <div class="col col-md-11 mb-sm-1 card-slide card-slide_success col-sm-12 p-0  mr-md-4 order-md-1 bg-success_light order-md-1 banner3">
                             <article class="dwnld-card">
                             <strong class="text-light d-flex justify-content-center pt-3 pr-2">Documentación a la mano <br> de

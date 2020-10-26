@@ -10,7 +10,7 @@
                                 <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
                                 <h3>{{$vehiculo->year}}</h3>
                             </figure>
-                            <ul class="nav justify-content-end">
+                            <ul class="nav justify-content-end container-resumen-subasta">
                                 <li class="nav-item text-light_darken mr-2">
                                     <span class="mr-2 " wire:click="addLike({{$producto->id}})" wire:model="like">
                                         <i class="fa fa-heart-o heart" aria-hidden="true"></i>
@@ -27,15 +27,15 @@
                             </ul>
                             <hr class="my-4" />
                         </article>
-                        <div class="col-md-12 col-sm-12" >
+                        <div class="" >
 
-                            <div class="jumbotron auction-jumbotron mr-2 p-0">
+                            <div class="jumbotron auction-jumbotron  p-0">
                                 <div class="container">
                                     <div class="row">
                                         <div class="col pt-3 ">
                                             <p class="title-d_sheet-jumb text-center">cierra en</p>
-                                            <div class="d-flex">
-                                                <p class="title-d_sheet-sp mr-3" id="regresiva">{{$producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
+                                            <div class="">
+                                                <p class="title-d_sheet-sp" id="regresiva">{{$producto->finalized_at <= now()? 'Subasta Finalizada':''}}</p>
                                             </div>
                                         </div>
                                         <div class="col pt-3">
@@ -138,7 +138,7 @@
 
             const timerUpdate = setInterval(()=>{
                 let t = getRemainTime(deadline);
-                el.innerHTML= "<p>"+t.remainDays+" Dias "+t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
+                el.innerHTML= "<p>"+t.remainDays+" Dias "+ "<br>" +t.remainHours+" : "+t.remainMinutes+" : "+t.remainSeconds+"</p>";
                 if(t.remainTime <= 1){
                     clearInterval(timerUpdate);
                     el.innerHTML = finalMessage;

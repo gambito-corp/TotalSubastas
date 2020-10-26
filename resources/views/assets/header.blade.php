@@ -2,7 +2,7 @@
     <div class="navbar nav-top ">
         <div class="container-header">
             <div class="container-header-left">
-                <div class="row">
+                <div class="row header-left-reponsive">
                     <div class="col-xs-3 col-md ">
                         <a href="#" class="navbar-brand d-flex text-dark align-items-center">
                             <img src="{{asset('assets/img/Icon-Phone.svg')}}" class="mr-2 " alt="" srcset=""> (+51) 460-2000
@@ -18,7 +18,7 @@
             </div>
             <div class="container-header-logo">
                 <div class="row ">
-                    <div class="col-md col-xs-12  mr-auto  ">
+                    <div class="col-md col-xs-12  mr-auto">
                         <a href="{{route('index')}}" class="navbar-brand d-flex text-dark align-items-center">
                             <img src="{{asset('assets/img/Logo-TS.svg')}}">
                         </a>
@@ -27,7 +27,7 @@
             </div>
             @guest
             <div class="container-header-right">
-                <div class="row flex-end-ts">
+                <div class="row flex-end-ts header-right-responsive">
                     <a class="nav-link text-dark signin-text" href="{{route('login')}}">
                         <img src="./assets/img/Icon-Key.svg" class="mr-2" alt="" srcset="">
                         Ingresar

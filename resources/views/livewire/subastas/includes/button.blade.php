@@ -10,7 +10,7 @@
             </button>
         </form>
     @else
-        <a class="btn btn-success rounded-pill pr-5 pl-4 btn-to_action-bottom text-light" href="{{ route('login')}} "><i class="fas fa-user pr-3 pl-3 "></i> Ingresar </a>
+        <a class="btn btn-success rounded-pill btn-to_action-bottom text-light btn-subasta-ts" href="{{ route('login')}} "><i class="fas fa-user"></i> Ingresar </a>
     @endauth
 @endif
 @if($estado == 'puja')

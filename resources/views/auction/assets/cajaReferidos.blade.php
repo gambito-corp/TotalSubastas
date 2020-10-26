@@ -50,7 +50,7 @@
                             @else
                                 <a href="{!!route('subastaOnline', ['id' => \App\Helpers\Gambito::hash($dato->id)])!!}">
                             @endif
-                                <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}}">
+                                <button type="button" class="btn btn-sm  rounded-pill text-light  {{$dato->tipo_subasta == 'Compra'? 'btn-success':'btn-to_auction'}} btn-subasta">
                                     <strong><span class="mr-2">$</span>{{$dato->precio}} </strong>
                                     <i class="fa fa-long-arrow-right  ml-2" aria-hidden="true"></i>
                                 </button>

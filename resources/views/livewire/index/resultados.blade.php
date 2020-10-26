@@ -1,4 +1,4 @@
-<div class="col-md-9 mt-3 pr-0" wire:pool.750ms>
+<div class="col-md-9 mt-3 pr-0 container-resultado" wire:pool.750ms>
 
     <div class="row">
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">
@@ -16,7 +16,7 @@
     </div>
     @forelse($empresas as $dat)
         <div class="row main-container mb-5">
-            <div class="col-md col-md-12 mb-3 pl-0 pr-0">
+            <div class="col-md col-md-12 mb-3 pl-0 pr-0 ">
                 <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
                     <a class="navbar-brand text-darken" href="#">{{$dat->razon_social}}</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"

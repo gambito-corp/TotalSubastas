@@ -1,7 +1,7 @@
 <div class="container-fluid mt-5">
     <div class="row  ">
       <div class="jumbotron  jumbotron-bottom_container">
-        <div class="container ">
+        <div class="container info-jumbotron">
           <h1 class="font-weight-bold text-light text-center text-uppercase">
             esta puede ser tu gran <br> oportunidad
           </h1>
