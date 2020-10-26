@@ -98,7 +98,7 @@ class LoginController extends Controller
         if(Auth::user()->completo){
             $respuesta = redirect()->intended($this->redirectPath());
         }else{
-            $respuesta = redirect()->route('perfil.edit');
+            $respuesta = redirect()->route('perfil.paso1');
         }
 
         return $request->wantsJson()

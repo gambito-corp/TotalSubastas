@@ -7,6 +7,7 @@ use App\Audit;
 use App\Balance;
 use App\Balance as Data;
 use App\Bank;
+use App\Country;
 use App\Garantia;
 use App\Helpers\Gambito;
 use App\LegalPerson;
@@ -17,6 +18,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -396,5 +398,259 @@ class PerfilController extends Controller
             'message' => 'Fue Enviado el Boucher Para su Revision, porfavor Espere',
             'alerta' => 'success'
         ]);
+    }
+    public function paso1 ()
+    {
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        return view('perfil.formulario.paso1', compact('data', 'bancos'));
+    }
+    public function paso2 (Request $request)
+    {
+        if (auth()->user()->tipo == 'natural') {
+            $request->validate([
+                "nombres" => "required",
+                "apellidos" => "required",
+                "telefono" => "required",
+                "email" => "required",
+                "d_day" => "required",
+                "tipo_documento" => "required",
+                "numero_documento" => "required",
+            ]);
+            Cache::put('nombres', $request->input('nombres'), 5000);
+            Cache::put('apellidos', $request->input('apellidos'), 5000);
+            Cache::put('telefono', $request->input('telefono'), 5000);
+            Cache::put('email', $request->input('email'), 5000);
+            Cache::put('d_day', $request->input('d_day'), 5000);
+            Cache::put('tipo_documento', $request->input('tipo_documento'), 5000);
+            Cache::put('numero_documento', $request->input('numero_documento'), 5000);
+
+        }else {
+            $request->validate([
+
+            ]);
+        }
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        $pais = Country::where('parent_id', null)->get();
+        return view('perfil.formulario.paso2', compact('data', 'bancos', 'pais'));
+    }
+
+    public function paso3 (Request $request)
+    {
+        $request->validate([
+            'pais' => 'required|exists:App\Country,id',
+        ]);
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        $departamento = Country::where('parent_id', $request->input('pais'))->get();
+        Cache::put('pais', $request->input('pais'), 5000);
+        return view('perfil.formulario.paso3', compact('data', 'bancos', 'departamento'));
+    }
+    public function paso4 (Request $request)
+    {
+        $request->validate([
+            'departamento' => 'required|exists:App\Country,id',
+        ]);
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        $provincia = Country::where('parent_id', $request->input('departamento'))->get();
+        Cache::put('departamento', $request->input('departamento'), 5000);
+        return view('perfil.formulario.paso4', compact('data', 'bancos', 'provincia'));
+    }
+    public function paso5 (Request $request)
+    {
+        $request->validate([
+            'provincia' => 'required|exists:App\Country,id',
+        ]);
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id', Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        $distrito = Country::where('parent_id', $request->input('provincia'))->get();
+        Cache::put('provincia', $request->input('provincia'), 5000);
+        return view('perfil.formulario.paso5', compact('data', 'bancos', 'distrito'));
+    }
+    public function paso6 (Request $request)
+    {
+        $request->validate([
+            'distrito' => 'required|exists:App\Country,id',
+        ]);
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        Cache::put('distrito', $request->input('distrito'), 5000);
+        return view('perfil.formulario.paso6', compact('data', 'bancos'));
+    }
+    public function paso7 (Request $request)
+    {
+        $request->validate([
+            "tipo_via" => "required",
+            "direccion1" => "required",
+            "numero" => "required",
+            "int_ext" => "required",
+            "referencia" => "required",
+            "titulo_direccion" => "required",
+        ]);
+        Cache::put('tipo_via', $request->input('tipo_via'), 5000);
+        Cache::put('direccion1', $request->input('direccion1'), 5000);
+        Cache::put('direccion2', $request->input('direccion2'), 5000);
+        Cache::put('numero', $request->input('numero'), 5000);
+        Cache::put('int_ext', $request->input('int_ext'), 5000);
+        Cache::put('referencia', $request->input('referencia'), 5000);
+        Cache::put('titulo_direccion', $request->input('titulo_direccion'), 5000);
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
+        $bancos = Bank::all('id', 'siglas');
+        return view('perfil.formulario.paso7', compact('data', 'bancos'));
+    }
+
+    public function paso8 (Request $request)
+    {
+        $request->validate([
+            "banco_id" => 'required|exists:banks,id',
+            "numero_cuenta" =>  'required',
+            "genero" => 'required',
+            "estado_civil" => 'required',
+            "digito_documento" =>  'required',
+            "dni_front" => 'required',
+            "dni_back" => 'required',
+        ]);
+
+        dd($request->file());
+
+
+
+        if ($request->file('dni_front')) {
+            dd('hola');
+            $dni_front_name = 'delante' . $request->file('dni_front')->getClientOriginalName();
+            Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_front_name, File::get($request->file('dni_front')));
+        }
+        if ($request->file('dni_back')) {
+            $dni_back_name = 'detras' . $request->file('dni_back')->getClientOriginalName();
+            Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_back_name, File::get($request->file('dni_back')));
+        }
+        Cache::put('banco_id', $request->input('banco_id'), 5000);
+        Cache::put('numero_cuenta', $request->input('numero_cuenta'), 5000);
+        Cache::put('genero', $request->input('genero'), 5000);
+        Cache::put('estado_civil', $request->input('estado_civil'), 5000);
+        Cache::put('digito_documento', $request->input('digito_documento'), 5000);
+        Cache::put('dni_front', $dni_front_name, 5000);
+        Cache::put('dni_back', $dni_back_name, 5000);
+        if(Auth::user()->tipo == 'natural'){
+            $this->GuardadoNatural();
+        }else{
+            $this->GuardadoJuridico();
+        }
+
+    }
+
+
+
+    public function GuardadoNatural ()
+    {
+        dd('llegue');
+
+        $nombres = Cache::get('nombres');
+        $apellidos = Cache::get('apellidos');
+        $telefono = Cache::get('telefono');
+        $email = Cache::get('email');
+        $d_day = Cache::get('d_day');
+        $tipo_documento = Cache::get('tipo_documento');
+        $numero_documento = Cache::get('numero_documento');
+        $pais = Cache::get('pais');
+        $departamento = Cache::get('departamento');
+        $provincia = Cache::get('provincia');
+        $distrito = Cache::get('distrito');
+        $tipo_via = Cache::get('tipo_via');
+        $direccion1 = Cache::get('direccion1');
+        $direccion2 = Cache::get('direccion2');
+        $numero = Cache::get('numero');
+        $int_ext = Cache::get('int_ext');
+        $referencia = Cache::get('referencia');
+        $titulo_direccion = Cache::get('titulo_direccion');
+        $banco_id = Cache::get('banco_id');
+        $numero_cuenta = Cache::get('numero_cuenta');
+        $genero = Cache::get('genero');
+        $estado_civil = Cache::get('estado_civil');
+        $digito_documento = Cache::get('digito_documento');
+        $dni_front_name = Cache::get('dni_front');
+        $dni_back_name = Cache::get('dni_back');
+
+        $test = DB::transaction(function () use (
+            $nombres,
+            $apellidos,
+            $telefono,
+            $email,
+            $d_day,
+            $tipo_documento,
+            $numero_documento,
+            $pais,
+            $departamento,
+            $provincia,
+            $distrito,
+            $tipo_via,
+            $direccion1,
+            $direccion2,
+            $numero,
+            $int_ext,
+            $referencia,
+            $titulo_direccion,
+            $banco_id,
+            $numero_cuenta,
+            $genero,
+            $estado_civil,
+            $digito_documento,
+            $dni_front_name,
+            $dni_back_name
+        )
+        {
+            $user = DB::table('users')
+                ->where('id', Auth::id())
+                ->update([
+                    'completo' => true,
+                ]);
+
+            $direccion = Address::updateOrCreate(
+                [
+                    'user_id' => Auth::id(),
+                    'titulo_direccion' => $titulo_direccion,
+                ],
+                [
+                    'user_id' => Auth::id(),
+                    'pais_id' => $pais,
+                    'departamento_id' => $departamento,
+                    'provincia_id' => $provincia,
+                    'distrito_id' => $distrito,
+                    'tipo_via' => $tipo_via,
+                    'direccion1' => $direccion1,
+                    'direccion2' => $direccion2,
+                    'numero' => $numero,
+                    'int_ext' => $int_ext,
+                    'referencia' => $referencia,
+                    'titulo_direccion' => $titulo_direccion,
+                ]
+            );
+            DB::table('people')
+                ->where('user_id', Auth::id())
+                ->update([
+                    'direccion_id' => $direccion->id,
+                    'banco_id' => $banco_id,
+                    'nombres' => $nombres,
+                    'apellidos' => $apellidos,
+                    'tipo_documento' => $tipo_documento,
+                    'numero_documento' => $numero_documento,
+                    'digito_documento' => $digito_documento,
+                    'genero' => $genero,
+                    'estado_civil' => $estado_civil,
+                    'cuenta_banco' => $numero_cuenta,
+                    'b_day' => $d_day,
+                    'telefono' => $telefono,
+                    'email' => $email,
+                    'dni_front' => $dni_front_name,
+                    'dni_back' => $dni_back_name,
+                ]);
+        });
+        return redirect()->route('index');
+    }
+    public function GuardadoJuridico ()
+    {
+
     }
 }

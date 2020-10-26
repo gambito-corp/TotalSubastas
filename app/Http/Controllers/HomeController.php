@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Country;
 use App\Helpers\Gambito;
 use App\Slide;
 use App\User;
@@ -35,8 +36,9 @@ class HomeController extends Controller
 
     public function test()
     {
-        $relacion = Company::all();
-        dd($relacion->load('Lotes', 'Productos')->first());
+        $data = Country::all('id', 'parent_id', 'nombre');
+        json_encode($data);
+        return response()->json($data, 200);
     }
 
     public function contacto()

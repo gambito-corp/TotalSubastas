@@ -37,6 +37,17 @@ Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
 Route::get('/recargar', 'PerfilController@recargar')->name('recargar.perfil');
 
+
+
+Route::get('/paso1', 'PerfilController@paso1')->name('perfil.paso1');
+Route::get('/paso2', 'PerfilController@paso2')->name('perfil.paso2');
+Route::get('/paso3', 'PerfilController@paso3')->name('perfil.paso3');
+Route::get('/paso4', 'PerfilController@paso4')->name('perfil.paso4');
+Route::get('/paso5', 'PerfilController@paso5')->name('perfil.paso5');
+Route::get('/paso6', 'PerfilController@paso6')->name('perfil.paso6');
+Route::get('/paso7', 'PerfilController@paso7')->name('perfil.paso7');
+Route::post('/paso8', 'PerfilController@paso8')->name('perfil.paso8');
+
 //Controladora de Imagenes
 Route::get('/avatar/{id}', 'ImagenesController@getAvatar')->name('user.getImagen');
 Route::get('/logotipo/{id}', 'ImagenesController@getEmpresa')->name('empresa.getImagen');
@@ -392,7 +403,8 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
 });
 
 // Rutas de Test
-Route::get('indextest', 'HomeController@test');
+//Route::get('indextest', 'HomeController@test');
+Route::get('consulta', 'HomeController@test')->name('consulta');
 Route::view('showtest', 'test.show');
 Route::view('livetest', 'test.live');
 Route::view('testAjax', 'include._test');
