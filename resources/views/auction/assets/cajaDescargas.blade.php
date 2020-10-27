@@ -10,7 +10,7 @@
       </h5>
       <h6 class="card-subtitle mb-2 text-muted "> </h6>
       <p
-        class="card-text text-light  text-center mt-4 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
+        class="card-text text-light  pl-4 text-left mt-4 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
         pdf, 125 MB, SEP 8 at 2:03 PM</p>
       <a href="#" class="card-link card-link_auctions text-light text-right mt-4">
         <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -38,7 +38,7 @@
       </h5>
       <h6 class="card-subtitle mb-2 text-muted "> </h6>
       <p
-        class="card-text text-light  text-center mt-4 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
+        class="card-text text-light  pl-4 text-left mt-4 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
         pdf, 125 MB, SEP 8 at 2:03 PM</p>
       <a href="#" class="card-link card-link_auctions text-light text-right mt-4">
         <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
@@ -67,7 +67,7 @@
       </h5>
       <h6 class="card-subtitle mb-2 text-muted "> </h6>
       <p
-        class="card-text text-light  text-center mt-2 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
+        class="card-text text-light  pl-4 text-left mt-2 mb-3 text-uppercase pb-4 border-bottom  text-doc_data-sheet">
         pdf, 125 MB, SEP 8 at 2:03 PM</p>
       <a href="#" class="card-link card-link_auctions text-light text-right mt-4">
         <svg class="bi bi-download" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
