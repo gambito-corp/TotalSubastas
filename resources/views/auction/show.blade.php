@@ -12,7 +12,7 @@
             @include('auction.assets.cajaCaracteristica')
         </div><!-- row main container -->
         <div class="row ">
-            @include('auction.assets.cajaDescargas')
+            @include('auction.assets.cajaDescargas', ['documentos' => $documentos])
         </div>
     </div>
     <div class="container">

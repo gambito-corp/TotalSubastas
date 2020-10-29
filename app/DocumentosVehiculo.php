@@ -15,8 +15,11 @@ class DocumentosVehiculo extends Model
      *
      * @var array
      */
-    protected $fillable = [
-
+    protected $guarded = [
+        'id',
+        'created_at',
+        'updated_at',
+        'deleted_at',
     ];
 
     /**
@@ -43,4 +46,19 @@ class DocumentosVehiculo extends Model
         'deleted_at'        => 'datetime',
     ];
 
+    //RELACIONES
+    public function Empresa()
+    {
+        return $this->belongsTo(Company::class, 'empresa_id');
+    }
+
+    public function Lote()
+    {
+        return $this->belongsTo(Lot::class, 'lote_id');
+    }
+
+    public function Producto()
+    {
+        return $this->belongsTo(Producto::class, 'producto_id');
+    }
 }

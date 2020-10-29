@@ -427,8 +427,21 @@ class PerfilController extends Controller
 
         }else {
             $request->validate([
-
+                "nombre" => "required",
+                "razon_social" => "required",
+                "ruc" => "required",
+                "banco_id" => "required",
+                "numero_cuenta" => "required",
+                "telefono" => "required",
+                "email" => "required",
             ]);
+            Cache::put('nombre', $request->input('nombre'), 5000);
+            Cache::put('razon_social', $request->input('razon_social'), 5000);
+            Cache::put('ruc', $request->input('ruc'), 5000);
+            Cache::put('banco_id', $request->input('banco_id'), 5000);
+            Cache::put('numero_cuenta', $request->input('numero_cuenta'), 5000);
+            Cache::put('telefono', $request->input('telefono'), 5000);
+            Cache::put('email', $request->input('email'), 5000);
         }
         $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $bancos = Bank::all('id', 'siglas');
@@ -476,8 +489,9 @@ class PerfilController extends Controller
         ]);
         $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $bancos = Bank::all('id', 'siglas');
+        $direccion = Address::where('id',$data->direccion_id)->first();
         Cache::put('distrito', $request->input('distrito'), 5000);
-        return view('perfil.formulario.paso6', compact('data', 'bancos'));
+        return view('perfil.formulario.paso6', compact('data', 'bancos', 'direccion'));
     }
     public function paso7 (Request $request)
     {
@@ -498,6 +512,10 @@ class PerfilController extends Controller
         Cache::put('titulo_direccion', $request->input('titulo_direccion'), 5000);
         $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $bancos = Bank::all('id', 'siglas');
+        if(Auth::user()->tipo == 'juridica'){
+            $this->GuardadoJuridico();
+            return redirect()->route('perfil');
+        }
         return view('perfil.formulario.paso7', compact('data', 'bancos'));
     }
 
@@ -512,13 +530,8 @@ class PerfilController extends Controller
             "dni_front" => 'required',
             "dni_back" => 'required',
         ]);
-
-        dd($request->file());
-
-
-
         if ($request->file('dni_front')) {
-            dd('hola');
+
             $dni_front_name = 'delante' . $request->file('dni_front')->getClientOriginalName();
             Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_front_name, File::get($request->file('dni_front')));
         }
@@ -533,20 +546,15 @@ class PerfilController extends Controller
         Cache::put('digito_documento', $request->input('digito_documento'), 5000);
         Cache::put('dni_front', $dni_front_name, 5000);
         Cache::put('dni_back', $dni_back_name, 5000);
-        if(Auth::user()->tipo == 'natural'){
-            $this->GuardadoNatural();
-        }else{
-            $this->GuardadoJuridico();
-        }
 
+        $this->GuardadoNatural();
+        return redirect()->route('perfil');
     }
 
 
 
     public function GuardadoNatural ()
     {
-        dd('llegue');
-
         $nombres = Cache::get('nombres');
         $apellidos = Cache::get('apellidos');
         $telefono = Cache::get('telefono');
@@ -647,10 +655,85 @@ class PerfilController extends Controller
                     'dni_back' => $dni_back_name,
                 ]);
         });
-        return redirect()->route('index');
     }
     public function GuardadoJuridico ()
     {
+        $nombre             = Cache::get('nombre');
+        $razon_social       = Cache::get('razon_social');
+        $ruc                = Cache::get('ruc');
+        $banco_id           = Cache::get('banco_id');
+        $numero_cuenta      = Cache::get('numero_cuenta');
+        $telefono           = Cache::get('telefono');
+        $email              = Cache::get('email');
+        $pais               = Cache::get('pais');
+        $departamento       = Cache::get('departamento');
+        $provincia          = Cache::get('provincia');
+        $distrito           = Cache::get('distrito');
+        $tipo_via           = Cache::get('tipo_via');
+        $direccion1         = Cache::get('direccion1');
+        $direccion2         = Cache::get('direccion2');
+        $numero             = Cache::get('numero');
+        $int_ext            = Cache::get('int_ext');
+        $referencia         = Cache::get('referencia');
+        $titulo_direccion   = Cache::get('titulo_direccion');
+        DB::transaction(function () use (
+            $nombre,
+            $razon_social,
+            $ruc,
+            $banco_id,
+            $numero_cuenta,
+            $telefono,
+            $email,
+            $pais,
+            $departamento,
+            $provincia,
+            $distrito,
+            $tipo_via,
+            $direccion1,
+            $direccion2,
+            $numero,
+            $int_ext,
+            $referencia,
+            $titulo_direccion
+        ){
+            $user = DB::table('users')
+                ->where('id', Auth::id())
+                ->update([
+                    'completo' => true
+                ]);
 
+            $direccion = Address::updateOrCreate(
+                [
+                    'user_id' => Auth::id(),
+                    'titulo_direccion' => $titulo_direccion,
+                ],
+                [
+                    'user_id' => Auth::id(),
+                    'pais_id' => $pais,
+                    'departamento_id' => $departamento,
+                    'provincia_id' => $provincia,
+                    'distrito_id' => $distrito,
+                    'tipo_via' => $tipo_via,
+                    'direccion1' => $direccion1,
+                    'direccion2' => $direccion2,
+                    'numero' => $numero,
+                    'int_ext' => $int_ext,
+                    'referencia' => $referencia,
+                    'titulo_direccion' => $titulo_direccion
+                ]
+            );
+            DB::table('legal_persons')
+                ->where('user_id', Auth::id())
+                ->update([
+                    'banco_id' => $banco_id,
+                    'direccion_id' => $direccion->id,
+                    'nombre' => $nombre,
+                    'razon_social' => $razon_social,
+                    'ruc' => $ruc,
+                    'numero_cuenta' => $numero_cuenta,
+                    'telefono' => $telefono,
+                    'email' => $email
+                ]);
+        });
     }
 }

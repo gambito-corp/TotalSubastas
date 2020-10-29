@@ -31,11 +31,13 @@
       </div>
       <!-- main content -- nr° 2-->
         @forelse($referidos as $dato)
-      <div class="col col-md-3 col-sm-6 border-right col-xs-6">
-        <div class="card mb-3 pub-item_cont ">
-            @isset($dato->imagen)
-                <img src="{{asset($dato->imagen)}}" alt="">
-            @endisset
+            <div class="col col-md-3 col-sm-6 border-right col-xs-6">
+                <div class="card mb-3 pub-item_cont ">
+                    <div class="image-subasta">
+                        @isset($dato->imagen)
+                            @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '70', ])
+                        @endisset
+                    </div>
                 <div class="card-body justify-content-center">
                     <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">
                         <strong>{{$dato->tipo_subasta}}</strong><i class="fas fa-bell ml-2"></i>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\DocumentosVehiculo;
 use App\Helpers\Gambito;
 use App\Producto;
 use App\Slide;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ImagenesController extends Controller
@@ -56,21 +58,29 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = Producto::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(40)->resize('200', '200');
+        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(30)->resize('200', '200');
         $file->insert($watermark, 'center')
             ->response();
         $code = 200;
         return new Response($file,$code);
     }
 
-    public function getDocumentos($id)
-    {
-        $id = Gambito::hash($id, true);
-        if (Auth::user()){
+    public function getDownload($id, $file){
+        $data = DocumentosVehiculo::with('Empresa', 'Lote', 'Producto')->where('id', $id)->first();
+        $ruta = 'documentos/vehiculos/'.
+            Str::slug($data->Empresa->nombre, "-").
+            '/'.
+            Str::slug($data->Lote->nombre, "-").
+            '/' .
+            Str::slug($data->Producto->nombre, "-").
+            '/';
+        $header = [
+            'Content-Disposition: attachment',
+            'Cache-Control: no-cache',
+            'Content-Type: application/pdf',
+        ];
 
-        }else{
-
-        }
+        return Storage::disk('s3')->download($ruta.$file, $file, $header);
     }
 
     public function getDni($id)
@@ -99,7 +109,6 @@ class ImagenesController extends Controller
         $data = Slide::where('id', $id)->first();
         $file = Storage::disk('s3')->get('slide/'.$data->ruta);
         $code = 200;
-        return new Response($file,$code);
         return new Response($file,$code);
     }
 }

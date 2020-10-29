@@ -18,9 +18,12 @@ class CreateDocumentsVehiclesTable extends Migration
             $table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
             $table->foreignId('lote_id')->nullable()->constrained('lots')->onDelete('set null');
             $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
-            $table->string('titulo');
-            $table->string('tipo');
-            $table->string('documento');
+            $table->string('titulo1');
+            $table->string('documento1');
+            $table->string('titulo2')->nullable();
+            $table->string('documento2')->nullable();
+            $table->string('titulo3')->nullable();
+            $table->string('documento3')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

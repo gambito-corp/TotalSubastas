@@ -54,6 +54,7 @@ Route::get('/logotipo/{id}', 'ImagenesController@getEmpresa')->name('empresa.get
 Route::get('/producto/{id}', 'ImagenesController@getproducto')->name('producto.getImagen');
 Route::get('/producto/set/{id}', 'ImagenesController@getProductoImagen')->name('set.getImagen');
 Route::get('/slide/{id}', 'ImagenesController@getSlide')->name('slide.getImagen');
+Route::get('/download/{id}/{file}', 'ImagenesController@getDownload')->name('descargar');
 
 //Formularios diversos
 Route::post('/citas/{id}', 'AuctionsController@citas')->name('citas');
@@ -372,6 +373,7 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
         Route::get('delete/{id}', 'DocumentosController@delete')->name('delete');
         Route::get('destroy/{id}', 'DocumentosController@destroy')->name('destroy')->middleware('password.confirm');
         Route::get('restore/{id}', 'DocumentosController@restore')->name('restore');
+        Route::get('/download/{id}/{file}', 'DocumentosController@getDownload')->name('descargar');
     });
     Route::prefix('participacion')->name('participacion.')->namespace('participacion')->group(function (){
         //Participaciones de usuarios

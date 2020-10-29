@@ -7,15 +7,15 @@
 @section('header')
 {{--    <i class="fas fa-flag fa-3x"></i>--}}
     <h1 class="m-0 text-dark d-inline-flex mr-3">{{--Modelo--}}</h1>
-    <a href="{{route('admin.pais.create')}}" class="btn btn-success btn-small">
+    <a href="{{route('admin.documentos.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
     @isset($trash)
-        <a href="{{route('admin.pais.index')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.documentos.index')}}" class="btn btn-info btn-small">
             <i class="fas fa-eye"></i> Regresar
         </a>
     @else
-        <a href="{{route('admin.pais.trash')}}" class="btn btn-info btn-small">
+        <a href="{{route('admin.documentos.trash')}}" class="btn btn-info btn-small">
             <i class="fas fa-recycle"></i> Ver Borrados
         </a>
     @endisset
@@ -26,7 +26,14 @@
             <table id="Tabla" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Empresa</th>
+                        <th>Lote</th>
+                        <th>Producto</th>
+                        <th>Titulo 1</th>
+                        <th>Titulo 2</th>
+                        <th>Titulo 3</th>
+                        <th>Fecha de Creacion</th>
                         @isset($trash)
                             <td>Borrado Hace</td>
                         @endisset
@@ -36,24 +43,57 @@
                 <tbody>
                     @forelse($data as $key => $dat)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{$dat->id}}</td>
+                            <td>{{$dat->Empresa->nombre}}</td>
+                            <td>{{$dat->Lote->nombre}}</td>
+                            <td>{{$dat->Producto->nombre}}</td>
+                            <td>
+                                <a href="{{route('admin.documentos.descargar', ['id' => $dat->id, 'file' => Illuminate\Support\Str::slug($dat->titulo1, '-').'.pdf'])}}" class="btn btn-large pull-right btn-success">
+                                    <i class="icon-download-alt"> </i>
+                                    {{$dat->titulo1}}
+                                </a>
+                            </td>
+                            <td>
+                                @isset($dat->documento2)
+                                    <a href="{{route('admin.documentos.descargar', ['id' => $dat->id, 'file' => Illuminate\Support\Str::slug($dat->titulo2, '-').'.pdf'])}}" class="btn btn-large pull-right btn-success">
+                                        <i class="icon-download-alt"> </i>
+                                        {{$dat->titulo2}}
+                                    </a>
+                                @endisset
+                            </td>
+                            <td>
+                                @isset($dat->documento3)
+                                    <a href="{{route('admin.documentos.descargar', ['id' => $dat->id, 'file' => Illuminate\Support\Str::slug($dat->titulo3, '-').'.pdf'])}}" class="btn btn-large pull-right btn-success">
+                                        <i class="icon-download-alt"> </i>
+                                        {{$dat->titulo3}}
+                                    </a>
+                                @endisset
+                            </td>
+                            <td>{{$dat->created_at->diffForHumans()}}</td>
                             @isset($trash)
                                 <td>{{$dat->deleted_at}}</td>
                             @endisset
                             <td class="align-items-center">
                                 @isset($trash)
-                                    <a href="{{route('admin.pais.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                    <a href="{{route('admin.pais.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.documentos.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
+                                    <a href="{{route('admin.documentos.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @else
-                                    <a href="{{route('admin.pais.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('admin.pais.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="{{route('admin.pais.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{route('admin.documentos.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
+                                    <a href="{{route('admin.documentos.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{route('admin.documentos.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
                                 @endisset
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td>Orden</td>
+                            <td>Id</td>
+                            <td>Empresa</td>
+                            <td>Lote</td>
+                            <td>Producto</td>
+                            <td>Titulo 1</td>
+                            <td>Titulo 2</td>
+                            <td>Titulo 3</td>
+                            <td>Fecha de Creacion</td>
                             <td>Borrado Hace</td>
                             <td>Sin Acciones</td>
                         </tr>

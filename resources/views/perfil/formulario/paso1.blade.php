@@ -122,9 +122,6 @@
                                             </span>
                                             @enderror
                                         </div>
-                                        <div class="form-group col-md-4 offset-md-4">
-                                            <input type="submit" class="btn btn-block btn-primary" value="siguiente">
-                                        </div>
                                     </div>
                                 </div>
                             @else
@@ -187,7 +184,7 @@
                                             <input type="text" name="numero_cuenta"
                                                    class="form-control  @error('numero_cuenta') is-invalid @enderror"
                                                    placeholder=""
-                                                   value="{{old('numero_cuenta')?old('numero_cuenta'):$data->numero_cuenta}}">>
+                                                   value="{{old('numero_cuenta')?old('numero_cuenta'):$data->numero_cuenta}}">
 
                                             @error('numero_cuenta')
                                             <span class="invalid-feedback" role="alert">
@@ -200,7 +197,7 @@
                                             <input type="text" name="telefono"
                                                    class="form-control  @error('telefono') is-invalid @enderror"
                                                    placeholder=""
-                                                   value="{{old('telefono')?old('telefono'):$data->telefono}}">>
+                                                   value="{{old('telefono')?old('telefono'):$data->telefono}}">
 
                                             @error('telefono')
                                             <span class="invalid-feedback" role="alert">
@@ -213,7 +210,7 @@
                                             <input type="text" name="email"
                                                    class="form-control  @error('email') is-invalid @enderror"
                                                    placeholder=""
-                                                   value="{{old('email')?old('email'):$data->email}}">>
+                                                   value="{{old('email')?old('email'):$data->email}}">
 
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -224,6 +221,9 @@
                                     </div>
                                 </div>
                             @endif
+                            <div class="form-group col-md-4 offset-md-4">
+                                <input type="submit" class="btn btn-block btn-primary" value="siguiente">
+                            </div>
                         </form>
                     </div>
                 </div>
