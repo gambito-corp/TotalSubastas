@@ -36,6 +36,13 @@
                                         ])
                                 </div>
                                 <div class="custom-control col-md-6">
+                                    @if (isset(auth()->user()->avatar))
+                                        @include('assets.imagen', [
+                                                'carpeta' => 'user',
+                                                'id' => auth()->id(),
+                                                'ancho' => '300'
+                                            ])
+                                    @endif
                                 </div>
                             </div>
                             <br><br><br>
