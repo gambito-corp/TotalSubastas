@@ -13,16 +13,20 @@
             <div class="card-body">
                 <div class="form-group row">
                     @if (is_null($data->id))
-                        <div class="custom-control col-md-6">
-                            <label for="empresa_id">Empresa</label>
-                            <select name="empresa_id" id="empresa_id" class="form-control">
-                                @forelse ($empresas as $dat)
-                                    <option value="{{$dat->id}}">{{$dat->nombre}}</option>
-                                @empty
-                                    <option value="0">Todos los Usuarios Estan Asignados Porfavor Edita para cambiar su Persona asignada</option>
-                                @endforelse
-                            </select>
-                        </div>
+                        @if (auth()->user()->isAdmin())
+                            <div class="custom-control col-md-6">
+                                <label for="empresa_id">Empresa</label>
+                                <select name="empresa_id" id="empresa_id" class="form-control">
+                                    @forelse ($empresas as $dat)
+                                        <option value="{{$dat->id}}">{{$dat->nombre}}</option>
+                                    @empty
+                                        <option value="0">Todos los Usuarios Estan Asignados Porfavor Edita para cambiar su Persona asignada</option>
+                                    @endforelse
+                                </select>
+                            </div>
+                        @elseif(auth()->user()->OnlyEmpresa())
+                            <input type="hidden" name="empresa_id" value="{{$empresa}}">
+                        @endif
                     @endif
                     <div class="custom-control col-md-{{is_null($data->id)?'3':'6'}}">
                         <label for="lote_id">Lote</label>
@@ -30,7 +34,7 @@
                             @forelse ($lotes as $dat)
                                 <option value="{{$dat->id}}">{{$dat->nombre}}</option>
                             @empty
-                                <option value="0">Todos las Direcciones Estan Asignadas Porfavor Edita para cambiar su Direccion asignada</option>
+                                <option value="0">No Existe Lotes Asignados a esta empresa</option>
                             @endforelse
                         </select>
                     </div>

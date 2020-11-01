@@ -13,21 +13,27 @@
             <div class="card-body">
                 <div class="form-group row">
                     @if (is_null($data->id))
-                        <div class="custom-control col-md-6">
-                            <label for="empresa_id">Empresa</label>
-                            <select name="empresa_id" id="empresa_id" class="form-control">
-                                @forelse ($empresas as $empresa)
-                                    <option value="{{$empresa->id}}">{{$empresa->nombre}}</option>
-                                @empty
-                                    <option value="0">Todos los Usuarios Estan Asignados Porfavor Edita para cambiar su Persona asignada</option>
-                                @endforelse
-                            </select>
-                            @error('empresa_id')
-                            Error
-                            @enderror
-                        </div>
+                        @if (auth()->user()->isAdmin())
+                            <div class="custom-control col-md-6">
+                                <label for="empresa_id">Empresa</label>
+                                <select name="empresa_id" id="empresa_id" class="form-control">
+                                    @forelse ($empresas as $empresa)
+                                        <option value="{{$empresa->id}}">{{$empresa->nombre}}</option>
+                                    @empty
+                                        <option value="0">Todos los Usuarios Estan Asignados Porfavor Edita para cambiar su Persona asignada</option>
+                                    @endforelse
+                                </select>
+
+                                @error('empresa_id')
+                                    Error
+                                @enderror
+                            </div>
+                        @endif
                     @endif
-                    <div class="custom-control col-md-{{is_null($data->id)?'6':'12'}}">
+                    @if(auth()->user()->OnlyEmpresa())
+                        <input type="hidden" class="form-control" name="empresa_id" value="{{$empresa}}">
+                    @endif
+                    <div class="custom-control col-md-{{(is_null($data->id))?'6':'12'}}">
                         @include(
                            'admin.assets.FormsElements.text', [
                            'nombre'    => 'nombre',

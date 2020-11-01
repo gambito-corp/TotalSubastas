@@ -4,8 +4,10 @@ namespace App\Http\Controllers\admin\lote;
 
 use App\Company;
 use App\Http\Controllers\Controller;
+use App\LegalPerson;
 use App\Lot as Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class LoteController extends Controller
@@ -18,12 +20,28 @@ class LoteController extends Controller
     public function index()
     {
         $data = Data::with('Empresa')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            if($company != null){
+                $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+            $data = [];
+        }
         return view('admin.lote.view', compact('data'));
     }
 
     public function trash()
     {
         $data = Data::onlyTrashed()->with('Empresa')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            if($company != null){
+                $data = Data::onlyTrashed()->with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+            $data = [];
+        }
         $trash = true;
         return view('admin.lote.view', compact('data', 'trash'));
     }
@@ -32,7 +50,13 @@ class LoteController extends Controller
     {
         $data = new Data();
         $empresas = Company::all('id', 'nombre');
-        return view('admin.lote.form', compact('data', 'empresas'));
+        $empresa = null;
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $empresa = Company::where('id', $juridica->id)->first();
+            $empresa = $empresa->id;
+        }
+        return view('admin.lote.form', compact('data', 'empresas', 'empresa'));
     }
 
     public function store(Request $request)
@@ -72,6 +96,9 @@ class LoteController extends Controller
     {
         $data = Data::where('id', $id)->first();
         $empresas = Company::all('id', 'nombre');
+        $empresa = null;
+        if (Auth::user()->onlyEmpresa()) {
+        }
         return view('admin.lote.form', compact('data', 'empresas'));
     }
 

@@ -7,6 +7,7 @@ use App\Company;
 use App\Country;
 use App\Helpers\Gambito;
 use App\Http\Controllers\Controller;
+use App\LegalPerson;
 use App\Lot;
 use Illuminate\Http\Request;
 use App\Producto as Data;
@@ -27,23 +28,51 @@ class ProductoController extends Controller
     public function index()
     {
         $data = Data::with('Empresa','Lote', 'Usuario')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            if($company != null){
+                $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+            $data = [];
+        }
         return view('admin.producto.view', compact('data'));
     }
 
     public function trash()
     {
         $data = Data::onlyTrashed()->with('Empresa','Lote', 'Usuario')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            if($company != null){
+                $data = Data::onlyTrashed()->with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+            $data = [];
+        }
         $trash = true;
         return view('admin.producto.view', compact('data', 'trash'));
     }
 
     public function create()
     {
+        $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+        $empresa = Company::where('id', $juridica)->first()->id;
+
+
         $data = new Data();
         $empresas = Company::all();
         $lotes = Lot::all();
+        if (Auth::user()->onlyEmpresa()) {
+            $lotes = Lot::where('empresa_id', $empresa);
+        }
         $ciudad = Country::where('descripcion', 'provincia')->get();
-        return view('admin.producto.form', compact('data', 'empresas', 'lotes', 'ciudad'));
+        $empresa = null;
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+            $empresa = Company::where('id', $juridica)->first()->id;
+        }
+        return view('admin.producto.form', compact('data', 'empresas', 'lotes', 'ciudad', 'empresa'));
     }
 
     public function store(Request $request)
@@ -128,11 +157,18 @@ class ProductoController extends Controller
 
     public function edit($id)
     {
+        $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+        $empresa = Company::where('id', $juridica)->first()->id;
+        $empresa = null;
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+            $empresa = Company::where('id', $juridica)->first()->id;
+        }
         $data = Data::where('id', $id)->first();
         $empresas = Company::all();
-        $lotes = Lot::all();
+        $lotes = LotAlias::all();
         $ciudad = Country::where('descripcion', 'provincia')->get();
-        return view('admin.producto.form', compact('data', 'empresas', 'lotes', 'ciudad'));
+        return view('admin.producto.form', compact('data', 'empresas', 'lotes', 'ciudad', 'empresa'));
     }
 
     public function update($id, Request $request)

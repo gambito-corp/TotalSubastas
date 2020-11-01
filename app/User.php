@@ -126,6 +126,12 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin() {
         return $this->Rol()->where('name', 'Admin')->exists();
     }
+    public function isEmpresa() {
+        return $this->Rol()->where('name', 'Admin')->orWhere('name', 'Empresa')->exists();
+    }
+    public function OnlyEmpresa() {
+        return $this->Rol()->Where('name', 'Empresa')->exists();
+    }
 
     public function puedePersonificar()
     {
