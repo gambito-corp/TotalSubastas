@@ -38,7 +38,7 @@
                     </a>
                 </div>
             </div>
-                
+
             @else
                 <div class="row ">
                     <div class="col ">
@@ -73,6 +73,12 @@
                                 href="{{ route('perfil.edit') }}"
                             >
                                 Editar Mi Perfil
+                            </a>
+                            <a
+                                class="dropdown-item"
+                                href="{{ route('password.perfil') }}"
+                            >
+                                Cambiar Mi Contraseña
                             </a>
                             <hr>
                             <a

@@ -736,4 +736,45 @@ class PerfilController extends Controller
                 ]);
         });
     }
+
+    public function password ()
+    {
+        return view('perfil.contraseña');
+    }
+
+    public function change (Request $request)
+    {
+        $user = Auth::user();
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:6'
+        ]);
+        $user = User::where('id', $user->id)->first();
+        $user->password = Hash::make($request->input('password'));
+        $user->update();
+
+        return $this->show();
+    }
+
+    public function setAvatar()
+    {
+        return view('perfil.avatar');
+    }
+
+    public function saveAvatar (Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image',
+        ]);
+
+        $user = User::where('id', Auth::id())->first();
+
+        $avatar = $request->file('avatar');
+        $imagen = $user->name . '_' . $avatar->getClientOriginalName();
+        Storage::disk('s3')->put('avatar/' . $imagen, File::get($avatar));
+        $user->avatar = $imagen;
+
+        $user->update();
+
+        return $this->show();
+    }
 }

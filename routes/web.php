@@ -36,6 +36,10 @@ Route::get('/perfil', 'PerfilController@show')->name('perfil');
 Route::get('/perfil/edit', 'PerfilController@paso1')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
 Route::get('/recargar', 'PerfilController@recargar')->name('recargar.perfil');
+Route::get('/password', 'PerfilController@password')->name('password.perfil');
+Route::post('/password', 'PerfilController@change')->name('change.perfil');
+Route::get('/imagen', 'PerfilController@setAvatar')->name('imagen.perfil');
+Route::post('/saveImagen', 'PerfilController@saveAvatar')->name('save.perfil');
 
 
 

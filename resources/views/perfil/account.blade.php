@@ -25,6 +25,8 @@
                             <p class="card-text">{{Auth::user()->email}}</p>
                             <hr>
                             <a href="{{route('perfil.edit')}}"> editar perfil</a>
+                            <hr>
+                            <a href="{{route('imagen.perfil')}}"> Agregar Imagen de Perfil</a>
                         </div>
                     </div>
                 </div>

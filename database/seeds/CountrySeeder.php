@@ -992,250 +992,258 @@ class CountrySeeder extends Seeder
             'descripcion'   => 'Provincia',
             'codigo'        => 'Lima'
         ]);//160
+
+
         //distritos de lima por emergencia
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Lima Cercado',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Ancon',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Ate',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Bre?a',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Carabayllo',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Comas',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Chaclacayo',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Chorrillos',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'La Victoria',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'La Molina',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Lince',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Lurigancho',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Lurin',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Magdalena del Mar',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Miraflores',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Pachacamac',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Pueblo Libre',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Pucusana',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Puente Piedra',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Punta Hermosa',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Punta Negra',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Rimac',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Bartolo',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Isidro',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Barranco',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Martin de Porres',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Miguel',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Santa Maria del Mar',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Santa Rosa',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Santiago de Surco',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Surquillo',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Villa Maria del Triunfo',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Jesus Maria',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Independencia',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'El Agustino',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Juan de Miraflores',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Juan de Lurigancho',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Luis',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Cieneguilla',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'San Borja',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
         Country::create([
             'parent_id'     => 151,
-            'nombre'        => 'Lima Metropolitana',
+            'nombre'        => 'Villa El Salvador',
+            'descripcion'   => 'Distrito',
+            'codigo'        => 'Lima'
+        ]);//92
+        Country::create([
+            'parent_id'     => 151,
+            'nombre'        => 'Los Olivos',
             'descripcion'   => 'Distrito',
             'codigo'        => 'Lima'
         ]);//92
