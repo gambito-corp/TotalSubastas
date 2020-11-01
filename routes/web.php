@@ -33,7 +33,7 @@ Auth::routes(['verify' => true, 'register' => false]);
 //Vistas de Perfil
 Route::get('/confirmar/usuario/{id}', 'PerfilController@confirm')->name('confirm');
 Route::get('/perfil', 'PerfilController@show')->name('perfil');
-Route::get('/perfil/edit', 'PerfilController@edit')->name('perfil.edit');
+Route::get('/perfil/edit', 'PerfilController@paso1')->name('perfil.edit');
 Route::patch('/perfil', 'PerfilController@update')->name('perfil.update');
 Route::get('/recargar', 'PerfilController@recargar')->name('recargar.perfil');
 

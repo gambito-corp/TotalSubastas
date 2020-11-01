@@ -231,17 +231,40 @@ class DocumentosController extends Controller
 
     public function delete($id)
     {
-        //
+        Data::where('id',$id)->firstOrFail()->delete();
+        return redirect()->route('admin.documentos.index')->with([
+            'message' => 'El Rol Fue Borrado de la Base de Datos',
+            'alerta' => 'warning'
+        ]);
     }
 
     public function destroy($id)
     {
-        //
+        $data = Data::withTrashed()
+            ->where('id', $id)
+            ->first();
+        if (Auth::user()->isAdmin() || Auth::id() == $data->user_id){
+            $this->destroyImagen($data, $data->documento1);
+            $this->destroyImagen($data, $data->documento2);
+            $this->destroyImagen($data, $data->documento3);
+        }
+
+        $data->forceDelete();
+        return redirect()->route('admin.documentos.trash')->with([
+            'message' => 'El Rol Fue Eliminado Definitivamente de la Base de Datos',
+            'alerta' => 'danger'
+        ]);
     }
 
     public function restore($id)
     {
-        //
+        Data::withTrashed()
+            ->where('id', $id)
+            ->restore();
+        return redirect()->route('admin.documentos.trash')->with([
+            'message' => 'El Rol Fue Restaurado Correctamente',
+            'alerta' => 'warning'
+        ]);
     }
 
     public function getDownload($id, $file){
@@ -260,5 +283,17 @@ class DocumentosController extends Controller
         ];
 
         return Storage::disk('s3')->download($ruta.$file, $file, $header);
+    }
+
+    protected function destroyImagen($data, $file)
+    {
+        $ruta = 'documentos/vehiculos/'.
+            Str::slug($data->Empresa->nombre, "-").
+            '/'.
+            Str::slug($data->Lote->nombre, "-").
+            '/' .
+            Str::slug($data->Producto->nombre, "-").
+            '/';
+        Storage::disk('s3')->delete($ruta.$file);
     }
 }
