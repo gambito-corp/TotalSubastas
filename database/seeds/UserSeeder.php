@@ -19,14 +19,14 @@ class UserSeeder extends Seeder
             'tipo'              => 'natural'
         ]);
         User::create([
-            'role_id'           => '1',
+            'role_id'           => '3',
             'name'              => 'test 1',
             'email'             => 'test1@test.com',
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
             'completo'          => true,
-            'tipo'              => 'natural'
+            'tipo'              => 'juridica'
         ]);
         User::create([
             'role_id'           => '1',
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
             'completo'          => true,
-            'tipo'              => 'natural'
+            'tipo'              => 'juridica'
         ]);
         User::create([
             'role_id'           => '2',

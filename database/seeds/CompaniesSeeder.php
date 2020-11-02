@@ -13,7 +13,7 @@ class CompaniesSeeder extends Seeder
     public function run()
     {
         Company::create([
-            'persona_juridica_id' => 1,
+            'persona_juridica_id' => 2,
             'direccion_id' => 1,
             'nombre' => 'Multitiendas Perú',
             'razon_social' => 'Multitiendas S.A.C',

@@ -23,10 +23,10 @@ class LoteController extends Controller
         if (Auth::user()->onlyEmpresa()) {
             $juridica = LegalPerson::where('id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
             if($company != null){
                 $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
             }
-            $data = [];
         }
         return view('admin.lote.view', compact('data'));
     }
@@ -37,10 +37,10 @@ class LoteController extends Controller
         if (Auth::user()->onlyEmpresa()) {
             $juridica = LegalPerson::where('id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
             if($company != null){
                 $data = Data::onlyTrashed()->with('Empresa')->where('empresa_id', $company->id)->get();
             }
-            $data = [];
         }
         $trash = true;
         return view('admin.lote.view', compact('data', 'trash'));

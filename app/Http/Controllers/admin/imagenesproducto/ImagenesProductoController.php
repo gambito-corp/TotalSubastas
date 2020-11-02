@@ -6,6 +6,7 @@ use App\Company;
 use App\Helpers\Gambito;
 use App\Http\Controllers\Controller;
 use App\ImagenesVehiculo as Data;
+use App\LegalPerson;
 use App\Lot;
 use App\Producto;
 use Illuminate\Http\Request;
@@ -24,12 +25,28 @@ class ImagenesProductoController extends Controller
     public function index()
     {
         $data = Data::with('Empresa', 'Lote', 'Producto')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
+            if($company != null){
+                $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+        }
         return view('admin.imagenproducto.view', compact('data'));
     }
 
     public function trash()
     {
         $data = Data::onlyTrashed()->with('Empresa', 'Lote', 'Producto')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
+            if($company != null){
+                $data = Data::onlyTrashed()->with('Empresa')->where('empresa_id', $company->id)->get();
+            }
+        }
         $trash = true;
         return view('admin.imagenproducto.view', compact('data', 'trash'));
     }

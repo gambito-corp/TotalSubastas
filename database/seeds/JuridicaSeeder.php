@@ -12,7 +12,7 @@ class JuridicaSeeder extends Seeder
     public function run()
     {
         LegalPerson::create([
-            'user_id'       => 1,
+            'user_id'       => 2,
             'banco_id'      => 1,
             'direccion_id'  => 1,
             'direccion2_id' => 2,
@@ -24,7 +24,7 @@ class JuridicaSeeder extends Seeder
             'email'         => 'email@empresa.com'
         ]);
         LegalPerson::create([
-            'user_id'       => 1,
+            'user_id'       => 2,
             'banco_id'      => 2,
             'direccion_id'  => 3,
             'direccion2_id' => 4,
