@@ -247,59 +247,59 @@
                                     </p>
                                 </a>
                             </li>
-                            <li class="nav-item has-treeview">
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-gavel"></i>
-                                    <p>
-                                        Subasta en Vivo
-                                        <i class="right fas fa-angle-left"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview">
-                                    <li class="nav-item has-treeview">
-                                        <a href="{{route('admin.subasta.index')}}" class="nav-link">
-                                            <i class="fas fa-trophy"></i>
-                                            <p>
-                                                Ganadores de Subastas
-                                            </p>
-                                        </a>
-                                    </li>
-                                    @if (auth()->user()->isAdmin())
-                                        <li class="nav-item has-treeview">
-                                            <a href="{{route('admin.mensajes.index')}}" class="nav-link">
-                                                <i class="fas fa-comments-dollar"></i>
-                                                <p>
-                                                    Mensajes de Subasta
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item has-treeview">
-                                            <a href="{{route('admin.garantias.index')}}" class="nav-link">
-                                                <i class="fas fa-money-bill-alt"></i>
-                                                <p>
-                                                    Garantias
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item has-treeview">
-                                            <a href="{{route('admin.ranking.index')}}" class="nav-link">
-                                                <i class="fas fa-list-ol"></i>
-                                                <p>
-                                                    Ranking de Participantes
-                                                </p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item has-treeview">
-                                            <a href="{{route('admin.activos.index')}}" class="nav-link">
-                                                <i class="fas fa-user-clock"></i>
-                                                <p>
-                                                    Participantes Activos
-                                                </p>
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </li>
+{{--                            <li class="nav-item has-treeview">--}}
+{{--                                <a href="#" class="nav-link">--}}
+{{--                                    <i class="fas fa-gavel"></i>--}}
+{{--                                    <p>--}}
+{{--                                        Subasta en Vivo--}}
+{{--                                        <i class="right fas fa-angle-left"></i>--}}
+{{--                                    </p>--}}
+{{--                                </a>--}}
+{{--                                <ul class="nav nav-treeview">--}}
+{{--                                    <li class="nav-item has-treeview">--}}
+{{--                                        <a href="{{route('admin.subasta.index')}}" class="nav-link">--}}
+{{--                                            <i class="fas fa-trophy"></i>--}}
+{{--                                            <p>--}}
+{{--                                                Ganadores de Subastas--}}
+{{--                                            </p>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    @if (auth()->user()->isAdmin())--}}
+{{--                                        <li class="nav-item has-treeview">--}}
+{{--                                            <a href="{{route('admin.mensajes.index')}}" class="nav-link">--}}
+{{--                                                <i class="fas fa-comments-dollar"></i>--}}
+{{--                                                <p>--}}
+{{--                                                    Mensajes de Subasta--}}
+{{--                                                </p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item has-treeview">--}}
+{{--                                            <a href="{{route('admin.garantias.index')}}" class="nav-link">--}}
+{{--                                                <i class="fas fa-money-bill-alt"></i>--}}
+{{--                                                <p>--}}
+{{--                                                    Garantias--}}
+{{--                                                </p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item has-treeview">--}}
+{{--                                            <a href="{{route('admin.ranking.index')}}" class="nav-link">--}}
+{{--                                                <i class="fas fa-list-ol"></i>--}}
+{{--                                                <p>--}}
+{{--                                                    Ranking de Participantes--}}
+{{--                                                </p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item has-treeview">--}}
+{{--                                            <a href="{{route('admin.activos.index')}}" class="nav-link">--}}
+{{--                                                <i class="fas fa-user-clock"></i>--}}
+{{--                                                <p>--}}
+{{--                                                    Participantes Activos--}}
+{{--                                                </p>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endif--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
                         </ul>
                     </li>
                 @endif

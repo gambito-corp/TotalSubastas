@@ -88,7 +88,7 @@ class ProductoController extends Controller
             'tipo_reserva'      => 'required',
 
             'nombre'            => 'required',
-            'imagen'            => 'required|image',
+            'imagen'            => 'image',
             'precio'            => 'required',
             'precio_reserva'    => 'required',
             'garantia'          => 'required',
@@ -181,14 +181,12 @@ class ProductoController extends Controller
             'tipo_subasta'      => 'required',
             'tipo_reserva'      => 'required',
             'nombre'            => 'required',
-            'imagen'            => 'required|image',
+            'imagen'            => 'image',
             'precio'            => 'required',
             'precio_reserva'    => 'required',
             'garantia'          => 'required',
             'puja'              => 'required',
             'comision'          => 'required',
-            'started_at'        => 'required',
-            'finalized_at'      => 'required'
         ]);
 
         $lote_id = $request->input('lote_id');

@@ -53,6 +53,12 @@ class UserController extends Controller
         $user->role_id = $request->input('rol');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        if ($user->role_id == 3) {
+            $user->tipo == 'juridica';
+        }else{
+            $user->tipo == 'natural';
+        }
+        $user->completo == 0;
         $user->password = Hash::make($request->input('password'));
 
         //subir imagen a storage
