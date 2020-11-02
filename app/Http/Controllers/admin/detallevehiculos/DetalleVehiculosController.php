@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\detallevehiculos;
 
 use App\Http\Controllers\Controller;
+use App\LegalPerson;
 use Illuminate\Http\Request;
 use App\VehicleDetail as Data;
 use App\Company;
@@ -22,12 +23,28 @@ class DetalleVehiculosController extends Controller
     public function index()
     {
         $data = Data::with('Empresa', 'Lote', 'Producto', 'Marca', 'Modelo')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
+            if($company != null){
+                $data = Data::with('Empresa', 'Lote', 'Producto', 'Marca', 'Modelo')->where('empresa_id', $company->id)->get();
+            }
+        }
         return view('admin.detallesvehiculos.view', compact('data'));
     }
 
     public function trash()
     {
         $data = Data::onlyTrashed()->with('Empresa', 'Lote', 'Producto', 'Marca', 'Modelo')->get();
+        if (Auth::user()->onlyEmpresa()) {
+            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $company = Company::where('persona_juridica_id', $juridica->id)->first();
+            $data = [];
+            if($company != null){
+                $data = Data::onlyTrashed()->with('Empresa', 'Lote', 'Producto', 'Marca', 'Modelo')->where('empresa_id', $company->id)->get();
+            }
+        }
         $trash = true;
         return view('admin.detallesvehiculos.view', compact('data', 'trash'));
     }

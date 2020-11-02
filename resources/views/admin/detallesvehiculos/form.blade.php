@@ -15,7 +15,6 @@
                     @livewire('admin.form.imagen.create',  ['empresas' => $empresas, 'lotes' => $lotes, 'productos' => $productos])
                     @livewire('admin.form.modelo.create')
                 @else
-                    HOLA MUNDOOOO
                     @livewire('admin.form.modelo.update', ['data' => $data])
                 @endif
                 <div class="form-group row">
