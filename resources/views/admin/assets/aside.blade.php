@@ -22,7 +22,6 @@
             </div>
         </div>
         <nav class="mt-2" >
-            @dump(auth()->user()->isAdmin()    )
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 @if (auth()->user()->isAdmin())
                     <li class="nav-item has-treeview">
