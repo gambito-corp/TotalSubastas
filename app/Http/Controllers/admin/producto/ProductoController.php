@@ -166,7 +166,7 @@ class ProductoController extends Controller
         }
         $data = Data::where('id', $id)->first();
         $empresas = Company::all();
-        $lotes = LotAlias::all();
+        $lotes = Lot::all();
         $ciudad = Country::where('descripcion', 'provincia')->get();
         return view('admin.producto.form', compact('data', 'empresas', 'lotes', 'ciudad', 'empresa'));
     }
