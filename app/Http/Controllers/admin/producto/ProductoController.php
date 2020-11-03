@@ -205,21 +205,44 @@ class ProductoController extends Controller
         $finalized_at = $request->input('finalized_at');
 
         $producto = Data::where('id', $id)->first();
-        $producto->lote_id = $lote_id;
-        $producto->ciudad = $ciudad;
-        $producto->tipo_vehiculo = $tipo_vehiculo;
-        $producto->tipo_subasta = $tipo_subasta;
-        $producto->tipo_reserva = $tipo_reserva;
-        $producto->nombre = $nombre;
-        $producto->precio = $precio;
-        $producto->precio_reserva = $precio_reserva;
-        $producto->garantia = $garantia;
-        $producto->puja = $puja;
-        $producto->comision = $comision;
+        if ($lote_id != null){
+            $producto->lote_id = $lote_id;
+        }
+        if ($ciudad != null){
+            $producto->ciudad = $ciudad;
+        }
+        if ($tipo_vehiculo != null){
+            $producto->tipo_vehiculo = $tipo_vehiculo;
+        }
+        if ($tipo_subasta != null){
+            $producto->tipo_subasta = $tipo_subasta;
+        }
+        if ($tipo_reserva != null){
+            $producto->tipo_reserva = $tipo_reserva;
+        }
+        if ($nombre != null){
+            $producto->nombre = $nombre;
+        }
+        if ($precio != null){
+            $producto->precio = $precio;
+        }
+        if ($precio_reserva != null){
+            $producto->precio_reserva = $precio_reserva;
+        }
+        if ($garantia != null){
+            $producto->garantia = $garantia;
+        }
+        if ($puja != null){
+            $producto->puja = $puja;
+        }
+        if ($comision != null){
+            $producto->comision = $comision;
+        }
+
         if($started_at != null){
             $producto->started_at = $started_at;
         }
-        if($finalized_at){
+        if($finalized_at != null){
             $producto->finalized_at = $finalized_at;
         }
 
