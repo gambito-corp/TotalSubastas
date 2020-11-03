@@ -7,6 +7,7 @@ use App\Bank;
 use App\Helpers\Gambito;
 use App\LegalPerson as Data;
 use App\Person;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -23,17 +24,13 @@ class JuridicaController extends Controller
 
     public function index()
     {
-        $data = Data::with('Persona', 'Banco', 'Direccion', 'Direccion2')->whereHas('Persona', function($query){
-            $query->where('juridica', 1);
-        })->get();
+        $data = Data::with('Banco', 'Direccion', 'Direccion2')->get();
         return view('admin.juridica.view', compact('data'));
     }
 
     public function trash()
     {
-        $data = Data::onlyTrashed()->with('Persona', 'Banco', 'Direccion', 'Direccion2')->whereHas('Persona', function($query){
-            $query->where('juridica', 1);
-        })->get();
+        $data = Data::onlyTrashed()->with('Banco', 'Direccion', 'Direccion2')->get();
         $trash = true;
         return view('admin.juridica.view', compact('data', 'trash'));
     }
@@ -41,7 +38,7 @@ class JuridicaController extends Controller
     public function create()
     {
         $data = new Data();
-        $personas = Person::where('juridica', 1)->doesntHave('Juridica')->get();
+        $personas = User::where('tipo', 'juridica')->get();
         $direccion = Address::all();
         $bancos = Bank::all();
         return view('admin.juridica.form', compact('data', 'personas', 'direccion', 'bancos'));
@@ -69,9 +66,10 @@ class JuridicaController extends Controller
         $ruc = $request->input('ruc');
         $numero_cuenta = $request->input('numero_cuenta');
         $telefono = $request->input('telefono');
+        $email = User::where('id', $persona_id)->first()->email;
 
         $juridica = new Data();
-        $juridica->persona_id = $persona_id;
+        $juridica->user_id = $persona_id;
         $juridica->banco_id = $banco_id;
         $juridica->direccion_id = $direccion_id;
         $juridica->direccion2_id = $direccion2_id;
@@ -80,6 +78,7 @@ class JuridicaController extends Controller
         $juridica->ruc = $ruc;
         $juridica->numero_cuenta = $numero_cuenta;
         $juridica->telefono = $telefono;
+        $juridica->email = $email;
         $juridica->save();
         return redirect()->route('admin.juridica.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',

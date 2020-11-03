@@ -53,12 +53,10 @@ class UserController extends Controller
         $user->role_id = $request->input('rol');
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        if ($user->role_id == 3) {
-            $user->tipo == 'juridica';
-        }else{
-            $user->tipo == 'natural';
+        $user->tipo = 'natural';
+        if ($user->role_id == "3") {
+            $user->tipo = 'juridica';
         }
-        $user->completo == 0;
         $user->password = Hash::make($request->input('password'));
 
         //subir imagen a storage
@@ -68,7 +66,6 @@ class UserController extends Controller
             Storage::disk('s3')->put('avatar/' . $imagen, File::get($avatar));
             $user->avatar = $imagen;
         }
-
         $user->save();
         return redirect()->route('admin.user.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',

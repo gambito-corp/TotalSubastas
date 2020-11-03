@@ -28,6 +28,7 @@ class ProductoController extends Controller
     public function index()
     {
         $data = Data::with('Empresa','Lote', 'Usuario')->get();
+        $ciudad = Country::where('descripcion', 'distrito')->get(['id', 'nombre']);
         if (Auth::user()->onlyEmpresa()) {
             $juridica = LegalPerson::where('id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
@@ -36,12 +37,13 @@ class ProductoController extends Controller
                 $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
             }
         }
-        return view('admin.producto.view', compact('data'));
+        return view('admin.producto.view', compact('data', 'ciudad'));
     }
 
     public function trash()
     {
         $data = Data::onlyTrashed()->with('Empresa','Lote', 'Usuario')->get();
+        $ciudad = Country::where('descripcion', 'distrito')->get(['id', 'nombre']);
         if (Auth::user()->onlyEmpresa()) {
             $juridica = LegalPerson::where('id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
@@ -51,7 +53,7 @@ class ProductoController extends Controller
             }
         }
         $trash = true;
-        return view('admin.producto.view', compact('data', 'trash'));
+        return view('admin.producto.view', compact('data', 'trash', 'ciudad'));
     }
 
     public function create()

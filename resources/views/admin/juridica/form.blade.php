@@ -17,7 +17,7 @@
                             <label for="persona_id">Representante</label>
                             <select name="persona_id" id="persona_id" class="form-control">
                                 @forelse ($personas as $persona)
-                                    <option value="{{$persona->id}}">{{$persona->nombres}}</option>
+                                    <option value="{{$persona->id}}">{{$persona->name}}</option>
                                 @empty
                                     <option value="0">Todos los Usuarios Estan Asignados Porfavor Edita para cambiar su Persona asignada</option>
                                 @endforelse

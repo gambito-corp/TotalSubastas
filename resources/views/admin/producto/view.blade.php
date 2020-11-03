@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="{{asset('css/responsive.bootstrap4.min.css')}}">
 @endpush
 @section('header')
+
     <i class="fas fa-tasks fa-3x"></i>
     <h1 class="m-0 text-dark d-inline-flex mr-3">Producto</h1>
     <a href="{{route('admin.producto.create')}}" class="btn btn-success btn-small">
@@ -52,6 +53,7 @@
                     <tbody>
                         @forelse($data as $key => $dat)
                             <tr>
+{{--                                $empresa--}}
                                 <td>{{$dat->id}}</td>
                                 <td>{{$dat->Empresa->nombre}}</td>
                                 <td>{{$dat->Lote->nombre}}</td>
@@ -164,11 +166,12 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Lote->nombre}}</td>
-                            <td>{{$dat->ciudad}}</td>
+                            <td>{{$ciudad->nombre}}</td>
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
                             <td>{{$dat->tipo_reserva}}</td>
@@ -258,7 +261,7 @@
     <script>
         $(function () {
             $("#Tabla").DataTable({
-                "scrollX": true
+                "scrollX": true,
             });
         });
     </script>

@@ -51,11 +51,6 @@ class LegalPerson extends Model
         return $this->Persona->nombres.' '.$this->Persona->apellidos;
     }
 
-    public function Persona()
-    {
-        return $this->belongsTo(Person::class, 'persona_id');
-    }
-
     public function Banco()
     {
         return $this->belongsTo(Bank::class, 'banco_id');

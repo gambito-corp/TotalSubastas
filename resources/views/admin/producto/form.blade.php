@@ -42,7 +42,7 @@
                         <label for="ciudad">Ciudad</label>
                         <select name="ciudad" id="ciudad" class="form-control">
                             @forelse ($ciudad as $dat)
-                                <option value="{{$dat->id}}">{{$dat->nombre}}</option>
+                                <option value="{{$dat->nombre}}">{{$dat->nombre}}</option>
                             @empty
                                 <option value="0">Todos las Direcciones Estan Asignadas Porfavor Edita para cambiar su Direccion asignada</option>
                             @endforelse

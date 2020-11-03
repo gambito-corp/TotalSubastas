@@ -27,7 +27,6 @@
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Representante</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
                         <th>Direccion Secundaria</th>
@@ -46,7 +45,6 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->NombreCompleto()}}</td>
                             <td>{{$dat->Banco->siglas}}</td>
                             <td>{{$dat->Direccion->titulo_direccion}}</td>
                             <td>{{$dat->Direccion2->titulo_direccion}}</td>
@@ -54,7 +52,7 @@
                             <td>{{$dat->razon_social}}</td>
                             <td>{{$dat->ruc}}</td>
                             <td>{{$dat->numero_cuenta}}</td>
-                            <td>{{$dat->Persona->telefono}}</td>
+                            <td>{{$dat->telefono}}</td>
                             @isset($trash)
                                 <td>{{$dat->deleted_at}}</td>
                             @endisset
@@ -82,14 +80,12 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
                         <th>Id</th>
-                        <th>Representante</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
                         <th>Direccion Secundaria</th>
