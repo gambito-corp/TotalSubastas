@@ -216,8 +216,12 @@ class ProductoController extends Controller
         $producto->garantia = $garantia;
         $producto->puja = $puja;
         $producto->comision = $comision;
-        $producto->started_at = $started_at;
-        $producto->finalized_at = $finalized_at;
+        if($started_at != null){
+            $producto->started_at = $started_at;
+        }
+        if($finalized_at){
+            $producto->finalized_at = $finalized_at;
+        }
 
         //subir imagen a storage
         if($imagen){
