@@ -21,7 +21,7 @@ class CompaniesSeeder extends Seeder
             'telefono' => '960717583',
             'email' => 'asesor.pedro@gmail.com',
             'informacion' => '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>',
-            'imagen' => 'img/empresas/1.jpg',
+            'imagen' => 'multitiendas_peru.jpg',
         ]);
         Company::create([
             'persona_juridica_id' => 1,
@@ -32,7 +32,7 @@ class CompaniesSeeder extends Seeder
             'telefono' => '960717583',
             'email' => 'asesor.pedro@gmail.com',
             'informacion' => '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>',
-            'imagen' => 'img/empresas/1.jpg',
+            'imagen' => 'belcorp.png',
         ]);
         Company::create([
             'persona_juridica_id' => 1,
@@ -43,7 +43,7 @@ class CompaniesSeeder extends Seeder
             'telefono' => '960717583',
             'email' => 'asesor.pedro@gmail.com',
             'informacion' => '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>',
-            'imagen' => 'img/empresas/1.jpg',
+            'imagen' => 'saga_falabella.jpg',
         ]);
         Company::create([
             'persona_juridica_id' => 1,
@@ -54,7 +54,7 @@ class CompaniesSeeder extends Seeder
             'telefono' => '960717583',
             'email' => 'asesor.pedro@gmail.com',
             'informacion' => '<p>sfdsgfsdgfdfsdf<strong>sdfsdfsdfsddsfsd</strong></p>',
-            'imagen' => 'img/empresas/1.jpg',
+            'imagen' => 'banco_ripley.png',
         ]);
     }
 }
