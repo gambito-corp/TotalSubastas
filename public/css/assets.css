@@ -729,7 +729,7 @@ article.sec-carousel {
     font-family: var(--var-font-family);
     font-weight: 500;
     font-size: 12.5px;
-    margin: 0;
+    
     padding: 0;
 }
 .d_sheet-card {
@@ -2111,6 +2111,14 @@ input:focus{
  	text-overflow: ellipsis;
  	overflow: hidden;
 }
+.usuario-puja-subasta{
+	width: 100%;
+	height: 25px;
+	white-space: nowrap;
+ 	text-overflow: ellipsis;
+ 	overflow: hidden;
+ 	font-size: 13px;
+}
 .btn-outline-dark:focus, .btn-outline-dark.focus{
 	box-shadow: none;
 }
@@ -2154,6 +2162,141 @@ input:focus{
 	position: relative;
 	z-index: 1
 }
+.text-center{
+	text-align: center;
+}
+.text-right{
+	text-align: right;
+}
+.border-gris{
+	border-bottom: 1px solid #D9DADB;
+}
+.side-nav {
+    border-radius: 10px;
+}
+.titulo-online-ts{
+	font-weight: 600;
+	margin-bottom: 0;
+}
+.fecha-fab-online-ts{
+	font-size: 21px;
+}
+.container-datos-online-ts{
+	padding: 30px;
+}
+.carousel-indicators .active {
+   background-color:#4592FF;
+}
+.carousel-indicators li{
+	opacity: 1;
+	border: 0;
+	margin-right: 6px;
+	margin-left: 6px;
+}
+.container-inicio-online-ts{
+	font-style: italic;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 22px;
+}
+.container-usuario-online-ts{
+	font-style: italic;
+	font-size: 40px;
+	font-weight: 600;
+	line-height: initial;
+}
+.container-datos-precio-ts{
+	line-height: 20px;
+	    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.badge_live{
+	font-size: 20px;
+	font-weight: 500;
+	font-style: italic;
+}
+#categorias .side-nav{
+	
+}
+.container-caja-aside{
+	padding-right: 0;
+}
+.content-icono-show{
+	height: 28px;
+	display: block
+}
+.chat-box-user{
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+	padding-left: 22px;
+	padding-bottom: 22px;
+}
+.ranking_live{
+	padding-top: 0;
+    padding-bottom: 10px;
+    color: #4b5157;
+    font-weight: 600;
+}
+.text-to_title-auction_ranking{
+	text-transform: capitalize;
+}
+.carousel-item{
+	border-radius: 10px;
+	overflow: hidden;
+}
+.carousel-item-a_imagen{
+	width: 100%;
+}
+.container-slider-banner{
+	overflow: hidden;
+}
+.mini-banner-home{
+	width: 100%;
+}
+.mini-banner-home + .mini-banner-home{
+	margin-left: 20px;
+}
+.text-doc_saga-fallabella{
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+	color: #C1F4F5 !important;
+    opacity: 1;
+    font-weight: 300;
+
+}
+
+@media (max-width: 844px) {
+	.no-padding-responsive{
+		padding-left: 0 !important;
+		padding-right: 0;
+	}
+	.text-s_gd-sheet{
+		 margin-bottom: 5px !important;
+	}
+	.container{
+		width: 100%;
+		max-width: 95%;
+	}
+	.container-datos-precio-ts{
+		padding-left: 0;
+		padding-right: 0; 
+	}
+	.data_sheet-d_sm-text{
+		margin-bottom: 5px !important;
+	}
+	.container-caja-aside{
+		padding-left: 0;
+	}
+	.container-caja-detalle{
+	padding-left: 0;
+	padding-right: 0;
+	}
+	.mini-banner-home + .mini-banner-home{
+		margin-left: 0;
+	}
+
+}
+
 
 @media (max-width: 600px) {
 
@@ -2194,5 +2337,6 @@ input:focus{
 	.container-banner-responsive, .container-slider-banner{
 		padding: 0 15px !important;
 	}
+	
 
 }	

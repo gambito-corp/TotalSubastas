@@ -1,4 +1,4 @@
-<div class="col-12">
-    <span class="text-badge_live">  se Lo va LLevando {{$producto['usuario']['name']}} a </span>
-    <span class="ml-3 pl-3 badge_live"> $ {{$producto['precio']}}</span>
+<div class="col-12 container-datos-precio-ts">
+    <span class="text-badge_live">  se la lleva {{$producto['usuario']['name']}} a </span>
+    <span class="badge_live"> ${{$producto['precio']}}</span>
 </div>

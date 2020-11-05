@@ -1,9 +1,9 @@
 <div class="row">
     <!-- main content -->
     <div class="row mt-5 margin-row">
-        <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;"  onmouseover="bottom()">
+        <div class="row bg-dark text-light container-datos-online-ts margin-row" style="border-radius: 10px;"  onmouseover="bottom()">
 
-            <div id="carouselExampleIndicators" class="carousel slide col-md-3 col-sm-12" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide col-md-3 col-sm-12" data-ride="carousel" style="padding-left: 0">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     @forelse($pictures as $value)
@@ -13,7 +13,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->id, 'ancho' => '240', 'alto' => '231', 'class'=>'rounded mx-auto d-block img-fluid' ])
+                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->id, 'ancho' => '240', 'alto' => '231', 'class'=>'rounded  d-block img-fluid' ])
                     </div>
                     @forelse($pictures as $value)
                         <div class="carousel-item">
@@ -22,7 +22,7 @@
                                  'id' => $value->id,
                                  'ancho' => '240',
                                  'alto' => '231',
-                                 'class' => 'rounded mx-auto d-block img-fluid'
+                                 'class' => 'rounded  d-block img-fluid'
                                  ])
                         </div>
                     @empty
@@ -32,20 +32,16 @@
             @livewire('auction.live.assets.datos', ['producto' => $producto, 'vehiculo' => $vehiculo, 'identificador'=>$identificador])
             <div class="col-md-3 col-sm-12">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <h6>
+                    <div class="col-md-6 col-sm-12 no-padding-responsive">
+                        <div class="container-inicio-online-ts">
                             <span> INICIO <br /></span>
                             <span> {{$hace}}</span>
-                        </h6>
+                        </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        <h3>
-                            <i>
-                                <b>
-                                    {{Auth()->user()->name}}
-                                </b>
-                            </i>
-                        </h3>
+                    <div class="col-md-6 col-sm-12 no-padding-responsive">
+                        <div class="container-usuario-online-ts">
+                           {{Auth()->user()->name}}
+                        </div>
                     </div>
                     @livewire('auction.live.assets.status-win', ['producto' => $producto, 'identificador'=>$identificador])
                     @livewire('auction.live.assets.tiempo', ['producto' => $producto, 'identificador'=>$identificador])

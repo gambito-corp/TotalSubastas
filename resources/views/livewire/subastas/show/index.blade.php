@@ -1,4 +1,4 @@
-<div class="row main-container mr-md-0 ml-md-0 mb-5 mt-5">
+<div class="row main-container  mb-5 mt-5">
     <div class="col-sm-12 mt-5 mb-5">
         <div class="row">
             <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-12">

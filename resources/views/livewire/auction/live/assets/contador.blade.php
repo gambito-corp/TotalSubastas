@@ -28,7 +28,7 @@
         </div>
         <div class="col live-push_auction-timer_bottom">
             <div class="text-center">
-                <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
+                <span class="content-icono-show"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                 <span class="d-block text-center">
                     <p class="text-dark text text-_to-auction_bottom">{{$mensajes}}</p>
                     Ofertas
@@ -37,7 +37,7 @@
         </div>
         <div class="col live-push_auction-timer_bottom">
             <div class="text-center">
-                <i class="fas fa-user"> </i>
+                <span class="content-icono-show"><i class="fas fa-user" style="font-size: 23px"> </i></span>
                 <span class="d-block">
                     <p class="text-dark text text-_to-auction_bottom">{{$participantes}}</p>
                 </span>
