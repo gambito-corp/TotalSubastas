@@ -81,7 +81,7 @@
                     </div>
                     <div class="col-12">
                         <span class="text-badge_live">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
-                        <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
+                        <span class="badge_live"> $ {{$producto->precio}}</span>
                     </div>
                     <div class="col">
                         @if ($producto->finalized_at->subSeconds(5)<=now())
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
-                        <span class="ml-1"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
+                        <span class="content-icono-show"> <i class="fas fa-gavel fa-rotate-270 pr gavel-live"></i></span>
                         <span class="d-block text-center">
                             <p class="text-dark text text-_to-auction_bottom">{{count($mensajes)}}</p>
                             Ofertas
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
-                        <i class="fas fa-user"> </i>
+                        <span class="content-icono-show"> <i class="fas fa-user"> </i></span>
                         <span class="d-block" id="users">
                                 </span>
                         <span class="d-block">
@@ -151,7 +151,7 @@
             </div>
         </div>
 
-        <div class="col-md-5 order-md-2 p-4 text-light bg-dark scroll" id="scroll" style="height: 400px; border-radius: 10px;">
+        <div class="col-md-5 order-md-2 p-4 text-light bg-dark scroll" id="scroll" style="height: 448px; border-radius: 10px;">
 {{--            @isset($mensajes)--}}
                 @forelse($mensajes as $value )
                     @if ($value->user_id == Auth::id())
@@ -197,7 +197,7 @@
                         Oferta
                     </div>
                 </div>
-                <div class="row" style="height:200px; overflow: auto;">
+                <div class="col-12" style="height:200px; overflow: auto;">
                     @forelse($resultados as $resultado)
 {{--                        @dump($resultado)--}}
                         <div class="col-12 pt-2 d-flex pb-2  border-bottom ">

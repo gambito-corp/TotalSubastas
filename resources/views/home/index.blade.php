@@ -37,14 +37,14 @@
                     <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
                 </div>
                 <div class="row">
-                    <div class="col-md-6 p-0  d-md-flex  mt-4 order-md-3 container-banner-responsive">
-                        <div class="col col-md-11 mb-sm-1 card-slide card-slide_success col-sm-12 p-0  mr-md-4 order-md-1 bg-success_light order-md-1 banner3">
+                    <div class="col-md-12 p-0  d-md-flex  mt-4 order-md-3 container-banner-responsive">
+                        <div class="mini-banner-home card-slide bg-success_light">
                             <article class="dwnld-card">
-                            <strong class="text-light d-flex justify-content-center pt-3 pr-2">Documentación a la mano <br> de
+                            <strong class="text-light d-flex  pt-3" style="padding-left: 20px; padding-right: 20px;">Documentación a la mano <br> de
                                 cada
                                 subasta
                             </strong>
-                            <p class="text-light d-flex justify-content-center pt-2 pr-2 border-bottom pl-2 pr-2 pb-2 text-doc_saga-fallabella">
+                            <p class="text-light d-flex pt-2 border-bottom pl-2 pr-2 pb-2 text-doc_saga-fallabella">
                                 PDF, 125 MB, Sep 8 at 2:03 pm
                             </p>
                             <span class="d-flex justify-content-center text-light pb-3">
@@ -53,7 +53,7 @@
                         </article>
 {{--                            <img class="carousel-item-a_imagen" src="./assets/img/banner3.png" height="182px" width="385px" alt="...">--}}
                         </div>
-                        <div class="col col-md-11 mb-sm-1 card-slide col-sm-12 ml-md-4 pb-sm-3  order-md-2  bg-primary banner4">
+                        <div class="mini-banner-home card-slide bg-primary banner4">
                             <article>
                                 <strong class="text-light d-flex justify-content-start pl-3  gift_card">Regalamos 20$</strong>
                                 <p class="text-light d-flex justify-content-start pl-3">
