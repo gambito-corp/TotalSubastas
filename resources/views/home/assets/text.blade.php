@@ -1,4 +1,4 @@
-<label for="{{$nombre}}">{{$tag}} {{isset($require) && $require? '*':''}}</label>
+<label for="{{$nombre}}" class="font-weight-semibold  text-dark">{{$tag}} {{isset($require) && $require? '*':''}}</label>
 <input  type="{{$tipo}}"
         name="{{$nombre}}"
         @isset($live)

@@ -4,7 +4,7 @@
     </article>
     <div class="row p-4">
         <div class="col-12 pb-5 text-center" id="app">
-            <div class="base-timer">
+            <div class="base-timer" style="padding: 0 20px">
                 <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <g class="base-timer__circle">
                         <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
@@ -21,9 +21,7 @@
                         </path>
                     </g>
                 </svg>
-                <span id="base-timer-label" class="base-timer__label">
-
-                    </span>
+                <span id="base-timer-label" class="base-timer__label"></span>
             </div>
         </div>
         <div class="col live-push_auction-timer_bottom">
@@ -100,7 +98,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            font-size: 30px;
+            font-weight: 500;
+            left: 0
         }
     </style>
 @endpush

@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-3 order-md-1 mb-4   ">
                         <div class="text-center">
-                            <div class="bg-light-card shadow-sm radius">
+                            <div class="bg-light-card shadow-sm radius" style="padding-top: 25px;">
                                 @if (isset(auth()->user()->avatar))
                                     @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '90', 'class'=> 'img-circle elevation-2'])
                                 @endif
@@ -31,15 +31,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
-                        <h2 class=" font-weight-bold text-dark pb-5 text-center">
+                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container" style="padding: 25px">
+                        <h2 class=" font-weight-bold text-dark titulo-recarga">
                             Recarga de Cuenta
                         </h2>
                         <form action="{{route('recargar')}}" method="post" enctype="multipart/form-data">
                             @csrf
                                 <div>
                                     <div class="row">
-                                        <div class="custom-control col-md-12">
+                                        <div class="form-group col-md-12">
                                             <select name="banco_id" id="banco" class="form-control">
                                                 @forelse($bancos as $banco)
                                                     <option value="{{$banco->id}}" {{$banco->id == old('banco_id')?'selected':''}}>
@@ -59,7 +59,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'monto',
@@ -72,7 +72,7 @@
 
                                                 ])
                                         </div>
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'tipo',
@@ -85,7 +85,7 @@
 
                                                 ])
                                         </div>
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'motivo',
@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'cuenta',
@@ -113,7 +113,7 @@
 
                                                 ])
                                         </div>
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'transaccion_banco',
@@ -125,7 +125,7 @@
 
                                                 ])
                                         </div>
-                                        <div class="custom-control col-md-4">
+                                        <div class="form-group col-md-4">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'abono_at',
@@ -139,8 +139,8 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="custom-control col-md-6">
-                                            <label for="descripcion">Descripcion del Deposito</label>
+                                        <div class="form-group col-md-6">
+                                            <label for="descripcion" class="font-weight-semibold  text-dark">Descripcion del Deposito</label>
                                             <textarea name="descripcion" id="descripcion" cols="10" rows="2" class="form-control" required>{{old('descripcion')}}</textarea>
                                             @error('descripcion')
                                             <span class="invalid-feedback" role="alert">
@@ -148,7 +148,7 @@
                                             </span>
                                             @enderror
                                         </div>
-                                        <div class="custom-control col-md-6">
+                                        <div class="form-group col-md-6">
                                             @include(
                                                 'home.assets.text', [
                                                 'nombre'    => 'boucher',
@@ -160,9 +160,9 @@
                                     </div>
                                 </div>
                             <div class="row mx-lg-n5 mt-5">
-                                <div class="col py-3 ml-5 px-lg-5">
-                                    <button class="btn btn-block btn-to_buy pl-5 pr-5 text-light rounded-pill">
-                                        Guardar cambios
+                                <div class="form-group col-md-4 offset-md-4">
+                                    <button class="btn btn-block btn-to_buy  text-light rounded-pill">
+                                        <span style="font-weight: 500">Guardar cambios</span>
                                     </button>
                                 </div>
                             </div>
