@@ -1490,11 +1490,12 @@ article.sec-carousel {
     vertical-align: middle;
 }
 .scroll-account {
-    height: 200px;
+    max-height: 265px;
     overflow: auto;
     background-color: #AC8EE3;
     color: aliceblue;
-    border-radius: 10px; 
+    border-radius: 10px;
+    position: relative;
 }
 .scroll-account::-webkit-scrollbar {
     width: 5px;
@@ -1978,6 +1979,10 @@ body{
 	overflow-x: hidden;
 	box-sizing: border-box;
 }
+.container{
+	max-width: 1160px !important;
+
+}
 .container-header{
 	position: relative;
 	margin:0 auto;
@@ -2263,6 +2268,75 @@ input:focus{
     opacity: 1;
     font-weight: 300;
 
+}
+.mc-card_top .card-title--perfil{
+	padding-bottom: 19px;
+    padding-top: 9px;
+    min-height: 53px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.fecha-card-title{
+	font-size: 21px;
+    line-height: 22px;
+    font-weight: 500;
+    margin-bottom: 9px;
+}
+.icono-indicadores-perfil{
+	margin-bottom: 4px;
+    margin-top: 3px;
+    font-size: 20px;
+}
+.padding-lr-8{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.no-participacion{
+	font-size: 15px !important;
+	padding: 10px;
+}
+
+.container-garantia{
+	height: 52px;
+	color: white;
+	font-size: 14px;
+	line-height: 15px;
+}
+.flex-center{
+	display: flex;
+	align-items: center;
+}
+.font-weight-semibold {
+  font-weight: 500;
+}
+.btn-ver-mas-garantia{
+	height: 45px;
+	position: absolute;
+	width: 100%;
+	background: #8F79D4;
+	text-align: center;
+	padding: 12px 0;
+	font-weight: 500;
+	bottom: 0;
+	cursor: pointer;
+}
+.border-radius-ts{
+	border-radius: 10px;
+}
+.form-control{
+	height: 41px;
+}
+.titulo-recarga{
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+label{
+	font-size: 14px;
+}
+.form-group {
+    margin-bottom: 22px;
 }
 
 @media (max-width: 844px) {

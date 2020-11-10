@@ -16,7 +16,7 @@
                 <div class="text-center">
                     <!-- Accordion card -->
 
-                    <div class="bg-light-card shadow-sm radius">
+                    <div class="bg-light-card shadow-sm radius" style="padding-top: 25px;">
                         @if (isset(auth()->user()->avatar))
                             @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '90', 'class'=> 'img-circle elevation-2'])
                         @endif
@@ -24,9 +24,9 @@
                             <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
                             <p class="card-text">{{Auth::user()->email}}</p>
                             <hr>
-                            <a href="{{route('perfil.edit')}}"> editar perfil</a>
+                            <a href="{{route('perfil.edit')}}" class="font-weight-semibold"> Editar perfil <i class="fas fa-pencil-alt"></i></a>
                             <hr>
-                            <a href="{{route('imagen.perfil')}}"> Agregar Imagen de Perfil</a>
+                            <a href="{{route('imagen.perfil')}}" class="font-weight-semibold"> Agregar Imagen de Perfil</a>
                         </div>
                     </div>
                 </div>
@@ -37,9 +37,9 @@
                     <div class="col-12 col-md-4 col-sm-12 col-xs-12 ml mb-5">
                         <div class="card bg-darken text-light mc-card_top">
                             <div class="card-body">
-                                <p class="card-title">Registro
+                                <p class="card-title card-title--perfil">Registro
                                     <svg class="bi bi-calendar3 float-right mr-3 "
-                                         width="1.4em" height="1.4em" viewBox="0 0 16 16" fill="currentColor"
+                                         width="22px" height="22px" viewBox="0 0 16 16" fill="currentColor"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                               d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857V3.857z">
@@ -52,12 +52,12 @@
                                 <div class="col-sm-12">
                                     <div class="row text-center">
                                         <div class="col-12 col-sm-6">
-                                            <p class="b-title">{{Auth::user()->created_at->format('d-M-Y')}}</p>
+                                            <p class="b-title fecha-card-title">{{Auth::user()->created_at->format('d-M-Y')}}</p>
 
                                             <small class="sm-text_card">fecha Registro </small>
                                         </div>
                                         <div class="col-4 col-sm-6 ">
-                                            <p class="b-title">{{$audit}}</p>
+                                            <p class="b-title fecha-card-title">{{$audit}}</p>
                                             <small class="sm-text_card"> ultimo ingreso</small>
                                         </div>
                                     </div>
@@ -68,17 +68,17 @@
                     <div class="col-md col-md-4 col-sm-12 col-xs-12 ml mb-5">
                         <div class="card bg-darken text-light mc-card_top">
                             <div class="card-body">
-                                <p class="card-title ">Saldo
-                                    <i class="fa fa-money-bill-alt float-right mr-3 fa-w-20"></i>
+                                <p class="card-title card-title--perfil" style="margin-bottom: 20px;">Saldo
+                                    <i class="fa fa-money-bill-alt float-right mr-3 fa-w-20" style="font-size: 22px;"></i>
                                 </p>
                                 <div class="col-sm-12">
                                     <div class="row">
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">$ {{$balance}} </p>
+                                            <p class="b-title fecha-card-title">$ {{$balance}} </p>
                                             <small class="sm-text_card">Saldo actual</small>
                                         </div>
                                         <div class="col-12 col-sm-6 text-center">
-                                            <p class="b-title">$ {{$garantia}}</p>
+                                            <p class="b-title fecha-card-title">$ {{$garantia}}</p>
                                             <small class="sm-text_card ">Monto retenido</small>
                                         </div>
                                     </div>
@@ -89,8 +89,8 @@
                     <div class="col-md col-md-4 col-sm-12 col-xs-12 ml mb-5">
                         <div class="card bg-darken text-light mc-card_top">
                             <div class="card-body">
-                                <h5 class="card-title">Indicadores
-                                    <svg aria-hidden="true" width="20px" height="20px"
+                                <h5 class="card-title card-title--perfil">Indicadores
+                                    <svg aria-hidden="true" width="23px" height="23px"
                                          focusable="false" data-prefix="fal" data-icon="bell" role="img"
                                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                                          class="svg-inline--fa fa-bell float-right mr-3 fa-w-14 fa-2x">
@@ -101,19 +101,19 @@
                                 </h5>
                                 <div class="col-sm-12">
                                     <div class="row">
-                                        <div class="col-12 col-md-4 col-sm-4 col-xs-2">
-                                            <p class="b-title  text-center"><i class="fas fa-heart "></i></p>
+                                        <div class="col-12 col-md-4 col-sm-4 col-xs-2 padding-lr-8">
+                                            <p class="b-title  text-center icono-indicadores-perfil"><i class="fas fa-heart "></i></p>
                                             <p class="sm-text_card text-center">{{$likes}} <br> Me gusta</p>
                                             <small class="sm-text_card"></small>
                                         </div>
-                                        <div class="col-12 col-md-4 col-sm-4 col-xs-4">
-                                            <p class="b-title text-center"><i class="fas fa-gavel fa-rotate-270"></i>
+                                        <div class="col-12 col-md-3 col-sm-4 col-xs-4 padding-lr-8">
+                                            <p class="b-title text-center icono-indicadores-perfil"><i class="fas fa-gavel fa-rotate-270"></i>
                                             </p>
                                             <p class="sm-text_card text-center">{{$ofertas}} <br> Ofertas</p>
                                         </div>
-                                        <div class="col-12 col-md-4 col-sm-4 col-xs-4">
-                                            <p class="b-title  text-center"><i class="fas fa-user"></i></p>
-                                            <p class="sm-text_card text-center">{{$participacion}} Participaciones</p>
+                                        <div class="col-12 col-md-5 col-sm-4 col-xs-4 padding-lr-8">
+                                            <p class="b-title  text-center icono-indicadores-perfil"><i class="fas fa-user"></i></p>
+                                            <p class="sm-text_card text-center">{{$participacion}}<br> Participaciones</p>
                                         </div>
                                     </div>
                                 </div>
@@ -122,16 +122,16 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12">
+                <div class="">
                     <!--   Level 1: .col-sm-9 -->
                     <!-- Participaciones activas -->
                     <div class="row ">
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
                             <h2 class="text-darken pb-3">Participaciones Activas</h2>
                             <div class="row ">
                                 <div class="col">
                                     @forelse($activas as $producto)
-                                        <div class="media bg-light border-bottom">
+                                        <div class="media bg-light border-bottom border-radius-ts">
                                             <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                  height="70" class="mx-2 my-auto">
                                             <div class="media-body pb-4">
@@ -145,20 +145,20 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="media bg-light border-bottom">
-                                            <h2><strong>No Hay Participaciones Activas</strong></h2>
+                                        <div class="media bg-light border-bottom border-radius-ts">
+                                            <p class="no-participacion">No hay participaciones activas</p>
                                         </div>
                                     @endforelse
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
                             <h2 class="text-darken pb-3">Participaciones Pasadas</h2>
                             <div class="row ">
                                 <div class="col">
                                     @forelse($pasadas as $producto)
-                                        <div class="media bg-light border-bottom">
+                                        <div class="media bg-light border-bottom border-radius-ts">
                                             <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                  height="70" class="mx-2 my-auto">
                                             <div class="media-body pb-4">
@@ -172,20 +172,20 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="media bg-light border-bottom">
-                                            <h2><strong>No Hay Participaciones Pasadas</strong></h2>
+                                        <div class="media bg-light border-bottom border-radius-ts">
+                                            <p class="no-participacion">No hay participaciones pasadas</p>
                                         </div>
                                     @endforelse
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
                             <h2 class="text-darken pb-3">Vas Ganando</h2>
                             <div class="row ">
                                 <div class="col pl-3 radius">
                                     @forelse($ganando as $producto)
-                                        <div class="media bg-light border-bottom">
+                                        <div class="media bg-light border-bottom border-radius-ts">
                                             <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                  height="70" class="mx-2 my-auto">
                                             <div class="media-body pb-4">
@@ -199,20 +199,20 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="media bg-light border-bottom">
-                                            <h2><strong>No Vas Ganando en Ninguna Subastas</strong></h2>
+                                        <div class="media bg-light border-bottom border-radius-ts">
+                                            <p class="no-participacion">No vas ganando en ninguna subasta</p>
                                         </div>
                                     @endforelse
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5 pl-0">
+                        <div class="col-12 col-md-6 col-sm-12 col-xs-12 m-acc_text pt-5">
                             <h2 class="text-darken pb-3">Vehiculos Ganados</h2>
                             <div class="row ">
                                 <div class="col pl-3 radius">
                                     @forelse($ganadas as $producto)
-                                        <div class="media bg-light border-bottom">
+                                        <div class="media bg-light border-bottom border-radius-ts">
                                             <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                  height="70" class="mx-2 my-auto">
                                             <div class="media-body pb-4">
@@ -226,8 +226,8 @@
                                             </div>
                                         </div>
                                     @empty
-                                        <div class="media bg-light border-bottom">
-                                            <h2><strong>Todavia No Ganaste Ningun Vehiculo</strong></h2>
+                                        <div class="media bg-light border-bottom border-radius-ts">
+                                            <p class="no-participacion">Todavia no ganaste ningún vehículo</p>
                                         </div>
                                     @endforelse
                                 </div>
@@ -240,22 +240,21 @@
                             <div class="row mb-5 scroll-account">
                                 @forelse($garantiaDetail as $detail)
 
-                                    <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                        <div class="col-md-4 text-dark font-weight-normal">
+                                    <div class="col-12 pt-2 d-flex pb-2  border-bottom container-garantia">
+                                        <div class="col-md-4 font-weight-semibold flex-center">
                                             {{$detail->descripcion}}
                                         </div>
-                                        <div class="col-md-2 text-dark font-weight-normal">
+                                        <div class="col-md-2 font-weight-normal flex-center">
                                             {{$detail->tipo}}
                                         </div>
-                                        <div class="col-md-2 text-dark font-weight-normal">
+                                        <div class="col-md-2  font-weight-normal flex-center">
                                             {{$detail->created_at->format('d-M-Y')}}
                                         </div>
-                                        <div
-                                            class="col-md-2 text-dark font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                        <div class="col-md-2 font-weight-normal  ranking_to-auction_text flex-center" style="color: #E7D9FF;">
                                             $ {{$detail->monto}}
                                         </div>
                                         <div
-                                            class="col-md-2 text-dark font-weight-normal text-to_best-auction ranking_to-auction_text">
+                                            class="col-md-2  font-weight-normal  ranking_to-auction_text flex-center" style="color: #E7D9FF;">
                                             {{$detail->aprobado?'Aprobado':'Esperando Confirmacion'}}
                                         </div>
                                     </div>
@@ -264,6 +263,8 @@
                                         <h2 class="text-darken">Ho hay un registro</h2>
                                     </div>
                                 @endforelse
+
+                                <div class="btn-ver-mas-garantia" style="display: none;">Ver más</div>
                             </div>
                         </div>
                     </div>
