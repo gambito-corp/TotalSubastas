@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md col-md-12 mt-5">
                 <div class="row">
-                    <div class="col-md-3 order-md-1 mb-4   ">
+                    <div class="col-md-3 order-md-1 mb-4">
                         <div class="text-center">
                             <div class="bg-light-card shadow-sm radius" style="padding-top: 25px;">
                                 @if (isset(auth()->user()->avatar))
@@ -31,142 +31,144 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container" style="padding: 25px">
-                        <h2 class=" font-weight-bold text-dark titulo-recarga">
-                            Recarga de Cuenta
-                        </h2>
-                        <form action="{{route('recargar')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                                <div>
-                                    <div class="row">
-                                        <div class="form-group col-md-12">
-                                            <select name="banco_id" id="banco" class="form-control">
-                                                @forelse($bancos as $banco)
-                                                    <option value="{{$banco->id}}" {{$banco->id == old('banco_id')?'selected':''}}>
-                                                        {{$banco->nombre}}
-                                                    </option>
-                                                @empty
-                                                    <option value="">
-                                                        No Existen Bancos
-                                                    </option>
-                                                @endforelse
-                                            </select>
-                                            @error('bancos_id')
+                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top">
+                        <div class="main-container" style="padding: 25px">
+                            <h2 class=" font-weight-bold text-dark titulo-recarga">
+                                Recarga de Cuenta
+                            </h2>
+                            <form action="{{route('recargar')}}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                    <div>
+                                        <div class="row">
+                                            <div class="form-group col-md-12">
+                                                <select name="banco_id" id="banco" class="form-control">
+                                                    @forelse($bancos as $banco)
+                                                        <option value="{{$banco->id}}" {{$banco->id == old('banco_id')?'selected':''}}>
+                                                            {{$banco->nombre}}
+                                                        </option>
+                                                    @empty
+                                                        <option value="">
+                                                            No Existen Bancos
+                                                        </option>
+                                                    @endforelse
+                                                </select>
+                                                @error('bancos_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'monto',
+                                                    'tag'       => 'Monto',
+                                                    'tipo'      => 'text',
+                                                    'place'     => 'Monto',
+                                                    'require'   => true,
+                                                    'valor'     => old('monto'),
+                                                    'edit'      => true
+
+                                                    ])
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'tipo',
+                                                    'tag'       => 'Tipo de Deposito',
+                                                    'tipo'      => 'text',
+                                                    'place'     => 'Tipo de Deposito',
+                                                    'require'   => true,
+                                                    'valor'     => old('tipo'),
+                                                    'edit'      => true
+
+                                                    ])
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'motivo',
+                                                    'tag'       => 'Motivo de Deposito',
+                                                    'tipo'      => 'text',
+                                                    'place'     => 'Motivo de Deposito',
+                                                    'require'   => true,
+                                                    'valor'     => old('motivo'),
+                                                    'edit'      => true
+
+                                                    ])
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'cuenta',
+                                                    'tag'       => 'Numero de Cuenta',
+                                                    'tipo'      => 'text',
+                                                    'place'     => 'Numero de Cuenta',
+                                                    'require'   => true,
+                                                    'valor'     => old('cuenta'),
+                                                    'edit'      => true
+
+                                                    ])
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'transaccion_banco',
+                                                    'tag'       => 'Id de Transferencia',
+                                                    'tipo'      => 'text',
+                                                    'place'     => 'Id de Transferencia',
+                                                    'valor'     => old('transaccion_banco'),
+                                                    'edit'      => true
+
+                                                    ])
+                                            </div>
+                                            <div class="form-group col-md-4">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'abono_at',
+                                                    'tag'       => 'Fecha y hora de Deposito',
+                                                    'tipo'      => 'datetime-local',
+                                                    'place'     => 'Fecha y hora de Deposito',
+                                                    'require'   => true,
+                                                    'valor'     => old('abono_at'),
+                                                    'edit'      => true
+                                                    ])
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="descripcion" class="font-weight-semibold  text-dark">Descripcion del Deposito</label>
+                                                <textarea name="descripcion" id="descripcion" cols="10" rows="2" class="form-control" required>{{old('descripcion')}}</textarea>
+                                                @error('descripcion')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
-                                            @enderror
+                                                @enderror
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                @include(
+                                                    'home.assets.text', [
+                                                    'nombre'    => 'boucher',
+                                                    'tag'       => 'Imagen del Boucher',
+                                                    'tipo'      => 'file',
+                                                    'require'   => true
+                                                    ])
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'monto',
-                                                'tag'       => 'Monto',
-                                                'tipo'      => 'text',
-                                                'place'     => 'Monto',
-                                                'require'   => true,
-                                                'valor'     => old('monto'),
-                                                'edit'      => true
-
-                                                ])
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'tipo',
-                                                'tag'       => 'Tipo de Deposito',
-                                                'tipo'      => 'text',
-                                                'place'     => 'Tipo de Deposito',
-                                                'require'   => true,
-                                                'valor'     => old('tipo'),
-                                                'edit'      => true
-
-                                                ])
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'motivo',
-                                                'tag'       => 'Motivo de Deposito',
-                                                'tipo'      => 'text',
-                                                'place'     => 'Motivo de Deposito',
-                                                'require'   => true,
-                                                'valor'     => old('motivo'),
-                                                'edit'      => true
-
-                                                ])
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'cuenta',
-                                                'tag'       => 'Numero de Cuenta',
-                                                'tipo'      => 'text',
-                                                'place'     => 'Numero de Cuenta',
-                                                'require'   => true,
-                                                'valor'     => old('cuenta'),
-                                                'edit'      => true
-
-                                                ])
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'transaccion_banco',
-                                                'tag'       => 'Id de Transferencia',
-                                                'tipo'      => 'text',
-                                                'place'     => 'Id de Transferencia',
-                                                'valor'     => old('transaccion_banco'),
-                                                'edit'      => true
-
-                                                ])
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'abono_at',
-                                                'tag'       => 'Fecha y hora de Deposito',
-                                                'tipo'      => 'datetime-local',
-                                                'place'     => 'Fecha y hora de Deposito',
-                                                'require'   => true,
-                                                'valor'     => old('abono_at'),
-                                                'edit'      => true
-                                                ])
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-md-6">
-                                            <label for="descripcion" class="font-weight-semibold  text-dark">Descripcion del Deposito</label>
-                                            <textarea name="descripcion" id="descripcion" cols="10" rows="2" class="form-control" required>{{old('descripcion')}}</textarea>
-                                            @error('descripcion')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            @include(
-                                                'home.assets.text', [
-                                                'nombre'    => 'boucher',
-                                                'tag'       => 'Imagen del Boucher',
-                                                'tipo'      => 'file',
-                                                'require'   => true
-                                                ])
-                                        </div>
+                                <div class="row mx-lg-n5 mt-5">
+                                    <div class="form-group col-md-4 offset-md-4">
+                                        <button class="btn btn-block btn-to_buy  text-light rounded-pill">
+                                            <span style="font-weight: 500">Guardar cambios</span>
+                                        </button>
                                     </div>
                                 </div>
-                            <div class="row mx-lg-n5 mt-5">
-                                <div class="form-group col-md-4 offset-md-4">
-                                    <button class="btn btn-block btn-to_buy  text-light rounded-pill">
-                                        <span style="font-weight: 500">Guardar cambios</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
