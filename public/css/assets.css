@@ -356,7 +356,7 @@ article.p-side_nav h2 {
 .mc-card_top {
     border-radius: 10px;
     height: 169px;
-    width: 263px;
+    width: 100%;
     font-family: var(--var-font-family);
 }
 .mc-card_top .card-title {
@@ -2370,7 +2370,22 @@ label{
 	}
 
 }
+@media (max-width: 767px) {
+	.mc-card_top {
+    	height: auto;
+	}
+	.fecha-card-title{
+		margin-bottom: 0;
+	}
+	.sm-text_card{
+		margin-bottom: 10px;
+	}
+	.container-garantia{
+		height: auto;
 
+	}
+
+}
 
 @media (max-width: 600px) {
 
