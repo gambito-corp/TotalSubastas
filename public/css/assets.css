@@ -2337,6 +2337,8 @@ label{
 }
 .form-group {
     margin-bottom: 22px;
+    padding-left: 15px;
+    padding-right: 10px;
 }
 
 @media (max-width: 844px) {
