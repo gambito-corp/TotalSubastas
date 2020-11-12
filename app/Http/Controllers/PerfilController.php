@@ -469,7 +469,8 @@ class PerfilController extends Controller
         $bancos = Bank::all('id', 'siglas');
         $provincia = Country::where('parent_id', $request->input('departamento'))->get();
         Cache::put('departamento', $request->input('departamento'), 5000);
-        return view('perfil.formulario.paso4', compact('data', 'bancos', 'provincia'));
+        $depa = Cache::get('departamento');
+        return view('perfil.formulario.paso4', compact('data', 'bancos', 'provincia', 'depa'));
     }
     public function paso5 (Request $request)
     {
@@ -480,7 +481,8 @@ class PerfilController extends Controller
         $bancos = Bank::all('id', 'siglas');
         $distrito = Country::where('parent_id', $request->input('provincia'))->get();
         Cache::put('provincia', $request->input('provincia'), 5000);
-        return view('perfil.formulario.paso5', compact('data', 'bancos', 'distrito'));
+        $prov = Cache::get('provincia');
+        return view('perfil.formulario.paso5', compact('data', 'bancos', 'distrito', 'prov'));
     }
     public function paso6 (Request $request)
     {

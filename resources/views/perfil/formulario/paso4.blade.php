@@ -37,6 +37,8 @@
                         </h2>
                         <form action="{{route('perfil.paso5')}}" method="get" enctype="multipart/form-data">
                             @csrf
+                            @dump($depa)
+
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="provincia" class="font-weight-bold text-dark">Provincia *</label>
