@@ -492,6 +492,9 @@ class PerfilController extends Controller
         $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $bancos = Bank::all('id', 'siglas');
         $direccion = Address::where('id',$data->direccion_id)->first();
+        if($direccion == null){
+            $direccion = new Address();
+        }
         Cache::put('distrito', $request->input('distrito'), 5000);
         return view('perfil.formulario.paso6', compact('data', 'bancos', 'direccion'));
     }
