@@ -64,7 +64,6 @@ class DetalleVehiculosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "video_url"             => 'nullable|active_url',
             "saneado"               => "nullable|accepted",
             "captura"               => "nullable|accepted",
             "seguro"                => "nullable|accepted",
