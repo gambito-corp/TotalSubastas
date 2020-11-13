@@ -58,7 +58,7 @@ class PerfilController extends Controller
     public function show ()
     {
         $id = Auth::id();
-        $persona = Person::where('user_id', $id)->first();
+        $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $audit = Audit::where('user_id', $id)->get()->pluck('created_at')->last()->format('d-M-Y');
         $balance = Balance::where('user_id', $id)->where('aprobado', true)->pluck('monto')->sum();
         $balance = intval($balance);
@@ -87,7 +87,7 @@ class PerfilController extends Controller
                     ->where('finalized_at', '<', now());
             })->with('Productos')->get();
         $garantiaDetail = Balance::where('user_id', $id)->get();
-        return view('perfil.account', compact('persona', 'audit', 'balance', 'garantia', 'likes', 'ofertas', 'participacion', 'activas', 'pasadas', 'ganando','ganadas', 'garantiaDetail'));
+        return view('perfil.account', compact('data', 'audit', 'balance', 'garantia', 'likes', 'ofertas', 'participacion', 'activas', 'pasadas', 'ganando','ganadas', 'garantiaDetail'));
     }
 
     public function edit ()

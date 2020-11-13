@@ -20,14 +20,15 @@
                         @if (isset(auth()->user()->avatar))
                             @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '90', 'class'=> 'img-circle elevation-2'])
                         @endif
-                        <div class="card-body pl-0 pr-0">
-                            <h5 class="card-title font-weight-bold text-dark">{{$persona->nombres.' '.$persona->apellidos}}</h5>
-                            <p class="card-text">{{Auth::user()->email}}</p>
-                            <hr>
-                            <a href="{{route('perfil.edit')}}" class="font-weight-semibold"> Editar perfil <i class="fas fa-pencil-alt"></i></a>
-                            <hr>
-                            <a href="{{route('imagen.perfil')}}" class="font-weight-semibold"> Agregar Imagen de Perfil</a>
-                        </div>
+                            <div class="card-body pl-0 pr-0">
+                                <h5 class="card-title font-weight-bold text-dark">{{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}</h5>
+                                <p class="card-text">{{Auth::user()->email}}</p>
+                                <hr>
+                                <a href="{{route('perfil.edit')}}" class="font-weight-semibold"> Editar perfil <i class="fas fa-pencil-alt"></i></a>
+                                <hr>
+                                <a href="{{route('imagen.perfil')}}" class="font-weight-semibold"> Agregar Imagen de Perfil</a>
+                            </div>
+
                     </div>
                 </div>
             </div>
