@@ -66,5 +66,10 @@ class LegalPerson extends Model
         return $this->belongsTo(Address::class, 'direccion2_id');
     }
 
+    Public function Usuario()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 
 }

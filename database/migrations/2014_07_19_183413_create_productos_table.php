@@ -15,6 +15,7 @@ class CreateProductosTable extends Migration {
 		Schema::create('productos', function(Blueprint $table)
 		{
 			$table->id();
+            $table->foreignId('propietario')->nullable()->default(1)->constrained('users')->onDelete('set null');
 			$table->foreignId('user_id')->nullable()->default(1)->constrained()->onDelete('set null');
 			$table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
 			$table->foreignId('lote_id')->nullable()->constrained('lots')->onDelete('set null');

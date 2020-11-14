@@ -2,8 +2,6 @@
     <div class="invisible" wire:pool.100ms="estado">
         {{now()}}
     </div>
-    @dump($end)
-    @dump($time)
     @auth
         @if($end == 'cortar')
             <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star"></i>La Subasta Finalizo </p>

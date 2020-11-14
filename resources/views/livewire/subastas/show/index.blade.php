@@ -8,7 +8,7 @@
                             <figure>
                                 @include('assets.imagen', ['carpeta' => 'empresa', 'id' => $producto->Empresa->id, 'ancho' => '100', ])
                                 <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
-                                <h3>{{$vehiculo->year}}</h3>
+                                <h3>{{$producto->Vehiculo != null? $producto->Vehiculo->year: ''}}</h3>
                             </figure>
                             <ul class="nav justify-content-end container-resumen-subasta">
                                 <li class="nav-item text-light_darken mr-2">

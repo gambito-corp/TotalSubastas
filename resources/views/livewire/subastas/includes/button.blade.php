@@ -1,4 +1,5 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
+hola
 @if($estado == 'ganador')
     <p class="btn btn-success rounded-pill text-light btn-subasta-ts" style="cursor:none" ><i class="fas fa-star"></i> Vas Ganando </p>
 @endif

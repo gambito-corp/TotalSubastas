@@ -116,7 +116,10 @@ class ProductoController extends Controller
         $started_at = $request->input('started_at');
         $finalized_at = $request->input('finalized_at');
 
+        $dato = Company::with('Juridica')->where('id', $empresa_id)->first();
+
         $producto = new Data();
+        $producto->propietario = $dato->Juridica->Usuario->id;
         $producto->user_id = Auth::id();
         $producto->empresa_id = $empresa_id;
         $producto->lote_id = $lote_id;

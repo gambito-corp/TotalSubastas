@@ -13,6 +13,7 @@ class Index extends Component
     public $vehiculo;
     public $detalle;
     public $estado;
+    public $hola;
     /**
      * @var mixed
      */
@@ -23,9 +24,11 @@ class Index extends Component
         $id = Gambito::hash(request()->route()->parameter('id'), true);
         $this->producto = Gambito::obtenerProducto($id)->load('Imagenes', 'Vehiculo', 'Empresa');
         $this->vehiculo = Gambito::obtenerVehiculo();
+//        dd($this->producto);
         $user = Gambito::checkUser();
         $this->estado = Gambito::checkEstado($this->producto, $user->id);
         $this->like = Like::all();
+        $this->hola = 'hola0';
 
     }
     public function addLike($id)

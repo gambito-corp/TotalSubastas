@@ -29,7 +29,7 @@
         <div class="tab-pane fade show active" id="v-pills-resumen" role="tabpanel"
           aria-labelledby="v-pills-resumen-tab">
           <p>
-            {!!$producto->Vehiculo->informacion!!}
+            {!!$producto->Vehiculo != null? $producto->Vehiculo->informacion: ''!!}
           </p>
 
           <div class="row">
