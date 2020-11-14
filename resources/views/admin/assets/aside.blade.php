@@ -164,22 +164,22 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item has-treeview">
-                                <a href="{{route('admin.participacion.index')}}" class="nav-link">
-                                    <i class="fas fa-people-arrows"></i>
-                                    <p>
-                                        Participaciones por Miembro
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item has-treeview">
-                                <a href="{{route('admin.guardado.index')}}" class="nav-link">
-                                    <i class="fas fa-bookmark"></i>
-                                    <p>
-                                        Productos Guardados
-                                    </p>
-                                </a>
-                            </li>
+{{--                            <li class="nav-item has-treeview">--}}
+{{--                                <a href="{{route('admin.participacion.index')}}" class="nav-link">--}}
+{{--                                    <i class="fas fa-people-arrows"></i>--}}
+{{--                                    <p>--}}
+{{--                                        Participaciones por Miembro--}}
+{{--                                    </p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                            <li class="nav-item has-treeview">--}}
+{{--                                <a href="{{route('admin.guardado.index')}}" class="nav-link">--}}
+{{--                                    <i class="fas fa-bookmark"></i>--}}
+{{--                                    <p>--}}
+{{--                                        Productos Guardados--}}
+{{--                                    </p>--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
                         </ul>
                     </li>
                 @endif

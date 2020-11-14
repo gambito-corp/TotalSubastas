@@ -278,7 +278,7 @@ class PerfilController extends Controller
             $numero             = $request->input('numero');
             $int_ext            = $request->input('int_ext');
             $referencia         = $request->input('referencia');
-            $titulo_direccion   = $request->input('titulo_direccion');
+            $titulo_direccion   = $request->input('titulo_direccion'). 'direccion de: '.$email;
 
             $test =  DB::transaction(function () use (
                 $nombre,

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('C4tntnox*+'),
             'completo'          => true,
-            'tipo'              => 'natural'
+            'tipo'              => 'juridica'
         ]);
         User::create([
             'role_id'           => '3',
@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'juridica'
         ]);
         User::create([
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'juridica'
         ]);
         User::create([
@@ -45,7 +45,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'natural'
         ]);
         User::create([
@@ -55,7 +55,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'natural'
         ]);
         User::create([
@@ -65,7 +65,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'natural'
         ]);
         User::create([
@@ -75,7 +75,7 @@ class UserSeeder extends Seeder
             'avatar'            => 'default.png',
             'email_verified_at' => now(),
             'password'          => Hash::make('Admin'),
-            'completo'          => true,
+            'completo'          => false,
             'tipo'              => 'natural'
         ]);
     }
