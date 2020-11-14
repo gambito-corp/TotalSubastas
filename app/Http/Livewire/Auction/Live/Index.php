@@ -99,6 +99,12 @@ class Index extends Component
         $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
     }
 
+    public function online()
+    {
+        //
+        //
+    }
+
 
     public function render()
     {

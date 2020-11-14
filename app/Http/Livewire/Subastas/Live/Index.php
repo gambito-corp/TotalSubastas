@@ -154,6 +154,12 @@ class Index extends Component
         $this->hydrate();
     }
 
+    public function online()
+    {
+        //
+        //
+    }
+
     public function render()
     {
 

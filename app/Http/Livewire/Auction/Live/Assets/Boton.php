@@ -77,6 +77,11 @@ class Boton extends Component
     {
     }
 
+    public function online()
+    {
+        //
+    }
+
     public function render()
     {
         return view('livewire.auction.live.assets.boton');
