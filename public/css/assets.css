@@ -2340,6 +2340,41 @@ label{
     padding-left: 15px;
     padding-right: 10px;
 }
+.titulo-estatico-ts{
+	font-size: 25px;
+	color: #262D33;
+}
+.content-breadcrumbs-ts{
+	font-weight: 500;
+    color: #262D33;
+    font-size: 14px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+.icono-breadcrumbs-ts{
+	font-size: 25px;
+	color: #BCBFC2;
+	margin-left: 15px;
+	margin-right: 15px;
+	}
+
+.subtitulo-estaticas-ts{
+	color: #4B5157;
+	font-size: 18px;
+}
+.card-text--estaticas{
+	font-size: 14px;
+	line-height: 18px;
+	color: #4B5157
+}
+.nav-link.text-darken-flat a{
+	color: #939699;
+}
+.tab-content--estatico{
+	padding: 0 20px;
+}
 
 @media (max-width: 844px) {
 	.no-padding-responsive{
@@ -2369,6 +2404,9 @@ label{
 	}
 	.mini-banner-home + .mini-banner-home{
 		margin-left: 0;
+	}
+	.tab-content--estatico{
+		padding: 0;
 	}
 
 }
