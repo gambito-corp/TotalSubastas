@@ -52,7 +52,8 @@ class PerfilController extends Controller
         }
         $data = ($user->tipo == 'natural') ? Person::where('user_id',  $user->id)->first() : LegalPerson::where('user_id', $user->id)->first();
         $bancos = Bank::all('id', 'siglas');
-        return view('perfil.profile-edit', compact('data', 'bancos'));
+        return view('perfil.formulario.paso1', compact('data', 'bancos'));
+//        return view('perfil.profile-edit', compact('data', 'bancos'));
     }
 
     public function show ()
