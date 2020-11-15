@@ -52,7 +52,6 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -98,7 +97,12 @@ class LoginController extends Controller
         if(Auth::user()->completo){
             $respuesta = redirect()->intended($this->redirectPath());
         }else{
-            $respuesta = redirect()->route('perfil.paso1');
+            if (Auth::user()->email_verified_at){
+                $respuesta = redirect()->route('perfil.paso1')->with(['message' => 'holis', 'alerta' => 'success']);
+            }else{
+                Auth::logout();
+                $respuesta = redirect()->route('index')->with(['message' => 'Porfavor Revise Su Email Para Confirmar', 'alerta' => 'danger']);
+            }
         }
 
         return $request->wantsJson()
