@@ -20,7 +20,6 @@
                         </span>
                         @enderror
                     </div>
-
                     <div class="custom-control col-md-2 col-sm-6 ">
                         <label for="pais">Pais *</label>
                         <select class="form-control  @error('pais') is-invalid @enderror" name="pais" id="pais" wire:model="parent_id1">
@@ -38,7 +37,6 @@
                         </span>
                         @enderror
                     </div>
-
                     <div class="custom-control col-md-2 col-sm-6 ">
                         <label for="departamento">Departamento *</label>
                         <select class="form-control  @error('departamento') is-invalid @enderror" name="departamento" id="departamento" wire:model="parent_id2">
@@ -56,7 +54,6 @@
                         </span>
                         @enderror
                     </div>
-
                     <div class="custom-control col-md-2 col-sm-6 ">
                         <label for="provincia">Provincia *</label>
                         <select class="form-control  @error('provincia') is-invalid @enderror" name="provincia" id="provincia" wire:model="parent_id3">
@@ -74,7 +71,6 @@
                         </span>
                         @enderror
                     </div>
-
                     <div class="custom-control col-md-2 col-sm-6 ">
                         <label for="distrito">Distrito *</label>
                         <select class="form-control  @error('distrito') is-invalid @enderror" name="distrito" id="distrito">
@@ -92,10 +88,7 @@
                         </span>
                         @enderror
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-2 col-sm-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'dir1',
@@ -108,7 +101,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'titulo',
@@ -118,7 +111,7 @@
                             'require'   => true
                             ])
                     </div>
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'ref',

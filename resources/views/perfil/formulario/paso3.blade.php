@@ -33,7 +33,7 @@
                     </div>
                     <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
                         <h2 class=" font-weight-bold text-dark pb-5 text-center">
-                            Pais del Usuario
+                            Departamento del Usuario
                         </h2>
                         <form action="{{route('perfil.paso4')}}" method="get" enctype="multipart/form-data">
                             @csrf

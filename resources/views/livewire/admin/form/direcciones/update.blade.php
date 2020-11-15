@@ -92,10 +92,7 @@
                         </span>
                         @enderror
                     </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-2 col-sm-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'dir1',
@@ -110,7 +107,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'titulo',
@@ -122,7 +119,7 @@
                             'edit'      => true
                             ])
                     </div>
-                    <div class="custom-control col-md-4 col-sm-12">
+                    <div class="custom-control col-md-6">
                         @include(
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'ref',
