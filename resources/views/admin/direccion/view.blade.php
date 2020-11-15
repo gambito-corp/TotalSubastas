@@ -34,11 +34,7 @@
                     <th>Departamento</th>
                     <th>Provincia</th>
                     <th>Distrito</th>
-                    <th>Tipo de Via</th>
                     <th>Linea Direccion 1</th>
-                    <th>Linea Direccion 2</th>
-                    <th>numero</th>
-                    <th>interior exterior</th>
                     <th>Referencia</th>
                     <th>Titulo de Direccion</th>
                     @isset($trash)
@@ -56,11 +52,7 @@
                         <td>{{$direccion->Departamento->nombre}}</td>
                         <td>{{$direccion->Provincia->nombre}}</td>
                         <td>{{$direccion->Distrito->nombre}}</td>
-                        <td>{{$direccion->tipo_via}}</td>
                         <td>{{$direccion->direccion1}}</td>
-                        <td>{{$direccion->direccion2}}</td>
-                        <td>{{$direccion->numero}}</td>
-                        <td>{{$direccion->int_ext}}</td>
                         <td>{{$direccion->referencia}}</td>
                         <td>{{$direccion->titulo_direccion}}</td>
                         @isset($trash)
@@ -88,11 +80,6 @@
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
                         <td>Sin Acciones</td>
                     </tr>
                 @endforelse
@@ -104,11 +91,7 @@
                     <th>Departamento</th>
                     <th>Provincia</th>
                     <th>Distrito</th>
-                    <th>Tipo de Via</th>
                     <th>Linea Direccion 1</th>
-                    <th>Linea Direccion 2</th>
-                    <th>numero</th>
-                    <th>interior exterior</th>
                     <th>Referencia</th>
                     <th>Titulo de Direccion</th>
                     @isset($trash)

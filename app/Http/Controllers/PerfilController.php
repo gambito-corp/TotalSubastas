@@ -502,20 +502,11 @@ class PerfilController extends Controller
     public function paso7 (Request $request)
     {
         $request->validate([
-            "tipo_via" => "required",
             "direccion1" => "required",
-            "numero" => "required",
-            "int_ext" => "required",
             "referencia" => "required",
-            "titulo_direccion" => "required",
         ]);
-        Cache::put('tipo_via', $request->input('tipo_via'), 5000);
         Cache::put('direccion1', $request->input('direccion1'), 5000);
-        Cache::put('direccion2', $request->input('direccion2'), 5000);
-        Cache::put('numero', $request->input('numero'), 5000);
-        Cache::put('int_ext', $request->input('int_ext'), 5000);
         Cache::put('referencia', $request->input('referencia'), 5000);
-        Cache::put('titulo_direccion', $request->input('titulo_direccion'), 5000);
         $data = (Auth::user()->tipo == 'natural') ? Person::where('user_id',  Auth::id())->first() : LegalPerson::where('user_id', Auth::id())->first();
         $bancos = Bank::all('id', 'siglas');
         if(Auth::user()->tipo == 'juridica'){
@@ -528,8 +519,8 @@ class PerfilController extends Controller
     public function paso8 (Request $request)
     {
         $request->validate([
-            "banco_id" => 'required|exists:banks,id',
-            "numero_cuenta" =>  'required',
+            "banco_id" => 'nullable|exists:banks,id',
+            "numero_cuenta" =>  'nullable',
             "genero" => 'required',
             "estado_civil" => 'required',
             "digito_documento" =>  'required',
@@ -572,13 +563,8 @@ class PerfilController extends Controller
         $departamento = Cache::get('departamento');
         $provincia = Cache::get('provincia');
         $distrito = Cache::get('distrito');
-        $tipo_via = Cache::get('tipo_via');
         $direccion1 = Cache::get('direccion1');
-        $direccion2 = Cache::get('direccion2');
-        $numero = Cache::get('numero');
-        $int_ext = Cache::get('int_ext');
         $referencia = Cache::get('referencia');
-        $titulo_direccion = Cache::get('titulo_direccion');
         $banco_id = Cache::get('banco_id');
         $numero_cuenta = Cache::get('numero_cuenta');
         $genero = Cache::get('genero');
@@ -599,13 +585,8 @@ class PerfilController extends Controller
             $departamento,
             $provincia,
             $distrito,
-            $tipo_via,
             $direccion1,
-            $direccion2,
-            $numero,
-            $int_ext,
             $referencia,
-            $titulo_direccion,
             $banco_id,
             $numero_cuenta,
             $genero,
@@ -624,7 +605,6 @@ class PerfilController extends Controller
             $direccion = Address::updateOrCreate(
                 [
                     'user_id' => Auth::id(),
-                    'titulo_direccion' => $titulo_direccion,
                 ],
                 [
                     'user_id' => Auth::id(),
@@ -632,13 +612,9 @@ class PerfilController extends Controller
                     'departamento_id' => $departamento,
                     'provincia_id' => $provincia,
                     'distrito_id' => $distrito,
-                    'tipo_via' => $tipo_via,
                     'direccion1' => $direccion1,
-                    'direccion2' => $direccion2,
-                    'numero' => $numero,
-                    'int_ext' => $int_ext,
                     'referencia' => $referencia,
-                    'titulo_direccion' => $titulo_direccion,
+                    'titulo_direccion' => 'Direccion de usuario: '. Auth::id(),
                 ]
             );
             DB::table('people')
@@ -675,13 +651,8 @@ class PerfilController extends Controller
         $departamento       = Cache::get('departamento');
         $provincia          = Cache::get('provincia');
         $distrito           = Cache::get('distrito');
-        $tipo_via           = Cache::get('tipo_via');
         $direccion1         = Cache::get('direccion1');
-        $direccion2         = Cache::get('direccion2');
-        $numero             = Cache::get('numero');
-        $int_ext            = Cache::get('int_ext');
         $referencia         = Cache::get('referencia');
-        $titulo_direccion   = Cache::get('titulo_direccion');
         DB::transaction(function () use (
             $nombre,
             $razon_social,
@@ -694,13 +665,8 @@ class PerfilController extends Controller
             $departamento,
             $provincia,
             $distrito,
-            $tipo_via,
             $direccion1,
-            $direccion2,
-            $numero,
-            $int_ext,
-            $referencia,
-            $titulo_direccion
+            $referencia
         ){
             $user = DB::table('users')
                 ->where('id', Auth::id())
@@ -711,7 +677,6 @@ class PerfilController extends Controller
             $direccion = Address::updateOrCreate(
                 [
                     'user_id' => Auth::id(),
-                    'titulo_direccion' => $titulo_direccion,
                 ],
                 [
                     'user_id' => Auth::id(),
@@ -719,13 +684,9 @@ class PerfilController extends Controller
                     'departamento_id' => $departamento,
                     'provincia_id' => $provincia,
                     'distrito_id' => $distrito,
-                    'tipo_via' => $tipo_via,
                     'direccion1' => $direccion1,
-                    'direccion2' => $direccion2,
-                    'numero' => $numero,
-                    'int_ext' => $int_ext,
                     'referencia' => $referencia,
-                    'titulo_direccion' => $titulo_direccion
+                    'titulo_direccion' => 'Direccion de empresa: '. Auth::id(),
                 ]
             );
             DB::table('legal_persons')

@@ -92,28 +92,6 @@
                         </span>
                         @enderror
                     </div>
-
-                    <div class="custom-control col-md-2 col-sm-6 ">
-                        <label for="via">Tipo de Via *</label>
-                        <select class="form-control  @error('via') is-invalid @enderror" name="via" id="via">
-                            <option value="Avenida">Avenida</option>
-                            <option value="Jiron">Jiron</option>
-                            <option value="Calle">Calle</option>
-                            <option value="Pasaje">Pasaje</option>
-                            <option value="Alameda">Alameda</option>
-                            <option value="Malecon">Malecon</option>
-                            <option value="Ovalo">Ovalo</option>
-                            <option value="Parque">Parque</option>
-                            <option value="Plaza">Plaza</option>
-                            <option value="Carretera">Carretera</option>
-                        </select>
-
-                        @error('via')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
                 </div>
 
                 <div class="form-group row">
@@ -122,28 +100,6 @@
                             'admin.assets.FormsElements.text', [
                             'nombre'    => 'dir1',
                             'tag'       => 'Direccion1',
-                            'tipo'      => 'text',
-                            'place'     => 'texto del holder',
-                            'require'   => true
-                            ])
-                    </div>
-
-                    <div class="custom-control col-md-4 col-sm-12">
-                        @include(
-                            'admin.assets.FormsElements.text', [
-                            'nombre'    => 'dir2',
-                            'tag'       => 'Direccion2',
-                            'tipo'      => 'text',
-                            'place'     => 'texto del holder',
-                            'require'   => true
-                            ])
-                    </div>
-
-                    <div class="custom-control col-md-4 col-sm-12">
-                        @include(
-                            'admin.assets.FormsElements.text', [
-                            'nombre'    => 'numero',
-                            'tag'       => 'Numero',
                             'tipo'      => 'text',
                             'place'     => 'texto del holder',
                             'require'   => true
@@ -161,13 +117,6 @@
                             'place'     => 'Titulo de su direccion ej. Direccion de casa',
                             'require'   => true
                             ])
-                    </div>
-                    <div class="custom-control col-md-4 col-sm-12">
-                        <label for="int_ext">Interior Exterior *</label>
-                        <select class="form-control  @error('int_ext') is-invalid @enderror" name="int_ext" id="int_ext">
-                            <option value="Ext">Ext</option>
-                            <option value="Int">Int</option>
-                        </select>
                     </div>
                     <div class="custom-control col-md-4 col-sm-12">
                         @include(

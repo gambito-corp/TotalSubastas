@@ -20,11 +20,7 @@ class CreateAddressesTable extends Migration {
 			$table->foreignId('departamento_id')->nullable()->constrained('countries')->onDelete('set null');
 			$table->foreignId('provincia_id')->nullable()->constrained('countries')->onDelete('set null');
 			$table->foreignId('distrito_id')->nullable()->constrained('countries')->onDelete('set null');
-			$table->string('tipo_via');
 			$table->string('direccion1');
-			$table->string('direccion2')->nullable();
-			$table->string('numero');
-			$table->string('int_ext')->nullable();
 			$table->string('referencia')->nullable();
 			$table->string('titulo_direccion');
 			$table->timestamps();

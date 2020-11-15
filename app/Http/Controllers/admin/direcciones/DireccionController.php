@@ -46,11 +46,8 @@ class DireccionController extends Controller
             'departamento'  => 'required',
             'provincia'     => 'required',
             'distrito'      => 'required',
-            'via'           => 'required',
             'dir1'          => 'required|string',
-            'numero'        => 'required|string',
             'titulo'        => 'required|string',
-            'int_ext'       => 'required',
         ]);
 
         $usuario = $request->input('usuario');
@@ -58,12 +55,8 @@ class DireccionController extends Controller
         $departamento = $request->input('departamento');
         $provincia = $request->input('provincia');
         $distrito = $request->input('distrito');
-        $via = $request->input('via');
         $dir1 = $request->input('dir1');
-        $dir2 = $request->input('dir2');
-        $numero = $request->input('numero');
         $titulo = $request->input('titulo');
-        $int_ext = $request->input('int_ext');
         $ref = $request->input('ref');
 
         Address::Create([
@@ -72,11 +65,7 @@ class DireccionController extends Controller
             'departamento_id'   => intval($departamento),
             'provincia_id'      => intval($provincia),
             'distrito_id'       => intval($distrito),
-            'tipo_via'          => $via,
             'direccion1'        => $dir1,
-            'direccion2'        => $dir2,
-            'numero'            => $numero,
-            'int_ext'           => $int_ext,
             'referencia'        => $ref,
             'titulo_direccion'  => $titulo
         ]);
@@ -110,11 +99,8 @@ class DireccionController extends Controller
             'departamento'  => 'required',
             'provincia'     => 'required',
             'distrito'      => 'required',
-            'via'           => 'required',
             'dir1'          => 'required|string',
-            'numero'        => 'required|string',
             'titulo'        => 'required|string',
-            'int_ext'       => 'required',
         ]);
 
         $usuario = $request->input('usuario');
@@ -122,12 +108,8 @@ class DireccionController extends Controller
         $departamento = $request->input('departamento');
         $provincia = $request->input('provincia');
         $distrito = $request->input('distrito');
-        $via = $request->input('via');
         $dir1 = $request->input('dir1');
-        $dir2 = $request->input('dir2');
-        $numero = $request->input('numero');
         $titulo = $request->input('titulo');
-        $int_ext = $request->input('int_ext');
         $ref = $request->input('ref');
 
         $Address->update([
@@ -136,11 +118,7 @@ class DireccionController extends Controller
             'departamento_id'   => intval($departamento),
             'provincia_id'      => intval($provincia),
             'distrito_id'       => intval($distrito),
-            'tipo_via'          => $via,
             'direccion1'        => $dir1,
-            'direccion2'        => $dir2,
-            'numero'            => $numero,
-            'int_ext'           => $int_ext,
             'referencia'        => $ref,
             'titulo_direccion'  => $titulo
         ]);
