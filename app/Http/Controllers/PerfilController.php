@@ -524,8 +524,8 @@ class PerfilController extends Controller
             "genero" => 'required',
             "estado_civil" => 'required',
             "digito_documento" =>  'required',
-            "dni_front" => 'required',
-            "dni_back" => 'required',
+            "dni_front" => 'nullable',
+            "dni_back" => 'nullable',
         ]);
         if ($request->file('dni_front')) {
 
