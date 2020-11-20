@@ -10,15 +10,15 @@
                 <div class="col-md-4 t-rform_top_img d-sm-none d-lg-block">
                 </div>
                 <div class="col-md-8 col-sm-12  col-xs-12 p-5">
-                    <h2 class=" font-weight-bold text-dark pb-5 text-center">
+                    <h3 class=" font-weight-bold text-dark pb-5 text-center">
                         Crea tu cuenta para el mejor portal para subastar de tus sue&ntilde;os
-                    </h2>
+                    </h3>
                     <form method="POST" action="{{ route('registro', ['tipo' => $data]) }}">
                         @csrf
                         @if($data == 'natural')
-                            <div class="form-row">
+                            <div class="row">
                                 <div class="form-group col-md-6 col-sm-12">
-                                    <label for="nombre" class="font-weight-bold text-dark">Nombres</label>
+                                    <label for="nombre" class="font-weight-semibold  text-dark">Nombres</label>
                                     <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{old('nombre')}}">
                                     @error('nombre')
                                         <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="apellido" class="font-weight-bold text-dark">Apellidos</label>
+                                    <label for="apellido" class="font-weight-semibold  text-dark">Apellidos</label>
                                     <input type="text" name="apellido" class="form-control @error('apellido') is-invalid @enderror" value="{{old('apellido')}}">
                                     @error('apellido')
                                         <span class="invalid-feedback" role="alert">
@@ -37,7 +37,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="email" class="font-weight-bold text-dark">Correo electronico</label>
+                                    <label for="email" class="font-weight-semibold  text-dark">Correo electronico</label>
                                     <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tel" class="font-weight-bold text-dark">Celular</label>
+                                    <label for="tel" class="font-weight-semibold  text-dark">Celular</label>
                                     <input type="tel" name="tel" class="form-control @error('tel') is-invalid @enderror" value="{{old('tel')}}">
                                     @error('tel')
                                         <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="dni" class="font-weight-bold text-dark">Documento de identidad</label>
+                                    <label for="dni" class="font-weight-semibold text-dark">Documento de identidad</label>
                                     <input type="text" name="dni" class="form-control @error('dni') is-invalid @enderror" value="{{old('dni')}}">
                                     @error('dni')
                                         <span class="invalid-feedback" role="alert">
@@ -67,7 +67,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="password" class="font-weight-bold text-dark">Contrase&ntilde;a</label>
+                                    <label for="password" class="font-weight-semibold text-dark">Contrase&ntilde;a</label>
                                     <div class="input-group  ">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></i></span>
@@ -85,9 +85,9 @@
                                     @enderror
                                 </div>
                         @elseif($data == 'juridica')
-                            <div class="form-row">
+                            <div class="row">
                                 <div class="form-group col-md-6 col-sm-12">
-                                    <label for="nombre" class="font-weight-bold text-dark">Nombre Comercial</label>
+                                    <label for="nombre" class="font-weight-semibold  text-dark">Nombre Comercial</label>
                                     <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{old('nombre')}}">
                                     @error('nombre')
                                         <span class="invalid-feedback" role="alert">
@@ -96,7 +96,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="razon_social" class="font-weight-bold text-dark">Razon Social</label>
+                                    <label for="razon_social" class="font-weight-semibold  text-dark">Razon Social</label>
                                     <input type="text" name="razon_social" class="form-control @error('razon_social') is-invalid @enderror" value="{{old('razon_social')}}">
                                     @error('razon_social')
                                         <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12">
-                                    <label for="banco_id" class="font-weight-bold text-dark">Banco</label>
+                                    <label for="banco_id" class="font-weight-semibold  text-dark">Banco</label>
                                     <select name="banco_id" id="Banco" class="form-control @error('nombre') is-invalid @enderror">
                                         @forelse($bancos as $banco)
                                             <option value="{{$banco->id}}"{{ old('banco_id') == $banco->id ? 'selected' : '' }}>{{$banco->siglas}}</option>
@@ -120,7 +120,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12">
-                                    <label for="numero_cuenta" class="font-weight-bold text-dark">Numero de Cuenta</label>
+                                    <label for="numero_cuenta" class="font-weight-semibold  text-dark">Numero de Cuenta</label>
                                     <input type="text" name="numero_cuenta" class="form-control @error('numero_cuenta') is-invalid @enderror" value="{{old('numero_cuenta')}}">
                                     @error('numero_cuenta')
                                     <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="ruc" class="font-weight-bold text-dark">Registro Unico Del Contribuyente</label>
+                                    <label for="ruc" class="font-weight-semibold  text-dark">Registro Unico Del Contribuyente</label>
                                     <input type="text" name="ruc" class="form-control @error('ruc') is-invalid @enderror" value="{{old('ruc')}}">
                                     @error('ruc')
                                     <span class="invalid-feedback" role="alert">
@@ -138,7 +138,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="email" class="font-weight-bold text-dark">Correo electronico</label>
+                                    <label for="email" class="font-weight-semibold  text-dark">Correo electronico</label>
                                     <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -148,7 +148,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="tel" class="font-weight-bold text-dark">Celular</label>
+                                    <label for="tel" class="font-weight-semibold  text-dark">Celular</label>
                                     <input type="tel" name="tel" class="form-control @error('tel') is-invalid @enderror" value="{{old('tel')}}">
                                     @error('tel')
                                         <span class="invalid-feedback" role="alert">
@@ -157,7 +157,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="password" class="font-weight-bold text-dark">Contrase&ntilde;a</label>
+                                    <label for="password" class="font-weight-semibold  text-dark">Contrase&ntilde;a</label>
                                     <div class="input-group  ">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text bg-light text-light_darken" id="basic-addon1"><i class="fas fa-lock"></i></i></span>

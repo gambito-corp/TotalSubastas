@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-3 order-md-1 mb-4   ">
                         <div class="text-center">
-                            <div class="bg-light-card shadow-sm radius">
+                            <div class="bg-light-card shadow-sm radius" style="padding-top: 25px;">
                                 @if (isset(auth()->user()->avatar))
                                     @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '90', 'class'=> 'img-circle elevation-2'])
                                 @endif
@@ -31,43 +31,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
-                        <h2 class=" font-weight-bold text-dark pb-5 text-center">
-                            Pais del Usuario
-                        </h2>
-                        <form action="{{route('perfil.paso7')}}" method="get" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-md-6">
-                                    <label for="direccion1" class="font-weight-bold text-dark">Direccion 1</label>
-                                    <input type="text" name="direccion1" class="form-control  @error('direccion1') is-invalid @enderror" value="{{old('direccion1')?old('direccion1'):$direccion->direccion1}}">
+                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top mb-4">
+                        <div class="main-container" style="padding: 25px">   
+                            <h2 class=" font-weight-bold text-dark titulo-recarga">
+                                Pais del Usuario
+                            </h2>
+                            <form action="{{route('perfil.paso7')}}" method="get" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="direccion1" class="font-weight-semibold text-dark">Direccion 1</label>
+                                        <input type="text" name="direccion1" class="form-control  @error('direccion1') is-invalid @enderror" value="{{old('direccion1')?old('direccion1'):$direccion->direccion1}}">
 
-                                    @error('direccion1')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="referencia" class="font-weight-bold text-dark">Referencia</label>
-                                    <input type="text" name="referencia" class="form-control  @error('referencia') is-invalid @enderror"  value="{{old('referencia')?old('referencia'):$direccion->referencia}}">
+                                        @error('direccion1')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="referencia" class="font-weight-semibold text-dark">Referencia</label>
+                                        <input type="text" name="referencia" class="form-control  @error('referencia') is-invalid @enderror"  value="{{old('referencia')?old('referencia'):$direccion->referencia}}">
 
-                                    @error('referencia')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                        @error('referencia')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-4">
-                                    <a href="javascript:history.back()" class="btn btn-block btn-danger"> Volver Atrás</a>
+                                <div class="row  mt-4">
+                                    <div class="form-group col-md-4">
+                                        <a href="javascript:history.back()" class="btn btn-block btn-danger rounded-pill"> Volver Atrás</a>
+                                    </div>
+                                    <div class="form-group col-md-4 offset-md-4">
+                                        <input type="submit" class="btn btn-block btn-primary rounded-pill" value="siguiente">
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 offset-md-4">
-                                    <input type="submit" class="btn btn-block btn-primary" value="siguiente">
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
