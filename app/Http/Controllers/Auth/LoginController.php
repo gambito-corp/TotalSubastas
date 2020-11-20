@@ -98,7 +98,7 @@ class LoginController extends Controller
             $respuesta = redirect()->intended($this->redirectPath());
         }else{
             if (Auth::user()->email_verified_at){
-                $respuesta = redirect()->route('perfil.paso1')->with(['message' => 'holis', 'alerta' => 'success']);
+                $respuesta = redirect()->route('perfil.paso1')->with(['message' => 'Porfavor Completa los Pasos Del Perfil', 'alerta' => 'success']);
             }else{
                 Auth::logout();
                 $respuesta = redirect()->route('index')->with(['message' => 'Porfavor Revise Su Email Para Confirmar', 'alerta' => 'danger']);
