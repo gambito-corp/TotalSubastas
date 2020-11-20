@@ -503,7 +503,7 @@ class PerfilController extends Controller
     {
         $request->validate([
             "direccion1" => "required",
-            "referencia" => "required",
+            "referencia" => "nullable",
         ]);
         Cache::put('direccion1', $request->input('direccion1'), 5000);
         Cache::put('referencia', $request->input('referencia'), 5000);
@@ -527,14 +527,22 @@ class PerfilController extends Controller
             "dni_front" => 'nullable',
             "dni_back" => 'nullable',
         ]);
-        if ($request->file('dni_front')) {
+        if(Auth::user()->Persona->dni_front == 'test'){
+            $dni_front_name = 'test';
+        }else{
+            if ($request->file('dni_front')) {
 
-            $dni_front_name = 'delante' . $request->file('dni_front')->getClientOriginalName();
-            Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_front_name, File::get($request->file('dni_front')));
+                $dni_front_name = 'delante' . $request->file('dni_front')->getClientOriginalName();
+                Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_front_name, File::get($request->file('dni_front')));
+            }
         }
-        if ($request->file('dni_back')) {
-            $dni_back_name = 'detras' . $request->file('dni_back')->getClientOriginalName();
-            Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_back_name, File::get($request->file('dni_back')));
+        if(Auth::user()->Persona->dni_back == 'test'){
+            $dni_back_name = 'test';
+        }else{
+            if ($request->file('dni_back')) {
+                $dni_back_name = 'detras' . $request->file('dni_back')->getClientOriginalName();
+                Storage::disk('s3')->put('dni/' . Auth::user()->name . '/' . $dni_back_name, File::get($request->file('dni_back')));
+            }
         }
         Cache::put('banco_id', $request->input('banco_id'), 5000);
         Cache::put('numero_cuenta', $request->input('numero_cuenta'), 5000);

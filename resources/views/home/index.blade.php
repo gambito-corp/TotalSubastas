@@ -1,5 +1,17 @@
 @extends('layouts.app')
 @section('content')
+
+    @isset($modal)
+        @if($modal == 'modal')
+            {{--
+            NOHELY USA ESTA ESTRUCTURA PARA TU MODAL, ESTA VARIABLE SOLO EXISTE SI EL
+            USUARIO RETORNA DEL FORMULARIO DE REGISTRO DE FORMA EXITODA
+            --}}
+
+        @endif
+    @endisset
+
+
     <div class="container .container-slider-2">
         <div class="row mt-5 container-slider">
             <div id="carouselExampleIndicators" class="carousel slide col-md-6" data-ride="carousel">
