@@ -50,7 +50,7 @@ class RegisterController extends Controller
     public function registro(CreateUserRequest $request, $tipo)
     {
         $user = User::registerUser($request->all(), $tipo);
-        return redirect()->route('index');
+        return redirect()->route('index')->with(['modal' => 'modal']);
 //        $user = User::registerUser($request->all());
 
 
