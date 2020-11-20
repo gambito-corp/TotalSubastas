@@ -2387,6 +2387,11 @@ label{
 .btn-tipo-usuario:focus{
 	outline: 0;
 }
+.recortar-texto{
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
 
 
 @media (max-width: 844px) {

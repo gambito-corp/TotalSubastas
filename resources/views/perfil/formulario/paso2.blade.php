@@ -40,7 +40,7 @@
                                 @csrf
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <label for="pais" class="font-weight-bold text-dark">Pais *</label>
+                                            <label for="pais" class="font-weight-semibold text-dark">Pais *</label>
                                             <select class="form-control @error('pais') is-invalid @enderror" name="pais" id="pais">
                                                 <option value="0">Selecciona un pais</option>
                                                 @forelse($pais as $parent)

@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-md-3 order-md-1 mb-4">
                         <div class="text-center">
-                            <div class="bg-light-card shadow-sm radius">
+                            <div class="bg-light-card shadow-sm radius" style="padding-top: 25px;">
                                 @if (isset(auth()->user()->avatar))
                                     @include('assets.imagen', ['carpeta' => 'user', 'id' => auth()->id(), 'ancho' => '90', 'class'=> 'img-circle elevation-2'])
                                 @endif
@@ -31,40 +31,42 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
-                        <h2 class=" font-weight-bold text-dark titulo-recarga">
-                            Departamento del Usuario
-                        </h2>
-                        <form action="{{route('perfil.paso4')}}" method="get" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    <label for="departamento" class="font-weight-bold text-dark">Departamento *</label>
-                                    <select class="form-control @error('departamento') is-invalid @enderror" name="departamento" id="departamento">
-                                        <option value="0">Selecciona un Departamento</option>
-                                        @forelse($departamento as $parent)
-                                            <option value="{{$parent->id}}" {{old('pais') == $parent->id?'selected':''}}>{{$parent->nombre}}</option>
-                                        @empty
-                                            <option>No hay Departamentos Crea uno</option>
-                                        @endforelse
-                                    </select>
+                    <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top">
+                        <div class="main-container" style="padding: 25px">
+                            <h2 class=" font-weight-bold text-dark titulo-recarga">
+                                Departamento del Usuario
+                            </h2>
+                            <form action="{{route('perfil.paso4')}}" method="get" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <label for="departamento" class="font-weight-semibold text-dark">Departamento *</label>
+                                        <select class="form-control @error('departamento') is-invalid @enderror" name="departamento" id="departamento">
+                                            <option value="0">Selecciona un Departamento</option>
+                                            @forelse($departamento as $parent)
+                                                <option value="{{$parent->id}}" {{old('pais') == $parent->id?'selected':''}}>{{$parent->nombre}}</option>
+                                            @empty
+                                                <option>No hay Departamentos Crea uno</option>
+                                            @endforelse
+                                        </select>
 
-                                    @error('departamento')
-                                    <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                    @enderror
+                                        @error('departamento')
+                                        <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-4">
-                                    <a href="javascript:history.back()" class="btn btn-block btn-danger"> Volver Atrás</a>
+                                <div class="row mt-4">
+                                    <div class="form-group col-md-4">
+                                        <a href="javascript:history.back()" class="btn btn-block btn-danger rounded-pill"> Volver Atrás</a>
+                                    </div>
+                                    <div class="form-group col-md-4 offset-md-4">
+                                        <input type="submit" class="btn btn-block btn-primary rounded-pill" value="siguiente">
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-4 offset-md-4">
-                                    <input type="submit" class="btn btn-block btn-primary" value="siguiente">
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
