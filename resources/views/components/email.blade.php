@@ -37,6 +37,9 @@
             margin:auto;
         }
         .submit {
+            width: 100px;
+            font-size: 16px;
+            font-weight: bold;
             display: block;
             margin: auto;
             box-sizing: content-box;
@@ -79,6 +82,11 @@
         <br>
         @isset($ruta)
             <div class="div3">
+                @if($metodo == 'get')
+                    @isset($submit)
+                        <a href="{{$ruta?$ruta:'#'}}" class="submit">{{$submit}}</a>
+                    @endisset
+                @else
                 <form action="{{$ruta?$ruta:'#'}}" method="{{$metodo}}">
                     @csrf
                     @isset($oculto)
@@ -88,6 +96,8 @@
                         <input type="submit" class="submit" value="{{$submit}}"/>
                     @endisset
                 </form>
+                @endif
+
             </div>
         @endisset
         <br>

@@ -422,7 +422,8 @@ if(env('APP_ENV') == 'local'){
             'correo'    => 'Asesor.pedro@gmail.com',
             'mensaje'   => 'Hola Mundo',
         ];
-        return new \App\Mail\contacto($data);
+        $user = \App\User::whereId(1)->first();
+        return new \App\Mail\UsuarioRegristrado($user, 'GET');
     });
 }
 if(env('APP_ENV') == 'local'){
