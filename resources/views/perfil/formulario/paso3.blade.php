@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md col-md-12 mt-5">
                 <div class="row">
-                    <div class="col-md-3 order-md-1 mb-4   ">
+                    <div class="col-md-3 order-md-1 mb-4">
                         <div class="text-center">
                             <div class="bg-light-card shadow-sm radius">
                                 @if (isset(auth()->user()->avatar))
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
-                        <h2 class=" font-weight-bold text-dark pb-5 text-center">
+                        <h2 class=" font-weight-bold text-dark titulo-recarga">
                             Departamento del Usuario
                         </h2>
                         <form action="{{route('perfil.paso4')}}" method="get" enctype="multipart/form-data">

@@ -2375,6 +2375,19 @@ label{
 .tab-content--estatico{
 	padding: 0 20px;
 }
+.btn-tipo-usuario{
+	border: 0;
+	background: transparent;
+	border-radius: 100px;
+}
+.btn-tipo-usuario:hover{
+	box-shadow: 0 0 12px 0px rgba(0,0,0,0.1);
+	   
+}
+.btn-tipo-usuario:focus{
+	outline: 0;
+}
+
 
 @media (max-width: 844px) {
 	.no-padding-responsive{

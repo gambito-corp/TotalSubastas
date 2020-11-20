@@ -8,21 +8,21 @@
             <div class="col-md col-md-12 mt-5">
                 <div class="row main-container">
                     <div class="col-md-12 col-sm-12  col-xs-12 p-5">
-                        <h2 class=" font-weight-bold text-dark pb-5 text-center">
-                            Elige El Tipo De Cuenta Que Deseas
+                        <h3 class=" font-weight-bold text-dark pb-5 text-center">
+                            Elige el tipo de cuenta que deseas
                         </h2>
                         <form method="post" action="{{ route('TakeTipe') }}">
                             @csrf
                             <div class="form-row ">
                                 <div class="form-group col-md-6 col-sm-12 text-center">
-                                    <label for="tipo"> Persona Natural </label>
-                                    <button name="tipo" value="natural">
+                                    <label for="tipo" class="font-weight-semibold  text-dark"> Persona Natural </label><br>
+                                    <button name="tipo" value="natural" class="btn-tipo-usuario">
                                         <img src="{{asset('img/Usuarios.png')}}" width="150" alt="">
                                     </button>
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12 text-center">
-                                    <label for="tipo"> Persona Juridica </label>
-                                    <button name="tipo" value="juridica">
+                                    <label for="tipo" class="font-weight-semibold  text-dark"> Persona Jurídica </label><br>
+                                    <button name="tipo" value="juridica"  class="btn-tipo-usuario">
                                         <img src="{{asset('img/Empresas.png')}}" width="150" alt="">
                                     </button>
                                 </div>
