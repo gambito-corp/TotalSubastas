@@ -25,7 +25,7 @@ class CreatePeopleTable extends Migration {
 			$table->string('digito_documento')->nullable()->default('test');
 			$table->string('genero')->nullable()->default('test');
 			$table->string('estado_civil')->nullable()->default('test');
-			$table->string('cuenta_banco')->nullable()->default('test');
+			$table->string('cuenta_banco')->nullable()->default('Ingresa tu cuenta para abono aquí');
 			$table->date('b_day')->nullable()->default(date('Y-m-d'));
 			$table->string('telefono')->nullable()->default('test');
 			$table->string('email')->nullable()->default('test');

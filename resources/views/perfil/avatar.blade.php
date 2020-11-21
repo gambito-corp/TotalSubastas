@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12   order-md-2 col-xs-12 t-rform_top main-container p-5">
                         <h2 class=" font-weight-bold text-dark pb-5 text-center">
-                            Cambia Tu Contraseña
+                            Cambia Tu Imagen de Perfil
                         </h2>
                         <form action="{{route('save.perfil')}}" method="post" enctype="multipart/form-data">
                             @csrf

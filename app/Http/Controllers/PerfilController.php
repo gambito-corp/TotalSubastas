@@ -396,7 +396,7 @@ class PerfilController extends Controller
         }
 
         return redirect()->route('index')->with([
-            'message' => 'Fue Enviado el Boucher Para su Revision, porfavor Espere',
+            'message' => 'Su transacción ha sido ingresada, estamos evaluandola',
             'alerta' => 'success'
         ]);
     }

@@ -79,10 +79,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         if($tipo == 'natural'){
             $rol = 2;
-            $nombre = substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3);
+            $nombre = strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2).substr($data['dni'],0,2));
         }elseif($tipo == 'juridica'){
             $rol = 3;
-            $nombre = $data['nombre'];
+            $nombre = strtoupper($data['nombre']);
         }
 
         $user = new User();

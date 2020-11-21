@@ -10,7 +10,7 @@
             <div class="col-sm col-sm-6 col-lg-6 offset-md-3 p-5 main-container  mt-5">
                 <div class="form-group row justify-content-center">
                     <img src="{{asset('/assets/img/iconos/login-icon.png')}}" alt="logo-login">
-                </div>  
+                </div>
                 <h1 class="font-weight-bold">
                     Hola nuevamente
                 </h1>
@@ -18,14 +18,14 @@
                     ingresa tus datos
                 </p>
                 <form method="POST" action="{{ route('login') }}">
-                    @csrf                      
+                    @csrf
                     <div class="form-group row justify-content-center">
                         <div class="col-sm-10">
                             <div class="input-group mb-3 ">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-light text-light_darken" id="email" type="email"><i class="fas fa-user"></i></i></span>
                                 </div>
-                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Nombre de usuario" value="{{ old('email') }}" required autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }} no-validator>
+                                <input type="email" name="email" class="form-control  @error('email') is-invalid @enderror" placeholder="Correo Electronico" value="{{ old('email') }}" required autocomplete="email" autofocus aria-label="Username" aria-describedby="basic-addon1" {{ old('remember') ? 'checked' : '' }} no-validator>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
