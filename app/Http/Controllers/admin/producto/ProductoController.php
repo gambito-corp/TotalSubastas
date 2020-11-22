@@ -138,10 +138,13 @@ class ProductoController extends Controller
 
         //subir imagen a storage
         if($imagen){
-            $id = Data::all()->last()->id+1;
+            $id=1;
+            if(Data::all()->last() != null) {
+                $id = Data::all()->last()->id + 1;
+            }
             $imagen_name = $id.'.jpg';
             $file = Image::make($imagen)
-                ->resize('400', '400')
+                ->resize('400', '300')
                 ->encode('jpg', 90);
             $file->save(Storage::disk('s3')->put('producto/'.$imagen_name, $file));
             $producto->imagen = $imagen_name;

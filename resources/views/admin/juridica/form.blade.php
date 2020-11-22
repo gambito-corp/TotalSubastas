@@ -36,19 +36,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="custom-control col-md-3">
+                    <div class="custom-control col-md-6">
                         <label for="direccion_id">Direccion</label>
                         <select name="direccion_id" id="direccion_id" class="form-control">
-                            @forelse ($direccion as $dir)
-                                <option value="{{$dir->id}}">{{$dir->titulo_direccion}}</option>
-                            @empty
-                                <option value="0">Todos las Direcciones Estan Asignadas Porfavor Edita para cambiar su Direccion asignada</option>
-                            @endforelse
-                        </select>
-                    </div>
-                    <div class="custom-control col-md-3">
-                        <label for="direccion2_id">Direccion Adicional</label>
-                        <select name="direccion2_id" id="direccion2_id" class="form-control">
                             @forelse ($direccion as $dir)
                                 <option value="{{$dir->id}}">{{$dir->titulo_direccion}}</option>
                             @empty

@@ -60,7 +60,6 @@ class JuridicaController extends Controller
         $persona_id = $request->input('persona_id');
         $banco_id = $request->input('banco_id');
         $direccion_id = $request->input('direccion_id');
-        $direccion2_id = $request->input('direccion2_id');
         $nombre = $request->input('nombre');
         $razon_social = $request->input('razon_social');
         $ruc = $request->input('ruc');
@@ -72,7 +71,6 @@ class JuridicaController extends Controller
         $juridica->user_id = $persona_id;
         $juridica->banco_id = $banco_id;
         $juridica->direccion_id = $direccion_id;
-        $juridica->direccion2_id = $direccion2_id;
         $juridica->nombre = $nombre;
         $juridica->razon_social = $razon_social;
         $juridica->ruc = $ruc;
@@ -113,7 +111,6 @@ class JuridicaController extends Controller
 
         $banco_id = $request->input('banco_id');
         $direccion_id = $request->input('direccion_id');
-        $direccion2_id = $request->input('direccion2_id');
         $nombre = $request->input('nombre');
         $razon_social = $request->input('razon_social');
         $ruc = $request->input('ruc');
@@ -123,7 +120,6 @@ class JuridicaController extends Controller
         $juridica = Data::where('id', $id)->first();
         $juridica->banco_id = $banco_id;
         $juridica->direccion_id = $direccion_id;
-        $juridica->direccion2_id = $direccion2_id;
         $juridica->nombre = $nombre;
         $juridica->razon_social = $razon_social;
         $juridica->ruc = $ruc;
