@@ -26,19 +26,19 @@ class Create extends Component
 
     public function mount()
     {
-        $this->pais = Country::with('parent_id')
+        $this->pais = Country::with('Parent')
             ->where('id', 1)
             ->get();
-        $this->paises = Country::with('parent_id')
+        $this->paises = Country::with('Parent')
             ->where('parent_id', null)
             ->get();
-        $this->departamentos = Country::with('parent_id')
+        $this->departamentos = Country::with('Parent')
             ->where('parent_id', 1)
             ->get();
-        $this->provincias = Country::with('parent_id')
+        $this->provincias = Country::with('Parent')
             ->where('parent_id', 3)
             ->get();
-        $this->distrito = Country::with('parent_id')
+        $this->distrito = Country::with('Parent')
             ->where('parent_id', 5)
             ->get();
         $this->usuarios = User::with(['Rol', 'ranking'])
@@ -50,7 +50,7 @@ class Create extends Component
 
     public function updatedParentid1()
     {
-        $departamentos = Country::with('parent_id')
+        $departamentos = Country::with('Parent')
             ->where('parent_id', $this->parent_id1)
             ->get();
         $this->departamentos = $departamentos;
@@ -58,7 +58,7 @@ class Create extends Component
 
     public function updatedParentid2()
     {
-        $provincias = Country::with('parent_id')
+        $provincias = Country::with('Parent')
             ->where('parent_id', $this->parent_id2)
             ->get();
         $this->provincias = $provincias;
@@ -66,7 +66,7 @@ class Create extends Component
 
     public function updatedParentid3()
     {
-        $provincias = Country::with('parent_id')
+        $provincias = Country::with('Parent')
             ->where('parent_id', $this->parent_id3)
             ->get();
         $this->distrito = $provincias;
