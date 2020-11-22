@@ -29,7 +29,6 @@
                         <th>Id</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
-                        <th>Direccion Secundaria</th>
                         <th>Nombre Comercial</th>
                         <th>Razon Social</th>
                         <th>R.U.C.</th>
@@ -47,7 +46,7 @@
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Banco->siglas}}</td>
                             <td>{{$dat->Direccion->titulo_direccion}}</td>
-                            <td>@isset($dat->Direccion2->titulo_direccion){{$dat->Direccion2->titulo_direccion}}@endisset</td>
+                            <td>@isset($dat->Direccion->titulo_direccion){{$dat->Direccion->titulo_direccion}}@endisset</td>
                             <td>{{$dat->nombre}}</td>
                             <td>{{$dat->razon_social}}</td>
                             <td>{{$dat->ruc}}</td>
@@ -79,7 +78,6 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -88,7 +86,6 @@
                         <th>Id</th>
                         <th>Banco</th>
                         <th>Direccion Principal</th>
-                        <th>Direccion Secundaria</th>
                         <th>Nombre Comercial</th>
                         <th>Razon Social</th>
                         <th>R.U.C.</th>
