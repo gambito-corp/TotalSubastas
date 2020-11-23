@@ -35,6 +35,7 @@ class ProductoController extends Controller
             $data = [];
             if($company != null){
                 $data = Data::with('Empresa','Lote', 'Usuario')->where('empresa_id', $company->id)->get();
+                dd($data);
             }
         }
         return view('admin.producto.view', compact('data', 'ciudad'));
