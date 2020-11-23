@@ -17,7 +17,7 @@
     </div>
     <div class="custom-control col-md-6">
         <label for="modelo_id">Modelos</label>
-        <select class="form-control  @error('modelo_id') is-invalid @enderror" name="modelo_id" id="modelo_id" wire:model="modelos">
+        <select class="form-control  @error('modelo_id') is-invalid @enderror" name="modelo_id" id="modelo_id">
             @forelse($modelos as $data)
                 <option value="{{$data->id}}">{{$data->nombre}}</option>
             @empty
