@@ -70,6 +70,7 @@ class DetalleVehiculosController extends Controller
             "marca_id"              => "required",
             "modelo_id"             => "required",
         ]);
+        dd($request->input());
         Data::create($request->all());
         return redirect()->route('admin.detallevehiculos.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',
