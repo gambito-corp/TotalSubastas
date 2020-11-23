@@ -167,7 +167,7 @@ class ProductoController extends Controller
 
     public function edit($id)
     {
-        $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+        $juridica = LegalPerson::where('user_id', Auth::id())->first()->id;
         $empresa = Company::where('id', $juridica)->first()->id;
         $empresa = null;
         if (Auth::user()->onlyEmpresa()) {
