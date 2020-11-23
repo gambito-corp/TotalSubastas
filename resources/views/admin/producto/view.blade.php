@@ -55,13 +55,13 @@
                             <tr>
 {{--                                $empresa--}}
                                 <td>{{$dat->id}}</td>
-{{--                                <td>{{$dat->Empresa->nombre}}</td>--}}
-{{--                                <td>{{$dat->Lote->nombre}}</td>--}}
+                                <td>{{$dat->Empresa->nombre}}</td>
+                                <td>{{$dat->Lote->nombre}}</td>
                                 <td>{{$dat->ciudad}}</td>
                                 <td>{{$dat->tipo_vehiculo}}</td>
                                 <td>{{$dat->tipo_subasta}}</td>
                                 <td>{{$dat->tipo_reserva}}</td>
-{{--                                <td>{{$dat->nombre}}</td>--}}
+                                <td>{{$dat->nombre}}</td>
                                 <td>
                                     @if (isset($dat->imagen))
                                         @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dat->id, 'ancho' => '150', 'admin' => true])
@@ -170,12 +170,12 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Lote->nombre}}</td>
-                            <td>{{$ciudad->nombre}}</td>
+{{--                            <td>{{$dat->Lote->nombre}}</td>--}}
+{{--                            <td>{{$ciudad->nombre}}</td>--}}
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
                             <td>{{$dat->tipo_reserva}}</td>
-                            <td>{{$dat->nombre}}</td>
+{{--                            <td>{{$dat->nombre}}</td>--}}
                             <td>
                                 @if (isset($dat->imagen))
                                     @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dat->id, 'ancho' => '150', 'admin' => true])
