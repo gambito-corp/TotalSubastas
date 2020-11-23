@@ -46,7 +46,8 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = Producto::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(20)->resize('200', '200');
+        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))
+            ->opacity(20)->resize('200', '180');
         $file->insert($watermark, 'center')
             ->response();
         $code = 200;
