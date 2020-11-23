@@ -1,11 +1,13 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
-@if(auth() && ($producto->propietario == auth()->user()->id)
-    @php $estado = ''; @endphp
-    <form wire:submit.prevent="online">
-        <button class="btn btn-primary p-2 rounded-pill">
-            <i class="fas fa-eye"></i> El Propietario del Vehiculo No Puede Pujar
-        </button>
-    </form>
+@if(auth())
+    @if($producto->propietario == auth()->user()->id)
+        @php $estado = ''; @endphp
+        <form wire:submit.prevent="online">
+            <button class="btn btn-primary p-2 rounded-pill">
+                <i class="fas fa-eye"></i> El Propietario del Vehiculo No Puede Pujar
+            </button>
+        </form>
+    @endif
 @else
     @if($estado == 'ganador')
         <p class="btn btn-success rounded-pill text-light btn-subasta-ts" style="cursor:none" ><i class="fas fa-star"></i> Vas Ganando </p>
