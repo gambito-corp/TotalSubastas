@@ -34,7 +34,7 @@ class ProductoController extends Controller
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
             $data = [];
             if($company != null){
-                $data = Data::with('Empresa')->where('empresa_id', $company->id)->get();
+                $data = Data::with('Empresa','Lote', 'Usuario')->where('empresa_id', $company->id)->get();
             }
         }
         return view('admin.producto.view', compact('data', 'ciudad'));
