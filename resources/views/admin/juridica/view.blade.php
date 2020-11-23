@@ -46,7 +46,7 @@
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Banco->siglas}}</td>
                             <td>{{$dat->Direccion->titulo_direccion}}</td>
-                            <td>@isset($dat->Direccion){{$dat->Direccion->titulo_direccion}}@endisset</td>
+                            <td>@if($dat->Direccion != null){{$dat->Direccion->titulo_direccion}}@endif</td>
                             <td>{{$dat->nombre}}</td>
                             <td>{{$dat->razon_social}}</td>
                             <td>{{$dat->ruc}}</td>
