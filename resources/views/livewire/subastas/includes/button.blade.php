@@ -1,12 +1,7 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
 @auth
     @if($producto->propietario == auth()->user()->id)
-        @php $estado = ''; @endphp
-        <form wire:submit.prevent="online">
-            <button class="btn btn-primary p-2 rounded-pill">
-                <i class="fas fa-eye"></i> El Propietario del Vehiculo No Puede Pujar
-            </button>
-        </form>
+        @php $estado = 'Propietario'; @endphp
     @endif
 @endauth
     @if($estado == 'ganador')
@@ -53,5 +48,12 @@
     @endif
     @if($estado == 'Finalizada' || $estado == 'STOP')
         <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
+    @endif
+    @if($estado == 'Propietario')
+        <form wire:submit.prevent="online">
+            <button class="btn btn-primary p-2 rounded-pill">
+                <i class="fas fa-eye"></i> El Propietario del Vehiculo No Puede Pujar
+            </button>
+        </form>
     @endif
 
