@@ -86,22 +86,28 @@
                         </tr>
                     @empty
                         <tr>
-                            <td>Id</td>
-                            <td>Empresa</td>
-                            <td>Lote</td>
-                            <td>Producto</td>
-                            <td>Titulo 1</td>
-                            <td>Titulo 2</td>
-                            <td>Titulo 3</td>
-                            <td>Fecha de Creacion</td>
-                            <td>Borrado Hace</td>
-                            <td>Sin Acciones</td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
+                            <td>-/td>
                         </tr>
                     @endforelse
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>Orden</th>
+                        <th>Id</th>
+                        <th>Empresa</th>
+                        <th>Lote</th>
+                        <th>Producto</th>
+                        <th>Titulo 1</th>
+                        <th>Titulo 2</th>
+                        <th>Titulo 3</th>
+                        <th>Fecha de Creacion</th>
                         @isset($trash)
                             <td>Borrado Hace</td>
                         @endisset
