@@ -30,7 +30,7 @@ class ProductoController extends Controller
         $data = Data::with('Empresa','Lote', 'Usuario')->get();
         $ciudad = Country::where('descripcion', 'distrito')->get(['id', 'nombre']);
         if (Auth::user()->onlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $juridica = LegalPerson::where('user_id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
             $data = [];
             if($company != null){
