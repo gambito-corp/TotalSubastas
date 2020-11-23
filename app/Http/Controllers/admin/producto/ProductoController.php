@@ -58,8 +58,10 @@ class ProductoController extends Controller
 
     public function create()
     {
-        $juridica = LegalPerson::where('id', Auth::id())->first()->id;
-        $empresa = Company::where('id', $juridica)->first()->id;
+
+//        $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+//
+//        $empresa = Company::where('id', $juridica)->first()->id;
 
 
         $data = new Data();
