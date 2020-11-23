@@ -49,10 +49,10 @@
                                         <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
                                         <div class="image-subasta">
                                             @isset($dato->imagen)
-                                            @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '70', ])
+                                            @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '180' ])
                                             @endisset
                                         </div>
-                                        
+
                                     </article>
                                     <div class="card-body justify-content-center">
                                         <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">
