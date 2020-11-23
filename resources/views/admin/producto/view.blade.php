@@ -170,8 +170,8 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-{{--                            <td>{{$dat->Lote->nombre}}</td>--}}
-                            <td>{{$ciudad->nombre}}</td>
+                            <td>{{$dat->Lote->nombre}}</td>
+                            <td>{{dat->ciudad}}</td>
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
                             <td>{{$dat->tipo_reserva}}</td>
