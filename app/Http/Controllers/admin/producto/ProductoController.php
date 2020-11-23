@@ -70,7 +70,7 @@ class ProductoController extends Controller
             dump($juridica);
             $empresa = Company::where('id', $juridica)->first()->id;
             dump($empresa);
-            $lotes = Lot::where('empresa_id', $empresa);
+            $lotes = Lot::where('empresa_id', $empresa)->get();
             dump($lotes);die();
         }
         $ciudad = Country::where('descripcion', 'provincia')->get();
