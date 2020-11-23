@@ -63,7 +63,7 @@ class DetalleVehiculosController extends Controller
 
     public function store(Request $request)
     {
-        dd('holi', $request);
+
         $request->validate([
             "saneado"               => "nullable|accepted",
             "captura"               => "nullable|accepted",
@@ -114,6 +114,7 @@ class DetalleVehiculosController extends Controller
             "aros"                  => 'nullable|string',
             "kilometraje"           => 'nullable|string',
         ]);
+        dd('holi', $request);
         Data::create($request->all());
         return redirect()->route('admin.detallevehiculos.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',
