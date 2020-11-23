@@ -40,7 +40,6 @@
                         <th>Timon</th>
                         <th>Nª Asientos</th>
                         <th>Estado</th>
-                        <th>Informacion</th>
                         <th>Direccion</th>
                         <th>Url del Video</th>
                         <th>Valor Interno Activo</th>
@@ -49,7 +48,6 @@
                         <th>Seguro</th>
                         <th>Soat</th>
                         <th>RTV</th>
-                        <th>Terminos</th>
                         <th>Combustible</th>
                         <th>Traccion</th>
                         <th>Torque</th>
@@ -171,14 +169,6 @@
                                 @endisset
                             </td>
 
-
-
-                            <td>
-                                @isset($dat->informacion)
-                                    {!! $dat->informacion !!}
-                                @endisset
-                            </td>
-
                             <td>
                                 @isset($dat->direccion)
                                     {{ $dat->direccion }}
@@ -225,12 +215,6 @@
                             <td>
                                 @isset($dat->rtv)
                                     {{ $dat->rtv ? 'si':'no' }}
-                                @endisset
-                            </td>
-
-                            <td>
-                                @isset($dat->terminos)
-                                    {{ $dat->terminos }}
                                 @endisset
                             </td>
 
@@ -464,8 +448,6 @@
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
                         </tr>
                     @endforelse
                 </tbody>
@@ -485,7 +467,6 @@
                         <th>Timon</th>
                         <th>Nª Asientos</th>
                         <th>Estado</th>
-                        <th>Informacion</th>
                         <th>Direccion</th>
                         <th>Url del Video</th>
                         <th>Valor Interno Activo</th>
@@ -494,7 +475,6 @@
                         <th>Seguro</th>
                         <th>Soat</th>
                         <th>RTV</th>
-                        <th>Terminos</th>
                         <th>Combustible</th>
                         <th>Traccion</th>
                         <th>Torque</th>

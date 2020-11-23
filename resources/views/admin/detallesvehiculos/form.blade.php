@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('title')
     @push('style')
-        {{--Estilos--}}
+        <!-- summernote -->
+        <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.css')}}">
     @endpush
 @section('header')
     <h1 class="m-0 text-dark">{{is_null($data->id)? 'Crear' : 'Editar'}} Detalle de Vehiculo</h1>
@@ -180,7 +181,7 @@
                 <div class="form-group row">
                     <div class="custom-control col-md-6">
                         <label for="terminos">Terminos y Condiciones Adicionales</label>
-                        <textarea name="terminos" id="terminos" class="form-control  @error('terminos') is-invalid @enderror" cols="3" rows="10"
+                        <textarea name="terminos" id="terminos" class="form-control textarea  @error('terminos') is-invalid @enderror" cols="3" rows="10"
                         >{{!is_null($data->id) ? $data->terminos:old('terminos')}}</textarea>
                     </div>
                     <div class="col-md-6">
@@ -435,5 +436,10 @@
     </form>
 @endsection
 @push('scripts')
-    {{--scripts--}}
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#terminos'
+        });
+    </script>
 @endpush

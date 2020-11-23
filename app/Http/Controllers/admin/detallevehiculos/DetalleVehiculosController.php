@@ -70,7 +70,8 @@ class DetalleVehiculosController extends Controller
             "marca_id"              => "required",
             "modelo_id"             => "required",
         ]);
-        dd($request->input());
+//        var_dump($request->input('terminos'));
+//        die();
         Data::create($request->all());
         return redirect()->route('admin.detallevehiculos.index')->with([
             'message' => 'El Rol Fue Creado Con Exito',
@@ -91,7 +92,7 @@ class DetalleVehiculosController extends Controller
         $productos = Producto::all();
         $marcas = Brand::where('parent_id', null)->get();
         $modelos = Brand::where('parent_id', '!=', null)->get();
-        $vista = 'create';
+        $vista = 'edit';
         return view('admin.detallesvehiculos.form', compact('data', 'empresas', 'lotes', 'productos', 'marcas', 'modelos', 'vista'));
     }
 
