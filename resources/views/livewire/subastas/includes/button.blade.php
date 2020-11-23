@@ -1,5 +1,5 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
-@if(auth())
+@auth
     @if($producto->propietario == auth()->user()->id)
         @php $estado = ''; @endphp
         <form wire:submit.prevent="online">
@@ -8,7 +8,7 @@
             </button>
         </form>
     @endif
-@else
+@endauth
     @if($estado == 'ganador')
         <p class="btn btn-success rounded-pill text-light btn-subasta-ts" style="cursor:none" ><i class="fas fa-star"></i> Vas Ganando </p>
     @endif
@@ -55,4 +55,3 @@
         <p class="btn btn-finish rounded-pill pr-1 pl-2 text-light" style="cursor:none" ><i class="fas fa-star  pr-3 pl-3 "></i>La Subasta Finalizo </p>
     @endif
 
-@endif
