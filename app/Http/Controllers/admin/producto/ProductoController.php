@@ -59,10 +59,6 @@ class ProductoController extends Controller
 
     public function create()
     {
-
-
-
-
         $data = new Data();
         $empresas = Company::all();
         $lotes = Lot::all();
