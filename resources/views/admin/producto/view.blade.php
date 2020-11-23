@@ -175,7 +175,7 @@
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
                             <td>{{$dat->tipo_reserva}}</td>
-{{--                            <td>{{$dat->nombre}}</td>--}}
+                            <td>{{$dat->nombre}}</td>
                             <td>
                                 @if (isset($dat->imagen))
                                     @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dat->id, 'ancho' => '150', 'admin' => true])
