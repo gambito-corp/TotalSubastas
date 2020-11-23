@@ -140,7 +140,7 @@
           </div>
         </div>
         <div class="tab-pane fade  p-4 " id="contact" role="tabpanel" aria-labelledby="contact-tab">
-          {!! {!!$producto->Vehiculo != null? $producto->Vehiculo->terminos: ''!!} !!}
+          {!! $producto->Vehiculo != null? $producto->Vehiculo->terminos: '' !!}
         </div>
       </div>
     </div>
