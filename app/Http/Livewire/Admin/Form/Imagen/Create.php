@@ -26,9 +26,7 @@ class Create extends Component
         }
         if (Auth::user()->OnlyEmpresa()) {
         $juridica = LegalPerson::where('user_id', Auth::id())->first();
-        dump($juridica);
         $company = Company::with('Lotes',)->where('persona_juridica_id', $juridica->id)->first();
-        dump($company);die();
             $productos = Producto::where('empresa_id', $company->id)->get();
             $this->empresas = $company;
             $this->lotes = $this->empresas->Lotes;
