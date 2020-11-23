@@ -63,6 +63,7 @@ class DetalleVehiculosController extends Controller
 
     public function store(Request $request)
     {
+        dd('holi', $request);
         $request->validate([
             "saneado"               => "nullable|accepted",
             "captura"               => "nullable|accepted",
