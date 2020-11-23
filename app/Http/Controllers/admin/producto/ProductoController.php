@@ -66,10 +66,12 @@ class ProductoController extends Controller
         $empresas = Company::all();
         $lotes = Lot::all();
         if (Auth::user()->onlyEmpresa()) {
-                    $juridica = LegalPerson::where('id', Auth::id())->first()->id;
-
-        $empresa = Company::where('id', $juridica)->first()->id;
+            $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+            dump($juridica);
+            $empresa = Company::where('id', $juridica)->first()->id;
+            dump($empresa);
             $lotes = Lot::where('empresa_id', $empresa);
+            dump($lotes);die();
         }
         $ciudad = Country::where('descripcion', 'provincia')->get();
         $empresa = null;
