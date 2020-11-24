@@ -4,6 +4,9 @@
     @livewire('subastas.show.index')
 </div>
 <div class="container">
+    <div class="row ">
+        @include('auction.assets.cajaDescargas', ['documentos' => $documentos])
+    </div>
     <div class="row">
         @include('auction.assets.cajaAside', ['producto' => $producto, 'resultados' => $resultados])
     </div>
@@ -11,17 +14,15 @@
         <div class="row main-container ">
             @include('auction.assets.cajaCaracteristica')
         </div><!-- row main container -->
-        <div class="row ">
-            @include('auction.assets.cajaDescargas', ['documentos' => $documentos])
-        </div>
+
     </div>
     <div class="container">
         <div class="row">
             @include('auction.assets.cajaDetalle')
         </div>
-            
+
     </div>
-    
+
 </div>
 
 @include('auction.assets.cajaJumbo')
