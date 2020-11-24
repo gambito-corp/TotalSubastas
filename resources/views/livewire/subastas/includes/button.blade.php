@@ -1,6 +1,10 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
 @auth
-    @if($producto->propietario == auth()->user()->id)
+    @php
+        $id = \App\LegalPerson::where('user_id', auth()->user()->id)->first();
+
+    @endphp
+    @if($producto->propietario == $id->id)
         @php $estado = 'Propietario'; @endphp
     @endif
 @endauth

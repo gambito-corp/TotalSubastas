@@ -114,16 +114,14 @@ class Gambito
     {
         $return = true;
         $descuento = self::checkBalance() - self::obtenerProducto()->garantia;
-        if (is_numeric($descuento) && ($descuento<0)) {
-            $return = false;
-        }
-        //comprobar que el descuento no se hizo antes
-        $check = Garantia::where('producto_id', self::hash(request()->route()->parameter('id'), true))
-            ->where('user_id', Auth::id())
-            ->first();
-        if (is_null($check)) {
-            //descontar la garantia al balance solo si no se hizo para esta subasta
-            self::hacerDescuento($descuento, $return);
+        $check = Garantia::where('producto_id', self::obtenerProducto()->id)->where('user_id', Auth::id())->first();
+        if($check == null){
+            if (is_numeric($descuento) && ($descuento<0)) {
+                $return = false;
+            }else{
+                //descontar la garantia al balance solo si no se hizo para esta subasta
+                self::hacerDescuento($descuento, $return);
+            }
         }
         return $return;
     }

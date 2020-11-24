@@ -34,6 +34,7 @@ class Index extends Component
             ->with(['Productos' => $productosClosure])
             ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
             ->get();
+//        dd($this->empresas);
     }
     public function hydrate()
     {

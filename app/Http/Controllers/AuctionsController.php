@@ -61,6 +61,13 @@ class AuctionsController extends Controller
         return redirect()->route('index')->with(['message' => ' Mensaje Enviado Correctamente', 'alerta' => 'success']);
     }
 
+//$garantia = Garantia::where('producto_id', $this->producto->id)->where('user_id', Auth::id())->first();
+//if($garantia != null){
+//return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
+//}
+//if($garantia != null){
+
+
     public function live()
     {
         $producto = Gambito::obtenerProducto();
@@ -70,11 +77,9 @@ class AuctionsController extends Controller
         if($return == false){
             return redirect()->route('noBalance');
         }
-
         $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $producto->id)->first();
         if(!$activo)
         {
-
             ActiveAuc::create([
                 'producto_id' => $producto->id,
                 'user_id' => Auth::id(),

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password'          => Hash::make('C4tntnox*+'),
             'completo'          => true,
-            'tipo'              => 'juridica'
+            'tipo'              => 'natural'
         ]);
         User::create([
             'role_id'           => '3',
@@ -27,56 +27,6 @@ class UserSeeder extends Seeder
             'password'          => Hash::make('Admin'),
             'completo'          => false,
             'tipo'              => 'juridica'
-        ]);
-        User::create([
-            'role_id'           => '1',
-            'name'              => 'gonsan300',
-            'email'             => 'admin@gonzalo.com',
-            'avatar'            => 'default.png',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('Admin'),
-            'completo'          => false,
-            'tipo'              => 'juridica'
-        ]);
-        User::create([
-            'role_id'           => '2',
-            'name'              => 'alevel418',
-            'email'             => 'alexis.veliz.83@gmail.com',
-            'avatar'            => 'default.png',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('Admin'),
-            'completo'          => false,
-            'tipo'              => 'natural'
-        ]);
-        User::create([
-            'role_id'           => '2',
-            'name'              => 'andvel443',
-            'email'             => 'avega@rachacreativa.com',
-            'avatar'            => 'default.png',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('Admin'),
-            'completo'          => false,
-            'tipo'              => 'natural'
-        ]);
-        User::create([
-            'role_id'           => '1',
-            'name'              => 'JavierAdmin',
-            'email'             => 'admin@totalsubastas.com',
-            'avatar'            => 'default.png',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('Admin'),
-            'completo'          => false,
-            'tipo'              => 'natural'
-        ]);
-        User::create([
-            'role_id'           => '1',
-            'name'              => 'nohely',
-            'email'             => 'diseño@totalsubastas.com',
-            'avatar'            => 'default.png',
-            'email_verified_at' => now(),
-            'password'          => Hash::make('Admin'),
-            'completo'          => false,
-            'tipo'              => 'natural'
         ]);
     }
 }
