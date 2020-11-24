@@ -87,8 +87,8 @@ class ImagenesProductoController extends Controller
             $Imagenes->empresa_id = $empresa_id;
             $Imagenes->lote_id = $lote_id;
             $Imagenes->producto_id = $producto_id;
-            $Imagenes->titulo = $titulo;
-            $Imagenes->descripcion = $descripcion;
+            $Imagenes->titulo = '$key+1 '.$titulo;
+            $Imagenes->descripcion = '$key+1 '.$descripcion;
             if($imagen){
                 $id=1;
                 if(Data::all()->last() != null) {
@@ -205,7 +205,12 @@ class ImagenesProductoController extends Controller
     public function getImagen($id)
     {
         $id = Gambito::hash($id, true);
-        if (Auth::user()->isAdmin() || Auth::id() == $id){
+        $usuario = Data::with('Empresa')->where('id', $id)
+            ->first()
+            ->Empresa->load('Juridica')
+            ->Juridica->load('Usuario')
+            ->Usuario->id;
+        if (Auth::user()->isAdmin() || Auth::id() == $usuario){
             $data = Data::withTrashed()->where('id', $id)->first();
             $file = Storage::disk('s3')->get('producto/set/'.$data->imagen);
             $code = 200;

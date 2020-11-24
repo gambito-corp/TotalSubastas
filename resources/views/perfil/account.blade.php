@@ -134,8 +134,9 @@
                                     <div class="col">
                                         @forelse($activas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
-                                                <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
-                                                     height="70" class="mx-2 my-auto">
+                                                @isset($producto->Productos->imagen)
+                                                    @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->Productos->id, 'ancho' => '70'])
+                                                @endisset
                                                 <div class="media-body pb-4">
                                                     <div class="mt-3 m-acc_text">
                                                         <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>

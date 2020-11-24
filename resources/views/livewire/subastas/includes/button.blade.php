@@ -2,11 +2,12 @@
 @auth
     @php
         $id = \App\LegalPerson::where('user_id', auth()->user()->id)->first();
-
     @endphp
-    @if($producto->propietario == $id->id)
-        @php $estado = 'Propietario'; @endphp
-    @endif
+    @isset($id)
+        @if($producto->propietario == $id->id)
+            @php $estado = 'Propietario'; @endphp
+        @endif
+    @endisset
 @endauth
     @if($estado == 'ganador')
         <p class="btn btn-success rounded-pill text-light btn-subasta-ts" style="cursor:none" ><i class="fas fa-star"></i> Vas Ganando </p>
