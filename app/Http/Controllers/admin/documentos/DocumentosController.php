@@ -43,7 +43,7 @@ class DocumentosController extends Controller
     {
         $data = Data::onlyTrashed()->with('Empresa', 'Lote', 'Producto')->get();
         if (Auth::user()->onlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $juridica = LegalPerson::where('user_id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
             $data = [];
             if($company != null){
