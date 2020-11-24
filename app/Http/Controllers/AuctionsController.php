@@ -41,8 +41,8 @@ class AuctionsController extends Controller
     {
         $producto = Gambito::obtenerProducto()->load('Vehiculo');
         $documentos = DocumentosVehiculo::with('Empresa', 'Lote', 'Producto')
-            ->where('id', $producto->id)->get();
-        dd($documentos);
+            ->where('producto_id', $producto->id)->get();
+        dd($documentos, $producto);
         $referidos = Producto::where('lote_id', $producto->lote_id)
             ->where('finalized_at', '>', now())
             ->where('id', '!=', $producto->id)
