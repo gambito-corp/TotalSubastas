@@ -5,6 +5,7 @@
 </div>
 <div class="container">
     <div class="row ">
+        @dump($documentos)
         @include('auction.assets.cajaDescargas', ['documentos' => $documentos])
     </div>
     <div class="row">
