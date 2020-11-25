@@ -77,9 +77,10 @@ class User extends Authenticatable implements MustVerifyEmail
     //Metodos Personalizados
     public static function registerUser(array $data, $tipo)
     {
+        $correlativo = User::all()->count();
         if($tipo == 'natural'){
             $rol = 2;
-            $nombre = strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2).substr($data['dni'],0,2));
+            $nombre = strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2).substr($data['dni'],0,2).$correlativo);
         }elseif($tipo == 'juridica'){
             $rol = 3;
             $nombre = strtoupper($data['nombre']);

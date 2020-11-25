@@ -66,7 +66,7 @@ class Buttom extends Component
                 'tyc' => 'required',
             ]);
         }
-        $balance = Balance::where('user_id', Auth::id())->get();
+        $balance = Balance::where('user_id', Auth::id())->where('aprobado', true)->get();
         $balance_total = $balance->sum('monto');
         if($balance && $balance_total > $this->producto->garantia){
             return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
@@ -80,6 +80,41 @@ class Buttom extends Component
             return redirect()->to('/');
         }
 
+    }
+
+    public function participar()
+    {
+        if($this->participacion == false){
+            $this->validate([
+                'tyc' => 'required',
+            ]);
+        }
+        $balance = Balance::where('user_id', Auth::id())->get();
+        $balance_total = $balance->sum('monto');
+        if($balance && $balance_total > $this->producto->garantia){
+            $hola = Gambito::checkBalance();
+            $return  = Gambito::descuentoGarantia($this->producto->id);
+            $participacion = Participacion::where('user_id', Auth::id())
+                ->where('producto_id', $this->producto->id)
+                ->pluck('participacion')
+                ->first();
+            DB::table('participacions')
+                ->updateOrInsert(
+                    [
+                        'user_id' => Auth::id(),
+                        'producto_id' => $this->producto->id,
+                    ],
+                    [
+                        'participacion' => $participacion+1,
+                        'updated_at' => now()
+                    ]
+                );
+            $this->estado = Gambito::checkEstado($this->producto, Auth::id());
+        }else {
+            session()->flash('message', 'No le queda suficiente balance en su cuenta porfavor recarge.');
+            session()->flash('alerta', 'danger');
+            return redirect()->to('/');
+        }
     }
 
     public function pujar()

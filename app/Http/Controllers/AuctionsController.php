@@ -113,7 +113,7 @@ class AuctionsController extends Controller
         }
         // nombrar del 1ª al 4ª puesto
         $ganadores = Message::where('producto_id', $producto->id)
-            ->orderBy('message', 'desc')
+            ->orderBy('message', 'desc')//Revisar en caso de queja
             ->get()
             ->groupBy('user_id');
         foreach($ganadores as $key => $win){

@@ -2,6 +2,10 @@
 @auth
     @php
         $id = \App\LegalPerson::where('user_id', auth()->user()->id)->first();
+        $participacion = \App\Participacion::where('producto_id', $producto->id)->where('user_id', auth()->id())->first();
+        if (is_null($participacion)||(!is_null($participacion) && $participacion->participacion <=1) ) {
+            $estado = 'participar';
+        }
     @endphp
     @isset($id)
         @if($producto->propietario == $id->id)
@@ -58,6 +62,14 @@
         <form wire:submit.prevent="online">
             <button class="btn btn-primary p-2 rounded-pill">
                 <i class="fas fa-eye"></i> El Propietario del Vehiculo No Puede Pujar
+            </button>
+        </form>
+    @endif
+    @if($estado == 'participar')
+        <form wire:submit.prevent="participar">
+            <button class="btn btn-success rounded-pill  btn-to_action-bottom text-light btn-subasta-ts" id="send" wire:model="mensaje">
+                <i class="fas fa-gavel fa-rotate-270"></i>
+                Participar
             </button>
         </form>
     @endif
