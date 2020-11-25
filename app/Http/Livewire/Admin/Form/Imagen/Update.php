@@ -27,7 +27,7 @@ class Update extends Component
             $this->productos = $productos;
         }
         if (Auth::user()->OnlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $juridica = LegalPerson::where('user_id', Auth::id())->first();
             $company = Company::with('Lotes',)->where('persona_juridica_id', $juridica->id)->first();
             $productos = Producto::where('empresa_id', $company->id)->get();
             $this->empresas = $company;

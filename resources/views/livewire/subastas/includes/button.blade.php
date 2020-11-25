@@ -1,8 +1,13 @@
 {{-- @dump($estado, $producto->finalized_at->toTimeString(), now()->toTimeString(),($producto->finalized_at->subSeconds(3)->toTimeString() <= now()->toTimeString())) --}}
 @auth
-    @if($producto->propietario == auth()->user()->id)
-        @php $estado = 'Propietario'; @endphp
-    @endif
+    @php
+        $id = \App\LegalPerson::where('user_id', auth()->user()->id)->first();
+    @endphp
+    @isset($id)
+        @if($producto->propietario == $id->id)
+            @php $estado = 'Propietario'; @endphp
+        @endif
+    @endisset
 @endauth
     @if($estado == 'ganador')
         <p class="btn btn-success rounded-pill text-light btn-subasta-ts" style="cursor:none" ><i class="fas fa-star"></i> Vas Ganando </p>

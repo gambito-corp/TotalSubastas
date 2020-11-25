@@ -46,7 +46,7 @@ class ProductoController extends Controller
         $data = Data::onlyTrashed()->with('Empresa','Lote', 'Usuario')->get();
         $ciudad = Country::where('descripcion', 'distrito')->get(['id', 'nombre']);
         if (Auth::user()->onlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first();
+            $juridica = LegalPerson::where('user_id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
             $data = [];
             if($company != null){
@@ -63,7 +63,7 @@ class ProductoController extends Controller
         $empresas = Company::all();
         $lotes = Lot::all();
         if (Auth::user()->onlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+            $juridica = LegalPerson::where('user_id', Auth::id())->first()->id;
 
             $empresa = Company::where('id', $juridica)->first()->id;
 
@@ -169,7 +169,7 @@ class ProductoController extends Controller
     {
         $empresa = null;
         if (Auth::user()->onlyEmpresa()) {
-            $juridica = LegalPerson::where('id', Auth::id())->first()->id;
+            $juridica = LegalPerson::where('user_id', Auth::id())->first()->id;
 
             $empresa = Company::where('id', $juridica)->first()->id;
 

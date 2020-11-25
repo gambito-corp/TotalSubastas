@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\DocumentosVehiculo;
 use App\Helpers\Gambito;
+use App\ImagenesVehiculo;
 use App\Producto;
 use App\Slide;
 use App\User;
@@ -53,11 +54,10 @@ class ImagenesController extends Controller
         $code = 200;
         return new Response($file,$code);
     }
-
     public function getProductoImagen($id)
     {
         $id = Gambito::hash($id, true);
-        $data = Producto::where('id', $id)->first();
+        $data = ImagenesVehiculo::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
         $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))->opacity(30)->resize('200', '200');
         $file->insert($watermark, 'center')

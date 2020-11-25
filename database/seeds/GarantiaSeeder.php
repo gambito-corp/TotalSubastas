@@ -12,20 +12,5 @@ class GarantiaSeeder extends Seeder
      */
     public function run()
     {
-//        Garantia::create([
-//            'producto_id' => 1,
-//            'user_id' => 1,
-//            'monto' => 1000
-//        ]);
-//        Garantia::create([
-//            'producto_id' => 1,
-//            'user_id' => 2,
-//            'monto' => 1000
-//        ]);
-//        Garantia::create([
-//            'producto_id' => 1,
-//            'user_id' => 3,
-//            'monto' => 1000
-//        ]);
     }
 }

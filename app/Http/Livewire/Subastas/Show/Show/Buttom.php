@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Subastas\Show\Show;
 
 use App\Balance;
 use App\Events\RankingEvent;
+use App\Garantia;
 use App\Notifications\RegistroDeParticipante;
 use App\Participacion;
 use App\Person;
@@ -65,14 +66,20 @@ class Buttom extends Component
                 'tyc' => 'required',
             ]);
         }
-        $balance = Balance::where('user_id', Auth::id())->first();
-        if($balance && $balance->monto > $this->producto->garantia){
+        $balance = Balance::where('user_id', Auth::id())->get();
+        $balance_total = $balance->sum('monto');
+        if($balance && $balance_total > $this->producto->garantia){
             return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
         }else{
+            $garantia = Garantia::where('producto_id', $this->producto->id)->where('user_id', Auth::id())->first();
+            if($garantia != null){
+                return redirect()->route('auctionLiveDetail', ['id' => Gambito::hash($this->producto->id)]);
+            }
             session()->flash('message', 'No le queda suficiente balance en su cuenta porfavor recarge.');
             session()->flash('alerta', 'danger');
             return redirect()->to('/');
         }
+
     }
 
     public function pujar()
