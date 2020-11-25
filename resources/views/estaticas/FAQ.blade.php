@@ -22,10 +22,10 @@
                         <div class="bg-light-card topics shadow-sm ">
                             <div class="card-body myList">
                                 <p class=" font-weight-bold text-left">T&oacute;picos</p>
-                                <ul class="nav">
+                                <ul class="nav" style="text-align: left;">
                                     <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link active" id="list-basicas" data-toggle="list" href="#basicas" role="tab" aria-controls="home">Lo más consultado</a>
                                     </li>
-                                    <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">Recarga de saldos</a>
+                                    <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a  class="list-link" id="list-saldo" data-toggle="list" href="#saldo" role="tab" aria-controls="home">El Registro y tu Membresía </a>
                                     </li>
                                     <li class="nav-link text-darken-flat "> <i class="fas fa-file mr-2"> </i> <a class="list-link" id="list-calidad" data-toggle="list" href="#calidad" role="tab" aria-controls="home">Calidad de miembro</a>
                                     </li>
@@ -89,51 +89,104 @@
                                 </p>
                                 <h5 class="mt-5 subtitulo-estaticas-ts">6. Soy miembro de VMC Subastas, ¿Cómo hago para participar en una Oferta? </h5>
                                 <p class="mt-5  "> Ingresa a la oferta de tu interés y dale clic al botón participar. Recuerda que debes contar con fondos suficientes para cubrir la garantía solicitada.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">7. ¿Por qué tengo que dejar una garantía para participar? </h5>
+                                <p class="mt-5  ">Se solicita que los interesados en participar consignen una garantía por adelantado para proteger la integridad de cada proceso. Al consignar la garantía, respaldas tu intención de compra y ayudas a prevenir que malos elementos interfieran en el correcto desarrollo de los procesos.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">8. ¿Puedo comprar una Oferta sin necesidad de ganar el proceso "En Vivo"? </h5>
+                                <p class="mt-5  "> Sí, solo debes verificar que la oferta cuente con la opción de Compra Inmediata, la cual te da la opción de adquirir la oferta al precio indicado en la publicación en ese momento y sin necesidad de competir con el resto de participantes en el proceso "En Vivo".</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">9. ¿Qué es una Oferta "Negociable" y cómo funciona? </h5>
+                                <p class="mt-5  "> Le llamamos Oferta "Negociable" al proceso de venta en el cual los miembros podrán iniciar negociaciones directamente con el propietario del activo para tratar de llegar a un acuerdo de venta beneficioso para ambas partes. Toda Oferta "Negociable" cuenta con valor de Compra Inmediata.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">10. ¿Puedo comprar una oferta Negociable sin necesidad de negociar con el vendedor? </h5>
+                                <p class="mt-5  ">Claro que sí, toda <b>Oferta Negociable</b> cuenta con la opción de Compra Inmediata, la cual te da la opción de adquirir la oferta al precio indicado en la publicación, en ese momento y sin necesidad de negociar con el propietario de la oferta.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">11. ¿Qué significa Compra Inmediata? </h5>
+                                <p class="mt-5  "> Significa que podrás adquirir directamente una oferta al aceptar el precio que se indique en la publicación. Para poder ejecutar una Compra Inmediata deberás contar con el monto de la comisión en tu estado de cuenta.<br><br>
+                                Para saber cómo agregar valor a tu estado de cuenta ingresa <a href="">Aquí.</a>
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">12. ¿Se pueden visitar las ofertas?</h5>
+                                <p class="mt-5  ">¡Siempre recomendamos visitar antes de participar! En el detalle de cada oferta encuentras la opción Visitas, aquí podrás poder agendar tu visita según su disponibilidad. Para agendar visitas debes ser miembro de nuestro servicio.<br>
+                                Regístrate gratis <a href=""> aquí.</a>
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">13. ¿Qué pasa con mi Garantía cuando termina el proceso "En Vivo"? </h5>
+                                <p class="mt-5  ">Tu garantía regesará a tu estado de cuenta inmediatamente después que concliua el proceso "En Vivo", a menos que hayas resultado ganador o tengas oportunidad de compra. Es importante recalcar, que los participantes que incumplan sus obligaciones serán sancionados con una detracción de 15 puntos VMC y penalizados con el íntegro de la garantía consignada.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">14. ¿Hay otros pagos adicionales que hacer? </h5>
+                                <p class="mt-5  ">Tendrás que hacerte cargo de los gastos administrativos que puedan surgir al momento de la transferencia de propiedad. <br>
+                                En el caso de tener que cubrir otros gastos, se te indicará en las <B>Condiciones de Compra</B> que se encuentran publicadas en el detalle de la oferta.
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">15. ¿Qué es una recarga?</h5>
+                                <p class="mt-5  ">Es el proceso por el cual se agrega Saldo al Estado de Cuenta del Miembro. Las Recargas de Saldo demoran 24 horas en verse reflejadas en el estado de cuenta del miembro.
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">16. ¿Qué son los Créditos VMC? </h5>
+                                <p class="mt-5  ">Es el nombre que recibe nuestra moneda. Esta puede ser adquirida a través de cargo directo a una tarjeta de crédito o débito. Una vez adquiridos los Créditos VMC podrá ser utilizado para la consignación de garantías en las Subastas Electrónicas y para el pago de la(s) deuda(s) de comisiones y penalidades. Recuerda que toda compra de créditos VMc es final
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">17. ¿Por que me recomiendan comprar Créditos VMC? </h5>
+                                <p class="mt-5  ">La garantía para participar en una subasta siempre es %50 menos usando Créditos VMC. Compra tus Creditos VMC <a href=""> aquí.</a>
+                                </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">18. ¿Qué significa Oferta Financiable? </h5>
+                                <p class="mt-5  ">Cuando se indique financiable en el detalle del ofrecimiento, significa que el ganador de la subasta podrá pagar usando su linea de financiamiento en VMC, en caso esta estar aprobada.
+                                </p>
                             </div>
                         </div>
                         <div class="tab-pane fade" role="tabpanel" aria-labelledby="saldo-tab" id="saldo">
-                            <h1 class="font-weight-bold text-capitalize text-dark">Recarga de Saldo</h1>
-                            <div class="col-md col-sm-9">
-                                <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
-                                <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
-                                    sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
-                                    amet.
+                            <div class="content-breadcrumbs-ts">Inicio <span class="icono-breadcrumbs-ts"><i class="fas fa-chevron-right"></i></span>  Preguntas </div>
+                            <h1 class="font-weight-bold titulo-estatico-ts">El Registro y tu Membresía (14 preguntas)</h1>
+                            <div class="">
+                                <h5 class="mt-5 subtitulo-estaticas-ts">1. ¿Cuesta ser miembro de VMC Subastas? </h5>
+                                <p class="mt-5"> Nuestra membresía es totalmente gratuita.
                                 </p>
-                                <!-- <article class="col-md col-md-9">
-                                    <figure>
-                                        <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p>
-                                        <img src="" alt="">
-                                    </figure>
-                                    <p class="mt-5">
-                                    <div class="media">
-                                        <div class="media-body">
-                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
-                                            odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                            fringilla. Donec lacinia congue felis in faucibus.
-                                        </div>
+                                <h5 class="mt-5 subtitulo-estaticas-ts">2. ¿Cómo me registro? </h5>
+                                <p class="mt-5">Solo debes completar el formulario de registro <a href="">aquí.</a> Y luego activar tu membresia validando el correo que te enviaremos a tu casilla personal.
+                                </p>
+                                <h5 class="mt-5 subtitulo-estaticas-ts">3. Tengo o represento a una empresa, ¿puedo registrarme? </h5>
+                                <p class="mt-5">Sí, solo deberás ingresar el número de RUC de la empresa y el cargo que desempeñas en ella al momento de registrarte. Recuerda que al adjudicarte una oferta solo se te podrá emitir una factura si registraste la información de tu empresa.</p>
 
-                                    </div>
-                                    </p>
-                                </article> -->
-                                <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas </p>
-                                <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
-                                    veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
-                                    distinctio sed labore sunt. Quidem, accusamus!
+                                <h5 class="mt-5 subtitulo-estaticas-ts">4. ¿Cómo activo mi membresía?</h5>
+                                <p class="mt-5">
+                                   Al finalizar el proceso de registro recibirás un correo electrónico con un enlace para activar tu cuenta.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">5. Ingresé un correo equivocado, ¿ahora qué hago? </h5>
+                                <p class="mt-5  "> 
+                                    Deberás volver a hacer el proceso de registro nuevamente, verifica que tus datos sean correctos, una vez finalizado el proceso de registro te enviaremos un correo de activación a la cuenta ingresada en el formulario de registro.
+
                                 </p>
-                                <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p>
-                                <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
-                                    veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
-                                    distinctio sed labore sunt. Quidem, accusamus!
+                                <h5 class="mt-5 subtitulo-estaticas-ts">6. Estoy esperando el correo de activación hace rato ¿qué hago?</h5>
+                                <p class="mt-5  "> En ocasiones existen demoras para las entregas de correo, te recomendamos esperar un poco y/o revisar tu bandeja de spam. También es posible que hayas ingresado una dirección de correo equivocada, en ese caso tendrás que volver a completar el formulario de registro.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">7. ¿Puedo registrarme desde un Smartphone?</h5>
+                                <p class="mt-5  ">Sí, puedes registrarte desde cualquier dispositivo movil.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">8. Ya tengo mi cuenta activa, ¿qué tengo que hacer para participar en mi primera subasta? </h5>
+                                <p class="mt-5  "> Para participar debes agregar fondos a tu cuenta para así poder cubrir el monto de la garantía de la o las ofertas de tu interés. Puedes agregar fondos a tu cuenta Comprando Créditos VMC o Recargando Saldo. </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">9. ¿Qué es el código de miembro?</h5>
+                                <p class="mt-5  "> Es el número de identificación compuesto de 6 dígitos que se le asigna automáticamente al activar tu membresia. </p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">10. ¿Dónde puedo ver cuál es mi código de miembro?</h5>
+                                <p class="mt-5  ">Para ver tu código de miembro debes iniciar sesión, desde un dispositivo móvil podrás verlo al hacer tap sobre el icono ubicado en el margen superior derecho, en una desktop lo encuentras en la parte superior de la barra de acción lateral sobre la mano derecha de la pantalla.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">11. ¿Para qué sirve mi seudónimo? </h5>
+                                <p class="mt-5  "> Tu seudónimo protege tu identidad frente a los otros miembros durante el proceso de subasta
                                 </p>
-                                <p class="mt-5  font-weight-bold text-darken">4. Donde se realizan las subastas ?</p>
-                                <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
-                                    provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
-                                    provident sapiente totam? Nisi, assumenda?
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">12. ¿Puedo cambiar mi seudónimo?</h5>
+                                <p class="mt-5  ">¡Por estándares de seguridadu seudónimo es generado automáticamente utilizando tus nombres y apellidos
                                 </p>
-                                <p class="mt-5 font-weight-bold text-darken">5. Donde se realizan las subastas </p>
-                                <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
-                                    veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
-                                    distinctio sed labore sunt. Quidem, accusamus!
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">13. ¿Puede un miembro tener varias cuentas? </h5>
+                                <p class="mt-5  ">Cada miembro solo podrá disponer de una única cuenta.</p>
+
+                                <h5 class="mt-5 subtitulo-estaticas-ts">14. He olvidado mi contraseña, ¿cómo puedo recuperar el acceso a mi cuenta? </h5>
+                                <p class="mt-5  ">Aquí te dejo el vinculo para recuperar el acceso a tu cuenta <a href="">  www.vmcsubastas.com/login/recordar </a>
                                 </p>
 
                             </div>
