@@ -134,12 +134,14 @@
                                     <div class="col">
                                         @forelse($activas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
+                                                <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
                                                 @isset($producto->Productos->imagen)
                                                     @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->Productos->id, 'ancho' => '70'])
                                                 @endisset
-                                                <div class="media-body pb-4">
+                                                </div>
+                                                <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
-                                                        <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                        <h5 class="mt-0 mb-0"> {{$producto->Productos->nombre}} </h5>
                                                         <span>$ {{$producto->Productos->precio}}</span>
                                                     </div>
                                                     <p>fecha en vivo
@@ -162,11 +164,13 @@
                                     <div class="col">
                                         @forelse($pasadas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
-                                                <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
+                                                <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
+                                                    <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                      height="70" class="mx-2 my-auto">
-                                                <div class="media-body pb-4">
+                                                </div>
+                                                <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
-                                                        <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                        <h5 class="mt-0 mb-0"> {{$producto->Productos->nombre}} </h5>
                                                         <span>$ {{$producto->Productos->precio}}</span>
                                                     </div>
                                                     <p>fecha en vivo
@@ -189,11 +193,13 @@
                                     <div class="col pl-3 radius">
                                         @forelse($ganando as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
+                                                <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
                                                 <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                      height="70" class="mx-2 my-auto">
-                                                <div class="media-body pb-4">
+                                                </div>
+                                                <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
-                                                        <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                        <h5 class="mt-0 mb-0"> {{$producto->Productos->nombre}} </h5>
                                                         <span>$ {{$producto->Productos->precio}}</span>
                                                     </div>
                                                     <p>fecha en vivo
@@ -216,11 +222,13 @@
                                     <div class="col pl-3 radius">
                                         @forelse($ganadas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
+                                                <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
                                                 <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
                                                      height="70" class="mx-2 my-auto">
-                                                <div class="media-body pb-4">
+                                                </div>
+                                                <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
-                                                        <h5 class="mt-0"> {{$producto->Productos->nombre}} </h5>
+                                                        <h5 class="mt-0 mb-0"> {{$producto->Productos->nombre}} </h5>
                                                         <span>$ {{$producto->Productos->precio}}</span>
                                                     </div>
                                                     <p>fecha en vivo
