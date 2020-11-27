@@ -4,15 +4,8 @@
 namespace App\Helpers;
 
 
-use App\Balance;
-use App\Garantia;
-use App\Message;
-use App\Producto;
-use App\User;
-use App\VehicleDetail;
+
 use Hashids\Hashids;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class Gambito
 {

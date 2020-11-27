@@ -37,7 +37,7 @@ class Resultados extends Component
         $this->precioMin = 0;
         $this->precioMax = 1000000;
         $this->like = Like::all();
-        $this->cuenta = count(Producto::all('id'));
+        $this->cuenta = count(Producto::where('finalized_at','>',now())->get());
     }
 
     public function buscarEmpresas()

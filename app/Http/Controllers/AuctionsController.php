@@ -179,8 +179,4 @@ class AuctionsController extends Controller
             'alerta' => 'danger'
         ]);
     }
-
-
-
-
 }
