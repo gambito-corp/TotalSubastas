@@ -52,14 +52,15 @@ class Gambito
     }
 
     //METODOS DE CREATE/UPDATE
-    protected static function hacerDescuento($descuento, $noBalance)
+    protected static function hacerDescuento($descuento, $noBalance, $id = null)
     {
         if($noBalance){
-            DB::transaction(function()use($descuento){
+            $producto = self::obtenerProducto($id);
+            DB::transaction(function()use($descuento, $producto){
                 Garantia::create([
-                    'producto_id' => self::hash(request()->route()->parameter('id'), true),
+                    'producto_id' => $producto->id,
                     'user_id' => Auth::id(),
-                    'monto' => self::obtenerProducto()->garantia,
+                    'monto' => $producto->garantia,
                 ]);
                 Balance::where('user_id', Auth::id())->update([
                     'monto' => $descuento
@@ -110,17 +111,19 @@ class Gambito
     }
 
     // ACCIONES COMPLEJAS Y REDIRECCIONES
-    public static function descuentoGarantia()
+    public static function descuentoGarantia($id = null)
     {
         $return = true;
-        $descuento = self::checkBalance() - self::obtenerProducto()->garantia;
-        $check = Garantia::where('producto_id', self::obtenerProducto()->id)->where('user_id', Auth::id())->first();
+        $hola1 = self::checkBalance();
+        $hola = self::obtenerProducto($id)->garantia;
+        $descuento = $hola1 - $hola;
+        $check = Garantia::where('producto_id', self::obtenerProducto($id)->id)->where('user_id', Auth::id())->first();
         if($check == null){
             if (is_numeric($descuento) && ($descuento<0)) {
                 $return = false;
             }else{
                 //descontar la garantia al balance solo si no se hizo para esta subasta
-                self::hacerDescuento($descuento, $return);
+                self::hacerDescuento($descuento, $return, $id);
             }
         }
         return $return;

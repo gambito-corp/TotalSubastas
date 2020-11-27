@@ -10,21 +10,6 @@
                                 <h1 class="font-weight-bold">{{$producto->nombre}}</h1>
                                 <h3>{{$producto->Vehiculo != null? $producto->Vehiculo->year: ''}}</h3>
                             </figure>
-                            <ul class="nav justify-content-end container-resumen-subasta">
-                                <li class="nav-item text-light_darken mr-2">
-                                    <span class="mr-2 " wire:click="addLike({{$producto->id}})" wire:model="like">
-                                        <i class="fa fa-heart-o heart" aria-hidden="true"></i>
-                                        {{count($this->like->where('producto_id', $producto->id))}}
-                                    </span>
-                                </li>
-                                <li class="nav-item text-light_darken mr-4">
-                                    <span id="hammer" class="mr-2"> <i class="fas  fa-gavel fa-rotate-270 ml-2"></i> 4</span>
-                                </li>
-                                <li class="nav-item text-light_darken mr-4">
-                                    <span class="mr-2"><i class="fas fa-user mr-2"></i>23</span>
-                                    <!-- counter by persons in this auction -->
-                                </li>
-                            </ul>
                             <hr class="my-4" />
                         </article>
                         <div class="" >
@@ -39,9 +24,10 @@
                                             </div>
                                         </div>
                                         <div class="col pt-3">
-                                            <p class="title-d_sheet-jumb text-center">fecha en vivo</p>
-                                            <span class="title-d_sheet-sp">Mayo</span> <span class="title-d_sheet-sp">29 <br> </span>
-                                            <span class="title-d_sheet-sp">7:15 pm </span> <br>
+                                                <p class="title-d_sheet-jumb text-center">fecha en vivo</p>
+                                            <h2 class="form-inline   text-light_darken title-light_darken">
+                                                <span class="ml-3">{{$producto->started_at->format('M-d g:i A')}}</span>
+                                            </h2>
                                         </div>
                                     </div>
                                 </div>
