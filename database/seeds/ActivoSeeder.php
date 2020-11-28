@@ -12,7 +12,7 @@ class ActivoSeeder extends Seeder
      */
     public function run()
     {
-        asfasfsa
+
 
 
     }
