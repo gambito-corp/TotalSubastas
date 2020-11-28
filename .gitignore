@@ -14,5 +14,4 @@ yarn-error.log
 /.idea
 /.vscode
 *.pem
-/database/seeds/ActivoSeeder.php
-*Seeder.php
+/database/seeds/
