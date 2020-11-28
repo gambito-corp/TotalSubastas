@@ -15,4 +15,3 @@ yarn-error.log
 /.vscode
 *.pem
 /database/seeds/
-*Seeder.php
