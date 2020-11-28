@@ -12,7 +12,6 @@
             @include('auction.assets.cajaCaracteristica')
         </div><!-- row main container -->
     </div>
-
 </div>
 <div class="container">
         <div class="row">

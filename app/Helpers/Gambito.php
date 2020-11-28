@@ -184,4 +184,16 @@ class Gambito
             ? [$producto, $mensaje]
             : $producto;
     }
+
+    public function participar(Auth $usuario, Producto $producto)
+    {
+         //comprobar si existe Garantia
+        $garantia = Garantia::where('user_id', $usuario->id)->where('producto_id', $producto->id)->firstOrFail();
+
+         //sino existe garantia comprobar si saldo es superior a garantia vehiculo
+         //hacer descuento
+         //si no redirigir falta de saldo
+         //retornar estado o ruta en caso nulo
+
+    }
 }
