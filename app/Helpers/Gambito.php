@@ -13,6 +13,7 @@ use App\VehicleDetail;
 use Hashids\Hashids;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class Gambito
 {
