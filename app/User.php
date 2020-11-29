@@ -79,7 +79,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         if($tipo == 'natural'){
             $rol = 2;
-            $correlativo = User::where('name', strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2))."%")->get()->count();
+            $parcial = strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2));
+            $correlativo = User::where('name', 'LIKE',  $parcial."%")->get()->count();
             dd($correlativo);
             if($correlativo == 0){$correlativo=null;}
             $nombre = strtoupper(substr($data['nombre'],0,2).substr($data['apellido'],0,2).substr($data['dni'],0,2).$correlativo);
