@@ -15,7 +15,7 @@ class BalancesSeeder extends Seeder
         Balance::create([
             'user_id'           => 1,
             'banco_id'          => 1,
-            'monto'             => 10,
+            'monto'             => 3,
             'tipo'              => 'Deposito de garantia Pedro',
             'descripcion'       => 'Deposito de la Garantia testeos Pedro',
             'boucher'           => '',

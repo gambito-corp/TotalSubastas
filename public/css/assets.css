@@ -57,7 +57,7 @@ body::-webkit-scrollbar-track {
 /* scrollbar itself */
 body::-webkit-scrollbar-thumb {
     background-color: #808080;
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 /* set button(top and bottom of the scrollbar) */
 body::-webkit-scrollbar-button {
@@ -729,7 +729,7 @@ article.sec-carousel {
     font-family: var(--var-font-family);
     font-weight: 500;
     font-size: 12.5px;
-    
+
     padding: 0;
 }
 .d_sheet-card {
@@ -1500,22 +1500,22 @@ article.sec-carousel {
 .scroll-account::-webkit-scrollbar {
     width: 5px;
   }
-  
+
   /* Track */
   .scroll-account::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
   }
-   
+
   /* Handle */
   .scroll-account::-webkit-scrollbar-thumb {
-    background: #808080; 
+    background: #808080;
     border-radius: 10px;
   }
   .row-width {
       width: 100%;
   }
-:root { 
+:root {
   --var-to_buy: #3dc47e;
   --var-carousel-item: #ffd980;
   --var-primary: #4592ff;
@@ -1970,7 +1970,7 @@ article.sec-carousel {
         height: 0;
         border-left: 6px solid transparent;
         border-right: 6px solid transparent;
-        border-bottom: 6px solid #be2626; 
+        border-bottom: 6px solid #be2626;
 }
 
 
@@ -1995,7 +1995,7 @@ body{
 
 }
 .container-header-left{
-	
+
 	width: 300px;
 	padding-top: 29px;
 }
@@ -2066,7 +2066,7 @@ input:focus{
 	min-width: 140px;
 }
 .container-image-subasta{
-	height: 140px;
+	height: 200px;
 	overflow: hidden;
 	border-radius: 5px;
 	position: relative;
@@ -2221,7 +2221,7 @@ input:focus{
 	font-style: italic;
 }
 #categorias .side-nav{
-	
+
 }
 .container-caja-aside{
 	padding-right: 0;
@@ -2382,7 +2382,7 @@ label{
 }
 .btn-tipo-usuario:hover{
 	box-shadow: 0 0 12px 0px rgba(0,0,0,0.1);
-	   
+
 }
 .btn-tipo-usuario:focus{
 	outline: 0;
@@ -2411,7 +2411,7 @@ label{
 	}
 	.container-datos-precio-ts{
 		padding-left: 0;
-		padding-right: 0; 
+		padding-right: 0;
 	}
 	.data_sheet-d_sm-text{
 		margin-bottom: 5px !important;
@@ -2487,6 +2487,6 @@ label{
 	.container-banner-responsive, .container-slider-banner{
 		padding: 0 15px !important;
 	}
-	
 
-}	
+
+}
