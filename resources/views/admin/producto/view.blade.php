@@ -49,7 +49,7 @@
                                 <td>{{$dat->id}}</td>
                                 <td>{{$dat->Empresa->nombre}}</td>
                                 <td>{{$dat->Lote->nombre}}</td>
-                                <td>{{$dat->Usuario->name}}</td>
+                                <td>{{$dat->Usuario->isAdmin()?'admin':$dat->Usuario->name}}</td>
                                 <td>{{$dat->ciudad}}</td>
                                 <td>{{$dat->tipo_vehiculo}}</td>
                                 <td>{{$dat->tipo_subasta}}</td>
