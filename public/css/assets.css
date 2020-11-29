@@ -2066,7 +2066,7 @@ input:focus{
 	min-width: 140px;
 /*Caja de imagenes de vehiculos*/
 .container-image-subasta{
-	height: 200px;
+	height: 140px;
 	overflow: hidden;
 	border-radius: 5px;
 	position: relative;
