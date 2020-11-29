@@ -2060,13 +2060,13 @@ input:focus{
 .rounded-pill{
 	border-radius: 14px;
 }
-.btn-subasta{
-	height: 30px;
-	border-radius: 14px;
-	min-width: 140px;
-/*Caja de imagenes de vehiculos*/
+.btn-subasta {
+    height: 30px;
+    border-radius: 14px;
+    min-width: 140px;
+}
 .container-image-subasta{
-	height: 140px;
+	height: 200px;
 	overflow: hidden;
 	border-radius: 5px;
 	position: relative;
