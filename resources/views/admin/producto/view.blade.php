@@ -49,7 +49,7 @@
                                 <td>{{$dat->id}}</td>
                                 <td>{{$dat->Empresa->nombre}}</td>
                                 <td>{{$dat->Lote->nombre}}</td>
-                                <td>{{$dat->Usuario->isAdmin()?'admin':$dat->Usuario->name}}</td>
+                                <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                                 <td>{{$dat->ciudad}}</td>
                                 <td>{{$dat->tipo_vehiculo}}</td>
                                 <td>{{$dat->tipo_subasta}}</td>
@@ -158,12 +158,11 @@
                     </tr>
                     </thead>
                     <tbody>
-
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Lote->nombre}}</td>
-                            <td>{{$dat->Usuario->name}}</td>
+                            <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                             <td>{{$dat->ciudad}}</td>
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
@@ -181,11 +180,9 @@
                             <td>{{$dat->comision}}%</td>
                             <td>{{$dat->started_at}}</td>
                             <td>{{$dat->finalized_at}}</td>
-
                         </tr>
                     @empty
                         <tr>
-                            <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -223,10 +220,6 @@
                         <th>comision</th>
                         <th>Subasta inicia</th>
                         <th>Subasta Finaliza</th>
-                        @isset($trash)
-                            <th>Borrado Hace</th>
-                        @endisset
-                        <th>Acciones</th>
                     </tr>
                     </tfoot>
                 </table>
