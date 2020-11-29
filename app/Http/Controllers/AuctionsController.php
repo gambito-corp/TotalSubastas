@@ -106,6 +106,7 @@ class AuctionsController extends Controller
         if($activo) {
             $pujo = Message::where('user_id', $activo->user_id)->whereBetween('created_at', [$producto->started_at->sub(15, 'Minutes'), $producto->finalized_at])->first();
             // devolver o retener garantia en cuestion de las acciones tomadas por el usuario
+            //TODO: Checar porque es 0
             Garantia::where('user_id', Auth::id())->where('producto_id', $producto->id)->delete();
             $balance = Balance::where('user_id', Auth::id())->first();
             $balance->monto += $producto->garantia;
