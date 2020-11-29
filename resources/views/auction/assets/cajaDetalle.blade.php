@@ -139,7 +139,7 @@
 {{--            </div>--}}
 {{--          </div>--}}
 {{--        </div>--}}
-        <div class="tab-pane fade  p-4 " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="tab-pane p-4 " id="contact" role="tabpanel" aria-labelledby="contact-tab">
             {!!$producto->Vehiculo != null? $producto->Vehiculo->terminos: ''!!}
         </div>
       </div>
