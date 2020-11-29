@@ -28,7 +28,7 @@
             </div>
             <div class="col-12 col-md-3 col-sm-12 col-xs-12 no-padding-responsive">
                 <button class="btn btn-block btn-outline-dark text-light btn-outline-light_b data_sheet-d_sm-text">
-                    {{$comision}} %
+                    {{$comision}}%
                 </button>
             </div>
             <div class="col-12 col-md-3 col-sm-12 col-xs-12 text-light text-s_gd-sheet offset-md-1">
@@ -43,7 +43,7 @@
         <div class="row-cols-2">
             <div class="col"></div>
         </div>
-        
+
         <div class="row pt-3">
             <!--<figure>-->
             <div class="col-md-3 no-padding-responsive">
@@ -55,6 +55,6 @@
                 <h5 class="my-auto">{{$year}}</h5>
             </div>
         </div>
-        
+
     </div>
 </div>

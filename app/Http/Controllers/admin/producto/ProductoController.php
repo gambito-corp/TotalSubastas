@@ -97,7 +97,7 @@ class ProductoController extends Controller
             'precio_reserva'    => 'required',
             'garantia'          => 'required',
             'puja'              => 'required',
-            'comision'          => 'required',
+            'comision'          => 'required|integer',
             'started_at'        => 'required',
             'finalized_at'      => 'required'
         ]);
@@ -198,7 +198,7 @@ class ProductoController extends Controller
             'precio_reserva'    => 'required',
             'garantia'          => 'required',
             'puja'              => 'required',
-            'comision'          => 'required',
+            'comision'          => 'required|integer',
         ]);
 
         $lote_id = $request->input('lote_id');
