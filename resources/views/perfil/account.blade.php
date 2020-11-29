@@ -274,7 +274,7 @@
                                         </div>
                                     @empty
                                         <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                            <h2 class="text-darken">Ho hay un registro</h2>
+                                            <h2 class="text-darken">Todo Al Dia</h2>
                                         </div>
                                     @endforelse
 
