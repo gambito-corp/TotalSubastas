@@ -39,14 +39,15 @@ class AuctionsController extends Controller
 
     public function show()
     {
-        $producto = Gambito::obtenerProducto()->load('Vehiculo');
+        $producto = Gambito::obtenerProducto()->load('Vehiculo', 'Empresa');
         $documentos = DocumentosVehiculo::with('Empresa', 'Lote', 'Producto')
             ->where('producto_id', $producto->id)->first();
         $referidos = Producto::where('lote_id', $producto->lote_id)
             ->where('finalized_at', '>', now())
             ->where('id', '!=', $producto->id)
             ->get();
-        $empresa = Company::find($producto->empresa_id)->pluck('nombre')->first();
+        $empresa = Company::where('id', $producto->empresa_id)->first();
+        $empresa = $empresa->nombre;
         $fecha = Lot::find($producto->lote_id)->pluck('subasta_at')->first()->format('M-d g:i A');
         $resultados = Ranking::with('Usuario')->where('producto_id', $producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
         return view('auction.show', compact('producto', 'documentos', 'referidos', 'empresa', 'fecha', 'resultados'));
