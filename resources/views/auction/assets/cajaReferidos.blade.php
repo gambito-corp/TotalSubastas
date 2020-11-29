@@ -15,16 +15,6 @@
               <i class="fas fa-clock nav-content_text"></i>
               <span class="ml-3"> {{$fecha}}</span>
             </h2>
-            <article class="ml-3">
-              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-light active">
-                  <i class="fas fa-caret-left"></i>
-                </label>
-                <label class="btn btn-light">
-                  <i class="fas fa-caret-right"></i>
-                </label>
-              </div>
-            </article>
           </div>
         </nav>
       </div>
