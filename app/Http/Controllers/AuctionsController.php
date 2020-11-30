@@ -146,22 +146,32 @@ class AuctionsController extends Controller
         if ($auction->ganador_id == Auth::id()){
             $message = 'Felicidades quedaste en primer puesto en la subasta';
             $alerta = 'success';
+            $ruta = 'index';
+            dump('ganador', $message, $alerta, $ruta);
         }
         if($auction->segundo_id == Auth::id()) {
             $message = 'Felicidades quedaste en segundo puesto en la subasta, en caso el primer puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
+            $ruta = 'index';
+            dump('segundo', $message, $alerta, $ruta);
         }
         if($auction->tercero_id == Auth::id()) {
             $message = 'Felicidades quedaste en tercer puesto en la subasta, en caso el segundo puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
+            $ruta = 'index';
+            dump('tercero', $message, $alerta, $ruta);
         }
         if($auction->cuarto_id == Auth::id()) {
             $message = 'Felicidades quedaste en cuarto puesto en la subasta, en caso el tercer puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
+            $ruta = 'index';
+            dump('cuarto', $message, $alerta, $ruta);
         }
         if(($auction->ganador_id||$auction->segundo_id||$auction->tercero_id||$auction->cuarto_id) != Auth::id()){
             $message = 'estimado lamentablemente no quedaste en un puesto del ranking, no obstante singue cazando ofertas, tu garantia fue liberada';
             $alerta = 'danger';
+            $ruta = 'index';
+            dump('perdedor', $message, $alerta, $ruta);
         }
         return redirect()->route('index')->with([
             'message' => $message,
