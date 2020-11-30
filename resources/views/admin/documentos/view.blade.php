@@ -42,9 +42,6 @@
                 </thead>
                 <tbody>
                     @forelse($data as $key => $dat)
-                        <?php
-                            dd($dat);
-                        ?>
                         <tr>
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Empresa->nombre}}</td>
