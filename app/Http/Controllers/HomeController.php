@@ -11,6 +11,7 @@ use App\Garantia;
 use App\Helpers\Gambito;
 use App\Message;
 use App\Producto;
+use App\Ranking;
 use App\Ranking as Rank;
 use App\Slide;
 use App\User;

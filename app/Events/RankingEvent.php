@@ -31,7 +31,8 @@ class RankingEvent implements ShouldBroadcastNow
             'user_id' => Auth::id()
         ],
             [
-                'cantidad' => \DB::raw('cantidad + 1')
+                'cantidad' => \DB::raw('cantidad + 1'),
+                'monto' => $this->producto->precio
             ]
         );
         $this->ranking = Rank::with('Usuario')->where('producto_id', $this->producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();

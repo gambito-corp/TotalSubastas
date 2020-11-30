@@ -123,18 +123,22 @@ class AuctionsController extends Controller
             ]);
             $auction = Auction::where('producto_id', $producto->id)->first();
         }
-        $resultados = Ranking::where('producto_id', $producto->id)->get();
+        $resultados = Ranking::where('producto_id', $producto->id)->orderBy('monto', 'desc')->get()->take(4);
+
         if(isset($resultados[0])){
-            $auction->ganador_id = $resultados[0]['user_id'];
+            $auction->ganador_id = $resultados[0]->user_id;
         }
+
         if(isset($resultados[1])){
-            $auction->segundo_id = $resultados[1]['user_id'];
+            $auction->segundo_id = $resultados[1]->user_id;
         }
+
         if(isset($resultados[2])){
-            $auction->tercero_id = $resultados[2]['user_id'];
+            $auction->tercero_id = $resultados[2]->user_id;
         }
+
         if(isset($resultados[3])){
-            $auction->cuarto_id = $resultados[3]['user_id'];
+            $auction->cuarto_id = $resultados[3]->user_id;
         }
 
         $auction->update();
