@@ -39,14 +39,15 @@ class AuctionsController extends Controller
 
     public function show()
     {
-        $producto = Gambito::obtenerProducto()->load('Vehiculo');
+        $producto = Gambito::obtenerProducto()->load('Vehiculo', 'Empresa');
         $documentos = DocumentosVehiculo::with('Empresa', 'Lote', 'Producto')
             ->where('producto_id', $producto->id)->first();
         $referidos = Producto::where('lote_id', $producto->lote_id)
             ->where('finalized_at', '>', now())
             ->where('id', '!=', $producto->id)
             ->get();
-        $empresa = Company::find($producto->empresa_id)->pluck('nombre')->first();
+        $empresa = Company::where('id', $producto->empresa_id)->first();
+        $empresa = $empresa->nombre;
         $fecha = Lot::find($producto->lote_id)->pluck('subasta_at')->first()->format('M-d g:i A');
         $resultados = Ranking::with('Usuario')->where('producto_id', $producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
         return view('auction.show', compact('producto', 'documentos', 'referidos', 'empresa', 'fecha', 'resultados'));
@@ -106,6 +107,7 @@ class AuctionsController extends Controller
         if($activo) {
             $pujo = Message::where('user_id', $activo->user_id)->whereBetween('created_at', [$producto->started_at->sub(15, 'Minutes'), $producto->finalized_at])->first();
             // devolver o retener garantia en cuestion de las acciones tomadas por el usuario
+            //TODO: Checar porque es 0
             Garantia::where('user_id', Auth::id())->where('producto_id', $producto->id)->delete();
             $balance = Balance::where('user_id', Auth::id())->first();
             $balance->monto += $producto->garantia;
@@ -116,6 +118,7 @@ class AuctionsController extends Controller
             ->orderBy('message', 'desc')//Revisar en caso de queja
             ->get()
             ->groupBy('user_id');
+        dd($ganadores);
         foreach($ganadores as $key => $win){
             $llave[$i] = $key;
             $i++;
@@ -179,8 +182,4 @@ class AuctionsController extends Controller
             'alerta' => 'danger'
         ]);
     }
-
-
-
-
 }

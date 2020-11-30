@@ -47,6 +47,15 @@ class DocumentosVehiculo extends Model
     ];
 
     //RELACIONES
+    public function Empresa_manual(DocumentosVehiculo $documento)
+    {
+        $empresa_id = $documento->empresa_id;
+        $empresa = Company::where('id', $empresa_id)->first();
+        dd('holi', $empresa_id, $empresa);
+    }
+
+
+
     public function Empresa()
     {
         return $this->belongsTo(Company::class, 'empresa_id');

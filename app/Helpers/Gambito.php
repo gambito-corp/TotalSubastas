@@ -4,14 +4,15 @@
 namespace App\Helpers;
 
 
+
 use App\Balance;
 use App\Garantia;
 use App\Message;
 use App\Producto;
-use App\User;
 use App\VehicleDetail;
 use Hashids\Hashids;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class Gambito
@@ -31,7 +32,15 @@ class Gambito
     // METODOS DE SELECT
     public static function obtenerProducto($id = null)
     {
-        return Producto::where('id', is_null($id) ? self::hash(request()->route()->parameter('id'),true): $id)->with('Usuario')->first();
+        return Producto::with('Usuario')
+            ->whereId(is_null($id) ? self::hash(request()->route()->parameter('id'),true): $id)
+            ->firstOrFail();
+    }
+
+    public static function obtenerVehiculo($id = null)
+    {
+        $data = VehicleDetail::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->firstOrFail();
+        return $data;
     }
 
     public static function checkBalance()
@@ -44,11 +53,6 @@ class Gambito
         return $ranking
             ? self::generarRanking($id)
             : Message::with('Usuario')->where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->get();
-    }
-
-    public static function obtenerVehiculo($id = null)
-    {
-        return VehicleDetail::where('producto_id', is_null($id)?self::hash(request()->route()->parameter('id'), true):$id)->first();
     }
 
     //METODOS DE CREATE/UPDATE
@@ -180,5 +184,17 @@ class Gambito
         return $live
             ? [$producto, $mensaje]
             : $producto;
+    }
+
+    public function participar(Auth $usuario, Producto $producto)
+    {
+         //comprobar si existe Garantia
+        $garantia = Garantia::where('user_id', $usuario->id)->where('producto_id', $producto->id)->firstOrFail();
+
+         //sino existe garantia comprobar si saldo es superior a garantia vehiculo
+         //hacer descuento
+         //si no redirigir falta de saldo
+         //retornar estado o ruta en caso nulo
+
     }
 }

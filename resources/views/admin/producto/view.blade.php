@@ -11,15 +11,6 @@
     <a href="{{route('admin.producto.create')}}" class="btn btn-success btn-small">
         <i class="fas fa-plus-circle"></i> Crear
     </a>
-    @isset($trash)
-        <a href="{{route('admin.producto.index')}}" class="btn btn-info btn-small">
-            <i class="fas fa-eye"></i> Regresar
-        </a>
-    @else
-        <a href="{{route('admin.producto.trash')}}" class="btn btn-info btn-small">
-            <i class="fas fa-recycle"></i> Ver Borrados
-        </a>
-    @endisset
 @endsection
 @section('content')
     @if (auth()->user()->isAdmin())
@@ -31,6 +22,7 @@
                             <th>Id</th>
                             <th>Empresa</th>
                             <th>Lote</th>
+                            <th>Quien va Ganando</th>
                             <th>Ciudad</th>
                             <th>Tipo de Vehiculo</th>
                             <th>Tipo de Subasta</th>
@@ -57,6 +49,7 @@
                                 <td>{{$dat->id}}</td>
                                 <td>{{$dat->Empresa->nombre}}</td>
                                 <td>{{$dat->Lote->nombre}}</td>
+                                <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                                 <td>{{$dat->ciudad}}</td>
                                 <td>{{$dat->tipo_vehiculo}}</td>
                                 <td>{{$dat->tipo_subasta}}</td>
@@ -108,6 +101,7 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td>-</td>
+                                <td>-</td>
                             </tr>
                         @endforelse
                     </tbody>
@@ -116,6 +110,7 @@
                             <th>Id</th>
                             <th>Empresa</th>
                             <th>Lote</th>
+                            <th>Quien va Ganando</th>
                             <th>Ciudad</th>
                             <th>Tipo de Vehiculo</th>
                             <th>Tipo de Subasta</th>
@@ -146,6 +141,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Lote</th>
+                        <th>Quien va Ganando</th>
                         <th>Ciudad</th>
                         <th>Tipo de Vehiculo</th>
                         <th>Tipo de Subasta</th>
@@ -159,18 +155,14 @@
                         <th>comision</th>
                         <th>Subasta inicia</th>
                         <th>Subasta Finaliza</th>
-                        @isset($trash)
-                            <th>Borrado Hace</th>
-                        @endisset
-                        <th>Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
-
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->Lote->nombre}}</td>
+                            <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                             <td>{{$dat->ciudad}}</td>
                             <td>{{$dat->tipo_vehiculo}}</td>
                             <td>{{$dat->tipo_subasta}}</td>
@@ -188,23 +180,9 @@
                             <td>{{$dat->comision}}%</td>
                             <td>{{$dat->started_at}}</td>
                             <td>{{$dat->finalized_at}}</td>
-                            @isset($trash)
-                                <td>{{$dat->deleted_at}}</td>
-                            @endisset
-                            <td class="align-items-center">
-                                @isset($trash)
-                                    <a href="{{route('admin.producto.restore', ['id' => $dat->id])}}" class="btn btn-info btn-small"> <i class="fas fa-recycle"></i></a>
-                                    <a href="{{route('admin.producto.destroy', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
-                                @else
-                                    <a href="{{route('admin.producto.show', ['id' => $dat->id])}}" class="btn btn-warning btn-small text-light"><i class="fas fa-eye"></i></a>
-                                    <a href="{{route('admin.producto.edit', ['id' => $dat->id])}}" class="btn btn-info btn-small"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="{{route('admin.producto.delete', ['id' => $dat->id])}}" class="btn btn-danger btn-small"><i class="fas fa-trash-alt"></i></a>
-                                @endisset
-                            </td>
                         </tr>
                     @empty
                         <tr>
-                            <td>-</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -228,6 +206,7 @@
                     <tr>
                         <th>Id</th>
                         <th>Lote</th>
+                        <th>Quien va Ganando</th>
                         <th>Ciudad</th>
                         <th>Tipo de Vehiculo</th>
                         <th>Tipo de Subasta</th>
@@ -241,10 +220,6 @@
                         <th>comision</th>
                         <th>Subasta inicia</th>
                         <th>Subasta Finaliza</th>
-                        @isset($trash)
-                            <th>Borrado Hace</th>
-                        @endisset
-                        <th>Acciones</th>
                     </tr>
                     </tfoot>
                 </table>

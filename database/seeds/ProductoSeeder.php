@@ -28,7 +28,7 @@ class ProductoSeeder extends Seeder
             'garantia'          => 10,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => Carbon::now()->addMinutes(10),
+            'started_at'        => Carbon::now()->addMinutes(30),
             'finalized_at'      => Carbon::now()->addHours(3),
         ]);
     }

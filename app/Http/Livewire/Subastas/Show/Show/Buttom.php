@@ -91,7 +91,7 @@ class Buttom extends Component
         }
         $balance = Balance::where('user_id', Auth::id())->get();
         $balance_total = $balance->sum('monto');
-        if($balance && $balance_total > $this->producto->garantia){
+        if($balance && $balance_total >= $this->producto->garantia){
             $hola = Gambito::checkBalance();
             $return  = Gambito::descuentoGarantia($this->producto->id);
             $participacion = Participacion::where('user_id', Auth::id())

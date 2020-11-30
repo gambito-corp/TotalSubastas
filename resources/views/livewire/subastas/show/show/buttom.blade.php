@@ -16,10 +16,10 @@
         </div>
         <div class="row row-cols-4 mt-2">
             <div class="col-12 col-md-3 text-center col-sm-12 col-xs-12 text-s_gd-sheet">
-                comision
+                Comision
             </div>
             <div class="col-12 col-md-3 col-sm-12 col-xs-12">
-                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> {{$producto->comision}}
+                <button class="btn btn-block btn-outline-dark btn-outline-dark_b data_sheet-d_sm-text "> {{$producto->comision}}%
                 </button>
             </div>
             <div class="col-12 col-md-3  text-center col-sm-12 col-xs-12 text-s_gd-sheet">

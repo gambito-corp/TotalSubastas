@@ -2,8 +2,10 @@
 @auth
     @php
         $id = \App\LegalPerson::where('user_id', auth()->user()->id)->first();
-        $participacion = \App\Participacion::where('producto_id', $producto->id)->where('user_id', auth()->id())->first();
-        if (is_null($participacion)||(!is_null($participacion) && $participacion->participacion <=1) ) {
+        $garantia = \App\Garantia::where('user_id', auth()->id())
+        ->where('producto_id', $producto->id)
+        ->first();
+        if (is_null($garantia)) {
             $estado = 'participar';
         }
     @endphp

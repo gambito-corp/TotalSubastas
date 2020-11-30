@@ -87,7 +87,7 @@ class PerfilController extends Controller
                 $query->where('user_id', $id)
                     ->where('finalized_at', '<', now());
             })->with('Productos')->get();
-        $garantiaDetail = Balance::where('user_id', $id)->get();
+        $garantiaDetail = Balance::where('user_id', $id)->where('aprobado',0)->get();
         return view('perfil.account', compact('data', 'audit', 'balance', 'garantia', 'likes', 'ofertas', 'participacion', 'activas', 'pasadas', 'ganando','ganadas', 'garantiaDetail'));
     }
 

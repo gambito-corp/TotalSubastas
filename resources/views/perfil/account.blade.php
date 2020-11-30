@@ -165,8 +165,9 @@
                                         @forelse($pasadas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
                                                 <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
-                                                    <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
-                                                     height="70" class="mx-2 my-auto">
+                                                    @isset($producto->Productos->imagen)
+                                                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->Productos->id, 'ancho' => '70'])
+                                                    @endisset
                                                 </div>
                                                 <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
@@ -194,8 +195,9 @@
                                         @forelse($ganando as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
                                                 <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
-                                                <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
-                                                     height="70" class="mx-2 my-auto">
+                                                    @isset($producto->Productos->imagen)
+                                                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->Productos->id, 'ancho' => '70'])
+                                                    @endisset
                                                 </div>
                                                 <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
@@ -223,8 +225,9 @@
                                         @forelse($ganadas as $producto)
                                             <div class="media bg-light border-bottom border-radius-ts">
                                                 <div style="margin: 16px; border-radius: 5px; overflow: hidden;">
-                                                <img src="{{asset($producto->Productos->imagen)}}" alt="" width="70"
-                                                     height="70" class="mx-2 my-auto">
+                                                    @isset($producto->Productos->imagen)
+                                                        @include('assets.imagen', ['carpeta' => 'producto', 'id' => $producto->Productos->id, 'ancho' => '70'])
+                                                    @endisset
                                                 </div>
                                                 <div class="media-body pb-3">
                                                     <div class="mt-3 m-acc_text">
@@ -246,7 +249,7 @@
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-sm-12 col-xs-12 m-acc_text pt-5 pr-0 pl-0">
-                            <h2 class="text-darken pb-3 border-top pt-5">Garantias Depositadas</h2>
+                            <h2 class="text-darken pb-3 border-top pt-5">Garantias Pendientes de Aprobacion</h2>
                             <div class="col-12 pl-0 pr-0 col-md-12 col-sm-12 col-xs-12 live-push_action-floating">
                                 <div class="mb-5 scroll-account">
                                     @forelse($garantiaDetail as $detail)
@@ -271,7 +274,7 @@
                                         </div>
                                     @empty
                                         <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
-                                            <h2 class="text-darken">Ho hay un registro</h2>
+                                            <h2 class="text-darken">Todo Al Dia</h2>
                                         </div>
                                     @endforelse
 
