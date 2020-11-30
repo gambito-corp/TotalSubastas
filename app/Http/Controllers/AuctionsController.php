@@ -173,6 +173,7 @@ class AuctionsController extends Controller
             $ruta = 'index';
             dump('perdedor', $message, $alerta, $ruta);
         }
+        die();
         return redirect()->route('index')->with([
             'message' => $message,
             'alerta' => $alerta
