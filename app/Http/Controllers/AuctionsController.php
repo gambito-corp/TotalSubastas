@@ -144,31 +144,25 @@ class AuctionsController extends Controller
         $auction->update();
 
         if ($auction->ganador_id == Auth::id()){
-            return redirect()->route('index')->with([
-                'message' => 'Felicidades quedaste en primer puesto en la subasta',
-                'alerta' => 'success'
-            ]);
+            $message = 'Felicidades quedaste en primer puesto en la subasta';
+            $alerta = 'success';
         }elseif($auction->segundo_id == Auth::id()) {
-            return redirect()->route('index')->with([
-                'message' => 'Felicidades quedaste en segundo puesto en la subasta, en caso el primer puesto no cumpla su trato el vehiculo te sera otorgado',
-                'alerta' => 'success'
-            ]);
+            $message = 'Felicidades quedaste en segundo puesto en la subasta, en caso el primer puesto no cumpla su trato el vehiculo te sera otorgado';
+            $alerta = 'success';
         }elseif($auction->tercero_id == Auth::id()) {
-            return redirect()->route('index')->with([
-                'message' => 'Felicidades quedaste en tercer puesto en la subasta, en caso el segundo puesto no cumpla su trato el vehiculo te sera otorgado',
-                'alerta' => 'success'
-            ]);
+            $message = 'Felicidades quedaste en tercer puesto en la subasta, en caso el segundo puesto no cumpla su trato el vehiculo te sera otorgado';
+            $alerta = 'success';
         }elseif($auction->cuarto_id == Auth::id()) {
-            return redirect()->route('index')->with([
-                'message' => 'Felicidades quedaste en cuarto puesto en la subasta, en caso el tercer puesto no cumpla su trato el vehiculo te sera otorgado',
-                'alerta' => 'success'
-            ]);
+            $message = 'Felicidades quedaste en cuarto puesto en la subasta, en caso el tercer puesto no cumpla su trato el vehiculo te sera otorgado';
+            $alerta = 'success';
         }else{
-            return redirect()->route('index')->with([
-                'message' => 'estimado lamentablemente no quedaste en un puesto del ranking, no obstante singue cazando ofertas, tu garantia fue liberada',
-                'alerta' => 'danger'
-            ]);
+            $message = 'estimado lamentablemente no quedaste en un puesto del ranking, no obstante singue cazando ofertas, tu garantia fue liberada';
+            $alerta = 'danger';
         }
+        return redirect()->route('index')->with([
+            'message' => $message,
+            'alerta' => $alerta
+        ]);
     }
 
     public function noBalance()
