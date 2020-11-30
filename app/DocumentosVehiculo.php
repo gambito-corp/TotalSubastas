@@ -49,6 +49,7 @@ class DocumentosVehiculo extends Model
     //RELACIONES
     public function Empresa()
     {
+        dd('holi');
         return $this->belongsTo(Company::class, 'empresa_id');
     }
 
