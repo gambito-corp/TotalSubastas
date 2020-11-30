@@ -11,4 +11,8 @@
             {{ $message }}
         </div>
     </div>
+    @php
+        sleep(5);
+        return redirect()->route('index');
+    @endphp
 @endisset
