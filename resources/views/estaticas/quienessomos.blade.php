@@ -56,7 +56,7 @@
                             cap</text>
                     </svg> -->
                     <!-- <div class="tyclateral"></div> -->
-                    <img src="../img/ter_condic.png" alt="" class="tyclateral radius img100">
+                    <img src="../img/jirafa.png" alt="" class="tyclateral radius img100">
                     <div class="card-body pl-0 pr-0">
                         <p class="card-text card-text--estaticas">Esta guía te dara los 4 simples pasos para poder encontrar tu auto y dar tu mejor oferta, aprovecha la oportunidad de obtener un auto a un precio mucho más bajo que el mercado.
                         </p>
