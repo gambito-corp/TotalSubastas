@@ -200,11 +200,11 @@
                 <div class="col-12" style="height:200px; overflow: auto;">
                     @forelse($resultados as $resultado)
 {{--                        @dump($resultado)--}}
-                        <div class="col-12 pt-2 d-flex pb-2  border-bottom ">
+                        <div class="row pt-2  pb-2  border-bottom ">
                             <div class="col-md-4 text-darken font-weight-normal">
                                 {{$contador++}}
                             </div>
-                            <div class="col-md-4 text-darken font-weight-normal">
+                            <div class="col-md-4 text-darken font-weight-normal usuario-puja-subasta">
                                 {{end($resultado)['usuario']['name']}}
                             </div>
                             <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text">
