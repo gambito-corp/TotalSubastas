@@ -27,6 +27,37 @@ class HomeController extends Controller
         $this->middleware('auth')->except(['index', 'contacto', 'sendmail']);
     }
 
+    public function campeon()
+    {
+        $message = 'Felicidades quedaste en primer puesto en la subasta';
+        $alerta = 'success';
+        return view('home.index', compact('message', 'alerta'));
+    }
+    public function segundo()
+    {
+        $message = 'Felicidades quedaste en segundo puesto en la subasta, en caso el primer puesto no cumpla su trato el vehiculo te sera otorgado';
+        $alerta = 'success';
+        return view('home.index', compact('message', 'alerta'));
+    }
+    public function tercero()
+    {
+        $message = 'Felicidades quedaste en tercer puesto en la subasta, en caso el segundo puesto no cumpla su trato el vehiculo te sera otorgado';
+        $alerta = 'success';
+        return view('home.index', compact('message', 'alerta'));
+    }
+    public function cuarto()
+    {
+        $message = 'Felicidades quedaste en cuarto puesto en la subasta, en caso el tercer puesto no cumpla su trato el vehiculo te sera otorgado';
+        $alerta = 'success';
+        return view('home.index', compact('message', 'alerta'));
+    }
+    public function quinto()
+    {
+        $message = 'estimado lamentablemente no quedaste en un puesto del ranking, no obstante singue cazando ofertas, tu garantia fue liberada';
+        $alerta = 'danger';
+        return view('home.index', compact('message', 'alerta'));
+    }
+
     public function index()
     {
 

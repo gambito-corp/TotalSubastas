@@ -5,6 +5,13 @@ use Illuminate\Support\Facades\Route;
 
 //Index
 Route::get('/', 'HomeController@index')->name('index');
+//Victoria
+
+route::get('campeon', 'HomeController@campeon')->name('campeon');
+route::get('segundo', 'HomeController@segundo')->name('segundo');
+route::get('tercero', 'HomeController@tercero')->name('tercero');
+route::get('cuarto', 'HomeController@cuarto')->name('cuarto');
+route::get('quinto', 'HomeController@quinto')->name('quinto');
 Route::get('/contacto', 'HomeController@contacto')->name('contacto');
 
 //Vistas Estaticas
