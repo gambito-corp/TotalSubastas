@@ -46,7 +46,11 @@
                                             <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>
                                             <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
                                         </span>
-                                        <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
+                                        <span wire:click="addLike({{$dato->id}})" wire:model="like">
+                                            <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
+                                            <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
+                                        </span>
+
                                         <div class="image-subasta">
                                             @isset($dato->imagen)
                                             @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '180' ])
