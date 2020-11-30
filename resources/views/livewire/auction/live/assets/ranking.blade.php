@@ -49,10 +49,10 @@
             {{now()}}
         </div>
         <article class="border-bottom text-center">
-            <h5 class="text-uppercase ranking_live">ranking</h5>
+            <h5 class="text-uppercase ranking_live">Top de Pujas</h5>
         </article>
     </div>
-    
+
 
     <div class="col-12 text-center pl-0 pr-0">
         <div class="col-12 pt-2 d-flex pb-2 pl-0 pr-0 border-bottom" style="margin-bottom: 5px;">
@@ -92,8 +92,8 @@
                     </div>
                 @endforelse
             </div>
-            
+
         </div>
-        
+
     </div>
 </div>
