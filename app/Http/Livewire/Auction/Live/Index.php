@@ -11,6 +11,7 @@ use App\Helpers\Gambito;
 use App\ImagenesVehiculo;
 use App\Message;
 use App\Producto;
+use App\Ranking;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -50,7 +51,8 @@ class Index extends Component
 
     public function pujar()
     {
-        dd(event(new RankingEvent($this->producto)));
+        $orden = Ranking::where('producto_id', $this->producto->id)->get();
+        dd($orden);
         if(now()->toTimeString() <= $this->producto->finalized_at->toTimeString() || $this->producto->user_id != Auth::id()){
             $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
             $mensaje = intval($this->producto->precio + $this->producto->puja);
