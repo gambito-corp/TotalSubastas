@@ -123,8 +123,7 @@ class AuctionsController extends Controller
             ]);
             $auction = Auction::where('producto_id', $producto->id)->first();
         }
-        $event = event(new RankingEvent($producto));
-        $resultados = $event['ranking'];
+        $resultados = Ranking::where('producto_id', $this->producto->id)->get();
         if(isset($resultados[0])){
             $auction->ganador_id = $resultados[0]['user_id'];
         }
