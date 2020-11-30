@@ -42,20 +42,22 @@
                             <div class="col-md-4 col-sm-6 col-xs-12 item-subasta">
                                 <div class="card mb-4 pub-item_cont">
                                     <article class="pub-item_head container-image-subasta">
-                                        <span wire:click="addLike({{$dato->id}})" wire:model="like">
-                                            <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>
-                                            <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
-                                        </span>
-                                        <span wire:click="addLike({{$dato->id}})" wire:model="like">
-                                            <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                            <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
-                                        </span>
+                                        <a href="{!!route('subastaOnline', ['id' => $dato->hash($dato->id)])!!}">
+                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">
+                                                <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>
+                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
+                                            </span>
+                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">
+                                                <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
+                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
+                                            </span>
 
-                                        <div class="image-subasta">
-                                            @isset($dato->imagen)
-                                            @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '180' ])
-                                            @endisset
-                                        </div>
+                                            <div class="image-subasta">
+                                                @isset($dato->imagen)
+                                                @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '180' ])
+                                                @endisset
+                                            </div>
+                                        </a>
 
                                     </article>
                                     <div class="card-body justify-content-center">
