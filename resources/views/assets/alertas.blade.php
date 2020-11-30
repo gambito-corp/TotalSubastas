@@ -11,4 +11,7 @@
             {{ $message }}
         </div>
     </div>
+    @php
+        header("Location: http://www.totalsubastas.com");
+    @endphp
 @endisset
