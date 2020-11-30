@@ -11,8 +11,4 @@
             {{ $message }}
         </div>
     </div>
-   <?php
-header('Location: [http://www.totalsubastas.com) http://totalsubastas.com/')]);
-exit;
-?>
 @endisset
