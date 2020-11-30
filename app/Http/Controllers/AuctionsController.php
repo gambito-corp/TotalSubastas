@@ -163,7 +163,6 @@ class AuctionsController extends Controller
             $ruta = 'quinto';
             dump($ruta);
         }
-        die();
         return redirect()->route($ruta);
     }
 
