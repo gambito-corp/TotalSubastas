@@ -10,11 +10,7 @@ use Livewire\Component;
 class Ranking extends Component
 {
     public $resultados;
-
     public $identificador;
-    /**
-     * @var mixed
-     */
     public $producto;
 
     public function mount($identificador)
@@ -42,7 +38,6 @@ class Ranking extends Component
     public function orden($event)
     {
         $this->resultados = $event['ranking'];
-        dd($this->resultados);
     }
 
     public function foo()

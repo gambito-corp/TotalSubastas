@@ -7,6 +7,7 @@ use App\Auction;
 use App\Balance;
 use App\Company;
 use App\DocumentosVehiculo;
+use App\Events\RankingEvent;
 use App\Events\SubastaEvent;
 use App\Garantia;
 use App\Helpers\Gambito;
@@ -114,14 +115,6 @@ class AuctionsController extends Controller
             $balance->update();
         }
         // nombrar del 1ª al 4ª puesto
-        $ganadores = Message::where('producto_id', $producto->id)
-            ->orderBy('message', 'desc')//Revisar en caso de queja
-            ->get()
-            ->groupBy('user_id');
-        foreach($ganadores as $key => $win){
-            $llave[$i] = $key;
-            $i++;
-        }
         $auction = Auction::where('producto_id', $producto->id)->first();
 
         if(!$auction){
@@ -130,18 +123,19 @@ class AuctionsController extends Controller
             ]);
             $auction = Auction::where('producto_id', $producto->id)->first();
         }
-
-        if(isset($llave[0])){
-            $auction->ganador_id = $llave[0];
+        $event = event(new RankingEvent($producto));
+        $resultados = $event['ranking'];
+        if(isset($resultados[0])){
+            $auction->ganador_id = $resultados[0]['user_id'];
         }
         if(isset($llave[1])){
-            $auction->segundo_id = $llave[1];
+            $auction->segundo_id = $resultados[1]['user_id'];
         }
         if(isset($llave[2])){
-            $auction->tercero_id = $llave[2];
+            $auction->tercero_id = $resultados[2]['user_id'];
         }
         if(isset($llave[3])){
-            $auction->cuarto_id = $llave[3];
+            $auction->cuarto_id = $resultados[3]['user_id'];
         }
 
         $auction->update();
