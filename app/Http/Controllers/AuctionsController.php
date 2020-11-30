@@ -145,23 +145,18 @@ class AuctionsController extends Controller
 
         if ($auction->ganador_id == Auth::id()){
             $ruta = 'campeon';
-            dump($ruta);
         }
         if($auction->segundo_id == Auth::id()) {
             $ruta = 'segundo';
-            dump($ruta);
         }
         if($auction->tercero_id == Auth::id()) {
             $ruta = 'tercero';
-            dump($ruta);
         }
         if($auction->cuarto_id == Auth::id()) {
             $ruta = 'cuarto';
-            dump($ruta);
         }
         if(($auction->ganador_id||$auction->segundo_id||$auction->tercero_id||$auction->cuarto_id) != Auth::id()){
             $ruta = 'quinto';
-            dump($ruta);
         }
         return redirect()->route($ruta);
     }
