@@ -118,7 +118,6 @@ class AuctionsController extends Controller
             ->orderBy('message', 'desc')//Revisar en caso de queja
             ->get()
             ->groupBy('user_id');
-        dd($ganadores);
         foreach($ganadores as $key => $win){
             $llave[$i] = $key;
             $i++;

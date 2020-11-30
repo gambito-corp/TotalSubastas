@@ -16,43 +16,15 @@ use Livewire\Component;
 
 class Index extends Component
 {
-    /**
-     * @var mixed
-     */
     public $producto;
-    /**
-     * @var bool|mixed
-     */
     public $estado;
-    /**
-     * @var mixed|string
-     */
     public $identificador;
-    /**
-     * @var mixed
-     */
     public $imagen;
-    /**
-     * @var bool|mixed
-     */
     public $vehiculo;
-    /**
-     * @var mixed
-     */
     public $hace;
-    /**
-     * @var \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|mixed
-     */
     public $mensajes;
-    /**
-     * @var bool|mixed
-     */
     public $end;
-    /**
-     * @var mixed|string
-     */
     public $mensaje;
-
     public $pictures;
 
 
