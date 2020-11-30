@@ -50,7 +50,8 @@ class Index extends Component
 
     public function pujar()
     {
-
+        $event = event(new RankingEvent($this->producto));
+        dd($event);
         if(now()->toTimeString() <= $this->producto->finalized_at->toTimeString() || $this->producto->user_id != Auth::id()){
             $this->estado = Gambito::checkEstado($this->producto, Auth::id(), true);
             $mensaje = intval($this->producto->precio + $this->producto->puja);
@@ -80,6 +81,7 @@ class Index extends Component
 
     public function render()
     {
+
         return view('livewire.auction.live.index');
     }
 }
