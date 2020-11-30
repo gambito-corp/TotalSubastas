@@ -146,16 +146,20 @@ class AuctionsController extends Controller
         if ($auction->ganador_id == Auth::id()){
             $message = 'Felicidades quedaste en primer puesto en la subasta';
             $alerta = 'success';
-        }elseif($auction->segundo_id == Auth::id()) {
+        }
+        if($auction->segundo_id == Auth::id()) {
             $message = 'Felicidades quedaste en segundo puesto en la subasta, en caso el primer puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
-        }elseif($auction->tercero_id == Auth::id()) {
+        }
+        if($auction->tercero_id == Auth::id()) {
             $message = 'Felicidades quedaste en tercer puesto en la subasta, en caso el segundo puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
-        }elseif($auction->cuarto_id == Auth::id()) {
+        }
+        if($auction->cuarto_id == Auth::id()) {
             $message = 'Felicidades quedaste en cuarto puesto en la subasta, en caso el tercer puesto no cumpla su trato el vehiculo te sera otorgado';
             $alerta = 'success';
-        }else{
+        }
+        if(($auction->ganador_id||$auction->segundo_id||$auction->tercero_id||$auction->cuarto_id) != Auth::id()){
             $message = 'estimado lamentablemente no quedaste en un puesto del ranking, no obstante singue cazando ofertas, tu garantia fue liberada';
             $alerta = 'danger';
         }
