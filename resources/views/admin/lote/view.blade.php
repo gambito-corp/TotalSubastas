@@ -43,7 +43,7 @@
                         @forelse($data as $key => $dat)
                             <tr>
                                 <td>{{$dat->id}}</td>
-                                <td>{{$dat->Empresa->nombre}}</td>
+                                <td>{{$dat->Empresa->nombre??'Empresa Borrada'}}</td>
                                 <td>{{$dat->nombre}}</td>
                                 <td>{!!$dat->descripcion!!}</td>
                                 <td>{{$dat->slug}}</td>

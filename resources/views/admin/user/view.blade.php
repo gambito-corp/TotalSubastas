@@ -49,7 +49,7 @@
                             {{$loop->iteration}}
                         </td>
                         <td>
-                           {{$user->Rol->name}}
+                           {{$user->Rol->name??'Rol Borrado'}}
                         </td>
                         <td>
                             {{$user->name}}

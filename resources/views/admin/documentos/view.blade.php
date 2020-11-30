@@ -44,9 +44,9 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Empresa->nombre}}</td>
-                            <td>{{$dat->Lote->nombre}}</td>
-                            <td>{{$dat->Producto->nombre}}</td>
+                            <td>{{$dat->Empresa->nombre ?? 'Empresa Borrada'}}</td>
+                            <td>{{$dat->Lote->nombre ?? 'Lote Borrado'}}</td>
+                            <td>{{$dat->Producto->nombre ?? 'Producto Borrado'}}</td>
                             <td>
                                 <a href="{{route('admin.documentos.descargar', ['id' => $dat->id, 'file' => Illuminate\Support\Str::slug($dat->titulo1, '-').'.pdf'])}}" class="btn btn-large pull-right btn-success">
                                     <i class="icon-download-alt"> </i>

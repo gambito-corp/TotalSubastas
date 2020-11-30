@@ -47,8 +47,8 @@
                             <tr>
 {{--                                $empresa--}}
                                 <td>{{$dat->id}}</td>
-                                <td>{{$dat->Empresa->nombre}}</td>
-                                <td>{{$dat->Lote->nombre}}</td>
+                                <td>{{$dat->Empresa->nombre??'Lote Borrado'}}</td>
+                                <td>{{$dat->Lote->nombre??'Lote Borrado'}}</td>
                                 <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                                 <td>{{$dat->ciudad}}</td>
                                 <td>{{$dat->tipo_vehiculo}}</td>
@@ -161,7 +161,7 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Lote->nombre}}</td>
+                            <td>{{$dat->Lote->nombre??'Lote Borrado'}}</td>
                             <td>{{$dat->Usuario->isAdmin()?'Admin':$dat->Usuario->name}}</td>
                             <td>{{$dat->ciudad}}</td>
                             <td>{{$dat->tipo_vehiculo}}</td>

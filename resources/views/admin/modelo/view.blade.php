@@ -43,7 +43,7 @@
                 @forelse($modelos as $key => $modelo)
 
                     <tr>
-                        <td>{{$modelo->Marca->nombre}}</td>
+                        <td>{{$modelo->Marca->nombre??'Marca Borrada'}}</td>
                         <td>{{$modelo->nombre}}</td>
                         <td>{{$modelo->slug}}</td>
                         @isset($trash)

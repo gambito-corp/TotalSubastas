@@ -44,8 +44,8 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Banco->siglas}}</td>
-                            <td>@if($dat->Direccion != null){{$dat->Direccion->titulo_direccion}}@endif</td>
+                            <td>{{$dat->Banco->siglas??'Banco Borrado'}}</td>
+                            <td>{{$dat->Direccion->titulo_direccion??'Direccion Borrada'}}</td>
                             <td>{{$dat->nombre}}</td>
                             <td>{{$dat->razon_social}}</td>
                             <td>{{$dat->ruc}}</td>

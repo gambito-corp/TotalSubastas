@@ -54,7 +54,7 @@
                     @forelse($data as $key => $dat)
                         <tr class="{{$dat->bDay() == 0? 'bg-success':''}}">
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Usuario->name}}</td>
+                            <td>{{$dat->Usuario->name??'Usuario Borrado'}}</td>
                             <td>
                             @isset($dat->Direccion)
                                 {{$dat->Direccion->titulo_direccion}}

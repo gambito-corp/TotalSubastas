@@ -86,39 +86,27 @@
                         <tr>
 
                             <td>
-                                @isset($dat->id)
-                                    {{ $dat->id }}
-                                @endisset
+                                {{ $dat->id }}
                             </td>
 
                             <td>
-                                @isset($dat->Empresa->nombre)
-                                    {{ $dat->Empresa->nombre }}
-                                @endisset
+                                {{ $dat->Empresa->nombre??'empresa Borrada' }}
                             </td>
 
                             <td>
-                                @isset($dat->Lote->nombre)
-                                    {{ $dat->Lote->nombre }}
-                                @endisset
+                                {{ $dat->Lote->nombre??'Lote Borrado' }}
                             </td>
 
                             <td>
-                                @isset($dat->Producto->nombre)
-                                    {{ $dat->Producto->nombre }}
-                                @endisset
+                                {{ $dat->Producto->nombre??'Producto Borrado' }}
                             </td>
 
                             <td>
-                                @isset($dat->Marca->nombre)
-                                    {{ $dat->Marca->nombre }}
-                                @endisset
+                                {{ $dat->Marca->nombre??'Marca Borrada' }}
                             </td>
 
                             <td>
-                                @isset($dat->Modelo->nombre)
-                                    {{ $dat->Modelo->nombre }}
-                                @endisset
+                                {{ $dat->Modelo->nombre??'Modelo Borrado' }}
                             </td>
 
                             <td>

@@ -46,8 +46,8 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->persona_juridica_id}}</td>
-                            <td>{{$dat->direccion_id}}</td>
+                            <td>{{$dat->Juridica->nombre?? 'Persona Juridica Borrada'}}</td>
+                            <td>{{$dat->Direccion->titulo_direccion?? 'Direccion Borrada'}}</td>
                             <td>{{$dat->nombre}}</td>
                             <td>{{$dat->razon_social}}</td>
                             <td>{{$dat->ruc}}</td>

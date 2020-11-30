@@ -49,7 +49,7 @@
                         <tr>
                             <td>{{$dat->id}}</td>
                             <td>{{$dat->aprobado?'Aprobado':'Espera o Rechazado'}}</td>
-                            <td>{{$dat->Usuario->name}}</td>
+                            <td>{{$dat->Usuario->name??'usuario borrado'}}</td>
                             <td>{{$dat->Banco->nombre}}</td>
                             <td>${{$dat->monto}}</td>
                             <td>{{$dat->tipo}}</td>

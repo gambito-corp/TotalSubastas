@@ -37,7 +37,7 @@
                     @forelse($data as $key => $dat)
                         <tr>
                             <td>{{$dat->id}}</td>
-                            <td>{{$dat->Usuario->name}}</td>
+                            <td>{{$dat->Usuario->name??'Usuario borrado'}}</td>
                             <td>{{$dat->ip}}</td>
                             <td>{{$dat->navegador}}</td>
                             @isset($trash)

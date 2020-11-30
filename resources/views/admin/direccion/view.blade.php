@@ -47,11 +47,11 @@
                 @forelse($direcciones as $direccion)
                     <tr>
                         <td>{{$direccion->id}}</td>
-                        <td>{{$direccion->Usuario->name}}</td>
-                        <td>{{$direccion->Pais->nombre}}</td>
-                        <td>{{$direccion->Departamento->nombre}}</td>
-                        <td>{{$direccion->Provincia->nombre}}</td>
-                        <td>{{$direccion->Distrito->nombre}}</td>
+                        <td>{{$direccion->Usuario->name??'Usuario borrado'}}</td>
+                        <td>{{$direccion->Pais->nombre??'Pais borrado'}}</td>
+                        <td>{{$direccion->Departamento->nombre??'Departamento borrado'}}</td>
+                        <td>{{$direccion->Provincia->nombre??'Provincia borrada'}}</td>
+                        <td>{{$direccion->Distrito->nombre??'Distrito borrado'}}</td>
                         <td>{{$direccion->direccion1}}</td>
                         <td>{{$direccion->referencia}}</td>
                         <td>{{$direccion->titulo_direccion}}</td>

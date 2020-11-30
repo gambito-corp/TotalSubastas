@@ -36,7 +36,7 @@
                 <tbody>
                     @forelse($data as $key => $dat)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{$dat->id}}</td>
                             @isset($trash)
                                 <td>{{$dat->deleted_at}}</td>
                             @endisset
