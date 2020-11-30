@@ -28,7 +28,7 @@ class DocumentosController extends Controller
     public function index()
     {
         $data = Data::with('Empresa', 'Lote', 'Producto')->get();
-        dd($data);
+//        dd($data[0]->empresa_manual($data[0]));
         if (Auth::user()->onlyEmpresa()) {
             $juridica = LegalPerson::where('user_id', Auth::id())->first();
             $company = Company::where('persona_juridica_id', $juridica->id)->first();
