@@ -6,5 +6,9 @@
     </div>
 @endif
 @isset($message)
-    @dump($message)
+    <div>
+        <div class="{{$alerta? 'alert alert-'.$alerta: ''}}">
+            {{ $message }}
+        </div>
+    </div>
 @endisset
