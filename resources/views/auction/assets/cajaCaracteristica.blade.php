@@ -3,7 +3,7 @@
     <div class="col-12 col-md-4 col-sm-12 col-xs-12 pl-0 pb-0">
       <div class="nav flex-column data_sheet-menu nav-pills" id="v-pills-tab" role="tablist"
         aria-orientation="vertical">
-        <a class="font-weight-bold border-bottom text-center p-3 text-uppercase">Caracteristicas</a>
+        <p class="font-weight-bold border-bottom text-center p-3 text-uppercase">Caracteristicas</p>
         <a class="d-sheet_link border-bottom  pb-5 active" id="v-pills-home-tab" data-toggle="pill"
           href="#v-pills-resumen" role="tab" aria-controls="v-pills-home" aria-selected="true">resumen
           <br> <img src="{{asset('assets/img/Trazado 1851.svg')}}" alt="" srcset="">

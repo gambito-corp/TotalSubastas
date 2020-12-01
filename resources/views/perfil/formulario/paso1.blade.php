@@ -1,5 +1,92 @@
 @extends('layouts.app')
 @section('content')
+    @push('styles')
+        <style>
+            #hide-nombre-comercial{
+                display:none;
+            }
+
+            #nombre-comercial:focus-visible ~ #hide-nombre-comercial{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+            #hide-razon_social{
+                display:none;
+            }
+
+            #razon-social:focus-visible ~ #hide-razon_social{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+            #hide-ruc{
+                display:none;
+            }
+
+            #ruc:focus-visible ~ #hide-ruc{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+            #hide-banco_id{
+                display:none;
+            }
+
+            #banco_id:focus-visible ~ #hide-banco_id{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+            #hide-numero-cuenta{
+                display:none;
+            }
+
+            #numero-cuenta:focus-visible ~ #hide-numero-cuenta{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+            #hide-telefono{
+                display:none;
+            }
+
+            #telefono:focus-visible ~ #hide-telefono{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+            #hide-email{
+                display:none;
+            }
+
+            #email:focus-visible ~ #hide-email{
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.4);
+                display:block;
+                color: green;
+            }
+
+        </style>
+    @endpush
     <div class="container-fluid">
         <div class="row">
             <div class="jumbotron jumbotron-top_container faq">
@@ -46,6 +133,10 @@
                                                 <input type="text" name="nombres"
                                                        class="form-control @error('nombres') is-invalid @enderror"
                                                        value="{{old('nombres')?old('nombres'):$data->nombres}}">
+{{--                                                        id="nombre">--}}
+{{--                                                <span class="valid-feedback" role="alert" >--}}
+{{--                                                    <strong id="hide-nombre">Introduce o Corrije Tu nombre</strong>--}}
+{{--                                                </span>--}}
                                                 @error('nombres')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -132,7 +223,11 @@
                                                 <label for="nombre" class="font-weight-semibold text-dark">Nombre Comercial</label>
                                                 <input type="text" name="nombre"
                                                        class="form-control @error('nombre') is-invalid @enderror"
-                                                       value="{{old('nombre')?old('nombre'):$data->nombre}}">
+                                                       value="{{old('nombre')?old('nombre'):$data->nombre}}"
+                                                        id="nombre-comercial">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-nombre-comercial">
+                                                    <strong >Introduce o Corrige Tu nombre comercial</strong>
+                                                </span>
                                                 @error('nombre')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -143,7 +238,11 @@
                                                 <label for="razon_social" class="font-weight-semibold text-dark">Razon Social</label>
                                                 <input type="text" name="razon_social"
                                                        class="form-control @error('razon_social') is-invalid @enderror"
-                                                       value="{{old('razon_social')?old('razon_social'):$data->razon_social}}">
+                                                       value="{{old('razon_social')?old('razon_social'):$data->razon_social}}"
+                                                       id="razon_social">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-razon_social">
+                                                    <strong >Introduce o Corrige Tu Razon Social</strong>
+                                                </span>
                                                 @error('razon_social')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -154,7 +253,10 @@
                                                 <label for="ruc" class="font-weight-semibold text-dark">R.U.C.</label>
                                                 <input type="text" name="ruc"
                                                        class="form-control @error('ruc') is-invalid @enderror"
-                                                       value="{{old('ruc')?old('ruc'):$data->ruc}}">
+                                                       value="{{old('ruc')?old('ruc'):$data->ruc}}" id="ruc">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-ruc">
+                                                    <strong >Introduce o Corrige Tu Numero de ruc</strong>
+                                                </span>
                                                 @error('ruc')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -173,6 +275,9 @@
                                                     @empty
                                                     @endforelse
                                                 </select>
+                                                <span class="valid-feedback text-center" role="alert" id="hide-banco_id">
+                                                    <strong >Introduce o Corrige Tu banco</strong>
+                                                </span>
 
                                                 @error('banco_id')
                                                 <span class="invalid-feedback" role="alert">
@@ -185,7 +290,11 @@
                                                 <input type="text" name="numero_cuenta"
                                                        class="form-control  @error('numero_cuenta') is-invalid @enderror"
                                                        placeholder=""
-                                                       value="{{old('numero_cuenta')?old('numero_cuenta'):$data->numero_cuenta}}">
+                                                       value="{{old('numero_cuenta')?old('numero_cuenta'):$data->numero_cuenta}}"
+                                                       id="numero-cuenta">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-numero-cuenta">
+                                                    <strong >Introduce o Corrige Tu numero de cuenta</strong>
+                                                </span>
 
                                                 @error('numero_cuenta')
                                                 <span class="invalid-feedback" role="alert">
@@ -198,7 +307,11 @@
                                                 <input type="text" name="telefono"
                                                        class="form-control  @error('telefono') is-invalid @enderror"
                                                        placeholder=""
-                                                       value="{{old('telefono')?old('telefono'):$data->telefono}}">
+                                                       value="{{old('telefono')?old('telefono'):$data->telefono}}"
+                                                       id="telefono">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-telefono">
+                                                    <strong >Introduce o Corrige Tu Telefono</strong>
+                                                </span>
 
                                                 @error('telefono')
                                                 <span class="invalid-feedback" role="alert">
@@ -211,7 +324,11 @@
                                                 <input type="text" name="email"
                                                        class="form-control  @error('email') is-invalid @enderror"
                                                        placeholder=""
-                                                       value="{{old('email')?old('email'):$data->email}}">
+                                                       value="{{old('email')?old('email'):$data->email}}"
+                                                       id="email">
+                                                <span class="valid-feedback text-center" role="alert" id="hide-email">
+                                                    <strong >Introduce o Corrige Tu Email</strong>
+                                                </span>
 
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">

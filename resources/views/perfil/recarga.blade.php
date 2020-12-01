@@ -140,15 +140,15 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="descripcion" class="font-weight-semibold  text-dark">Descripcion del Deposito</label>
-                                                <textarea name="descripcion" id="descripcion" cols="10" rows="2" class="form-control" required>{{old('descripcion')}}</textarea>
-                                                @error('descripcion')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
+{{--                                            <div class="form-group col-md-6">--}}
+{{--                                                <label for="descripcion" class="font-weight-semibold  text-dark">Descripcion del Deposito</label>--}}
+{{--                                                <textarea name="descripcion" id="descripcion" cols="10" rows="2" class="form-control" required>{{old('descripcion')}}</textarea>--}}
+{{--                                                @error('descripcion')--}}
+{{--                                                <span class="invalid-feedback" role="alert">--}}
+{{--                                                    <strong>{{ $message }}</strong>--}}
+{{--                                                </span>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
                                             <div class="form-group col-md-6">
                                                 @include(
                                                     'home.assets.text', [
