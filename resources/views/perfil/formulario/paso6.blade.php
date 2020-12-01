@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="jumbotron jumbotron-top_container faq">
-                <div class="container">
-                    <h1 class="font-weight-bold text-light text-uppercase">
-                        Editar Perfil
-                    </h1>
-                    <p class="text-light text-capitalize">
-                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--    <div class="container-fluid">--}}
+{{--        <div class="row">--}}
+{{--            <div class="jumbotron jumbotron-top_container faq">--}}
+{{--                <div class="container">--}}
+{{--                    <h1 class="font-weight-bold text-light text-uppercase">--}}
+{{--                        Editar Perfil--}}
+{{--                    </h1>--}}
+{{--                    <p class="text-light text-capitalize">--}}
+{{--                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}--}}
+{{--                    </p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <div class="container">
         <div class="row">
             <div class="col-md col-md-12 mt-5">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top mb-4">
-                        <div class="main-container" style="padding: 25px">   
+                        <div class="main-container" style="padding: 25px">
                             <h2 class=" font-weight-bold text-dark titulo-recarga">
                                 Pais del Usuario
                             </h2>
