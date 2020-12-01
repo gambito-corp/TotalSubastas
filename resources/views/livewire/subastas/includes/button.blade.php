@@ -47,7 +47,7 @@
     @endif
     @if($estado == 'esperen')
         @auth
-            <form wire:submit.prevent="pujar">
+            <form wire:submit.prevent="">
                 <button class="btn btn-primary rounded-pill btn-to_action-bottom text-light btn-subasta-ts">
                     <i class="fas fa-gavel fa-rotate-270"></i>
                     Esperen Para Pujar
