@@ -35,9 +35,9 @@ class RankingEvent implements ShouldBroadcastNow
                 'monto' => $this->producto->precio
             ]
         );
-        $this->ranking = Rank::where('producto_id', $producto->id)->orderBy('monto', 'desc')->get()->take(6)->toArray();
+//        $this->ranking = Rank::where('producto_id', $producto->id)->orderBy('monto', 'desc')->get()->take(6)->toArray();
 
-//        $this->ranking = Rank::with('Usuario')->where('producto_id', $this->producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
+        $this->ranking = Rank::with('Usuario')->where('producto_id', $this->producto->id)->orderBy('cantidad', 'desc')->orderByDesc('updated_at')->take(6)->get()->toArray();
     }
     /**
      * Get the channels the event should broadcast on.
