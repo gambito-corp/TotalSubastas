@@ -179,7 +179,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input checkbox-primary @error('Check') is-invalid @enderror" type="checkbox" id="gridCheck" name="Check">
                                     <label class="form-check-label" for="Check">
-                                        Acepta los terminos y condiciones y las leyes de privacidad de datos
+                                        Acepta los <a href="{{route('terminos')}}">terminos y condiciones </a>y las leyes de privacidad de datos
                                     </label>
                                     @error('Check')
                                     <span class="invalid-feedback" role="alert">
