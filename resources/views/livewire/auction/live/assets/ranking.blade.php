@@ -78,7 +78,7 @@
                         {{$resultado['usuario']['name']}}
                     </div>
                     <div class="col-md-4 text-darken font-weight-normal text-to_best-auction ranking_to-auction_text usuario-puja-subasta">
-                        {{$resultado['cantidad']}}
+                        {{$resultado['monto']}}
                     </div>
                 @empty
                     <div class="col-md-4 text-darken font-weight-normal">
