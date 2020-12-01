@@ -32,10 +32,11 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-12   order-md-2 col-xs-12 t-rform_top mb-4">
-                        <div class="main-container" style="padding: 25px">                            
-                        
+                        <div class="main-container" style="padding: 25px">
+
                             <h2 class=" font-weight-bold text-dark titulo-recarga">
-                                Pais del Usuario
+                                datos para devolucion
+                                <span>los datos aqui presentes no son obligatorios</span>
                             </h2>
                             <form action="{{route('perfil.paso8')}}" method="post" enctype="multipart/form-data">
                                 @csrf
