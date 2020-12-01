@@ -27,6 +27,8 @@
                                 <a href="{{route('perfil.edit')}}" class="font-weight-semibold"> Editar perfil <i class="fas fa-pencil-alt"></i></a>
                                 <hr>
                                 <a href="{{route('imagen.perfil')}}" class="font-weight-semibold"> Agregar Imagen de Perfil</a>
+                                <hr>
+                                <a href="{{route('recargar.perfil')}}" class="font-weight-semibold"> Agregar Saldo</a>
                             </div>
 
                     </div>

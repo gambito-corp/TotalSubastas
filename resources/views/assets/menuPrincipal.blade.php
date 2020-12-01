@@ -5,9 +5,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-{{--            <a href="/" class="navbar-brand d-flex align-items-center">--}}
-{{--                Subastas--}}
-{{--            </a>--}}
+
+            <a href="{{route('index')}}" class="navbar-brand d-flex align-items-center">
+                Inicio
+            </a>
             <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
                 Preguntas
             </a>
