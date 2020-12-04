@@ -25,6 +25,8 @@
             background-color: #fff;
             width: 100%;
             max-width: 650px;
+            margin:0 auto;
+            margin-top: 30px;
         }
         .div2 {
             grid-area: 1 / 2 / 2 / 3;
@@ -32,7 +34,13 @@
 
         .div3 { grid-area: 2 / 2 / 3 / 3; }
         .div4 { grid-area: 3 / 2 / 4 / 3; }
-        .div5 { grid-area: 6 / 2 / 7 / 3; }
+        .div5 { 
+            grid-area: 6 / 2 / 7 / 3; 
+            width: 100%;
+            max-width: 650px;
+            margin:0 auto;
+            padding: 20px;
+        }
 
         img {
             display:block;
@@ -61,7 +69,7 @@
             float:right;
         }
         .color-mailing{
-            color: #000;
+            color: #424651;
             font-size: 16px;
             text-align: center;
         }
@@ -69,6 +77,7 @@
             color: #000;
             font-size: 28px;
             text-align: center;
+            margin-bottom: 4px;
         }
     </style>
 </head>
@@ -76,7 +85,7 @@
 <div class="parent">
     <div class="div1">
         <a class="o_text-primary" href="{{env('APP_URL')}}" style="text-decoration: none;outline: none;color: #126de5;">
-            <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas">
+            <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas" style="margin-top: 30px">
         </a>
         <br>
         <div class="div2" style="padding: 40px 30px 0 30px">
@@ -117,8 +126,8 @@
     <div class="div5">
         <p>
             &copy;2020 Total Subastas | Lima - Perú
-        </p> &nbsp;
-        <ul>
+        </p>
+        <ul style="padding-left: 0">
             <li>
                 <a href="https://example.com/" class="text-secondary">Ayuda</a>
             </li>
