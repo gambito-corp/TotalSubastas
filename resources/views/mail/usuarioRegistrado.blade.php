@@ -1,5 +1,5 @@
 <x-email titulo="Usuario Registrado" submit="Click para Confirmar" :ruta="$ruta" :metodo="$metodo">
-    <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/Icons/security_internet/5172989_candado_compu.png" width="136" alt="SimpleApp">
+    <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/Icons/security_internet/5172989_candado_compu.png" width="136" alt="SimpleApp" style="padding-top: 30px">
     <h2 class="titulo-usuario">Felicitaciones {{$user->name}}!</h2>
     <p style="color: #82899a; font-size: 18px; text-align: center; margin-bottom: 4px;" >Ya falta poco para crear tu cuenta</p>
 
