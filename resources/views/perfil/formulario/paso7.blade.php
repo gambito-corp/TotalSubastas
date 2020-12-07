@@ -1,19 +1,11 @@
 @extends('layouts.app')
 @section('content')
-{{--    <div class="container-fluid">--}}
-{{--        <div class="row">--}}
-{{--            <div class="jumbotron jumbotron-top_container faq">--}}
-{{--                <div class="container">--}}
-{{--                    <h1 class="font-weight-bold text-light text-uppercase">--}}
-{{--                        Editar Perfil--}}
-{{--                    </h1>--}}
-{{--                    <p class="text-light text-capitalize">--}}
-{{--                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="container">
+        <p class="text-center text-uppercase">Completa tu Perfil de Usuario</p>
+        <div class="progress">
+            <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:99%">99%</div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md col-md-12 mt-5">
@@ -57,13 +49,14 @@
                                         @enderror
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="numero_cuenta" class="font-weight-semibold text-dark">Numero de Cuenta</label>
-                                        <input type="text" name="numero_cuenta" class="form-control  @error('numero_cuenta') is-invalid @enderror" placeholder="" value="{{old('numero_cuenta')?old('numero_cuenta'):$data->cuenta_banco}}">
-                                        @error('numero_cuenta')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <x-input
+
+                                            nombre="numero_cuenta"
+                                            label="Numero de Cuenta"
+                                            type="text"
+                                            :valor="$data->numero_cuenta"
+                                            ayuda="Introduce Tu Numero De Cuenta Este Dato Es Solo para Ejecutar La Devolucion, No es Un Campo Obligatorio"></x-input>
+
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="genero" class="font-weight-semibold text-dark">Genero</label>
@@ -95,17 +88,16 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'2':'4'}}">
-                                        <label for="digito_documento" class="font-weight-semibold text-dark">Digito de DNI</label>
-                                        <input type="text" name="digito_documento"  value="{{old('digito_documento')?old('digito_documento'):$data->digito_documento}}" class="form-control  @error('digito_documento') is-invalid @enderror" placeholder="">
-
-                                        @error('digito_documento')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                    <div class="form-group col-md-4">
+                                        <x-input
+                                            required
+                                            nombre="digito_documento"
+                                            label="Digito de DNI"
+                                            type="text"
+                                            :valor="$data->digito_documento"
+                                            ayuda="Introduce El Digito de Verificacion del DNI si no tienes Pon el Cero (0)"></x-input>
                                     </div>
-                                    <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'5':'4'}}">
+                                    <div class="form-group col-md-4">
                                         <label for="dni_front" class="font-weight-semibold text-dark">Documento Delante</label>
                                         <input type="file" name="dni_front" class="form-control  @error('dni_front') is-invalid @enderror recortar-texto" placeholder="">
 
@@ -115,7 +107,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="form-group col-md-{{($data->dni_front && $data->dni_back)?'5':'4'}}">
+                                    <div class="form-group col-md-4">
                                         <label for="dni_back" class="font-weight-semibold text-dark">Documento Atras</label>
                                         <input type="file" name="dni_back" class="form-control  @error('dni_back') is-invalid @enderror recortar-texto" placeholder="">
 

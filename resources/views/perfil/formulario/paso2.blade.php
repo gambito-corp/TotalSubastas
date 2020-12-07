@@ -1,19 +1,11 @@
 @extends('layouts.app')
 @section('content')
-{{--    <div class="container-fluid">--}}
-{{--        <div class="row">--}}
-{{--            <div class="jumbotron jumbotron-top_container faq">--}}
-{{--                <div class="container">--}}
-{{--                    <h1 class="font-weight-bold text-light text-uppercase">--}}
-{{--                        Editar Perfil--}}
-{{--                    </h1>--}}
-{{--                    <p class="text-light text-capitalize">--}}
-{{--                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="container">
+        <p class="text-center text-uppercase">Completa tu Perfil de Usuario <small>Animo Queda Poco</small></p>
+        <div class="progress">
+            <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:15%">15%</div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md col-md-12 mt-5">
@@ -49,6 +41,9 @@
                                                     <option>No hay Paises Crea una</option>
                                                 @endforelse
                                             </select>
+                                            <p class="valid-feedback text-center" role="alert" id="hide-banco_id">
+                                                <strong >Selecciona El Pais en el Que Vives</strong>
+                                            </p>
 
                                             @error('pais')
                                                 <span class="invalid-feedback" role="alert">

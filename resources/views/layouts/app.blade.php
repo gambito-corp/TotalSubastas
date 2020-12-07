@@ -16,6 +16,32 @@
         <link rel="stylesheet" href="{{mix('css/assets.css')}}" />
         <!-- Start of Async Drift Code -->
 
+        <style>
+            input+p{
+                display: none;
+            }
+            input:focus-visible+p{
+                position: absolute;
+                top: -25px;
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.8);
+                display:block;
+                color: green;
+            }
+            select+p{
+                display: none;
+            }
+            select:focus-visible+p{
+                position: absolute;
+                top: -25px;
+                border: 1px solid green;
+                border-radius: 5px;
+                background-color: rgba(0,255,0,0.8);
+                display:block;
+                color: green;
+            }
+        </style>
         <script>
         "use strict";
 
@@ -155,9 +181,9 @@
             </div>
         </footer>
         {{-- Llmar desde Mix --}}
-        {{-- <script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script> --}}
+         <script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script>
         <script src="{{mix('js/app.js')}}"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         {{-- mix --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"

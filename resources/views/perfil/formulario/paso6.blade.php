@@ -1,19 +1,11 @@
 @extends('layouts.app')
 @section('content')
-{{--    <div class="container-fluid">--}}
-{{--        <div class="row">--}}
-{{--            <div class="jumbotron jumbotron-top_container faq">--}}
-{{--                <div class="container">--}}
-{{--                    <h1 class="font-weight-bold text-light text-uppercase">--}}
-{{--                        Editar Perfil--}}
-{{--                    </h1>--}}
-{{--                    <p class="text-light text-capitalize">--}}
-{{--                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="container">
+        <p class="text-center text-uppercase">Completa tu Perfil de Usuario <small>Animo Queda Poco</small></p>
+        <div class="progress">
+            <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:95%">95%</div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md col-md-12 mt-5">
@@ -36,28 +28,25 @@
                             <h2 class=" font-weight-bold text-dark titulo-recarga">
                                 Pais del Usuario
                             </h2>
-                            <form action="{{route('perfil.paso7')}}" method="get" enctype="multipart/form-data">
+                            <form action="{{route('perfil.paso7')}}" method="get" enctype="multipart/form-data" autocomplete="off">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-md-6">
-                                        <label for="direccion1" class="font-weight-semibold text-dark">Direccion 1</label>
-                                        <input type="text" name="direccion1" class="form-control  @error('direccion1') is-invalid @enderror" value="{{old('direccion1')?old('direccion1'):$direccion->direccion1}}">
-
-                                        @error('direccion1')
-                                        <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                        @enderror
+                                        <x-input
+                                            required
+                                            nombre="direccion1"
+                                            label="Direccion"
+                                            type="text"
+                                            :valor="$direccion->direccion1"
+                                            ayuda="Introduce Tu Direccion"></x-input>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="referencia" class="font-weight-semibold text-dark">Referencia</label>
-                                        <input type="text" name="referencia" class="form-control  @error('referencia') is-invalid @enderror"  value="{{old('referencia')?old('referencia'):$direccion->referencia}}">
-
-                                        @error('referencia')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <x-input
+                                            nombre="referencia"
+                                            label="Referencia"
+                                            type="text"
+                                            :valor="$direccion->referencia"
+                                            ayuda="Introduce Una Referencia Aproximada"></x-input>
                                     </div>
                                 </div>
                                 <div class="row  mt-4">

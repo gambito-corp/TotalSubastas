@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{--    titulo del componente--}}
     <title>{{$titulo}}</title>
     <link rel="stylesheet" href="{{env('APP_URL').'/css/app.css'}}">
     <style>
@@ -72,6 +73,7 @@
 <body>
 <div class="parent">
     <div class="div1">
+{{--        Logo de Total Subastas--}}
         <a class="o_text-primary" href="{{env('APP_URL')}}" style="text-decoration: none;outline: none;color: #126de5;">
             <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas">
         </a>
@@ -84,6 +86,7 @@
             <div class="div3">
                 @if($metodo == 'get')
                     @isset($submit)
+{{--                        boton de envio (el $submit es la palabra que aparece en el boton)--}}
                         <a href="{{$ruta?$ruta:'#'}}" class="submit">{{$submit}}</a>
                     @endisset
                 @else
@@ -103,6 +106,7 @@
         <br>
         @isset($recordatorio)
             <div class="div4">
+{{--                mensaje a recordar--}}
                 {{$recordatorio}}
             </div>
         @endisset

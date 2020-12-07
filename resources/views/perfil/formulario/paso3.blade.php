@@ -1,19 +1,11 @@
 @extends('layouts.app')
 @section('content')
-{{--    <div class="container-fluid">--}}
-{{--        <div class="row">--}}
-{{--            <div class="jumbotron jumbotron-top_container faq">--}}
-{{--                <div class="container">--}}
-{{--                    <h1 class="font-weight-bold text-light text-uppercase">--}}
-{{--                        Editar Perfil--}}
-{{--                    </h1>--}}
-{{--                    <p class="text-light text-capitalize">--}}
-{{--                        De {{(auth()->user()->tipo == 'natural')?$data->nombres.' '.$data->apellidos: $data->nombre}}--}}
-{{--                    </p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    <div class="container">
+        <p class="text-center text-uppercase">Completa tu Perfil de Usuario <small>Animo Queda Poco</small></p>
+        <div class="progress">
+            <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:31%">31%</div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md col-md-12 mt-5">
@@ -46,9 +38,15 @@
                                             @forelse($departamento as $parent)
                                                 <option value="{{$parent->id}}" {{old('pais') == $parent->id?'selected':''}}>{{$parent->nombre}}</option>
                                             @empty
-                                                <option>No hay Departamentos Crea uno</option>
+                                                <option>Temporalmente Solo Tenemos Habilitado Peru</option>
                                             @endforelse
                                         </select>
+                                        <p class="valid-feedback text-center" role="alert" id="hide-banco_id">
+                                            <strong >Selecciona El Pais en el Que Vives</strong>
+                                            <br>
+                                            <strong>Lamentablemente no estamos atendiendo todavia Fuera de Lima Proximamente Si llegaremos a todo el peru</strong>
+                                        </p>
+
 
                                         @error('departamento')
                                         <span class="invalid-feedback" role="alert">

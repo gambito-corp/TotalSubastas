@@ -1,21 +1,22 @@
 @extends('layouts.app')
 @section('content')
     @push('styles')
-{{--        <style>--}}
-{{--            .hide-form{--}}
-{{--                display:none;--}}
-{{--            }--}}
-{{--            #hola:focus-visible ~ .hide-form{--}}
-{{--                display:block;--}}
-{{--                color: red;--}}
-{{--            }--}}
-{{--        </style>--}}
     @endpush
 
 {{--    <form action="">--}}
 {{--        <label>hola</label>--}}
 {{--        <input type="text" id="hola">--}}
-{{--        <p class="hide-form"></p>--}}
+{{--         @push('styles')
+{{--        <style>--}}
+    {{--            .hide-form{--}}
+    {{--                display:none;--}}
+    {{--            }--}}
+    {{--            #hola:focus-visible ~ .hide-form{--}}
+    {{--                display:block;--}}
+    {{--                color: red;--}}
+    {{--            }--}}
+{{--    --}}{{--        </style>--}}{{--   --}}
+
 {{--    </form>--}}
 
     @isset($modal)
