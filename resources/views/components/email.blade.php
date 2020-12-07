@@ -80,6 +80,20 @@
             text-align: center;
             margin-bottom: 4px;
         }
+        .titulo-registro-participacion{
+            margin-bottom: 4px;
+            font-size: 30px;
+            color: #fff;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .texto-registro-parti{
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 19px;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +104,7 @@
             <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas" style="margin-top: 30px">
         </a>
         <br>
-        <div class="div2" style="padding: 40px 30px 0 30px">
+        <div class="div2">
             {{$slot}}
         </div>
         <br>
