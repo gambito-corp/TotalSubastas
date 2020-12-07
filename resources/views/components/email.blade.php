@@ -24,6 +24,10 @@
             border: 1px solid rgba(0, 0, 0, 0.125);
             border-radius: 10px;
             background-color: #fff;
+            width: 100%;
+            max-width: 650px;
+            margin:0 auto;
+            margin-top: 30px;
         }
         .div2 {
             grid-area: 1 / 2 / 2 / 3;
@@ -31,29 +35,26 @@
 
         .div3 { grid-area: 2 / 2 / 3 / 3; }
         .div4 { grid-area: 3 / 2 / 4 / 3; }
-        .div5 { grid-area: 6 / 2 / 7 / 3; }
+        .div5 {
+            grid-area: 6 / 2 / 7 / 3;
+            width: 100%;
+            max-width: 650px;
+            margin:0 auto;
+            padding: 20px;
+        }
 
         img {
             display:block;
             margin:auto;
         }
         .submit {
-            width: 100px;
-            font-size: 16px;
-            font-weight: bold;
-            display: block;
-            margin: auto;
-            box-sizing: content-box;
-            cursor: pointer;
-            padding: 10px 20px;
-            border: 1px solid #018dc4;
-            border-radius: 3px;
-            color: rgba(255,255,255,0.9);
-            text-overflow: clip;
-            background: #0199d9;
-            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
-            text-shadow: -1px -1px 0 rgba(15,73,168,0.66) ;
-            transition: all 500ms cubic-bezier(0.42, 0, 0.58, 1);
+            text-decoration: none;
+            outline: none;
+            color: #ffffff;
+            display: inline-block;
+            padding: 12px 24px;
+            background: #126de5;
+            border-radius: 4px;
         }
 
         li {
@@ -68,6 +69,17 @@
             display: inline;
             float:right;
         }
+        .color-mailing{
+            color: #424651;
+            font-size: 16px;
+            text-align: center;
+        }
+        .titulo-usuario{
+            color: #000;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body>
@@ -75,19 +87,20 @@
     <div class="div1">
 {{--        Logo de Total Subastas--}}
         <a class="o_text-primary" href="{{env('APP_URL')}}" style="text-decoration: none;outline: none;color: #126de5;">
-            <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas">
+            <img src="https://totalsubastas.s3.us-east-2.amazonaws.com/assets/logos/logo_300px.png" width="136" alt="Total Subastas" style="margin-top: 30px">
         </a>
         <br>
-        <div class="div2">
+        <div class="div2" style="padding: 40px 30px 0 30px">
             {{$slot}}
         </div>
         <br>
         @isset($ruta)
-            <div class="div3">
+            <div class="div3" style="text-align: center;">
                 @if($metodo == 'get')
                     @isset($submit)
-{{--                        boton de envio (el $submit es la palabra que aparece en el boton)--}}
+                    <div>
                         <a href="{{$ruta?$ruta:'#'}}" class="submit">{{$submit}}</a>
+                    </div>
                     @endisset
                 @else
                 <form action="{{$ruta?$ruta:'#'}}" method="{{$metodo}}">
@@ -96,7 +109,9 @@
                         {{$oculto}}
                     @endisset
                     @isset($submit)
+                    <div>
                         <input type="submit" class="submit" value="{{$submit}}"/>
+                    </div>
                     @endisset
                 </form>
                 @endif
@@ -114,8 +129,8 @@
     <div class="div5">
         <p>
             &copy;2020 Total Subastas | Lima - Perú
-        </p> &nbsp;
-        <ul>
+        </p>
+        <ul style="padding-left: 0">
             <li>
                 <a href="https://example.com/" class="text-secondary">Ayuda</a>
             </li>
