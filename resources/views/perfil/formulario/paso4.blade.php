@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    <br>
     <div class="container">
-        <p class="text-center text-uppercase">Completa tu Perfil de Usuario <small>Animo Queda Poco</small></p>
+        <h2 class=" font-weight-bold text-dark titulo-recarga text-center mt-5">
+            Completa tu Perfil de Usuario
+        </h2>
         <div class="progress">
             <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:50%">50%</div>
         </div>

@@ -523,12 +523,13 @@ class PerfilController extends Controller
             "numero_cuenta" =>  'nullable',
             "genero" => 'required',
             "estado_civil" => 'required',
-            "digito_documento" =>  'required',
+            "digito_documento" =>  'nullable',
             "dni_front" => 'nullable',
             "dni_back" => 'nullable',
         ]);
-        if(Auth::user()->Persona->dni_front == 'test'){
+
             $dni_front_name = 'test';
+        if(Auth::user()->Persona->dni_front == 'test'){
         }else{
             if ($request->file('dni_front')) {
 
@@ -548,7 +549,7 @@ class PerfilController extends Controller
         Cache::put('numero_cuenta', $request->input('numero_cuenta'), 5000);
         Cache::put('genero', $request->input('genero'), 5000);
         Cache::put('estado_civil', $request->input('estado_civil'), 5000);
-        Cache::put('digito_documento', $request->input('digito_documento'), 5000);
+        Cache::put('digito_documento', ($request->input('digito_documento') == null? 0:$request->input('digito_documento')), 5000);
         Cache::put('dni_front', $dni_front_name, 5000);
         Cache::put('dni_back', $dni_back_name, 5000);
 

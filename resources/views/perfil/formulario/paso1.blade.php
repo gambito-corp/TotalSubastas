@@ -16,7 +16,10 @@
         </div>
     </div>
     <div class="container">
-        <p class="text-center text-uppercase">Completa tu Perfil de Usuario</p>
+        <h2 class=" font-weight-bold text-dark titulo-recarga text-center">
+            Completa tu Perfil de Usuario
+        </h2>
+
         <div class="progress">
             <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:1%">0%</div>
         </div>
@@ -92,7 +95,7 @@
                                                     required
                                                     nombre="d_day"
                                                     label="Fecha de Nacimiento"
-                                                    type="text"
+                                                    type="date"
                                                     :valor="$data->b_day->format('Y-m-d')"
                                                     ayuda="Introduce o Corrige Tu Fecha de Nacimiento"></x-input>
                                             </div>

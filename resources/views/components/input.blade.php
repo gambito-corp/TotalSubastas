@@ -8,7 +8,7 @@
            id="{{$nombre}}1">
 
     <p class="text-center hide" role="alert" >
-        <strong >{{$ayuda}}</strong>
+        {{$ayuda}}
     </p>
     @error($nombre)
         <span class="invalid-feedback" role="alert">

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
+    <br>
     <div class="container">
-        <p class="text-center text-uppercase">Completa tu Perfil de Usuario</p>
+        <h2 class=" font-weight-bold text-dark titulo-recarga text-center mt-5">
+            Completa tu Perfil de Usuario
+        </h2>
         <div class="progress">
             <div class="progress-bar bg-success rogress-bar-striped progress-bar-animated" style="width:99%">99%</div>
         </div>
@@ -89,13 +92,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <x-input
-                                            required
-                                            nombre="digito_documento"
-                                            label="Digito de DNI"
-                                            type="text"
-                                            :valor="$data->digito_documento"
-                                            ayuda="Introduce El Digito de Verificacion del DNI si no tienes Pon el Cero (0)"></x-input>
+                                    <x-input
+                                        nombre="digito_documento"
+                                        label="Digito Verificador del DNI"
+                                        type="text"
+                                        :valor="$data->digito_documento"
+                                        ayuda="Es el numero ubicado en la Parte Superior derecha de su DNI"></x-input>
+
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="dni_front" class="font-weight-semibold text-dark">Documento Delante</label>

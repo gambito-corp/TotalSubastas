@@ -21,25 +21,29 @@
                 display: none;
             }
             input:focus-visible+p{
+                padding: 5px;
+                font-size: 12px;
                 position: absolute;
                 top: -25px;
-                border: 1px solid green;
+                border: 1px solid rgb(75, 144, 255);
                 border-radius: 5px;
-                background-color: rgba(0,255,0,0.8);
+                background-color: rgba(75, 144, 255, 0.8);
                 display:block;
-                color: green;
+                color: white;
             }
             select+p{
                 display: none;
             }
             select:focus-visible+p{
+                padding: 5px;
+                font-size: 12px;
                 position: absolute;
                 top: -25px;
-                border: 1px solid green;
+                border: 1px solid rgb(75, 144, 255);
                 border-radius: 5px;
-                background-color: rgba(0,255,0,0.8);
+                background-color: rgba(75, 144, 255, 0.8);
                 display:block;
-                color: green;
+                color: white;
             }
         </style>
         <script>
@@ -184,6 +188,9 @@
          <script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script>
         <script src="{{mix('js/app.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script>
+            $('.datepicker').datepicker();
+        </script>
         {{-- mix --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
             integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
