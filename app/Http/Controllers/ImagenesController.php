@@ -51,7 +51,7 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = Producto::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))
+        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
             ->opacity($this->transparencia)->resize('500', '500');
         $file->insert($watermark, 'center')
             ->response();
@@ -63,7 +63,7 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = ImagenesVehiculo::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))
+        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
             ->opacity(($this->transparencia))->resize('500', '500');
         $file->insert($watermark, 'center')
             ->response();
