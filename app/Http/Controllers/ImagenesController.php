@@ -52,7 +52,7 @@ class ImagenesController extends Controller
         $data = Producto::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
         $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))
-            ->opacity($this->transparencia);
+            ->opacity($this->transparencia)->resize('500', '500');
         $file->insert($watermark, 'center')
             ->response();
         $code = 200;
@@ -64,7 +64,7 @@ class ImagenesController extends Controller
         $data = ImagenesVehiculo::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
         $watermark = Image::make(Storage::disk('s3')->get('producto/marca.png'))
-            ->opacity(($this->transparencia));
+            ->opacity(($this->transparencia))->resize('500', '500');
         $file->insert($watermark, 'center')
             ->response();
         $code = 200;
