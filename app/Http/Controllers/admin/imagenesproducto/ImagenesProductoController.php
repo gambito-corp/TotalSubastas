@@ -96,8 +96,8 @@ class ImagenesProductoController extends Controller
                 }
                 $imagen_name = $id.'.jpg';
                 $file = Image::make($imagen)
-                    ->resize('400', '400')
-                    ->encode('jpg', 90);
+                    ->resize('500', '500')
+                    ->encode('jpg', 100);
                 $file->save(Storage::disk('s3')->put('producto/set/'.$imagen_name, $file));
                 $Imagenes->imagen = $imagen_name;
             }
@@ -153,8 +153,8 @@ class ImagenesProductoController extends Controller
         if($imagen){
             $imagen_name = $id.'.jpg';
             $file = Image::make($imagen)
-                ->resize('400', '400')
-                ->encode('jpg', 90);
+                ->resize('500', '500')
+                ->encode('jpg', 100);
             $file->save(Storage::disk('s3')->put('producto/set/'.$imagen_name, $file));
             $Imagenes->imagen = $imagen_name;
         }
