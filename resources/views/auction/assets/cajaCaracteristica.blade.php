@@ -1,3 +1,12 @@
+@push('styles')
+    <style>
+        .text16{
+            /*color: yellow;*/
+            font-size: 16px;
+        }
+    </style>
+@endpush
+
 <div class="col-md col-md-12 col-lg-12   mt-0 pt-2 data_sheet-d">
   <div class="row">
     <div class="col-12 col-md-4 col-sm-12 col-xs-12 pl-0 pb-0">
@@ -36,35 +45,35 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Kilometraje</strong> <br>
               @isset($producto->Vehiculo->kilometraje)
-                <small>{{$producto->Vehiculo->kilometraje}}</small>
+                <p class="text16">{{$producto->Vehiculo->kilometraje}}</p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Combustible</strong> <br>
               @isset($producto->Vehiculo->combustible)
-                <small>{{$producto->Vehiculo->combustible}}</small>
+                 <p class="text16">{{$producto->Vehiculo->combustible}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Ubicacion</strong> <br>
                 @isset($producto->Vehiculo->ubicacion)
-                <small>{{$producto->Vehiculo->ubicacion}}</small>
+                 <p class="text16">{{$producto->Vehiculo->ubicacion}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Marca</strong> <br>
 
               @isset($producto->Vehiculo->Marca->nombre)
-                <small>{{$producto->Vehiculo->Marca->nombre}}</small>
+                 <p class="text16">{{$producto->Vehiculo->Marca->nombre}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -72,17 +81,17 @@
               <strong>Modelo</strong>
               <br>
               @isset($producto->Vehiculo->Modelo->nombre)
-                <small>{{$producto->Vehiculo->Modelo->nombre}}</small>
+                 <p class="text16">{{$producto->Vehiculo->Modelo->nombre}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Año</strong> <br>
                 @isset($producto->Vehiculo->year)
-                    <small>{{$producto->Vehiculo->year}}</small>
+                     <p class="text16">{{$producto->Vehiculo->year}} </p>
                 @else
-                    <small>Sin Datos en la BD</small>
+                     <p class="text16">Sin Datos en la BD </p>
                 @endisset
             </div>
             <div class="w-100"></div>
@@ -90,27 +99,27 @@
               <strong>Nombre</strong>
               <br>
               @isset($producto->nombre)
-                <small>{{$producto->nombre}}</small>
+                 <p class="text16">{{$producto->nombre}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Color</strong>
               <br>
               @isset($producto->Vehiculo->color)
-                <small>{{$producto->Vehiculo->color}}</small>
+                 <p class="text16">{{$producto->Vehiculo->color}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Placa</strong> <br>
               @isset($producto->Vehiculo->placa)
-                <small>{{$producto->Vehiculo->placa}}</small>
+                 <p class="text16">{{$producto->Vehiculo->placa}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
           </div>
@@ -121,34 +130,34 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Traccion</strong> <br>
               @isset($producto->Vehiculo->traccion)
-                <small>{{$producto->Vehiculo->traccion}}</small>
+                 <p class="text16">{{$producto->Vehiculo->traccion}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Torque</strong> <br>
               @isset($producto->Vehiculo->torque)
-                <small>{{$producto->Vehiculo->torque}}</small>
+                 <p class="text16">{{$producto->Vehiculo->torque}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Pontencia</strong> <br>
                 @isset($producto->Vehiculo->potencia)
-                <small>{{$producto->Vehiculo->potencia}}</small>
+                 <p class="text16">{{$producto->Vehiculo->potencia}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Cilindrada</strong> <br>
               @isset($producto->Vehiculo->cilindrada)
-                <small>{{$producto->Vehiculo->cilindrada}}</small>
+                 <p class="text16">{{$producto->Vehiculo->cilindrada}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -156,17 +165,17 @@
               <strong>Velocidades</strong>
               <br>
               @isset($producto->Vehiculo->velocidades)
-                <small>{{$producto->Vehiculo->velocidades}}</small>
+                 <p class="text16">{{$producto->Vehiculo->velocidades}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Version</strong> <br>
                 @isset($producto->Vehiculo->version)
-                <small>{{$producto->Vehiculo->version}}</small>
+                 <p class="text16">{{$producto->Vehiculo->version}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -174,9 +183,9 @@
               <strong>Timon</strong>
               <br>
               @isset($producto->Vehiculo->timon)
-                <small>{{$producto->Vehiculo->timon}}</small>
+                 <p class="text16">{{$producto->Vehiculo->timon}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
           </div>
@@ -187,34 +196,34 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Neumaticos</strong> <br>
               @isset($producto->Vehiculo->neumaticos)
-                <small>{{$producto->Vehiculo->neumaticos}}</small>
+                 <p class="text16">{{$producto->Vehiculo->neumaticos}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Airbag</strong> <br>
               @isset($producto->Vehiculo->airbag)
-                <small>{{$producto->Vehiculo->airbag ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->airbag ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Aros</strong> <br>
                 @isset($producto->Vehiculo->aros)
-                <small>{{$producto->Vehiculo->aros}}</small>
+                 <p class="text16">{{$producto->Vehiculo->aros}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Lunas Polarizadas</strong> <br>
               @isset($producto->Vehiculo->lunas)
-                <small>{{$producto->Vehiculo->lunas ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->lunas ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -222,17 +231,17 @@
               <strong>Gps</strong>
               <br>
               @isset($producto->Vehiculo->gps)
-                <small>{{$producto->Vehiculo->gps  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->gps  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Asientos</strong> <br>
                 @isset($producto->Vehiculo->asientos)
-                <small>{{$producto->Vehiculo->asientos}}</small>
+                 <p class="text16">{{$producto->Vehiculo->asientos}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
           </div>
@@ -242,34 +251,34 @@
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Bluetooth</strong> <br>
               @isset($producto->Vehiculo->bluetooth)
-                <small>{{$producto->Vehiculo->bluetooth  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->bluetooth  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Radio</strong> <br>
               @isset($producto->Vehiculo->am_fm)
-                <small>{{$producto->Vehiculo->am_fm  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->am_fm  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Reproductor</strong> <br>
                 @isset($producto->Vehiculo->cd)
-                <small>{{$producto->Vehiculo->cd  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->cd  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Soporte de Tarjeta</strong> <br>
               @isset($producto->Vehiculo->sd)
-                <small>{{$producto->Vehiculo->sd  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->sd  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -277,17 +286,17 @@
               <strong>Audio Aux</strong>
               <br>
               @isset($producto->Vehiculo->aux)
-                <small>{{$producto->Vehiculo->aux  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->aux  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Entrada USB</strong> <br>
                 @isset($producto->Vehiculo->usb)
-                <small>{{$producto->Vehiculo->usb  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->usb  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -295,17 +304,17 @@
               <strong>Tapizado</strong>
               <br>
               @isset($producto->Vehiculo->tapizado)
-                <small>{{$producto->Vehiculo->tapizado}}</small>
+                 <p class="text16">{{$producto->Vehiculo->tapizado}} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Alarma</strong> <br>
                 @isset($producto->Vehiculo->alarma)
-                <small>{{$producto->Vehiculo->alarma  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->alarma  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
@@ -313,17 +322,17 @@
               <strong>Faros Neblineros</strong>
               <br>
               @isset($producto->Vehiculo->neblineros)
-                <small>{{$producto->Vehiculo->neblineros  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->neblineros  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Sensores</strong> <br>
                 @isset($producto->Vehiculo->sensores)
-                <small>{{$producto->Vehiculo->sensores  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->sensores  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
           </div>
@@ -335,49 +344,49 @@
           @isset($producto->Vehiculo->estado_vehiculo)
                 {!!$producto->Vehiculo->estado_vehiculo!!}
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
           <div class="row">
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Saneado</strong> <br>
               @isset($producto->Vehiculo->saneado)
-                <small>{{$producto->Vehiculo->saneado  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->saneado  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Captura</strong> <br>
               @isset($producto->Vehiculo->captura)
-                <small>{{$producto->Vehiculo->captura  ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->captura  ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>Seguro</strong> <br>
               @isset($producto->Vehiculo->seguro)
-                <small>{{$producto->Vehiculo->seguro ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->seguro ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>SOAT</strong> <br>
               @isset($producto->Vehiculo->soat)
-                <small>{{$producto->Vehiculo->soat ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->soat ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
             <div class="w-100"></div>
             <div class="col mt-4"><i class="fas fa-check-circle text-primary"></i>
               <strong>RTV</strong> <br>
               @isset($producto->Vehiculo->rtv)
-                <small>{{$producto->Vehiculo->rtv ? 'si':'no' }}</small>
+                 <p class="text16">{{$producto->Vehiculo->rtv ? 'si':'no' }} </p>
               @else
-                <small>Sin Datos en la BD</small>
+                 <p class="text16">Sin Datos en la BD </p>
               @endisset
             </div>
           </div>

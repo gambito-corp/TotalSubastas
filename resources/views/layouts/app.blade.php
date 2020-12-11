@@ -46,6 +46,8 @@
                 color: white;
             }
         </style>
+        @if(Route::is('auctionLiveDetail'))
+        @else
         <script>
         "use strict";
 
@@ -72,6 +74,7 @@
         drift.SNIPPET_VERSION = '0.3.1';
         drift.load('6r6634p4k2sk');
         </script>
+        @endif
 
 <!-- End of Async Drift Code -->
         {{-- llamar desde mix --}}
@@ -84,8 +87,11 @@
     <!-- body -->
 
     <body class="{{Request::is('auction/id/*') ?  'bg-dark': 'bg-darken-light'}}">
+    @if(Route::is('auctionLiveDetail'))
+    @else
         <!-- Header -->
         @include('assets.header')
+    @endif
         @include('assets.menuPrincipal')
 
         @include('assets.notification')
@@ -93,6 +99,9 @@
         @yield('content')
             </div>
         </div>
+        @if(Route::is('auctionLiveDetail'))
+        @else
+
         <footer>
             <div class="container">
                 <div class="row">
@@ -184,6 +193,7 @@
                 </nav>
             </div>
         </footer>
+        @endif
         {{-- Llmar desde Mix --}}
          <script src="{{asset('assets/js/jquery-3.5.1.js')}}"></script>
         <script src="{{mix('js/app.js')}}"></script>
