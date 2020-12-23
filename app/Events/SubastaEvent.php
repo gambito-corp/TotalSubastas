@@ -29,6 +29,7 @@ class SubastaEvent implements ShouldBroadcastNow
     {
         $this->user = Auth::user();
         $this->producto = $producto;
+
         if($this->producto->user_id != Auth::id() || now()->addSecond()->toTimeString() <= $this->producto->finalized_at->toTimeString()) {
             $this->producto->user_id = Auth::id();
             $this->producto->precio = intval($this->producto->precio+ $this->producto->puja);

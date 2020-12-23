@@ -80,41 +80,41 @@
                 <div class="row slide-border container-slider-banner">
                     <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
                 </div>
-                <div class="row">
-                    <div class="col-md-12 p-0  d-md-flex  mt-4 order-md-3 container-banner-responsive">
-                        <div class="mini-banner-home card-slide bg-success_light">
-                            <article class="dwnld-card">
-                            <strong class="text-light d-flex  pt-3" style="padding-left: 20px; padding-right: 20px;">Documentación a la mano <br> de
-                                cada
-                                subasta
-                            </strong>
-                            <p class="text-light d-flex pt-2 border-bottom pl-2 pr-2 pb-2 text-doc_saga-fallabella">
-                                PDF, 125 MB, Sep 8 at 2:03 pm
-                            </p>
-                            <span class="d-flex justify-content-center text-light pb-3">
-                                <span class="f-500">Download</span>
-                            </span>
-                        </article>
+{{--                <div class="row">--}}
+{{--                    <div class="col-md-12 p-0  d-md-flex  mt-4 order-md-3 container-banner-responsive">--}}
+{{--                        <div class="mini-banner-home card-slide bg-success_light">--}}
+{{--                            <article class="dwnld-card">--}}
+{{--                            <strong class="text-light d-flex  pt-3" style="padding-left: 20px; padding-right: 20px;">Documentación a la mano <br> de--}}
+{{--                                cada--}}
+{{--                                subasta--}}
+{{--                            </strong>--}}
+{{--                            <p class="text-light d-flex pt-2 border-bottom pl-2 pr-2 pb-2 text-doc_saga-fallabella">--}}
+{{--                                PDF, 125 MB, Sep 8 at 2:03 pm--}}
+{{--                            </p>--}}
+{{--                            <span class="d-flex justify-content-center text-light pb-3">--}}
+{{--                                <span class="f-500">Download</span>--}}
+{{--                            </span>--}}
+{{--                        </article>--}}
 {{--                            <img class="carousel-item-a_imagen" src="./assets/img/banner3.png" height="182px" width="385px" alt="...">--}}
-                        </div>
-                        <div class="mini-banner-home card-slide bg-primary banner4">
-                            <article>
-                                <strong class="text-light d-flex justify-content-start pl-3  gift_card">Regalamos 20$</strong>
-                                <p class="text-light d-flex justify-content-start pl-3">
-                                    Para tu primera oferta !
-                                </p>
-                                <div class="input-group mb-3 no-border border-0 pr-3 pl-3">
-                                    <input type="text" class="form-control" placeholder="Ingresa tu email" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary border-0 bg-light" type="button" id="button-addon2">
-                                            <i class="fas fa-paper-plane text-primary"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
+{{--                        </div>--}}
+{{--                        <div class="mini-banner-home card-slide bg-primary banner4">--}}
+{{--                            <article>--}}
+{{--                                <strong class="text-light d-flex justify-content-start pl-3  gift_card">Regalamos 20$</strong>--}}
+{{--                                <p class="text-light d-flex justify-content-start pl-3">--}}
+{{--                                    Para tu primera oferta !--}}
+{{--                                </p>--}}
+{{--                                <div class="input-group mb-3 no-border border-0 pr-3 pl-3">--}}
+{{--                                    <input type="text" class="form-control" placeholder="Ingresa tu email" aria-label="Recipient's username" aria-describedby="button-addon2">--}}
+{{--                                    <div class="input-group-append">--}}
+{{--                                        <button class="btn btn-outline-secondary border-0 bg-light" type="button" id="button-addon2">--}}
+{{--                                            <i class="fas fa-paper-plane text-primary"></i>--}}
+{{--                                        </button>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </article>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
         <div class="mt-2">
