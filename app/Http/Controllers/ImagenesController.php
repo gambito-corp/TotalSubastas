@@ -20,7 +20,7 @@ class ImagenesController extends Controller
 {
 
     protected $transparencia = 100;
-    protected $position = 'top-left';
+    protected $position = 'bottom';
 
 
     public function getAvatar($id)
@@ -52,10 +52,10 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = Producto::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
-            ->opacity($this->transparencia)->resize('40', '40');
-        $file->insert($watermark, $this->position)
-            ->response();
+//        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
+//            ->opacity($this->transparencia)->resize('40', '40');
+//        $file->insert($watermark, $this->position, )
+//            ->response();
         $code = 200;
         return new Response($file,$code);
     }
@@ -64,10 +64,10 @@ class ImagenesController extends Controller
         $id = Gambito::hash($id, true);
         $data = ImagenesVehiculo::where('id', $id)->first();
         $file = Image::make(Storage::disk('s3')->get('producto/set/'.$data->imagen));
-        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
-            ->opacity(($this->transparencia))->resize('40', '40');
-        $file->insert($watermark, $this->position)
-            ->response();
+//        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
+//            ->opacity(($this->transparencia))->resize('40', '40');
+//        $file->insert($watermark, $this->position)
+//            ->response();
         $code = 200;
         return new Response($file,$code);
     }
