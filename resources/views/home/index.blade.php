@@ -58,7 +58,7 @@
                 <div class="carousel-inner">
                     @forelse($slide as $data)
                     <div class="carousel-item {{($loop->index == 0)?'active':''}}">
-                        @include('assets.imagen', ['carpeta' => 'slide', 'id' => $data->id, 'alto' => '531', ])
+                        @include('assets.imagen', ['carpeta' => 'slide', 'id' => $data->id, 'alto' => '352', ])
                     </div>
                     @empty
                     <div class="carousel-item active">
