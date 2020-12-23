@@ -122,47 +122,33 @@
                             </div>
                         </article>
                     </div>
-                    <div class="col-sm col-md-4 ml-md-auto col-4 pt-5 col-sm-12 col-xs-12 mb-2 mt-5">
-                        <article>
-                            <article class="social-network_bottom">
-                                <ul class="nav justify-content-end m-3">
-                                    <li class="nav-item">
-                                        <a href="">
-                                            <i class="fab fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </article>
-                        </article>
-                    </div>
+
                 </div>
                 <div class="navbar nav-footer shadow-sm pt-5 pb-5">
                     <div class="container d-flex justify-content-between">
-                    <a href="/" class="navbar-brand d-flex align-items-center">
-                        <span>Subastas</span>
-                    </a>
-                    <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
-                        <span>Preguntas</span>
-                    </a>
-                    <a href="{{route('terminos')}}" class="navbar-brand d-flex align-items-center">
-                        <span>Condiciones</span>
-                    </a>
-                    <a href="{{route('quienessomos')}}" class="navbar-brand d-flex align-items-center">
-                        <span>Quienes somos</span>
-                    </a>
-                    <a href="{{route('vender')}}" class="navbar-brand d-flex align-items-center">
-                        <span>Vender</span>
-                    </a>
+                        <div class="col-sm col-md-4 ml-md-auto col-4 pt-5 col-sm-12 col-xs-12 mb-2 mt-5">
+                            <article>
+                                <article class="social-network_bottom">
+                                    <ul class="nav justify-content-end m-3">
+                                        <li class="nav-item">
+                                            <a href="">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                        </li>
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="">--}}
+{{--                                                <i class="fab fa-twitter"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item">--}}
+{{--                                            <a href="">--}}
+{{--                                                <i class="fab fa-instagram"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+                                    </ul>
+                                </article>
+                            </article>
+                        </div>
                 </div>
                 </div>
                 <!--Footer navbar-->
