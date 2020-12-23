@@ -1,4 +1,4 @@
-<div class="col-md-9 mt-3 pr-0 container-resultado" wire:pool.750ms>
+<div class="col-md-12 mt-3 pr-0 container-resultado" wire:pool.750ms>
 
     <div class="row">
         <nav class="navbar navbar-expand-lg nav-top-content mb-4">

@@ -122,34 +122,34 @@
                             </div>
                         </article>
                     </div>
-
                 </div>
-                <div class="navbar nav-footer shadow-sm pt-5 pb-5">
-                    <div class="container d-flex justify-content-between">
-                        <div class="col-sm col-md-4 ml-md-auto col-4 pt-5 col-sm-12 col-xs-12 mb-2 mt-5">
-                            <article>
-                                <article class="social-network_bottom">
-                                    <ul class="nav justify-content-end m-3">
-                                        <li class="nav-item">
-                                            <a href="">
-                                                <i class="fab fa-facebook"></i>
-                                            </a>
-                                        </li>
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a href="">--}}
-{{--                                                <i class="fab fa-twitter"></i>--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
-{{--                                        <li class="nav-item">--}}
-{{--                                            <a href="">--}}
-{{--                                                <i class="fab fa-instagram"></i>--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
-                                    </ul>
+                <div class="row">
+                    <div class="navbar nav-footer shadow-sm">
+                        <div class="container d-flex ">
+                            <div class="text-center">
+                                <article>
+                                    <article class="social-network_bottom">
+                                        <ul class="nav ">
+                                            <li class="nav-item">
+                                                <a href="">
+                                                    <i class="fab fa-facebook"></i>
+                                                </a>
+                                            </li>
+    {{--                                        <li class="nav-item">--}}
+    {{--                                            <a href="">--}}
+    {{--                                                <i class="fab fa-twitter"></i>--}}
+    {{--                                            </a>--}}
+    {{--                                        </li>--}}
+    {{--                                        <li class="nav-item">--}}
+    {{--                                            <a href="">--}}
+    {{--                                                <i class="fab fa-instagram"></i>--}}
+    {{--                                            </a>--}}
+    {{--                                        </li>--}}
+                                        </ul>
+                                    </article>
                                 </article>
-                            </article>
-                        </div>
-                </div>
+                            </div>
+                    </div>
                 </div>
                 <!--Footer navbar-->
                 <nav class="navbar navbar-expand-lg d-flex justify-content-around pt-5 pb-5">
