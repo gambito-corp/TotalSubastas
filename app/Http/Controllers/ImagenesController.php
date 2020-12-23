@@ -19,7 +19,7 @@ use Intervention\Image\Facades\Image;
 class ImagenesController extends Controller
 {
 
-    protected $transparencia = 20;
+    protected $transparencia = 10;
 
 
     public function getAvatar($id)
