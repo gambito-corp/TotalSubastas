@@ -54,7 +54,7 @@
 
                                             <div class="image-subasta">
                                                 @isset($dato->imagen)
-                                                @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '180' ])
+                                                @include('assets.imagen', ['carpeta' => 'producto', 'id' => $dato->id, 'ancho' => '200', 'height' => '250' ])
                                                 @endisset
                                             </div>
                                         </a>

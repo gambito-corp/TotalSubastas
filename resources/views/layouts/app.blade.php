@@ -45,6 +45,7 @@
                 display:block;
                 color: white;
             }
+            /*.btnHover:hover*/
         </style>
         @if(Route::is('auctionLiveDetail'))
         @else

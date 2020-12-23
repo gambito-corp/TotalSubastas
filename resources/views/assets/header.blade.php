@@ -28,12 +28,12 @@
             @guest
             <div class="container-header-right">
                 <div class="row flex-end-ts header-right-responsive">
-                    <a class="nav-link text-dark signin-text" href="{{route('login')}}">
+                    <a class="nav-link text-dark signin-text btn rounded-pill btnHover" href="{{route('login')}}">
                         <img src="./assets/img/Icon-Key.svg" class="mr-2" alt="" srcset="">
                         Ingresar
                     </a>
                     {{--//TODO: poner ruta --}}
-                    <a href="{{route('register')}}" class="btn btn-primary rounded-pill "> <span></span><i class="fas fa-user mr-2"></i>
+                    <a href="{{route('register')}}" class="btn rounded-pill btnHover"> <span></span><i class="fas fa-user mr-2"></i>
                         Registrate
                     </a>
                 </div>
