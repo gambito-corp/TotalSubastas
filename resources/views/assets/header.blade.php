@@ -1,5 +1,5 @@
 <header class="sticky-top" id="cabecera">
-    <div class="navbar nav-top ">
+    <div class="navbar nav-top" style="height: 90px;">
         <div class="container-header">
             <div class="container-header-left">
                 <div class="row header-left-reponsive">
@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-xs-3 col-md   icono-chat">
                         <a href="#" class="text-dark">
-                            <img src="{{asset('assets/img/Imagen 1.png')}}" alt="">
+                            <img src="{{asset('assets/img/Imagen 1.png')}}" alt="" class="ml-3">
                             Chat en vivo
                         </a>
                     </div>
