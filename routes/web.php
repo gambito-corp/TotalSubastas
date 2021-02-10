@@ -401,17 +401,17 @@ Route::prefix('admin')->name('admin.')->namespace('admin')->group(function (){
     });
     Route::prefix('slide')->name('slide.')->namespace('slide')->group(function (){
         //Configuracion de Slide
-        Route::get('index', 'slideController@index')->name('index');
-        Route::get('trash', 'slideController@trash')->name('trash');
-        Route::get('create', 'slideController@create')->name('create');
-        Route::post('guardar', 'slideController@store')->name('store');
-        Route::get('mostrar/{id}', 'slideController@show')->name('show');
-        Route::get('editar/{id}', 'slideController@edit')->name('edit');
-        Route::put('actualizar/{id}', 'slideController@update')->name('update');
-        Route::get('delete/{id}', 'slideController@delete')->name('delete');
-        Route::get('destroy/{id}', 'slideController@destroy')->name('destroy')->middleware('password.confirm');
-        Route::get('restore/{id}', 'slideController@restore')->name('restore');
-        Route::get('imagen/{id}', 'slideController@getImagen')->name('getImagen');
+        Route::get('index', 'SlideController@index')->name('index');
+        Route::get('trash', 'SlideController@trash')->name('trash');
+        Route::get('create', 'SlideController@create')->name('create');
+        Route::post('guardar', 'SlideController@store')->name('store');
+        Route::get('mostrar/{id}', 'SlideController@show')->name('show');
+        Route::get('editar/{id}', 'SlideController@edit')->name('edit');
+        Route::put('actualizar/{id}', 'SlideController@update')->name('update');
+        Route::get('delete/{id}', 'SlideController@delete')->name('delete');
+        Route::get('destroy/{id}', 'SlideController@destroy')->name('destroy')->middleware('password.confirm');
+        Route::get('restore/{id}', 'SlideController@restore')->name('restore');
+        Route::get('imagen/{id}', 'SlideController@getImagen')->name('getImagen');
     });
 });
 
