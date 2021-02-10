@@ -17,6 +17,7 @@ class Producto extends Model
 
     protected $table='productos';
 
+
     /**
      * The attributes that are mass assignable.
      *

@@ -76,12 +76,6 @@
         drift.load('6r6634p4k2sk');
         </script>
         @endif
-
-<!-- End of Async Drift Code -->
-        {{-- llamar desde mix --}}
-        {{-- <script src="https://use.fontawesome.com/c01ac736c1.js"></script> --}}
-
-        {{-- Fin de los estilos de live share --}}
         @livewireStyles
         @stack('styles')
     </head>
@@ -105,53 +99,6 @@
 
         <footer>
             <div class="container">
-                <div class="row">
-                    <div class="col-sm col-8 pt-5 col-md-8 align-self-center col-sm-12 col-xs-12 mb-2 mt-5 ml-sm-auto">
-                        <article>
-                            <div class="input-group col-md-8 offset-md-6">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Ingresa tu correo para alerta de oportunidades!"
-                                    aria-label="Ingresa tu correo para alerta de oportunidades!" aria-describedby="basic-addon2" /
-                                >
-                                <div class="input-group-append">
-                                    <span class="input-group-text rss-send_email" id="basic-addon2">
-                                        <i class="fas fa-paper-plane"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="navbar nav-footer shadow-sm">
-                        <div class="container d-flex ">
-                            <div class="text-center">
-                                <article>
-                                    <article class="social-network_bottom">
-                                        <ul class="nav ">
-                                            <li class="nav-item">
-                                                <a href="">
-                                                    <i class="fab fa-facebook"></i>
-                                                </a>
-                                            </li>
-    {{--                                        <li class="nav-item">--}}
-    {{--                                            <a href="">--}}
-    {{--                                                <i class="fab fa-twitter"></i>--}}
-    {{--                                            </a>--}}
-    {{--                                        </li>--}}
-    {{--                                        <li class="nav-item">--}}
-    {{--                                            <a href="">--}}
-    {{--                                                <i class="fab fa-instagram"></i>--}}
-    {{--                                            </a>--}}
-    {{--                                        </li>--}}
-                                        </ul>
-                                    </article>
-                                </article>
-                            </div>
-                    </div>
-                </div>
                 <!--Footer navbar-->
                 <nav class="navbar navbar-expand-lg d-flex justify-content-around pt-5 pb-5">
                     <ul class="navbar-nav mr-auto">

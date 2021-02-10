@@ -1,6 +1,14 @@
+@push('styles')
+    <style>
+        .m-25{
+            margin-top: -25px !important;
+        }
+    </style>
+@endpush
+
 <header class="sticky-top" id="cabecera">
-    <div class="navbar nav-top" style="height: 90px;">
-        <div class="container-header">
+    <div class="navbar nav-top" style="height: 65px;">
+        <div class="container-header" style="margin-top: -25px;">
             <div class="container-header-left">
                 <div class="row header-left-reponsive">
                     <div class="col-xs-3 col-md ">
@@ -40,7 +48,7 @@
             </div>
 
             @else
-                <div class="row container-header-right ">
+                <div class="row container-header-right">
                     <div class="col ">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark signin-text text-right" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

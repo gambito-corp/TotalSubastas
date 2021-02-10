@@ -86,7 +86,7 @@ class BalanceController extends Controller
 
         //subir imagen a storage
         if($boucher){
-            $imagen = $balance->Usuario->name.'_'.$boucher->getClientOriginalName();
+            $imagen = $balance->Usuario->name.'-'.$boucher->getClientOriginalName();
             Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher));
             $balance->boucher = $imagen;
         }
@@ -132,8 +132,8 @@ class BalanceController extends Controller
         }
         //subir imagen a storage
         if($boucher){
-            $imagen = $balance->Usuario->name.'_'.$boucher->getClientOriginalName();
-            Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher), 'public');
+            $imagen = $balance->Usuario->name.'-'.$boucher->getClientOriginalName();
+            Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher));
             $balance->boucher = ($imagen == $balance->boucher) ? $balance->boucher : $imagen;
         }
         if ($request->input('aprobado') == null){

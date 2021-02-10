@@ -65,7 +65,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $slide = Slide::where('activo', 1)->get();
+        $slide = Slide::where('activo', 1)->get();    
         return view('home.index', compact('slide'));
     }
     public function home()

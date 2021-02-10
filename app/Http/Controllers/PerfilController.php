@@ -389,7 +389,7 @@ class PerfilController extends Controller
 
         $balance->save();
         if($boucher){
-            $imagen = $balance->id.'_'.$boucher->getClientOriginalName();
+            $imagen = $balance->id.'-'.$boucher->getClientOriginalName();
             Storage::disk('s3')->put('bouchers/'.$imagen, File::get($boucher));
             $balance->boucher = $imagen;
             $balance->update();

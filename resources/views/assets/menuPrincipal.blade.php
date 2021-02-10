@@ -1,6 +1,6 @@
 <div class="navbar navbar-dark navbar-top navbar-expand-lg bg-nav">
     <div class="container">
-        <a class="navbar-brand  d-flex align-items-center pl-5 mr-5" href="#"><img src="{{asset('assets/img/peru.png')}}" alt="" /></a>
+        <a class="navbar-brand  d-flex align-items-center pl-3 mr-3" href="#"><img src="{{asset('assets/img/peru.png')}}" alt="" /></a>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
             <span class="navbar-toggler-icon"></span>
         </button>

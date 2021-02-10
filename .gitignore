@@ -1,6 +1,5 @@
 /node_modules
 /public/storage
-/public/1
 /storage/*.key
 /vendor
 .env
@@ -15,3 +14,5 @@ yarn-error.log
 /.vscode
 *.pem
 /database/seeds
+/public/1
+/public/.idea/
