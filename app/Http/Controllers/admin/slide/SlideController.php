@@ -45,12 +45,16 @@ class SlideController extends Controller
         $ruta = $request->file('ruta');
 
         $slide = new Data();
-        $slide->ruta = x;
-        $slide->activo = 1;
+//        StartError
+        $slide->ruta = "x";
+//        EndError
+        $slide->activo = true;
         $slide->save();
 
         $imagen = $slide->id.'.'.$ruta->getClientOriginalExtension();
+
         Storage::disk('s3')->put('slide/'.$imagen, File::get($ruta));
+
         $slide->ruta = $imagen;
         if ($request->input('activo') == null){
         }elseif($request->input('activo') == 'false'){
