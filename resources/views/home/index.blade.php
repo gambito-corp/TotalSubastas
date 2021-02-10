@@ -9,9 +9,9 @@
     <div class="container .container-slider-2">
         <div class="row mt-5 container-slider">
             <div id="carouselExampleIndicators" class="carousel slide col-md-6" data-ride="carousel">
-                <ol class="carousel-indicators">
+                <ol class="carousel-indicators" style="opacity: 0.5;">
                     @forelse($slide as $data)
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" ></li>
                     @empty
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     @endforelse
