@@ -9,14 +9,14 @@
             <a href="{{route('index')}}" class="navbar-brand d-flex align-items-center">
                 Inicio
             </a>
+            <a href="{{route('quienessomos')}}" class="navbar-brand d-flex align-items-center">
+                Nosotros
+            </a>
             <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
-                Preguntas
+                Centro de Ayuda
             </a>
             <a href="{{route('terminos')}}" class="navbar-brand d-flex align-items-center">
                 Condiciones
-            </a>
-            <a href="{{route('quienessomos')}}" class="navbar-brand d-flex align-items-center">
-                Quienes somos
             </a>
             <a href="{{route('vender')}}" class="navbar-brand d-flex align-items-center">
                 Vender
