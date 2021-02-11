@@ -117,6 +117,9 @@
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Asesoria legal</a>
                         </li>
                         <li class="nav-item ml-5">
+                            <a class="nav-link disabled" href="{{route('terminos')}}" tabindex="-1" aria-disabled="true">Terminos y Condiciones</a>
+                        </li>
+                        <li class="nav-item ml-5">
                             <a class="nav-link disabled" href="{{route('contacto')}}" tabindex="-1" aria-disabled="true">Cont&aacute;ctenos</a>
                         </li>
 

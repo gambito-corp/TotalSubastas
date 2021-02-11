@@ -12,12 +12,12 @@
             <div class="container-header-left">
                 <div class="row header-left-reponsive">
                     <div class="col-xs-3 col-md ">
-                        <a href="https://api.whatsapp.com/send?phone=51983521436&text=Quiero%20informacion%20de%20Total%20Subastas" class="navbar-brand d-flex text-dark align-items-center">
+                        <a href="https://api.whatsapp.com/send?phone=51983521436&text=Quiero%20informacion%20de%20Total%20Subastas" class="navbar-brand d-flex text-dark align-items-center" target="_blank">
                             <img src="{{asset('assets/img/Icon-Phone.svg')}}" class="mr-2 " alt="" srcset=""> (+51) 983 521 436
                         </a>
                     </div>
                     <div class="col-xs-3 col-md   icono-chat">
-                        <a href="#" class="text-dark">
+                        <a href="https://api.whatsapp.com/send?phone=51983521436&text=Quiero%20informacion%20de%20Total%20Subastas" class="text-dark" target="_blank">
                             <img src="{{asset('assets/img/Imagen 1.png')}}" alt="" class="ml-3">
                             Chat en vivo
                         </a>
