@@ -175,20 +175,6 @@
                     <img src="" alt="">
                 </div>
             </div>
-            <div class="row mb-sm-4">
-                <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
-                    <article>
-                        <a href="/">
-                            <img src="{{asset('img/image-368.png')}}" class="img-fluid" alt=""/>
-                        </a>
-                    </article>
-                </div>
-                <div class="col-md col-12 pt-5 img-focus col-sm-12 col-md-6 col-xs-12 widgets">
-                    <article>
-                        <img src="{{asset('img/image-368-1.png')}}" alt=""/>
-                    </article>
-                </div>
-            </div>
         </div>
     </div>
 @endsection
