@@ -24,7 +24,7 @@
     </div>
 </div>
 
-@include('auction.assets.cajaJumbo')
+{{--@include('auction.assets.cajaJumbo')--}}
 @include('auction.assets.cajaReferidos')
 
 @endsection

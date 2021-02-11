@@ -114,7 +114,7 @@
                             <a class="nav-link disabled" href="{{route('terminos')}}" tabindex="-1" aria-disabled="true">Terminos y Condiciones</a>
                         </li>
                         <li class="nav-item ml-5">
-                            <a class="nav-link disabled" href="{{route('contacto')}}" tabindex="-1" aria-disabled="true">libro de Reclamaciones</a>
+                            <a class="nav-link disabled" href="https://www.consumidor.gob.pe/documents/51084/408959/HojaDeReclamaci%C3%B3n/ccb89a38-54a6-4a7d-ad61-02f74b7f9d56" target="_blank" tabindex="-1" aria-disabled="true">Libro de Reclamaciones</a>
                         </li>
 
                     </ul>
