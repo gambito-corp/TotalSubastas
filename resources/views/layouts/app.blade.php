@@ -111,21 +111,15 @@
                         </li>
 
                         <li class="nav-item ml-5">
-                            <a class="nav-link disabled" href="https://api.whatsapp.com/send?phone=51986689676&text=Hola%20Total%20Subastas%2C%0ADeseo%20informaci%C3%B3n" tabindex="-1" aria-disabled="true">whatsapp</a>
-                        </li>
-                        <li class="nav-item ml-5">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Asesoria legal</a>
-                        </li>
-                        <li class="nav-item ml-5">
                             <a class="nav-link disabled" href="{{route('terminos')}}" tabindex="-1" aria-disabled="true">Terminos y Condiciones</a>
                         </li>
                         <li class="nav-item ml-5">
-                            <a class="nav-link disabled" href="{{route('contacto')}}" tabindex="-1" aria-disabled="true">Cont&aacute;ctenos</a>
+                            <a class="nav-link disabled" href="{{route('contacto')}}" tabindex="-1" aria-disabled="true">libro de Reclamaciones</a>
                         </li>
 
                     </ul>
                     <form class="form-inline my-2 my-lg-0 mr-5 social-network_footer">
-                        total
+                        TotalSubastas - <a href="mailto:admin@totalsubastas.com">admin@totalsubastas.com</a> - San Miguel, Lima, Perú
                     </form>
                 </nav>
             </div>
