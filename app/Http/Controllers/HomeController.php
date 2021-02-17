@@ -27,6 +27,12 @@ class HomeController extends Controller
         $this->middleware('auth')->except(['index', 'contacto', 'sendmail']);
     }
 
+    public function index()
+    {
+        $slide = Slide::where('activo', 1)->get();
+        return view('home.index', compact('slide'));
+    }
+
     public function campeon()
     {
         $message = 'Felicidades quedaste en primer puesto en la subasta';
@@ -61,12 +67,6 @@ class HomeController extends Controller
         $alerta = 'danger';
         $slide = Slide::where('activo', 1)->get();
         return view('home.index', compact('message', 'alerta', 'slide'));
-    }
-
-    public function index()
-    {
-        $slide = Slide::where('activo', 1)->get();    
-        return view('home.index', compact('slide'));
     }
     public function home()
     {

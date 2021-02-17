@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="{{mix('css/app.css')}}" />
         <link rel="stylesheet" href="{{mix('css/assets.css')}}" />
         <!-- Start of Async Drift Code -->
-
         <style>
             input+p{
                 display: none;
