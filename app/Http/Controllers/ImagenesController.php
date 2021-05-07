@@ -54,6 +54,7 @@ class ImagenesController extends Controller
         $file = Image::make(Storage::disk('s3')->get('producto/'.$data->imagen));
 //        $watermark = Image::make(Storage::disk('s3')->get('producto/marca2.png'))
 //            ->opacity($this->transparencia)->resize('40', '40');
+
         $file->response();
         $code = 200;
         return new Response($file,$code);
