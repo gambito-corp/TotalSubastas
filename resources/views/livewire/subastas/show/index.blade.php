@@ -35,6 +35,7 @@
                             @livewire('subastas.show.show.buttom', ['producto' => $producto])
                         </div>
                     </div>
+                    @if(!$producto->Imagenes->isEmpty())
                     <div class="col-md-2 d-none d-sm-none d-md-block">
                         <article class="thumbs_auction-md">
                             <figure>
@@ -70,8 +71,8 @@
 {{--                                        <img class="rounded p-1 thumbs_auction-img" width="60" height="60" data-target='#auction-control' data-slide-to='{{$loop->iteration}}'--}}
 {{--                                             src="{{asset($imagen->imagen)}}" alt="">--}}
                                     @empty
-                                        <img class="rounded pl-1 thumbs_auction-img" width="60" height="60" data-target="#auction-control" data-slide-to='0'
-                                             src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">
+{{--                                        <img class="rounded pl-1 thumbs_auction-img" width="60" height="60" data-target="#auction-control" data-slide-to='0'--}}
+{{--                                             src="{{asset('assets/img/thumbs/image-076.png')}}" alt="">--}}
                                     @endforelse
                                 </fieldset>
 
@@ -94,6 +95,7 @@
                             </figure>
                         </article>
                     </div>
+                    @endif
                 </div>
             </div>
             @include('livewire.subastas.includes.slide')
