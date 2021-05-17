@@ -30,7 +30,7 @@
                         <div class="main-container" style="padding: 25px">
 
                             <h2 class=" font-weight-bold text-dark titulo-recarga">
-                                datos para devolucion
+                                datos para devolucion  (Opcionales)
                                 <span>los datos aqui presentes no son obligatorios</span>
                             </h2>
                             <form action="{{route('perfil.paso8')}}" method="post" enctype="multipart/form-data">
@@ -90,49 +90,49 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="form-group col-md-4">
-                                    <x-input
-                                        nombre="digito_documento"
-                                        label="Digito Verificador del DNI"
-                                        type="text"
-                                        :valor="$data->digito_documento"
-                                        ayuda="Es el numero ubicado en la Parte Superior derecha de su DNI"></x-input>
+{{--                                <div class="row">--}}
+{{--                                    <div class="form-group col-md-4">--}}
+{{--                                    <x-input--}}
+{{--                                        nombre="digito_documento"--}}
+{{--                                        label="Digito Verificador del DNI"--}}
+{{--                                        type="text"--}}
+{{--                                        :valor="$data->digito_documento"--}}
+{{--                                        ayuda="Es el numero ubicado en la Parte Superior derecha de su DNI"></x-input>--}}
 
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="dni_front" class="font-weight-semibold text-dark">Documento Delante</label>
-                                        <input type="file" name="dni_front" class="form-control  @error('dni_front') is-invalid @enderror recortar-texto" placeholder="">
+{{--                                    </div>--}}
+{{--                                    <div class="form-group col-md-4">--}}
+{{--                                        <label for="dni_front" class="font-weight-semibold text-dark">Documento Delante</label>--}}
+{{--                                        <input type="file" name="dni_front" class="form-control  @error('dni_front') is-invalid @enderror recortar-texto" placeholder="">--}}
 
-                                        @error('dni_front')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="dni_back" class="font-weight-semibold text-dark">Documento Atras</label>
-                                        <input type="file" name="dni_back" class="form-control  @error('dni_back') is-invalid @enderror recortar-texto" placeholder="">
+{{--                                        @error('dni_front')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                                <strong>{{ $message }}</strong>--}}
+{{--                                            </span>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                    <div class="form-group col-md-4">--}}
+{{--                                        <label for="dni_back" class="font-weight-semibold text-dark">Documento Atras</label>--}}
+{{--                                        <input type="file" name="dni_back" class="form-control  @error('dni_back') is-invalid @enderror recortar-texto" placeholder="">--}}
 
-                                        @error('dni_back')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    @isset($data->dni_front)
-                                        <div class="form-group col-md-2" style="display: none;">
-                                            <label for="dni_back" class="font-weight-semibold text-dark">Documento Delante</label>
+{{--                                        @error('dni_back')--}}
+{{--                                            <span class="invalid-feedback" role="alert">--}}
+{{--                                                <strong>{{ $message }}</strong>--}}
+{{--                                            </span>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+{{--                                    @isset($data->dni_front)--}}
+{{--                                        <div class="form-group col-md-2" style="display: none;">--}}
+{{--                                            <label for="dni_back" class="font-weight-semibold text-dark">Documento Delante</label>--}}
 
-                                        </div>
-                                    @endisset
-                                    @isset($data->dni_back)
-                                        <div class="form-group col-md-2" style="display: none;">
-                                            <label for="dni_back" class="font-weight-semibold text-dark">Documento Atras</label>
+{{--                                        </div>--}}
+{{--                                    @endisset--}}
+{{--                                    @isset($data->dni_back)--}}
+{{--                                        <div class="form-group col-md-2" style="display: none;">--}}
+{{--                                            <label for="dni_back" class="font-weight-semibold text-dark">Documento Atras</label>--}}
 
-                                        </div>
-                                    @endisset
-                                </div>
+{{--                                        </div>--}}
+{{--                                    @endisset--}}
+{{--                                </div>--}}
                                 <div class="row mt-4">
                                     <div class="form-group col-md-4">
                                         <a href="javascript:history.back()" class="btn btn-block btn-danger rounded-pill"> Volver Atrás</a>

@@ -21,7 +21,7 @@ Route::view('/polices', 'estaticas.politicas')->name('politicas');
 Route::view('/participacion', 'estaticas.participar')->name('participar');
 Route::view('/quienessomos', 'estaticas.quienessomos')->name('quienessomos');
 Route::view('/reclamos', 'estaticas.reclamos')->name('contacto');
-Route::view('/vender', 'estaticas.vender')->name('vender');
+//Route::view('/vender', 'estaticas.vender')->name('vender');
 Route::view('/asesoria', 'estaticas.asesoria')->name('asesoria');
 Route::view('/creditos', 'estaticas.credito')->name('creditos');
 

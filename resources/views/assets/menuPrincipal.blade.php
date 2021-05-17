@@ -15,9 +15,6 @@
             <a href="{{route('faqs')}}" class="navbar-brand d-flex align-items-center">
                 Centro de Ayuda
             </a>
-            <a href="{{route('vender')}}" class="navbar-brand d-flex align-items-center">
-                Vender
-            </a>
             <a href="{{route('contacto')}}" class="navbar-brand d-flex align-items-center">
                 Contácto
             </a>

@@ -35,6 +35,7 @@
                         <div class="main-container" style="padding: 25px">
                             <h2 class=" font-weight-bold text-dark titulo-recarga">
                                 Recarga de Cuenta
+                            <p class="float-right text-sm"><a href="{{route('faqs')}}" class="text-danger">¿Como Abonar?</a></p>
                             </h2>
                             <form action="{{route('recargar')}}" method="post" enctype="multipart/form-data">
                                 @csrf

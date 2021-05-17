@@ -57,7 +57,7 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="dni" class="font-weight-semibold text-dark">Documento de identidad</label>
+                                    <label for="dni" class="font-weight-semibold text-dark">DNI/Cédula/Pasaporte</label>
                                     <input type="text" name="dni" class="form-control @error('dni') is-invalid @enderror" value="{{old('dni')}}">
                                     @error('dni')
                                         <span class="invalid-feedback" role="alert">
