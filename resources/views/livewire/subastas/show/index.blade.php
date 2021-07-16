@@ -85,13 +85,13 @@
                                     </svg>
                                 </div>
 
-                                <div class="display-1 d-flex justify-content-center text-center caret-play_auction-gallery">
-                                    <ul class="nav  ml-2 mt-4">
-                                    <li>
-                                        <a class="text-darken"> <i class="fas fa-caret-right ml-1"></i> </a>
-                                    </li>
-                                    </ul>
-                                </div>
+{{--                                <div class="display-1 d-flex justify-content-center text-center caret-play_auction-gallery">--}}
+{{--                                    <ul class="nav  ml-2 mt-4">--}}
+{{--                                    <li>--}}
+{{--                                        <a class="text-darken"> <i class="fas fa-caret-right ml-1"></i> </a>--}}
+{{--                                    </li>--}}
+{{--                                    </ul>--}}
+{{--                                </div>--}}
                             </figure>
                         </article>
                     </div>
