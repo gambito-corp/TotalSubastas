@@ -8,7 +8,6 @@
                         Quienes <br> Somos
                     </h1>
                     <p class="text-light">Conoce a La empresa (Insertar texto Generico)</p>
-
                 </div>
             </div>
         </div>

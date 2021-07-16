@@ -1,19 +1,19 @@
 <div class="col-md-12 mt-3 pr-0 container-resultado" wire:pool.750ms>
 
-    <div class="row">
-        <nav class="navbar navbar-expand-lg nav-top-content mb-4">
-            <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link title-to_results" href="#">hay {{$cuenta}} Resultados
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+{{--    <div class="row">--}}
+{{--        <nav class="navbar navbar-expand-lg nav-top-content mb-4">--}}
+{{--            <a class="navbar-brand title-to_breadcrums pl-4" href="#">Autos</a>--}}
+{{--            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">--}}
+{{--                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">--}}
+{{--                    <li class="nav-item active">--}}
+{{--                        <a class="nav-link title-to_results" href="#">hay {{$cuenta}} Resultados--}}
+{{--                            <span class="sr-only">(current)</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </nav>--}}
+{{--    </div>--}}
     @forelse($empresas as $dat)
         <div class="row main-container mb-5">
             <div class="col-md col-md-12 mb-3 pl-0 pr-0 ">
@@ -28,7 +28,7 @@
             @forelse($dat->Lotes as $key => $datos)
                 <div class="col-md col-md-12 mb-3 pl-0 pr-0">
                     <nav class="navbar navbar-expand-lg pb-0 pt-0 nav-top_main-content mb-2 border-bottom">
-                        <a class="navbar-brand text-darken" href="#">{{$datos->nombre}}</a>
+                        <a class="navbar-brand text-darken" href="#">{{$datos->nombre}} 'Hay {{$datos->Productos->count()}} @if($datos->Productos->count() == 1) vehiculo @else vehiculos @endif' </a>
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
                             <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4 text-light_darken title-light_darken">
