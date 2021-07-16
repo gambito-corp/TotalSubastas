@@ -31,7 +31,7 @@
                         <a class="navbar-brand text-darken" href="#">{{$datos->nombre}} 'Hay {{$datos->Productos->count()}} @if($datos->Productos->count() == 1) vehiculo @else vehiculos @endif' </a>
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                             <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-                            <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4  title-light_darken">
+                            <h2 class="form-inline my-2 my-lg-0 pt-4 pb-4  title-light_darken" style="font-weight:bold;">
                                 <i class="fas fa-clock nav-content_text" style="color:black;"></i>
                                 <span class="ml-3">{{$datos->subasta_at->format('M-d g:i A')}}</span>
                             </h2>
