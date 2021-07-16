@@ -61,8 +61,8 @@
 
                                     </article>
                                     <div class="card-body justify-content-center">
-                                        <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">
-                                            <strong>{{$dato->tipo_subasta}}</strong><i class="fas fa-bell ml-2"></i>
+{{--                                        <p class="card-text text-center text-to_auction {{$dato->tipo_subasta == 'Compra'? 'text-success':''}}">--}}
+{{--                                            <strong>{{$dato->tipo_subasta}}</strong><i class="fas fa-bell ml-2"></i>--}}
                                         <p class="card-text text-center title-to_annoucement">
                                             <strong>{{$dato->nombre}}</strong>
                                         </p>
