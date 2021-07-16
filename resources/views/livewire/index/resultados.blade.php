@@ -43,14 +43,14 @@
                                 <div class="card mb-4 pub-item_cont">
                                     <article class="pub-item_head container-image-subasta">
                                         <a href="{!!route('subastaOnline', ['id' => $dato->hash($dato->id)])!!}">
-                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">
-                                                <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>
-                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
-                                            </span>
-                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">
-                                                <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>
-                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>
-                                            </span>
+{{--                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">--}}
+{{--                                                <i class="text-light fa fa-heart-o heart p-2 icono-heart-subasta" aria-hidden="true"></i>--}}
+{{--                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>--}}
+{{--                                            </span>--}}
+{{--                                            <span wire:click="addLike({{$dato->id}})" wire:model="like">--}}
+{{--                                                <i class="fa fa-bookmark  bookmark  text-light text-light" aria-hidden="true"></i>--}}
+{{--                                                <p class="text-light conteo-heart-subasta">{{count($this->like->where('producto_id', $dato->id))}}</p>--}}
+{{--                                            </span>--}}
 
                                             <div class="image-subasta">
                                                 @isset($dato->imagen)
