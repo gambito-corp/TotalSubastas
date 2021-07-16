@@ -39,6 +39,8 @@
                     <div class="col-md-2 d-none d-sm-none d-md-block">
                         <article class="thumbs_auction-md">
                             <figure>
+                                <br>
+                                <br>
                                 <div class="mb-3 text-center">
                                     <svg id="i-chevron-top" href="#auction-control" role="button" data-slide="prev"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none"
