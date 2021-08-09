@@ -5,7 +5,7 @@
                 background-repeat:no-repeat;
                 background-position-x: 180px;
                 background-position-y: 20px;">
-                <!--<img src="./assets/img/File.svg" alt="">-->
+{{--                <img src="./assets/img/File.svg" alt="">--}}
                 <h5 class="card-title pl-4 pt-2 text-light  text-uppercase text-left title_data-sheet_bottom">
                     {{$documentos->titulo1}}
                 </h5>

@@ -16,25 +16,25 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     @endforelse
                 </ol>
-                
+
                 <div class="carousel-inner" >
-                    
+
                     @forelse($slide as $data)
-                
+
                     <div class="carousel-item col-12 {{($loop->index == 0)?'active':''}}">
-                    {{-- @include('assets.imagen', ['carpeta' => 'slide', 'id' => $data->id, 'alto' => '352', ]) --}}
-                        
-                            <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
-                        
+                     @include('assets.imagen', ['carpeta' => 'slide', 'id' => $data->id, 'alto' => '352', ])
+
+{{--                            <img class="carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">--}}
+
                         </div>
                     @empty
                     <div class="carousel-item active">
-                        
+
                             <img class=" carousel-item-a_imagen" src="./assets/img/banner2.png" height="352px" alt="...">
-                        
+
                     </div>
                     @endforelse
-                
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -53,7 +53,7 @@
             </div>
         </div>
             @livewire('index.index')
-        
+
     </div>
     </div>
 @endsection

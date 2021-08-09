@@ -22,11 +22,6 @@
             @include('auction.assets.cajaDescargas', ['documentos' => $documentos])
         </div>
     </div>
-</div>
-
-{{--@include('auction.assets.cajaJumbo')--}}
-@include('auction.assets.cajaReferidos')
-
 @endsection
 
 
