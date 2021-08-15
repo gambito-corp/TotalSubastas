@@ -48,7 +48,7 @@
 
             <div class="col-md-6  sec_in-out order-md-2">
                 <div class="row slide-border container-slider-banner col-12">
-                    <img class="carousel-item-a_imagen" src="{{asset('img/martillo.jpeg')}}" height="352px" alt="...">
+                    <img class="carousel-item-a_imagen" src="{{asset('img/martillo.png')}}" height="352px" alt="...">
                 </div>
             </div>
         </div>
