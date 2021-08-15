@@ -130,11 +130,11 @@ class AuctionsController extends Controller
         }
 
         if(isset($resultados[1])){
-            $auction->segundo_id = $resultados[1]->user_id;
-        }
+                $auction->segundo_id = $resultados[1]->user_id;
+            }
 
-        if(isset($resultados[2])){
-            $auction->tercero_id = $resultados[2]->user_id;
+            if(isset($resultados[2])){
+                $auction->tercero_id = $resultados[2]->user_id;
         }
 
         if(isset($resultados[3])){
